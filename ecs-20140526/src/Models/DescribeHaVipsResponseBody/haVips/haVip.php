@@ -46,14 +46,14 @@ class haVip extends Model
     public $createTime;
 
     /**
-     * @var associatedInstances
+     * @var string
      */
-    public $associatedInstances;
+    public $masterInstanceId;
 
     /**
      * @var string
      */
-    public $masterInstanceId;
+    public $regionId;
 
     /**
      * @var associatedEipAddresses
@@ -61,9 +61,9 @@ class haVip extends Model
     public $associatedEipAddresses;
 
     /**
-     * @var string
+     * @var associatedInstances
      */
-    public $regionId;
+    public $associatedInstances;
     protected $_name = [
         'status'                 => 'Status',
         'vpcId'                  => 'VpcId',
@@ -72,10 +72,10 @@ class haVip extends Model
         'description'            => 'Description',
         'haVipId'                => 'HaVipId',
         'createTime'             => 'CreateTime',
-        'associatedInstances'    => 'AssociatedInstances',
         'masterInstanceId'       => 'MasterInstanceId',
-        'associatedEipAddresses' => 'AssociatedEipAddresses',
         'regionId'               => 'RegionId',
+        'associatedEipAddresses' => 'AssociatedEipAddresses',
+        'associatedInstances'    => 'AssociatedInstances',
     ];
 
     public function validate()
@@ -106,17 +106,17 @@ class haVip extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->associatedInstances) {
-            $res['AssociatedInstances'] = null !== $this->associatedInstances ? $this->associatedInstances->toMap() : null;
-        }
         if (null !== $this->masterInstanceId) {
             $res['MasterInstanceId'] = $this->masterInstanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->associatedEipAddresses) {
             $res['AssociatedEipAddresses'] = null !== $this->associatedEipAddresses ? $this->associatedEipAddresses->toMap() : null;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->associatedInstances) {
+            $res['AssociatedInstances'] = null !== $this->associatedInstances ? $this->associatedInstances->toMap() : null;
         }
 
         return $res;
@@ -151,17 +151,17 @@ class haVip extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['AssociatedInstances'])) {
-            $model->associatedInstances = associatedInstances::fromMap($map['AssociatedInstances']);
-        }
         if (isset($map['MasterInstanceId'])) {
             $model->masterInstanceId = $map['MasterInstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['AssociatedEipAddresses'])) {
             $model->associatedEipAddresses = associatedEipAddresses::fromMap($map['AssociatedEipAddresses']);
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AssociatedInstances'])) {
+            $model->associatedInstances = associatedInstances::fromMap($map['AssociatedInstances']);
         }
 
         return $model;

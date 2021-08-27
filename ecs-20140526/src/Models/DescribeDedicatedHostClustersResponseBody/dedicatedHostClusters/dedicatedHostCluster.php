@@ -32,21 +32,6 @@ class dedicatedHostCluster extends Model
     public $zoneId;
 
     /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
-     * @var dedicatedHostClusterCapacity
-     */
-    public $dedicatedHostClusterCapacity;
-
-    /**
-     * @var dedicatedHostIds
-     */
-    public $dedicatedHostIds;
-
-    /**
      * @var string
      */
     public $regionId;
@@ -55,16 +40,31 @@ class dedicatedHostCluster extends Model
      * @var string
      */
     public $dedicatedHostClusterName;
+
+    /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
+     * @var dedicatedHostIds
+     */
+    public $dedicatedHostIds;
+
+    /**
+     * @var dedicatedHostClusterCapacity
+     */
+    public $dedicatedHostClusterCapacity;
     protected $_name = [
         'description'                  => 'Description',
         'dedicatedHostClusterId'       => 'DedicatedHostClusterId',
         'resourceGroupId'              => 'ResourceGroupId',
         'zoneId'                       => 'ZoneId',
-        'tags'                         => 'Tags',
-        'dedicatedHostClusterCapacity' => 'DedicatedHostClusterCapacity',
-        'dedicatedHostIds'             => 'DedicatedHostIds',
         'regionId'                     => 'RegionId',
         'dedicatedHostClusterName'     => 'DedicatedHostClusterName',
+        'tags'                         => 'Tags',
+        'dedicatedHostIds'             => 'DedicatedHostIds',
+        'dedicatedHostClusterCapacity' => 'DedicatedHostClusterCapacity',
     ];
 
     public function validate()
@@ -86,20 +86,20 @@ class dedicatedHostCluster extends Model
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
-        if (null !== $this->dedicatedHostClusterCapacity) {
-            $res['DedicatedHostClusterCapacity'] = null !== $this->dedicatedHostClusterCapacity ? $this->dedicatedHostClusterCapacity->toMap() : null;
-        }
-        if (null !== $this->dedicatedHostIds) {
-            $res['DedicatedHostIds'] = null !== $this->dedicatedHostIds ? $this->dedicatedHostIds->toMap() : null;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->dedicatedHostClusterName) {
             $res['DedicatedHostClusterName'] = $this->dedicatedHostClusterName;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->dedicatedHostIds) {
+            $res['DedicatedHostIds'] = null !== $this->dedicatedHostIds ? $this->dedicatedHostIds->toMap() : null;
+        }
+        if (null !== $this->dedicatedHostClusterCapacity) {
+            $res['DedicatedHostClusterCapacity'] = null !== $this->dedicatedHostClusterCapacity ? $this->dedicatedHostClusterCapacity->toMap() : null;
         }
 
         return $res;
@@ -125,20 +125,20 @@ class dedicatedHostCluster extends Model
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
-        if (isset($map['DedicatedHostClusterCapacity'])) {
-            $model->dedicatedHostClusterCapacity = dedicatedHostClusterCapacity::fromMap($map['DedicatedHostClusterCapacity']);
-        }
-        if (isset($map['DedicatedHostIds'])) {
-            $model->dedicatedHostIds = dedicatedHostIds::fromMap($map['DedicatedHostIds']);
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['DedicatedHostClusterName'])) {
             $model->dedicatedHostClusterName = $map['DedicatedHostClusterName'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['DedicatedHostIds'])) {
+            $model->dedicatedHostIds = dedicatedHostIds::fromMap($map['DedicatedHostIds']);
+        }
+        if (isset($map['DedicatedHostClusterCapacity'])) {
+            $model->dedicatedHostClusterCapacity = dedicatedHostClusterCapacity::fromMap($map['DedicatedHostClusterCapacity']);
         }
 
         return $model;

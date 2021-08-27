@@ -12,11 +12,6 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $vpcId;
 
     /**
@@ -27,7 +22,12 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $securityGroupName;
+    public $innerAccessPolicy;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -35,28 +35,28 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public $securityGroupId;
 
     /**
-     * @var permissions
-     */
-    public $permissions;
-
-    /**
      * @var string
      */
-    public $innerAccessPolicy;
+    public $securityGroupName;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var permissions
+     */
+    public $permissions;
     protected $_name = [
-        'description'       => 'Description',
         'vpcId'             => 'VpcId',
         'requestId'         => 'RequestId',
-        'securityGroupName' => 'SecurityGroupName',
-        'securityGroupId'   => 'SecurityGroupId',
-        'permissions'       => 'Permissions',
         'innerAccessPolicy' => 'InnerAccessPolicy',
+        'description'       => 'Description',
+        'securityGroupId'   => 'SecurityGroupId',
+        'securityGroupName' => 'SecurityGroupName',
         'regionId'          => 'RegionId',
+        'permissions'       => 'Permissions',
     ];
 
     public function validate()
@@ -66,29 +66,29 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->securityGroupName) {
-            $res['SecurityGroupName'] = $this->securityGroupName;
+        if (null !== $this->innerAccessPolicy) {
+            $res['InnerAccessPolicy'] = $this->innerAccessPolicy;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
-        if (null !== $this->permissions) {
-            $res['Permissions'] = null !== $this->permissions ? $this->permissions->toMap() : null;
-        }
-        if (null !== $this->innerAccessPolicy) {
-            $res['InnerAccessPolicy'] = $this->innerAccessPolicy;
+        if (null !== $this->securityGroupName) {
+            $res['SecurityGroupName'] = $this->securityGroupName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->permissions) {
+            $res['Permissions'] = null !== $this->permissions ? $this->permissions->toMap() : null;
         }
 
         return $res;
@@ -102,29 +102,29 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['SecurityGroupName'])) {
-            $model->securityGroupName = $map['SecurityGroupName'];
+        if (isset($map['InnerAccessPolicy'])) {
+            $model->innerAccessPolicy = $map['InnerAccessPolicy'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
-        if (isset($map['Permissions'])) {
-            $model->permissions = permissions::fromMap($map['Permissions']);
-        }
-        if (isset($map['InnerAccessPolicy'])) {
-            $model->innerAccessPolicy = $map['InnerAccessPolicy'];
+        if (isset($map['SecurityGroupName'])) {
+            $model->securityGroupName = $map['SecurityGroupName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Permissions'])) {
+            $model->permissions = permissions::fromMap($map['Permissions']);
         }
 
         return $model;

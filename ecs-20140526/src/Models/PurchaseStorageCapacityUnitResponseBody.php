@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class PurchaseStorageCapacityUnitResponseBody extends Model
 {
     /**
-     * @var storageCapacityUnitIds
+     * @var string
      */
-    public $storageCapacityUnitIds;
+    public $orderId;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class PurchaseStorageCapacityUnitResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var storageCapacityUnitIds
      */
-    public $orderId;
+    public $storageCapacityUnitIds;
     protected $_name = [
-        'storageCapacityUnitIds' => 'StorageCapacityUnitIds',
-        'requestId'              => 'RequestId',
         'orderId'                => 'OrderId',
+        'requestId'              => 'RequestId',
+        'storageCapacityUnitIds' => 'StorageCapacityUnitIds',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class PurchaseStorageCapacityUnitResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->storageCapacityUnitIds) {
-            $res['StorageCapacityUnitIds'] = null !== $this->storageCapacityUnitIds ? $this->storageCapacityUnitIds->toMap() : null;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+        if (null !== $this->storageCapacityUnitIds) {
+            $res['StorageCapacityUnitIds'] = null !== $this->storageCapacityUnitIds ? $this->storageCapacityUnitIds->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class PurchaseStorageCapacityUnitResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StorageCapacityUnitIds'])) {
-            $model->storageCapacityUnitIds = storageCapacityUnitIds::fromMap($map['StorageCapacityUnitIds']);
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
+        if (isset($map['StorageCapacityUnitIds'])) {
+            $model->storageCapacityUnitIds = storageCapacityUnitIds::fromMap($map['StorageCapacityUnitIds']);
         }
 
         return $model;

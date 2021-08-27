@@ -41,7 +41,17 @@ class instanceCloudAssistantStatus extends Model
     /**
      * @var string
      */
+    public $lastHeartbeatTime;
+
+    /**
+     * @var string
+     */
     public $OSType;
+
+    /**
+     * @var bool
+     */
+    public $supportSessionManager;
     protected $_name = [
         'cloudAssistantStatus'  => 'CloudAssistantStatus',
         'lastInvokedTime'       => 'LastInvokedTime',
@@ -49,7 +59,9 @@ class instanceCloudAssistantStatus extends Model
         'activeTaskCount'       => 'ActiveTaskCount',
         'invocationCount'       => 'InvocationCount',
         'instanceId'            => 'InstanceId',
+        'lastHeartbeatTime'     => 'LastHeartbeatTime',
         'OSType'                => 'OSType',
+        'supportSessionManager' => 'SupportSessionManager',
     ];
 
     public function validate()
@@ -77,8 +89,14 @@ class instanceCloudAssistantStatus extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->lastHeartbeatTime) {
+            $res['LastHeartbeatTime'] = $this->lastHeartbeatTime;
+        }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
+        }
+        if (null !== $this->supportSessionManager) {
+            $res['SupportSessionManager'] = $this->supportSessionManager;
         }
 
         return $res;
@@ -110,8 +128,14 @@ class instanceCloudAssistantStatus extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['LastHeartbeatTime'])) {
+            $model->lastHeartbeatTime = $map['LastHeartbeatTime'];
+        }
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
+        }
+        if (isset($map['SupportSessionManager'])) {
+            $model->supportSessionManager = $map['SupportSessionManager'];
         }
 
         return $model;

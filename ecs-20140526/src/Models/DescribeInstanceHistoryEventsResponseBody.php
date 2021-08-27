@@ -12,11 +12,6 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var instanceSystemEventSet
      */
     public $instanceSystemEventSet;
     protected $_name = [
-        'totalCount'             => 'TotalCount',
         'pageSize'               => 'PageSize',
         'requestId'              => 'RequestId',
         'pageNumber'             => 'PageNumber',
+        'totalCount'             => 'TotalCount',
         'instanceSystemEventSet' => 'InstanceSystemEventSet',
     ];
 
@@ -48,9 +48,6 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -59,6 +56,9 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->instanceSystemEventSet) {
             $res['InstanceSystemEventSet'] = null !== $this->instanceSystemEventSet ? $this->instanceSystemEventSet->toMap() : null;
@@ -75,9 +75,6 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -86,6 +83,9 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['InstanceSystemEventSet'])) {
             $model->instanceSystemEventSet = instanceSystemEventSet::fromMap($map['InstanceSystemEventSet']);

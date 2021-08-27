@@ -20,11 +20,6 @@ class autoProvisioningGroupHistory extends Model
     public $startTime;
 
     /**
-     * @var activityDetails
-     */
-    public $activityDetails;
-
-    /**
      * @var string
      */
     public $taskId;
@@ -33,12 +28,17 @@ class autoProvisioningGroupHistory extends Model
      * @var string
      */
     public $lastEventTime;
+
+    /**
+     * @var activityDetails
+     */
+    public $activityDetails;
     protected $_name = [
         'status'          => 'Status',
         'startTime'       => 'StartTime',
-        'activityDetails' => 'ActivityDetails',
         'taskId'          => 'TaskId',
         'lastEventTime'   => 'LastEventTime',
+        'activityDetails' => 'ActivityDetails',
     ];
 
     public function validate()
@@ -54,14 +54,14 @@ class autoProvisioningGroupHistory extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->activityDetails) {
-            $res['ActivityDetails'] = null !== $this->activityDetails ? $this->activityDetails->toMap() : null;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->lastEventTime) {
             $res['LastEventTime'] = $this->lastEventTime;
+        }
+        if (null !== $this->activityDetails) {
+            $res['ActivityDetails'] = null !== $this->activityDetails ? $this->activityDetails->toMap() : null;
         }
 
         return $res;
@@ -81,14 +81,14 @@ class autoProvisioningGroupHistory extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['ActivityDetails'])) {
-            $model->activityDetails = activityDetails::fromMap($map['ActivityDetails']);
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
         if (isset($map['LastEventTime'])) {
             $model->lastEventTime = $map['LastEventTime'];
+        }
+        if (isset($map['ActivityDetails'])) {
+            $model->activityDetails = activityDetails::fromMap($map['ActivityDetails']);
         }
 
         return $model;

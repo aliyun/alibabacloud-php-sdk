@@ -10,19 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionsResponseBody extends Model
 {
     /**
-     * @var physicalConnectionSet
+     * @var string
      */
-    public $physicalConnectionSet;
+    public $requestId;
 
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $pageNumber;
 
     /**
      * @var int
@@ -32,13 +27,18 @@ class DescribePhysicalConnectionsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalCount;
+
+    /**
+     * @var physicalConnectionSet
+     */
+    public $physicalConnectionSet;
     protected $_name = [
-        'physicalConnectionSet' => 'PhysicalConnectionSet',
-        'totalCount'            => 'TotalCount',
         'requestId'             => 'RequestId',
-        'pageSize'              => 'PageSize',
         'pageNumber'            => 'PageNumber',
+        'pageSize'              => 'PageSize',
+        'totalCount'            => 'TotalCount',
+        'physicalConnectionSet' => 'PhysicalConnectionSet',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribePhysicalConnectionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->physicalConnectionSet) {
-            $res['PhysicalConnectionSet'] = null !== $this->physicalConnectionSet ? $this->physicalConnectionSet->toMap() : null;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->physicalConnectionSet) {
+            $res['PhysicalConnectionSet'] = null !== $this->physicalConnectionSet ? $this->physicalConnectionSet->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribePhysicalConnectionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PhysicalConnectionSet'])) {
-            $model->physicalConnectionSet = physicalConnectionSet::fromMap($map['PhysicalConnectionSet']);
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['PhysicalConnectionSet'])) {
+            $model->physicalConnectionSet = physicalConnectionSet::fromMap($map['PhysicalConnectionSet']);
         }
 
         return $model;

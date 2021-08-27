@@ -11,12 +11,12 @@ class instance extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $status;
 
     /**
      * @var string
      */
-    public $status;
+    public $creationTime;
 
     /**
      * @var bool
@@ -31,12 +31,12 @@ class instance extends Model
     /**
      * @var string
      */
-    public $networkType;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $networkType;
 
     /**
      * @var string
@@ -68,12 +68,12 @@ class instance extends Model
      */
     public $memory;
     protected $_name = [
-        'creationTime' => 'CreationTime',
         'status'       => 'Status',
+        'creationTime' => 'CreationTime',
         'isSpot'       => 'IsSpot',
         'CPU'          => 'CPU',
-        'networkType'  => 'NetworkType',
         'instanceId'   => 'InstanceId',
+        'networkType'  => 'NetworkType',
         'instanceType' => 'InstanceType',
         'regionId'     => 'RegionId',
         'ioOptimized'  => 'IoOptimized',
@@ -89,11 +89,11 @@ class instance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->isSpot) {
             $res['IsSpot'] = $this->isSpot;
@@ -101,11 +101,11 @@ class instance extends Model
         if (null !== $this->CPU) {
             $res['CPU'] = $this->CPU;
         }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -137,11 +137,11 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['IsSpot'])) {
             $model->isSpot = $map['IsSpot'];
@@ -149,11 +149,11 @@ class instance extends Model
         if (isset($map['CPU'])) {
             $model->CPU = $map['CPU'];
         }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];

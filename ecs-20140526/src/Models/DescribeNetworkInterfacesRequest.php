@@ -35,14 +35,14 @@ class DescribeNetworkInterfacesRequest extends Model
     public $regionId;
 
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -118,14 +118,19 @@ class DescribeNetworkInterfacesRequest extends Model
      * @var string[]
      */
     public $networkInterfaceId;
+
+    /**
+     * @var string[]
+     */
+    public $ipv6Address;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
         'tag'                  => 'Tag',
+        'resourceGroupId'      => 'ResourceGroupId',
         'vSwitchId'            => 'VSwitchId',
         'vpcId'                => 'VpcId',
         'primaryIpAddress'     => 'PrimaryIpAddress',
@@ -141,6 +146,7 @@ class DescribeNetworkInterfacesRequest extends Model
         'maxResults'           => 'MaxResults',
         'privateIpAddress'     => 'PrivateIpAddress',
         'networkInterfaceId'   => 'NetworkInterfaceId',
+        'ipv6Address'          => 'Ipv6Address',
     ];
 
     public function validate()
@@ -165,9 +171,6 @@ class DescribeNetworkInterfacesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -176,6 +179,9 @@ class DescribeNetworkInterfacesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -222,6 +228,9 @@ class DescribeNetworkInterfacesRequest extends Model
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
+        if (null !== $this->ipv6Address) {
+            $res['Ipv6Address'] = $this->ipv6Address;
+        }
 
         return $res;
     }
@@ -249,9 +258,6 @@ class DescribeNetworkInterfacesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -260,6 +266,9 @@ class DescribeNetworkInterfacesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
@@ -308,6 +317,11 @@ class DescribeNetworkInterfacesRequest extends Model
         if (isset($map['NetworkInterfaceId'])) {
             if (!empty($map['NetworkInterfaceId'])) {
                 $model->networkInterfaceId = $map['NetworkInterfaceId'];
+            }
+        }
+        if (isset($map['Ipv6Address'])) {
+            if (!empty($map['Ipv6Address'])) {
+                $model->ipv6Address = $map['Ipv6Address'];
             }
         }
 

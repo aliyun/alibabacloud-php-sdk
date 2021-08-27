@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @var resourceTypeCount
-     */
-    public $resourceTypeCount;
-
-    /**
      * @var string
      */
     public $tagValue;
@@ -23,10 +18,15 @@ class tag extends Model
      * @var string
      */
     public $tagKey;
+
+    /**
+     * @var resourceTypeCount
+     */
+    public $resourceTypeCount;
     protected $_name = [
-        'resourceTypeCount' => 'ResourceTypeCount',
         'tagValue'          => 'TagValue',
         'tagKey'            => 'TagKey',
+        'resourceTypeCount' => 'ResourceTypeCount',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class tag extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceTypeCount) {
-            $res['ResourceTypeCount'] = null !== $this->resourceTypeCount ? $this->resourceTypeCount->toMap() : null;
-        }
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
+        }
+        if (null !== $this->resourceTypeCount) {
+            $res['ResourceTypeCount'] = null !== $this->resourceTypeCount ? $this->resourceTypeCount->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class tag extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceTypeCount'])) {
-            $model->resourceTypeCount = resourceTypeCount::fromMap($map['ResourceTypeCount']);
-        }
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
+        }
+        if (isset($map['ResourceTypeCount'])) {
+            $model->resourceTypeCount = resourceTypeCount::fromMap($map['ResourceTypeCount']);
         }
 
         return $model;

@@ -74,12 +74,16 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateCapacityReservationRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateCapacityReservationResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateCommandRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateCommandResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDedicatedBlockStorageClusterRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDedicatedBlockStorageClusterResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDedicatedHostClusterRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDedicatedHostClusterResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDemandRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDemandResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDeploymentSetRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDeploymentSetResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiskReplicaPairRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiskRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiskResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateElasticityAssuranceRequest;
@@ -112,6 +116,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePhysicalConnectionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePhysicalConnectionResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePrefixListRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePrefixListResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateResource02Request;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateResource02Response;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateRouteEntryRequest;
@@ -152,6 +158,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDemandRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDemandResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDeploymentSetRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDeploymentSetResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDiskReplicaPairRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDiskRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDiskResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteForwardEntryRequest;
@@ -184,6 +192,10 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteNetworkInterfaceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteNetworkInterfaceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeletePhysicalConnectionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeletePhysicalConnectionResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeletePrefixListRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeletePrefixListResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteReplicaPairRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteReplicaPairResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteRouteEntryRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteRouteEntryResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteRouterInterfaceRequest;
@@ -236,6 +248,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeClustersRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeClustersResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedBlockStorageClustersRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedBlockStorageClustersResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostAutoRenewRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostAutoRenewResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersRequest;
@@ -252,6 +266,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDeploymentSetSupportedInstance
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDeploymentSetSupportedInstanceTypeFamilyResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskMonitorDataRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskMonitorDataResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskReplicaPairsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskReplicaPairsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksFullStatusRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksFullStatusResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksRequest;
@@ -344,6 +360,12 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNewProjectEipMonitorDataReques
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNewProjectEipMonitorDataResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePhysicalConnectionsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePhysicalConnectionsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListAssociationsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListAssociationsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListAttributesRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListAttributesResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRecommendInstanceTypeRequest;
@@ -541,6 +563,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeRequest
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPhysicalConnectionAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPhysicalConnectionAttributeResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPrefixListRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPrefixListResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPrepayInstanceSpecRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPrepayInstanceSpecResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyReservedInstanceAttributeRequest;
@@ -632,6 +656,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\SendFileRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\SendFileResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\StartDiskReplicaPairRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\StartDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartElasticityAssuranceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartElasticityAssuranceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartImagePipelineExecutionRequest;
@@ -640,6 +666,10 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartInstancesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartInstancesResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\StartTerminalSessionRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\StartTerminalSessionResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\StopDiskReplicaPairRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\StopDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StopInstancesRequest;
@@ -1697,6 +1727,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param CreateDedicatedBlockStorageClusterRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateDedicatedBlockStorageClusterResponse
+     */
+    public function createDedicatedBlockStorageClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDedicatedBlockStorageClusterResponse::fromMap($this->doRPCRequest('CreateDedicatedBlockStorageCluster', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDedicatedBlockStorageClusterRequest $request
+     *
+     * @return CreateDedicatedBlockStorageClusterResponse
+     */
+    public function createDedicatedBlockStorageCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDedicatedBlockStorageClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDedicatedHostClusterRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1806,6 +1864,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDiskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDiskReplicaPairRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDiskReplicaPairResponse
+     */
+    public function createDiskReplicaPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDiskReplicaPairResponse::fromMap($this->doRPCRequest('CreateDiskReplicaPair', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDiskReplicaPairRequest $request
+     *
+     * @return CreateDiskReplicaPairResponse
+     */
+    public function createDiskReplicaPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDiskReplicaPairWithOptions($request, $runtime);
     }
 
     /**
@@ -2226,6 +2312,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPhysicalConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePrefixListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreatePrefixListResponse
+     */
+    public function createPrefixListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreatePrefixListResponse::fromMap($this->doRPCRequest('CreatePrefixList', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreatePrefixListRequest $request
+     *
+     * @return CreatePrefixListResponse
+     */
+    public function createPrefixList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPrefixListWithOptions($request, $runtime);
     }
 
     /**
@@ -2817,6 +2931,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param DeleteDiskReplicaPairRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDiskReplicaPairResponse
+     */
+    public function deleteDiskReplicaPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDiskReplicaPairResponse::fromMap($this->doRPCRequest('DeleteDiskReplicaPair', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDiskReplicaPairRequest $request
+     *
+     * @return DeleteDiskReplicaPairResponse
+     */
+    public function deleteDiskReplicaPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDiskReplicaPairWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteForwardEntryRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3234,6 +3376,62 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePhysicalConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePrefixListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeletePrefixListResponse
+     */
+    public function deletePrefixListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeletePrefixListResponse::fromMap($this->doRPCRequest('DeletePrefixList', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeletePrefixListRequest $request
+     *
+     * @return DeletePrefixListResponse
+     */
+    public function deletePrefixList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePrefixListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteReplicaPairRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteReplicaPairResponse
+     */
+    public function deleteReplicaPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteReplicaPairResponse::fromMap($this->doRPCRequest('DeleteReplicaPair', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteReplicaPairRequest $request
+     *
+     * @return DeleteReplicaPairResponse
+     */
+    public function deleteReplicaPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteReplicaPairWithOptions($request, $runtime);
     }
 
     /**
@@ -3965,6 +4163,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param DescribeDedicatedBlockStorageClustersRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeDedicatedBlockStorageClustersResponse
+     */
+    public function describeDedicatedBlockStorageClustersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDedicatedBlockStorageClustersResponse::fromMap($this->doRPCRequest('DescribeDedicatedBlockStorageClusters', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDedicatedBlockStorageClustersRequest $request
+     *
+     * @return DescribeDedicatedBlockStorageClustersResponse
+     */
+    public function describeDedicatedBlockStorageClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDedicatedBlockStorageClustersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDedicatedHostAutoRenewRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -4186,6 +4412,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDiskMonitorDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDiskReplicaPairsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDiskReplicaPairsResponse
+     */
+    public function describeDiskReplicaPairsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDiskReplicaPairsResponse::fromMap($this->doRPCRequest('DescribeDiskReplicaPairs', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiskReplicaPairsRequest $request
+     *
+     * @return DescribeDiskReplicaPairsResponse
+     */
+    public function describeDiskReplicaPairs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiskReplicaPairsWithOptions($request, $runtime);
     }
 
     /**
@@ -5474,6 +5728,90 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePhysicalConnectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePrefixListAssociationsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribePrefixListAssociationsResponse
+     */
+    public function describePrefixListAssociationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePrefixListAssociationsResponse::fromMap($this->doRPCRequest('DescribePrefixListAssociations', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePrefixListAssociationsRequest $request
+     *
+     * @return DescribePrefixListAssociationsResponse
+     */
+    public function describePrefixListAssociations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrefixListAssociationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePrefixListAttributesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribePrefixListAttributesResponse
+     */
+    public function describePrefixListAttributesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePrefixListAttributesResponse::fromMap($this->doRPCRequest('DescribePrefixListAttributes', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePrefixListAttributesRequest $request
+     *
+     * @return DescribePrefixListAttributesResponse
+     */
+    public function describePrefixListAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrefixListAttributesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePrefixListsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribePrefixListsResponse
+     */
+    public function describePrefixListsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePrefixListsResponse::fromMap($this->doRPCRequest('DescribePrefixLists', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePrefixListsRequest $request
+     *
+     * @return DescribePrefixListsResponse
+     */
+    public function describePrefixLists($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrefixListsWithOptions($request, $runtime);
     }
 
     /**
@@ -8226,6 +8564,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param ModifyPrefixListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyPrefixListResponse
+     */
+    public function modifyPrefixListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyPrefixListResponse::fromMap($this->doRPCRequest('ModifyPrefixList', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyPrefixListRequest $request
+     *
+     * @return ModifyPrefixListResponse
+     */
+    public function modifyPrefixList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPrefixListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyPrepayInstanceSpecRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -9491,6 +9857,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param StartDiskReplicaPairRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StartDiskReplicaPairResponse
+     */
+    public function startDiskReplicaPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartDiskReplicaPairResponse::fromMap($this->doRPCRequest('StartDiskReplicaPair', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartDiskReplicaPairRequest $request
+     *
+     * @return StartDiskReplicaPairResponse
+     */
+    public function startDiskReplicaPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startDiskReplicaPairWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StartElasticityAssuranceRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -9600,6 +9994,62 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartTerminalSessionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StartTerminalSessionResponse
+     */
+    public function startTerminalSessionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartTerminalSessionResponse::fromMap($this->doRPCRequest('StartTerminalSession', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartTerminalSessionRequest $request
+     *
+     * @return StartTerminalSessionResponse
+     */
+    public function startTerminalSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startTerminalSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopDiskReplicaPairRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StopDiskReplicaPairResponse
+     */
+    public function stopDiskReplicaPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StopDiskReplicaPairResponse::fromMap($this->doRPCRequest('StopDiskReplicaPair', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StopDiskReplicaPairRequest $request
+     *
+     * @return StopDiskReplicaPairResponse
+     */
+    public function stopDiskReplicaPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDiskReplicaPairWithOptions($request, $runtime);
     }
 
     /**

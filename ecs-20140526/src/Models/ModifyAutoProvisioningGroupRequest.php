@@ -35,6 +35,11 @@ class ModifyAutoProvisioningGroupRequest extends Model
     public $regionId;
 
     /**
+     * @var launchTemplateConfig[]
+     */
+    public $launchTemplateConfig;
+
+    /**
      * @var string
      */
     public $autoProvisioningGroupId;
@@ -78,17 +83,13 @@ class ModifyAutoProvisioningGroupRequest extends Model
      * @var string
      */
     public $autoProvisioningGroupName;
-
-    /**
-     * @var launchTemplateConfig[]
-     */
-    public $launchTemplateConfig;
     protected $_name = [
         'ownerId'                          => 'OwnerId',
         'resourceOwnerAccount'             => 'ResourceOwnerAccount',
         'resourceOwnerId'                  => 'ResourceOwnerId',
         'ownerAccount'                     => 'OwnerAccount',
         'regionId'                         => 'RegionId',
+        'launchTemplateConfig'             => 'LaunchTemplateConfig',
         'autoProvisioningGroupId'          => 'AutoProvisioningGroupId',
         'excessCapacityTerminationPolicy'  => 'ExcessCapacityTerminationPolicy',
         'defaultTargetCapacityType'        => 'DefaultTargetCapacityType',
@@ -98,7 +99,6 @@ class ModifyAutoProvisioningGroupRequest extends Model
         'payAsYouGoTargetCapacity'         => 'PayAsYouGoTargetCapacity',
         'spotTargetCapacity'               => 'SpotTargetCapacity',
         'autoProvisioningGroupName'        => 'AutoProvisioningGroupName',
-        'launchTemplateConfig'             => 'LaunchTemplateConfig',
     ];
 
     public function validate()
@@ -122,6 +122,15 @@ class ModifyAutoProvisioningGroupRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->launchTemplateConfig) {
+            $res['LaunchTemplateConfig'] = [];
+            if (null !== $this->launchTemplateConfig && \is_array($this->launchTemplateConfig)) {
+                $n = 0;
+                foreach ($this->launchTemplateConfig as $item) {
+                    $res['LaunchTemplateConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->autoProvisioningGroupId) {
             $res['AutoProvisioningGroupId'] = $this->autoProvisioningGroupId;
@@ -150,15 +159,6 @@ class ModifyAutoProvisioningGroupRequest extends Model
         if (null !== $this->autoProvisioningGroupName) {
             $res['AutoProvisioningGroupName'] = $this->autoProvisioningGroupName;
         }
-        if (null !== $this->launchTemplateConfig) {
-            $res['LaunchTemplateConfig'] = [];
-            if (null !== $this->launchTemplateConfig && \is_array($this->launchTemplateConfig)) {
-                $n = 0;
-                foreach ($this->launchTemplateConfig as $item) {
-                    $res['LaunchTemplateConfig'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
 
         return $res;
     }
@@ -186,6 +186,15 @@ class ModifyAutoProvisioningGroupRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['LaunchTemplateConfig'])) {
+            if (!empty($map['LaunchTemplateConfig'])) {
+                $model->launchTemplateConfig = [];
+                $n                           = 0;
+                foreach ($map['LaunchTemplateConfig'] as $item) {
+                    $model->launchTemplateConfig[$n++] = null !== $item ? launchTemplateConfig::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['AutoProvisioningGroupId'])) {
             $model->autoProvisioningGroupId = $map['AutoProvisioningGroupId'];
         }
@@ -212,15 +221,6 @@ class ModifyAutoProvisioningGroupRequest extends Model
         }
         if (isset($map['AutoProvisioningGroupName'])) {
             $model->autoProvisioningGroupName = $map['AutoProvisioningGroupName'];
-        }
-        if (isset($map['LaunchTemplateConfig'])) {
-            if (!empty($map['LaunchTemplateConfig'])) {
-                $model->launchTemplateConfig = [];
-                $n                           = 0;
-                foreach ($map['LaunchTemplateConfig'] as $item) {
-                    $model->launchTemplateConfig[$n++] = null !== $item ? launchTemplateConfig::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

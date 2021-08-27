@@ -34,6 +34,11 @@ class SendFileRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
      * @var string
      */
     public $name;
@@ -82,17 +87,13 @@ class SendFileRequest extends Model
      * @var bool
      */
     public $overwrite;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'instanceId'           => 'InstanceId',
         'name'                 => 'Name',
         'description'          => 'Description',
         'timeout'              => 'Timeout',
@@ -103,7 +104,6 @@ class SendFileRequest extends Model
         'fileGroup'            => 'FileGroup',
         'fileMode'             => 'FileMode',
         'overwrite'            => 'Overwrite',
-        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
@@ -127,6 +127,9 @@ class SendFileRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -158,9 +161,6 @@ class SendFileRequest extends Model
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
 
         return $res;
     }
@@ -187,6 +187,11 @@ class SendFileRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -217,11 +222,6 @@ class SendFileRequest extends Model
         }
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
-        }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
         }
 
         return $model;

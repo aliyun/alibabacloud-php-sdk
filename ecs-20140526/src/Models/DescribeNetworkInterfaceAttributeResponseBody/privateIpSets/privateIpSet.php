@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class privateIpSet extends Model
 {
     /**
-     * @var associatedPublicIp
+     * @var string
      */
-    public $associatedPublicIp;
+    public $privateIpAddress;
 
     /**
      * @var bool
@@ -20,13 +20,13 @@ class privateIpSet extends Model
     public $primary;
 
     /**
-     * @var string
+     * @var associatedPublicIp
      */
-    public $privateIpAddress;
+    public $associatedPublicIp;
     protected $_name = [
-        'associatedPublicIp' => 'AssociatedPublicIp',
-        'primary'            => 'Primary',
         'privateIpAddress'   => 'PrivateIpAddress',
+        'primary'            => 'Primary',
+        'associatedPublicIp' => 'AssociatedPublicIp',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class privateIpSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->associatedPublicIp) {
-            $res['AssociatedPublicIp'] = null !== $this->associatedPublicIp ? $this->associatedPublicIp->toMap() : null;
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
         if (null !== $this->primary) {
             $res['Primary'] = $this->primary;
         }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        if (null !== $this->associatedPublicIp) {
+            $res['AssociatedPublicIp'] = null !== $this->associatedPublicIp ? $this->associatedPublicIp->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class privateIpSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AssociatedPublicIp'])) {
-            $model->associatedPublicIp = associatedPublicIp::fromMap($map['AssociatedPublicIp']);
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
         }
         if (isset($map['Primary'])) {
             $model->primary = $map['Primary'];
         }
-        if (isset($map['PrivateIpAddress'])) {
-            $model->privateIpAddress = $map['PrivateIpAddress'];
+        if (isset($map['AssociatedPublicIp'])) {
+            $model->associatedPublicIp = associatedPublicIp::fromMap($map['AssociatedPublicIp']);
         }
 
         return $model;

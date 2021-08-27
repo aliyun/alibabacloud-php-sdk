@@ -144,6 +144,21 @@ class DescribePriceRequest extends Model
      * @var string[]
      */
     public $instanceTypeList;
+
+    /**
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
+     * @var int
+     */
+    public $spotDuration;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'systemDisk'              => 'SystemDisk',
         'dataDisk'                => 'DataDisk',
@@ -172,6 +187,9 @@ class DescribePriceRequest extends Model
         'instanceCpuCoreCount'    => 'InstanceCpuCoreCount',
         'isp'                     => 'Isp',
         'instanceTypeList'        => 'InstanceTypeList',
+        'spotStrategy'            => 'SpotStrategy',
+        'spotDuration'            => 'SpotDuration',
+        'zoneId'                  => 'ZoneId',
     ];
 
     public function validate()
@@ -267,6 +285,15 @@ class DescribePriceRequest extends Model
         }
         if (null !== $this->instanceTypeList) {
             $res['InstanceTypeList'] = $this->instanceTypeList;
+        }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->spotDuration) {
+            $res['SpotDuration'] = $this->spotDuration;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -368,6 +395,15 @@ class DescribePriceRequest extends Model
             if (!empty($map['InstanceTypeList'])) {
                 $model->instanceTypeList = $map['InstanceTypeList'];
             }
+        }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
+        }
+        if (isset($map['SpotDuration'])) {
+            $model->spotDuration = $map['SpotDuration'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

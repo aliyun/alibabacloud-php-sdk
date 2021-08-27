@@ -34,16 +34,6 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @var bool
-     */
-    public $all;
-
-    /**
      * @var string[]
      */
     public $resourceId;
@@ -52,16 +42,26 @@ class UntagResourcesRequest extends Model
      * @var string[]
      */
     public $tagKey;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @var bool
+     */
+    public $all;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'resourceType'         => 'ResourceType',
-        'all'                  => 'All',
         'resourceId'           => 'ResourceId',
         'tagKey'               => 'TagKey',
+        'resourceType'         => 'ResourceType',
+        'all'                  => 'All',
     ];
 
     public function validate()
@@ -86,17 +86,17 @@ class UntagResourcesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->all) {
-            $res['All'] = $this->all;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->all) {
+            $res['All'] = $this->all;
         }
 
         return $res;
@@ -125,12 +125,6 @@ class UntagResourcesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['All'])) {
-            $model->all = $map['All'];
-        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
@@ -140,6 +134,12 @@ class UntagResourcesRequest extends Model
             if (!empty($map['TagKey'])) {
                 $model->tagKey = $map['TagKey'];
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['All'])) {
+            $model->all = $map['All'];
         }
 
         return $model;

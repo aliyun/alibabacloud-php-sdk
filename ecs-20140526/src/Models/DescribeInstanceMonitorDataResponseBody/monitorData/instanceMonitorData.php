@@ -39,14 +39,14 @@ class instanceMonitorData extends Model
     public $IOPSWrite;
 
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var int
      */
     public $intranetTX;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var int
@@ -59,14 +59,14 @@ class instanceMonitorData extends Model
     public $CPUNotpaidSurplusCreditUsage;
 
     /**
-     * @var int
-     */
-    public $IOPSRead;
-
-    /**
      * @var float
      */
     public $CPUAdvanceCreditBalance;
+
+    /**
+     * @var int
+     */
+    public $IOPSRead;
 
     /**
      * @var int
@@ -99,12 +99,12 @@ class instanceMonitorData extends Model
         'CPU'                          => 'CPU',
         'CPUCreditUsage'               => 'CPUCreditUsage',
         'IOPSWrite'                    => 'IOPSWrite',
-        'instanceId'                   => 'InstanceId',
         'intranetTX'                   => 'IntranetTX',
+        'instanceId'                   => 'InstanceId',
         'BPSWrite'                     => 'BPSWrite',
         'CPUNotpaidSurplusCreditUsage' => 'CPUNotpaidSurplusCreditUsage',
-        'IOPSRead'                     => 'IOPSRead',
         'CPUAdvanceCreditBalance'      => 'CPUAdvanceCreditBalance',
+        'IOPSRead'                     => 'IOPSRead',
         'internetBandwidth'            => 'InternetBandwidth',
         'internetRX'                   => 'InternetRX',
         'timeStamp'                    => 'TimeStamp',
@@ -137,11 +137,11 @@ class instanceMonitorData extends Model
         if (null !== $this->IOPSWrite) {
             $res['IOPSWrite'] = $this->IOPSWrite;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->intranetTX) {
             $res['IntranetTX'] = $this->intranetTX;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->BPSWrite) {
             $res['BPSWrite'] = $this->BPSWrite;
@@ -149,11 +149,11 @@ class instanceMonitorData extends Model
         if (null !== $this->CPUNotpaidSurplusCreditUsage) {
             $res['CPUNotpaidSurplusCreditUsage'] = $this->CPUNotpaidSurplusCreditUsage;
         }
-        if (null !== $this->IOPSRead) {
-            $res['IOPSRead'] = $this->IOPSRead;
-        }
         if (null !== $this->CPUAdvanceCreditBalance) {
             $res['CPUAdvanceCreditBalance'] = $this->CPUAdvanceCreditBalance;
+        }
+        if (null !== $this->IOPSRead) {
+            $res['IOPSRead'] = $this->IOPSRead;
         }
         if (null !== $this->internetBandwidth) {
             $res['InternetBandwidth'] = $this->internetBandwidth;
@@ -200,11 +200,11 @@ class instanceMonitorData extends Model
         if (isset($map['IOPSWrite'])) {
             $model->IOPSWrite = $map['IOPSWrite'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['IntranetTX'])) {
             $model->intranetTX = $map['IntranetTX'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['BPSWrite'])) {
             $model->BPSWrite = $map['BPSWrite'];
@@ -212,11 +212,11 @@ class instanceMonitorData extends Model
         if (isset($map['CPUNotpaidSurplusCreditUsage'])) {
             $model->CPUNotpaidSurplusCreditUsage = $map['CPUNotpaidSurplusCreditUsage'];
         }
-        if (isset($map['IOPSRead'])) {
-            $model->IOPSRead = $map['IOPSRead'];
-        }
         if (isset($map['CPUAdvanceCreditBalance'])) {
             $model->CPUAdvanceCreditBalance = $map['CPUAdvanceCreditBalance'];
+        }
+        if (isset($map['IOPSRead'])) {
+            $model->IOPSRead = $map['IOPSRead'];
         }
         if (isset($map['InternetBandwidth'])) {
             $model->internetBandwidth = $map['InternetBandwidth'];

@@ -91,12 +91,12 @@ class routerInterfaceType extends Model
     /**
      * @var string
      */
-    public $healthCheckSourceIp;
+    public $oppositeInterfaceStatus;
 
     /**
      * @var string
      */
-    public $oppositeInterfaceStatus;
+    public $healthCheckSourceIp;
 
     /**
      * @var string
@@ -121,12 +121,12 @@ class routerInterfaceType extends Model
     /**
      * @var string
      */
-    public $routerType;
+    public $role;
 
     /**
      * @var string
      */
-    public $role;
+    public $routerType;
 
     /**
      * @var string
@@ -149,14 +149,14 @@ class routerInterfaceType extends Model
         'routerId'                        => 'RouterId',
         'oppositeInterfaceBusinessStatus' => 'OppositeInterfaceBusinessStatus',
         'connectedTime'                   => 'ConnectedTime',
-        'healthCheckSourceIp'             => 'HealthCheckSourceIp',
         'oppositeInterfaceStatus'         => 'OppositeInterfaceStatus',
+        'healthCheckSourceIp'             => 'HealthCheckSourceIp',
         'endTime'                         => 'EndTime',
         'oppositeRegionId'                => 'OppositeRegionId',
         'oppositeAccessPointId'           => 'OppositeAccessPointId',
         'businessStatus'                  => 'BusinessStatus',
-        'routerType'                      => 'RouterType',
         'role'                            => 'Role',
+        'routerType'                      => 'RouterType',
         'accessPointId'                   => 'AccessPointId',
     ];
 
@@ -215,11 +215,11 @@ class routerInterfaceType extends Model
         if (null !== $this->connectedTime) {
             $res['ConnectedTime'] = $this->connectedTime;
         }
-        if (null !== $this->healthCheckSourceIp) {
-            $res['HealthCheckSourceIp'] = $this->healthCheckSourceIp;
-        }
         if (null !== $this->oppositeInterfaceStatus) {
             $res['OppositeInterfaceStatus'] = $this->oppositeInterfaceStatus;
+        }
+        if (null !== $this->healthCheckSourceIp) {
+            $res['HealthCheckSourceIp'] = $this->healthCheckSourceIp;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -233,11 +233,11 @@ class routerInterfaceType extends Model
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
         }
-        if (null !== $this->routerType) {
-            $res['RouterType'] = $this->routerType;
-        }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
+        }
+        if (null !== $this->routerType) {
+            $res['RouterType'] = $this->routerType;
         }
         if (null !== $this->accessPointId) {
             $res['AccessPointId'] = $this->accessPointId;
@@ -302,11 +302,11 @@ class routerInterfaceType extends Model
         if (isset($map['ConnectedTime'])) {
             $model->connectedTime = $map['ConnectedTime'];
         }
-        if (isset($map['HealthCheckSourceIp'])) {
-            $model->healthCheckSourceIp = $map['HealthCheckSourceIp'];
-        }
         if (isset($map['OppositeInterfaceStatus'])) {
             $model->oppositeInterfaceStatus = $map['OppositeInterfaceStatus'];
+        }
+        if (isset($map['HealthCheckSourceIp'])) {
+            $model->healthCheckSourceIp = $map['HealthCheckSourceIp'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -320,11 +320,11 @@ class routerInterfaceType extends Model
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];
         }
-        if (isset($map['RouterType'])) {
-            $model->routerType = $map['RouterType'];
-        }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
+        }
+        if (isset($map['RouterType'])) {
+            $model->routerType = $map['RouterType'];
         }
         if (isset($map['AccessPointId'])) {
             $model->accessPointId = $map['AccessPointId'];

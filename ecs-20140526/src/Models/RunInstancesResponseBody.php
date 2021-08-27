@@ -15,11 +15,6 @@ class RunInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var instanceIdSets
-     */
-    public $instanceIdSets;
-
-    /**
      * @var string
      */
     public $orderId;
@@ -28,11 +23,16 @@ class RunInstancesResponseBody extends Model
      * @var float
      */
     public $tradePrice;
+
+    /**
+     * @var instanceIdSets
+     */
+    public $instanceIdSets;
     protected $_name = [
         'requestId'      => 'RequestId',
-        'instanceIdSets' => 'InstanceIdSets',
         'orderId'        => 'OrderId',
         'tradePrice'     => 'TradePrice',
+        'instanceIdSets' => 'InstanceIdSets',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class RunInstancesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->instanceIdSets) {
-            $res['InstanceIdSets'] = null !== $this->instanceIdSets ? $this->instanceIdSets->toMap() : null;
-        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->tradePrice) {
             $res['TradePrice'] = $this->tradePrice;
+        }
+        if (null !== $this->instanceIdSets) {
+            $res['InstanceIdSets'] = null !== $this->instanceIdSets ? $this->instanceIdSets->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class RunInstancesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['InstanceIdSets'])) {
-            $model->instanceIdSets = instanceIdSets::fromMap($map['InstanceIdSets']);
-        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
         if (isset($map['TradePrice'])) {
             $model->tradePrice = $map['TradePrice'];
+        }
+        if (isset($map['InstanceIdSets'])) {
+            $model->instanceIdSets = instanceIdSets::fromMap($map['InstanceIdSets']);
         }
 
         return $model;

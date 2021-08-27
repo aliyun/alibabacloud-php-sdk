@@ -83,22 +83,28 @@ class DescribeDedicatedHostsRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $dedicatedHostClusterId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'zoneId'               => 'ZoneId',
-        'dedicatedHostIds'     => 'DedicatedHostIds',
-        'dedicatedHostName'    => 'DedicatedHostName',
-        'status'               => 'Status',
-        'dedicatedHostType'    => 'DedicatedHostType',
-        'lockReason'           => 'LockReason',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'ownerAccount'         => 'OwnerAccount',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'tag'                  => 'Tag',
+        'ownerId'                => 'OwnerId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'regionId'               => 'RegionId',
+        'zoneId'                 => 'ZoneId',
+        'dedicatedHostIds'       => 'DedicatedHostIds',
+        'dedicatedHostName'      => 'DedicatedHostName',
+        'status'                 => 'Status',
+        'dedicatedHostType'      => 'DedicatedHostType',
+        'lockReason'             => 'LockReason',
+        'pageNumber'             => 'PageNumber',
+        'pageSize'               => 'PageSize',
+        'ownerAccount'           => 'OwnerAccount',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'tag'                    => 'Tag',
+        'dedicatedHostClusterId' => 'DedicatedHostClusterId',
     ];
 
     public function validate()
@@ -158,6 +164,9 @@ class DescribeDedicatedHostsRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dedicatedHostClusterId) {
+            $res['DedicatedHostClusterId'] = $this->dedicatedHostClusterId;
         }
 
         return $res;
@@ -221,6 +230,9 @@ class DescribeDedicatedHostsRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DedicatedHostClusterId'])) {
+            $model->dedicatedHostClusterId = $map['DedicatedHostClusterId'];
         }
 
         return $model;

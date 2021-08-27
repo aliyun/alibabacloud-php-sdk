@@ -11,12 +11,12 @@ class networkInterface extends Model
     /**
      * @var string
      */
-    public $networkInterfaceName;
+    public $vSwitchId;
 
     /**
      * @var string
      */
-    public $vSwitchId;
+    public $networkInterfaceName;
 
     /**
      * @var string
@@ -38,8 +38,8 @@ class networkInterface extends Model
      */
     public $securityGroupIds;
     protected $_name = [
-        'networkInterfaceName' => 'NetworkInterfaceName',
         'vSwitchId'            => 'VSwitchId',
+        'networkInterfaceName' => 'NetworkInterfaceName',
         'description'          => 'Description',
         'securityGroupId'      => 'SecurityGroupId',
         'primaryIpAddress'     => 'PrimaryIpAddress',
@@ -53,11 +53,11 @@ class networkInterface extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->networkInterfaceName) {
-            $res['NetworkInterfaceName'] = $this->networkInterfaceName;
-        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->networkInterfaceName) {
+            $res['NetworkInterfaceName'] = $this->networkInterfaceName;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -83,11 +83,11 @@ class networkInterface extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NetworkInterfaceName'])) {
-            $model->networkInterfaceName = $map['NetworkInterfaceName'];
-        }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['NetworkInterfaceName'])) {
+            $model->networkInterfaceName = $map['NetworkInterfaceName'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

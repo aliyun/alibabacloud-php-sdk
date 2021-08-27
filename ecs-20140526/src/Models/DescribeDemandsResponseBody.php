@@ -12,12 +12,12 @@ class DescribeDemandsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageSize;
 
     /**
      * @var int
      */
-    public $pageSize;
+    public $pageNumber;
 
     /**
      * @var string
@@ -27,24 +27,24 @@ class DescribeDemandsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var demands
-     */
-    public $demands;
+    public $totalCount;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var demands
+     */
+    public $demands;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
-        'demands'    => 'Demands',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
         'regionId'   => 'RegionId',
+        'demands'    => 'Demands',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeDemandsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->demands) {
-            $res['Demands'] = null !== $this->demands ? $this->demands->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->demands) {
+            $res['Demands'] = null !== $this->demands ? $this->demands->toMap() : null;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeDemandsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['Demands'])) {
-            $model->demands = demands::fromMap($map['Demands']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Demands'])) {
+            $model->demands = demands::fromMap($map['Demands']);
         }
 
         return $model;

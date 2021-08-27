@@ -20,19 +20,19 @@ class invocation extends Model
     public $pageNumber;
 
     /**
-     * @var invocationResults
-     */
-    public $invocationResults;
-
-    /**
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var invocationResults
+     */
+    public $invocationResults;
     protected $_name = [
         'pageSize'          => 'PageSize',
         'pageNumber'        => 'PageNumber',
-        'invocationResults' => 'InvocationResults',
         'totalCount'        => 'TotalCount',
+        'invocationResults' => 'InvocationResults',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class invocation extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->invocationResults) {
-            $res['InvocationResults'] = null !== $this->invocationResults ? $this->invocationResults->toMap() : null;
-        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->invocationResults) {
+            $res['InvocationResults'] = null !== $this->invocationResults ? $this->invocationResults->toMap() : null;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class invocation extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['InvocationResults'])) {
-            $model->invocationResults = invocationResults::fromMap($map['InvocationResults']);
-        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['InvocationResults'])) {
+            $model->invocationResults = invocationResults::fromMap($map['InvocationResults']);
         }
 
         return $model;

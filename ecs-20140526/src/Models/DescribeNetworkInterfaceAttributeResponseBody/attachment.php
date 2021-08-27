@@ -20,19 +20,19 @@ class attachment extends Model
     public $instanceId;
 
     /**
-     * @var memberNetworkInterfaceIds
-     */
-    public $memberNetworkInterfaceIds;
-
-    /**
      * @var string
      */
     public $trunkNetworkInterfaceId;
+
+    /**
+     * @var memberNetworkInterfaceIds
+     */
+    public $memberNetworkInterfaceIds;
     protected $_name = [
         'deviceIndex'               => 'DeviceIndex',
         'instanceId'                => 'InstanceId',
-        'memberNetworkInterfaceIds' => 'MemberNetworkInterfaceIds',
         'trunkNetworkInterfaceId'   => 'TrunkNetworkInterfaceId',
+        'memberNetworkInterfaceIds' => 'MemberNetworkInterfaceIds',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class attachment extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->memberNetworkInterfaceIds) {
-            $res['MemberNetworkInterfaceIds'] = null !== $this->memberNetworkInterfaceIds ? $this->memberNetworkInterfaceIds->toMap() : null;
-        }
         if (null !== $this->trunkNetworkInterfaceId) {
             $res['TrunkNetworkInterfaceId'] = $this->trunkNetworkInterfaceId;
+        }
+        if (null !== $this->memberNetworkInterfaceIds) {
+            $res['MemberNetworkInterfaceIds'] = null !== $this->memberNetworkInterfaceIds ? $this->memberNetworkInterfaceIds->toMap() : null;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class attachment extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['MemberNetworkInterfaceIds'])) {
-            $model->memberNetworkInterfaceIds = memberNetworkInterfaceIds::fromMap($map['MemberNetworkInterfaceIds']);
-        }
         if (isset($map['TrunkNetworkInterfaceId'])) {
             $model->trunkNetworkInterfaceId = $map['TrunkNetworkInterfaceId'];
+        }
+        if (isset($map['MemberNetworkInterfaceIds'])) {
+            $model->memberNetworkInterfaceIds = memberNetworkInterfaceIds::fromMap($map['MemberNetworkInterfaceIds']);
         }
 
         return $model;

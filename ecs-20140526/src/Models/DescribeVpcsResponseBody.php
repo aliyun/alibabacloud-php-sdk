@@ -12,16 +12,6 @@ class DescribeVpcsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var vpcs
-     */
-    public $vpcs;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -33,12 +23,22 @@ class DescribeVpcsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var vpcs
+     */
+    public $vpcs;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'vpcs'       => 'Vpcs',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
+        'vpcs'       => 'Vpcs',
     ];
 
     public function validate()
@@ -48,12 +48,6 @@ class DescribeVpcsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->vpcs) {
-            $res['Vpcs'] = null !== $this->vpcs ? $this->vpcs->toMap() : null;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -62,6 +56,12 @@ class DescribeVpcsResponseBody extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->vpcs) {
+            $res['Vpcs'] = null !== $this->vpcs ? $this->vpcs->toMap() : null;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class DescribeVpcsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Vpcs'])) {
-            $model->vpcs = vpcs::fromMap($map['Vpcs']);
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -89,6 +83,12 @@ class DescribeVpcsResponseBody extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Vpcs'])) {
+            $model->vpcs = vpcs::fromMap($map['Vpcs']);
         }
 
         return $model;

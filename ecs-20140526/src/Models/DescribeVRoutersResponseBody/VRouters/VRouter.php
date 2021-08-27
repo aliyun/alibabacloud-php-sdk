@@ -35,22 +35,22 @@ class VRouter extends Model
     public $VRouterName;
 
     /**
-     * @var routeTableIds
-     */
-    public $routeTableIds;
-
-    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var routeTableIds
+     */
+    public $routeTableIds;
     protected $_name = [
         'vpcId'         => 'VpcId',
         'creationTime'  => 'CreationTime',
         'VRouterId'     => 'VRouterId',
         'description'   => 'Description',
         'VRouterName'   => 'VRouterName',
-        'routeTableIds' => 'RouteTableIds',
         'regionId'      => 'RegionId',
+        'routeTableIds' => 'RouteTableIds',
     ];
 
     public function validate()
@@ -75,11 +75,11 @@ class VRouter extends Model
         if (null !== $this->VRouterName) {
             $res['VRouterName'] = $this->VRouterName;
         }
-        if (null !== $this->routeTableIds) {
-            $res['RouteTableIds'] = null !== $this->routeTableIds ? $this->routeTableIds->toMap() : null;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->routeTableIds) {
+            $res['RouteTableIds'] = null !== $this->routeTableIds ? $this->routeTableIds->toMap() : null;
         }
 
         return $res;
@@ -108,11 +108,11 @@ class VRouter extends Model
         if (isset($map['VRouterName'])) {
             $model->VRouterName = $map['VRouterName'];
         }
-        if (isset($map['RouteTableIds'])) {
-            $model->routeTableIds = routeTableIds::fromMap($map['RouteTableIds']);
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RouteTableIds'])) {
+            $model->routeTableIds = routeTableIds::fromMap($map['RouteTableIds']);
         }
 
         return $model;

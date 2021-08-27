@@ -26,6 +26,16 @@ class permission extends Model
     /**
      * @var string
      */
+    public $destPrefixListId;
+
+    /**
+     * @var string
+     */
+    public $destPrefixListName;
+
+    /**
+     * @var string
+     */
     public $sourceCidrIp;
 
     /**
@@ -36,12 +46,12 @@ class permission extends Model
     /**
      * @var string
      */
-    public $ipv6SourceCidrIp;
+    public $createTime;
 
     /**
      * @var string
      */
-    public $createTime;
+    public $ipv6SourceCidrIp;
 
     /**
      * @var string
@@ -51,12 +61,12 @@ class permission extends Model
     /**
      * @var string
      */
-    public $ipProtocol;
+    public $destCidrIp;
 
     /**
      * @var string
      */
-    public $destCidrIp;
+    public $ipProtocol;
 
     /**
      * @var string
@@ -91,6 +101,16 @@ class permission extends Model
     /**
      * @var string
      */
+    public $sourcePrefixListName;
+
+    /**
+     * @var string
+     */
+    public $sourcePrefixListId;
+
+    /**
+     * @var string
+     */
     public $sourceGroupOwnerAccount;
 
     /**
@@ -106,19 +126,23 @@ class permission extends Model
         'direction'               => 'Direction',
         'sourceGroupId'           => 'SourceGroupId',
         'destGroupOwnerAccount'   => 'DestGroupOwnerAccount',
+        'destPrefixListId'        => 'DestPrefixListId',
+        'destPrefixListName'      => 'DestPrefixListName',
         'sourceCidrIp'            => 'SourceCidrIp',
         'ipv6DestCidrIp'          => 'Ipv6DestCidrIp',
-        'ipv6SourceCidrIp'        => 'Ipv6SourceCidrIp',
         'createTime'              => 'CreateTime',
+        'ipv6SourceCidrIp'        => 'Ipv6SourceCidrIp',
         'destGroupId'             => 'DestGroupId',
-        'ipProtocol'              => 'IpProtocol',
         'destCidrIp'              => 'DestCidrIp',
+        'ipProtocol'              => 'IpProtocol',
         'priority'                => 'Priority',
         'destGroupName'           => 'DestGroupName',
         'nicType'                 => 'NicType',
         'policy'                  => 'Policy',
         'description'             => 'Description',
         'portRange'               => 'PortRange',
+        'sourcePrefixListName'    => 'SourcePrefixListName',
+        'sourcePrefixListId'      => 'SourcePrefixListId',
         'sourceGroupOwnerAccount' => 'SourceGroupOwnerAccount',
         'sourceGroupName'         => 'SourceGroupName',
         'sourcePortRange'         => 'SourcePortRange',
@@ -140,26 +164,32 @@ class permission extends Model
         if (null !== $this->destGroupOwnerAccount) {
             $res['DestGroupOwnerAccount'] = $this->destGroupOwnerAccount;
         }
+        if (null !== $this->destPrefixListId) {
+            $res['DestPrefixListId'] = $this->destPrefixListId;
+        }
+        if (null !== $this->destPrefixListName) {
+            $res['DestPrefixListName'] = $this->destPrefixListName;
+        }
         if (null !== $this->sourceCidrIp) {
             $res['SourceCidrIp'] = $this->sourceCidrIp;
         }
         if (null !== $this->ipv6DestCidrIp) {
             $res['Ipv6DestCidrIp'] = $this->ipv6DestCidrIp;
         }
-        if (null !== $this->ipv6SourceCidrIp) {
-            $res['Ipv6SourceCidrIp'] = $this->ipv6SourceCidrIp;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->ipv6SourceCidrIp) {
+            $res['Ipv6SourceCidrIp'] = $this->ipv6SourceCidrIp;
         }
         if (null !== $this->destGroupId) {
             $res['DestGroupId'] = $this->destGroupId;
         }
-        if (null !== $this->ipProtocol) {
-            $res['IpProtocol'] = $this->ipProtocol;
-        }
         if (null !== $this->destCidrIp) {
             $res['DestCidrIp'] = $this->destCidrIp;
+        }
+        if (null !== $this->ipProtocol) {
+            $res['IpProtocol'] = $this->ipProtocol;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -178,6 +208,12 @@ class permission extends Model
         }
         if (null !== $this->portRange) {
             $res['PortRange'] = $this->portRange;
+        }
+        if (null !== $this->sourcePrefixListName) {
+            $res['SourcePrefixListName'] = $this->sourcePrefixListName;
+        }
+        if (null !== $this->sourcePrefixListId) {
+            $res['SourcePrefixListId'] = $this->sourcePrefixListId;
         }
         if (null !== $this->sourceGroupOwnerAccount) {
             $res['SourceGroupOwnerAccount'] = $this->sourceGroupOwnerAccount;
@@ -209,26 +245,32 @@ class permission extends Model
         if (isset($map['DestGroupOwnerAccount'])) {
             $model->destGroupOwnerAccount = $map['DestGroupOwnerAccount'];
         }
+        if (isset($map['DestPrefixListId'])) {
+            $model->destPrefixListId = $map['DestPrefixListId'];
+        }
+        if (isset($map['DestPrefixListName'])) {
+            $model->destPrefixListName = $map['DestPrefixListName'];
+        }
         if (isset($map['SourceCidrIp'])) {
             $model->sourceCidrIp = $map['SourceCidrIp'];
         }
         if (isset($map['Ipv6DestCidrIp'])) {
             $model->ipv6DestCidrIp = $map['Ipv6DestCidrIp'];
         }
-        if (isset($map['Ipv6SourceCidrIp'])) {
-            $model->ipv6SourceCidrIp = $map['Ipv6SourceCidrIp'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Ipv6SourceCidrIp'])) {
+            $model->ipv6SourceCidrIp = $map['Ipv6SourceCidrIp'];
         }
         if (isset($map['DestGroupId'])) {
             $model->destGroupId = $map['DestGroupId'];
         }
-        if (isset($map['IpProtocol'])) {
-            $model->ipProtocol = $map['IpProtocol'];
-        }
         if (isset($map['DestCidrIp'])) {
             $model->destCidrIp = $map['DestCidrIp'];
+        }
+        if (isset($map['IpProtocol'])) {
+            $model->ipProtocol = $map['IpProtocol'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
@@ -247,6 +289,12 @@ class permission extends Model
         }
         if (isset($map['PortRange'])) {
             $model->portRange = $map['PortRange'];
+        }
+        if (isset($map['SourcePrefixListName'])) {
+            $model->sourcePrefixListName = $map['SourcePrefixListName'];
+        }
+        if (isset($map['SourcePrefixListId'])) {
+            $model->sourcePrefixListId = $map['SourcePrefixListId'];
         }
         if (isset($map['SourceGroupOwnerAccount'])) {
             $model->sourceGroupOwnerAccount = $map['SourceGroupOwnerAccount'];

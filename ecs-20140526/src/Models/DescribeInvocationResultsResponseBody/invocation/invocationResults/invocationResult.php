@@ -21,7 +21,7 @@ class invocationResult extends Model
     /**
      * @var string
      */
-    public $output;
+    public $commandId;
 
     /**
      * @var string
@@ -31,7 +31,7 @@ class invocationResult extends Model
     /**
      * @var string
      */
-    public $commandId;
+    public $output;
 
     /**
      * @var int
@@ -85,9 +85,9 @@ class invocationResult extends Model
     protected $_name = [
         'invocationStatus'   => 'InvocationStatus',
         'repeats'            => 'Repeats',
-        'output'             => 'Output',
-        'instanceId'         => 'InstanceId',
         'commandId'          => 'CommandId',
+        'instanceId'         => 'InstanceId',
+        'output'             => 'Output',
         'dropped'            => 'Dropped',
         'stopTime'           => 'StopTime',
         'exitCode'           => 'ExitCode',
@@ -113,14 +113,14 @@ class invocationResult extends Model
         if (null !== $this->repeats) {
             $res['Repeats'] = $this->repeats;
         }
-        if (null !== $this->output) {
-            $res['Output'] = $this->output;
+        if (null !== $this->commandId) {
+            $res['CommandId'] = $this->commandId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->commandId) {
-            $res['CommandId'] = $this->commandId;
+        if (null !== $this->output) {
+            $res['Output'] = $this->output;
         }
         if (null !== $this->dropped) {
             $res['Dropped'] = $this->dropped;
@@ -170,14 +170,14 @@ class invocationResult extends Model
         if (isset($map['Repeats'])) {
             $model->repeats = $map['Repeats'];
         }
-        if (isset($map['Output'])) {
-            $model->output = $map['Output'];
+        if (isset($map['CommandId'])) {
+            $model->commandId = $map['CommandId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['CommandId'])) {
-            $model->commandId = $map['CommandId'];
+        if (isset($map['Output'])) {
+            $model->output = $map['Output'];
         }
         if (isset($map['Dropped'])) {
             $model->dropped = $map['Dropped'];

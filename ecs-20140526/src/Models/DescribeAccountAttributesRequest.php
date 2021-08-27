@@ -24,6 +24,11 @@ class DescribeAccountAttributesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string[]
+     */
+    public $attributeName;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -32,18 +37,13 @@ class DescribeAccountAttributesRequest extends Model
      * @var string
      */
     public $zoneId;
-
-    /**
-     * @var string[]
-     */
-    public $attributeName;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'attributeName'        => 'AttributeName',
         'regionId'             => 'RegionId',
         'zoneId'               => 'ZoneId',
-        'attributeName'        => 'AttributeName',
     ];
 
     public function validate()
@@ -62,14 +62,14 @@ class DescribeAccountAttributesRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->attributeName) {
+            $res['AttributeName'] = $this->attributeName;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->attributeName) {
-            $res['AttributeName'] = $this->attributeName;
         }
 
         return $res;
@@ -92,16 +92,16 @@ class DescribeAccountAttributesRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+        if (isset($map['AttributeName'])) {
+            if (!empty($map['AttributeName'])) {
+                $model->attributeName = $map['AttributeName'];
+            }
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['AttributeName'])) {
-            if (!empty($map['AttributeName'])) {
-                $model->attributeName = $map['AttributeName'];
-            }
         }
 
         return $model;

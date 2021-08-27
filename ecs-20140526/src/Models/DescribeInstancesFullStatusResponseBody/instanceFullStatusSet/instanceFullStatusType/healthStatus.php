@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class healthStatus extends Model
 {
     /**
-     * @var int
-     */
-    public $code;
-
-    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $code;
     protected $_name = [
-        'code' => 'Code',
         'name' => 'Name',
+        'code' => 'Code',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class healthStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class healthStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
 
         return $model;

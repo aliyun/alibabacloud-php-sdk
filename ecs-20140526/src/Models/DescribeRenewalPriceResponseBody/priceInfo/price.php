@@ -12,7 +12,17 @@ class price extends Model
     /**
      * @var float
      */
+    public $originalPrice;
+
+    /**
+     * @var float
+     */
     public $discountPrice;
+
+    /**
+     * @var string
+     */
+    public $currency;
 
     /**
      * @var float
@@ -20,25 +30,15 @@ class price extends Model
     public $tradePrice;
 
     /**
-     * @var float
-     */
-    public $originalPrice;
-
-    /**
      * @var detailInfos
      */
     public $detailInfos;
-
-    /**
-     * @var string
-     */
-    public $currency;
     protected $_name = [
-        'discountPrice' => 'DiscountPrice',
-        'tradePrice'    => 'TradePrice',
         'originalPrice' => 'OriginalPrice',
-        'detailInfos'   => 'DetailInfos',
+        'discountPrice' => 'DiscountPrice',
         'currency'      => 'Currency',
+        'tradePrice'    => 'TradePrice',
+        'detailInfos'   => 'DetailInfos',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class price extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->originalPrice) {
+            $res['OriginalPrice'] = $this->originalPrice;
+        }
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
+        }
+        if (null !== $this->currency) {
+            $res['Currency'] = $this->currency;
         }
         if (null !== $this->tradePrice) {
             $res['TradePrice'] = $this->tradePrice;
         }
-        if (null !== $this->originalPrice) {
-            $res['OriginalPrice'] = $this->originalPrice;
-        }
         if (null !== $this->detailInfos) {
             $res['DetailInfos'] = null !== $this->detailInfos ? $this->detailInfos->toMap() : null;
-        }
-        if (null !== $this->currency) {
-            $res['Currency'] = $this->currency;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class price extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OriginalPrice'])) {
+            $model->originalPrice = $map['OriginalPrice'];
+        }
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
+        }
+        if (isset($map['Currency'])) {
+            $model->currency = $map['Currency'];
         }
         if (isset($map['TradePrice'])) {
             $model->tradePrice = $map['TradePrice'];
         }
-        if (isset($map['OriginalPrice'])) {
-            $model->originalPrice = $map['OriginalPrice'];
-        }
         if (isset($map['DetailInfos'])) {
             $model->detailInfos = detailInfos::fromMap($map['DetailInfos']);
-        }
-        if (isset($map['Currency'])) {
-            $model->currency = $map['Currency'];
         }
 
         return $model;

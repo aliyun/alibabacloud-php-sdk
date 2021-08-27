@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateCapacityReservationRequest\privatePoolOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateCapacityReservationRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateCapacityReservationRequest extends Model
@@ -38,6 +39,16 @@ class CreateCapacityReservationRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @var string
@@ -90,6 +101,8 @@ class CreateCapacityReservationRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'tag'                  => 'Tag',
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
         'instanceAmount'       => 'InstanceAmount',
@@ -125,6 +138,18 @@ class CreateCapacityReservationRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -182,6 +207,18 @@ class CreateCapacityReservationRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

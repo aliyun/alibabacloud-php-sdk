@@ -40,6 +40,16 @@ class DescribeDisksFullStatusRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $diskId;
+
+    /**
+     * @var string[]
+     */
+    public $eventId;
+
+    /**
      * @var string
      */
     public $status;
@@ -63,16 +73,6 @@ class DescribeDisksFullStatusRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string[]
-     */
-    public $diskId;
-
-    /**
-     * @var string[]
-     */
-    public $eventId;
     protected $_name = [
         'eventTime'            => 'EventTime',
         'ownerId'              => 'OwnerId',
@@ -80,13 +80,13 @@ class DescribeDisksFullStatusRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'diskId'               => 'DiskId',
+        'eventId'              => 'EventId',
         'status'               => 'Status',
         'healthStatus'         => 'HealthStatus',
         'eventType'            => 'EventType',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'diskId'               => 'DiskId',
-        'eventId'              => 'EventId',
     ];
 
     public function validate()
@@ -114,6 +114,12 @@ class DescribeDisksFullStatusRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->diskId) {
+            $res['DiskId'] = $this->diskId;
+        }
+        if (null !== $this->eventId) {
+            $res['EventId'] = $this->eventId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -128,12 +134,6 @@ class DescribeDisksFullStatusRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->diskId) {
-            $res['DiskId'] = $this->diskId;
-        }
-        if (null !== $this->eventId) {
-            $res['EventId'] = $this->eventId;
         }
 
         return $res;
@@ -165,6 +165,16 @@ class DescribeDisksFullStatusRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['DiskId'])) {
+            if (!empty($map['DiskId'])) {
+                $model->diskId = $map['DiskId'];
+            }
+        }
+        if (isset($map['EventId'])) {
+            if (!empty($map['EventId'])) {
+                $model->eventId = $map['EventId'];
+            }
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
@@ -179,16 +189,6 @@ class DescribeDisksFullStatusRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['DiskId'])) {
-            if (!empty($map['DiskId'])) {
-                $model->diskId = $map['DiskId'];
-            }
-        }
-        if (isset($map['EventId'])) {
-            if (!empty($map['EventId'])) {
-                $model->eventId = $map['EventId'];
-            }
         }
 
         return $model;

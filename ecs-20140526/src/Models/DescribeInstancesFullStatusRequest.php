@@ -46,6 +46,21 @@ class DescribeInstancesFullStatusRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
+     * @var string[]
+     */
+    public $eventId;
+
+    /**
+     * @var string[]
+     */
+    public $instanceEventType;
+
+    /**
      * @var string
      */
     public $status;
@@ -69,21 +84,6 @@ class DescribeInstancesFullStatusRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
-
-    /**
-     * @var string[]
-     */
-    public $eventId;
-
-    /**
-     * @var string[]
-     */
-    public $instanceEventType;
     protected $_name = [
         'notBefore'            => 'NotBefore',
         'eventPublishTime'     => 'EventPublishTime',
@@ -92,14 +92,14 @@ class DescribeInstancesFullStatusRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'instanceId'           => 'InstanceId',
+        'eventId'              => 'EventId',
+        'instanceEventType'    => 'InstanceEventType',
         'status'               => 'Status',
         'healthStatus'         => 'HealthStatus',
         'eventType'            => 'EventType',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'instanceId'           => 'InstanceId',
-        'eventId'              => 'EventId',
-        'instanceEventType'    => 'InstanceEventType',
     ];
 
     public function validate()
@@ -130,6 +130,15 @@ class DescribeInstancesFullStatusRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->eventId) {
+            $res['EventId'] = $this->eventId;
+        }
+        if (null !== $this->instanceEventType) {
+            $res['InstanceEventType'] = $this->instanceEventType;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -144,15 +153,6 @@ class DescribeInstancesFullStatusRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->eventId) {
-            $res['EventId'] = $this->eventId;
-        }
-        if (null !== $this->instanceEventType) {
-            $res['InstanceEventType'] = $this->instanceEventType;
         }
 
         return $res;
@@ -187,21 +187,6 @@ class DescribeInstancesFullStatusRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['HealthStatus'])) {
-            $model->healthStatus = $map['HealthStatus'];
-        }
-        if (isset($map['EventType'])) {
-            $model->eventType = $map['EventType'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
                 $model->instanceId = $map['InstanceId'];
@@ -216,6 +201,21 @@ class DescribeInstancesFullStatusRequest extends Model
             if (!empty($map['InstanceEventType'])) {
                 $model->instanceEventType = $map['InstanceEventType'];
             }
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['HealthStatus'])) {
+            $model->healthStatus = $map['HealthStatus'];
+        }
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

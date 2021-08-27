@@ -29,6 +29,11 @@ class DescribeInstanceMaintenanceAttributesRequest extends Model
     public $ownerAccount;
 
     /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -42,20 +47,15 @@ class DescribeInstanceMaintenanceAttributesRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
+        'instanceId'           => 'InstanceId',
         'regionId'             => 'RegionId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
@@ -77,6 +77,9 @@ class DescribeInstanceMaintenanceAttributesRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -85,9 +88,6 @@ class DescribeInstanceMaintenanceAttributesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -113,6 +113,11 @@ class DescribeInstanceMaintenanceAttributesRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -121,11 +126,6 @@ class DescribeInstanceMaintenanceAttributesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
         }
 
         return $model;

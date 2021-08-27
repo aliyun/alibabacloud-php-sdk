@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateInstanceRequest\arn;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateInstanceRequest\dataDisk;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateInstanceRequest\hibernationOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateInstanceRequest\privatePoolOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateInstanceRequest\systemDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateInstanceRequest\tag;
@@ -17,6 +18,11 @@ class CreateInstanceRequest extends Model
      * @var systemDisk
      */
     public $systemDisk;
+
+    /**
+     * @var hibernationOptions
+     */
+    public $hibernationOptions;
 
     /**
      * @var privatePoolOptions
@@ -314,6 +320,7 @@ class CreateInstanceRequest extends Model
     public $tag;
     protected $_name = [
         'systemDisk'                  => 'SystemDisk',
+        'hibernationOptions'          => 'HibernationOptions',
         'privatePoolOptions'          => 'PrivatePoolOptions',
         'ownerId'                     => 'OwnerId',
         'resourceOwnerAccount'        => 'ResourceOwnerAccount',
@@ -384,6 +391,9 @@ class CreateInstanceRequest extends Model
         $res = [];
         if (null !== $this->systemDisk) {
             $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->hibernationOptions) {
+            $res['HibernationOptions'] = null !== $this->hibernationOptions ? $this->hibernationOptions->toMap() : null;
         }
         if (null !== $this->privatePoolOptions) {
             $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
@@ -594,6 +604,9 @@ class CreateInstanceRequest extends Model
         $model = new self();
         if (isset($map['SystemDisk'])) {
             $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        }
+        if (isset($map['HibernationOptions'])) {
+            $model->hibernationOptions = hibernationOptions::fromMap($map['HibernationOptions']);
         }
         if (isset($map['PrivatePoolOptions'])) {
             $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);

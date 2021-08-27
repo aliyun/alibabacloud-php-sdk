@@ -39,14 +39,14 @@ class snapshotLink extends Model
     public $instanceId;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $snapshotLinkId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
 
     /**
      * @var string
@@ -74,8 +74,8 @@ class snapshotLink extends Model
         'sourceDiskSize' => 'SourceDiskSize',
         'sourceDiskType' => 'SourceDiskType',
         'instanceId'     => 'InstanceId',
-        'totalCount'     => 'TotalCount',
         'snapshotLinkId' => 'SnapshotLinkId',
+        'totalCount'     => 'TotalCount',
         'regionId'       => 'RegionId',
         'sourceDiskId'   => 'SourceDiskId',
         'instanceName'   => 'InstanceName',
@@ -107,11 +107,11 @@ class snapshotLink extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->snapshotLinkId) {
             $res['SnapshotLinkId'] = $this->snapshotLinkId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -155,11 +155,11 @@ class snapshotLink extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['SnapshotLinkId'])) {
             $model->snapshotLinkId = $map['SnapshotLinkId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyReservedInstanceAttributeResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $httpStatusCode;
@@ -27,11 +17,21 @@ class ModifyReservedInstanceAttributeResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
         'httpStatusCode' => 'HttpStatusCode',
         'code'           => 'Code',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyReservedInstanceAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyReservedInstanceAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

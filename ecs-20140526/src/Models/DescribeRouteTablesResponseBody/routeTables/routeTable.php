@@ -20,9 +20,9 @@ class routeTable extends Model
     public $VRouterId;
 
     /**
-     * @var routeEntrys
+     * @var string
      */
-    public $routeEntrys;
+    public $routeTableId;
 
     /**
      * @var string
@@ -35,16 +35,16 @@ class routeTable extends Model
     public $routeTableType;
 
     /**
-     * @var string
+     * @var routeEntrys
      */
-    public $routeTableId;
+    public $routeEntrys;
     protected $_name = [
         'creationTime'    => 'CreationTime',
         'VRouterId'       => 'VRouterId',
-        'routeEntrys'     => 'RouteEntrys',
+        'routeTableId'    => 'RouteTableId',
         'resourceGroupId' => 'ResourceGroupId',
         'routeTableType'  => 'RouteTableType',
-        'routeTableId'    => 'RouteTableId',
+        'routeEntrys'     => 'RouteEntrys',
     ];
 
     public function validate()
@@ -60,8 +60,8 @@ class routeTable extends Model
         if (null !== $this->VRouterId) {
             $res['VRouterId'] = $this->VRouterId;
         }
-        if (null !== $this->routeEntrys) {
-            $res['RouteEntrys'] = null !== $this->routeEntrys ? $this->routeEntrys->toMap() : null;
+        if (null !== $this->routeTableId) {
+            $res['RouteTableId'] = $this->routeTableId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -69,8 +69,8 @@ class routeTable extends Model
         if (null !== $this->routeTableType) {
             $res['RouteTableType'] = $this->routeTableType;
         }
-        if (null !== $this->routeTableId) {
-            $res['RouteTableId'] = $this->routeTableId;
+        if (null !== $this->routeEntrys) {
+            $res['RouteEntrys'] = null !== $this->routeEntrys ? $this->routeEntrys->toMap() : null;
         }
 
         return $res;
@@ -90,8 +90,8 @@ class routeTable extends Model
         if (isset($map['VRouterId'])) {
             $model->VRouterId = $map['VRouterId'];
         }
-        if (isset($map['RouteEntrys'])) {
-            $model->routeEntrys = routeEntrys::fromMap($map['RouteEntrys']);
+        if (isset($map['RouteTableId'])) {
+            $model->routeTableId = $map['RouteTableId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -99,8 +99,8 @@ class routeTable extends Model
         if (isset($map['RouteTableType'])) {
             $model->routeTableType = $map['RouteTableType'];
         }
-        if (isset($map['RouteTableId'])) {
-            $model->routeTableId = $map['RouteTableId'];
+        if (isset($map['RouteEntrys'])) {
+            $model->routeEntrys = routeEntrys::fromMap($map['RouteEntrys']);
         }
 
         return $model;

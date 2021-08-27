@@ -30,6 +30,16 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
     public $ownerAccount;
 
     /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
+     * @var maintenanceWindow[]
+     */
+    public $maintenanceWindow;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -43,26 +53,16 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
      * @var bool
      */
     public $notifyOnMaintenance;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
-
-    /**
-     * @var maintenanceWindow[]
-     */
-    public $maintenanceWindow;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
+        'instanceId'           => 'InstanceId',
+        'maintenanceWindow'    => 'MaintenanceWindow',
         'regionId'             => 'RegionId',
         'actionOnMaintenance'  => 'ActionOnMaintenance',
         'notifyOnMaintenance'  => 'NotifyOnMaintenance',
-        'instanceId'           => 'InstanceId',
-        'maintenanceWindow'    => 'MaintenanceWindow',
     ];
 
     public function validate()
@@ -84,15 +84,6 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->actionOnMaintenance) {
-            $res['ActionOnMaintenance'] = $this->actionOnMaintenance;
-        }
-        if (null !== $this->notifyOnMaintenance) {
-            $res['NotifyOnMaintenance'] = $this->notifyOnMaintenance;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -104,6 +95,15 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
                     $res['MaintenanceWindow'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->actionOnMaintenance) {
+            $res['ActionOnMaintenance'] = $this->actionOnMaintenance;
+        }
+        if (null !== $this->notifyOnMaintenance) {
+            $res['NotifyOnMaintenance'] = $this->notifyOnMaintenance;
         }
 
         return $res;
@@ -129,15 +129,6 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ActionOnMaintenance'])) {
-            $model->actionOnMaintenance = $map['ActionOnMaintenance'];
-        }
-        if (isset($map['NotifyOnMaintenance'])) {
-            $model->notifyOnMaintenance = $map['NotifyOnMaintenance'];
-        }
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
                 $model->instanceId = $map['InstanceId'];
@@ -151,6 +142,15 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
                     $model->maintenanceWindow[$n++] = null !== $item ? maintenanceWindow::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ActionOnMaintenance'])) {
+            $model->actionOnMaintenance = $map['ActionOnMaintenance'];
+        }
+        if (isset($map['NotifyOnMaintenance'])) {
+            $model->notifyOnMaintenance = $map['NotifyOnMaintenance'];
         }
 
         return $model;

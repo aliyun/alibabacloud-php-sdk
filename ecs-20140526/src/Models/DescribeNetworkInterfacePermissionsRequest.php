@@ -34,6 +34,11 @@ class DescribeNetworkInterfacePermissionsRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $networkInterfacePermissionId;
+
+    /**
      * @var string
      */
     public $networkInterfaceId;
@@ -47,21 +52,16 @@ class DescribeNetworkInterfacePermissionsRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string[]
-     */
-    public $networkInterfacePermissionId;
     protected $_name = [
         'ownerId'                      => 'OwnerId',
         'resourceOwnerAccount'         => 'ResourceOwnerAccount',
         'resourceOwnerId'              => 'ResourceOwnerId',
         'ownerAccount'                 => 'OwnerAccount',
         'regionId'                     => 'RegionId',
+        'networkInterfacePermissionId' => 'NetworkInterfacePermissionId',
         'networkInterfaceId'           => 'NetworkInterfaceId',
         'pageNumber'                   => 'PageNumber',
         'pageSize'                     => 'PageSize',
-        'networkInterfacePermissionId' => 'NetworkInterfacePermissionId',
     ];
 
     public function validate()
@@ -86,6 +86,9 @@ class DescribeNetworkInterfacePermissionsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->networkInterfacePermissionId) {
+            $res['NetworkInterfacePermissionId'] = $this->networkInterfacePermissionId;
+        }
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
@@ -94,9 +97,6 @@ class DescribeNetworkInterfacePermissionsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->networkInterfacePermissionId) {
-            $res['NetworkInterfacePermissionId'] = $this->networkInterfacePermissionId;
         }
 
         return $res;
@@ -125,6 +125,11 @@ class DescribeNetworkInterfacePermissionsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['NetworkInterfacePermissionId'])) {
+            if (!empty($map['NetworkInterfacePermissionId'])) {
+                $model->networkInterfacePermissionId = $map['NetworkInterfacePermissionId'];
+            }
+        }
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
@@ -133,11 +138,6 @@ class DescribeNetworkInterfacePermissionsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['NetworkInterfacePermissionId'])) {
-            if (!empty($map['NetworkInterfacePermissionId'])) {
-                $model->networkInterfacePermissionId = $map['NetworkInterfacePermissionId'];
-            }
         }
 
         return $model;

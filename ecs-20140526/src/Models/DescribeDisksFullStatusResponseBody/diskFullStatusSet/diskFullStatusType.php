@@ -12,21 +12,6 @@ use AlibabaCloud\Tea\Model;
 class diskFullStatusType extends Model
 {
     /**
-     * @var status
-     */
-    public $status;
-
-    /**
-     * @var diskEventSet
-     */
-    public $diskEventSet;
-
-    /**
-     * @var string
-     */
-    public $device;
-
-    /**
      * @var string
      */
     public $diskId;
@@ -37,15 +22,30 @@ class diskFullStatusType extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $device;
+
+    /**
+     * @var diskEventSet
+     */
+    public $diskEventSet;
+
+    /**
+     * @var status
+     */
+    public $status;
+
+    /**
      * @var healthStatus
      */
     public $healthStatus;
     protected $_name = [
-        'status'       => 'Status',
-        'diskEventSet' => 'DiskEventSet',
-        'device'       => 'Device',
         'diskId'       => 'DiskId',
         'instanceId'   => 'InstanceId',
+        'device'       => 'Device',
+        'diskEventSet' => 'DiskEventSet',
+        'status'       => 'Status',
         'healthStatus' => 'HealthStatus',
     ];
 
@@ -56,20 +56,20 @@ class diskFullStatusType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
-        }
-        if (null !== $this->diskEventSet) {
-            $res['DiskEventSet'] = null !== $this->diskEventSet ? $this->diskEventSet->toMap() : null;
-        }
-        if (null !== $this->device) {
-            $res['Device'] = $this->device;
-        }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->device) {
+            $res['Device'] = $this->device;
+        }
+        if (null !== $this->diskEventSet) {
+            $res['DiskEventSet'] = null !== $this->diskEventSet ? $this->diskEventSet->toMap() : null;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
         }
         if (null !== $this->healthStatus) {
             $res['HealthStatus'] = null !== $this->healthStatus ? $this->healthStatus->toMap() : null;
@@ -86,20 +86,20 @@ class diskFullStatusType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = status::fromMap($map['Status']);
-        }
-        if (isset($map['DiskEventSet'])) {
-            $model->diskEventSet = diskEventSet::fromMap($map['DiskEventSet']);
-        }
-        if (isset($map['Device'])) {
-            $model->device = $map['Device'];
-        }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Device'])) {
+            $model->device = $map['Device'];
+        }
+        if (isset($map['DiskEventSet'])) {
+            $model->diskEventSet = diskEventSet::fromMap($map['DiskEventSet']);
+        }
+        if (isset($map['Status'])) {
+            $model->status = status::fromMap($map['Status']);
         }
         if (isset($map['HealthStatus'])) {
             $model->healthStatus = healthStatus::fromMap($map['HealthStatus']);

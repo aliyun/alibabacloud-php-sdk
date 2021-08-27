@@ -34,22 +34,22 @@ class StopInvocationRequest extends Model
     public $regionId;
 
     /**
-     * @var string
-     */
-    public $invokeId;
-
-    /**
      * @var string[]
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $invokeId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'invokeId'             => 'InvokeId',
         'instanceId'           => 'InstanceId',
+        'invokeId'             => 'InvokeId',
     ];
 
     public function validate()
@@ -74,11 +74,11 @@ class StopInvocationRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->invokeId) {
-            $res['InvokeId'] = $this->invokeId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->invokeId) {
+            $res['InvokeId'] = $this->invokeId;
         }
 
         return $res;
@@ -107,13 +107,13 @@ class StopInvocationRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['InvokeId'])) {
-            $model->invokeId = $map['InvokeId'];
-        }
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
                 $model->instanceId = $map['InstanceId'];
             }
+        }
+        if (isset($map['InvokeId'])) {
+            $model->invokeId = $map['InvokeId'];
         }
 
         return $model;

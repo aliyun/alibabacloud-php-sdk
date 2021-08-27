@@ -29,17 +29,12 @@ class instanceSystemEventType extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $impactLevel;
-
-    /**
-     * @var eventType
-     */
-    public $eventType;
-
-    /**
-     * @var extendedAttribute
-     */
-    public $extendedAttribute;
 
     /**
      * @var string
@@ -57,20 +52,31 @@ class instanceSystemEventType extends Model
     public $reason;
 
     /**
+     * @var eventType
+     */
+    public $eventType;
+
+    /**
      * @var eventCycleStatus
      */
     public $eventCycleStatus;
+
+    /**
+     * @var extendedAttribute
+     */
+    public $extendedAttribute;
     protected $_name = [
         'eventId'           => 'EventId',
         'eventPublishTime'  => 'EventPublishTime',
         'eventFinishTime'   => 'EventFinishTime',
+        'resourceType'      => 'ResourceType',
         'impactLevel'       => 'ImpactLevel',
-        'eventType'         => 'EventType',
-        'extendedAttribute' => 'ExtendedAttribute',
         'notBefore'         => 'NotBefore',
         'instanceId'        => 'InstanceId',
         'reason'            => 'Reason',
+        'eventType'         => 'EventType',
         'eventCycleStatus'  => 'EventCycleStatus',
+        'extendedAttribute' => 'ExtendedAttribute',
     ];
 
     public function validate()
@@ -89,14 +95,11 @@ class instanceSystemEventType extends Model
         if (null !== $this->eventFinishTime) {
             $res['EventFinishTime'] = $this->eventFinishTime;
         }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
         if (null !== $this->impactLevel) {
             $res['ImpactLevel'] = $this->impactLevel;
-        }
-        if (null !== $this->eventType) {
-            $res['EventType'] = null !== $this->eventType ? $this->eventType->toMap() : null;
-        }
-        if (null !== $this->extendedAttribute) {
-            $res['ExtendedAttribute'] = null !== $this->extendedAttribute ? $this->extendedAttribute->toMap() : null;
         }
         if (null !== $this->notBefore) {
             $res['NotBefore'] = $this->notBefore;
@@ -107,8 +110,14 @@ class instanceSystemEventType extends Model
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
+        if (null !== $this->eventType) {
+            $res['EventType'] = null !== $this->eventType ? $this->eventType->toMap() : null;
+        }
         if (null !== $this->eventCycleStatus) {
             $res['EventCycleStatus'] = null !== $this->eventCycleStatus ? $this->eventCycleStatus->toMap() : null;
+        }
+        if (null !== $this->extendedAttribute) {
+            $res['ExtendedAttribute'] = null !== $this->extendedAttribute ? $this->extendedAttribute->toMap() : null;
         }
 
         return $res;
@@ -131,14 +140,11 @@ class instanceSystemEventType extends Model
         if (isset($map['EventFinishTime'])) {
             $model->eventFinishTime = $map['EventFinishTime'];
         }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
         if (isset($map['ImpactLevel'])) {
             $model->impactLevel = $map['ImpactLevel'];
-        }
-        if (isset($map['EventType'])) {
-            $model->eventType = eventType::fromMap($map['EventType']);
-        }
-        if (isset($map['ExtendedAttribute'])) {
-            $model->extendedAttribute = extendedAttribute::fromMap($map['ExtendedAttribute']);
         }
         if (isset($map['NotBefore'])) {
             $model->notBefore = $map['NotBefore'];
@@ -149,8 +155,14 @@ class instanceSystemEventType extends Model
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
+        if (isset($map['EventType'])) {
+            $model->eventType = eventType::fromMap($map['EventType']);
+        }
         if (isset($map['EventCycleStatus'])) {
             $model->eventCycleStatus = eventCycleStatus::fromMap($map['EventCycleStatus']);
+        }
+        if (isset($map['ExtendedAttribute'])) {
+            $model->extendedAttribute = extendedAttribute::fromMap($map['ExtendedAttribute']);
         }
 
         return $model;

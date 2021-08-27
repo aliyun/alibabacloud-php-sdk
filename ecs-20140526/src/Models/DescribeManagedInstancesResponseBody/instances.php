@@ -36,22 +36,22 @@ class instances extends Model
     /**
      * @var string
      */
-    public $intranetIp;
-
-    /**
-     * @var string
-     */
     public $activationId;
 
     /**
      * @var string
      */
-    public $registrationTime;
+    public $intranetIp;
 
     /**
      * @var string
      */
     public $agentVersion;
+
+    /**
+     * @var string
+     */
+    public $registrationTime;
 
     /**
      * @var string
@@ -83,10 +83,10 @@ class instances extends Model
         'internetIp'       => 'InternetIp',
         'hostname'         => 'Hostname',
         'instanceId'       => 'InstanceId',
-        'intranetIp'       => 'IntranetIp',
         'activationId'     => 'ActivationId',
-        'registrationTime' => 'RegistrationTime',
+        'intranetIp'       => 'IntranetIp',
         'agentVersion'     => 'AgentVersion',
+        'registrationTime' => 'RegistrationTime',
         'instanceName'     => 'InstanceName',
         'osType'           => 'OsType',
         'osVersion'        => 'OsVersion',
@@ -116,17 +116,17 @@ class instances extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->intranetIp) {
-            $res['IntranetIp'] = $this->intranetIp;
-        }
         if (null !== $this->activationId) {
             $res['ActivationId'] = $this->activationId;
         }
-        if (null !== $this->registrationTime) {
-            $res['RegistrationTime'] = $this->registrationTime;
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
         }
         if (null !== $this->agentVersion) {
             $res['AgentVersion'] = $this->agentVersion;
+        }
+        if (null !== $this->registrationTime) {
+            $res['RegistrationTime'] = $this->registrationTime;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -170,17 +170,17 @@ class instances extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['IntranetIp'])) {
-            $model->intranetIp = $map['IntranetIp'];
-        }
         if (isset($map['ActivationId'])) {
             $model->activationId = $map['ActivationId'];
         }
-        if (isset($map['RegistrationTime'])) {
-            $model->registrationTime = $map['RegistrationTime'];
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
         }
         if (isset($map['AgentVersion'])) {
             $model->agentVersion = $map['AgentVersion'];
+        }
+        if (isset($map['RegistrationTime'])) {
+            $model->registrationTime = $map['RegistrationTime'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];

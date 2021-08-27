@@ -11,15 +11,15 @@ class InvokeCommandResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $invokeId;
 
     /**
      * @var string
      */
-    public $invokeId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'invokeId'  => 'InvokeId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class InvokeCommandResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class InvokeCommandResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

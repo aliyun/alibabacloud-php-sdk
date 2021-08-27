@@ -12,12 +12,12 @@ class availableZone extends Model
     /**
      * @var string
      */
-    public $status;
+    public $zoneId;
 
     /**
      * @var string
      */
-    public $zoneId;
+    public $status;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class availableZone extends Model
      */
     public $availableResources;
     protected $_name = [
-        'status'             => 'Status',
         'zoneId'             => 'ZoneId',
+        'status'             => 'Status',
         'statusCategory'     => 'StatusCategory',
         'regionId'           => 'RegionId',
         'availableResources' => 'AvailableResources',
@@ -48,11 +48,11 @@ class availableZone extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->statusCategory) {
             $res['StatusCategory'] = $this->statusCategory;
@@ -75,11 +75,11 @@ class availableZone extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['StatusCategory'])) {
             $model->statusCategory = $map['StatusCategory'];

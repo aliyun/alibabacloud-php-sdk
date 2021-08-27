@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class command extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $timeout;
+    public $creationTime;
 
     /**
      * @var string
@@ -20,14 +20,9 @@ class command extends Model
     public $type;
 
     /**
-     * @var string
+     * @var int
      */
-    public $creationTime;
-
-    /**
-     * @var parameterNames
-     */
-    public $parameterNames;
+    public $timeout;
 
     /**
      * @var int
@@ -57,12 +52,12 @@ class command extends Model
     /**
      * @var string
      */
-    public $commandContent;
+    public $provider;
 
     /**
      * @var string
      */
-    public $provider;
+    public $commandContent;
 
     /**
      * @var string
@@ -83,22 +78,27 @@ class command extends Model
      * @var bool
      */
     public $enableParameter;
+
+    /**
+     * @var parameterNames
+     */
+    public $parameterNames;
     protected $_name = [
-        'timeout'         => 'Timeout',
-        'type'            => 'Type',
         'creationTime'    => 'CreationTime',
-        'parameterNames'  => 'ParameterNames',
+        'type'            => 'Type',
+        'timeout'         => 'Timeout',
         'invokeTimes'     => 'InvokeTimes',
         'commandId'       => 'CommandId',
         'workingDir'      => 'WorkingDir',
         'description'     => 'Description',
         'version'         => 'Version',
-        'commandContent'  => 'CommandContent',
         'provider'        => 'Provider',
+        'commandContent'  => 'CommandContent',
         'category'        => 'Category',
         'latest'          => 'Latest',
         'name'            => 'Name',
         'enableParameter' => 'EnableParameter',
+        'parameterNames'  => 'ParameterNames',
     ];
 
     public function validate()
@@ -108,17 +108,14 @@ class command extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeout) {
-            $res['Timeout'] = $this->timeout;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->parameterNames) {
-            $res['ParameterNames'] = null !== $this->parameterNames ? $this->parameterNames->toMap() : null;
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
         if (null !== $this->invokeTimes) {
             $res['InvokeTimes'] = $this->invokeTimes;
@@ -135,11 +132,11 @@ class command extends Model
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
-        if (null !== $this->commandContent) {
-            $res['CommandContent'] = $this->commandContent;
-        }
         if (null !== $this->provider) {
             $res['Provider'] = $this->provider;
+        }
+        if (null !== $this->commandContent) {
+            $res['CommandContent'] = $this->commandContent;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
@@ -153,6 +150,9 @@ class command extends Model
         if (null !== $this->enableParameter) {
             $res['EnableParameter'] = $this->enableParameter;
         }
+        if (null !== $this->parameterNames) {
+            $res['ParameterNames'] = null !== $this->parameterNames ? $this->parameterNames->toMap() : null;
+        }
 
         return $res;
     }
@@ -165,17 +165,14 @@ class command extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Timeout'])) {
-            $model->timeout = $map['Timeout'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['ParameterNames'])) {
-            $model->parameterNames = parameterNames::fromMap($map['ParameterNames']);
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
         if (isset($map['InvokeTimes'])) {
             $model->invokeTimes = $map['InvokeTimes'];
@@ -192,11 +189,11 @@ class command extends Model
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }
-        if (isset($map['CommandContent'])) {
-            $model->commandContent = $map['CommandContent'];
-        }
         if (isset($map['Provider'])) {
             $model->provider = $map['Provider'];
+        }
+        if (isset($map['CommandContent'])) {
+            $model->commandContent = $map['CommandContent'];
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
@@ -209,6 +206,9 @@ class command extends Model
         }
         if (isset($map['EnableParameter'])) {
             $model->enableParameter = $map['EnableParameter'];
+        }
+        if (isset($map['ParameterNames'])) {
+            $model->parameterNames = parameterNames::fromMap($map['ParameterNames']);
         }
 
         return $model;

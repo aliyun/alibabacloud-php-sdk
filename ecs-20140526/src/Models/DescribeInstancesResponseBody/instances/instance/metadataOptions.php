@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class metadataOptions extends Model
 {
     /**
+     * @var string
+     */
+    public $httpEndpoint;
+
+    /**
      * @var int
      */
     public $httpPutResponseHopLimit;
@@ -16,15 +21,10 @@ class metadataOptions extends Model
     /**
      * @var string
      */
-    public $httpEndpoint;
-
-    /**
-     * @var string
-     */
     public $httpTokens;
     protected $_name = [
-        'httpPutResponseHopLimit' => 'HttpPutResponseHopLimit',
         'httpEndpoint'            => 'HttpEndpoint',
+        'httpPutResponseHopLimit' => 'HttpPutResponseHopLimit',
         'httpTokens'              => 'HttpTokens',
     ];
 
@@ -35,11 +35,11 @@ class metadataOptions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpPutResponseHopLimit) {
-            $res['HttpPutResponseHopLimit'] = $this->httpPutResponseHopLimit;
-        }
         if (null !== $this->httpEndpoint) {
             $res['HttpEndpoint'] = $this->httpEndpoint;
+        }
+        if (null !== $this->httpPutResponseHopLimit) {
+            $res['HttpPutResponseHopLimit'] = $this->httpPutResponseHopLimit;
         }
         if (null !== $this->httpTokens) {
             $res['HttpTokens'] = $this->httpTokens;
@@ -56,11 +56,11 @@ class metadataOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpPutResponseHopLimit'])) {
-            $model->httpPutResponseHopLimit = $map['HttpPutResponseHopLimit'];
-        }
         if (isset($map['HttpEndpoint'])) {
             $model->httpEndpoint = $map['HttpEndpoint'];
+        }
+        if (isset($map['HttpPutResponseHopLimit'])) {
+            $model->httpPutResponseHopLimit = $map['HttpPutResponseHopLimit'];
         }
         if (isset($map['HttpTokens'])) {
             $model->httpTokens = $map['HttpTokens'];

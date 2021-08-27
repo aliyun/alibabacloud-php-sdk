@@ -27,12 +27,12 @@ class networkInterface extends Model
     /**
      * @var string
      */
-    public $securityGroupId;
+    public $primaryIpAddress;
 
     /**
      * @var string
      */
-    public $primaryIpAddress;
+    public $securityGroupId;
 
     /**
      * @var securityGroupIds
@@ -42,8 +42,8 @@ class networkInterface extends Model
         'networkInterfaceName' => 'NetworkInterfaceName',
         'vSwitchId'            => 'VSwitchId',
         'description'          => 'Description',
-        'securityGroupId'      => 'SecurityGroupId',
         'primaryIpAddress'     => 'PrimaryIpAddress',
+        'securityGroupId'      => 'SecurityGroupId',
         'securityGroupIds'     => 'SecurityGroupIds',
     ];
 
@@ -63,11 +63,11 @@ class networkInterface extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
         if (null !== $this->primaryIpAddress) {
             $res['PrimaryIpAddress'] = $this->primaryIpAddress;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
@@ -93,11 +93,11 @@ class networkInterface extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
         if (isset($map['PrimaryIpAddress'])) {
             $model->primaryIpAddress = $map['PrimaryIpAddress'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
         if (isset($map['SecurityGroupIds'])) {
             $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);

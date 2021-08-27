@@ -11,15 +11,15 @@ class CreateCommandResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $commandId;
 
     /**
      * @var string
      */
-    public $commandId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'commandId' => 'CommandId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateCommandResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateCommandResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

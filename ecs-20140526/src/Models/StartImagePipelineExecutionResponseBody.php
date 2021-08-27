@@ -11,15 +11,15 @@ class StartImagePipelineExecutionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $executionId;
 
     /**
      * @var string
      */
-    public $executionId;
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'executionId' => 'ExecutionId',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class StartImagePipelineExecutionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->executionId) {
             $res['ExecutionId'] = $this->executionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class StartImagePipelineExecutionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ExecutionId'])) {
             $model->executionId = $map['ExecutionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

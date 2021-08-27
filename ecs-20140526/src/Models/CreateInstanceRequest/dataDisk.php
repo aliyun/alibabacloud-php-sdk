@@ -44,14 +44,14 @@ class dataDisk extends Model
     public $category;
 
     /**
-     * @var string
-     */
-    public $KMSKeyId;
-
-    /**
      * @var bool
      */
     public $deleteWithInstance;
+
+    /**
+     * @var string
+     */
+    public $KMSKeyId;
 
     /**
      * @var string
@@ -70,8 +70,8 @@ class dataDisk extends Model
         'device'             => 'Device',
         'diskName'           => 'DiskName',
         'category'           => 'Category',
-        'KMSKeyId'           => 'KMSKeyId',
         'deleteWithInstance' => 'DeleteWithInstance',
+        'KMSKeyId'           => 'KMSKeyId',
         'encryptAlgorithm'   => 'EncryptAlgorithm',
         'encrypted'          => 'Encrypted',
     ];
@@ -104,11 +104,11 @@ class dataDisk extends Model
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-        if (null !== $this->KMSKeyId) {
-            $res['KMSKeyId'] = $this->KMSKeyId;
-        }
         if (null !== $this->deleteWithInstance) {
             $res['DeleteWithInstance'] = $this->deleteWithInstance;
+        }
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
         }
         if (null !== $this->encryptAlgorithm) {
             $res['EncryptAlgorithm'] = $this->encryptAlgorithm;
@@ -149,11 +149,11 @@ class dataDisk extends Model
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-        if (isset($map['KMSKeyId'])) {
-            $model->KMSKeyId = $map['KMSKeyId'];
-        }
         if (isset($map['DeleteWithInstance'])) {
             $model->deleteWithInstance = $map['DeleteWithInstance'];
+        }
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
         }
         if (isset($map['EncryptAlgorithm'])) {
             $model->encryptAlgorithm = $map['EncryptAlgorithm'];

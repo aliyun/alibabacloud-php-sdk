@@ -40,11 +40,6 @@ class imageComponentSet extends Model
     public $resourceGroupId;
 
     /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
      * @var string
      */
     public $name;
@@ -53,6 +48,11 @@ class imageComponentSet extends Model
      * @var string
      */
     public $content;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'creationTime'     => 'CreationTime',
         'description'      => 'Description',
@@ -60,9 +60,9 @@ class imageComponentSet extends Model
         'imageComponentId' => 'ImageComponentId',
         'componentType'    => 'ComponentType',
         'resourceGroupId'  => 'ResourceGroupId',
-        'tags'             => 'Tags',
         'name'             => 'Name',
         'content'          => 'Content',
+        'tags'             => 'Tags',
     ];
 
     public function validate()
@@ -90,14 +90,14 @@ class imageComponentSet extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -129,14 +129,14 @@ class imageComponentSet extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

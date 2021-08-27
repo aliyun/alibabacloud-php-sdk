@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateConfig extends Model
 {
     /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
      * @var float
      */
     public $maxPrice;
@@ -22,6 +17,11 @@ class launchTemplateConfig extends Model
      * @var float
      */
     public $priority;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
 
     /**
      * @var float
@@ -33,9 +33,9 @@ class launchTemplateConfig extends Model
      */
     public $instanceType;
     protected $_name = [
-        'vSwitchId'        => 'VSwitchId',
         'maxPrice'         => 'MaxPrice',
         'priority'         => 'Priority',
+        'vSwitchId'        => 'VSwitchId',
         'weightedCapacity' => 'WeightedCapacity',
         'instanceType'     => 'InstanceType',
     ];
@@ -47,14 +47,14 @@ class launchTemplateConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
         if (null !== $this->maxPrice) {
             $res['MaxPrice'] = $this->maxPrice;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->weightedCapacity) {
             $res['WeightedCapacity'] = $this->weightedCapacity;
@@ -74,14 +74,14 @@ class launchTemplateConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
         if (isset($map['MaxPrice'])) {
             $model->maxPrice = $map['MaxPrice'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['WeightedCapacity'])) {
             $model->weightedCapacity = $map['WeightedCapacity'];

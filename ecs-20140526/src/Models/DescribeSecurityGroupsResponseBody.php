@@ -10,24 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsResponseBody extends Model
 {
     /**
-     * @var securityGroups
-     */
-    public $securityGroups;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @var int
@@ -37,14 +22,29 @@ class DescribeSecurityGroupsResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var securityGroups
+     */
+    public $securityGroups;
     protected $_name = [
-        'securityGroups' => 'SecurityGroups',
-        'totalCount'     => 'TotalCount',
         'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
         'pageNumber'     => 'PageNumber',
+        'requestId'      => 'RequestId',
+        'totalCount'     => 'TotalCount',
         'regionId'       => 'RegionId',
+        'securityGroups' => 'SecurityGroups',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeSecurityGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityGroups) {
-            $res['SecurityGroups'] = null !== $this->securityGroups ? $this->securityGroups->toMap() : null;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->securityGroups) {
+            $res['SecurityGroups'] = null !== $this->securityGroups ? $this->securityGroups->toMap() : null;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeSecurityGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityGroups'])) {
-            $model->securityGroups = securityGroups::fromMap($map['SecurityGroups']);
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SecurityGroups'])) {
+            $model->securityGroups = securityGroups::fromMap($map['SecurityGroups']);
         }
 
         return $model;

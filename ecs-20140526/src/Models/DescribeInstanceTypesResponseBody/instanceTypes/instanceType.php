@@ -64,6 +64,11 @@ class instanceType extends Model
     public $instanceBandwidthRx;
 
     /**
+     * @var int
+     */
+    public $secondaryEniQueueNumber;
+
+    /**
      * @var string
      */
     public $GPUSpec;
@@ -71,12 +76,17 @@ class instanceType extends Model
     /**
      * @var int
      */
-    public $secondaryEniQueueNumber;
+    public $instanceBandwidthTx;
 
     /**
      * @var int
      */
-    public $instanceBandwidthTx;
+    public $queuePairNumber;
+
+    /**
+     * @var int
+     */
+    public $eriQuantity;
 
     /**
      * @var int
@@ -87,6 +97,16 @@ class instanceType extends Model
      * @var int
      */
     public $totalEniQueueQuantity;
+
+    /**
+     * @var string
+     */
+    public $nvmeSupport;
+
+    /**
+     * @var int
+     */
+    public $diskQuantity;
 
     /**
      * @var int
@@ -114,14 +134,14 @@ class instanceType extends Model
     public $eniPrivateIpAddressQuantity;
 
     /**
-     * @var string
-     */
-    public $instanceTypeFamily;
-
-    /**
      * @var int
      */
     public $cpuCoreCount;
+
+    /**
+     * @var string
+     */
+    public $instanceTypeFamily;
 
     /**
      * @var int
@@ -144,18 +164,22 @@ class instanceType extends Model
         'maximumQueueNumberPerEni'    => 'MaximumQueueNumberPerEni',
         'instanceTypeId'              => 'InstanceTypeId',
         'instanceBandwidthRx'         => 'InstanceBandwidthRx',
-        'GPUSpec'                     => 'GPUSpec',
         'secondaryEniQueueNumber'     => 'SecondaryEniQueueNumber',
+        'GPUSpec'                     => 'GPUSpec',
         'instanceBandwidthTx'         => 'InstanceBandwidthTx',
+        'queuePairNumber'             => 'QueuePairNumber',
+        'eriQuantity'                 => 'EriQuantity',
         'GPUAmount'                   => 'GPUAmount',
         'totalEniQueueQuantity'       => 'TotalEniQueueQuantity',
+        'nvmeSupport'                 => 'NvmeSupport',
+        'diskQuantity'                => 'DiskQuantity',
         'initialCredit'               => 'InitialCredit',
         'localStorageAmount'          => 'LocalStorageAmount',
         'baselineCredit'              => 'BaselineCredit',
         'instancePpsTx'               => 'InstancePpsTx',
         'eniPrivateIpAddressQuantity' => 'EniPrivateIpAddressQuantity',
-        'instanceTypeFamily'          => 'InstanceTypeFamily',
         'cpuCoreCount'                => 'CpuCoreCount',
+        'instanceTypeFamily'          => 'InstanceTypeFamily',
         'eniQuantity'                 => 'EniQuantity',
         'eniTrunkSupported'           => 'EniTrunkSupported',
     ];
@@ -200,20 +224,32 @@ class instanceType extends Model
         if (null !== $this->instanceBandwidthRx) {
             $res['InstanceBandwidthRx'] = $this->instanceBandwidthRx;
         }
-        if (null !== $this->GPUSpec) {
-            $res['GPUSpec'] = $this->GPUSpec;
-        }
         if (null !== $this->secondaryEniQueueNumber) {
             $res['SecondaryEniQueueNumber'] = $this->secondaryEniQueueNumber;
         }
+        if (null !== $this->GPUSpec) {
+            $res['GPUSpec'] = $this->GPUSpec;
+        }
         if (null !== $this->instanceBandwidthTx) {
             $res['InstanceBandwidthTx'] = $this->instanceBandwidthTx;
+        }
+        if (null !== $this->queuePairNumber) {
+            $res['QueuePairNumber'] = $this->queuePairNumber;
+        }
+        if (null !== $this->eriQuantity) {
+            $res['EriQuantity'] = $this->eriQuantity;
         }
         if (null !== $this->GPUAmount) {
             $res['GPUAmount'] = $this->GPUAmount;
         }
         if (null !== $this->totalEniQueueQuantity) {
             $res['TotalEniQueueQuantity'] = $this->totalEniQueueQuantity;
+        }
+        if (null !== $this->nvmeSupport) {
+            $res['NvmeSupport'] = $this->nvmeSupport;
+        }
+        if (null !== $this->diskQuantity) {
+            $res['DiskQuantity'] = $this->diskQuantity;
         }
         if (null !== $this->initialCredit) {
             $res['InitialCredit'] = $this->initialCredit;
@@ -230,11 +266,11 @@ class instanceType extends Model
         if (null !== $this->eniPrivateIpAddressQuantity) {
             $res['EniPrivateIpAddressQuantity'] = $this->eniPrivateIpAddressQuantity;
         }
-        if (null !== $this->instanceTypeFamily) {
-            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
-        }
         if (null !== $this->cpuCoreCount) {
             $res['CpuCoreCount'] = $this->cpuCoreCount;
+        }
+        if (null !== $this->instanceTypeFamily) {
+            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
         }
         if (null !== $this->eniQuantity) {
             $res['EniQuantity'] = $this->eniQuantity;
@@ -287,20 +323,32 @@ class instanceType extends Model
         if (isset($map['InstanceBandwidthRx'])) {
             $model->instanceBandwidthRx = $map['InstanceBandwidthRx'];
         }
-        if (isset($map['GPUSpec'])) {
-            $model->GPUSpec = $map['GPUSpec'];
-        }
         if (isset($map['SecondaryEniQueueNumber'])) {
             $model->secondaryEniQueueNumber = $map['SecondaryEniQueueNumber'];
         }
+        if (isset($map['GPUSpec'])) {
+            $model->GPUSpec = $map['GPUSpec'];
+        }
         if (isset($map['InstanceBandwidthTx'])) {
             $model->instanceBandwidthTx = $map['InstanceBandwidthTx'];
+        }
+        if (isset($map['QueuePairNumber'])) {
+            $model->queuePairNumber = $map['QueuePairNumber'];
+        }
+        if (isset($map['EriQuantity'])) {
+            $model->eriQuantity = $map['EriQuantity'];
         }
         if (isset($map['GPUAmount'])) {
             $model->GPUAmount = $map['GPUAmount'];
         }
         if (isset($map['TotalEniQueueQuantity'])) {
             $model->totalEniQueueQuantity = $map['TotalEniQueueQuantity'];
+        }
+        if (isset($map['NvmeSupport'])) {
+            $model->nvmeSupport = $map['NvmeSupport'];
+        }
+        if (isset($map['DiskQuantity'])) {
+            $model->diskQuantity = $map['DiskQuantity'];
         }
         if (isset($map['InitialCredit'])) {
             $model->initialCredit = $map['InitialCredit'];
@@ -317,11 +365,11 @@ class instanceType extends Model
         if (isset($map['EniPrivateIpAddressQuantity'])) {
             $model->eniPrivateIpAddressQuantity = $map['EniPrivateIpAddressQuantity'];
         }
-        if (isset($map['InstanceTypeFamily'])) {
-            $model->instanceTypeFamily = $map['InstanceTypeFamily'];
-        }
         if (isset($map['CpuCoreCount'])) {
             $model->cpuCoreCount = $map['CpuCoreCount'];
+        }
+        if (isset($map['InstanceTypeFamily'])) {
+            $model->instanceTypeFamily = $map['InstanceTypeFamily'];
         }
         if (isset($map['EniQuantity'])) {
             $model->eniQuantity = $map['EniQuantity'];

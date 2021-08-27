@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class PurchaseReservedInstancesOfferingResponseBody extends Model
 {
     /**
-     * @var reservedInstanceIdSets
-     */
-    public $reservedInstanceIdSets;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var reservedInstanceIdSets
+     */
+    public $reservedInstanceIdSets;
     protected $_name = [
-        'reservedInstanceIdSets' => 'ReservedInstanceIdSets',
         'requestId'              => 'RequestId',
+        'reservedInstanceIdSets' => 'ReservedInstanceIdSets',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class PurchaseReservedInstancesOfferingResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->reservedInstanceIdSets) {
-            $res['ReservedInstanceIdSets'] = null !== $this->reservedInstanceIdSets ? $this->reservedInstanceIdSets->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->reservedInstanceIdSets) {
+            $res['ReservedInstanceIdSets'] = null !== $this->reservedInstanceIdSets ? $this->reservedInstanceIdSets->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class PurchaseReservedInstancesOfferingResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReservedInstanceIdSets'])) {
-            $model->reservedInstanceIdSets = reservedInstanceIdSets::fromMap($map['ReservedInstanceIdSets']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ReservedInstanceIdSets'])) {
+            $model->reservedInstanceIdSets = reservedInstanceIdSets::fromMap($map['ReservedInstanceIdSets']);
         }
 
         return $model;

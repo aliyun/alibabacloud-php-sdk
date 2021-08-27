@@ -22,23 +22,23 @@ class keyPair extends Model
     /**
      * @var string
      */
+    public $keyPairFingerPrint;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
      * @var tags
      */
     public $tags;
-
-    /**
-     * @var string
-     */
-    public $keyPairFingerPrint;
     protected $_name = [
         'creationTime'       => 'CreationTime',
         'keyPairName'        => 'KeyPairName',
+        'keyPairFingerPrint' => 'KeyPairFingerPrint',
         'resourceGroupId'    => 'ResourceGroupId',
         'tags'               => 'Tags',
-        'keyPairFingerPrint' => 'KeyPairFingerPrint',
     ];
 
     public function validate()
@@ -54,14 +54,14 @@ class keyPair extends Model
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
+        if (null !== $this->keyPairFingerPrint) {
+            $res['KeyPairFingerPrint'] = $this->keyPairFingerPrint;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
-        if (null !== $this->keyPairFingerPrint) {
-            $res['KeyPairFingerPrint'] = $this->keyPairFingerPrint;
         }
 
         return $res;
@@ -81,14 +81,14 @@ class keyPair extends Model
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
+        if (isset($map['KeyPairFingerPrint'])) {
+            $model->keyPairFingerPrint = $map['KeyPairFingerPrint'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
-        }
-        if (isset($map['KeyPairFingerPrint'])) {
-            $model->keyPairFingerPrint = $map['KeyPairFingerPrint'];
         }
 
         return $model;

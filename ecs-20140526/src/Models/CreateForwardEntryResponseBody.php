@@ -11,15 +11,15 @@ class CreateForwardEntryResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $forwardEntryId;
 
     /**
      * @var string
      */
-    public $forwardEntryId;
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'forwardEntryId' => 'ForwardEntryId',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateForwardEntryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->forwardEntryId) {
             $res['ForwardEntryId'] = $this->forwardEntryId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateForwardEntryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ForwardEntryId'])) {
             $model->forwardEntryId = $map['ForwardEntryId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DescribeUserBusinessBehaviorResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $statusValue;
 
     /**
      * @var string
      */
-    public $statusValue;
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'statusValue' => 'StatusValue',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeUserBusinessBehaviorResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->statusValue) {
             $res['StatusValue'] = $this->statusValue;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeUserBusinessBehaviorResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['StatusValue'])) {
             $model->statusValue = $map['StatusValue'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

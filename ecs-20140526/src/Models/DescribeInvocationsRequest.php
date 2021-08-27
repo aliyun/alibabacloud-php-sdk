@@ -87,6 +87,11 @@ class DescribeInvocationsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $repeatMode;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -104,6 +109,7 @@ class DescribeInvocationsRequest extends Model
         'includeOutput'        => 'IncludeOutput',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'repeatMode'           => 'RepeatMode',
     ];
 
     public function validate()
@@ -160,6 +166,9 @@ class DescribeInvocationsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->repeatMode) {
+            $res['RepeatMode'] = $this->repeatMode;
         }
 
         return $res;
@@ -220,6 +229,9 @@ class DescribeInvocationsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RepeatMode'])) {
+            $model->repeatMode = $map['RepeatMode'];
         }
 
         return $model;

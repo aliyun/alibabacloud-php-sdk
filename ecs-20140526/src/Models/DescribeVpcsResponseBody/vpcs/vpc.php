@@ -51,6 +51,11 @@ class vpc extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var vSwitchIds
      */
     public $vSwitchIds;
@@ -59,11 +64,6 @@ class vpc extends Model
      * @var userCidrs
      */
     public $userCidrs;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'creationTime' => 'CreationTime',
         'vpcName'      => 'VpcName',
@@ -73,9 +73,9 @@ class vpc extends Model
         'isDefault'    => 'IsDefault',
         'cidrBlock'    => 'CidrBlock',
         'description'  => 'Description',
+        'regionId'     => 'RegionId',
         'vSwitchIds'   => 'VSwitchIds',
         'userCidrs'    => 'UserCidrs',
-        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -109,14 +109,14 @@ class vpc extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->vSwitchIds) {
             $res['VSwitchIds'] = null !== $this->vSwitchIds ? $this->vSwitchIds->toMap() : null;
         }
         if (null !== $this->userCidrs) {
             $res['UserCidrs'] = null !== $this->userCidrs ? $this->userCidrs->toMap() : null;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -154,14 +154,14 @@ class vpc extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['VSwitchIds'])) {
             $model->vSwitchIds = vSwitchIds::fromMap($map['VSwitchIds']);
         }
         if (isset($map['UserCidrs'])) {
             $model->userCidrs = userCidrs::fromMap($map['UserCidrs']);
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

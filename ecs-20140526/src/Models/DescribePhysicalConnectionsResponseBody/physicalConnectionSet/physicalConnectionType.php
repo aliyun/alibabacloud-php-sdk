@@ -11,12 +11,7 @@ class physicalConnectionType extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $status;
+    public $adLocation;
 
     /**
      * @var string
@@ -26,7 +21,12 @@ class physicalConnectionType extends Model
     /**
      * @var string
      */
-    public $adLocation;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
 
     /**
      * @var string
@@ -36,17 +36,12 @@ class physicalConnectionType extends Model
     /**
      * @var string
      */
-    public $spec;
-
-    /**
-     * @var string
-     */
     public $circuitCode;
 
     /**
      * @var string
      */
-    public $description;
+    public $spec;
 
     /**
      * @var int
@@ -56,17 +51,22 @@ class physicalConnectionType extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $portType;
 
     /**
      * @var string
      */
-    public $businessStatus;
+    public $enabledTime;
 
     /**
      * @var string
      */
-    public $enabledTime;
+    public $businessStatus;
 
     /**
      * @var string
@@ -98,18 +98,18 @@ class physicalConnectionType extends Model
      */
     public $physicalConnectionId;
     protected $_name = [
-        'type'                          => 'Type',
-        'status'                        => 'Status',
-        'creationTime'                  => 'CreationTime',
         'adLocation'                    => 'AdLocation',
+        'creationTime'                  => 'CreationTime',
+        'status'                        => 'Status',
+        'type'                          => 'Type',
         'portNumber'                    => 'PortNumber',
-        'spec'                          => 'Spec',
         'circuitCode'                   => 'CircuitCode',
-        'description'                   => 'Description',
+        'spec'                          => 'Spec',
         'bandwidth'                     => 'Bandwidth',
+        'description'                   => 'Description',
         'portType'                      => 'PortType',
-        'businessStatus'                => 'BusinessStatus',
         'enabledTime'                   => 'EnabledTime',
+        'businessStatus'                => 'BusinessStatus',
         'lineOperator'                  => 'LineOperator',
         'name'                          => 'Name',
         'redundantPhysicalConnectionId' => 'RedundantPhysicalConnectionId',
@@ -125,41 +125,41 @@ class physicalConnectionType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->adLocation) {
+            $res['AdLocation'] = $this->adLocation;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->adLocation) {
-            $res['AdLocation'] = $this->adLocation;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->portNumber) {
             $res['PortNumber'] = $this->portNumber;
         }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
-        }
         if (null !== $this->circuitCode) {
             $res['CircuitCode'] = $this->circuitCode;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
         }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->portType) {
             $res['PortType'] = $this->portType;
         }
-        if (null !== $this->businessStatus) {
-            $res['BusinessStatus'] = $this->businessStatus;
-        }
         if (null !== $this->enabledTime) {
             $res['EnabledTime'] = $this->enabledTime;
+        }
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
         }
         if (null !== $this->lineOperator) {
             $res['LineOperator'] = $this->lineOperator;
@@ -191,41 +191,41 @@ class physicalConnectionType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AdLocation'])) {
+            $model->adLocation = $map['AdLocation'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['AdLocation'])) {
-            $model->adLocation = $map['AdLocation'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['PortNumber'])) {
             $model->portNumber = $map['PortNumber'];
         }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
-        }
         if (isset($map['CircuitCode'])) {
             $model->circuitCode = $map['CircuitCode'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
         }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['PortType'])) {
             $model->portType = $map['PortType'];
         }
-        if (isset($map['BusinessStatus'])) {
-            $model->businessStatus = $map['BusinessStatus'];
-        }
         if (isset($map['EnabledTime'])) {
             $model->enabledTime = $map['EnabledTime'];
+        }
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
         }
         if (isset($map['LineOperator'])) {
             $model->lineOperator = $map['LineOperator'];

@@ -11,21 +11,21 @@ class mountInstance extends Model
     /**
      * @var string
      */
-    public $device;
-
-    /**
-     * @var string
-     */
     public $attachedTime;
 
     /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $device;
     protected $_name = [
-        'device'       => 'Device',
         'attachedTime' => 'AttachedTime',
         'instanceId'   => 'InstanceId',
+        'device'       => 'Device',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class mountInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->device) {
-            $res['Device'] = $this->device;
-        }
         if (null !== $this->attachedTime) {
             $res['AttachedTime'] = $this->attachedTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->device) {
+            $res['Device'] = $this->device;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class mountInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Device'])) {
-            $model->device = $map['Device'];
-        }
         if (isset($map['AttachedTime'])) {
             $model->attachedTime = $map['AttachedTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Device'])) {
+            $model->device = $map['Device'];
         }
 
         return $model;

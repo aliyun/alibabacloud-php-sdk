@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeCapacityReservationsResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $nextToken;
@@ -27,6 +22,11 @@ class DescribeCapacityReservationsResponseBody extends Model
     /**
      * @var int
      */
+    public $totalCount;
+
+    /**
+     * @var int
+     */
     public $maxResults;
 
     /**
@@ -34,9 +34,9 @@ class DescribeCapacityReservationsResponseBody extends Model
      */
     public $capacityReservationSet;
     protected $_name = [
-        'totalCount'             => 'TotalCount',
         'nextToken'              => 'NextToken',
         'requestId'              => 'RequestId',
+        'totalCount'             => 'TotalCount',
         'maxResults'             => 'MaxResults',
         'capacityReservationSet' => 'CapacityReservationSet',
     ];
@@ -48,14 +48,14 @@ class DescribeCapacityReservationsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -75,14 +75,14 @@ class DescribeCapacityReservationsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

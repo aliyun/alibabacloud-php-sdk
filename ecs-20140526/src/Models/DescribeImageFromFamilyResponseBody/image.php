@@ -13,7 +13,7 @@ class image extends Model
     /**
      * @var string
      */
-    public $imageFamily;
+    public $creationTime;
 
     /**
      * @var string
@@ -23,7 +23,7 @@ class image extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $imageFamily;
 
     /**
      * @var string
@@ -36,19 +36,14 @@ class image extends Model
     public $isCopied;
 
     /**
-     * @var string
-     */
-    public $imageOwnerAlias;
-
-    /**
      * @var bool
      */
     public $isSupportIoOptimized;
 
     /**
-     * @var tags
+     * @var string
      */
-    public $tags;
+    public $imageOwnerAlias;
 
     /**
      * @var bool
@@ -59,11 +54,6 @@ class image extends Model
      * @var string
      */
     public $imageVersion;
-
-    /**
-     * @var diskDeviceMappings
-     */
-    public $diskDeviceMappings;
 
     /**
      * @var string
@@ -124,18 +114,26 @@ class image extends Model
      * @var string
      */
     public $architecture;
+
+    /**
+     * @var diskDeviceMappings
+     */
+    public $diskDeviceMappings;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
-        'imageFamily'          => 'ImageFamily',
-        'status'               => 'Status',
         'creationTime'         => 'CreationTime',
+        'status'               => 'Status',
+        'imageFamily'          => 'ImageFamily',
         'progress'             => 'Progress',
         'isCopied'             => 'IsCopied',
-        'imageOwnerAlias'      => 'ImageOwnerAlias',
         'isSupportIoOptimized' => 'IsSupportIoOptimized',
-        'tags'                 => 'Tags',
+        'imageOwnerAlias'      => 'ImageOwnerAlias',
         'isSupportCloudinit'   => 'IsSupportCloudinit',
         'imageVersion'         => 'ImageVersion',
-        'diskDeviceMappings'   => 'DiskDeviceMappings',
         'usage'                => 'Usage',
         'isSelfShared'         => 'IsSelfShared',
         'description'          => 'Description',
@@ -148,6 +146,8 @@ class image extends Model
         'isSubscribed'         => 'IsSubscribed',
         'productCode'          => 'ProductCode',
         'architecture'         => 'Architecture',
+        'diskDeviceMappings'   => 'DiskDeviceMappings',
+        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -157,14 +157,14 @@ class image extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageFamily) {
-            $res['ImageFamily'] = $this->imageFamily;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
+        if (null !== $this->imageFamily) {
+            $res['ImageFamily'] = $this->imageFamily;
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
@@ -172,23 +172,17 @@ class image extends Model
         if (null !== $this->isCopied) {
             $res['IsCopied'] = $this->isCopied;
         }
-        if (null !== $this->imageOwnerAlias) {
-            $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
-        }
         if (null !== $this->isSupportIoOptimized) {
             $res['IsSupportIoOptimized'] = $this->isSupportIoOptimized;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        if (null !== $this->imageOwnerAlias) {
+            $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
         }
         if (null !== $this->isSupportCloudinit) {
             $res['IsSupportCloudinit'] = $this->isSupportCloudinit;
         }
         if (null !== $this->imageVersion) {
             $res['ImageVersion'] = $this->imageVersion;
-        }
-        if (null !== $this->diskDeviceMappings) {
-            $res['DiskDeviceMappings'] = null !== $this->diskDeviceMappings ? $this->diskDeviceMappings->toMap() : null;
         }
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
@@ -226,6 +220,12 @@ class image extends Model
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
         }
+        if (null !== $this->diskDeviceMappings) {
+            $res['DiskDeviceMappings'] = null !== $this->diskDeviceMappings ? $this->diskDeviceMappings->toMap() : null;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
 
         return $res;
     }
@@ -238,14 +238,14 @@ class image extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageFamily'])) {
-            $model->imageFamily = $map['ImageFamily'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
+        if (isset($map['ImageFamily'])) {
+            $model->imageFamily = $map['ImageFamily'];
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
@@ -253,23 +253,17 @@ class image extends Model
         if (isset($map['IsCopied'])) {
             $model->isCopied = $map['IsCopied'];
         }
-        if (isset($map['ImageOwnerAlias'])) {
-            $model->imageOwnerAlias = $map['ImageOwnerAlias'];
-        }
         if (isset($map['IsSupportIoOptimized'])) {
             $model->isSupportIoOptimized = $map['IsSupportIoOptimized'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
+        if (isset($map['ImageOwnerAlias'])) {
+            $model->imageOwnerAlias = $map['ImageOwnerAlias'];
         }
         if (isset($map['IsSupportCloudinit'])) {
             $model->isSupportCloudinit = $map['IsSupportCloudinit'];
         }
         if (isset($map['ImageVersion'])) {
             $model->imageVersion = $map['ImageVersion'];
-        }
-        if (isset($map['DiskDeviceMappings'])) {
-            $model->diskDeviceMappings = diskDeviceMappings::fromMap($map['DiskDeviceMappings']);
         }
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
@@ -306,6 +300,12 @@ class image extends Model
         }
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+        if (isset($map['DiskDeviceMappings'])) {
+            $model->diskDeviceMappings = diskDeviceMappings::fromMap($map['DiskDeviceMappings']);
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

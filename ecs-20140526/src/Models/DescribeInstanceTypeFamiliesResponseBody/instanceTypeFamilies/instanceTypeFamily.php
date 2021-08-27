@@ -11,15 +11,15 @@ class instanceTypeFamily extends Model
     /**
      * @var string
      */
-    public $instanceTypeFamilyId;
+    public $generation;
 
     /**
      * @var string
      */
-    public $generation;
+    public $instanceTypeFamilyId;
     protected $_name = [
-        'instanceTypeFamilyId' => 'InstanceTypeFamilyId',
         'generation'           => 'Generation',
+        'instanceTypeFamilyId' => 'InstanceTypeFamilyId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class instanceTypeFamily extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceTypeFamilyId) {
-            $res['InstanceTypeFamilyId'] = $this->instanceTypeFamilyId;
-        }
         if (null !== $this->generation) {
             $res['Generation'] = $this->generation;
+        }
+        if (null !== $this->instanceTypeFamilyId) {
+            $res['InstanceTypeFamilyId'] = $this->instanceTypeFamilyId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class instanceTypeFamily extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceTypeFamilyId'])) {
-            $model->instanceTypeFamilyId = $map['InstanceTypeFamilyId'];
-        }
         if (isset($map['Generation'])) {
             $model->generation = $map['Generation'];
+        }
+        if (isset($map['InstanceTypeFamilyId'])) {
+            $model->instanceTypeFamilyId = $map['InstanceTypeFamilyId'];
         }
 
         return $model;

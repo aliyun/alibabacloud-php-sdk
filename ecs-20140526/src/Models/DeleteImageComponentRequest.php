@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteImageComponentRequest extends Model
 {
     /**
+     * @var templateTag[]
+     */
+    public $templateTag;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -35,21 +40,16 @@ class DeleteImageComponentRequest extends Model
     public $regionId;
 
     /**
-     * @var templateTag[]
-     */
-    public $templateTag;
-
-    /**
      * @var string
      */
     public $imageComponentId;
     protected $_name = [
+        'templateTag'          => 'TemplateTag',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'templateTag'          => 'TemplateTag',
         'imageComponentId'     => 'ImageComponentId',
     ];
 
@@ -60,6 +60,15 @@ class DeleteImageComponentRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->templateTag) {
+            $res['TemplateTag'] = [];
+            if (null !== $this->templateTag && \is_array($this->templateTag)) {
+                $n = 0;
+                foreach ($this->templateTag as $item) {
+                    $res['TemplateTag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -74,15 +83,6 @@ class DeleteImageComponentRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->templateTag) {
-            $res['TemplateTag'] = [];
-            if (null !== $this->templateTag && \is_array($this->templateTag)) {
-                $n = 0;
-                foreach ($this->templateTag as $item) {
-                    $res['TemplateTag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->imageComponentId) {
             $res['ImageComponentId'] = $this->imageComponentId;
@@ -99,6 +99,15 @@ class DeleteImageComponentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TemplateTag'])) {
+            if (!empty($map['TemplateTag'])) {
+                $model->templateTag = [];
+                $n                  = 0;
+                foreach ($map['TemplateTag'] as $item) {
+                    $model->templateTag[$n++] = null !== $item ? templateTag::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -113,15 +122,6 @@ class DeleteImageComponentRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TemplateTag'])) {
-            if (!empty($map['TemplateTag'])) {
-                $model->templateTag = [];
-                $n                  = 0;
-                foreach ($map['TemplateTag'] as $item) {
-                    $model->templateTag[$n++] = null !== $item ? templateTag::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['ImageComponentId'])) {
             $model->imageComponentId = $map['ImageComponentId'];

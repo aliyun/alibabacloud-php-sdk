@@ -11,15 +11,15 @@ class CreateAutoSnapshotPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $autoSnapshotPolicyId;
 
     /**
      * @var string
      */
-    public $autoSnapshotPolicyId;
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'autoSnapshotPolicyId' => 'AutoSnapshotPolicyId',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateAutoSnapshotPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->autoSnapshotPolicyId) {
             $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateAutoSnapshotPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AutoSnapshotPolicyId'])) {
             $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

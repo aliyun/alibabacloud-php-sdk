@@ -86,6 +86,11 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     /**
      * @var string
      */
+    public $destPrefixListId;
+
+    /**
+     * @var string
+     */
     public $sourcePortRange;
 
     /**
@@ -128,6 +133,7 @@ class ModifySecurityGroupEgressRuleRequest extends Model
         'ipv6DestCidrIp'        => 'Ipv6DestCidrIp',
         'sourceCidrIp'          => 'SourceCidrIp',
         'ipv6SourceCidrIp'      => 'Ipv6SourceCidrIp',
+        'destPrefixListId'      => 'DestPrefixListId',
         'sourcePortRange'       => 'SourcePortRange',
         'policy'                => 'Policy',
         'priority'              => 'Priority',
@@ -187,6 +193,9 @@ class ModifySecurityGroupEgressRuleRequest extends Model
         }
         if (null !== $this->ipv6SourceCidrIp) {
             $res['Ipv6SourceCidrIp'] = $this->ipv6SourceCidrIp;
+        }
+        if (null !== $this->destPrefixListId) {
+            $res['DestPrefixListId'] = $this->destPrefixListId;
         }
         if (null !== $this->sourcePortRange) {
             $res['SourcePortRange'] = $this->sourcePortRange;
@@ -262,6 +271,9 @@ class ModifySecurityGroupEgressRuleRequest extends Model
         }
         if (isset($map['Ipv6SourceCidrIp'])) {
             $model->ipv6SourceCidrIp = $map['Ipv6SourceCidrIp'];
+        }
+        if (isset($map['DestPrefixListId'])) {
+            $model->destPrefixListId = $map['DestPrefixListId'];
         }
         if (isset($map['SourcePortRange'])) {
             $model->sourcePortRange = $map['SourcePortRange'];

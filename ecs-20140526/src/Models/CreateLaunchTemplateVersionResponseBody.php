@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateLaunchTemplateVersionResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $launchTemplateVersionNumber;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                   => 'RequestId',
         'launchTemplateVersionNumber' => 'LaunchTemplateVersionNumber',
+        'requestId'                   => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateLaunchTemplateVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->launchTemplateVersionNumber) {
             $res['LaunchTemplateVersionNumber'] = $this->launchTemplateVersionNumber;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateLaunchTemplateVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LaunchTemplateVersionNumber'])) {
             $model->launchTemplateVersionNumber = $map['LaunchTemplateVersionNumber'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

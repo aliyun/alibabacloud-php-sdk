@@ -134,6 +134,16 @@ class DescribeImagesRequest extends Model
      * @var filter[]
      */
     public $filter;
+
+    /**
+     * @var bool
+     */
+    public $isPublic;
+
+    /**
+     * @var int
+     */
+    public $imageOwnerId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -160,6 +170,8 @@ class DescribeImagesRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'tag'                  => 'Tag',
         'filter'               => 'Filter',
+        'isPublic'             => 'IsPublic',
+        'imageOwnerId'         => 'ImageOwnerId',
     ];
 
     public function validate()
@@ -255,6 +267,12 @@ class DescribeImagesRequest extends Model
                     $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->isPublic) {
+            $res['IsPublic'] = $this->isPublic;
+        }
+        if (null !== $this->imageOwnerId) {
+            $res['ImageOwnerId'] = $this->imageOwnerId;
         }
 
         return $res;
@@ -354,6 +372,12 @@ class DescribeImagesRequest extends Model
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IsPublic'])) {
+            $model->isPublic = $map['IsPublic'];
+        }
+        if (isset($map['ImageOwnerId'])) {
+            $model->imageOwnerId = $map['ImageOwnerId'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class ReplaceSystemDiskResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $diskId;
 
     /**
      * @var string
      */
-    public $diskId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'diskId'    => 'DiskId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ReplaceSystemDiskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ReplaceSystemDiskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

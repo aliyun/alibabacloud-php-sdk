@@ -34,6 +34,11 @@ class RunCommandShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
      * @var string
      */
     public $name;
@@ -69,6 +74,11 @@ class RunCommandShrinkRequest extends Model
     public $enableParameter;
 
     /**
+     * @var string
+     */
+    public $repeatMode;
+
+    /**
      * @var bool
      */
     public $timed;
@@ -102,17 +112,13 @@ class RunCommandShrinkRequest extends Model
      * @var string
      */
     public $windowsPasswordName;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'instanceId'           => 'InstanceId',
         'name'                 => 'Name',
         'description'          => 'Description',
         'type'                 => 'Type',
@@ -120,6 +126,7 @@ class RunCommandShrinkRequest extends Model
         'workingDir'           => 'WorkingDir',
         'timeout'              => 'Timeout',
         'enableParameter'      => 'EnableParameter',
+        'repeatMode'           => 'RepeatMode',
         'timed'                => 'Timed',
         'frequency'            => 'Frequency',
         'parametersShrink'     => 'Parameters',
@@ -127,7 +134,6 @@ class RunCommandShrinkRequest extends Model
         'contentEncoding'      => 'ContentEncoding',
         'username'             => 'Username',
         'windowsPasswordName'  => 'WindowsPasswordName',
-        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
@@ -152,6 +158,9 @@ class RunCommandShrinkRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -173,6 +182,9 @@ class RunCommandShrinkRequest extends Model
         if (null !== $this->enableParameter) {
             $res['EnableParameter'] = $this->enableParameter;
         }
+        if (null !== $this->repeatMode) {
+            $res['RepeatMode'] = $this->repeatMode;
+        }
         if (null !== $this->timed) {
             $res['Timed'] = $this->timed;
         }
@@ -193,9 +205,6 @@ class RunCommandShrinkRequest extends Model
         }
         if (null !== $this->windowsPasswordName) {
             $res['WindowsPasswordName'] = $this->windowsPasswordName;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -224,6 +233,11 @@ class RunCommandShrinkRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -245,6 +259,9 @@ class RunCommandShrinkRequest extends Model
         if (isset($map['EnableParameter'])) {
             $model->enableParameter = $map['EnableParameter'];
         }
+        if (isset($map['RepeatMode'])) {
+            $model->repeatMode = $map['RepeatMode'];
+        }
         if (isset($map['Timed'])) {
             $model->timed = $map['Timed'];
         }
@@ -265,11 +282,6 @@ class RunCommandShrinkRequest extends Model
         }
         if (isset($map['WindowsPasswordName'])) {
             $model->windowsPasswordName = $map['WindowsPasswordName'];
-        }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
         }
 
         return $model;

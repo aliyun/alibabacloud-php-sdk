@@ -34,6 +34,21 @@ class DescribeSnapshotGroupsRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $snapshotGroupId;
+
+    /**
+     * @var string[]
+     */
+    public $status;
+
+    /**
+     * @var string[]
+     */
+    public $additionalAttributes;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -52,28 +67,19 @@ class DescribeSnapshotGroupsRequest extends Model
      * @var int
      */
     public $maxResults;
-
-    /**
-     * @var string[]
-     */
-    public $snapshotGroupId;
-
-    /**
-     * @var string[]
-     */
-    public $status;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'snapshotGroupId'      => 'SnapshotGroupId',
+        'status'               => 'Status',
+        'additionalAttributes' => 'AdditionalAttributes',
         'instanceId'           => 'InstanceId',
         'name'                 => 'Name',
         'nextToken'            => 'NextToken',
         'maxResults'           => 'MaxResults',
-        'snapshotGroupId'      => 'SnapshotGroupId',
-        'status'               => 'Status',
     ];
 
     public function validate()
@@ -98,6 +104,15 @@ class DescribeSnapshotGroupsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->snapshotGroupId) {
+            $res['SnapshotGroupId'] = $this->snapshotGroupId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->additionalAttributes) {
+            $res['AdditionalAttributes'] = $this->additionalAttributes;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -109,12 +124,6 @@ class DescribeSnapshotGroupsRequest extends Model
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->snapshotGroupId) {
-            $res['SnapshotGroupId'] = $this->snapshotGroupId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -143,6 +152,21 @@ class DescribeSnapshotGroupsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['SnapshotGroupId'])) {
+            if (!empty($map['SnapshotGroupId'])) {
+                $model->snapshotGroupId = $map['SnapshotGroupId'];
+            }
+        }
+        if (isset($map['Status'])) {
+            if (!empty($map['Status'])) {
+                $model->status = $map['Status'];
+            }
+        }
+        if (isset($map['AdditionalAttributes'])) {
+            if (!empty($map['AdditionalAttributes'])) {
+                $model->additionalAttributes = $map['AdditionalAttributes'];
+            }
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -154,16 +178,6 @@ class DescribeSnapshotGroupsRequest extends Model
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['SnapshotGroupId'])) {
-            if (!empty($map['SnapshotGroupId'])) {
-                $model->snapshotGroupId = $map['SnapshotGroupId'];
-            }
-        }
-        if (isset($map['Status'])) {
-            if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
-            }
         }
 
         return $model;

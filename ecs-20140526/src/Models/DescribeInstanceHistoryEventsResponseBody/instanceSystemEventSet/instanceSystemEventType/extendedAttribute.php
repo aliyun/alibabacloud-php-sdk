@@ -23,10 +23,22 @@ class extendedAttribute extends Model
      * @var inactiveDisks
      */
     public $inactiveDisks;
+
+    /**
+     * @var string
+     */
+    public $hostType;
+
+    /**
+     * @var string
+     */
+    public $hostId;
     protected $_name = [
         'device'        => 'Device',
         'diskId'        => 'DiskId',
         'inactiveDisks' => 'InactiveDisks',
+        'hostType'      => 'HostType',
+        'hostId'        => 'HostId',
     ];
 
     public function validate()
@@ -44,6 +56,12 @@ class extendedAttribute extends Model
         }
         if (null !== $this->inactiveDisks) {
             $res['InactiveDisks'] = null !== $this->inactiveDisks ? $this->inactiveDisks->toMap() : null;
+        }
+        if (null !== $this->hostType) {
+            $res['HostType'] = $this->hostType;
+        }
+        if (null !== $this->hostId) {
+            $res['HostId'] = $this->hostId;
         }
 
         return $res;
@@ -65,6 +83,12 @@ class extendedAttribute extends Model
         }
         if (isset($map['InactiveDisks'])) {
             $model->inactiveDisks = inactiveDisks::fromMap($map['InactiveDisks']);
+        }
+        if (isset($map['HostType'])) {
+            $model->hostType = $map['HostType'];
+        }
+        if (isset($map['HostId'])) {
+            $model->hostId = $map['HostId'];
         }
 
         return $model;

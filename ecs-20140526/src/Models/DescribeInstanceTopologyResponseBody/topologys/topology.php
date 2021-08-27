@@ -11,15 +11,15 @@ class topology extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $hostId;
 
     /**
      * @var string
      */
-    public $hostId;
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'hostId'     => 'HostId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class topology extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->hostId) {
             $res['HostId'] = $this->hostId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class topology extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['HostId'])) {
             $model->hostId = $map['HostId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

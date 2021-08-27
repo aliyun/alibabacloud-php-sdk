@@ -206,6 +206,11 @@ class DescribeInstancesRequest extends Model
     public $httpPutResponseHopLimit;
 
     /**
+     * @var string[]
+     */
+    public $ipv6Address;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -254,6 +259,7 @@ class DescribeInstancesRequest extends Model
         'httpEndpoint'            => 'HttpEndpoint',
         'httpTokens'              => 'HttpTokens',
         'httpPutResponseHopLimit' => 'HttpPutResponseHopLimit',
+        'ipv6Address'             => 'Ipv6Address',
         'tag'                     => 'Tag',
         'additionalAttributes'    => 'AdditionalAttributes',
     ];
@@ -387,6 +393,9 @@ class DescribeInstancesRequest extends Model
         }
         if (null !== $this->httpPutResponseHopLimit) {
             $res['HttpPutResponseHopLimit'] = $this->httpPutResponseHopLimit;
+        }
+        if (null !== $this->ipv6Address) {
+            $res['Ipv6Address'] = $this->ipv6Address;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -534,6 +543,11 @@ class DescribeInstancesRequest extends Model
         }
         if (isset($map['HttpPutResponseHopLimit'])) {
             $model->httpPutResponseHopLimit = $map['HttpPutResponseHopLimit'];
+        }
+        if (isset($map['Ipv6Address'])) {
+            if (!empty($map['Ipv6Address'])) {
+                $model->ipv6Address = $map['Ipv6Address'];
+            }
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

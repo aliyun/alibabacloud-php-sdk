@@ -29,6 +29,11 @@ class DescribeSpotAdviceRequest extends Model
     public $ownerAccount;
 
     /**
+     * @var string[]
+     */
+    public $instanceTypes;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -77,16 +82,12 @@ class DescribeSpotAdviceRequest extends Model
      * @var int
      */
     public $gpuAmount;
-
-    /**
-     * @var string[]
-     */
-    public $instanceTypes;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
+        'instanceTypes'        => 'InstanceTypes',
         'regionId'             => 'RegionId',
         'cores'                => 'Cores',
         'memory'               => 'Memory',
@@ -97,7 +98,6 @@ class DescribeSpotAdviceRequest extends Model
         'instanceFamilyLevel'  => 'InstanceFamilyLevel',
         'gpuSpec'              => 'GpuSpec',
         'gpuAmount'            => 'GpuAmount',
-        'instanceTypes'        => 'InstanceTypes',
     ];
 
     public function validate()
@@ -118,6 +118,9 @@ class DescribeSpotAdviceRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->instanceTypes) {
+            $res['InstanceTypes'] = $this->instanceTypes;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -149,9 +152,6 @@ class DescribeSpotAdviceRequest extends Model
         if (null !== $this->gpuAmount) {
             $res['GpuAmount'] = $this->gpuAmount;
         }
-        if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = $this->instanceTypes;
-        }
 
         return $res;
     }
@@ -175,6 +175,11 @@ class DescribeSpotAdviceRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['InstanceTypes'])) {
+            if (!empty($map['InstanceTypes'])) {
+                $model->instanceTypes = $map['InstanceTypes'];
+            }
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -205,11 +210,6 @@ class DescribeSpotAdviceRequest extends Model
         }
         if (isset($map['GpuAmount'])) {
             $model->gpuAmount = $map['GpuAmount'];
-        }
-        if (isset($map['InstanceTypes'])) {
-            if (!empty($map['InstanceTypes'])) {
-                $model->instanceTypes = $map['InstanceTypes'];
-            }
         }
 
         return $model;

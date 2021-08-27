@@ -12,12 +12,12 @@ class DescribeImagesResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageSize;
 
     /**
      * @var int
      */
-    public $pageSize;
+    public $pageNumber;
 
     /**
      * @var string
@@ -27,24 +27,24 @@ class DescribeImagesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var images
-     */
-    public $images;
+    public $totalCount;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var images
+     */
+    public $images;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
-        'images'     => 'Images',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
         'regionId'   => 'RegionId',
+        'images'     => 'Images',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeImagesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->images) {
-            $res['Images'] = null !== $this->images ? $this->images->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->images) {
+            $res['Images'] = null !== $this->images ? $this->images->toMap() : null;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeImagesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['Images'])) {
-            $model->images = images::fromMap($map['Images']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Images'])) {
+            $model->images = images::fromMap($map['Images']);
         }
 
         return $model;

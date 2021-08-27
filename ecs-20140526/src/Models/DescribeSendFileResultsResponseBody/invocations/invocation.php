@@ -17,12 +17,12 @@ class invocation extends Model
     /**
      * @var string
      */
-    public $contentType;
+    public $invocationStatus;
 
     /**
      * @var string
      */
-    public $invocationStatus;
+    public $contentType;
 
     /**
      * @var string
@@ -30,24 +30,19 @@ class invocation extends Model
     public $targetDir;
 
     /**
-     * @var invokeInstances
-     */
-    public $invokeInstances;
-
-    /**
      * @var string
      */
     public $fileOwner;
 
     /**
-     * @var int
-     */
-    public $vmCount;
-
-    /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var int
+     */
+    public $vmCount;
 
     /**
      * @var string
@@ -62,12 +57,12 @@ class invocation extends Model
     /**
      * @var string
      */
-    public $name;
+    public $invokeId;
 
     /**
      * @var string
      */
-    public $invokeId;
+    public $name;
 
     /**
      * @var string
@@ -78,21 +73,26 @@ class invocation extends Model
      * @var string
      */
     public $overwrite;
+
+    /**
+     * @var invokeInstances
+     */
+    public $invokeInstances;
     protected $_name = [
         'creationTime'     => 'CreationTime',
-        'contentType'      => 'ContentType',
         'invocationStatus' => 'InvocationStatus',
+        'contentType'      => 'ContentType',
         'targetDir'        => 'TargetDir',
-        'invokeInstances'  => 'InvokeInstances',
         'fileOwner'        => 'FileOwner',
-        'vmCount'          => 'VmCount',
         'description'      => 'Description',
+        'vmCount'          => 'VmCount',
         'fileMode'         => 'FileMode',
         'fileGroup'        => 'FileGroup',
-        'name'             => 'Name',
         'invokeId'         => 'InvokeId',
+        'name'             => 'Name',
         'content'          => 'Content',
         'overwrite'        => 'Overwrite',
+        'invokeInstances'  => 'InvokeInstances',
     ];
 
     public function validate()
@@ -105,26 +105,23 @@ class invocation extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->contentType) {
-            $res['ContentType'] = $this->contentType;
-        }
         if (null !== $this->invocationStatus) {
             $res['InvocationStatus'] = $this->invocationStatus;
+        }
+        if (null !== $this->contentType) {
+            $res['ContentType'] = $this->contentType;
         }
         if (null !== $this->targetDir) {
             $res['TargetDir'] = $this->targetDir;
         }
-        if (null !== $this->invokeInstances) {
-            $res['InvokeInstances'] = null !== $this->invokeInstances ? $this->invokeInstances->toMap() : null;
-        }
         if (null !== $this->fileOwner) {
             $res['FileOwner'] = $this->fileOwner;
         }
-        if (null !== $this->vmCount) {
-            $res['VmCount'] = $this->vmCount;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->vmCount) {
+            $res['VmCount'] = $this->vmCount;
         }
         if (null !== $this->fileMode) {
             $res['FileMode'] = $this->fileMode;
@@ -132,17 +129,20 @@ class invocation extends Model
         if (null !== $this->fileGroup) {
             $res['FileGroup'] = $this->fileGroup;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
+        }
+        if (null !== $this->invokeInstances) {
+            $res['InvokeInstances'] = null !== $this->invokeInstances ? $this->invokeInstances->toMap() : null;
         }
 
         return $res;
@@ -159,26 +159,23 @@ class invocation extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['ContentType'])) {
-            $model->contentType = $map['ContentType'];
-        }
         if (isset($map['InvocationStatus'])) {
             $model->invocationStatus = $map['InvocationStatus'];
+        }
+        if (isset($map['ContentType'])) {
+            $model->contentType = $map['ContentType'];
         }
         if (isset($map['TargetDir'])) {
             $model->targetDir = $map['TargetDir'];
         }
-        if (isset($map['InvokeInstances'])) {
-            $model->invokeInstances = invokeInstances::fromMap($map['InvokeInstances']);
-        }
         if (isset($map['FileOwner'])) {
             $model->fileOwner = $map['FileOwner'];
         }
-        if (isset($map['VmCount'])) {
-            $model->vmCount = $map['VmCount'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['VmCount'])) {
+            $model->vmCount = $map['VmCount'];
         }
         if (isset($map['FileMode'])) {
             $model->fileMode = $map['FileMode'];
@@ -186,17 +183,20 @@ class invocation extends Model
         if (isset($map['FileGroup'])) {
             $model->fileGroup = $map['FileGroup'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
+        }
+        if (isset($map['InvokeInstances'])) {
+            $model->invokeInstances = invokeInstances::fromMap($map['InvokeInstances']);
         }
 
         return $model;

@@ -12,11 +12,6 @@ class DescribeActivationsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribeActivationsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var activationList[]
      */
     public $activationList;
     protected $_name = [
-        'totalCount'     => 'TotalCount',
         'pageSize'       => 'PageSize',
         'requestId'      => 'RequestId',
         'pageNumber'     => 'PageNumber',
+        'totalCount'     => 'TotalCount',
         'activationList' => 'ActivationList',
     ];
 
@@ -48,9 +48,6 @@ class DescribeActivationsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -59,6 +56,9 @@ class DescribeActivationsResponseBody extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->activationList) {
             $res['ActivationList'] = [];
@@ -81,9 +81,6 @@ class DescribeActivationsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -92,6 +89,9 @@ class DescribeActivationsResponseBody extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['ActivationList'])) {
             if (!empty($map['ActivationList'])) {

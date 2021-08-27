@@ -34,22 +34,22 @@ class UnassignPrivateIpAddressesRequest extends Model
     public $regionId;
 
     /**
-     * @var string
-     */
-    public $networkInterfaceId;
-
-    /**
      * @var string[]
      */
     public $privateIpAddress;
+
+    /**
+     * @var string
+     */
+    public $networkInterfaceId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
         'privateIpAddress'     => 'PrivateIpAddress',
+        'networkInterfaceId'   => 'NetworkInterfaceId',
     ];
 
     public function validate()
@@ -74,11 +74,11 @@ class UnassignPrivateIpAddressesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->networkInterfaceId) {
-            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
-        }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->networkInterfaceId) {
+            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
 
         return $res;
@@ -107,13 +107,13 @@ class UnassignPrivateIpAddressesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['NetworkInterfaceId'])) {
-            $model->networkInterfaceId = $map['NetworkInterfaceId'];
-        }
         if (isset($map['PrivateIpAddress'])) {
             if (!empty($map['PrivateIpAddress'])) {
                 $model->privateIpAddress = $map['PrivateIpAddress'];
             }
+        }
+        if (isset($map['NetworkInterfaceId'])) {
+            $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
 
         return $model;

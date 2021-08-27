@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\PurchaseStorageCapacityUnitRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class PurchaseStorageCapacityUnitRequest extends Model
@@ -77,6 +78,11 @@ class PurchaseStorageCapacityUnitRequest extends Model
      * @var int
      */
     public $amount;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -92,6 +98,7 @@ class PurchaseStorageCapacityUnitRequest extends Model
         'fromApp'              => 'FromApp',
         'clientToken'          => 'ClientToken',
         'amount'               => 'Amount',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -142,6 +149,15 @@ class PurchaseStorageCapacityUnitRequest extends Model
         }
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -196,6 +212,15 @@ class PurchaseStorageCapacityUnitRequest extends Model
         }
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

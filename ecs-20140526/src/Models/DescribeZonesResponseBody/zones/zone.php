@@ -16,6 +16,21 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
+     * @var string
+     */
+    public $zoneId;
+
+    /**
+     * @var string
+     */
+    public $localName;
+
+    /**
+     * @var availableResources
+     */
+    public $availableResources;
+
+    /**
      * @var availableResourceCreation
      */
     public $availableResourceCreation;
@@ -26,19 +41,9 @@ class zone extends Model
     public $dedicatedHostGenerations;
 
     /**
-     * @var string
-     */
-    public $localName;
-
-    /**
      * @var availableInstanceTypes
      */
     public $availableInstanceTypes;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
 
     /**
      * @var availableDiskCategories
@@ -54,21 +59,16 @@ class zone extends Model
      * @var availableVolumeCategories
      */
     public $availableVolumeCategories;
-
-    /**
-     * @var availableResources
-     */
-    public $availableResources;
     protected $_name = [
+        'zoneId'                      => 'ZoneId',
+        'localName'                   => 'LocalName',
+        'availableResources'          => 'AvailableResources',
         'availableResourceCreation'   => 'AvailableResourceCreation',
         'dedicatedHostGenerations'    => 'DedicatedHostGenerations',
-        'localName'                   => 'LocalName',
         'availableInstanceTypes'      => 'AvailableInstanceTypes',
-        'zoneId'                      => 'ZoneId',
         'availableDiskCategories'     => 'AvailableDiskCategories',
         'availableDedicatedHostTypes' => 'AvailableDedicatedHostTypes',
         'availableVolumeCategories'   => 'AvailableVolumeCategories',
-        'availableResources'          => 'AvailableResources',
     ];
 
     public function validate()
@@ -78,20 +78,23 @@ class zone extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->localName) {
+            $res['LocalName'] = $this->localName;
+        }
+        if (null !== $this->availableResources) {
+            $res['AvailableResources'] = null !== $this->availableResources ? $this->availableResources->toMap() : null;
+        }
         if (null !== $this->availableResourceCreation) {
             $res['AvailableResourceCreation'] = null !== $this->availableResourceCreation ? $this->availableResourceCreation->toMap() : null;
         }
         if (null !== $this->dedicatedHostGenerations) {
             $res['DedicatedHostGenerations'] = null !== $this->dedicatedHostGenerations ? $this->dedicatedHostGenerations->toMap() : null;
         }
-        if (null !== $this->localName) {
-            $res['LocalName'] = $this->localName;
-        }
         if (null !== $this->availableInstanceTypes) {
             $res['AvailableInstanceTypes'] = null !== $this->availableInstanceTypes ? $this->availableInstanceTypes->toMap() : null;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
         }
         if (null !== $this->availableDiskCategories) {
             $res['AvailableDiskCategories'] = null !== $this->availableDiskCategories ? $this->availableDiskCategories->toMap() : null;
@@ -101,9 +104,6 @@ class zone extends Model
         }
         if (null !== $this->availableVolumeCategories) {
             $res['AvailableVolumeCategories'] = null !== $this->availableVolumeCategories ? $this->availableVolumeCategories->toMap() : null;
-        }
-        if (null !== $this->availableResources) {
-            $res['AvailableResources'] = null !== $this->availableResources ? $this->availableResources->toMap() : null;
         }
 
         return $res;
@@ -117,20 +117,23 @@ class zone extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['LocalName'])) {
+            $model->localName = $map['LocalName'];
+        }
+        if (isset($map['AvailableResources'])) {
+            $model->availableResources = availableResources::fromMap($map['AvailableResources']);
+        }
         if (isset($map['AvailableResourceCreation'])) {
             $model->availableResourceCreation = availableResourceCreation::fromMap($map['AvailableResourceCreation']);
         }
         if (isset($map['DedicatedHostGenerations'])) {
             $model->dedicatedHostGenerations = dedicatedHostGenerations::fromMap($map['DedicatedHostGenerations']);
         }
-        if (isset($map['LocalName'])) {
-            $model->localName = $map['LocalName'];
-        }
         if (isset($map['AvailableInstanceTypes'])) {
             $model->availableInstanceTypes = availableInstanceTypes::fromMap($map['AvailableInstanceTypes']);
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
         }
         if (isset($map['AvailableDiskCategories'])) {
             $model->availableDiskCategories = availableDiskCategories::fromMap($map['AvailableDiskCategories']);
@@ -140,9 +143,6 @@ class zone extends Model
         }
         if (isset($map['AvailableVolumeCategories'])) {
             $model->availableVolumeCategories = availableVolumeCategories::fromMap($map['AvailableVolumeCategories']);
-        }
-        if (isset($map['AvailableResources'])) {
-            $model->availableResources = availableResources::fromMap($map['AvailableResources']);
         }
 
         return $model;

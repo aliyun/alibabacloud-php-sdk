@@ -30,11 +30,6 @@ class launchTemplateVersionSet extends Model
     public $modifiedTime;
 
     /**
-     * @var launchTemplateData
-     */
-    public $launchTemplateData;
-
-    /**
      * @var string
      */
     public $launchTemplateId;
@@ -53,16 +48,21 @@ class launchTemplateVersionSet extends Model
      * @var string
      */
     public $versionDescription;
+
+    /**
+     * @var launchTemplateData
+     */
+    public $launchTemplateData;
     protected $_name = [
         'launchTemplateName' => 'LaunchTemplateName',
         'defaultVersion'     => 'DefaultVersion',
         'versionNumber'      => 'VersionNumber',
         'modifiedTime'       => 'ModifiedTime',
-        'launchTemplateData' => 'LaunchTemplateData',
         'launchTemplateId'   => 'LaunchTemplateId',
         'createTime'         => 'CreateTime',
         'createdBy'          => 'CreatedBy',
         'versionDescription' => 'VersionDescription',
+        'launchTemplateData' => 'LaunchTemplateData',
     ];
 
     public function validate()
@@ -84,9 +84,6 @@ class launchTemplateVersionSet extends Model
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
-        if (null !== $this->launchTemplateData) {
-            $res['LaunchTemplateData'] = null !== $this->launchTemplateData ? $this->launchTemplateData->toMap() : null;
-        }
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
         }
@@ -98,6 +95,9 @@ class launchTemplateVersionSet extends Model
         }
         if (null !== $this->versionDescription) {
             $res['VersionDescription'] = $this->versionDescription;
+        }
+        if (null !== $this->launchTemplateData) {
+            $res['LaunchTemplateData'] = null !== $this->launchTemplateData ? $this->launchTemplateData->toMap() : null;
         }
 
         return $res;
@@ -123,9 +123,6 @@ class launchTemplateVersionSet extends Model
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
-        if (isset($map['LaunchTemplateData'])) {
-            $model->launchTemplateData = launchTemplateData::fromMap($map['LaunchTemplateData']);
-        }
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];
         }
@@ -137,6 +134,9 @@ class launchTemplateVersionSet extends Model
         }
         if (isset($map['VersionDescription'])) {
             $model->versionDescription = $map['VersionDescription'];
+        }
+        if (isset($map['LaunchTemplateData'])) {
+            $model->launchTemplateData = launchTemplateData::fromMap($map['LaunchTemplateData']);
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeReservedInstancesRequest extends Model
 {
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -45,9 +50,14 @@ class DescribeReservedInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @var tag[]
+     * @var string[]
      */
-    public $tag;
+    public $reservedInstanceId;
+
+    /**
+     * @var string[]
+     */
+    public $status;
 
     /**
      * @var string
@@ -88,17 +98,8 @@ class DescribeReservedInstancesRequest extends Model
      * @var string
      */
     public $allocationType;
-
-    /**
-     * @var string[]
-     */
-    public $reservedInstanceId;
-
-    /**
-     * @var string[]
-     */
-    public $status;
     protected $_name = [
+        'tag'                  => 'Tag',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -106,7 +107,8 @@ class DescribeReservedInstancesRequest extends Model
         'regionId'             => 'RegionId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'tag'                  => 'Tag',
+        'reservedInstanceId'   => 'ReservedInstanceId',
+        'status'               => 'Status',
         'zoneId'               => 'ZoneId',
         'reservedInstanceName' => 'ReservedInstanceName',
         'lockReason'           => 'LockReason',
@@ -115,8 +117,6 @@ class DescribeReservedInstancesRequest extends Model
         'scope'                => 'Scope',
         'offeringType'         => 'OfferingType',
         'allocationType'       => 'AllocationType',
-        'reservedInstanceId'   => 'ReservedInstanceId',
-        'status'               => 'Status',
     ];
 
     public function validate()
@@ -126,6 +126,15 @@ class DescribeReservedInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -147,14 +156,11 @@ class DescribeReservedInstancesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->reservedInstanceId) {
+            $res['ReservedInstanceId'] = $this->reservedInstanceId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -180,12 +186,6 @@ class DescribeReservedInstancesRequest extends Model
         if (null !== $this->allocationType) {
             $res['AllocationType'] = $this->allocationType;
         }
-        if (null !== $this->reservedInstanceId) {
-            $res['ReservedInstanceId'] = $this->reservedInstanceId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
 
         return $res;
     }
@@ -198,6 +198,15 @@ class DescribeReservedInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -219,13 +228,14 @@ class DescribeReservedInstancesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
+        if (isset($map['ReservedInstanceId'])) {
+            if (!empty($map['ReservedInstanceId'])) {
+                $model->reservedInstanceId = $map['ReservedInstanceId'];
+            }
+        }
+        if (isset($map['Status'])) {
+            if (!empty($map['Status'])) {
+                $model->status = $map['Status'];
             }
         }
         if (isset($map['ZoneId'])) {
@@ -251,16 +261,6 @@ class DescribeReservedInstancesRequest extends Model
         }
         if (isset($map['AllocationType'])) {
             $model->allocationType = $map['AllocationType'];
-        }
-        if (isset($map['ReservedInstanceId'])) {
-            if (!empty($map['ReservedInstanceId'])) {
-                $model->reservedInstanceId = $map['ReservedInstanceId'];
-            }
-        }
-        if (isset($map['Status'])) {
-            if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
-            }
         }
 
         return $model;

@@ -37,6 +37,11 @@ class AcceptInquiredSystemEventRequest extends Model
      * @var string
      */
     public $eventId;
+
+    /**
+     * @var string
+     */
+    public $choice;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -44,6 +49,7 @@ class AcceptInquiredSystemEventRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
         'eventId'              => 'EventId',
+        'choice'               => 'Choice',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class AcceptInquiredSystemEventRequest extends Model
         }
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
+        }
+        if (null !== $this->choice) {
+            $res['Choice'] = $this->choice;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class AcceptInquiredSystemEventRequest extends Model
         }
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
+        }
+        if (isset($map['Choice'])) {
+            $model->choice = $map['Choice'];
         }
 
         return $model;

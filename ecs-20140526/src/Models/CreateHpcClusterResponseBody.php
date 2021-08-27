@@ -11,15 +11,15 @@ class CreateHpcClusterResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $hpcClusterId;
 
     /**
      * @var string
      */
-    public $hpcClusterId;
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'hpcClusterId' => 'HpcClusterId',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateHpcClusterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->hpcClusterId) {
             $res['HpcClusterId'] = $this->hpcClusterId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateHpcClusterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['HpcClusterId'])) {
             $model->hpcClusterId = $map['HpcClusterId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

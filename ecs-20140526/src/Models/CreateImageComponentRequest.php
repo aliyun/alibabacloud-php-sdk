@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateImageComponentRequest extends Model
 {
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -38,11 +43,6 @@ class CreateImageComponentRequest extends Model
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
 
     /**
      * @var string
@@ -74,13 +74,13 @@ class CreateImageComponentRequest extends Model
      */
     public $clientToken;
     protected $_name = [
+        'tag'                  => 'Tag',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
-        'tag'                  => 'Tag',
         'name'                 => 'Name',
         'description'          => 'Description',
         'systemType'           => 'SystemType',
@@ -96,6 +96,15 @@ class CreateImageComponentRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -113,15 +122,6 @@ class CreateImageComponentRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -153,6 +153,15 @@ class CreateImageComponentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -170,15 +179,6 @@ class CreateImageComponentRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

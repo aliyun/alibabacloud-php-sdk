@@ -16,16 +16,16 @@ class CreateElasticityAssuranceResponseBody extends Model
     /**
      * @var string
      */
-    public $orderId;
+    public $privatePoolOptionsId;
 
     /**
      * @var string
      */
-    public $privatePoolOptionsId;
+    public $orderId;
     protected $_name = [
         'requestId'            => 'RequestId',
-        'orderId'              => 'OrderId',
         'privatePoolOptionsId' => 'PrivatePoolOptionsId',
+        'orderId'              => 'OrderId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class CreateElasticityAssuranceResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
         if (null !== $this->privatePoolOptionsId) {
             $res['PrivatePoolOptionsId'] = $this->privatePoolOptionsId;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class CreateElasticityAssuranceResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['PrivatePoolOptionsId'])) {
             $model->privatePoolOptionsId = $map['PrivatePoolOptionsId'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         return $model;

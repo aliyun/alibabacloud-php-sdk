@@ -34,6 +34,11 @@ class RebootInstancesRequest extends Model
     public $dryRun;
 
     /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -47,21 +52,16 @@ class RebootInstancesRequest extends Model
      * @var string
      */
     public $batchOptimization;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'dryRun'               => 'DryRun',
+        'instanceId'           => 'InstanceId',
         'regionId'             => 'RegionId',
         'forceReboot'          => 'ForceReboot',
         'batchOptimization'    => 'BatchOptimization',
-        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
@@ -86,6 +86,9 @@ class RebootInstancesRequest extends Model
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -94,9 +97,6 @@ class RebootInstancesRequest extends Model
         }
         if (null !== $this->batchOptimization) {
             $res['BatchOptimization'] = $this->batchOptimization;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -125,6 +125,11 @@ class RebootInstancesRequest extends Model
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -133,11 +138,6 @@ class RebootInstancesRequest extends Model
         }
         if (isset($map['BatchOptimization'])) {
             $model->batchOptimization = $map['BatchOptimization'];
-        }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
         }
 
         return $model;

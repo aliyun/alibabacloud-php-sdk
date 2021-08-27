@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelinesRequest extends Model
 {
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -40,9 +45,9 @@ class DescribeImagePipelinesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var tag[]
+     * @var string[]
      */
-    public $tag;
+    public $imagePipelineId;
 
     /**
      * @var string
@@ -58,23 +63,18 @@ class DescribeImagePipelinesRequest extends Model
      * @var int
      */
     public $maxResults;
-
-    /**
-     * @var string[]
-     */
-    public $imagePipelineId;
     protected $_name = [
+        'tag'                  => 'Tag',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
-        'tag'                  => 'Tag',
+        'imagePipelineId'      => 'ImagePipelineId',
         'name'                 => 'Name',
         'nextToken'            => 'NextToken',
         'maxResults'           => 'MaxResults',
-        'imagePipelineId'      => 'ImagePipelineId',
     ];
 
     public function validate()
@@ -84,6 +84,15 @@ class DescribeImagePipelinesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -102,14 +111,8 @@ class DescribeImagePipelinesRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->imagePipelineId) {
+            $res['ImagePipelineId'] = $this->imagePipelineId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -119,9 +122,6 @@ class DescribeImagePipelinesRequest extends Model
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->imagePipelineId) {
-            $res['ImagePipelineId'] = $this->imagePipelineId;
         }
 
         return $res;
@@ -135,6 +135,15 @@ class DescribeImagePipelinesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -153,13 +162,9 @@ class DescribeImagePipelinesRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
+        if (isset($map['ImagePipelineId'])) {
+            if (!empty($map['ImagePipelineId'])) {
+                $model->imagePipelineId = $map['ImagePipelineId'];
             }
         }
         if (isset($map['Name'])) {
@@ -170,11 +175,6 @@ class DescribeImagePipelinesRequest extends Model
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['ImagePipelineId'])) {
-            if (!empty($map['ImagePipelineId'])) {
-                $model->imagePipelineId = $map['ImagePipelineId'];
-            }
         }
 
         return $model;

@@ -13,6 +13,11 @@ class CreateNatGatewayResponseBody extends Model
     /**
      * @var string
      */
+    public $natGatewayId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -24,16 +29,11 @@ class CreateNatGatewayResponseBody extends Model
      * @var bandwidthPackageIds
      */
     public $bandwidthPackageIds;
-
-    /**
-     * @var string
-     */
-    public $natGatewayId;
     protected $_name = [
+        'natGatewayId'        => 'NatGatewayId',
         'requestId'           => 'RequestId',
         'forwardTableIds'     => 'ForwardTableIds',
         'bandwidthPackageIds' => 'BandwidthPackageIds',
-        'natGatewayId'        => 'NatGatewayId',
     ];
 
     public function validate()
@@ -43,6 +43,9 @@ class CreateNatGatewayResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->natGatewayId) {
+            $res['NatGatewayId'] = $this->natGatewayId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,9 +54,6 @@ class CreateNatGatewayResponseBody extends Model
         }
         if (null !== $this->bandwidthPackageIds) {
             $res['BandwidthPackageIds'] = null !== $this->bandwidthPackageIds ? $this->bandwidthPackageIds->toMap() : null;
-        }
-        if (null !== $this->natGatewayId) {
-            $res['NatGatewayId'] = $this->natGatewayId;
         }
 
         return $res;
@@ -67,6 +67,9 @@ class CreateNatGatewayResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NatGatewayId'])) {
+            $model->natGatewayId = $map['NatGatewayId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -75,9 +78,6 @@ class CreateNatGatewayResponseBody extends Model
         }
         if (isset($map['BandwidthPackageIds'])) {
             $model->bandwidthPackageIds = bandwidthPackageIds::fromMap($map['BandwidthPackageIds']);
-        }
-        if (isset($map['NatGatewayId'])) {
-            $model->natGatewayId = $map['NatGatewayId'];
         }
 
         return $model;

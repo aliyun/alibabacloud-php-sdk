@@ -52,6 +52,13 @@ class ModifyImageSharePermissionRequest extends Model
      * @var string[]
      */
     public $removeAccount;
+
+    /**
+     * @description 发布为社区镜像
+     *
+     * @var bool
+     */
+    public $isPublic;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -62,6 +69,7 @@ class ModifyImageSharePermissionRequest extends Model
         'launchPermission'     => 'LaunchPermission',
         'addAccount'           => 'AddAccount',
         'removeAccount'        => 'RemoveAccount',
+        'isPublic'             => 'IsPublic',
     ];
 
     public function validate()
@@ -97,6 +105,9 @@ class ModifyImageSharePermissionRequest extends Model
         }
         if (null !== $this->removeAccount) {
             $res['RemoveAccount'] = $this->removeAccount;
+        }
+        if (null !== $this->isPublic) {
+            $res['IsPublic'] = $this->isPublic;
         }
 
         return $res;
@@ -140,6 +151,9 @@ class ModifyImageSharePermissionRequest extends Model
             if (!empty($map['RemoveAccount'])) {
                 $model->removeAccount = $map['RemoveAccount'];
             }
+        }
+        if (isset($map['IsPublic'])) {
+            $model->isPublic = $map['IsPublic'];
         }
 
         return $model;

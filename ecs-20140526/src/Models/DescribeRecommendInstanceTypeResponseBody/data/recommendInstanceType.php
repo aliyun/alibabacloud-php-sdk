@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class recommendInstanceType extends Model
 {
     /**
-     * @var zones
-     */
-    public $zones;
-
-    /**
      * @var string
      */
     public $commodityCode;
@@ -36,11 +31,6 @@ class recommendInstanceType extends Model
     public $networkType;
 
     /**
-     * @var instanceType
-     */
-    public $instanceType;
-
-    /**
      * @var string
      */
     public $scene;
@@ -59,17 +49,27 @@ class recommendInstanceType extends Model
      * @var string
      */
     public $instanceChargeType;
+
+    /**
+     * @var zones
+     */
+    public $zones;
+
+    /**
+     * @var instanceType
+     */
+    public $instanceType;
     protected $_name = [
-        'zones'              => 'Zones',
         'commodityCode'      => 'CommodityCode',
         'zoneId'             => 'ZoneId',
         'priority'           => 'Priority',
         'networkType'        => 'NetworkType',
-        'instanceType'       => 'InstanceType',
         'scene'              => 'Scene',
         'spotStrategy'       => 'SpotStrategy',
         'regionId'           => 'RegionId',
         'instanceChargeType' => 'InstanceChargeType',
+        'zones'              => 'Zones',
+        'instanceType'       => 'InstanceType',
     ];
 
     public function validate()
@@ -79,9 +79,6 @@ class recommendInstanceType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zones) {
-            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
-        }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
@@ -93,9 +90,6 @@ class recommendInstanceType extends Model
         }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = null !== $this->instanceType ? $this->instanceType->toMap() : null;
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
@@ -109,6 +103,12 @@ class recommendInstanceType extends Model
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
+        if (null !== $this->zones) {
+            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = null !== $this->instanceType ? $this->instanceType->toMap() : null;
+        }
 
         return $res;
     }
@@ -121,9 +121,6 @@ class recommendInstanceType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Zones'])) {
-            $model->zones = zones::fromMap($map['Zones']);
-        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
@@ -136,9 +133,6 @@ class recommendInstanceType extends Model
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = instanceType::fromMap($map['InstanceType']);
-        }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
@@ -150,6 +144,12 @@ class recommendInstanceType extends Model
         }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+        if (isset($map['Zones'])) {
+            $model->zones = zones::fromMap($map['Zones']);
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = instanceType::fromMap($map['InstanceType']);
         }
 
         return $model;

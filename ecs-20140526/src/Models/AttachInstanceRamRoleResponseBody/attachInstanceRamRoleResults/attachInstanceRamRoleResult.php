@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class attachInstanceRamRoleResult extends Model
 {
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var string
      */
     public $code;
@@ -27,11 +22,16 @@ class attachInstanceRamRoleResult extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'success'    => 'Success',
         'code'       => 'Code',
         'message'    => 'Message',
         'instanceId' => 'InstanceId',
+        'success'    => 'Success',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class attachInstanceRamRoleResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -52,6 +49,9 @@ class attachInstanceRamRoleResult extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class attachInstanceRamRoleResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -76,6 +73,9 @@ class attachInstanceRamRoleResult extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

@@ -16,12 +16,12 @@ class dataDisk extends Model
     /**
      * @var string
      */
-    public $description;
+    public $kmsKeyId;
 
     /**
      * @var string
      */
-    public $kmsKeyId;
+    public $description;
 
     /**
      * @var string
@@ -59,8 +59,8 @@ class dataDisk extends Model
     public $encrypted;
     protected $_name = [
         'performanceLevel'   => 'PerformanceLevel',
-        'description'        => 'Description',
         'kmsKeyId'           => 'KmsKeyId',
+        'description'        => 'Description',
         'snapshotId'         => 'SnapshotId',
         'size'               => 'Size',
         'device'             => 'Device',
@@ -80,11 +80,11 @@ class dataDisk extends Model
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->kmsKeyId) {
             $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
@@ -122,11 +122,11 @@ class dataDisk extends Model
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['KmsKeyId'])) {
             $model->kmsKeyId = $map['KmsKeyId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];

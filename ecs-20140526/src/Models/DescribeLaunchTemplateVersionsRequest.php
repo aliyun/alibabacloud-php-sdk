@@ -34,6 +34,11 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     public $regionId;
 
     /**
+     * @var int[]
+     */
+    public $launchTemplateVersion;
+
+    /**
      * @var string
      */
     public $launchTemplateId;
@@ -72,17 +77,13 @@ class DescribeLaunchTemplateVersionsRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var int[]
-     */
-    public $launchTemplateVersion;
     protected $_name = [
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
         'ownerAccount'          => 'OwnerAccount',
         'regionId'              => 'RegionId',
+        'launchTemplateVersion' => 'LaunchTemplateVersion',
         'launchTemplateId'      => 'LaunchTemplateId',
         'launchTemplateName'    => 'LaunchTemplateName',
         'minVersion'            => 'MinVersion',
@@ -91,7 +92,6 @@ class DescribeLaunchTemplateVersionsRequest extends Model
         'detailFlag'            => 'DetailFlag',
         'pageNumber'            => 'PageNumber',
         'pageSize'              => 'PageSize',
-        'launchTemplateVersion' => 'LaunchTemplateVersion',
     ];
 
     public function validate()
@@ -116,6 +116,9 @@ class DescribeLaunchTemplateVersionsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->launchTemplateVersion) {
+            $res['LaunchTemplateVersion'] = $this->launchTemplateVersion;
+        }
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
         }
@@ -139,9 +142,6 @@ class DescribeLaunchTemplateVersionsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->launchTemplateVersion) {
-            $res['LaunchTemplateVersion'] = $this->launchTemplateVersion;
         }
 
         return $res;
@@ -170,6 +170,11 @@ class DescribeLaunchTemplateVersionsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['LaunchTemplateVersion'])) {
+            if (!empty($map['LaunchTemplateVersion'])) {
+                $model->launchTemplateVersion = $map['LaunchTemplateVersion'];
+            }
+        }
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];
         }
@@ -193,11 +198,6 @@ class DescribeLaunchTemplateVersionsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['LaunchTemplateVersion'])) {
-            if (!empty($map['LaunchTemplateVersion'])) {
-                $model->launchTemplateVersion = $map['LaunchTemplateVersion'];
-            }
         }
 
         return $model;

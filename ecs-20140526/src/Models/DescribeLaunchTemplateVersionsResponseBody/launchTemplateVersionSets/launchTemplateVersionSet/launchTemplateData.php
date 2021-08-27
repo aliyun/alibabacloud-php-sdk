@@ -39,19 +39,9 @@ class launchTemplateData extends Model
     public $securityGroupId;
 
     /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
      * @var string
      */
     public $networkType;
-
-    /**
-     * @var dataDisks
-     */
-    public $dataDisks;
 
     /**
      * @var string
@@ -69,11 +59,6 @@ class launchTemplateData extends Model
     public $description;
 
     /**
-     * @var string
-     */
-    public $instanceName;
-
-    /**
      * @var int
      */
     public $spotDuration;
@@ -81,7 +66,7 @@ class launchTemplateData extends Model
     /**
      * @var string
      */
-    public $userData;
+    public $instanceName;
 
     /**
      * @var string
@@ -89,14 +74,19 @@ class launchTemplateData extends Model
     public $securityEnhancementStrategy;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $passwordInherit;
+    public $userData;
 
     /**
      * @var float
      */
     public $spotPriceLimit;
+
+    /**
+     * @var bool
+     */
+    public $passwordInherit;
 
     /**
      * @var string
@@ -139,11 +129,6 @@ class launchTemplateData extends Model
     public $instanceType;
 
     /**
-     * @var securityGroupIds
-     */
-    public $securityGroupIds;
-
-    /**
      * @var int
      */
     public $period;
@@ -184,27 +169,40 @@ class launchTemplateData extends Model
     public $zoneId;
 
     /**
+     * @var dataDisks
+     */
+    public $dataDisks;
+
+    /**
      * @var networkInterfaces
      */
     public $networkInterfaces;
+
+    /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
+     * @var securityGroupIds
+     */
+    public $securityGroupIds;
     protected $_name = [
         'systemDisk'                  => 'SystemDisk',
         'deploymentSetId'             => 'DeploymentSetId',
         'vpcId'                       => 'VpcId',
         'keyPairName'                 => 'KeyPairName',
         'securityGroupId'             => 'SecurityGroupId',
-        'tags'                        => 'Tags',
         'networkType'                 => 'NetworkType',
-        'dataDisks'                   => 'DataDisks',
         'spotStrategy'                => 'SpotStrategy',
         'enableVmOsConfig'            => 'EnableVmOsConfig',
         'description'                 => 'Description',
-        'instanceName'                => 'InstanceName',
         'spotDuration'                => 'SpotDuration',
-        'userData'                    => 'UserData',
+        'instanceName'                => 'InstanceName',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
-        'passwordInherit'             => 'PasswordInherit',
+        'userData'                    => 'UserData',
         'spotPriceLimit'              => 'SpotPriceLimit',
+        'passwordInherit'             => 'PasswordInherit',
         'privateIpAddress'            => 'PrivateIpAddress',
         'imageId'                     => 'ImageId',
         'autoReleaseTime'             => 'AutoReleaseTime',
@@ -213,7 +211,6 @@ class launchTemplateData extends Model
         'internetMaxBandwidthOut'     => 'InternetMaxBandwidthOut',
         'internetMaxBandwidthIn'      => 'InternetMaxBandwidthIn',
         'instanceType'                => 'InstanceType',
-        'securityGroupIds'            => 'SecurityGroupIds',
         'period'                      => 'Period',
         'instanceChargeType'          => 'InstanceChargeType',
         'ioOptimized'                 => 'IoOptimized',
@@ -222,7 +219,10 @@ class launchTemplateData extends Model
         'resourceGroupId'             => 'ResourceGroupId',
         'internetChargeType'          => 'InternetChargeType',
         'zoneId'                      => 'ZoneId',
+        'dataDisks'                   => 'DataDisks',
         'networkInterfaces'           => 'NetworkInterfaces',
+        'tags'                        => 'Tags',
+        'securityGroupIds'            => 'SecurityGroupIds',
     ];
 
     public function validate()
@@ -248,14 +248,8 @@ class launchTemplateData extends Model
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
-        }
-        if (null !== $this->dataDisks) {
-            $res['DataDisks'] = null !== $this->dataDisks ? $this->dataDisks->toMap() : null;
         }
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
@@ -266,23 +260,23 @@ class launchTemplateData extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
         if (null !== $this->spotDuration) {
             $res['SpotDuration'] = $this->spotDuration;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->securityEnhancementStrategy) {
             $res['SecurityEnhancementStrategy'] = $this->securityEnhancementStrategy;
         }
-        if (null !== $this->passwordInherit) {
-            $res['PasswordInherit'] = $this->passwordInherit;
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
         if (null !== $this->spotPriceLimit) {
             $res['SpotPriceLimit'] = $this->spotPriceLimit;
+        }
+        if (null !== $this->passwordInherit) {
+            $res['PasswordInherit'] = $this->passwordInherit;
         }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
@@ -308,9 +302,6 @@ class launchTemplateData extends Model
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-        if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
-        }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
@@ -335,8 +326,17 @@ class launchTemplateData extends Model
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
+        if (null !== $this->dataDisks) {
+            $res['DataDisks'] = null !== $this->dataDisks ? $this->dataDisks->toMap() : null;
+        }
         if (null !== $this->networkInterfaces) {
             $res['NetworkInterfaces'] = null !== $this->networkInterfaces ? $this->networkInterfaces->toMap() : null;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->securityGroupIds) {
+            $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
         }
 
         return $res;
@@ -365,14 +365,8 @@ class launchTemplateData extends Model
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
-        }
-        if (isset($map['DataDisks'])) {
-            $model->dataDisks = dataDisks::fromMap($map['DataDisks']);
         }
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
@@ -383,23 +377,23 @@ class launchTemplateData extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
         if (isset($map['SpotDuration'])) {
             $model->spotDuration = $map['SpotDuration'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['SecurityEnhancementStrategy'])) {
             $model->securityEnhancementStrategy = $map['SecurityEnhancementStrategy'];
         }
-        if (isset($map['PasswordInherit'])) {
-            $model->passwordInherit = $map['PasswordInherit'];
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
         if (isset($map['SpotPriceLimit'])) {
             $model->spotPriceLimit = $map['SpotPriceLimit'];
+        }
+        if (isset($map['PasswordInherit'])) {
+            $model->passwordInherit = $map['PasswordInherit'];
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
@@ -425,9 +419,6 @@ class launchTemplateData extends Model
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-        if (isset($map['SecurityGroupIds'])) {
-            $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
-        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
@@ -452,8 +443,17 @@ class launchTemplateData extends Model
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
+        if (isset($map['DataDisks'])) {
+            $model->dataDisks = dataDisks::fromMap($map['DataDisks']);
+        }
         if (isset($map['NetworkInterfaces'])) {
             $model->networkInterfaces = networkInterfaces::fromMap($map['NetworkInterfaces']);
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['SecurityGroupIds'])) {
+            $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
         }
 
         return $model;

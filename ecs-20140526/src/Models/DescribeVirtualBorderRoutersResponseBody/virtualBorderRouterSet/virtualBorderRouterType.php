@@ -11,7 +11,7 @@ class virtualBorderRouterType extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $vlanInterfaceId;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class virtualBorderRouterType extends Model
     /**
      * @var string
      */
-    public $vlanInterfaceId;
+    public $creationTime;
 
     /**
      * @var string
@@ -108,9 +108,9 @@ class virtualBorderRouterType extends Model
      */
     public $vlanId;
     protected $_name = [
-        'creationTime'                     => 'CreationTime',
-        'status'                           => 'Status',
         'vlanInterfaceId'                  => 'VlanInterfaceId',
+        'status'                           => 'Status',
+        'creationTime'                     => 'CreationTime',
         'circuitCode'                      => 'CircuitCode',
         'physicalConnectionOwnerUid'       => 'PhysicalConnectionOwnerUid',
         'localGatewayIp'                   => 'LocalGatewayIp',
@@ -137,14 +137,14 @@ class virtualBorderRouterType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
+        if (null !== $this->vlanInterfaceId) {
+            $res['VlanInterfaceId'] = $this->vlanInterfaceId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->vlanInterfaceId) {
-            $res['VlanInterfaceId'] = $this->vlanInterfaceId;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->circuitCode) {
             $res['CircuitCode'] = $this->circuitCode;
@@ -209,14 +209,14 @@ class virtualBorderRouterType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
+        if (isset($map['VlanInterfaceId'])) {
+            $model->vlanInterfaceId = $map['VlanInterfaceId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['VlanInterfaceId'])) {
-            $model->vlanInterfaceId = $map['VlanInterfaceId'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['CircuitCode'])) {
             $model->circuitCode = $map['CircuitCode'];

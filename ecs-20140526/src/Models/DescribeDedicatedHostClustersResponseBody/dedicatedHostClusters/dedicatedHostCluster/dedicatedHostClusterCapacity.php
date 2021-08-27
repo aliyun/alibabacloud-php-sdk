@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostClusterCapacity extends Model
 {
     /**
-     * @var localStorageCapacities
+     * @var int
      */
-    public $localStorageCapacities;
+    public $availableVcpus;
 
     /**
      * @var int
@@ -31,21 +31,21 @@ class dedicatedHostClusterCapacity extends Model
     public $totalVcpus;
 
     /**
+     * @var localStorageCapacities
+     */
+    public $localStorageCapacities;
+
+    /**
      * @var availableInstanceTypes
      */
     public $availableInstanceTypes;
-
-    /**
-     * @var int
-     */
-    public $availableVcpus;
     protected $_name = [
-        'localStorageCapacities' => 'LocalStorageCapacities',
+        'availableVcpus'         => 'AvailableVcpus',
         'availableMemory'        => 'AvailableMemory',
         'totalMemory'            => 'TotalMemory',
         'totalVcpus'             => 'TotalVcpus',
+        'localStorageCapacities' => 'LocalStorageCapacities',
         'availableInstanceTypes' => 'AvailableInstanceTypes',
-        'availableVcpus'         => 'AvailableVcpus',
     ];
 
     public function validate()
@@ -55,8 +55,8 @@ class dedicatedHostClusterCapacity extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->localStorageCapacities) {
-            $res['LocalStorageCapacities'] = null !== $this->localStorageCapacities ? $this->localStorageCapacities->toMap() : null;
+        if (null !== $this->availableVcpus) {
+            $res['AvailableVcpus'] = $this->availableVcpus;
         }
         if (null !== $this->availableMemory) {
             $res['AvailableMemory'] = $this->availableMemory;
@@ -67,11 +67,11 @@ class dedicatedHostClusterCapacity extends Model
         if (null !== $this->totalVcpus) {
             $res['TotalVcpus'] = $this->totalVcpus;
         }
+        if (null !== $this->localStorageCapacities) {
+            $res['LocalStorageCapacities'] = null !== $this->localStorageCapacities ? $this->localStorageCapacities->toMap() : null;
+        }
         if (null !== $this->availableInstanceTypes) {
             $res['AvailableInstanceTypes'] = null !== $this->availableInstanceTypes ? $this->availableInstanceTypes->toMap() : null;
-        }
-        if (null !== $this->availableVcpus) {
-            $res['AvailableVcpus'] = $this->availableVcpus;
         }
 
         return $res;
@@ -85,8 +85,8 @@ class dedicatedHostClusterCapacity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LocalStorageCapacities'])) {
-            $model->localStorageCapacities = localStorageCapacities::fromMap($map['LocalStorageCapacities']);
+        if (isset($map['AvailableVcpus'])) {
+            $model->availableVcpus = $map['AvailableVcpus'];
         }
         if (isset($map['AvailableMemory'])) {
             $model->availableMemory = $map['AvailableMemory'];
@@ -97,11 +97,11 @@ class dedicatedHostClusterCapacity extends Model
         if (isset($map['TotalVcpus'])) {
             $model->totalVcpus = $map['TotalVcpus'];
         }
+        if (isset($map['LocalStorageCapacities'])) {
+            $model->localStorageCapacities = localStorageCapacities::fromMap($map['LocalStorageCapacities']);
+        }
         if (isset($map['AvailableInstanceTypes'])) {
             $model->availableInstanceTypes = availableInstanceTypes::fromMap($map['AvailableInstanceTypes']);
-        }
-        if (isset($map['AvailableVcpus'])) {
-            $model->availableVcpus = $map['AvailableVcpus'];
         }
 
         return $model;

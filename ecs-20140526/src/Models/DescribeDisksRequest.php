@@ -166,6 +166,11 @@ class DescribeDisksRequest extends Model
     public $KMSKeyId;
 
     /**
+     * @var string
+     */
+    public $multiAttach;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -206,6 +211,7 @@ class DescribeDisksRequest extends Model
         'encrypted'                     => 'Encrypted',
         'dryRun'                        => 'DryRun',
         'KMSKeyId'                      => 'KMSKeyId',
+        'multiAttach'                   => 'MultiAttach',
         'tag'                           => 'Tag',
         'additionalAttributes'          => 'AdditionalAttributes',
     ];
@@ -315,6 +321,9 @@ class DescribeDisksRequest extends Model
         }
         if (null !== $this->KMSKeyId) {
             $res['KMSKeyId'] = $this->KMSKeyId;
+        }
+        if (null !== $this->multiAttach) {
+            $res['MultiAttach'] = $this->multiAttach;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -438,6 +447,9 @@ class DescribeDisksRequest extends Model
         }
         if (isset($map['KMSKeyId'])) {
             $model->KMSKeyId = $map['KMSKeyId'];
+        }
+        if (isset($map['MultiAttach'])) {
+            $model->multiAttach = $map['MultiAttach'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

@@ -40,11 +40,6 @@ class imagePipelineExecutionSet extends Model
     public $message;
 
     /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
      * @var string
      */
     public $imageId;
@@ -53,6 +48,11 @@ class imagePipelineExecutionSet extends Model
      * @var string
      */
     public $executionId;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'creationTime'    => 'CreationTime',
         'imagePipelineId' => 'ImagePipelineId',
@@ -60,9 +60,9 @@ class imagePipelineExecutionSet extends Model
         'modifiedTime'    => 'ModifiedTime',
         'resourceGroupId' => 'ResourceGroupId',
         'message'         => 'Message',
-        'tags'            => 'Tags',
         'imageId'         => 'ImageId',
         'executionId'     => 'ExecutionId',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -90,14 +90,14 @@ class imagePipelineExecutionSet extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->executionId) {
             $res['ExecutionId'] = $this->executionId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -129,14 +129,14 @@ class imagePipelineExecutionSet extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
         if (isset($map['ExecutionId'])) {
             $model->executionId = $map['ExecutionId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

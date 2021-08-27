@@ -11,11 +11,6 @@ class ImportImageResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
@@ -26,11 +21,16 @@ class ImportImageResponseBody extends Model
     /**
      * @var string
      */
+    public $taskId;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
-        'taskId'    => 'TaskId',
         'requestId' => 'RequestId',
         'imageId'   => 'ImageId',
+        'taskId'    => 'TaskId',
         'regionId'  => 'RegionId',
     ];
 
@@ -41,14 +41,14 @@ class ImportImageResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -65,14 +65,14 @@ class ImportImageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

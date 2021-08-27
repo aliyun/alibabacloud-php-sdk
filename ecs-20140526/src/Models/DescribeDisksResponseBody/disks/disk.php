@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\attachments;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\mountInstances;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\operationLocks;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\tags;
@@ -37,11 +38,6 @@ class disk extends Model
     public $performanceLevel;
 
     /**
-     * @var operationLocks
-     */
-    public $operationLocks;
-
-    /**
      * @var string
      */
     public $bdfId;
@@ -57,11 +53,6 @@ class disk extends Model
     public $storageSetId;
 
     /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
      * @var int
      */
     public $storageSetPartitionNumber;
@@ -72,14 +63,14 @@ class disk extends Model
     public $diskId;
 
     /**
-     * @var mountInstances
-     */
-    public $mountInstances;
-
-    /**
      * @var bool
      */
     public $deleteAutoSnapshot;
+
+    /**
+     * @var string
+     */
+    public $dedicatedBlockStorageClusterId;
 
     /**
      * @var bool
@@ -122,14 +113,14 @@ class disk extends Model
     public $imageId;
 
     /**
-     * @var bool
-     */
-    public $deleteWithInstance;
-
-    /**
      * @var string
      */
     public $KMSKeyId;
+
+    /**
+     * @var bool
+     */
+    public $deleteWithInstance;
 
     /**
      * @var string
@@ -210,47 +201,75 @@ class disk extends Model
      * @var string
      */
     public $productCode;
+
+    /**
+     * @var string
+     */
+    public $multiAttach;
+
+    /**
+     * @var operationLocks
+     */
+    public $operationLocks;
+
+    /**
+     * @var mountInstances
+     */
+    public $mountInstances;
+
+    /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
+     * @var attachments
+     */
+    public $attachments;
     protected $_name = [
-        'serialNumber'                  => 'SerialNumber',
-        'creationTime'                  => 'CreationTime',
-        'status'                        => 'Status',
-        'type'                          => 'Type',
-        'performanceLevel'              => 'PerformanceLevel',
-        'operationLocks'                => 'OperationLocks',
-        'bdfId'                         => 'BdfId',
-        'enableAutoSnapshot'            => 'EnableAutoSnapshot',
-        'storageSetId'                  => 'StorageSetId',
-        'tags'                          => 'Tags',
-        'storageSetPartitionNumber'     => 'StorageSetPartitionNumber',
-        'diskId'                        => 'DiskId',
-        'mountInstances'                => 'MountInstances',
-        'deleteAutoSnapshot'            => 'DeleteAutoSnapshot',
-        'encrypted'                     => 'Encrypted',
-        'IOPSRead'                      => 'IOPSRead',
-        'mountInstanceNum'              => 'MountInstanceNum',
-        'description'                   => 'Description',
-        'device'                        => 'Device',
-        'diskName'                      => 'DiskName',
-        'portable'                      => 'Portable',
-        'imageId'                       => 'ImageId',
-        'deleteWithInstance'            => 'DeleteWithInstance',
-        'KMSKeyId'                      => 'KMSKeyId',
-        'detachedTime'                  => 'DetachedTime',
-        'sourceSnapshotId'              => 'SourceSnapshotId',
-        'autoSnapshotPolicyId'          => 'AutoSnapshotPolicyId',
-        'enableAutomatedSnapshotPolicy' => 'EnableAutomatedSnapshotPolicy',
-        'IOPSWrite'                     => 'IOPSWrite',
-        'instanceId'                    => 'InstanceId',
-        'IOPS'                          => 'IOPS',
-        'regionId'                      => 'RegionId',
-        'expiredTime'                   => 'ExpiredTime',
-        'size'                          => 'Size',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'diskChargeType'                => 'DiskChargeType',
-        'zoneId'                        => 'ZoneId',
-        'attachedTime'                  => 'AttachedTime',
-        'category'                      => 'Category',
-        'productCode'                   => 'ProductCode',
+        'serialNumber'                   => 'SerialNumber',
+        'creationTime'                   => 'CreationTime',
+        'status'                         => 'Status',
+        'type'                           => 'Type',
+        'performanceLevel'               => 'PerformanceLevel',
+        'bdfId'                          => 'BdfId',
+        'enableAutoSnapshot'             => 'EnableAutoSnapshot',
+        'storageSetId'                   => 'StorageSetId',
+        'storageSetPartitionNumber'      => 'StorageSetPartitionNumber',
+        'diskId'                         => 'DiskId',
+        'deleteAutoSnapshot'             => 'DeleteAutoSnapshot',
+        'dedicatedBlockStorageClusterId' => 'DedicatedBlockStorageClusterId',
+        'encrypted'                      => 'Encrypted',
+        'IOPSRead'                       => 'IOPSRead',
+        'mountInstanceNum'               => 'MountInstanceNum',
+        'description'                    => 'Description',
+        'device'                         => 'Device',
+        'diskName'                       => 'DiskName',
+        'portable'                       => 'Portable',
+        'imageId'                        => 'ImageId',
+        'KMSKeyId'                       => 'KMSKeyId',
+        'deleteWithInstance'             => 'DeleteWithInstance',
+        'detachedTime'                   => 'DetachedTime',
+        'sourceSnapshotId'               => 'SourceSnapshotId',
+        'autoSnapshotPolicyId'           => 'AutoSnapshotPolicyId',
+        'enableAutomatedSnapshotPolicy'  => 'EnableAutomatedSnapshotPolicy',
+        'IOPSWrite'                      => 'IOPSWrite',
+        'instanceId'                     => 'InstanceId',
+        'IOPS'                           => 'IOPS',
+        'regionId'                       => 'RegionId',
+        'expiredTime'                    => 'ExpiredTime',
+        'size'                           => 'Size',
+        'resourceGroupId'                => 'ResourceGroupId',
+        'diskChargeType'                 => 'DiskChargeType',
+        'zoneId'                         => 'ZoneId',
+        'attachedTime'                   => 'AttachedTime',
+        'category'                       => 'Category',
+        'productCode'                    => 'ProductCode',
+        'multiAttach'                    => 'MultiAttach',
+        'operationLocks'                 => 'OperationLocks',
+        'mountInstances'                 => 'MountInstances',
+        'tags'                           => 'Tags',
+        'attachments'                    => 'Attachments',
     ];
 
     public function validate()
@@ -275,9 +294,6 @@ class disk extends Model
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
-        if (null !== $this->operationLocks) {
-            $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toMap() : null;
-        }
         if (null !== $this->bdfId) {
             $res['BdfId'] = $this->bdfId;
         }
@@ -287,20 +303,17 @@ class disk extends Model
         if (null !== $this->storageSetId) {
             $res['StorageSetId'] = $this->storageSetId;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
         if (null !== $this->storageSetPartitionNumber) {
             $res['StorageSetPartitionNumber'] = $this->storageSetPartitionNumber;
         }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
-        if (null !== $this->mountInstances) {
-            $res['MountInstances'] = null !== $this->mountInstances ? $this->mountInstances->toMap() : null;
-        }
         if (null !== $this->deleteAutoSnapshot) {
             $res['DeleteAutoSnapshot'] = $this->deleteAutoSnapshot;
+        }
+        if (null !== $this->dedicatedBlockStorageClusterId) {
+            $res['DedicatedBlockStorageClusterId'] = $this->dedicatedBlockStorageClusterId;
         }
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
@@ -326,11 +339,11 @@ class disk extends Model
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-        if (null !== $this->deleteWithInstance) {
-            $res['DeleteWithInstance'] = $this->deleteWithInstance;
-        }
         if (null !== $this->KMSKeyId) {
             $res['KMSKeyId'] = $this->KMSKeyId;
+        }
+        if (null !== $this->deleteWithInstance) {
+            $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
         if (null !== $this->detachedTime) {
             $res['DetachedTime'] = $this->detachedTime;
@@ -380,6 +393,21 @@ class disk extends Model
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+        if (null !== $this->multiAttach) {
+            $res['MultiAttach'] = $this->multiAttach;
+        }
+        if (null !== $this->operationLocks) {
+            $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toMap() : null;
+        }
+        if (null !== $this->mountInstances) {
+            $res['MountInstances'] = null !== $this->mountInstances ? $this->mountInstances->toMap() : null;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->attachments) {
+            $res['Attachments'] = null !== $this->attachments ? $this->attachments->toMap() : null;
+        }
 
         return $res;
     }
@@ -407,9 +435,6 @@ class disk extends Model
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
         }
-        if (isset($map['OperationLocks'])) {
-            $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
-        }
         if (isset($map['BdfId'])) {
             $model->bdfId = $map['BdfId'];
         }
@@ -419,20 +444,17 @@ class disk extends Model
         if (isset($map['StorageSetId'])) {
             $model->storageSetId = $map['StorageSetId'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
         if (isset($map['StorageSetPartitionNumber'])) {
             $model->storageSetPartitionNumber = $map['StorageSetPartitionNumber'];
         }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
-        if (isset($map['MountInstances'])) {
-            $model->mountInstances = mountInstances::fromMap($map['MountInstances']);
-        }
         if (isset($map['DeleteAutoSnapshot'])) {
             $model->deleteAutoSnapshot = $map['DeleteAutoSnapshot'];
+        }
+        if (isset($map['DedicatedBlockStorageClusterId'])) {
+            $model->dedicatedBlockStorageClusterId = $map['DedicatedBlockStorageClusterId'];
         }
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
@@ -458,11 +480,11 @@ class disk extends Model
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-        if (isset($map['DeleteWithInstance'])) {
-            $model->deleteWithInstance = $map['DeleteWithInstance'];
-        }
         if (isset($map['KMSKeyId'])) {
             $model->KMSKeyId = $map['KMSKeyId'];
+        }
+        if (isset($map['DeleteWithInstance'])) {
+            $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
         if (isset($map['DetachedTime'])) {
             $model->detachedTime = $map['DetachedTime'];
@@ -511,6 +533,21 @@ class disk extends Model
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['MultiAttach'])) {
+            $model->multiAttach = $map['MultiAttach'];
+        }
+        if (isset($map['OperationLocks'])) {
+            $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
+        }
+        if (isset($map['MountInstances'])) {
+            $model->mountInstances = mountInstances::fromMap($map['MountInstances']);
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['Attachments'])) {
+            $model->attachments = attachments::fromMap($map['Attachments']);
         }
 
         return $model;

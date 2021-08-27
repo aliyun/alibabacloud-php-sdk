@@ -11,15 +11,15 @@ class CreateHaVipResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $haVipId;
 
     /**
      * @var string
      */
-    public $haVipId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'haVipId'   => 'HaVipId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateHaVipResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->haVipId) {
             $res['HaVipId'] = $this->haVipId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateHaVipResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['HaVipId'])) {
             $model->haVipId = $map['HaVipId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

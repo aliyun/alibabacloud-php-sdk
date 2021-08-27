@@ -11,15 +11,15 @@ class CreateLaunchTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $launchTemplateId;
 
     /**
      * @var string
      */
-    public $launchTemplateId;
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'launchTemplateId' => 'LaunchTemplateId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateLaunchTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateLaunchTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

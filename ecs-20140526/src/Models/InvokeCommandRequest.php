@@ -34,9 +34,19 @@ class InvokeCommandRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
      * @var string
      */
     public $commandId;
+
+    /**
+     * @var string
+     */
+    public $repeatMode;
 
     /**
      * @var bool
@@ -62,24 +72,20 @@ class InvokeCommandRequest extends Model
      * @var string
      */
     public $windowsPasswordName;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'instanceId'           => 'InstanceId',
         'commandId'            => 'CommandId',
+        'repeatMode'           => 'RepeatMode',
         'timed'                => 'Timed',
         'frequency'            => 'Frequency',
         'parameters'           => 'Parameters',
         'username'             => 'Username',
         'windowsPasswordName'  => 'WindowsPasswordName',
-        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
@@ -104,8 +110,14 @@ class InvokeCommandRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
+        }
+        if (null !== $this->repeatMode) {
+            $res['RepeatMode'] = $this->repeatMode;
         }
         if (null !== $this->timed) {
             $res['Timed'] = $this->timed;
@@ -121,9 +133,6 @@ class InvokeCommandRequest extends Model
         }
         if (null !== $this->windowsPasswordName) {
             $res['WindowsPasswordName'] = $this->windowsPasswordName;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -152,8 +161,16 @@ class InvokeCommandRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
+        }
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
+        }
+        if (isset($map['RepeatMode'])) {
+            $model->repeatMode = $map['RepeatMode'];
         }
         if (isset($map['Timed'])) {
             $model->timed = $map['Timed'];
@@ -169,11 +186,6 @@ class InvokeCommandRequest extends Model
         }
         if (isset($map['WindowsPasswordName'])) {
             $model->windowsPasswordName = $map['WindowsPasswordName'];
-        }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
         }
 
         return $model;

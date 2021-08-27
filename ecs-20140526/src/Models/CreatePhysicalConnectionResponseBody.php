@@ -11,15 +11,15 @@ class CreatePhysicalConnectionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $physicalConnectionId;
 
     /**
      * @var string
      */
-    public $physicalConnectionId;
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'physicalConnectionId' => 'PhysicalConnectionId',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreatePhysicalConnectionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->physicalConnectionId) {
             $res['PhysicalConnectionId'] = $this->physicalConnectionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreatePhysicalConnectionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PhysicalConnectionId'])) {
             $model->physicalConnectionId = $map['PhysicalConnectionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

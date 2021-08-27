@@ -59,6 +59,11 @@ class ModifyDiskAttributeRequest extends Model
     public $ownerAccount;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string[]
      */
     public $diskIds;
@@ -73,6 +78,7 @@ class ModifyDiskAttributeRequest extends Model
         'deleteAutoSnapshot'   => 'DeleteAutoSnapshot',
         'enableAutoSnapshot'   => 'EnableAutoSnapshot',
         'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
         'diskIds'              => 'DiskIds',
     ];
 
@@ -112,6 +118,9 @@ class ModifyDiskAttributeRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->diskIds) {
             $res['DiskIds'] = $this->diskIds;
@@ -157,6 +166,9 @@ class ModifyDiskAttributeRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['DiskIds'])) {
             if (!empty($map['DiskIds'])) {

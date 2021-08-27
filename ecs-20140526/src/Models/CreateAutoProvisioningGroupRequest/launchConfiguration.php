@@ -129,6 +129,11 @@ class launchConfiguration extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string[]
+     */
+    public $hostNames;
     protected $_name = [
         'imageId'                     => 'ImageId',
         'securityGroupId'             => 'SecurityGroupId',
@@ -154,6 +159,7 @@ class launchConfiguration extends Model
         'deploymentSetId'             => 'DeploymentSetId',
         'dataDisk'                    => 'DataDisk',
         'tag'                         => 'Tag',
+        'hostNames'                   => 'HostNames',
     ];
 
     public function validate()
@@ -246,6 +252,9 @@ class launchConfiguration extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->hostNames) {
+            $res['HostNames'] = $this->hostNames;
         }
 
         return $res;
@@ -341,6 +350,11 @@ class launchConfiguration extends Model
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['HostNames'])) {
+            if (!empty($map['HostNames'])) {
+                $model->hostNames = $map['HostNames'];
             }
         }
 

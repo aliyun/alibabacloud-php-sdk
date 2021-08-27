@@ -12,17 +12,17 @@ class DescribeTaskAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $creationTime;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $supportCancel;
 
     /**
-     * @var string
+     * @var int
      */
-    public $taskAction;
+    public $totalCount;
 
     /**
      * @var int
@@ -32,37 +32,12 @@ class DescribeTaskAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $taskStatus;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $finishedTime;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $taskProcess;
-
-    /**
-     * @var string
-     */
-    public $supportCancel;
-
-    /**
-     * @var operationProgressSet
-     */
-    public $operationProgressSet;
-
-    /**
-     * @var string
-     */
-    public $creationTime;
+    public $taskAction;
 
     /**
      * @var int
@@ -72,21 +47,46 @@ class DescribeTaskAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $taskStatus;
+
+    /**
+     * @var string
+     */
+    public $taskProcess;
+
+    /**
+     * @var string
+     */
+    public $finishedTime;
+
+    /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
+     * @var operationProgressSet
+     */
+    public $operationProgressSet;
     protected $_name = [
-        'taskId'               => 'TaskId',
-        'requestId'            => 'RequestId',
-        'taskAction'           => 'TaskAction',
-        'successCount'         => 'SuccessCount',
-        'taskStatus'           => 'TaskStatus',
-        'finishedTime'         => 'FinishedTime',
-        'totalCount'           => 'TotalCount',
-        'taskProcess'          => 'TaskProcess',
-        'supportCancel'        => 'SupportCancel',
-        'operationProgressSet' => 'OperationProgressSet',
         'creationTime'         => 'CreationTime',
-        'failedCount'          => 'FailedCount',
+        'supportCancel'        => 'SupportCancel',
+        'totalCount'           => 'TotalCount',
+        'successCount'         => 'SuccessCount',
         'regionId'             => 'RegionId',
+        'taskAction'           => 'TaskAction',
+        'failedCount'          => 'FailedCount',
+        'requestId'            => 'RequestId',
+        'taskStatus'           => 'TaskStatus',
+        'taskProcess'          => 'TaskProcess',
+        'finishedTime'         => 'FinishedTime',
+        'taskId'               => 'TaskId',
+        'operationProgressSet' => 'OperationProgressSet',
     ];
 
     public function validate()
@@ -96,44 +96,44 @@ class DescribeTaskAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->taskAction) {
-            $res['TaskAction'] = $this->taskAction;
-        }
-        if (null !== $this->successCount) {
-            $res['SuccessCount'] = $this->successCount;
-        }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
-        }
-        if (null !== $this->finishedTime) {
-            $res['FinishedTime'] = $this->finishedTime;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->taskProcess) {
-            $res['TaskProcess'] = $this->taskProcess;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->supportCancel) {
             $res['SupportCancel'] = $this->supportCancel;
         }
-        if (null !== $this->operationProgressSet) {
-            $res['OperationProgressSet'] = null !== $this->operationProgressSet ? $this->operationProgressSet->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
+        if (null !== $this->successCount) {
+            $res['SuccessCount'] = $this->successCount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->taskAction) {
+            $res['TaskAction'] = $this->taskAction;
         }
         if (null !== $this->failedCount) {
             $res['FailedCount'] = $this->failedCount;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
+        }
+        if (null !== $this->taskProcess) {
+            $res['TaskProcess'] = $this->taskProcess;
+        }
+        if (null !== $this->finishedTime) {
+            $res['FinishedTime'] = $this->finishedTime;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->operationProgressSet) {
+            $res['OperationProgressSet'] = null !== $this->operationProgressSet ? $this->operationProgressSet->toMap() : null;
         }
 
         return $res;
@@ -147,44 +147,44 @@ class DescribeTaskAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TaskAction'])) {
-            $model->taskAction = $map['TaskAction'];
-        }
-        if (isset($map['SuccessCount'])) {
-            $model->successCount = $map['SuccessCount'];
-        }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
-        }
-        if (isset($map['FinishedTime'])) {
-            $model->finishedTime = $map['FinishedTime'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['TaskProcess'])) {
-            $model->taskProcess = $map['TaskProcess'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['SupportCancel'])) {
             $model->supportCancel = $map['SupportCancel'];
         }
-        if (isset($map['OperationProgressSet'])) {
-            $model->operationProgressSet = operationProgressSet::fromMap($map['OperationProgressSet']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
+        if (isset($map['SuccessCount'])) {
+            $model->successCount = $map['SuccessCount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TaskAction'])) {
+            $model->taskAction = $map['TaskAction'];
         }
         if (isset($map['FailedCount'])) {
             $model->failedCount = $map['FailedCount'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['TaskProcess'])) {
+            $model->taskProcess = $map['TaskProcess'];
+        }
+        if (isset($map['FinishedTime'])) {
+            $model->finishedTime = $map['FinishedTime'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['OperationProgressSet'])) {
+            $model->operationProgressSet = operationProgressSet::fromMap($map['OperationProgressSet']);
         }
 
         return $model;

@@ -11,15 +11,15 @@ class AllocatePublicIpAddressResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $ipAddress;
 
     /**
      * @var string
      */
-    public $ipAddress;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'ipAddress' => 'IpAddress',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AllocatePublicIpAddressResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class AllocatePublicIpAddressResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

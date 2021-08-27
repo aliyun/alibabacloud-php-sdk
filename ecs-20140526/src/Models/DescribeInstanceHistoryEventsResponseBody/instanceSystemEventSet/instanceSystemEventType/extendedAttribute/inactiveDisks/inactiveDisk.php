@@ -16,6 +16,11 @@ class inactiveDisk extends Model
     /**
      * @var string
      */
+    public $deviceSize;
+
+    /**
+     * @var string
+     */
     public $deviceCategory;
 
     /**
@@ -27,17 +32,12 @@ class inactiveDisk extends Model
      * @var string
      */
     public $releaseTime;
-
-    /**
-     * @var string
-     */
-    public $deviceSize;
     protected $_name = [
         'creationTime'   => 'CreationTime',
+        'deviceSize'     => 'DeviceSize',
         'deviceCategory' => 'DeviceCategory',
         'deviceType'     => 'DeviceType',
         'releaseTime'    => 'ReleaseTime',
-        'deviceSize'     => 'DeviceSize',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class inactiveDisk extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+        if (null !== $this->deviceSize) {
+            $res['DeviceSize'] = $this->deviceSize;
+        }
         if (null !== $this->deviceCategory) {
             $res['DeviceCategory'] = $this->deviceCategory;
         }
@@ -58,9 +61,6 @@ class inactiveDisk extends Model
         }
         if (null !== $this->releaseTime) {
             $res['ReleaseTime'] = $this->releaseTime;
-        }
-        if (null !== $this->deviceSize) {
-            $res['DeviceSize'] = $this->deviceSize;
         }
 
         return $res;
@@ -77,6 +77,9 @@ class inactiveDisk extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+        if (isset($map['DeviceSize'])) {
+            $model->deviceSize = $map['DeviceSize'];
+        }
         if (isset($map['DeviceCategory'])) {
             $model->deviceCategory = $map['DeviceCategory'];
         }
@@ -85,9 +88,6 @@ class inactiveDisk extends Model
         }
         if (isset($map['ReleaseTime'])) {
             $model->releaseTime = $map['ReleaseTime'];
-        }
-        if (isset($map['DeviceSize'])) {
-            $model->deviceSize = $map['DeviceSize'];
         }
 
         return $model;

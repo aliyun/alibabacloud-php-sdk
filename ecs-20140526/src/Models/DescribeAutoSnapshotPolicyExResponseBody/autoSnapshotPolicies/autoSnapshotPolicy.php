@@ -12,7 +12,7 @@ class autoSnapshotPolicy extends Model
     /**
      * @var string
      */
-    public $status;
+    public $timePoints;
 
     /**
      * @var string
@@ -22,7 +22,7 @@ class autoSnapshotPolicy extends Model
     /**
      * @var string
      */
-    public $timePoints;
+    public $status;
 
     /**
      * @var string
@@ -43,11 +43,6 @@ class autoSnapshotPolicy extends Model
      * @var string
      */
     public $autoSnapshotPolicyId;
-
-    /**
-     * @var tags
-     */
-    public $tags;
 
     /**
      * @var int
@@ -78,21 +73,26 @@ class autoSnapshotPolicy extends Model
      * @var int
      */
     public $volumeNums;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
-        'status'                       => 'Status',
-        'creationTime'                 => 'CreationTime',
         'timePoints'                   => 'TimePoints',
+        'creationTime'                 => 'CreationTime',
+        'status'                       => 'Status',
         'autoSnapshotPolicyName'       => 'AutoSnapshotPolicyName',
         'targetCopyRegions'            => 'TargetCopyRegions',
         'copiedSnapshotsRetentionDays' => 'CopiedSnapshotsRetentionDays',
         'autoSnapshotPolicyId'         => 'AutoSnapshotPolicyId',
-        'tags'                         => 'Tags',
         'retentionDays'                => 'RetentionDays',
         'regionId'                     => 'RegionId',
         'diskNums'                     => 'DiskNums',
         'enableCrossRegionCopy'        => 'EnableCrossRegionCopy',
         'repeatWeekdays'               => 'RepeatWeekdays',
         'volumeNums'                   => 'VolumeNums',
+        'tags'                         => 'Tags',
     ];
 
     public function validate()
@@ -102,14 +102,14 @@ class autoSnapshotPolicy extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->timePoints) {
+            $res['TimePoints'] = $this->timePoints;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->timePoints) {
-            $res['TimePoints'] = $this->timePoints;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->autoSnapshotPolicyName) {
             $res['AutoSnapshotPolicyName'] = $this->autoSnapshotPolicyName;
@@ -122,9 +122,6 @@ class autoSnapshotPolicy extends Model
         }
         if (null !== $this->autoSnapshotPolicyId) {
             $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->retentionDays) {
             $res['RetentionDays'] = $this->retentionDays;
@@ -144,6 +141,9 @@ class autoSnapshotPolicy extends Model
         if (null !== $this->volumeNums) {
             $res['VolumeNums'] = $this->volumeNums;
         }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
 
         return $res;
     }
@@ -156,14 +156,14 @@ class autoSnapshotPolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['TimePoints'])) {
+            $model->timePoints = $map['TimePoints'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['TimePoints'])) {
-            $model->timePoints = $map['TimePoints'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['AutoSnapshotPolicyName'])) {
             $model->autoSnapshotPolicyName = $map['AutoSnapshotPolicyName'];
@@ -176,9 +176,6 @@ class autoSnapshotPolicy extends Model
         }
         if (isset($map['AutoSnapshotPolicyId'])) {
             $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['RetentionDays'])) {
             $model->retentionDays = $map['RetentionDays'];
@@ -197,6 +194,9 @@ class autoSnapshotPolicy extends Model
         }
         if (isset($map['VolumeNums'])) {
             $model->volumeNums = $map['VolumeNums'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

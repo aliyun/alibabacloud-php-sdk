@@ -18,9 +18,15 @@ class DescribeInstanceTypesResponseBody extends Model
      * @var instanceTypes
      */
     public $instanceTypes;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
         'requestId'     => 'RequestId',
         'instanceTypes' => 'InstanceTypes',
+        'nextToken'     => 'NextToken',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class DescribeInstanceTypesResponseBody extends Model
         }
         if (null !== $this->instanceTypes) {
             $res['InstanceTypes'] = null !== $this->instanceTypes ? $this->instanceTypes->toMap() : null;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -53,6 +62,9 @@ class DescribeInstanceTypesResponseBody extends Model
         }
         if (isset($map['InstanceTypes'])) {
             $model->instanceTypes = instanceTypes::fromMap($map['InstanceTypes']);
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

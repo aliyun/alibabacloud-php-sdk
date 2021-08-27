@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesRequest\privatePoolOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeElasticityAssurancesRequest extends Model
@@ -13,6 +14,11 @@ class DescribeElasticityAssurancesRequest extends Model
      * @var privatePoolOptions
      */
     public $privatePoolOptions;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @var int
@@ -38,6 +44,11 @@ class DescribeElasticityAssurancesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var int
@@ -75,11 +86,13 @@ class DescribeElasticityAssurancesRequest extends Model
     public $status;
     protected $_name = [
         'privatePoolOptions'   => 'PrivatePoolOptions',
+        'tag'                  => 'Tag',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'maxResults'           => 'MaxResults',
         'nextToken'            => 'NextToken',
         'platform'             => 'Platform',
@@ -99,6 +112,15 @@ class DescribeElasticityAssurancesRequest extends Model
         if (null !== $this->privatePoolOptions) {
             $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -113,6 +135,9 @@ class DescribeElasticityAssurancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -150,6 +175,15 @@ class DescribeElasticityAssurancesRequest extends Model
         if (isset($map['PrivatePoolOptions'])) {
             $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);
         }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -164,6 +198,9 @@ class DescribeElasticityAssurancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

@@ -11,21 +11,21 @@ class DescribeSnapshotsUsageResponseBody extends Model
     /**
      * @var int
      */
-    public $snapshotCount;
-
-    /**
-     * @var int
-     */
     public $snapshotSize;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $snapshotCount;
     protected $_name = [
-        'snapshotCount' => 'SnapshotCount',
         'snapshotSize'  => 'SnapshotSize',
         'requestId'     => 'RequestId',
+        'snapshotCount' => 'SnapshotCount',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeSnapshotsUsageResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->snapshotCount) {
-            $res['SnapshotCount'] = $this->snapshotCount;
-        }
         if (null !== $this->snapshotSize) {
             $res['SnapshotSize'] = $this->snapshotSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->snapshotCount) {
+            $res['SnapshotCount'] = $this->snapshotCount;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeSnapshotsUsageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SnapshotCount'])) {
-            $model->snapshotCount = $map['SnapshotCount'];
-        }
         if (isset($map['SnapshotSize'])) {
             $model->snapshotSize = $map['SnapshotSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SnapshotCount'])) {
+            $model->snapshotCount = $map['SnapshotCount'];
         }
 
         return $model;

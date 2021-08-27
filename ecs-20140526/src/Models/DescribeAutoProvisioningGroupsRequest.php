@@ -44,11 +44,6 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @var string
-     */
-    public $autoProvisioningGroupName;
-
-    /**
      * @var string[]
      */
     public $autoProvisioningGroupId;
@@ -57,6 +52,11 @@ class DescribeAutoProvisioningGroupsRequest extends Model
      * @var string[]
      */
     public $autoProvisioningGroupStatus;
+
+    /**
+     * @var string
+     */
+    public $autoProvisioningGroupName;
     protected $_name = [
         'ownerId'                     => 'OwnerId',
         'resourceOwnerAccount'        => 'ResourceOwnerAccount',
@@ -65,9 +65,9 @@ class DescribeAutoProvisioningGroupsRequest extends Model
         'regionId'                    => 'RegionId',
         'pageNumber'                  => 'PageNumber',
         'pageSize'                    => 'PageSize',
-        'autoProvisioningGroupName'   => 'AutoProvisioningGroupName',
         'autoProvisioningGroupId'     => 'AutoProvisioningGroupId',
         'autoProvisioningGroupStatus' => 'AutoProvisioningGroupStatus',
+        'autoProvisioningGroupName'   => 'AutoProvisioningGroupName',
     ];
 
     public function validate()
@@ -98,14 +98,14 @@ class DescribeAutoProvisioningGroupsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->autoProvisioningGroupName) {
-            $res['AutoProvisioningGroupName'] = $this->autoProvisioningGroupName;
-        }
         if (null !== $this->autoProvisioningGroupId) {
             $res['AutoProvisioningGroupId'] = $this->autoProvisioningGroupId;
         }
         if (null !== $this->autoProvisioningGroupStatus) {
             $res['AutoProvisioningGroupStatus'] = $this->autoProvisioningGroupStatus;
+        }
+        if (null !== $this->autoProvisioningGroupName) {
+            $res['AutoProvisioningGroupName'] = $this->autoProvisioningGroupName;
         }
 
         return $res;
@@ -140,9 +140,6 @@ class DescribeAutoProvisioningGroupsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['AutoProvisioningGroupName'])) {
-            $model->autoProvisioningGroupName = $map['AutoProvisioningGroupName'];
-        }
         if (isset($map['AutoProvisioningGroupId'])) {
             if (!empty($map['AutoProvisioningGroupId'])) {
                 $model->autoProvisioningGroupId = $map['AutoProvisioningGroupId'];
@@ -152,6 +149,9 @@ class DescribeAutoProvisioningGroupsRequest extends Model
             if (!empty($map['AutoProvisioningGroupStatus'])) {
                 $model->autoProvisioningGroupStatus = $map['AutoProvisioningGroupStatus'];
             }
+        }
+        if (isset($map['AutoProvisioningGroupName'])) {
+            $model->autoProvisioningGroupName = $map['AutoProvisioningGroupName'];
         }
 
         return $model;

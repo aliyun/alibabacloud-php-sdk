@@ -16,16 +16,16 @@ class CreateActivationResponseBody extends Model
     /**
      * @var string
      */
-    public $activationId;
+    public $activationCode;
 
     /**
      * @var string
      */
-    public $activationCode;
+    public $activationId;
     protected $_name = [
         'requestId'      => 'RequestId',
-        'activationId'   => 'ActivationId',
         'activationCode' => 'ActivationCode',
+        'activationId'   => 'ActivationId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class CreateActivationResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->activationId) {
-            $res['ActivationId'] = $this->activationId;
-        }
         if (null !== $this->activationCode) {
             $res['ActivationCode'] = $this->activationCode;
+        }
+        if (null !== $this->activationId) {
+            $res['ActivationId'] = $this->activationId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class CreateActivationResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ActivationId'])) {
-            $model->activationId = $map['ActivationId'];
-        }
         if (isset($map['ActivationCode'])) {
             $model->activationCode = $map['ActivationCode'];
+        }
+        if (isset($map['ActivationId'])) {
+            $model->activationId = $map['ActivationId'];
         }
 
         return $model;

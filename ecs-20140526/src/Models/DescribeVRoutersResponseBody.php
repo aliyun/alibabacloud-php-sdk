@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeVRoutersResponseBody extends Model
 {
     /**
-     * @var VRouters
-     */
-    public $VRouters;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -33,12 +23,22 @@ class DescribeVRoutersResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var VRouters
+     */
+    public $VRouters;
     protected $_name = [
-        'VRouters'   => 'VRouters',
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
+        'VRouters'   => 'VRouters',
     ];
 
     public function validate()
@@ -48,12 +48,6 @@ class DescribeVRoutersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->VRouters) {
-            $res['VRouters'] = null !== $this->VRouters ? $this->VRouters->toMap() : null;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -62,6 +56,12 @@ class DescribeVRoutersResponseBody extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->VRouters) {
+            $res['VRouters'] = null !== $this->VRouters ? $this->VRouters->toMap() : null;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class DescribeVRoutersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VRouters'])) {
-            $model->VRouters = VRouters::fromMap($map['VRouters']);
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -89,6 +83,12 @@ class DescribeVRoutersResponseBody extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['VRouters'])) {
+            $model->VRouters = VRouters::fromMap($map['VRouters']);
         }
 
         return $model;

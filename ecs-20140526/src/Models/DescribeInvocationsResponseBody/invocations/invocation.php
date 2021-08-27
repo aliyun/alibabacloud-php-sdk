@@ -12,12 +12,12 @@ class invocation extends Model
     /**
      * @var string
      */
-    public $frequency;
+    public $creationTime;
 
     /**
      * @var string
      */
-    public $creationTime;
+    public $frequency;
 
     /**
      * @var string
@@ -25,9 +25,9 @@ class invocation extends Model
     public $invocationStatus;
 
     /**
-     * @var invokeInstances
+     * @var string
      */
-    public $invokeInstances;
+    public $repeatMode;
 
     /**
      * @var string
@@ -37,12 +37,12 @@ class invocation extends Model
     /**
      * @var string
      */
-    public $invokeStatus;
+    public $commandType;
 
     /**
      * @var string
      */
-    public $commandType;
+    public $invokeStatus;
 
     /**
      * @var string
@@ -73,20 +73,26 @@ class invocation extends Model
      * @var string
      */
     public $username;
+
+    /**
+     * @var invokeInstances
+     */
+    public $invokeInstances;
     protected $_name = [
-        'frequency'        => 'Frequency',
         'creationTime'     => 'CreationTime',
+        'frequency'        => 'Frequency',
         'invocationStatus' => 'InvocationStatus',
-        'invokeInstances'  => 'InvokeInstances',
+        'repeatMode'       => 'RepeatMode',
         'commandId'        => 'CommandId',
-        'invokeStatus'     => 'InvokeStatus',
         'commandType'      => 'CommandType',
+        'invokeStatus'     => 'InvokeStatus',
         'parameters'       => 'Parameters',
         'timed'            => 'Timed',
         'commandContent'   => 'CommandContent',
         'commandName'      => 'CommandName',
         'invokeId'         => 'InvokeId',
         'username'         => 'Username',
+        'invokeInstances'  => 'InvokeInstances',
     ];
 
     public function validate()
@@ -96,26 +102,26 @@ class invocation extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->frequency) {
-            $res['Frequency'] = $this->frequency;
-        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->frequency) {
+            $res['Frequency'] = $this->frequency;
         }
         if (null !== $this->invocationStatus) {
             $res['InvocationStatus'] = $this->invocationStatus;
         }
-        if (null !== $this->invokeInstances) {
-            $res['InvokeInstances'] = null !== $this->invokeInstances ? $this->invokeInstances->toMap() : null;
+        if (null !== $this->repeatMode) {
+            $res['RepeatMode'] = $this->repeatMode;
         }
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
         }
-        if (null !== $this->invokeStatus) {
-            $res['InvokeStatus'] = $this->invokeStatus;
-        }
         if (null !== $this->commandType) {
             $res['CommandType'] = $this->commandType;
+        }
+        if (null !== $this->invokeStatus) {
+            $res['InvokeStatus'] = $this->invokeStatus;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
@@ -135,6 +141,9 @@ class invocation extends Model
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
+        if (null !== $this->invokeInstances) {
+            $res['InvokeInstances'] = null !== $this->invokeInstances ? $this->invokeInstances->toMap() : null;
+        }
 
         return $res;
     }
@@ -147,26 +156,26 @@ class invocation extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Frequency'])) {
-            $model->frequency = $map['Frequency'];
-        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Frequency'])) {
+            $model->frequency = $map['Frequency'];
         }
         if (isset($map['InvocationStatus'])) {
             $model->invocationStatus = $map['InvocationStatus'];
         }
-        if (isset($map['InvokeInstances'])) {
-            $model->invokeInstances = invokeInstances::fromMap($map['InvokeInstances']);
+        if (isset($map['RepeatMode'])) {
+            $model->repeatMode = $map['RepeatMode'];
         }
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
         }
-        if (isset($map['InvokeStatus'])) {
-            $model->invokeStatus = $map['InvokeStatus'];
-        }
         if (isset($map['CommandType'])) {
             $model->commandType = $map['CommandType'];
+        }
+        if (isset($map['InvokeStatus'])) {
+            $model->invokeStatus = $map['InvokeStatus'];
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
@@ -185,6 +194,9 @@ class invocation extends Model
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
+        }
+        if (isset($map['InvokeInstances'])) {
+            $model->invokeInstances = invokeInstances::fromMap($map['InvokeInstances']);
         }
 
         return $model;

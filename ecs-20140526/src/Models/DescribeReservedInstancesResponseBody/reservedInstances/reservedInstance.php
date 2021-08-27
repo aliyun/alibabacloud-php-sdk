@@ -13,12 +13,12 @@ class reservedInstance extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $status;
 
     /**
      * @var string
      */
-    public $status;
+    public $creationTime;
 
     /**
      * @var string
@@ -26,19 +26,9 @@ class reservedInstance extends Model
     public $reservedInstanceName;
 
     /**
-     * @var operationLocks
-     */
-    public $operationLocks;
-
-    /**
      * @var string
      */
     public $reservedInstanceId;
-
-    /**
-     * @var tags
-     */
-    public $tags;
 
     /**
      * @var string
@@ -53,12 +43,12 @@ class reservedInstance extends Model
     /**
      * @var string
      */
-    public $offeringType;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $offeringType;
 
     /**
      * @var string
@@ -99,17 +89,25 @@ class reservedInstance extends Model
      * @var string
      */
     public $scope;
+
+    /**
+     * @var operationLocks
+     */
+    public $operationLocks;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
-        'creationTime'         => 'CreationTime',
         'status'               => 'Status',
+        'creationTime'         => 'CreationTime',
         'reservedInstanceName' => 'ReservedInstanceName',
-        'operationLocks'       => 'OperationLocks',
         'reservedInstanceId'   => 'ReservedInstanceId',
-        'tags'                 => 'Tags',
         'instanceType'         => 'InstanceType',
         'instanceAmount'       => 'InstanceAmount',
-        'offeringType'         => 'OfferingType',
         'regionId'             => 'RegionId',
+        'offeringType'         => 'OfferingType',
         'startTime'            => 'StartTime',
         'description'          => 'Description',
         'allocationStatus'     => 'AllocationStatus',
@@ -118,6 +116,8 @@ class reservedInstance extends Model
         'zoneId'               => 'ZoneId',
         'platform'             => 'Platform',
         'scope'                => 'Scope',
+        'operationLocks'       => 'OperationLocks',
+        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -127,23 +127,17 @@ class reservedInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->reservedInstanceName) {
             $res['ReservedInstanceName'] = $this->reservedInstanceName;
         }
-        if (null !== $this->operationLocks) {
-            $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toMap() : null;
-        }
         if (null !== $this->reservedInstanceId) {
             $res['ReservedInstanceId'] = $this->reservedInstanceId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -151,11 +145,11 @@ class reservedInstance extends Model
         if (null !== $this->instanceAmount) {
             $res['InstanceAmount'] = $this->instanceAmount;
         }
-        if (null !== $this->offeringType) {
-            $res['OfferingType'] = $this->offeringType;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->offeringType) {
+            $res['OfferingType'] = $this->offeringType;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -181,6 +175,12 @@ class reservedInstance extends Model
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
+        if (null !== $this->operationLocks) {
+            $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toMap() : null;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
 
         return $res;
     }
@@ -193,23 +193,17 @@ class reservedInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['ReservedInstanceName'])) {
             $model->reservedInstanceName = $map['ReservedInstanceName'];
         }
-        if (isset($map['OperationLocks'])) {
-            $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
-        }
         if (isset($map['ReservedInstanceId'])) {
             $model->reservedInstanceId = $map['ReservedInstanceId'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
@@ -217,11 +211,11 @@ class reservedInstance extends Model
         if (isset($map['InstanceAmount'])) {
             $model->instanceAmount = $map['InstanceAmount'];
         }
-        if (isset($map['OfferingType'])) {
-            $model->offeringType = $map['OfferingType'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['OfferingType'])) {
+            $model->offeringType = $map['OfferingType'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
@@ -246,6 +240,12 @@ class reservedInstance extends Model
         }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
+        }
+        if (isset($map['OperationLocks'])) {
+            $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

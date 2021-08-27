@@ -43,6 +43,26 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $regionId;
 
     /**
+     * @var dataDisk[]
+     */
+    public $dataDisk;
+
+    /**
+     * @var networkInterface[]
+     */
+    public $networkInterface;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @var string[]
+     */
+    public $securityGroupIds;
+
+    /**
      * @var string
      */
     public $launchTemplateId;
@@ -206,26 +226,6 @@ class CreateLaunchTemplateVersionRequest extends Model
      * @var string
      */
     public $deploymentSetId;
-
-    /**
-     * @var dataDisk[]
-     */
-    public $dataDisk;
-
-    /**
-     * @var networkInterface[]
-     */
-    public $networkInterface;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
-     * @var string[]
-     */
-    public $securityGroupIds;
     protected $_name = [
         'systemDisk'                  => 'SystemDisk',
         'ownerId'                     => 'OwnerId',
@@ -233,6 +233,10 @@ class CreateLaunchTemplateVersionRequest extends Model
         'resourceOwnerId'             => 'ResourceOwnerId',
         'ownerAccount'                => 'OwnerAccount',
         'regionId'                    => 'RegionId',
+        'dataDisk'                    => 'DataDisk',
+        'networkInterface'            => 'NetworkInterface',
+        'tag'                         => 'Tag',
+        'securityGroupIds'            => 'SecurityGroupIds',
         'launchTemplateId'            => 'LaunchTemplateId',
         'launchTemplateName'          => 'LaunchTemplateName',
         'versionDescription'          => 'VersionDescription',
@@ -266,10 +270,6 @@ class CreateLaunchTemplateVersionRequest extends Model
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'privateIpAddress'            => 'PrivateIpAddress',
         'deploymentSetId'             => 'DeploymentSetId',
-        'dataDisk'                    => 'DataDisk',
-        'networkInterface'            => 'NetworkInterface',
-        'tag'                         => 'Tag',
-        'securityGroupIds'            => 'SecurityGroupIds',
     ];
 
     public function validate()
@@ -296,6 +296,36 @@ class CreateLaunchTemplateVersionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->dataDisk) {
+            $res['DataDisk'] = [];
+            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
+                $n = 0;
+                foreach ($this->dataDisk as $item) {
+                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->networkInterface) {
+            $res['NetworkInterface'] = [];
+            if (null !== $this->networkInterface && \is_array($this->networkInterface)) {
+                $n = 0;
+                foreach ($this->networkInterface as $item) {
+                    $res['NetworkInterface'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->securityGroupIds) {
+            $res['SecurityGroupIds'] = $this->securityGroupIds;
         }
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
@@ -396,36 +426,6 @@ class CreateLaunchTemplateVersionRequest extends Model
         if (null !== $this->deploymentSetId) {
             $res['DeploymentSetId'] = $this->deploymentSetId;
         }
-        if (null !== $this->dataDisk) {
-            $res['DataDisk'] = [];
-            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
-                $n = 0;
-                foreach ($this->dataDisk as $item) {
-                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->networkInterface) {
-            $res['NetworkInterface'] = [];
-            if (null !== $this->networkInterface && \is_array($this->networkInterface)) {
-                $n = 0;
-                foreach ($this->networkInterface as $item) {
-                    $res['NetworkInterface'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = $this->securityGroupIds;
-        }
 
         return $res;
     }
@@ -455,6 +455,38 @@ class CreateLaunchTemplateVersionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['DataDisk'])) {
+            if (!empty($map['DataDisk'])) {
+                $model->dataDisk = [];
+                $n               = 0;
+                foreach ($map['DataDisk'] as $item) {
+                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['NetworkInterface'])) {
+            if (!empty($map['NetworkInterface'])) {
+                $model->networkInterface = [];
+                $n                       = 0;
+                foreach ($map['NetworkInterface'] as $item) {
+                    $model->networkInterface[$n++] = null !== $item ? networkInterface::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['SecurityGroupIds'])) {
+            if (!empty($map['SecurityGroupIds'])) {
+                $model->securityGroupIds = $map['SecurityGroupIds'];
+            }
         }
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];
@@ -554,38 +586,6 @@ class CreateLaunchTemplateVersionRequest extends Model
         }
         if (isset($map['DeploymentSetId'])) {
             $model->deploymentSetId = $map['DeploymentSetId'];
-        }
-        if (isset($map['DataDisk'])) {
-            if (!empty($map['DataDisk'])) {
-                $model->dataDisk = [];
-                $n               = 0;
-                foreach ($map['DataDisk'] as $item) {
-                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['NetworkInterface'])) {
-            if (!empty($map['NetworkInterface'])) {
-                $model->networkInterface = [];
-                $n                       = 0;
-                foreach ($map['NetworkInterface'] as $item) {
-                    $model->networkInterface[$n++] = null !== $item ? networkInterface::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['SecurityGroupIds'])) {
-            if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = $map['SecurityGroupIds'];
-            }
         }
 
         return $model;

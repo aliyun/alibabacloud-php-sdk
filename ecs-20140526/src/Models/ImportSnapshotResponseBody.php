@@ -11,7 +11,7 @@ class ImportSnapshotResponseBody extends Model
     /**
      * @var string
      */
-    public $snapshotId;
+    public $requestId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class ImportSnapshotResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $snapshotId;
     protected $_name = [
-        'snapshotId' => 'SnapshotId',
-        'taskId'     => 'TaskId',
         'requestId'  => 'RequestId',
+        'taskId'     => 'TaskId',
+        'snapshotId' => 'SnapshotId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ImportSnapshotResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->snapshotId) {
-            $res['SnapshotId'] = $this->snapshotId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ImportSnapshotResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SnapshotId'])) {
-            $model->snapshotId = $map['SnapshotId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;

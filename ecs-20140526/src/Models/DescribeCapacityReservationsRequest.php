@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationsRequest\privatePoolOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCapacityReservationsRequest extends Model
@@ -38,6 +39,16 @@ class DescribeCapacityReservationsRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @var int
@@ -80,6 +91,8 @@ class DescribeCapacityReservationsRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'tag'                  => 'Tag',
         'maxResults'           => 'MaxResults',
         'nextToken'            => 'NextToken',
         'platform'             => 'Platform',
@@ -113,6 +126,18 @@ class DescribeCapacityReservationsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -164,6 +189,18 @@ class DescribeCapacityReservationsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

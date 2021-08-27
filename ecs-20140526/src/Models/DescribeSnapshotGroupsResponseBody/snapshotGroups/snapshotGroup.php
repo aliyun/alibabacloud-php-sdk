@@ -27,6 +27,11 @@ class snapshotGroup extends Model
     /**
      * @var string
      */
+    public $progressStatus;
+
+    /**
+     * @var string
+     */
     public $snapshotGroupId;
 
     /**
@@ -47,6 +52,7 @@ class snapshotGroup extends Model
         'status'          => 'Status',
         'creationTime'    => 'CreationTime',
         'description'     => 'Description',
+        'progressStatus'  => 'ProgressStatus',
         'snapshotGroupId' => 'SnapshotGroupId',
         'instanceId'      => 'InstanceId',
         'name'            => 'Name',
@@ -68,6 +74,9 @@ class snapshotGroup extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->progressStatus) {
+            $res['ProgressStatus'] = $this->progressStatus;
         }
         if (null !== $this->snapshotGroupId) {
             $res['SnapshotGroupId'] = $this->snapshotGroupId;
@@ -101,6 +110,9 @@ class snapshotGroup extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ProgressStatus'])) {
+            $model->progressStatus = $map['ProgressStatus'];
         }
         if (isset($map['SnapshotGroupId'])) {
             $model->snapshotGroupId = $map['SnapshotGroupId'];

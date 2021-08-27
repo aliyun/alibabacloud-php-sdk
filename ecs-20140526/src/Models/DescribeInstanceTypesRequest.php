@@ -37,6 +37,16 @@ class DescribeInstanceTypesRequest extends Model
      * @var string[]
      */
     public $instanceTypes;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -44,6 +54,8 @@ class DescribeInstanceTypesRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'instanceTypeFamily'   => 'InstanceTypeFamily',
         'instanceTypes'        => 'InstanceTypes',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class DescribeInstanceTypesRequest extends Model
         }
         if (null !== $this->instanceTypes) {
             $res['InstanceTypes'] = $this->instanceTypes;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -102,6 +120,12 @@ class DescribeInstanceTypesRequest extends Model
             if (!empty($map['InstanceTypes'])) {
                 $model->instanceTypes = $map['InstanceTypes'];
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

@@ -50,11 +50,6 @@ class deploymentSet extends Model
     public $granularity;
 
     /**
-     * @var instanceIds
-     */
-    public $instanceIds;
-
-    /**
      * @var string
      */
     public $deploymentSetName;
@@ -63,6 +58,11 @@ class deploymentSet extends Model
      * @var int
      */
     public $instanceAmount;
+
+    /**
+     * @var instanceIds
+     */
+    public $instanceIds;
     protected $_name = [
         'creationTime'             => 'CreationTime',
         'strategy'                 => 'Strategy',
@@ -72,9 +72,9 @@ class deploymentSet extends Model
         'domain'                   => 'Domain',
         'groupCount'               => 'GroupCount',
         'granularity'              => 'Granularity',
-        'instanceIds'              => 'InstanceIds',
         'deploymentSetName'        => 'DeploymentSetName',
         'instanceAmount'           => 'InstanceAmount',
+        'instanceIds'              => 'InstanceIds',
     ];
 
     public function validate()
@@ -108,14 +108,14 @@ class deploymentSet extends Model
         if (null !== $this->granularity) {
             $res['Granularity'] = $this->granularity;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
-        }
         if (null !== $this->deploymentSetName) {
             $res['DeploymentSetName'] = $this->deploymentSetName;
         }
         if (null !== $this->instanceAmount) {
             $res['InstanceAmount'] = $this->instanceAmount;
+        }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
         }
 
         return $res;
@@ -153,14 +153,14 @@ class deploymentSet extends Model
         if (isset($map['Granularity'])) {
             $model->granularity = $map['Granularity'];
         }
-        if (isset($map['InstanceIds'])) {
-            $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
-        }
         if (isset($map['DeploymentSetName'])) {
             $model->deploymentSetName = $map['DeploymentSetName'];
         }
         if (isset($map['InstanceAmount'])) {
             $model->instanceAmount = $map['InstanceAmount'];
+        }
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
         }
 
         return $model;

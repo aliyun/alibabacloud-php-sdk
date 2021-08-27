@@ -24,20 +24,20 @@ class launchTemplateConfig extends Model
     public $priority;
 
     /**
-     * @var float
-     */
-    public $weightedCapacity;
-
-    /**
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var float
+     */
+    public $weightedCapacity;
     protected $_name = [
         'vSwitchId'        => 'VSwitchId',
         'maxPrice'         => 'MaxPrice',
         'priority'         => 'Priority',
-        'weightedCapacity' => 'WeightedCapacity',
         'instanceType'     => 'InstanceType',
+        'weightedCapacity' => 'WeightedCapacity',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class launchTemplateConfig extends Model
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-        if (null !== $this->weightedCapacity) {
-            $res['WeightedCapacity'] = $this->weightedCapacity;
-        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->weightedCapacity) {
+            $res['WeightedCapacity'] = $this->weightedCapacity;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class launchTemplateConfig extends Model
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-        if (isset($map['WeightedCapacity'])) {
-            $model->weightedCapacity = $map['WeightedCapacity'];
-        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['WeightedCapacity'])) {
+            $model->weightedCapacity = $map['WeightedCapacity'];
         }
 
         return $model;

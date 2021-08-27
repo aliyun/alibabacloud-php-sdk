@@ -16,14 +16,14 @@ class maintenanceAttribute extends Model
     public $notifyOnMaintenance;
 
     /**
-     * @var maintenanceWindows
-     */
-    public $maintenanceWindows;
-
-    /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var maintenanceWindows
+     */
+    public $maintenanceWindows;
 
     /**
      * @var actionOnMaintenance
@@ -31,8 +31,8 @@ class maintenanceAttribute extends Model
     public $actionOnMaintenance;
     protected $_name = [
         'notifyOnMaintenance' => 'NotifyOnMaintenance',
-        'maintenanceWindows'  => 'MaintenanceWindows',
         'instanceId'          => 'InstanceId',
+        'maintenanceWindows'  => 'MaintenanceWindows',
         'actionOnMaintenance' => 'ActionOnMaintenance',
     ];
 
@@ -46,11 +46,11 @@ class maintenanceAttribute extends Model
         if (null !== $this->notifyOnMaintenance) {
             $res['NotifyOnMaintenance'] = $this->notifyOnMaintenance;
         }
-        if (null !== $this->maintenanceWindows) {
-            $res['MaintenanceWindows'] = null !== $this->maintenanceWindows ? $this->maintenanceWindows->toMap() : null;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->maintenanceWindows) {
+            $res['MaintenanceWindows'] = null !== $this->maintenanceWindows ? $this->maintenanceWindows->toMap() : null;
         }
         if (null !== $this->actionOnMaintenance) {
             $res['ActionOnMaintenance'] = null !== $this->actionOnMaintenance ? $this->actionOnMaintenance->toMap() : null;
@@ -70,11 +70,11 @@ class maintenanceAttribute extends Model
         if (isset($map['NotifyOnMaintenance'])) {
             $model->notifyOnMaintenance = $map['NotifyOnMaintenance'];
         }
-        if (isset($map['MaintenanceWindows'])) {
-            $model->maintenanceWindows = maintenanceWindows::fromMap($map['MaintenanceWindows']);
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MaintenanceWindows'])) {
+            $model->maintenanceWindows = maintenanceWindows::fromMap($map['MaintenanceWindows']);
         }
         if (isset($map['ActionOnMaintenance'])) {
             $model->actionOnMaintenance = actionOnMaintenance::fromMap($map['ActionOnMaintenance']);

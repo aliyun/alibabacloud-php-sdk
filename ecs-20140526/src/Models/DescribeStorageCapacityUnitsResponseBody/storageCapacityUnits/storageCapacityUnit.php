@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeStorageCapacityUnitsResponseBody\storageCapacityUnits;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeStorageCapacityUnitsResponseBody\storageCapacityUnits\storageCapacityUnit\tags;
 use AlibabaCloud\Tea\Model;
 
 class storageCapacityUnit extends Model
@@ -57,6 +58,11 @@ class storageCapacityUnit extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'creationTime'          => 'CreationTime',
         'status'                => 'Status',
@@ -68,6 +74,7 @@ class storageCapacityUnit extends Model
         'storageCapacityUnitId' => 'StorageCapacityUnitId',
         'name'                  => 'Name',
         'regionId'              => 'RegionId',
+        'tags'                  => 'Tags',
     ];
 
     public function validate()
@@ -106,6 +113,9 @@ class storageCapacityUnit extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -148,6 +158,9 @@ class storageCapacityUnit extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

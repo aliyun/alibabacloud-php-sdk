@@ -100,6 +100,16 @@ class CreateNetworkInterfaceRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $networkInterfaceTrafficMode;
+
+    /**
+     * @var int
+     */
+    public $queuePairNumber;
+
+    /**
      * @var string[]
      */
     public $securityGroupIds;
@@ -108,6 +118,16 @@ class CreateNetworkInterfaceRequest extends Model
      * @var string[]
      */
     public $privateIpAddress;
+
+    /**
+     * @var string[]
+     */
+    public $ipv6Address;
+
+    /**
+     * @var int
+     */
+    public $ipv6AddressCount;
     protected $_name = [
         'ownerId'                        => 'OwnerId',
         'resourceOwnerAccount'           => 'ResourceOwnerAccount',
@@ -127,8 +147,12 @@ class CreateNetworkInterfaceRequest extends Model
         'secondaryPrivateIpAddressCount' => 'SecondaryPrivateIpAddressCount',
         'queueNumber'                    => 'QueueNumber',
         'clientToken'                    => 'ClientToken',
+        'networkInterfaceTrafficMode'    => 'NetworkInterfaceTrafficMode',
+        'queuePairNumber'                => 'QueuePairNumber',
         'securityGroupIds'               => 'SecurityGroupIds',
         'privateIpAddress'               => 'PrivateIpAddress',
+        'ipv6Address'                    => 'Ipv6Address',
+        'ipv6AddressCount'               => 'Ipv6AddressCount',
     ];
 
     public function validate()
@@ -198,11 +222,23 @@ class CreateNetworkInterfaceRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->networkInterfaceTrafficMode) {
+            $res['NetworkInterfaceTrafficMode'] = $this->networkInterfaceTrafficMode;
+        }
+        if (null !== $this->queuePairNumber) {
+            $res['QueuePairNumber'] = $this->queuePairNumber;
+        }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
         }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->ipv6Address) {
+            $res['Ipv6Address'] = $this->ipv6Address;
+        }
+        if (null !== $this->ipv6AddressCount) {
+            $res['Ipv6AddressCount'] = $this->ipv6AddressCount;
         }
 
         return $res;
@@ -276,6 +312,12 @@ class CreateNetworkInterfaceRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['NetworkInterfaceTrafficMode'])) {
+            $model->networkInterfaceTrafficMode = $map['NetworkInterfaceTrafficMode'];
+        }
+        if (isset($map['QueuePairNumber'])) {
+            $model->queuePairNumber = $map['QueuePairNumber'];
+        }
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
@@ -285,6 +327,14 @@ class CreateNetworkInterfaceRequest extends Model
             if (!empty($map['PrivateIpAddress'])) {
                 $model->privateIpAddress = $map['PrivateIpAddress'];
             }
+        }
+        if (isset($map['Ipv6Address'])) {
+            if (!empty($map['Ipv6Address'])) {
+                $model->ipv6Address = $map['Ipv6Address'];
+            }
+        }
+        if (isset($map['Ipv6AddressCount'])) {
+            $model->ipv6AddressCount = $map['Ipv6AddressCount'];
         }
 
         return $model;

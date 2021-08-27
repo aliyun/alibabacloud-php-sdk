@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResponseBody\elasticityAssuranceSet;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResponseBody\elasticityAssuranceSet\elasticityAssuranceItem\allocatedResources;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResponseBody\elasticityAssuranceSet\elasticityAssuranceItem\tags;
 use AlibabaCloud\Tea\Model;
 
 class elasticityAssuranceItem extends Model
@@ -35,11 +36,6 @@ class elasticityAssuranceItem extends Model
     public $latestStartTime;
 
     /**
-     * @var allocatedResources
-     */
-    public $allocatedResources;
-
-    /**
      * @var string
      */
     public $privatePoolOptionsName;
@@ -67,20 +63,37 @@ class elasticityAssuranceItem extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $totalAssuranceTimes;
+
+    /**
+     * @var allocatedResources
+     */
+    public $allocatedResources;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'status'                          => 'Status',
         'privatePoolOptionsMatchCriteria' => 'PrivatePoolOptionsMatchCriteria',
         'privatePoolOptionsId'            => 'PrivatePoolOptionsId',
         'usedAssuranceTimes'              => 'UsedAssuranceTimes',
         'latestStartTime'                 => 'LatestStartTime',
-        'allocatedResources'              => 'AllocatedResources',
         'privatePoolOptionsName'          => 'PrivatePoolOptionsName',
         'regionId'                        => 'RegionId',
         'endTime'                         => 'EndTime',
         'startTime'                       => 'StartTime',
         'description'                     => 'Description',
+        'resourceGroupId'                 => 'ResourceGroupId',
         'totalAssuranceTimes'             => 'TotalAssuranceTimes',
+        'allocatedResources'              => 'AllocatedResources',
+        'tags'                            => 'Tags',
     ];
 
     public function validate()
@@ -105,9 +118,6 @@ class elasticityAssuranceItem extends Model
         if (null !== $this->latestStartTime) {
             $res['LatestStartTime'] = $this->latestStartTime;
         }
-        if (null !== $this->allocatedResources) {
-            $res['AllocatedResources'] = null !== $this->allocatedResources ? $this->allocatedResources->toMap() : null;
-        }
         if (null !== $this->privatePoolOptionsName) {
             $res['PrivatePoolOptionsName'] = $this->privatePoolOptionsName;
         }
@@ -123,8 +133,17 @@ class elasticityAssuranceItem extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->totalAssuranceTimes) {
             $res['TotalAssuranceTimes'] = $this->totalAssuranceTimes;
+        }
+        if (null !== $this->allocatedResources) {
+            $res['AllocatedResources'] = null !== $this->allocatedResources ? $this->allocatedResources->toMap() : null;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -153,9 +172,6 @@ class elasticityAssuranceItem extends Model
         if (isset($map['LatestStartTime'])) {
             $model->latestStartTime = $map['LatestStartTime'];
         }
-        if (isset($map['AllocatedResources'])) {
-            $model->allocatedResources = allocatedResources::fromMap($map['AllocatedResources']);
-        }
         if (isset($map['PrivatePoolOptionsName'])) {
             $model->privatePoolOptionsName = $map['PrivatePoolOptionsName'];
         }
@@ -171,8 +187,17 @@ class elasticityAssuranceItem extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['TotalAssuranceTimes'])) {
             $model->totalAssuranceTimes = $map['TotalAssuranceTimes'];
+        }
+        if (isset($map['AllocatedResources'])) {
+            $model->allocatedResources = allocatedResources::fromMap($map['AllocatedResources']);
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

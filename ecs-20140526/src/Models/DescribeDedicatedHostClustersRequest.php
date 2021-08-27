@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostClustersRequest extends Model
 {
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -45,11 +50,6 @@ class DescribeDedicatedHostClustersRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
      * @var string
      */
     public $regionId;
@@ -79,6 +79,7 @@ class DescribeDedicatedHostClustersRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'tag'                      => 'Tag',
         'ownerId'                  => 'OwnerId',
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
@@ -86,7 +87,6 @@ class DescribeDedicatedHostClustersRequest extends Model
         'lockReason'               => 'LockReason',
         'ownerAccount'             => 'OwnerAccount',
         'resourceGroupId'          => 'ResourceGroupId',
-        'tag'                      => 'Tag',
         'regionId'                 => 'RegionId',
         'zoneId'                   => 'ZoneId',
         'dedicatedHostClusterIds'  => 'DedicatedHostClusterIds',
@@ -102,6 +102,15 @@ class DescribeDedicatedHostClustersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -122,15 +131,6 @@ class DescribeDedicatedHostClustersRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -162,6 +162,15 @@ class DescribeDedicatedHostClustersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -182,15 +191,6 @@ class DescribeDedicatedHostClustersRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

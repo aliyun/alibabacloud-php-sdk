@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDemandsRequest extends Model
 {
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -50,9 +55,9 @@ class DescribeDemandsRequest extends Model
     public $dryRun;
 
     /**
-     * @var tag[]
+     * @var string[]
      */
-    public $tag;
+    public $demandStatus;
 
     /**
      * @var string
@@ -83,12 +88,8 @@ class DescribeDemandsRequest extends Model
      * @var string
      */
     public $demandType;
-
-    /**
-     * @var string[]
-     */
-    public $demandStatus;
     protected $_name = [
+        'tag'                  => 'Tag',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -97,14 +98,13 @@ class DescribeDemandsRequest extends Model
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'dryRun'               => 'DryRun',
-        'tag'                  => 'Tag',
+        'demandStatus'         => 'DemandStatus',
         'zoneId'               => 'ZoneId',
         'demandId'             => 'DemandId',
         'instanceTypeFamily'   => 'InstanceTypeFamily',
         'instanceType'         => 'InstanceType',
         'instanceChargeType'   => 'InstanceChargeType',
         'demandType'           => 'DemandType',
-        'demandStatus'         => 'DemandStatus',
     ];
 
     public function validate()
@@ -114,6 +114,15 @@ class DescribeDemandsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -138,14 +147,8 @@ class DescribeDemandsRequest extends Model
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->demandStatus) {
+            $res['DemandStatus'] = $this->demandStatus;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -165,9 +168,6 @@ class DescribeDemandsRequest extends Model
         if (null !== $this->demandType) {
             $res['DemandType'] = $this->demandType;
         }
-        if (null !== $this->demandStatus) {
-            $res['DemandStatus'] = $this->demandStatus;
-        }
 
         return $res;
     }
@@ -180,6 +180,15 @@ class DescribeDemandsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -204,13 +213,9 @@ class DescribeDemandsRequest extends Model
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
+        if (isset($map['DemandStatus'])) {
+            if (!empty($map['DemandStatus'])) {
+                $model->demandStatus = $map['DemandStatus'];
             }
         }
         if (isset($map['ZoneId'])) {
@@ -230,11 +235,6 @@ class DescribeDemandsRequest extends Model
         }
         if (isset($map['DemandType'])) {
             $model->demandType = $map['DemandType'];
-        }
-        if (isset($map['DemandStatus'])) {
-            if (!empty($map['DemandStatus'])) {
-                $model->demandStatus = $map['DemandStatus'];
-            }
         }
 
         return $model;

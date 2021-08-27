@@ -14,14 +14,14 @@ class systemDisk extends Model
     public $performanceLevel;
 
     /**
-     * @var int
-     */
-    public $size;
-
-    /**
      * @var string
      */
     public $diskName;
+
+    /**
+     * @var int
+     */
+    public $size;
 
     /**
      * @var bool
@@ -44,8 +44,8 @@ class systemDisk extends Model
     public $iops;
     protected $_name = [
         'performanceLevel'   => 'PerformanceLevel',
-        'size'               => 'Size',
         'diskName'           => 'DiskName',
+        'size'               => 'Size',
         'deleteWithInstance' => 'DeleteWithInstance',
         'category'           => 'Category',
         'description'        => 'Description',
@@ -62,11 +62,11 @@ class systemDisk extends Model
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
         if (null !== $this->deleteWithInstance) {
             $res['DeleteWithInstance'] = $this->deleteWithInstance;
@@ -95,11 +95,11 @@ class systemDisk extends Model
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
         }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
         if (isset($map['DeleteWithInstance'])) {
             $model->deleteWithInstance = $map['DeleteWithInstance'];

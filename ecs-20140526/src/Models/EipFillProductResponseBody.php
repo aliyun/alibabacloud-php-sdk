@@ -14,11 +14,6 @@ class EipFillProductResponseBody extends Model
     public $code;
 
     /**
-     * @var string
-     */
-    public $data;
-
-    /**
      * @var bool
      */
     public $success;
@@ -26,18 +21,23 @@ class EipFillProductResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $message;
 
     /**
      * @var string
      */
-    public $message;
+    public $data;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'code'      => 'code',
-        'data'      => 'data',
         'success'   => 'success',
-        'requestId' => 'requestId',
         'message'   => 'message',
+        'data'      => 'data',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class EipFillProductResponseBody extends Model
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
-        if (null !== $this->data) {
-            $res['data'] = $this->data;
-        }
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
-        }
         if (null !== $this->message) {
             $res['message'] = $this->message;
+        }
+        if (null !== $this->data) {
+            $res['data'] = $this->data;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class EipFillProductResponseBody extends Model
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
-        if (isset($map['data'])) {
-            $model->data = $map['data'];
-        }
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
-        }
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+        if (isset($map['data'])) {
+            $model->data = $map['data'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

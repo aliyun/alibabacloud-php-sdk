@@ -17,6 +17,11 @@ class resourcePriceModel extends Model
     /**
      * @var float
      */
+    public $originalPrice;
+
+    /**
+     * @var float
+     */
     public $discountPrice;
 
     /**
@@ -25,19 +30,14 @@ class resourcePriceModel extends Model
     public $tradePrice;
 
     /**
-     * @var float
-     */
-    public $originalPrice;
-
-    /**
      * @var subRules
      */
     public $subRules;
     protected $_name = [
         'resource'      => 'Resource',
+        'originalPrice' => 'OriginalPrice',
         'discountPrice' => 'DiscountPrice',
         'tradePrice'    => 'TradePrice',
-        'originalPrice' => 'OriginalPrice',
         'subRules'      => 'SubRules',
     ];
 
@@ -51,14 +51,14 @@ class resourcePriceModel extends Model
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
         }
+        if (null !== $this->originalPrice) {
+            $res['OriginalPrice'] = $this->originalPrice;
+        }
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
         }
         if (null !== $this->tradePrice) {
             $res['TradePrice'] = $this->tradePrice;
-        }
-        if (null !== $this->originalPrice) {
-            $res['OriginalPrice'] = $this->originalPrice;
         }
         if (null !== $this->subRules) {
             $res['SubRules'] = null !== $this->subRules ? $this->subRules->toMap() : null;
@@ -78,14 +78,14 @@ class resourcePriceModel extends Model
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
         }
+        if (isset($map['OriginalPrice'])) {
+            $model->originalPrice = $map['OriginalPrice'];
+        }
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
         }
         if (isset($map['TradePrice'])) {
             $model->tradePrice = $map['TradePrice'];
-        }
-        if (isset($map['OriginalPrice'])) {
-            $model->originalPrice = $map['OriginalPrice'];
         }
         if (isset($map['SubRules'])) {
             $model->subRules = subRules::fromMap($map['SubRules']);

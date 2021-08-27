@@ -34,6 +34,11 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $securityGroupId;
+
+    /**
      * @var string
      */
     public $networkInterfaceName;
@@ -52,22 +57,17 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
      * @var string
      */
     public $description;
-
-    /**
-     * @var string[]
-     */
-    public $securityGroupId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'securityGroupId'      => 'SecurityGroupId',
         'networkInterfaceName' => 'NetworkInterfaceName',
         'networkInterfaceId'   => 'NetworkInterfaceId',
         'queueNumber'          => 'QueueNumber',
         'description'          => 'Description',
-        'securityGroupId'      => 'SecurityGroupId',
     ];
 
     public function validate()
@@ -92,6 +92,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
         if (null !== $this->networkInterfaceName) {
             $res['NetworkInterfaceName'] = $this->networkInterfaceName;
         }
@@ -103,9 +106,6 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         return $res;
@@ -134,6 +134,11 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['SecurityGroupId'])) {
+            if (!empty($map['SecurityGroupId'])) {
+                $model->securityGroupId = $map['SecurityGroupId'];
+            }
+        }
         if (isset($map['NetworkInterfaceName'])) {
             $model->networkInterfaceName = $map['NetworkInterfaceName'];
         }
@@ -145,11 +150,6 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            if (!empty($map['SecurityGroupId'])) {
-                $model->securityGroupId = $map['SecurityGroupId'];
-            }
         }
 
         return $model;

@@ -34,6 +34,11 @@ class DeleteLaunchTemplateVersionRequest extends Model
     public $regionId;
 
     /**
+     * @var int[]
+     */
+    public $deleteVersion;
+
+    /**
      * @var string
      */
     public $launchTemplateId;
@@ -42,20 +47,15 @@ class DeleteLaunchTemplateVersionRequest extends Model
      * @var string
      */
     public $launchTemplateName;
-
-    /**
-     * @var int[]
-     */
-    public $deleteVersion;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'deleteVersion'        => 'DeleteVersion',
         'launchTemplateId'     => 'LaunchTemplateId',
         'launchTemplateName'   => 'LaunchTemplateName',
-        'deleteVersion'        => 'DeleteVersion',
     ];
 
     public function validate()
@@ -80,14 +80,14 @@ class DeleteLaunchTemplateVersionRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->deleteVersion) {
+            $res['DeleteVersion'] = $this->deleteVersion;
+        }
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
         }
         if (null !== $this->launchTemplateName) {
             $res['LaunchTemplateName'] = $this->launchTemplateName;
-        }
-        if (null !== $this->deleteVersion) {
-            $res['DeleteVersion'] = $this->deleteVersion;
         }
 
         return $res;
@@ -116,16 +116,16 @@ class DeleteLaunchTemplateVersionRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['DeleteVersion'])) {
+            if (!empty($map['DeleteVersion'])) {
+                $model->deleteVersion = $map['DeleteVersion'];
+            }
+        }
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];
         }
         if (isset($map['LaunchTemplateName'])) {
             $model->launchTemplateName = $map['LaunchTemplateName'];
-        }
-        if (isset($map['DeleteVersion'])) {
-            if (!empty($map['DeleteVersion'])) {
-                $model->deleteVersion = $map['DeleteVersion'];
-            }
         }
 
         return $model;

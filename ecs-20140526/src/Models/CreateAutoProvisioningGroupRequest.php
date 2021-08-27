@@ -161,6 +161,11 @@ class CreateAutoProvisioningGroupRequest extends Model
      * @var dataDiskConfig[]
      */
     public $dataDiskConfig;
+
+    /**
+     * @var string
+     */
+    public $minTargetCapacity;
     protected $_name = [
         'launchConfiguration'              => 'LaunchConfiguration',
         'ownerId'                          => 'OwnerId',
@@ -192,6 +197,7 @@ class CreateAutoProvisioningGroupRequest extends Model
         'launchTemplateConfig'             => 'LaunchTemplateConfig',
         'systemDiskConfig'                 => 'SystemDiskConfig',
         'dataDiskConfig'                   => 'DataDiskConfig',
+        'minTargetCapacity'                => 'MinTargetCapacity',
     ];
 
     public function validate()
@@ -308,6 +314,9 @@ class CreateAutoProvisioningGroupRequest extends Model
                     $res['DataDiskConfig'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->minTargetCapacity) {
+            $res['MinTargetCapacity'] = $this->minTargetCapacity;
         }
 
         return $res;
@@ -428,6 +437,9 @@ class CreateAutoProvisioningGroupRequest extends Model
                     $model->dataDiskConfig[$n++] = null !== $item ? dataDiskConfig::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MinTargetCapacity'])) {
+            $model->minTargetCapacity = $map['MinTargetCapacity'];
         }
 
         return $model;

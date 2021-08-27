@@ -11,15 +11,15 @@ class lockReason extends Model
     /**
      * @var string
      */
-    public $lockReason;
+    public $lockMsg;
 
     /**
      * @var string
      */
-    public $lockMsg;
+    public $lockReason;
     protected $_name = [
-        'lockReason' => 'LockReason',
         'lockMsg'    => 'LockMsg',
+        'lockReason' => 'LockReason',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class lockReason extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lockReason) {
-            $res['LockReason'] = $this->lockReason;
-        }
         if (null !== $this->lockMsg) {
             $res['LockMsg'] = $this->lockMsg;
+        }
+        if (null !== $this->lockReason) {
+            $res['LockReason'] = $this->lockReason;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class lockReason extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LockReason'])) {
-            $model->lockReason = $map['LockReason'];
-        }
         if (isset($map['LockMsg'])) {
             $model->lockMsg = $map['LockMsg'];
+        }
+        if (isset($map['LockReason'])) {
+            $model->lockReason = $map['LockReason'];
         }
 
         return $model;

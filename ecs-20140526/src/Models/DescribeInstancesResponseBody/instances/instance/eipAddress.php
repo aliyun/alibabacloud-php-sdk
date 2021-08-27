@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class eipAddress extends Model
 {
     /**
+     * @var bool
+     */
+    public $isSupportUnassociate;
+
+    /**
+     * @var string
+     */
+    public $internetChargeType;
+
+    /**
      * @var string
      */
     public $ipAddress;
@@ -22,22 +32,12 @@ class eipAddress extends Model
      * @var string
      */
     public $allocationId;
-
-    /**
-     * @var bool
-     */
-    public $isSupportUnassociate;
-
-    /**
-     * @var string
-     */
-    public $internetChargeType;
     protected $_name = [
+        'isSupportUnassociate' => 'IsSupportUnassociate',
+        'internetChargeType'   => 'InternetChargeType',
         'ipAddress'            => 'IpAddress',
         'bandwidth'            => 'Bandwidth',
         'allocationId'         => 'AllocationId',
-        'isSupportUnassociate' => 'IsSupportUnassociate',
-        'internetChargeType'   => 'InternetChargeType',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class eipAddress extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isSupportUnassociate) {
+            $res['IsSupportUnassociate'] = $this->isSupportUnassociate;
+        }
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
+        }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
@@ -55,12 +61,6 @@ class eipAddress extends Model
         }
         if (null !== $this->allocationId) {
             $res['AllocationId'] = $this->allocationId;
-        }
-        if (null !== $this->isSupportUnassociate) {
-            $res['IsSupportUnassociate'] = $this->isSupportUnassociate;
-        }
-        if (null !== $this->internetChargeType) {
-            $res['InternetChargeType'] = $this->internetChargeType;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class eipAddress extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IsSupportUnassociate'])) {
+            $model->isSupportUnassociate = $map['IsSupportUnassociate'];
+        }
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
+        }
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
@@ -82,12 +88,6 @@ class eipAddress extends Model
         }
         if (isset($map['AllocationId'])) {
             $model->allocationId = $map['AllocationId'];
-        }
-        if (isset($map['IsSupportUnassociate'])) {
-            $model->isSupportUnassociate = $map['IsSupportUnassociate'];
-        }
-        if (isset($map['InternetChargeType'])) {
-            $model->internetChargeType = $map['InternetChargeType'];
         }
 
         return $model;

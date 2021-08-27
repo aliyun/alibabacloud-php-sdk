@@ -11,16 +11,6 @@ class instanceResponse extends Model
     /**
      * @var string
      */
-    public $currentStatus;
-
-    /**
-     * @var string
-     */
-    public $previousStatus;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
@@ -32,12 +22,22 @@ class instanceResponse extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $currentStatus;
+
+    /**
+     * @var string
+     */
+    public $previousStatus;
     protected $_name = [
-        'currentStatus'  => 'CurrentStatus',
-        'previousStatus' => 'PreviousStatus',
         'code'           => 'Code',
         'message'        => 'Message',
         'instanceId'     => 'InstanceId',
+        'currentStatus'  => 'CurrentStatus',
+        'previousStatus' => 'PreviousStatus',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class instanceResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->currentStatus) {
-            $res['CurrentStatus'] = $this->currentStatus;
-        }
-        if (null !== $this->previousStatus) {
-            $res['PreviousStatus'] = $this->previousStatus;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -61,6 +55,12 @@ class instanceResponse extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->currentStatus) {
+            $res['CurrentStatus'] = $this->currentStatus;
+        }
+        if (null !== $this->previousStatus) {
+            $res['PreviousStatus'] = $this->previousStatus;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class instanceResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CurrentStatus'])) {
-            $model->currentStatus = $map['CurrentStatus'];
-        }
-        if (isset($map['PreviousStatus'])) {
-            $model->previousStatus = $map['PreviousStatus'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -88,6 +82,12 @@ class instanceResponse extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['CurrentStatus'])) {
+            $model->currentStatus = $map['CurrentStatus'];
+        }
+        if (isset($map['PreviousStatus'])) {
+            $model->previousStatus = $map['PreviousStatus'];
         }
 
         return $model;

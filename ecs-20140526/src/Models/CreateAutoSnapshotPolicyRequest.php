@@ -68,6 +68,11 @@ class CreateAutoSnapshotPolicyRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'ownerId'                      => 'OwnerId',
         'resourceOwnerAccount'         => 'ResourceOwnerAccount',
@@ -81,6 +86,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
         'targetCopyRegions'            => 'TargetCopyRegions',
         'copiedSnapshotsRetentionDays' => 'CopiedSnapshotsRetentionDays',
         'tag'                          => 'Tag',
+        'resourceGroupId'              => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -131,6 +137,9 @@ class CreateAutoSnapshotPolicyRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -185,6 +194,9 @@ class CreateAutoSnapshotPolicyRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

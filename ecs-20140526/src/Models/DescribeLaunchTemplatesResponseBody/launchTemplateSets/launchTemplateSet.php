@@ -45,14 +45,14 @@ class launchTemplateSet extends Model
     public $createdBy;
 
     /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
      * @var int
      */
     public $latestVersionNumber;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'launchTemplateName'   => 'LaunchTemplateName',
         'defaultVersionNumber' => 'DefaultVersionNumber',
@@ -61,8 +61,8 @@ class launchTemplateSet extends Model
         'createTime'           => 'CreateTime',
         'resourceGroupId'      => 'ResourceGroupId',
         'createdBy'            => 'CreatedBy',
-        'tags'                 => 'Tags',
         'latestVersionNumber'  => 'LatestVersionNumber',
+        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -93,11 +93,11 @@ class launchTemplateSet extends Model
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
         if (null !== $this->latestVersionNumber) {
             $res['LatestVersionNumber'] = $this->latestVersionNumber;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -132,11 +132,11 @@ class launchTemplateSet extends Model
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
         if (isset($map['LatestVersionNumber'])) {
             $model->latestVersionNumber = $map['LatestVersionNumber'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

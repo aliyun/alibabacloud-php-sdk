@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeStorageCapacityUnitsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeStorageCapacityUnitsRequest extends Model
@@ -67,6 +68,11 @@ class DescribeStorageCapacityUnitsRequest extends Model
      * @var string[]
      */
     public $status;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
@@ -80,6 +86,7 @@ class DescribeStorageCapacityUnitsRequest extends Model
         'allocationType'        => 'AllocationType',
         'storageCapacityUnitId' => 'StorageCapacityUnitId',
         'status'                => 'Status',
+        'tag'                   => 'Tag',
     ];
 
     public function validate()
@@ -124,6 +131,15 @@ class DescribeStorageCapacityUnitsRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -175,6 +191,15 @@ class DescribeStorageCapacityUnitsRequest extends Model
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
                 $model->status = $map['Status'];
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
             }
         }
 

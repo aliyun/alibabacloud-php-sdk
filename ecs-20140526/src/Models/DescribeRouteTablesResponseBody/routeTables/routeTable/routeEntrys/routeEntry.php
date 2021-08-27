@@ -30,11 +30,6 @@ class routeEntry extends Model
     public $destinationCidrBlock;
 
     /**
-     * @var nextHops
-     */
-    public $nextHops;
-
-    /**
      * @var string
      */
     public $instanceId;
@@ -43,14 +38,19 @@ class routeEntry extends Model
      * @var string
      */
     public $routeTableId;
+
+    /**
+     * @var nextHops
+     */
+    public $nextHops;
     protected $_name = [
         'type'                 => 'Type',
         'status'               => 'Status',
         'nextHopType'          => 'NextHopType',
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'nextHops'             => 'NextHops',
         'instanceId'           => 'InstanceId',
         'routeTableId'         => 'RouteTableId',
+        'nextHops'             => 'NextHops',
     ];
 
     public function validate()
@@ -72,14 +72,14 @@ class routeEntry extends Model
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
-        if (null !== $this->nextHops) {
-            $res['NextHops'] = null !== $this->nextHops ? $this->nextHops->toMap() : null;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
+        }
+        if (null !== $this->nextHops) {
+            $res['NextHops'] = null !== $this->nextHops ? $this->nextHops->toMap() : null;
         }
 
         return $res;
@@ -105,14 +105,14 @@ class routeEntry extends Model
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
-        if (isset($map['NextHops'])) {
-            $model->nextHops = nextHops::fromMap($map['NextHops']);
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['NextHops'])) {
+            $model->nextHops = nextHops::fromMap($map['NextHops']);
         }
 
         return $model;

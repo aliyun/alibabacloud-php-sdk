@@ -12,11 +12,6 @@ class DescribeNetworkInterfacePermissionsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribeNetworkInterfacePermissionsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var networkInterfacePermissions
      */
     public $networkInterfacePermissions;
     protected $_name = [
-        'totalCount'                  => 'TotalCount',
         'pageSize'                    => 'PageSize',
         'requestId'                   => 'RequestId',
         'pageNumber'                  => 'PageNumber',
+        'totalCount'                  => 'TotalCount',
         'networkInterfacePermissions' => 'NetworkInterfacePermissions',
     ];
 
@@ -48,9 +48,6 @@ class DescribeNetworkInterfacePermissionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -59,6 +56,9 @@ class DescribeNetworkInterfacePermissionsResponseBody extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->networkInterfacePermissions) {
             $res['NetworkInterfacePermissions'] = null !== $this->networkInterfacePermissions ? $this->networkInterfacePermissions->toMap() : null;
@@ -75,9 +75,6 @@ class DescribeNetworkInterfacePermissionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -86,6 +83,9 @@ class DescribeNetworkInterfacePermissionsResponseBody extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['NetworkInterfacePermissions'])) {
             $model->networkInterfacePermissions = networkInterfacePermissions::fromMap($map['NetworkInterfacePermissions']);

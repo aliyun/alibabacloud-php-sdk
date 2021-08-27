@@ -17,27 +17,17 @@ class demand extends Model
     /**
      * @var string
      */
-    public $demandId;
-
-    /**
-     * @var string
-     */
     public $demandDescription;
 
     /**
      * @var string
      */
-    public $demandTime;
-
-    /**
-     * @var supplyInfos
-     */
-    public $supplyInfos;
+    public $demandId;
 
     /**
      * @var string
      */
-    public $demandName;
+    public $demandTime;
 
     /**
      * @var string
@@ -47,7 +37,7 @@ class demand extends Model
     /**
      * @var string
      */
-    public $instanceChargeType;
+    public $demandName;
 
     /**
      * @var int
@@ -57,12 +47,17 @@ class demand extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $instanceChargeType;
 
     /**
      * @var int
      */
     public $availableAmount;
+
+    /**
+     * @var string
+     */
+    public $endTime;
 
     /**
      * @var string
@@ -103,18 +98,22 @@ class demand extends Model
      * @var string
      */
     public $demandStatus;
+
+    /**
+     * @var supplyInfos
+     */
+    public $supplyInfos;
     protected $_name = [
         'comment'            => 'Comment',
-        'demandId'           => 'DemandId',
         'demandDescription'  => 'DemandDescription',
+        'demandId'           => 'DemandId',
         'demandTime'         => 'DemandTime',
-        'supplyInfos'        => 'SupplyInfos',
-        'demandName'         => 'DemandName',
         'instanceType'       => 'InstanceType',
-        'instanceChargeType' => 'InstanceChargeType',
+        'demandName'         => 'DemandName',
         'period'             => 'Period',
-        'endTime'            => 'EndTime',
+        'instanceChargeType' => 'InstanceChargeType',
         'availableAmount'    => 'AvailableAmount',
+        'endTime'            => 'EndTime',
         'startTime'          => 'StartTime',
         'periodUnit'         => 'PeriodUnit',
         'zoneId'             => 'ZoneId',
@@ -123,6 +122,7 @@ class demand extends Model
         'deliveringAmount'   => 'DeliveringAmount',
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'demandStatus'       => 'DemandStatus',
+        'supplyInfos'        => 'SupplyInfos',
     ];
 
     public function validate()
@@ -135,35 +135,32 @@ class demand extends Model
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-        if (null !== $this->demandId) {
-            $res['DemandId'] = $this->demandId;
-        }
         if (null !== $this->demandDescription) {
             $res['DemandDescription'] = $this->demandDescription;
+        }
+        if (null !== $this->demandId) {
+            $res['DemandId'] = $this->demandId;
         }
         if (null !== $this->demandTime) {
             $res['DemandTime'] = $this->demandTime;
         }
-        if (null !== $this->supplyInfos) {
-            $res['SupplyInfos'] = null !== $this->supplyInfos ? $this->supplyInfos->toMap() : null;
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->demandName) {
             $res['DemandName'] = $this->demandName;
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
         }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
+        if (null !== $this->availableAmount) {
+            $res['AvailableAmount'] = $this->availableAmount;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->availableAmount) {
-            $res['AvailableAmount'] = $this->availableAmount;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -189,6 +186,9 @@ class demand extends Model
         if (null !== $this->demandStatus) {
             $res['DemandStatus'] = $this->demandStatus;
         }
+        if (null !== $this->supplyInfos) {
+            $res['SupplyInfos'] = null !== $this->supplyInfos ? $this->supplyInfos->toMap() : null;
+        }
 
         return $res;
     }
@@ -204,35 +204,32 @@ class demand extends Model
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-        if (isset($map['DemandId'])) {
-            $model->demandId = $map['DemandId'];
-        }
         if (isset($map['DemandDescription'])) {
             $model->demandDescription = $map['DemandDescription'];
+        }
+        if (isset($map['DemandId'])) {
+            $model->demandId = $map['DemandId'];
         }
         if (isset($map['DemandTime'])) {
             $model->demandTime = $map['DemandTime'];
         }
-        if (isset($map['SupplyInfos'])) {
-            $model->supplyInfos = supplyInfos::fromMap($map['SupplyInfos']);
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['DemandName'])) {
             $model->demandName = $map['DemandName'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
         }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
+        if (isset($map['AvailableAmount'])) {
+            $model->availableAmount = $map['AvailableAmount'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['AvailableAmount'])) {
-            $model->availableAmount = $map['AvailableAmount'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
@@ -257,6 +254,9 @@ class demand extends Model
         }
         if (isset($map['DemandStatus'])) {
             $model->demandStatus = $map['DemandStatus'];
+        }
+        if (isset($map['SupplyInfos'])) {
+            $model->supplyInfos = supplyInfos::fromMap($map['SupplyInfos']);
         }
 
         return $model;

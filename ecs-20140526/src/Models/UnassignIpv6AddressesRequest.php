@@ -34,22 +34,22 @@ class UnassignIpv6AddressesRequest extends Model
     public $regionId;
 
     /**
-     * @var string
-     */
-    public $networkInterfaceId;
-
-    /**
      * @var string[]
      */
     public $ipv6Address;
+
+    /**
+     * @var string
+     */
+    public $networkInterfaceId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
         'ipv6Address'          => 'Ipv6Address',
+        'networkInterfaceId'   => 'NetworkInterfaceId',
     ];
 
     public function validate()
@@ -74,11 +74,11 @@ class UnassignIpv6AddressesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->networkInterfaceId) {
-            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
-        }
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
+        }
+        if (null !== $this->networkInterfaceId) {
+            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
 
         return $res;
@@ -107,13 +107,13 @@ class UnassignIpv6AddressesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['NetworkInterfaceId'])) {
-            $model->networkInterfaceId = $map['NetworkInterfaceId'];
-        }
         if (isset($map['Ipv6Address'])) {
             if (!empty($map['Ipv6Address'])) {
                 $model->ipv6Address = $map['Ipv6Address'];
             }
+        }
+        if (isset($map['NetworkInterfaceId'])) {
+            $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
 
         return $model;

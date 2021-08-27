@@ -16,7 +16,7 @@ class invokeInstance extends Model
     /**
      * @var string
      */
-    public $invocationStatus;
+    public $updateTime;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class invokeInstance extends Model
     /**
      * @var string
      */
-    public $updateTime;
+    public $invocationStatus;
 
     /**
      * @var int
@@ -36,12 +36,12 @@ class invokeInstance extends Model
     /**
      * @var string
      */
-    public $output;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $output;
 
     /**
      * @var int
@@ -69,6 +69,11 @@ class invokeInstance extends Model
     public $errorInfo;
 
     /**
+     * @var bool
+     */
+    public $timed;
+
+    /**
      * @var string
      */
     public $errorCode;
@@ -79,17 +84,18 @@ class invokeInstance extends Model
     public $instanceInvokeStatus;
     protected $_name = [
         'creationTime'         => 'CreationTime',
-        'invocationStatus'     => 'InvocationStatus',
-        'finishTime'           => 'FinishTime',
         'updateTime'           => 'UpdateTime',
+        'finishTime'           => 'FinishTime',
+        'invocationStatus'     => 'InvocationStatus',
         'repeats'              => 'Repeats',
-        'output'               => 'Output',
         'instanceId'           => 'InstanceId',
+        'output'               => 'Output',
         'dropped'              => 'Dropped',
         'stopTime'             => 'StopTime',
         'exitCode'             => 'ExitCode',
         'startTime'            => 'StartTime',
         'errorInfo'            => 'ErrorInfo',
+        'timed'                => 'Timed',
         'errorCode'            => 'ErrorCode',
         'instanceInvokeStatus' => 'InstanceInvokeStatus',
     ];
@@ -104,23 +110,23 @@ class invokeInstance extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->invocationStatus) {
-            $res['InvocationStatus'] = $this->invocationStatus;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->invocationStatus) {
+            $res['InvocationStatus'] = $this->invocationStatus;
         }
         if (null !== $this->repeats) {
             $res['Repeats'] = $this->repeats;
         }
-        if (null !== $this->output) {
-            $res['Output'] = $this->output;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->output) {
+            $res['Output'] = $this->output;
         }
         if (null !== $this->dropped) {
             $res['Dropped'] = $this->dropped;
@@ -136,6 +142,9 @@ class invokeInstance extends Model
         }
         if (null !== $this->errorInfo) {
             $res['ErrorInfo'] = $this->errorInfo;
+        }
+        if (null !== $this->timed) {
+            $res['Timed'] = $this->timed;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -158,23 +167,23 @@ class invokeInstance extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['InvocationStatus'])) {
-            $model->invocationStatus = $map['InvocationStatus'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['InvocationStatus'])) {
+            $model->invocationStatus = $map['InvocationStatus'];
         }
         if (isset($map['Repeats'])) {
             $model->repeats = $map['Repeats'];
         }
-        if (isset($map['Output'])) {
-            $model->output = $map['Output'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Output'])) {
+            $model->output = $map['Output'];
         }
         if (isset($map['Dropped'])) {
             $model->dropped = $map['Dropped'];
@@ -190,6 +199,9 @@ class invokeInstance extends Model
         }
         if (isset($map['ErrorInfo'])) {
             $model->errorInfo = $map['ErrorInfo'];
+        }
+        if (isset($map['Timed'])) {
+            $model->timed = $map['Timed'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

@@ -26,24 +26,9 @@ class natGateway extends Model
     public $vpcId;
 
     /**
-     * @var bandwidthPackageIds
-     */
-    public $bandwidthPackageIds;
-
-    /**
      * @var string
      */
     public $spec;
-
-    /**
-     * @var string
-     */
-    public $instanceChargeType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
 
     /**
      * @var string
@@ -56,11 +41,6 @@ class natGateway extends Model
     public $natGatewayId;
 
     /**
-     * @var forwardTableIds
-     */
-    public $forwardTableIds;
-
-    /**
      * @var string
      */
     public $businessStatus;
@@ -69,19 +49,39 @@ class natGateway extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $instanceChargeType;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var forwardTableIds
+     */
+    public $forwardTableIds;
+
+    /**
+     * @var bandwidthPackageIds
+     */
+    public $bandwidthPackageIds;
     protected $_name = [
         'status'              => 'Status',
         'creationTime'        => 'CreationTime',
         'vpcId'               => 'VpcId',
-        'bandwidthPackageIds' => 'BandwidthPackageIds',
         'spec'                => 'Spec',
-        'instanceChargeType'  => 'InstanceChargeType',
-        'regionId'            => 'RegionId',
         'description'         => 'Description',
         'natGatewayId'        => 'NatGatewayId',
-        'forwardTableIds'     => 'ForwardTableIds',
         'businessStatus'      => 'BusinessStatus',
         'name'                => 'Name',
+        'instanceChargeType'  => 'InstanceChargeType',
+        'regionId'            => 'RegionId',
+        'forwardTableIds'     => 'ForwardTableIds',
+        'bandwidthPackageIds' => 'BandwidthPackageIds',
     ];
 
     public function validate()
@@ -100,17 +100,8 @@ class natGateway extends Model
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-        if (null !== $this->bandwidthPackageIds) {
-            $res['BandwidthPackageIds'] = null !== $this->bandwidthPackageIds ? $this->bandwidthPackageIds->toMap() : null;
-        }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -118,14 +109,23 @@ class natGateway extends Model
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
-        if (null !== $this->forwardTableIds) {
-            $res['ForwardTableIds'] = null !== $this->forwardTableIds ? $this->forwardTableIds->toMap() : null;
-        }
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->forwardTableIds) {
+            $res['ForwardTableIds'] = null !== $this->forwardTableIds ? $this->forwardTableIds->toMap() : null;
+        }
+        if (null !== $this->bandwidthPackageIds) {
+            $res['BandwidthPackageIds'] = null !== $this->bandwidthPackageIds ? $this->bandwidthPackageIds->toMap() : null;
         }
 
         return $res;
@@ -148,17 +148,8 @@ class natGateway extends Model
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-        if (isset($map['BandwidthPackageIds'])) {
-            $model->bandwidthPackageIds = bandwidthPackageIds::fromMap($map['BandwidthPackageIds']);
-        }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -166,14 +157,23 @@ class natGateway extends Model
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
-        if (isset($map['ForwardTableIds'])) {
-            $model->forwardTableIds = forwardTableIds::fromMap($map['ForwardTableIds']);
-        }
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ForwardTableIds'])) {
+            $model->forwardTableIds = forwardTableIds::fromMap($map['ForwardTableIds']);
+        }
+        if (isset($map['BandwidthPackageIds'])) {
+            $model->bandwidthPackageIds = bandwidthPackageIds::fromMap($map['BandwidthPackageIds']);
         }
 
         return $model;

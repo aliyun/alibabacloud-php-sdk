@@ -7,9 +7,11 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\arn;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\cpuOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\dataDisk;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\hibernationOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\networkInterface;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\privatePoolOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\schedulerOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\securityOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\systemDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\tag;
 use AlibabaCloud\Tea\Model;
@@ -22,9 +24,19 @@ class RunInstancesRequest extends Model
     public $systemDisk;
 
     /**
+     * @var hibernationOptions
+     */
+    public $hibernationOptions;
+
+    /**
      * @var cpuOptions
      */
     public $cpuOptions;
+
+    /**
+     * @var securityOptions
+     */
+    public $securityOptions;
 
     /**
      * @var privatePoolOptions
@@ -342,6 +354,11 @@ class RunInstancesRequest extends Model
     public $securityGroupIds;
 
     /**
+     * @var string[]
+     */
+    public $hostNames;
+
+    /**
      * @var dataDisk[]
      */
     public $dataDisk;
@@ -367,7 +384,9 @@ class RunInstancesRequest extends Model
     public $ipv6Address;
     protected $_name = [
         'systemDisk'                  => 'SystemDisk',
+        'hibernationOptions'          => 'HibernationOptions',
         'cpuOptions'                  => 'CpuOptions',
+        'securityOptions'             => 'SecurityOptions',
         'privatePoolOptions'          => 'PrivatePoolOptions',
         'schedulerOptions'            => 'SchedulerOptions',
         'ownerId'                     => 'OwnerId',
@@ -431,6 +450,7 @@ class RunInstancesRequest extends Model
         'httpPutResponseHopLimit'     => 'HttpPutResponseHopLimit',
         'isp'                         => 'Isp',
         'securityGroupIds'            => 'SecurityGroupIds',
+        'hostNames'                   => 'HostNames',
         'dataDisk'                    => 'DataDisk',
         'arn'                         => 'Arn',
         'networkInterface'            => 'NetworkInterface',
@@ -448,8 +468,14 @@ class RunInstancesRequest extends Model
         if (null !== $this->systemDisk) {
             $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
         }
+        if (null !== $this->hibernationOptions) {
+            $res['HibernationOptions'] = null !== $this->hibernationOptions ? $this->hibernationOptions->toMap() : null;
+        }
         if (null !== $this->cpuOptions) {
             $res['CpuOptions'] = null !== $this->cpuOptions ? $this->cpuOptions->toMap() : null;
+        }
+        if (null !== $this->securityOptions) {
+            $res['SecurityOptions'] = null !== $this->securityOptions ? $this->securityOptions->toMap() : null;
         }
         if (null !== $this->privatePoolOptions) {
             $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
@@ -640,6 +666,9 @@ class RunInstancesRequest extends Model
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
         }
+        if (null !== $this->hostNames) {
+            $res['HostNames'] = $this->hostNames;
+        }
         if (null !== $this->dataDisk) {
             $res['DataDisk'] = [];
             if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
@@ -694,8 +723,14 @@ class RunInstancesRequest extends Model
         if (isset($map['SystemDisk'])) {
             $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
         }
+        if (isset($map['HibernationOptions'])) {
+            $model->hibernationOptions = hibernationOptions::fromMap($map['HibernationOptions']);
+        }
         if (isset($map['CpuOptions'])) {
             $model->cpuOptions = cpuOptions::fromMap($map['CpuOptions']);
+        }
+        if (isset($map['SecurityOptions'])) {
+            $model->securityOptions = securityOptions::fromMap($map['SecurityOptions']);
         }
         if (isset($map['PrivatePoolOptions'])) {
             $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);
@@ -886,6 +921,11 @@ class RunInstancesRequest extends Model
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
+            }
+        }
+        if (isset($map['HostNames'])) {
+            if (!empty($map['HostNames'])) {
+                $model->hostNames = $map['HostNames'];
             }
         }
         if (isset($map['DataDisk'])) {

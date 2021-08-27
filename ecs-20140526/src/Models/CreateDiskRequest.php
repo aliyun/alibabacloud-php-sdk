@@ -116,6 +116,16 @@ class CreateDiskRequest extends Model
     public $storageSetPartitionNumber;
 
     /**
+     * @var string
+     */
+    public $dedicatedBlockStorageClusterId;
+
+    /**
+     * @var string
+     */
+    public $multiAttach;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -125,29 +135,31 @@ class CreateDiskRequest extends Model
      */
     public $arn;
     protected $_name = [
-        'ownerId'                   => 'OwnerId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'regionId'                  => 'RegionId',
-        'zoneId'                    => 'ZoneId',
-        'snapshotId'                => 'SnapshotId',
-        'diskName'                  => 'DiskName',
-        'size'                      => 'Size',
-        'diskCategory'              => 'DiskCategory',
-        'description'               => 'Description',
-        'encrypted'                 => 'Encrypted',
-        'clientToken'               => 'ClientToken',
-        'ownerAccount'              => 'OwnerAccount',
-        'instanceId'                => 'InstanceId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'KMSKeyId'                  => 'KMSKeyId',
-        'performanceLevel'          => 'PerformanceLevel',
-        'advancedFeatures'          => 'AdvancedFeatures',
-        'storageSetId'              => 'StorageSetId',
-        'encryptAlgorithm'          => 'EncryptAlgorithm',
-        'storageSetPartitionNumber' => 'StorageSetPartitionNumber',
-        'tag'                       => 'Tag',
-        'arn'                       => 'Arn',
+        'ownerId'                        => 'OwnerId',
+        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
+        'resourceOwnerId'                => 'ResourceOwnerId',
+        'regionId'                       => 'RegionId',
+        'zoneId'                         => 'ZoneId',
+        'snapshotId'                     => 'SnapshotId',
+        'diskName'                       => 'DiskName',
+        'size'                           => 'Size',
+        'diskCategory'                   => 'DiskCategory',
+        'description'                    => 'Description',
+        'encrypted'                      => 'Encrypted',
+        'clientToken'                    => 'ClientToken',
+        'ownerAccount'                   => 'OwnerAccount',
+        'instanceId'                     => 'InstanceId',
+        'resourceGroupId'                => 'ResourceGroupId',
+        'KMSKeyId'                       => 'KMSKeyId',
+        'performanceLevel'               => 'PerformanceLevel',
+        'advancedFeatures'               => 'AdvancedFeatures',
+        'storageSetId'                   => 'StorageSetId',
+        'encryptAlgorithm'               => 'EncryptAlgorithm',
+        'storageSetPartitionNumber'      => 'StorageSetPartitionNumber',
+        'dedicatedBlockStorageClusterId' => 'DedicatedBlockStorageClusterId',
+        'multiAttach'                    => 'MultiAttach',
+        'tag'                            => 'Tag',
+        'arn'                            => 'Arn',
     ];
 
     public function validate()
@@ -219,6 +231,12 @@ class CreateDiskRequest extends Model
         }
         if (null !== $this->storageSetPartitionNumber) {
             $res['StorageSetPartitionNumber'] = $this->storageSetPartitionNumber;
+        }
+        if (null !== $this->dedicatedBlockStorageClusterId) {
+            $res['DedicatedBlockStorageClusterId'] = $this->dedicatedBlockStorageClusterId;
+        }
+        if (null !== $this->multiAttach) {
+            $res['MultiAttach'] = $this->multiAttach;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -312,6 +330,12 @@ class CreateDiskRequest extends Model
         }
         if (isset($map['StorageSetPartitionNumber'])) {
             $model->storageSetPartitionNumber = $map['StorageSetPartitionNumber'];
+        }
+        if (isset($map['DedicatedBlockStorageClusterId'])) {
+            $model->dedicatedBlockStorageClusterId = $map['DedicatedBlockStorageClusterId'];
+        }
+        if (isset($map['MultiAttach'])) {
+            $model->multiAttach = $map['MultiAttach'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

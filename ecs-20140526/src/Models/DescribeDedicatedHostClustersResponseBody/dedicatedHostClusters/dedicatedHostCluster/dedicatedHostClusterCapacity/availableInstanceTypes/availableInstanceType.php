@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class availableInstanceType extends Model
 {
     /**
-     * @var int
-     */
-    public $availableInstanceCapacity;
-
-    /**
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var int
+     */
+    public $availableInstanceCapacity;
     protected $_name = [
-        'availableInstanceCapacity' => 'AvailableInstanceCapacity',
         'instanceType'              => 'InstanceType',
+        'availableInstanceCapacity' => 'AvailableInstanceCapacity',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class availableInstanceType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->availableInstanceCapacity) {
-            $res['AvailableInstanceCapacity'] = $this->availableInstanceCapacity;
-        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->availableInstanceCapacity) {
+            $res['AvailableInstanceCapacity'] = $this->availableInstanceCapacity;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class availableInstanceType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AvailableInstanceCapacity'])) {
-            $model->availableInstanceCapacity = $map['AvailableInstanceCapacity'];
-        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['AvailableInstanceCapacity'])) {
+            $model->availableInstanceCapacity = $map['AvailableInstanceCapacity'];
         }
 
         return $model;

@@ -20,21 +20,6 @@ class securityGroup extends Model
     public $vpcId;
 
     /**
-     * @var string
-     */
-    public $securityGroupId;
-
-    /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
-     * @var int
-     */
-    public $serviceID;
-
-    /**
      * @var bool
      */
     public $serviceManaged;
@@ -43,6 +28,11 @@ class securityGroup extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $securityGroupId;
 
     /**
      * @var string
@@ -60,6 +50,11 @@ class securityGroup extends Model
     public $ecsCount;
 
     /**
+     * @var int
+     */
+    public $serviceID;
+
+    /**
      * @var string
      */
     public $securityGroupType;
@@ -68,19 +63,24 @@ class securityGroup extends Model
      * @var int
      */
     public $availableInstanceAmount;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'creationTime'            => 'CreationTime',
         'vpcId'                   => 'VpcId',
-        'securityGroupId'         => 'SecurityGroupId',
-        'tags'                    => 'Tags',
-        'serviceID'               => 'ServiceID',
         'serviceManaged'          => 'ServiceManaged',
         'description'             => 'Description',
+        'securityGroupId'         => 'SecurityGroupId',
         'resourceGroupId'         => 'ResourceGroupId',
         'securityGroupName'       => 'SecurityGroupName',
         'ecsCount'                => 'EcsCount',
+        'serviceID'               => 'ServiceID',
         'securityGroupType'       => 'SecurityGroupType',
         'availableInstanceAmount' => 'AvailableInstanceAmount',
+        'tags'                    => 'Tags',
     ];
 
     public function validate()
@@ -96,20 +96,14 @@ class securityGroup extends Model
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
-        if (null !== $this->serviceID) {
-            $res['ServiceID'] = $this->serviceID;
-        }
         if (null !== $this->serviceManaged) {
             $res['ServiceManaged'] = $this->serviceManaged;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -120,11 +114,17 @@ class securityGroup extends Model
         if (null !== $this->ecsCount) {
             $res['EcsCount'] = $this->ecsCount;
         }
+        if (null !== $this->serviceID) {
+            $res['ServiceID'] = $this->serviceID;
+        }
         if (null !== $this->securityGroupType) {
             $res['SecurityGroupType'] = $this->securityGroupType;
         }
         if (null !== $this->availableInstanceAmount) {
             $res['AvailableInstanceAmount'] = $this->availableInstanceAmount;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -144,20 +144,14 @@ class securityGroup extends Model
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
-        if (isset($map['ServiceID'])) {
-            $model->serviceID = $map['ServiceID'];
-        }
         if (isset($map['ServiceManaged'])) {
             $model->serviceManaged = $map['ServiceManaged'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -168,11 +162,17 @@ class securityGroup extends Model
         if (isset($map['EcsCount'])) {
             $model->ecsCount = $map['EcsCount'];
         }
+        if (isset($map['ServiceID'])) {
+            $model->serviceID = $map['ServiceID'];
+        }
         if (isset($map['SecurityGroupType'])) {
             $model->securityGroupType = $map['SecurityGroupType'];
         }
         if (isset($map['AvailableInstanceAmount'])) {
             $model->availableInstanceAmount = $map['AvailableInstanceAmount'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

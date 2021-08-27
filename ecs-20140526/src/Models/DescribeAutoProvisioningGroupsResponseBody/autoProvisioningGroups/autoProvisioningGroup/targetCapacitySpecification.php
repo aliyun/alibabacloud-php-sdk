@@ -14,6 +14,11 @@ class targetCapacitySpecification extends Model
     public $spotTargetCapacity;
 
     /**
+     * @var float
+     */
+    public $payAsYouGoTargetCapacity;
+
+    /**
      * @var string
      */
     public $defaultTargetCapacityType;
@@ -22,16 +27,11 @@ class targetCapacitySpecification extends Model
      * @var float
      */
     public $totalTargetCapacity;
-
-    /**
-     * @var float
-     */
-    public $payAsYouGoTargetCapacity;
     protected $_name = [
         'spotTargetCapacity'        => 'SpotTargetCapacity',
+        'payAsYouGoTargetCapacity'  => 'PayAsYouGoTargetCapacity',
         'defaultTargetCapacityType' => 'DefaultTargetCapacityType',
         'totalTargetCapacity'       => 'TotalTargetCapacity',
-        'payAsYouGoTargetCapacity'  => 'PayAsYouGoTargetCapacity',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class targetCapacitySpecification extends Model
         if (null !== $this->spotTargetCapacity) {
             $res['SpotTargetCapacity'] = $this->spotTargetCapacity;
         }
+        if (null !== $this->payAsYouGoTargetCapacity) {
+            $res['PayAsYouGoTargetCapacity'] = $this->payAsYouGoTargetCapacity;
+        }
         if (null !== $this->defaultTargetCapacityType) {
             $res['DefaultTargetCapacityType'] = $this->defaultTargetCapacityType;
         }
         if (null !== $this->totalTargetCapacity) {
             $res['TotalTargetCapacity'] = $this->totalTargetCapacity;
-        }
-        if (null !== $this->payAsYouGoTargetCapacity) {
-            $res['PayAsYouGoTargetCapacity'] = $this->payAsYouGoTargetCapacity;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class targetCapacitySpecification extends Model
         if (isset($map['SpotTargetCapacity'])) {
             $model->spotTargetCapacity = $map['SpotTargetCapacity'];
         }
+        if (isset($map['PayAsYouGoTargetCapacity'])) {
+            $model->payAsYouGoTargetCapacity = $map['PayAsYouGoTargetCapacity'];
+        }
         if (isset($map['DefaultTargetCapacityType'])) {
             $model->defaultTargetCapacityType = $map['DefaultTargetCapacityType'];
         }
         if (isset($map['TotalTargetCapacity'])) {
             $model->totalTargetCapacity = $map['TotalTargetCapacity'];
-        }
-        if (isset($map['PayAsYouGoTargetCapacity'])) {
-            $model->payAsYouGoTargetCapacity = $map['PayAsYouGoTargetCapacity'];
         }
 
         return $model;

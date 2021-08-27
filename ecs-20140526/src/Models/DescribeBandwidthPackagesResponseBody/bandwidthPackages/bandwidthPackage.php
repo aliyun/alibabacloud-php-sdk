@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class bandwidthPackage extends Model
 {
     /**
-     * @var publicIpAddresses
+     * @var string
      */
-    public $publicIpAddresses;
+    public $status;
 
     /**
      * @var string
@@ -22,17 +22,7 @@ class bandwidthPackage extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $ipCount;
-
-    /**
-     * @var string
-     */
-    public $instanceChargeType;
 
     /**
      * @var string
@@ -42,12 +32,12 @@ class bandwidthPackage extends Model
     /**
      * @var string
      */
-    public $bandwidthPackageId;
+    public $instanceChargeType;
 
     /**
      * @var string
      */
-    public $bandwidth;
+    public $bandwidthPackageId;
 
     /**
      * @var string
@@ -57,17 +47,22 @@ class bandwidthPackage extends Model
     /**
      * @var string
      */
+    public $bandwidth;
+
+    /**
+     * @var string
+     */
     public $natGatewayId;
 
     /**
      * @var string
      */
-    public $internetChargeType;
+    public $zoneId;
 
     /**
      * @var string
      */
-    public $zoneId;
+    public $internetChargeType;
 
     /**
      * @var string
@@ -83,22 +78,27 @@ class bandwidthPackage extends Model
      * @var string
      */
     public $ISP;
+
+    /**
+     * @var publicIpAddresses
+     */
+    public $publicIpAddresses;
     protected $_name = [
-        'publicIpAddresses'  => 'PublicIpAddresses',
-        'creationTime'       => 'CreationTime',
         'status'             => 'Status',
+        'creationTime'       => 'CreationTime',
         'ipCount'            => 'IpCount',
-        'instanceChargeType' => 'InstanceChargeType',
         'regionId'           => 'RegionId',
+        'instanceChargeType' => 'InstanceChargeType',
         'bandwidthPackageId' => 'BandwidthPackageId',
-        'bandwidth'          => 'Bandwidth',
         'description'        => 'Description',
+        'bandwidth'          => 'Bandwidth',
         'natGatewayId'       => 'NatGatewayId',
-        'internetChargeType' => 'InternetChargeType',
         'zoneId'             => 'ZoneId',
+        'internetChargeType' => 'InternetChargeType',
         'businessStatus'     => 'BusinessStatus',
         'name'               => 'Name',
         'ISP'                => 'ISP',
+        'publicIpAddresses'  => 'PublicIpAddresses',
     ];
 
     public function validate()
@@ -108,41 +108,38 @@ class bandwidthPackage extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->publicIpAddresses) {
-            $res['PublicIpAddresses'] = null !== $this->publicIpAddresses ? $this->publicIpAddresses->toMap() : null;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->ipCount) {
             $res['IpCount'] = $this->ipCount;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
-        }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
-        if (null !== $this->internetChargeType) {
-            $res['InternetChargeType'] = $this->internetChargeType;
-        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
         }
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
@@ -152,6 +149,9 @@ class bandwidthPackage extends Model
         }
         if (null !== $this->ISP) {
             $res['ISP'] = $this->ISP;
+        }
+        if (null !== $this->publicIpAddresses) {
+            $res['PublicIpAddresses'] = null !== $this->publicIpAddresses ? $this->publicIpAddresses->toMap() : null;
         }
 
         return $res;
@@ -165,41 +165,38 @@ class bandwidthPackage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PublicIpAddresses'])) {
-            $model->publicIpAddresses = publicIpAddresses::fromMap($map['PublicIpAddresses']);
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['IpCount'])) {
             $model->ipCount = $map['IpCount'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
+        }
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
-        }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
-        if (isset($map['InternetChargeType'])) {
-            $model->internetChargeType = $map['InternetChargeType'];
-        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
         }
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];
@@ -209,6 +206,9 @@ class bandwidthPackage extends Model
         }
         if (isset($map['ISP'])) {
             $model->ISP = $map['ISP'];
+        }
+        if (isset($map['PublicIpAddresses'])) {
+            $model->publicIpAddresses = publicIpAddresses::fromMap($map['PublicIpAddresses']);
         }
 
         return $model;

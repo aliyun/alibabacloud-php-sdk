@@ -34,6 +34,11 @@ class CreateSimulatedSystemEventsRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
      * @var string
      */
     public $eventType;
@@ -42,20 +47,15 @@ class CreateSimulatedSystemEventsRequest extends Model
      * @var string
      */
     public $notBefore;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'instanceId'           => 'InstanceId',
         'eventType'            => 'EventType',
         'notBefore'            => 'NotBefore',
-        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
@@ -80,14 +80,14 @@ class CreateSimulatedSystemEventsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
         if (null !== $this->notBefore) {
             $res['NotBefore'] = $this->notBefore;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -116,16 +116,16 @@ class CreateSimulatedSystemEventsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
+        }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
         if (isset($map['NotBefore'])) {
             $model->notBefore = $map['NotBefore'];
-        }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
         }
 
         return $model;

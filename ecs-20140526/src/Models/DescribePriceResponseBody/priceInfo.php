@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class priceInfo extends Model
 {
     /**
-     * @var price
-     */
-    public $price;
-
-    /**
      * @var rules
      */
     public $rules;
+
+    /**
+     * @var price
+     */
+    public $price;
     protected $_name = [
-        'price' => 'Price',
         'rules' => 'Rules',
+        'price' => 'Price',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class priceInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->price) {
-            $res['Price'] = null !== $this->price ? $this->price->toMap() : null;
-        }
         if (null !== $this->rules) {
             $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
+        }
+        if (null !== $this->price) {
+            $res['Price'] = null !== $this->price ? $this->price->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class priceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Price'])) {
-            $model->price = price::fromMap($map['Price']);
-        }
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
+        }
+        if (isset($map['Price'])) {
+            $model->price = price::fromMap($map['Price']);
         }
 
         return $model;

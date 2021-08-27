@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class StartImagePipelineExecutionRequest extends Model
 {
     /**
+     * @var templateTag[]
+     */
+    public $templateTag;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -35,11 +40,6 @@ class StartImagePipelineExecutionRequest extends Model
     public $regionId;
 
     /**
-     * @var templateTag[]
-     */
-    public $templateTag;
-
-    /**
      * @var string
      */
     public $imagePipelineId;
@@ -49,12 +49,12 @@ class StartImagePipelineExecutionRequest extends Model
      */
     public $clientToken;
     protected $_name = [
+        'templateTag'          => 'TemplateTag',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'templateTag'          => 'TemplateTag',
         'imagePipelineId'      => 'ImagePipelineId',
         'clientToken'          => 'ClientToken',
     ];
@@ -66,6 +66,15 @@ class StartImagePipelineExecutionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->templateTag) {
+            $res['TemplateTag'] = [];
+            if (null !== $this->templateTag && \is_array($this->templateTag)) {
+                $n = 0;
+                foreach ($this->templateTag as $item) {
+                    $res['TemplateTag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -80,15 +89,6 @@ class StartImagePipelineExecutionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->templateTag) {
-            $res['TemplateTag'] = [];
-            if (null !== $this->templateTag && \is_array($this->templateTag)) {
-                $n = 0;
-                foreach ($this->templateTag as $item) {
-                    $res['TemplateTag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->imagePipelineId) {
             $res['ImagePipelineId'] = $this->imagePipelineId;
@@ -108,6 +108,15 @@ class StartImagePipelineExecutionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TemplateTag'])) {
+            if (!empty($map['TemplateTag'])) {
+                $model->templateTag = [];
+                $n                  = 0;
+                foreach ($map['TemplateTag'] as $item) {
+                    $model->templateTag[$n++] = null !== $item ? templateTag::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -122,15 +131,6 @@ class StartImagePipelineExecutionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TemplateTag'])) {
-            if (!empty($map['TemplateTag'])) {
-                $model->templateTag = [];
-                $n                  = 0;
-                foreach ($map['TemplateTag'] as $item) {
-                    $model->templateTag[$n++] = null !== $item ? templateTag::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['ImagePipelineId'])) {
             $model->imagePipelineId = $map['ImagePipelineId'];

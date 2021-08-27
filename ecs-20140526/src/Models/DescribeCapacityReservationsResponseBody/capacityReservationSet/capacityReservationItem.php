@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationsResponseBody\capacityReservationSet;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationsResponseBody\capacityReservationSet\capacityReservationItem\allocatedResources;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationsResponseBody\capacityReservationSet\capacityReservationItem\tags;
 use AlibabaCloud\Tea\Model;
 
 class capacityReservationItem extends Model
@@ -30,11 +31,6 @@ class capacityReservationItem extends Model
     public $privatePoolOptionsId;
 
     /**
-     * @var allocatedResources
-     */
-    public $allocatedResources;
-
-    /**
      * @var string
      */
     public $privatePoolOptionsName;
@@ -42,12 +38,12 @@ class capacityReservationItem extends Model
     /**
      * @var string
      */
-    public $instanceChargeType;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $instanceChargeType;
 
     /**
      * @var string
@@ -72,21 +68,38 @@ class capacityReservationItem extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $platform;
+
+    /**
+     * @var allocatedResources
+     */
+    public $allocatedResources;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'status'                          => 'Status',
         'timeSlot'                        => 'TimeSlot',
         'privatePoolOptionsMatchCriteria' => 'PrivatePoolOptionsMatchCriteria',
         'privatePoolOptionsId'            => 'PrivatePoolOptionsId',
-        'allocatedResources'              => 'AllocatedResources',
         'privatePoolOptionsName'          => 'PrivatePoolOptionsName',
-        'instanceChargeType'              => 'InstanceChargeType',
         'regionId'                        => 'RegionId',
+        'instanceChargeType'              => 'InstanceChargeType',
         'endTime'                         => 'EndTime',
         'startTime'                       => 'StartTime',
         'description'                     => 'Description',
         'endTimeType'                     => 'EndTimeType',
+        'resourceGroupId'                 => 'ResourceGroupId',
         'platform'                        => 'Platform',
+        'allocatedResources'              => 'AllocatedResources',
+        'tags'                            => 'Tags',
     ];
 
     public function validate()
@@ -108,17 +121,14 @@ class capacityReservationItem extends Model
         if (null !== $this->privatePoolOptionsId) {
             $res['PrivatePoolOptionsId'] = $this->privatePoolOptionsId;
         }
-        if (null !== $this->allocatedResources) {
-            $res['AllocatedResources'] = null !== $this->allocatedResources ? $this->allocatedResources->toMap() : null;
-        }
         if (null !== $this->privatePoolOptionsName) {
             $res['PrivatePoolOptionsName'] = $this->privatePoolOptionsName;
         }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -132,8 +142,17 @@ class capacityReservationItem extends Model
         if (null !== $this->endTimeType) {
             $res['EndTimeType'] = $this->endTimeType;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->allocatedResources) {
+            $res['AllocatedResources'] = null !== $this->allocatedResources ? $this->allocatedResources->toMap() : null;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -159,17 +178,14 @@ class capacityReservationItem extends Model
         if (isset($map['PrivatePoolOptionsId'])) {
             $model->privatePoolOptionsId = $map['PrivatePoolOptionsId'];
         }
-        if (isset($map['AllocatedResources'])) {
-            $model->allocatedResources = allocatedResources::fromMap($map['AllocatedResources']);
-        }
         if (isset($map['PrivatePoolOptionsName'])) {
             $model->privatePoolOptionsName = $map['PrivatePoolOptionsName'];
         }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -183,8 +199,17 @@ class capacityReservationItem extends Model
         if (isset($map['EndTimeType'])) {
             $model->endTimeType = $map['EndTimeType'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+        if (isset($map['AllocatedResources'])) {
+            $model->allocatedResources = allocatedResources::fromMap($map['AllocatedResources']);
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

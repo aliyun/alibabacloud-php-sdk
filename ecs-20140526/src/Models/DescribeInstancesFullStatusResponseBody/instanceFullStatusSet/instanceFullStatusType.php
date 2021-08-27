@@ -12,9 +12,9 @@ use AlibabaCloud\Tea\Model;
 class instanceFullStatusType extends Model
 {
     /**
-     * @var status
+     * @var string
      */
-    public $status;
+    public $instanceId;
 
     /**
      * @var scheduledSystemEventSet
@@ -22,18 +22,18 @@ class instanceFullStatusType extends Model
     public $scheduledSystemEventSet;
 
     /**
-     * @var string
+     * @var status
      */
-    public $instanceId;
+    public $status;
 
     /**
      * @var healthStatus
      */
     public $healthStatus;
     protected $_name = [
-        'status'                  => 'Status',
-        'scheduledSystemEventSet' => 'ScheduledSystemEventSet',
         'instanceId'              => 'InstanceId',
+        'scheduledSystemEventSet' => 'ScheduledSystemEventSet',
+        'status'                  => 'Status',
         'healthStatus'            => 'HealthStatus',
     ];
 
@@ -44,14 +44,14 @@ class instanceFullStatusType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->scheduledSystemEventSet) {
             $res['ScheduledSystemEventSet'] = null !== $this->scheduledSystemEventSet ? $this->scheduledSystemEventSet->toMap() : null;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->status) {
+            $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
         }
         if (null !== $this->healthStatus) {
             $res['HealthStatus'] = null !== $this->healthStatus ? $this->healthStatus->toMap() : null;
@@ -68,14 +68,14 @@ class instanceFullStatusType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = status::fromMap($map['Status']);
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ScheduledSystemEventSet'])) {
             $model->scheduledSystemEventSet = scheduledSystemEventSet::fromMap($map['ScheduledSystemEventSet']);
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Status'])) {
+            $model->status = status::fromMap($map['Status']);
         }
         if (isset($map['HealthStatus'])) {
             $model->healthStatus = healthStatus::fromMap($map['HealthStatus']);

@@ -11,15 +11,15 @@ class CreateCapacityReservationResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $privatePoolOptionsId;
 
     /**
      * @var string
      */
-    public $privatePoolOptionsId;
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'privatePoolOptionsId' => 'PrivatePoolOptionsId',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateCapacityReservationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->privatePoolOptionsId) {
             $res['PrivatePoolOptionsId'] = $this->privatePoolOptionsId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateCapacityReservationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PrivatePoolOptionsId'])) {
             $model->privatePoolOptionsId = $map['PrivatePoolOptionsId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

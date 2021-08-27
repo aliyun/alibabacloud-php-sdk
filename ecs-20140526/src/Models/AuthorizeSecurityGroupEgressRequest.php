@@ -76,6 +76,11 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     /**
      * @var string
      */
+    public $destPrefixListId;
+
+    /**
+     * @var string
+     */
     public $sourceCidrIp;
 
     /**
@@ -126,6 +131,7 @@ class AuthorizeSecurityGroupEgressRequest extends Model
         'destGroupOwnerAccount' => 'DestGroupOwnerAccount',
         'destCidrIp'            => 'DestCidrIp',
         'ipv6DestCidrIp'        => 'Ipv6DestCidrIp',
+        'destPrefixListId'      => 'DestPrefixListId',
         'sourceCidrIp'          => 'SourceCidrIp',
         'ipv6SourceCidrIp'      => 'Ipv6SourceCidrIp',
         'sourcePortRange'       => 'SourcePortRange',
@@ -181,6 +187,9 @@ class AuthorizeSecurityGroupEgressRequest extends Model
         }
         if (null !== $this->ipv6DestCidrIp) {
             $res['Ipv6DestCidrIp'] = $this->ipv6DestCidrIp;
+        }
+        if (null !== $this->destPrefixListId) {
+            $res['DestPrefixListId'] = $this->destPrefixListId;
         }
         if (null !== $this->sourceCidrIp) {
             $res['SourceCidrIp'] = $this->sourceCidrIp;
@@ -256,6 +265,9 @@ class AuthorizeSecurityGroupEgressRequest extends Model
         }
         if (isset($map['Ipv6DestCidrIp'])) {
             $model->ipv6DestCidrIp = $map['Ipv6DestCidrIp'];
+        }
+        if (isset($map['DestPrefixListId'])) {
+            $model->destPrefixListId = $map['DestPrefixListId'];
         }
         if (isset($map['SourceCidrIp'])) {
             $model->sourceCidrIp = $map['SourceCidrIp'];

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRamRoleResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class DescribeInstanceRamRoleResponseBody extends Model
      */
     public $instanceRamRoleSets;
     protected $_name = [
-        'totalCount'          => 'TotalCount',
         'requestId'           => 'RequestId',
+        'totalCount'          => 'TotalCount',
         'regionId'            => 'RegionId',
         'instanceRamRoleSets' => 'InstanceRamRoleSets',
     ];
@@ -42,11 +42,11 @@ class DescribeInstanceRamRoleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -66,11 +66,11 @@ class DescribeInstanceRamRoleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

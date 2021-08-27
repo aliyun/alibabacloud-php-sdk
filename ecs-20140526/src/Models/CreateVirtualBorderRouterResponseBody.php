@@ -11,15 +11,15 @@ class CreateVirtualBorderRouterResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $vbrId;
 
     /**
      * @var string
      */
-    public $vbrId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'vbrId'     => 'VbrId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateVirtualBorderRouterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->vbrId) {
             $res['VbrId'] = $this->vbrId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateVirtualBorderRouterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['VbrId'])) {
             $model->vbrId = $map['VbrId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

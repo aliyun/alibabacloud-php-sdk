@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLaunchTemplatesRequest extends Model
 {
     /**
+     * @var templateTag[]
+     */
+    public $templateTag;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -35,9 +40,14 @@ class DescribeLaunchTemplatesRequest extends Model
     public $regionId;
 
     /**
-     * @var templateTag[]
+     * @var string[]
      */
-    public $templateTag;
+    public $launchTemplateId;
+
+    /**
+     * @var string[]
+     */
+    public $launchTemplateName;
 
     /**
      * @var int
@@ -53,28 +63,18 @@ class DescribeLaunchTemplatesRequest extends Model
      * @var string
      */
     public $templateResourceGroupId;
-
-    /**
-     * @var string[]
-     */
-    public $launchTemplateId;
-
-    /**
-     * @var string[]
-     */
-    public $launchTemplateName;
     protected $_name = [
+        'templateTag'             => 'TemplateTag',
         'ownerId'                 => 'OwnerId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
         'resourceOwnerId'         => 'ResourceOwnerId',
         'ownerAccount'            => 'OwnerAccount',
         'regionId'                => 'RegionId',
-        'templateTag'             => 'TemplateTag',
+        'launchTemplateId'        => 'LaunchTemplateId',
+        'launchTemplateName'      => 'LaunchTemplateName',
         'pageNumber'              => 'PageNumber',
         'pageSize'                => 'PageSize',
         'templateResourceGroupId' => 'TemplateResourceGroupId',
-        'launchTemplateId'        => 'LaunchTemplateId',
-        'launchTemplateName'      => 'LaunchTemplateName',
     ];
 
     public function validate()
@@ -84,6 +84,15 @@ class DescribeLaunchTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->templateTag) {
+            $res['TemplateTag'] = [];
+            if (null !== $this->templateTag && \is_array($this->templateTag)) {
+                $n = 0;
+                foreach ($this->templateTag as $item) {
+                    $res['TemplateTag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -99,14 +108,11 @@ class DescribeLaunchTemplatesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->templateTag) {
-            $res['TemplateTag'] = [];
-            if (null !== $this->templateTag && \is_array($this->templateTag)) {
-                $n = 0;
-                foreach ($this->templateTag as $item) {
-                    $res['TemplateTag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->launchTemplateId) {
+            $res['LaunchTemplateId'] = $this->launchTemplateId;
+        }
+        if (null !== $this->launchTemplateName) {
+            $res['LaunchTemplateName'] = $this->launchTemplateName;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -116,12 +122,6 @@ class DescribeLaunchTemplatesRequest extends Model
         }
         if (null !== $this->templateResourceGroupId) {
             $res['TemplateResourceGroupId'] = $this->templateResourceGroupId;
-        }
-        if (null !== $this->launchTemplateId) {
-            $res['LaunchTemplateId'] = $this->launchTemplateId;
-        }
-        if (null !== $this->launchTemplateName) {
-            $res['LaunchTemplateName'] = $this->launchTemplateName;
         }
 
         return $res;
@@ -135,6 +135,15 @@ class DescribeLaunchTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TemplateTag'])) {
+            if (!empty($map['TemplateTag'])) {
+                $model->templateTag = [];
+                $n                  = 0;
+                foreach ($map['TemplateTag'] as $item) {
+                    $model->templateTag[$n++] = null !== $item ? templateTag::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -150,13 +159,14 @@ class DescribeLaunchTemplatesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['TemplateTag'])) {
-            if (!empty($map['TemplateTag'])) {
-                $model->templateTag = [];
-                $n                  = 0;
-                foreach ($map['TemplateTag'] as $item) {
-                    $model->templateTag[$n++] = null !== $item ? templateTag::fromMap($item) : $item;
-                }
+        if (isset($map['LaunchTemplateId'])) {
+            if (!empty($map['LaunchTemplateId'])) {
+                $model->launchTemplateId = $map['LaunchTemplateId'];
+            }
+        }
+        if (isset($map['LaunchTemplateName'])) {
+            if (!empty($map['LaunchTemplateName'])) {
+                $model->launchTemplateName = $map['LaunchTemplateName'];
             }
         }
         if (isset($map['PageNumber'])) {
@@ -167,16 +177,6 @@ class DescribeLaunchTemplatesRequest extends Model
         }
         if (isset($map['TemplateResourceGroupId'])) {
             $model->templateResourceGroupId = $map['TemplateResourceGroupId'];
-        }
-        if (isset($map['LaunchTemplateId'])) {
-            if (!empty($map['LaunchTemplateId'])) {
-                $model->launchTemplateId = $map['LaunchTemplateId'];
-            }
-        }
-        if (isset($map['LaunchTemplateName'])) {
-            if (!empty($map['LaunchTemplateName'])) {
-                $model->launchTemplateName = $map['LaunchTemplateName'];
-            }
         }
 
         return $model;

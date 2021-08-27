@@ -15,11 +15,6 @@ class eipAddress extends Model
     public $status;
 
     /**
-     * @var operationLocks
-     */
-    public $operationLocks;
-
-    /**
      * @var string
      */
     public $allocationTime;
@@ -73,9 +68,13 @@ class eipAddress extends Model
      * @var string
      */
     public $eipBandwidth;
+
+    /**
+     * @var operationLocks
+     */
+    public $operationLocks;
     protected $_name = [
         'status'             => 'Status',
-        'operationLocks'     => 'OperationLocks',
         'allocationTime'     => 'AllocationTime',
         'chargeType'         => 'ChargeType',
         'instanceId'         => 'InstanceId',
@@ -87,6 +86,7 @@ class eipAddress extends Model
         'allocationId'       => 'AllocationId',
         'internetChargeType' => 'InternetChargeType',
         'eipBandwidth'       => 'EipBandwidth',
+        'operationLocks'     => 'OperationLocks',
     ];
 
     public function validate()
@@ -98,9 +98,6 @@ class eipAddress extends Model
         $res = [];
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->operationLocks) {
-            $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toMap() : null;
         }
         if (null !== $this->allocationTime) {
             $res['AllocationTime'] = $this->allocationTime;
@@ -135,6 +132,9 @@ class eipAddress extends Model
         if (null !== $this->eipBandwidth) {
             $res['EipBandwidth'] = $this->eipBandwidth;
         }
+        if (null !== $this->operationLocks) {
+            $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toMap() : null;
+        }
 
         return $res;
     }
@@ -149,9 +149,6 @@ class eipAddress extends Model
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['OperationLocks'])) {
-            $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
         }
         if (isset($map['AllocationTime'])) {
             $model->allocationTime = $map['AllocationTime'];
@@ -185,6 +182,9 @@ class eipAddress extends Model
         }
         if (isset($map['EipBandwidth'])) {
             $model->eipBandwidth = $map['EipBandwidth'];
+        }
+        if (isset($map['OperationLocks'])) {
+            $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
         }
 
         return $model;

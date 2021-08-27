@@ -11,15 +11,15 @@ class CreateDedicatedHostClusterResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $dedicatedHostClusterId;
 
     /**
      * @var string
      */
-    public $dedicatedHostClusterId;
+    public $requestId;
     protected $_name = [
-        'requestId'              => 'RequestId',
         'dedicatedHostClusterId' => 'DedicatedHostClusterId',
+        'requestId'              => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateDedicatedHostClusterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dedicatedHostClusterId) {
             $res['DedicatedHostClusterId'] = $this->dedicatedHostClusterId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateDedicatedHostClusterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DedicatedHostClusterId'])) {
             $model->dedicatedHostClusterId = $map['DedicatedHostClusterId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

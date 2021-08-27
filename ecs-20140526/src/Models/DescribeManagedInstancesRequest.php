@@ -34,6 +34,11 @@ class DescribeManagedInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
      * @var string
      */
     public $osType;
@@ -62,24 +67,19 @@ class DescribeManagedInstancesRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'instanceId'           => 'InstanceId',
         'osType'               => 'OsType',
         'instanceIp'           => 'InstanceIp',
         'activationId'         => 'ActivationId',
         'instanceName'         => 'InstanceName',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
@@ -104,6 +104,9 @@ class DescribeManagedInstancesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
@@ -121,9 +124,6 @@ class DescribeManagedInstancesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -152,6 +152,11 @@ class DescribeManagedInstancesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
+        }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
@@ -169,11 +174,6 @@ class DescribeManagedInstancesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
         }
 
         return $model;

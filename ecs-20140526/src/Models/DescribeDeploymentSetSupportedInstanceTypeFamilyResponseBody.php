@@ -11,15 +11,15 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $instanceTypeFamilies;
 
     /**
      * @var string
      */
-    public $instanceTypeFamilies;
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'instanceTypeFamilies' => 'InstanceTypeFamilies',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instanceTypeFamilies) {
             $res['InstanceTypeFamilies'] = $this->instanceTypeFamilies;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InstanceTypeFamilies'])) {
             $model->instanceTypeFamilies = $map['InstanceTypeFamilies'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
