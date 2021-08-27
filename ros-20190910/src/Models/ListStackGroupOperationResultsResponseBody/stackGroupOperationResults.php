@@ -16,12 +16,12 @@ class stackGroupOperationResults extends Model
     /**
      * @var string
      */
-    public $statusReason;
+    public $accountId;
 
     /**
      * @var string
      */
-    public $accountId;
+    public $statusReason;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class stackGroupOperationResults extends Model
     public $regionId;
     protected $_name = [
         'status'       => 'Status',
-        'statusReason' => 'StatusReason',
         'accountId'    => 'AccountId',
+        'statusReason' => 'StatusReason',
         'regionId'     => 'RegionId',
     ];
 
@@ -44,11 +44,11 @@ class stackGroupOperationResults extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->statusReason) {
-            $res['StatusReason'] = $this->statusReason;
-        }
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->statusReason) {
+            $res['StatusReason'] = $this->statusReason;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -68,11 +68,11 @@ class stackGroupOperationResults extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['StatusReason'])) {
-            $model->statusReason = $map['StatusReason'];
-        }
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['StatusReason'])) {
+            $model->statusReason = $map['StatusReason'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

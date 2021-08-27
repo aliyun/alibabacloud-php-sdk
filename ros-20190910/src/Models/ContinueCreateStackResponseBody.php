@@ -11,15 +11,15 @@ class ContinueCreateStackResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $stackId;
 
     /**
      * @var string
      */
-    public $stackId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'stackId'   => 'StackId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ContinueCreateStackResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ContinueCreateStackResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

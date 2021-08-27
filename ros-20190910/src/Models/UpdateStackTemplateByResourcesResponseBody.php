@@ -11,20 +11,20 @@ class UpdateStackTemplateByResourcesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $newTemplateBody;
 
     /**
      * @var string
      */
-    public $newTemplateBody;
+    public $requestId;
 
     /**
      * @var string
      */
     public $oldTemplateBody;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'newTemplateBody' => 'NewTemplateBody',
+        'requestId'       => 'RequestId',
         'oldTemplateBody' => 'OldTemplateBody',
     ];
 
@@ -35,11 +35,11 @@ class UpdateStackTemplateByResourcesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->newTemplateBody) {
             $res['NewTemplateBody'] = $this->newTemplateBody;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->oldTemplateBody) {
             $res['OldTemplateBody'] = $this->oldTemplateBody;
@@ -56,11 +56,11 @@ class UpdateStackTemplateByResourcesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NewTemplateBody'])) {
             $model->newTemplateBody = $map['NewTemplateBody'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['OldTemplateBody'])) {
             $model->oldTemplateBody = $map['OldTemplateBody'];

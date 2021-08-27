@@ -11,15 +11,15 @@ class DetectStackDriftResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $driftDetectionId;
 
     /**
      * @var string
      */
-    public $driftDetectionId;
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'driftDetectionId' => 'DriftDetectionId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DetectStackDriftResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->driftDetectionId) {
             $res['DriftDetectionId'] = $this->driftDetectionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DetectStackDriftResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DriftDetectionId'])) {
             $model->driftDetectionId = $map['DriftDetectionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

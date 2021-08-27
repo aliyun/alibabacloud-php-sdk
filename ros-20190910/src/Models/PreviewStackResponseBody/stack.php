@@ -16,11 +16,6 @@ class stack extends Model
     public $templateDescription;
 
     /**
-     * @var parameters[]
-     */
-    public $parameters;
-
-    /**
      * @var string
      */
     public $description;
@@ -46,24 +41,29 @@ class stack extends Model
     public $stackPolicyBody;
 
     /**
-     * @var resources[]
-     */
-    public $resources;
-
-    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var parameters[]
+     */
+    public $parameters;
+
+    /**
+     * @var resources[]
+     */
+    public $resources;
     protected $_name = [
         'templateDescription' => 'TemplateDescription',
-        'parameters'          => 'Parameters',
         'description'         => 'Description',
         'disableRollback'     => 'DisableRollback',
         'stackName'           => 'StackName',
         'timeoutInMinutes'    => 'TimeoutInMinutes',
         'stackPolicyBody'     => 'StackPolicyBody',
-        'resources'           => 'Resources',
         'regionId'            => 'RegionId',
+        'parameters'          => 'Parameters',
+        'resources'           => 'Resources',
     ];
 
     public function validate()
@@ -75,15 +75,6 @@ class stack extends Model
         $res = [];
         if (null !== $this->templateDescription) {
             $res['TemplateDescription'] = $this->templateDescription;
-        }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -100,6 +91,18 @@ class stack extends Model
         if (null !== $this->stackPolicyBody) {
             $res['StackPolicyBody'] = $this->stackPolicyBody;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = [];
+            if (null !== $this->parameters && \is_array($this->parameters)) {
+                $n = 0;
+                foreach ($this->parameters as $item) {
+                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->resources) {
             $res['Resources'] = [];
             if (null !== $this->resources && \is_array($this->resources)) {
@@ -108,9 +111,6 @@ class stack extends Model
                     $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -127,15 +127,6 @@ class stack extends Model
         if (isset($map['TemplateDescription'])) {
             $model->templateDescription = $map['TemplateDescription'];
         }
-        if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = [];
-                $n                 = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -151,6 +142,18 @@ class stack extends Model
         if (isset($map['StackPolicyBody'])) {
             $model->stackPolicyBody = $map['StackPolicyBody'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                $n                 = 0;
+                foreach ($map['Parameters'] as $item) {
+                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
@@ -159,9 +162,6 @@ class stack extends Model
                     $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

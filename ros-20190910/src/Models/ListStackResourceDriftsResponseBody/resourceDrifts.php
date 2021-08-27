@@ -45,14 +45,14 @@ class resourceDrifts extends Model
     public $resourceDriftStatus;
 
     /**
-     * @var propertyDifferences[]
-     */
-    public $propertyDifferences;
-
-    /**
      * @var string
      */
     public $actualProperties;
+
+    /**
+     * @var propertyDifferences[]
+     */
+    public $propertyDifferences;
     protected $_name = [
         'logicalResourceId'   => 'LogicalResourceId',
         'stackId'             => 'StackId',
@@ -61,8 +61,8 @@ class resourceDrifts extends Model
         'resourceType'        => 'ResourceType',
         'expectedProperties'  => 'ExpectedProperties',
         'resourceDriftStatus' => 'ResourceDriftStatus',
-        'propertyDifferences' => 'PropertyDifferences',
         'actualProperties'    => 'ActualProperties',
+        'propertyDifferences' => 'PropertyDifferences',
     ];
 
     public function validate()
@@ -93,6 +93,9 @@ class resourceDrifts extends Model
         if (null !== $this->resourceDriftStatus) {
             $res['ResourceDriftStatus'] = $this->resourceDriftStatus;
         }
+        if (null !== $this->actualProperties) {
+            $res['ActualProperties'] = $this->actualProperties;
+        }
         if (null !== $this->propertyDifferences) {
             $res['PropertyDifferences'] = [];
             if (null !== $this->propertyDifferences && \is_array($this->propertyDifferences)) {
@@ -101,9 +104,6 @@ class resourceDrifts extends Model
                     $res['PropertyDifferences'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->actualProperties) {
-            $res['ActualProperties'] = $this->actualProperties;
         }
 
         return $res;
@@ -138,6 +138,9 @@ class resourceDrifts extends Model
         if (isset($map['ResourceDriftStatus'])) {
             $model->resourceDriftStatus = $map['ResourceDriftStatus'];
         }
+        if (isset($map['ActualProperties'])) {
+            $model->actualProperties = $map['ActualProperties'];
+        }
         if (isset($map['PropertyDifferences'])) {
             if (!empty($map['PropertyDifferences'])) {
                 $model->propertyDifferences = [];
@@ -146,9 +149,6 @@ class resourceDrifts extends Model
                     $model->propertyDifferences[$n++] = null !== $item ? propertyDifferences::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ActualProperties'])) {
-            $model->actualProperties = $map['ActualProperties'];
         }
 
         return $model;

@@ -40,11 +40,6 @@ class stackInstance extends Model
     public $statusReason;
 
     /**
-     * @var parameterOverrides[]
-     */
-    public $parameterOverrides;
-
-    /**
      * @var string
      */
     public $stackGroupName;
@@ -58,6 +53,11 @@ class stackInstance extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var parameterOverrides[]
+     */
+    public $parameterOverrides;
     protected $_name = [
         'status'             => 'Status',
         'stackGroupId'       => 'StackGroupId',
@@ -65,10 +65,10 @@ class stackInstance extends Model
         'driftDetectionTime' => 'DriftDetectionTime',
         'stackDriftStatus'   => 'StackDriftStatus',
         'statusReason'       => 'StatusReason',
-        'parameterOverrides' => 'ParameterOverrides',
         'stackGroupName'     => 'StackGroupName',
         'accountId'          => 'AccountId',
         'regionId'           => 'RegionId',
+        'parameterOverrides' => 'ParameterOverrides',
     ];
 
     public function validate()
@@ -96,15 +96,6 @@ class stackInstance extends Model
         if (null !== $this->statusReason) {
             $res['StatusReason'] = $this->statusReason;
         }
-        if (null !== $this->parameterOverrides) {
-            $res['ParameterOverrides'] = [];
-            if (null !== $this->parameterOverrides && \is_array($this->parameterOverrides)) {
-                $n = 0;
-                foreach ($this->parameterOverrides as $item) {
-                    $res['ParameterOverrides'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
         }
@@ -113,6 +104,15 @@ class stackInstance extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->parameterOverrides) {
+            $res['ParameterOverrides'] = [];
+            if (null !== $this->parameterOverrides && \is_array($this->parameterOverrides)) {
+                $n = 0;
+                foreach ($this->parameterOverrides as $item) {
+                    $res['ParameterOverrides'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -144,15 +144,6 @@ class stackInstance extends Model
         if (isset($map['StatusReason'])) {
             $model->statusReason = $map['StatusReason'];
         }
-        if (isset($map['ParameterOverrides'])) {
-            if (!empty($map['ParameterOverrides'])) {
-                $model->parameterOverrides = [];
-                $n                         = 0;
-                foreach ($map['ParameterOverrides'] as $item) {
-                    $model->parameterOverrides[$n++] = null !== $item ? parameterOverrides::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
         }
@@ -161,6 +152,15 @@ class stackInstance extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ParameterOverrides'])) {
+            if (!empty($map['ParameterOverrides'])) {
+                $model->parameterOverrides = [];
+                $n                         = 0;
+                foreach ($map['ParameterOverrides'] as $item) {
+                    $model->parameterOverrides[$n++] = null !== $item ? parameterOverrides::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

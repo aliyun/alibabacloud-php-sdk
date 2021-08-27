@@ -11,12 +11,12 @@ class operationPreferences extends Model
     /**
      * @var int
      */
-    public $maxConcurrentCount;
+    public $failureToleranceCount;
 
     /**
      * @var int
      */
-    public $failureToleranceCount;
+    public $maxConcurrentCount;
 
     /**
      * @var int
@@ -24,20 +24,20 @@ class operationPreferences extends Model
     public $maxConcurrentPercentage;
 
     /**
-     * @var string[]
-     */
-    public $regionIdsOrder;
-
-    /**
      * @var int
      */
     public $failureTolerancePercentage;
+
+    /**
+     * @var string[]
+     */
+    public $regionIdsOrder;
     protected $_name = [
-        'maxConcurrentCount'         => 'MaxConcurrentCount',
         'failureToleranceCount'      => 'FailureToleranceCount',
+        'maxConcurrentCount'         => 'MaxConcurrentCount',
         'maxConcurrentPercentage'    => 'MaxConcurrentPercentage',
-        'regionIdsOrder'             => 'RegionIdsOrder',
         'failureTolerancePercentage' => 'FailureTolerancePercentage',
+        'regionIdsOrder'             => 'RegionIdsOrder',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class operationPreferences extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxConcurrentCount) {
-            $res['MaxConcurrentCount'] = $this->maxConcurrentCount;
-        }
         if (null !== $this->failureToleranceCount) {
             $res['FailureToleranceCount'] = $this->failureToleranceCount;
+        }
+        if (null !== $this->maxConcurrentCount) {
+            $res['MaxConcurrentCount'] = $this->maxConcurrentCount;
         }
         if (null !== $this->maxConcurrentPercentage) {
             $res['MaxConcurrentPercentage'] = $this->maxConcurrentPercentage;
         }
-        if (null !== $this->regionIdsOrder) {
-            $res['RegionIdsOrder'] = $this->regionIdsOrder;
-        }
         if (null !== $this->failureTolerancePercentage) {
             $res['FailureTolerancePercentage'] = $this->failureTolerancePercentage;
+        }
+        if (null !== $this->regionIdsOrder) {
+            $res['RegionIdsOrder'] = $this->regionIdsOrder;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class operationPreferences extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxConcurrentCount'])) {
-            $model->maxConcurrentCount = $map['MaxConcurrentCount'];
-        }
         if (isset($map['FailureToleranceCount'])) {
             $model->failureToleranceCount = $map['FailureToleranceCount'];
         }
+        if (isset($map['MaxConcurrentCount'])) {
+            $model->maxConcurrentCount = $map['MaxConcurrentCount'];
+        }
         if (isset($map['MaxConcurrentPercentage'])) {
             $model->maxConcurrentPercentage = $map['MaxConcurrentPercentage'];
+        }
+        if (isset($map['FailureTolerancePercentage'])) {
+            $model->failureTolerancePercentage = $map['FailureTolerancePercentage'];
         }
         if (isset($map['RegionIdsOrder'])) {
             if (!empty($map['RegionIdsOrder'])) {
                 $model->regionIdsOrder = $map['RegionIdsOrder'];
             }
-        }
-        if (isset($map['FailureTolerancePercentage'])) {
-            $model->failureTolerancePercentage = $map['FailureTolerancePercentage'];
         }
 
         return $model;

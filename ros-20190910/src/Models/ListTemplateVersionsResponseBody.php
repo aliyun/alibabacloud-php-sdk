@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsResponseBody extends Model
 {
     /**
-     * @var versions[]
-     */
-    public $versions;
-
-    /**
      * @var string
      */
     public $nextToken;
@@ -23,10 +18,15 @@ class ListTemplateVersionsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var versions[]
+     */
+    public $versions;
     protected $_name = [
-        'versions'  => 'Versions',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
+        'versions'  => 'Versions',
     ];
 
     public function validate()
@@ -36,6 +36,12 @@ class ListTemplateVersionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->versions) {
             $res['Versions'] = [];
             if (null !== $this->versions && \is_array($this->versions)) {
@@ -44,12 +50,6 @@ class ListTemplateVersionsResponseBody extends Model
                     $res['Versions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,6 +63,12 @@ class ListTemplateVersionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Versions'])) {
             if (!empty($map['Versions'])) {
                 $model->versions = [];
@@ -71,12 +77,6 @@ class ListTemplateVersionsResponseBody extends Model
                     $model->versions[$n++] = null !== $item ? versions::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

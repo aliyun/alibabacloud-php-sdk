@@ -16,16 +16,16 @@ class resourceIdentifierSummaries extends Model
     /**
      * @var string[]
      */
-    public $logicalResourceIds;
+    public $resourceIdentifiers;
 
     /**
      * @var string[]
      */
-    public $resourceIdentifiers;
+    public $logicalResourceIds;
     protected $_name = [
         'resourceType'        => 'ResourceType',
-        'logicalResourceIds'  => 'LogicalResourceIds',
         'resourceIdentifiers' => 'ResourceIdentifiers',
+        'logicalResourceIds'  => 'LogicalResourceIds',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class resourceIdentifierSummaries extends Model
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->logicalResourceIds) {
-            $res['LogicalResourceIds'] = $this->logicalResourceIds;
-        }
         if (null !== $this->resourceIdentifiers) {
             $res['ResourceIdentifiers'] = $this->resourceIdentifiers;
+        }
+        if (null !== $this->logicalResourceIds) {
+            $res['LogicalResourceIds'] = $this->logicalResourceIds;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class resourceIdentifierSummaries extends Model
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['LogicalResourceIds'])) {
-            if (!empty($map['LogicalResourceIds'])) {
-                $model->logicalResourceIds = $map['LogicalResourceIds'];
-            }
-        }
         if (isset($map['ResourceIdentifiers'])) {
             if (!empty($map['ResourceIdentifiers'])) {
                 $model->resourceIdentifiers = $map['ResourceIdentifiers'];
+            }
+        }
+        if (isset($map['LogicalResourceIds'])) {
+            if (!empty($map['LogicalResourceIds'])) {
+                $model->logicalResourceIds = $map['LogicalResourceIds'];
             }
         }
 

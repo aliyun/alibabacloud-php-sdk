@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GenerateTemplatePolicyResponseBody extends Model
 {
     /**
-     * @var policy
-     */
-    public $policy;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var policy
+     */
+    public $policy;
     protected $_name = [
-        'policy'    => 'Policy',
         'requestId' => 'RequestId',
+        'policy'    => 'Policy',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GenerateTemplatePolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policy) {
-            $res['Policy'] = null !== $this->policy ? $this->policy->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->policy) {
+            $res['Policy'] = null !== $this->policy ? $this->policy->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GenerateTemplatePolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Policy'])) {
-            $model->policy = policy::fromMap($map['Policy']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Policy'])) {
+            $model->policy = policy::fromMap($map['Policy']);
         }
 
         return $model;

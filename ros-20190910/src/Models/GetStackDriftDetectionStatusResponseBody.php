@@ -11,6 +11,11 @@ class GetStackDriftDetectionStatusResponseBody extends Model
     /**
      * @var string
      */
+    public $stackId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -21,7 +26,17 @@ class GetStackDriftDetectionStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $driftDetectionStatusReason;
+    public $stackDriftStatus;
+
+    /**
+     * @var string
+     */
+    public $driftDetectionId;
+
+    /**
+     * @var string
+     */
+    public $driftDetectionStatus;
 
     /**
      * @var int
@@ -31,31 +46,16 @@ class GetStackDriftDetectionStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $stackDriftStatus;
-
-    /**
-     * @var string
-     */
-    public $driftDetectionStatus;
-
-    /**
-     * @var string
-     */
-    public $stackId;
-
-    /**
-     * @var string
-     */
-    public $driftDetectionId;
+    public $driftDetectionStatusReason;
     protected $_name = [
+        'stackId'                    => 'StackId',
         'requestId'                  => 'RequestId',
         'driftDetectionTime'         => 'DriftDetectionTime',
-        'driftDetectionStatusReason' => 'DriftDetectionStatusReason',
-        'driftedStackResourceCount'  => 'DriftedStackResourceCount',
         'stackDriftStatus'           => 'StackDriftStatus',
-        'driftDetectionStatus'       => 'DriftDetectionStatus',
-        'stackId'                    => 'StackId',
         'driftDetectionId'           => 'DriftDetectionId',
+        'driftDetectionStatus'       => 'DriftDetectionStatus',
+        'driftedStackResourceCount'  => 'DriftedStackResourceCount',
+        'driftDetectionStatusReason' => 'DriftDetectionStatusReason',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class GetStackDriftDetectionStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->driftDetectionTime) {
             $res['DriftDetectionTime'] = $this->driftDetectionTime;
         }
-        if (null !== $this->driftDetectionStatusReason) {
-            $res['DriftDetectionStatusReason'] = $this->driftDetectionStatusReason;
-        }
-        if (null !== $this->driftedStackResourceCount) {
-            $res['DriftedStackResourceCount'] = $this->driftedStackResourceCount;
-        }
         if (null !== $this->stackDriftStatus) {
             $res['StackDriftStatus'] = $this->stackDriftStatus;
+        }
+        if (null !== $this->driftDetectionId) {
+            $res['DriftDetectionId'] = $this->driftDetectionId;
         }
         if (null !== $this->driftDetectionStatus) {
             $res['DriftDetectionStatus'] = $this->driftDetectionStatus;
         }
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
+        if (null !== $this->driftedStackResourceCount) {
+            $res['DriftedStackResourceCount'] = $this->driftedStackResourceCount;
         }
-        if (null !== $this->driftDetectionId) {
-            $res['DriftDetectionId'] = $this->driftDetectionId;
+        if (null !== $this->driftDetectionStatusReason) {
+            $res['DriftDetectionStatusReason'] = $this->driftDetectionStatusReason;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class GetStackDriftDetectionStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DriftDetectionTime'])) {
             $model->driftDetectionTime = $map['DriftDetectionTime'];
         }
-        if (isset($map['DriftDetectionStatusReason'])) {
-            $model->driftDetectionStatusReason = $map['DriftDetectionStatusReason'];
-        }
-        if (isset($map['DriftedStackResourceCount'])) {
-            $model->driftedStackResourceCount = $map['DriftedStackResourceCount'];
-        }
         if (isset($map['StackDriftStatus'])) {
             $model->stackDriftStatus = $map['StackDriftStatus'];
+        }
+        if (isset($map['DriftDetectionId'])) {
+            $model->driftDetectionId = $map['DriftDetectionId'];
         }
         if (isset($map['DriftDetectionStatus'])) {
             $model->driftDetectionStatus = $map['DriftDetectionStatus'];
         }
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
+        if (isset($map['DriftedStackResourceCount'])) {
+            $model->driftedStackResourceCount = $map['DriftedStackResourceCount'];
         }
-        if (isset($map['DriftDetectionId'])) {
-            $model->driftDetectionId = $map['DriftDetectionId'];
+        if (isset($map['DriftDetectionStatusReason'])) {
+            $model->driftDetectionStatusReason = $map['DriftDetectionStatusReason'];
         }
 
         return $model;

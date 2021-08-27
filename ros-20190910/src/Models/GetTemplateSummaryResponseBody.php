@@ -10,24 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateSummaryResponseBody extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $resourceTypes;
+    public $requestId;
 
     /**
      * @var string
      */
     public $description;
-
-    /**
-     * @var mixed[][]
-     */
-    public $parameters;
-
-    /**
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @var string
@@ -40,16 +30,26 @@ class GetTemplateSummaryResponseBody extends Model
     public $metadata;
 
     /**
+     * @var string[]
+     */
+    public $resourceTypes;
+
+    /**
+     * @var mixed[][]
+     */
+    public $parameters;
+
+    /**
      * @var resourceIdentifierSummaries[]
      */
     public $resourceIdentifierSummaries;
     protected $_name = [
-        'resourceTypes'               => 'ResourceTypes',
-        'description'                 => 'Description',
-        'parameters'                  => 'Parameters',
         'requestId'                   => 'RequestId',
+        'description'                 => 'Description',
         'version'                     => 'Version',
         'metadata'                    => 'Metadata',
+        'resourceTypes'               => 'ResourceTypes',
+        'parameters'                  => 'Parameters',
         'resourceIdentifierSummaries' => 'ResourceIdentifierSummaries',
     ];
 
@@ -60,23 +60,23 @@ class GetTemplateSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceTypes) {
-            $res['ResourceTypes'] = $this->resourceTypes;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
+        }
+        if (null !== $this->resourceTypes) {
+            $res['ResourceTypes'] = $this->resourceTypes;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
         }
         if (null !== $this->resourceIdentifierSummaries) {
             $res['ResourceIdentifierSummaries'] = [];
@@ -99,27 +99,27 @@ class GetTemplateSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceTypes'])) {
-            if (!empty($map['ResourceTypes'])) {
-                $model->resourceTypes = $map['ResourceTypes'];
-            }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = $map['Parameters'];
-            }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
+        }
+        if (isset($map['ResourceTypes'])) {
+            if (!empty($map['ResourceTypes'])) {
+                $model->resourceTypes = $map['ResourceTypes'];
+            }
+        }
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = $map['Parameters'];
+            }
         }
         if (isset($map['ResourceIdentifierSummaries'])) {
             if (!empty($map['ResourceIdentifierSummaries'])) {

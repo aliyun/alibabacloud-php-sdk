@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListStackResourceDriftsResponseBody extends Model
 {
     /**
-     * @var resourceDrifts[]
-     */
-    public $resourceDrifts;
-
-    /**
      * @var string
      */
     public $nextToken;
@@ -23,10 +18,15 @@ class ListStackResourceDriftsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var resourceDrifts[]
+     */
+    public $resourceDrifts;
     protected $_name = [
-        'resourceDrifts' => 'ResourceDrifts',
         'nextToken'      => 'NextToken',
         'requestId'      => 'RequestId',
+        'resourceDrifts' => 'ResourceDrifts',
     ];
 
     public function validate()
@@ -36,6 +36,12 @@ class ListStackResourceDriftsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->resourceDrifts) {
             $res['ResourceDrifts'] = [];
             if (null !== $this->resourceDrifts && \is_array($this->resourceDrifts)) {
@@ -44,12 +50,6 @@ class ListStackResourceDriftsResponseBody extends Model
                     $res['ResourceDrifts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,6 +63,12 @@ class ListStackResourceDriftsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['ResourceDrifts'])) {
             if (!empty($map['ResourceDrifts'])) {
                 $model->resourceDrifts = [];
@@ -71,12 +77,6 @@ class ListStackResourceDriftsResponseBody extends Model
                     $model->resourceDrifts[$n++] = null !== $item ? resourceDrifts::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

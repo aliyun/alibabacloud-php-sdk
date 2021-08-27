@@ -22,10 +22,16 @@ class ValidateTemplateRequest extends Model
      * @var string
      */
     public $templateBody;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
     protected $_name = [
         'templateURL'  => 'TemplateURL',
         'regionId'     => 'RegionId',
         'templateBody' => 'TemplateBody',
+        'clientToken'  => 'ClientToken',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ValidateTemplateRequest extends Model
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ValidateTemplateRequest extends Model
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;
