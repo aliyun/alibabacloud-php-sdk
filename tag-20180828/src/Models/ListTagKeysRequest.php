@@ -51,7 +51,7 @@ class ListTagKeysRequest extends Model
     /**
      * @var string
      */
-    public $tagProduct;
+    public $queryType;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -61,7 +61,7 @@ class ListTagKeysRequest extends Model
         'pageSize'             => 'PageSize',
         'category'             => 'Category',
         'resourceType'         => 'ResourceType',
-        'tagProduct'           => 'TagProduct',
+        'queryType'            => 'QueryType',
     ];
 
     public function validate()
@@ -95,8 +95,8 @@ class ListTagKeysRequest extends Model
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->tagProduct) {
-            $res['TagProduct'] = $this->tagProduct;
+        if (null !== $this->queryType) {
+            $res['QueryType'] = $this->queryType;
         }
 
         return $res;
@@ -134,8 +134,8 @@ class ListTagKeysRequest extends Model
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['TagProduct'])) {
-            $model->tagProduct = $map['TagProduct'];
+        if (isset($map['QueryType'])) {
+            $model->queryType = $map['QueryType'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListTagValuesRequest extends Model
+class DeleteTagRequest extends Model
 {
     /**
      * @var int
@@ -36,32 +36,14 @@ class ListTagValuesRequest extends Model
     /**
      * @var string
      */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $queryType;
+    public $value;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
         'key'                  => 'Key',
-        'nextToken'            => 'NextToken',
-        'pageSize'             => 'PageSize',
-        'resourceType'         => 'ResourceType',
-        'queryType'            => 'QueryType',
+        'value'                => 'Value',
     ];
 
     public function validate()
@@ -86,17 +68,8 @@ class ListTagValuesRequest extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->queryType) {
-            $res['QueryType'] = $this->queryType;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -105,7 +78,7 @@ class ListTagValuesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListTagValuesRequest
+     * @return DeleteTagRequest
      */
     public static function fromMap($map = [])
     {
@@ -125,17 +98,8 @@ class ListTagValuesRequest extends Model
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['QueryType'])) {
-            $model->queryType = $map['QueryType'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

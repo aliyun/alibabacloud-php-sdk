@@ -29,6 +29,11 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $resourceARN;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -47,21 +52,16 @@ class ListTagResourcesRequest extends Model
      * @var string
      */
     public $category;
-
-    /**
-     * @var string[]
-     */
-    public $resourceARN;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'resourceARN'          => 'ResourceARN',
         'nextToken'            => 'NextToken',
         'pageSize'             => 'PageSize',
         'tags'                 => 'Tags',
         'category'             => 'Category',
-        'resourceARN'          => 'ResourceARN',
     ];
 
     public function validate()
@@ -83,6 +83,9 @@ class ListTagResourcesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceARN) {
+            $res['ResourceARN'] = $this->resourceARN;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -94,9 +97,6 @@ class ListTagResourcesRequest extends Model
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
-        }
-        if (null !== $this->resourceARN) {
-            $res['ResourceARN'] = $this->resourceARN;
         }
 
         return $res;
@@ -122,6 +122,11 @@ class ListTagResourcesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceARN'])) {
+            if (!empty($map['ResourceARN'])) {
+                $model->resourceARN = $map['ResourceARN'];
+            }
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
@@ -133,11 +138,6 @@ class ListTagResourcesRequest extends Model
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
-        }
-        if (isset($map['ResourceARN'])) {
-            if (!empty($map['ResourceARN'])) {
-                $model->resourceARN = $map['ResourceARN'];
-            }
         }
 
         return $model;

@@ -1,3 +1,6 @@
+2021-08-29 Version: 1.0.1
+- AMP Version Change.
+
 2021-06-03 Version: 1.0.1
 - Generated php 2018-08-28 for Tag.
 

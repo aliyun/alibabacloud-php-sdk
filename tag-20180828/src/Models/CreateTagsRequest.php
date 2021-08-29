@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
+use AlibabaCloud\SDK\Tag\V20180828\Models\CreateTagsRequest\tagKeyValueParamList;
 use AlibabaCloud\Tea\Model;
 
-class ListTagValuesRequest extends Model
+class CreateTagsRequest extends Model
 {
     /**
      * @var int
@@ -29,39 +30,15 @@ class ListTagValuesRequest extends Model
     public $regionId;
 
     /**
-     * @var string
+     * @var tagKeyValueParamList[]
      */
-    public $key;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $queryType;
+    public $tagKeyValueParamList;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'key'                  => 'Key',
-        'nextToken'            => 'NextToken',
-        'pageSize'             => 'PageSize',
-        'resourceType'         => 'ResourceType',
-        'queryType'            => 'QueryType',
+        'tagKeyValueParamList' => 'TagKeyValueParamList',
     ];
 
     public function validate()
@@ -83,20 +60,14 @@ class ListTagValuesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->queryType) {
-            $res['QueryType'] = $this->queryType;
+        if (null !== $this->tagKeyValueParamList) {
+            $res['TagKeyValueParamList'] = [];
+            if (null !== $this->tagKeyValueParamList && \is_array($this->tagKeyValueParamList)) {
+                $n = 0;
+                foreach ($this->tagKeyValueParamList as $item) {
+                    $res['TagKeyValueParamList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -105,7 +76,7 @@ class ListTagValuesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListTagValuesRequest
+     * @return CreateTagsRequest
      */
     public static function fromMap($map = [])
     {
@@ -122,20 +93,14 @@ class ListTagValuesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['QueryType'])) {
-            $model->queryType = $map['QueryType'];
+        if (isset($map['TagKeyValueParamList'])) {
+            if (!empty($map['TagKeyValueParamList'])) {
+                $model->tagKeyValueParamList = [];
+                $n                           = 0;
+                foreach ($map['TagKeyValueParamList'] as $item) {
+                    $model->tagKeyValueParamList[$n++] = null !== $item ? tagKeyValueParamList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -2,29 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Tag\V20180828\Models\ListTagKeysResponseBody\keys;
+namespace AlibabaCloud\SDK\Tag\V20180828\Models\CreateTagsRequest\tagKeyValueParamList;
 
 use AlibabaCloud\Tea\Model;
 
-class key extends Model
+class tagValueParamList extends Model
 {
     /**
      * @var string
      */
-    public $key;
-
-    /**
-     * @var string
-     */
-    public $category;
+    public $value;
 
     /**
      * @var string
      */
     public $description;
     protected $_name = [
-        'key'         => 'Key',
-        'category'    => 'Category',
+        'value'       => 'Value',
         'description' => 'Description',
     ];
 
@@ -35,11 +29,8 @@ class key extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -51,16 +42,13 @@ class key extends Model
     /**
      * @param array $map
      *
-     * @return key
+     * @return tagValueParamList
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

@@ -5,6 +5,10 @@
 namespace AlibabaCloud\SDK\Tag\V20180828;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\SDK\Tag\V20180828\Models\CreateTagsRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\CreateTagsResponse;
+use AlibabaCloud\SDK\Tag\V20180828\Models\DeleteTagRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\DeleteTagResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\ListTagKeysRequest;
@@ -97,6 +101,62 @@ class Tag extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CreateTagsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateTagsResponse
+     */
+    public function createTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateTagsResponse::fromMap($this->doRPCRequest('CreateTags', '2018-08-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateTagsRequest $request
+     *
+     * @return CreateTagsResponse
+     */
+    public function createTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteTagResponse
+     */
+    public function deleteTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteTagResponse::fromMap($this->doRPCRequest('DeleteTag', '2018-08-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTagRequest $request
+     *
+     * @return DeleteTagResponse
+     */
+    public function deleteTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTagWithOptions($request, $runtime);
     }
 
     /**
