@@ -62,6 +62,11 @@ class BeautifyBodyShrinkRequest extends Model
      * @var string
      */
     public $poseListShrink;
+
+    /**
+     * @var bool
+     */
+    public $isPregnant;
     protected $_name = [
         'imageURL'            => 'ImageURL',
         'originalWidth'       => 'OriginalWidth',
@@ -74,6 +79,7 @@ class BeautifyBodyShrinkRequest extends Model
         'bodyBoxesShrink'     => 'BodyBoxes',
         'faceListShrink'      => 'FaceList',
         'poseListShrink'      => 'PoseList',
+        'isPregnant'          => 'IsPregnant',
     ];
 
     public function validate()
@@ -115,6 +121,9 @@ class BeautifyBodyShrinkRequest extends Model
         }
         if (null !== $this->poseListShrink) {
             $res['PoseList'] = $this->poseListShrink;
+        }
+        if (null !== $this->isPregnant) {
+            $res['IsPregnant'] = $this->isPregnant;
         }
 
         return $res;
@@ -160,6 +169,9 @@ class BeautifyBodyShrinkRequest extends Model
         }
         if (isset($map['PoseList'])) {
             $model->poseListShrink = $map['PoseList'];
+        }
+        if (isset($map['IsPregnant'])) {
+            $model->isPregnant = $map['IsPregnant'];
         }
 
         return $model;

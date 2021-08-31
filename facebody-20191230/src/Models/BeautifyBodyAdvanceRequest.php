@@ -67,6 +67,11 @@ class BeautifyBodyAdvanceRequest extends Model
      * @var poseList[]
      */
     public $poseList;
+
+    /**
+     * @var bool
+     */
+    public $isPregnant;
     protected $_name = [
         'imageURLObject'      => 'ImageURLObject',
         'originalWidth'       => 'OriginalWidth',
@@ -79,6 +84,7 @@ class BeautifyBodyAdvanceRequest extends Model
         'bodyBoxes'           => 'BodyBoxes',
         'faceList'            => 'FaceList',
         'poseList'            => 'PoseList',
+        'isPregnant'          => 'IsPregnant',
     ];
 
     public function validate()
@@ -139,6 +145,9 @@ class BeautifyBodyAdvanceRequest extends Model
                     $res['PoseList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->isPregnant) {
+            $res['IsPregnant'] = $this->isPregnant;
         }
 
         return $res;
@@ -202,6 +211,9 @@ class BeautifyBodyAdvanceRequest extends Model
                     $model->poseList[$n++] = null !== $item ? poseList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IsPregnant'])) {
+            $model->isPregnant = $map['IsPregnant'];
         }
 
         return $model;
