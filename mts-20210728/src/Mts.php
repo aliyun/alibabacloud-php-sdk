@@ -193,6 +193,9 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->output)) {
             @$body['Output'] = $request->output;
         }
+        if (!Utils::isUnset($request->url)) {
+            @$body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -416,6 +419,9 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->userData)) {
             @$body['UserData'] = $request->userData;
         }
+        if (!Utils::isUnset($request->url)) {
+            @$body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -474,6 +480,9 @@ class Mts extends OpenApiClient
         }
         if (!Utils::isUnset($request->userData)) {
             @$body['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->url)) {
+            @$body['Url'] = $request->url;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

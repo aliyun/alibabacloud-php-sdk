@@ -70,6 +70,13 @@ class SubmitCopyrightJobRequest extends Model
      * @var string
      */
     public $userData;
+
+    /**
+     * @description 外部url链接(Input和url二选一)
+     *
+     * @var string
+     */
+    public $url;
     protected $_name = [
         'callBack'    => 'CallBack',
         'description' => 'Description',
@@ -80,6 +87,7 @@ class SubmitCopyrightJobRequest extends Model
         'totalTime'   => 'TotalTime',
         'output'      => 'Output',
         'userData'    => 'UserData',
+        'url'         => 'Url',
     ];
 
     public function validate()
@@ -115,6 +123,9 @@ class SubmitCopyrightJobRequest extends Model
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -154,6 +165,9 @@ class SubmitCopyrightJobRequest extends Model
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

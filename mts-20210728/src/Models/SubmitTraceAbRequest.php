@@ -42,12 +42,20 @@ class SubmitTraceAbRequest extends Model
      * @var string
      */
     public $userData;
+
+    /**
+     * @description 外部url链接(Input和url二选一)
+     *
+     * @var string
+     */
+    public $url;
     protected $_name = [
         'callBack' => 'CallBack',
         'input'    => 'Input',
         'level'    => 'Level',
         'output'   => 'Output',
         'userData' => 'UserData',
+        'url'      => 'Url',
     ];
 
     public function validate()
@@ -71,6 +79,9 @@ class SubmitTraceAbRequest extends Model
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -98,6 +109,9 @@ class SubmitTraceAbRequest extends Model
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;
