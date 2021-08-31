@@ -11,7 +11,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $projectCreateTime;
+
+    /**
+     * @var string
+     */
     public $actionType;
+
+    /**
+     * @var string
+     */
+    public $actionTime;
 
     /**
      * @var string
@@ -22,22 +32,12 @@ class data extends Model
      * @var int
      */
     public $projectId;
-
-    /**
-     * @var string
-     */
-    public $projectCreateTime;
-
-    /**
-     * @var string
-     */
-    public $actionTime;
     protected $_name = [
+        'projectCreateTime' => 'ProjectCreateTime',
         'actionType'        => 'ActionType',
+        'actionTime'        => 'ActionTime',
         'actionData'        => 'ActionData',
         'projectId'         => 'ProjectId',
-        'projectCreateTime' => 'ProjectCreateTime',
-        'actionTime'        => 'ActionTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->projectCreateTime) {
+            $res['ProjectCreateTime'] = $this->projectCreateTime;
+        }
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
+        }
+        if (null !== $this->actionTime) {
+            $res['ActionTime'] = $this->actionTime;
         }
         if (null !== $this->actionData) {
             $res['ActionData'] = $this->actionData;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->projectCreateTime) {
-            $res['ProjectCreateTime'] = $this->projectCreateTime;
-        }
-        if (null !== $this->actionTime) {
-            $res['ActionTime'] = $this->actionTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ProjectCreateTime'])) {
+            $model->projectCreateTime = $map['ProjectCreateTime'];
+        }
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
+        }
+        if (isset($map['ActionTime'])) {
+            $model->actionTime = $map['ActionTime'];
         }
         if (isset($map['ActionData'])) {
             $model->actionData = $map['ActionData'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ProjectCreateTime'])) {
-            $model->projectCreateTime = $map['ProjectCreateTime'];
-        }
-        if (isset($map['ActionTime'])) {
-            $model->actionTime = $map['ActionTime'];
         }
 
         return $model;

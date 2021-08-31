@@ -16,17 +16,17 @@ class qualityResultResponseList extends Model
     /**
      * @var string
      */
-    public $servicerName;
-
-    /**
-     * @var string
-     */
     public $memberName;
 
     /**
      * @var string
      */
-    public $projectName;
+    public $servicerName;
+
+    /**
+     * @var string
+     */
+    public $channelType;
 
     /**
      * @var string
@@ -36,7 +36,7 @@ class qualityResultResponseList extends Model
     /**
      * @var string
      */
-    public $channelType;
+    public $projectName;
 
     /**
      * @var string
@@ -56,12 +56,12 @@ class qualityResultResponseList extends Model
     /**
      * @var string
      */
-    public $ruleName;
+    public $ruleId;
 
     /**
      * @var string
      */
-    public $ruleId;
+    public $ruleName;
 
     /**
      * @var string
@@ -89,16 +89,16 @@ class qualityResultResponseList extends Model
     public $hitDetail;
     protected $_name = [
         'touchId'         => 'TouchId',
-        'servicerName'    => 'ServicerName',
         'memberName'      => 'MemberName',
-        'projectName'     => 'ProjectName',
-        'projectId'       => 'ProjectId',
+        'servicerName'    => 'ServicerName',
         'channelType'     => 'ChannelType',
+        'projectId'       => 'ProjectId',
+        'projectName'     => 'ProjectName',
         'channelTypeName' => 'ChannelTypeName',
         'touchStartTime'  => 'TouchStartTime',
         'servicerId'      => 'ServicerId',
-        'ruleName'        => 'RuleName',
         'ruleId'          => 'RuleId',
+        'ruleName'        => 'RuleName',
         'groupName'       => 'GroupName',
         'groupId'         => 'GroupId',
         'instanceName'    => 'InstanceName',
@@ -116,20 +116,20 @@ class qualityResultResponseList extends Model
         if (null !== $this->touchId) {
             $res['TouchId'] = $this->touchId;
         }
-        if (null !== $this->servicerName) {
-            $res['ServicerName'] = $this->servicerName;
-        }
         if (null !== $this->memberName) {
             $res['MemberName'] = $this->memberName;
         }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
+        if (null !== $this->servicerName) {
+            $res['ServicerName'] = $this->servicerName;
+        }
+        if (null !== $this->channelType) {
+            $res['ChannelType'] = $this->channelType;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->channelType) {
-            $res['ChannelType'] = $this->channelType;
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->channelTypeName) {
             $res['ChannelTypeName'] = $this->channelTypeName;
@@ -140,11 +140,11 @@ class qualityResultResponseList extends Model
         if (null !== $this->servicerId) {
             $res['ServicerId'] = $this->servicerId;
         }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -176,20 +176,20 @@ class qualityResultResponseList extends Model
         if (isset($map['TouchId'])) {
             $model->touchId = $map['TouchId'];
         }
-        if (isset($map['ServicerName'])) {
-            $model->servicerName = $map['ServicerName'];
-        }
         if (isset($map['MemberName'])) {
             $model->memberName = $map['MemberName'];
         }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
+        if (isset($map['ServicerName'])) {
+            $model->servicerName = $map['ServicerName'];
+        }
+        if (isset($map['ChannelType'])) {
+            $model->channelType = $map['ChannelType'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['ChannelType'])) {
-            $model->channelType = $map['ChannelType'];
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
         if (isset($map['ChannelTypeName'])) {
             $model->channelTypeName = $map['ChannelTypeName'];
@@ -200,11 +200,11 @@ class qualityResultResponseList extends Model
         if (isset($map['ServicerId'])) {
             $model->servicerId = $map['ServicerId'];
         }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

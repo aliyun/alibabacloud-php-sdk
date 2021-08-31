@@ -878,8 +878,9 @@ class Aiccs extends OpenApiClient
     public function deleteAgentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
         ]);
 
         return DeleteAgentResponse::fromMap($this->doRPCRequest('DeleteAgent', '2019-10-15', 'HTTPS', 'DELETE', 'AK', 'json', $req, $runtime));

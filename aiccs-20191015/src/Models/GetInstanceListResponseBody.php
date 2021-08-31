@@ -12,12 +12,22 @@ class GetInstanceListResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $httpStatusCode;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $code;
 
     /**
      * @var string
@@ -37,32 +47,22 @@ class GetInstanceListResponseBody extends Model
     /**
      * @var int
      */
-    public $httpStatusCode;
+    public $totalCount;
 
     /**
      * @var commodityInstances[]
      */
     public $commodityInstances;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
-        'totalCount'         => 'TotalCount',
+        'httpStatusCode'     => 'HttpStatusCode',
         'requestId'          => 'RequestId',
+        'success'            => 'Success',
+        'code'               => 'Code',
         'message'            => 'Message',
         'pageSize'           => 'PageSize',
         'pageNumber'         => 'PageNumber',
-        'httpStatusCode'     => 'HttpStatusCode',
+        'totalCount'         => 'TotalCount',
         'commodityInstances' => 'CommodityInstances',
-        'code'               => 'Code',
-        'success'            => 'Success',
     ];
 
     public function validate()
@@ -72,11 +72,17 @@ class GetInstanceListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -87,8 +93,8 @@ class GetInstanceListResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->commodityInstances) {
             $res['CommodityInstances'] = [];
@@ -98,12 +104,6 @@ class GetInstanceListResponseBody extends Model
                     $res['CommodityInstances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -117,11 +117,17 @@ class GetInstanceListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -132,8 +138,8 @@ class GetInstanceListResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['CommodityInstances'])) {
             if (!empty($map['CommodityInstances'])) {
@@ -143,12 +149,6 @@ class GetInstanceListResponseBody extends Model
                     $model->commodityInstances[$n++] = null !== $item ? commodityInstances::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

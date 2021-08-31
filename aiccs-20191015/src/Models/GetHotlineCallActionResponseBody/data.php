@@ -21,12 +21,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $memberName;
+    public $servicerName;
 
     /**
      * @var string
      */
-    public $servicerName;
+    public $memberName;
 
     /**
      * @var int
@@ -36,7 +36,7 @@ class data extends Model
     /**
      * @var int
      */
-    public $actionId;
+    public $subTouchId;
 
     /**
      * @var string
@@ -46,7 +46,7 @@ class data extends Model
     /**
      * @var int
      */
-    public $subTouchId;
+    public $actionId;
 
     /**
      * @var int
@@ -95,12 +95,12 @@ class data extends Model
     protected $_name = [
         'touchId'      => 'TouchId',
         'depId'        => 'DepId',
-        'memberName'   => 'MemberName',
         'servicerName' => 'ServicerName',
+        'memberName'   => 'MemberName',
         'channelType'  => 'ChannelType',
-        'actionId'     => 'ActionId',
-        'calloutName'  => 'CalloutName',
         'subTouchId'   => 'SubTouchId',
+        'calloutName'  => 'CalloutName',
+        'actionId'     => 'ActionId',
         'servicerId'   => 'ServicerId',
         'buId'         => 'BuId',
         'calloutId'    => 'CalloutId',
@@ -125,23 +125,23 @@ class data extends Model
         if (null !== $this->depId) {
             $res['DepId'] = $this->depId;
         }
-        if (null !== $this->memberName) {
-            $res['MemberName'] = $this->memberName;
-        }
         if (null !== $this->servicerName) {
             $res['ServicerName'] = $this->servicerName;
+        }
+        if (null !== $this->memberName) {
+            $res['MemberName'] = $this->memberName;
         }
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
-        if (null !== $this->actionId) {
-            $res['ActionId'] = $this->actionId;
+        if (null !== $this->subTouchId) {
+            $res['SubTouchId'] = $this->subTouchId;
         }
         if (null !== $this->calloutName) {
             $res['CalloutName'] = $this->calloutName;
         }
-        if (null !== $this->subTouchId) {
-            $res['SubTouchId'] = $this->subTouchId;
+        if (null !== $this->actionId) {
+            $res['ActionId'] = $this->actionId;
         }
         if (null !== $this->servicerId) {
             $res['ServicerId'] = $this->servicerId;
@@ -188,23 +188,23 @@ class data extends Model
         if (isset($map['DepId'])) {
             $model->depId = $map['DepId'];
         }
-        if (isset($map['MemberName'])) {
-            $model->memberName = $map['MemberName'];
-        }
         if (isset($map['ServicerName'])) {
             $model->servicerName = $map['ServicerName'];
+        }
+        if (isset($map['MemberName'])) {
+            $model->memberName = $map['MemberName'];
         }
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
         }
-        if (isset($map['ActionId'])) {
-            $model->actionId = $map['ActionId'];
+        if (isset($map['SubTouchId'])) {
+            $model->subTouchId = $map['SubTouchId'];
         }
         if (isset($map['CalloutName'])) {
             $model->calloutName = $map['CalloutName'];
         }
-        if (isset($map['SubTouchId'])) {
-            $model->subTouchId = $map['SubTouchId'];
+        if (isset($map['ActionId'])) {
+            $model->actionId = $map['ActionId'];
         }
         if (isset($map['ServicerId'])) {
             $model->servicerId = $map['ServicerId'];

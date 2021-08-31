@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var mixed[][]
-     */
-    public $rows;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -25,20 +20,25 @@ class data extends Model
     public $total;
 
     /**
+     * @var int
+     */
+    public $page;
+
+    /**
      * @var columns[]
      */
     public $columns;
 
     /**
-     * @var int
+     * @var mixed[][]
      */
-    public $page;
+    public $rows;
     protected $_name = [
-        'rows'     => 'Rows',
         'pageSize' => 'PageSize',
         'total'    => 'Total',
-        'columns'  => 'Columns',
         'page'     => 'Page',
+        'columns'  => 'Columns',
+        'rows'     => 'Rows',
     ];
 
     public function validate()
@@ -48,14 +48,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rows) {
-            $res['Rows'] = $this->rows;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
+        }
+        if (null !== $this->page) {
+            $res['Page'] = $this->page;
         }
         if (null !== $this->columns) {
             $res['Columns'] = [];
@@ -66,8 +66,8 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->page) {
-            $res['Page'] = $this->page;
+        if (null !== $this->rows) {
+            $res['Rows'] = $this->rows;
         }
 
         return $res;
@@ -81,16 +81,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Rows'])) {
-            if (!empty($map['Rows'])) {
-                $model->rows = $map['Rows'];
-            }
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
+        }
+        if (isset($map['Page'])) {
+            $model->page = $map['Page'];
         }
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
@@ -101,8 +99,10 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['Page'])) {
-            $model->page = $map['Page'];
+        if (isset($map['Rows'])) {
+            if (!empty($map['Rows'])) {
+                $model->rows = $map['Rows'];
+            }
         }
 
         return $model;

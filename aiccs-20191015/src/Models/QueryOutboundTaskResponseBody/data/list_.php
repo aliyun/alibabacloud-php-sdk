@@ -11,12 +11,12 @@ class list_ extends Model
     /**
      * @var int
      */
-    public $status;
+    public $type;
 
     /**
      * @var int
      */
-    public $type;
+    public $status;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class list_ extends Model
     /**
      * @var int
      */
-    public $retryTime;
+    public $retryInterval;
 
     /**
      * @var int
      */
-    public $retryInterval;
+    public $retryTime;
 
     /**
      * @var string
@@ -54,9 +54,9 @@ class list_ extends Model
     public $endTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $startTime;
+    public $buId;
 
     /**
      * @var int
@@ -64,9 +64,9 @@ class list_ extends Model
     public $model;
 
     /**
-     * @var int
+     * @var string
      */
-    public $buId;
+    public $startTime;
 
     /**
      * @var string
@@ -118,18 +118,18 @@ class list_ extends Model
      */
     public $id;
     protected $_name = [
-        'status'        => 'Status',
         'type'          => 'Type',
+        'status'        => 'Status',
         'endDate'       => 'EndDate',
-        'retryTime'     => 'RetryTime',
         'retryInterval' => 'RetryInterval',
+        'retryTime'     => 'RetryTime',
         'startDate'     => 'StartDate',
         'gmtModified'   => 'GmtModified',
         'creator'       => 'Creator',
         'endTime'       => 'EndTime',
-        'startTime'     => 'StartTime',
-        'model'         => 'Model',
         'buId'          => 'BuId',
+        'model'         => 'Model',
+        'startTime'     => 'StartTime',
         'modifier'      => 'Modifier',
         'groupName'     => 'GroupName',
         'description'   => 'Description',
@@ -149,20 +149,20 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
-        if (null !== $this->retryTime) {
-            $res['RetryTime'] = $this->retryTime;
-        }
         if (null !== $this->retryInterval) {
             $res['RetryInterval'] = $this->retryInterval;
+        }
+        if (null !== $this->retryTime) {
+            $res['RetryTime'] = $this->retryTime;
         }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
@@ -176,14 +176,14 @@ class list_ extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->buId) {
+            $res['BuId'] = $this->buId;
         }
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
-        if (null !== $this->buId) {
-            $res['BuId'] = $this->buId;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->modifier) {
             $res['Modifier'] = $this->modifier;
@@ -227,20 +227,20 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
-        if (isset($map['RetryTime'])) {
-            $model->retryTime = $map['RetryTime'];
-        }
         if (isset($map['RetryInterval'])) {
             $model->retryInterval = $map['RetryInterval'];
+        }
+        if (isset($map['RetryTime'])) {
+            $model->retryTime = $map['RetryTime'];
         }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
@@ -254,14 +254,14 @@ class list_ extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['BuId'])) {
+            $model->buId = $map['BuId'];
         }
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
-        if (isset($map['BuId'])) {
-            $model->buId = $map['BuId'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Modifier'])) {
             $model->modifier = $map['Modifier'];

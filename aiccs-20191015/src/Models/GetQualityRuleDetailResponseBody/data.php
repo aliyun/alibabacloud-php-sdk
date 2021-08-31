@@ -14,11 +14,6 @@ class data extends Model
     public $ruleTag;
 
     /**
-     * @var string[]
-     */
-    public $keyWords;
-
-    /**
      * @var int
      */
     public $matchType;
@@ -37,13 +32,18 @@ class data extends Model
      * @var int
      */
     public $ruleId;
+
+    /**
+     * @var string[]
+     */
+    public $keyWords;
     protected $_name = [
         'ruleTag'        => 'RuleTag',
-        'keyWords'       => 'KeyWords',
         'matchType'      => 'MatchType',
         'name'           => 'Name',
         'ruleCreateTime' => 'RuleCreateTime',
         'ruleId'         => 'RuleId',
+        'keyWords'       => 'KeyWords',
     ];
 
     public function validate()
@@ -56,9 +56,6 @@ class data extends Model
         if (null !== $this->ruleTag) {
             $res['RuleTag'] = $this->ruleTag;
         }
-        if (null !== $this->keyWords) {
-            $res['KeyWords'] = $this->keyWords;
-        }
         if (null !== $this->matchType) {
             $res['MatchType'] = $this->matchType;
         }
@@ -70,6 +67,9 @@ class data extends Model
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->keyWords) {
+            $res['KeyWords'] = $this->keyWords;
         }
 
         return $res;
@@ -86,11 +86,6 @@ class data extends Model
         if (isset($map['RuleTag'])) {
             $model->ruleTag = $map['RuleTag'];
         }
-        if (isset($map['KeyWords'])) {
-            if (!empty($map['KeyWords'])) {
-                $model->keyWords = $map['KeyWords'];
-            }
-        }
         if (isset($map['MatchType'])) {
             $model->matchType = $map['MatchType'];
         }
@@ -102,6 +97,11 @@ class data extends Model
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['KeyWords'])) {
+            if (!empty($map['KeyWords'])) {
+                $model->keyWords = $map['KeyWords'];
+            }
         }
 
         return $model;

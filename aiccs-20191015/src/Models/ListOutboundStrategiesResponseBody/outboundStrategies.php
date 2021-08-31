@@ -34,11 +34,6 @@ class outboundStrategies extends Model
     public $outboundNum;
 
     /**
-     * @var int
-     */
-    public $modifierId;
-
-    /**
      * @var string
      */
     public $outboundStrategyName;
@@ -46,12 +41,17 @@ class outboundStrategies extends Model
     /**
      * @var int
      */
-    public $outboundStrategyId;
+    public $modifierId;
 
     /**
      * @var string
      */
     public $sceneName;
+
+    /**
+     * @var int
+     */
+    public $outboundStrategyId;
 
     /**
      * @var int
@@ -123,10 +123,10 @@ class outboundStrategies extends Model
         'process'              => 'Process',
         'gmtModifiedStr'       => 'GmtModifiedStr',
         'outboundNum'          => 'OutboundNum',
-        'modifierId'           => 'ModifierId',
         'outboundStrategyName' => 'OutboundStrategyName',
-        'outboundStrategyId'   => 'OutboundStrategyId',
+        'modifierId'           => 'ModifierId',
         'sceneName'            => 'SceneName',
+        'outboundStrategyId'   => 'OutboundStrategyId',
         'creatorId'            => 'CreatorId',
         'robotName'            => 'RobotName',
         'modifierName'         => 'ModifierName',
@@ -164,17 +164,17 @@ class outboundStrategies extends Model
         if (null !== $this->outboundNum) {
             $res['OutboundNum'] = $this->outboundNum;
         }
-        if (null !== $this->modifierId) {
-            $res['ModifierId'] = $this->modifierId;
-        }
         if (null !== $this->outboundStrategyName) {
             $res['OutboundStrategyName'] = $this->outboundStrategyName;
         }
-        if (null !== $this->outboundStrategyId) {
-            $res['OutboundStrategyId'] = $this->outboundStrategyId;
+        if (null !== $this->modifierId) {
+            $res['ModifierId'] = $this->modifierId;
         }
         if (null !== $this->sceneName) {
             $res['SceneName'] = $this->sceneName;
+        }
+        if (null !== $this->outboundStrategyId) {
+            $res['OutboundStrategyId'] = $this->outboundStrategyId;
         }
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
@@ -242,17 +242,17 @@ class outboundStrategies extends Model
         if (isset($map['OutboundNum'])) {
             $model->outboundNum = $map['OutboundNum'];
         }
-        if (isset($map['ModifierId'])) {
-            $model->modifierId = $map['ModifierId'];
-        }
         if (isset($map['OutboundStrategyName'])) {
             $model->outboundStrategyName = $map['OutboundStrategyName'];
         }
-        if (isset($map['OutboundStrategyId'])) {
-            $model->outboundStrategyId = $map['OutboundStrategyId'];
+        if (isset($map['ModifierId'])) {
+            $model->modifierId = $map['ModifierId'];
         }
         if (isset($map['SceneName'])) {
             $model->sceneName = $map['SceneName'];
+        }
+        if (isset($map['OutboundStrategyId'])) {
+            $model->outboundStrategyId = $map['OutboundStrategyId'];
         }
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];

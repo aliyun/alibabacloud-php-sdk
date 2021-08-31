@@ -21,23 +21,23 @@ class data extends Model
     /**
      * @var string
      */
+    public $url;
+
+    /**
+     * @var string
+     */
     public $connectionId;
 
     /**
      * @var string
      */
     public $callId;
-
-    /**
-     * @var string
-     */
-    public $url;
     protected $_name = [
         'endTime'      => 'EndTime',
         'startTime'    => 'StartTime',
+        'url'          => 'Url',
         'connectionId' => 'ConnectionId',
         'callId'       => 'CallId',
-        'url'          => 'Url',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class data extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
+        }
         if (null !== $this->connectionId) {
             $res['ConnectionId'] = $this->connectionId;
         }
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class data extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
+        }
         if (isset($map['ConnectionId'])) {
             $model->connectionId = $map['ConnectionId'];
         }
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
         }
 
         return $model;

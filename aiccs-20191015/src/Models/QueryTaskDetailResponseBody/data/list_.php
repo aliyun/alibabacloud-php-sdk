@@ -16,12 +16,12 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $memberName;
+    public $servicerName;
 
     /**
      * @var string
      */
-    public $servicerName;
+    public $memberName;
 
     /**
      * @var int
@@ -104,8 +104,8 @@ class list_ extends Model
     public $id;
     protected $_name = [
         'status'         => 'Status',
-        'memberName'     => 'MemberName',
         'servicerName'   => 'ServicerName',
+        'memberName'     => 'MemberName',
         'outboundNum'    => 'OutboundNum',
         'retryTime'      => 'RetryTime',
         'priority'       => 'Priority',
@@ -134,11 +134,11 @@ class list_ extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->memberName) {
-            $res['MemberName'] = $this->memberName;
-        }
         if (null !== $this->servicerName) {
             $res['ServicerName'] = $this->servicerName;
+        }
+        if (null !== $this->memberName) {
+            $res['MemberName'] = $this->memberName;
         }
         if (null !== $this->outboundNum) {
             $res['OutboundNum'] = $this->outboundNum;
@@ -203,11 +203,11 @@ class list_ extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['MemberName'])) {
-            $model->memberName = $map['MemberName'];
-        }
         if (isset($map['ServicerName'])) {
             $model->servicerName = $map['ServicerName'];
+        }
+        if (isset($map['MemberName'])) {
+            $model->memberName = $map['MemberName'];
         }
         if (isset($map['OutboundNum'])) {
             $model->outboundNum = $map['OutboundNum'];

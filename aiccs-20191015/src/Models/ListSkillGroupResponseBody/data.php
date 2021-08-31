@@ -19,6 +19,11 @@ class data extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $channelType;
@@ -27,17 +32,12 @@ class data extends Model
      * @var int
      */
     public $skillGroupId;
-
-    /**
-     * @var string
-     */
-    public $name;
     protected $_name = [
         'displayName'  => 'DisplayName',
         'description'  => 'Description',
+        'name'         => 'Name',
         'channelType'  => 'ChannelType',
         'skillGroupId' => 'SkillGroupId',
-        'name'         => 'Name',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class data extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class data extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
         }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

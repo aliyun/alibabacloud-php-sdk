@@ -20,19 +20,19 @@ class data extends Model
     public $currentPage;
 
     /**
-     * @var list_[]
-     */
-    public $list;
-
-    /**
      * @var string
      */
     public $pageSize;
+
+    /**
+     * @var list_[]
+     */
+    public $list;
     protected $_name = [
         'totalResults' => 'TotalResults',
         'currentPage'  => 'CurrentPage',
-        'list'         => 'List',
         'pageSize'     => 'PageSize',
+        'list'         => 'List',
     ];
 
     public function validate()
@@ -48,6 +48,9 @@ class data extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->list) {
             $res['List'] = [];
             if (null !== $this->list && \is_array($this->list)) {
@@ -56,9 +59,6 @@ class data extends Model
                     $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class data extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
@@ -86,9 +89,6 @@ class data extends Model
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

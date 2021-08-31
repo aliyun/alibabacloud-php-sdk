@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var int
      */
     public $version;
@@ -17,15 +22,10 @@ class data extends Model
      * @var int
      */
     public $projectId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
     protected $_name = [
+        'instanceId' => 'InstanceId',
         'version'    => 'Version',
         'projectId'  => 'ProjectId',
-        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;
