@@ -53,16 +53,34 @@ class CreateServiceRequest extends Model
      * @var serviceInfo[]
      */
     public $serviceInfo;
+
+    /**
+     * @var bool
+     */
+    public $isSupportOperated;
+
+    /**
+     * @var string
+     */
+    public $policyNames;
+
+    /**
+     * @var int
+     */
+    public $duration;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'supplierName'   => 'SupplierName',
-        'supplierUrl'    => 'SupplierUrl',
-        'clientToken'    => 'ClientToken',
-        'serviceId'      => 'ServiceId',
-        'deployType'     => 'DeployType',
-        'deployMetadata' => 'DeployMetadata',
-        'serviceType'    => 'ServiceType',
-        'serviceInfo'    => 'ServiceInfo',
+        'regionId'          => 'RegionId',
+        'supplierName'      => 'SupplierName',
+        'supplierUrl'       => 'SupplierUrl',
+        'clientToken'       => 'ClientToken',
+        'serviceId'         => 'ServiceId',
+        'deployType'        => 'DeployType',
+        'deployMetadata'    => 'DeployMetadata',
+        'serviceType'       => 'ServiceType',
+        'serviceInfo'       => 'ServiceInfo',
+        'isSupportOperated' => 'IsSupportOperated',
+        'policyNames'       => 'PolicyNames',
+        'duration'          => 'Duration',
     ];
 
     public function validate()
@@ -104,6 +122,15 @@ class CreateServiceRequest extends Model
                     $res['ServiceInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->isSupportOperated) {
+            $res['IsSupportOperated'] = $this->isSupportOperated;
+        }
+        if (null !== $this->policyNames) {
+            $res['PolicyNames'] = $this->policyNames;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
 
         return $res;
@@ -149,6 +176,15 @@ class CreateServiceRequest extends Model
                     $model->serviceInfo[$n++] = null !== $item ? serviceInfo::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IsSupportOperated'])) {
+            $model->isSupportOperated = $map['IsSupportOperated'];
+        }
+        if (isset($map['PolicyNames'])) {
+            $model->policyNames = $map['PolicyNames'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
 
         return $model;

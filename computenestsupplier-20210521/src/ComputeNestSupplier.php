@@ -17,8 +17,12 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetSupplierInformationRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetSupplierInformationResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\InvokeServiceInstanceOperationAPIRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\InvokeServiceInstanceOperationAPIResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\LaunchServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\LaunchServiceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListPoliciesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListPoliciesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceRegistrationsRequest;
@@ -29,6 +33,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RegisterServiceRequest
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RegisterServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateSupplierInformationRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateSupplierInformationResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\WithdrawServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\WithdrawServiceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -70,115 +76,31 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @param CancelServiceRegistrationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param InvokeServiceInstanceOperationAPIRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return CancelServiceRegistrationResponse
+     * @return InvokeServiceInstanceOperationAPIResponse
      */
-    public function cancelServiceRegistrationWithOptions($request, $runtime)
+    public function invokeServiceInstanceOperationAPIWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return CancelServiceRegistrationResponse::fromMap($this->doRPCRequest('CancelServiceRegistration', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InvokeServiceInstanceOperationAPIResponse::fromMap($this->doRPCRequest('InvokeServiceInstanceOperationAPI', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CancelServiceRegistrationRequest $request
+     * @param InvokeServiceInstanceOperationAPIRequest $request
      *
-     * @return CancelServiceRegistrationResponse
+     * @return InvokeServiceInstanceOperationAPIResponse
      */
-    public function cancelServiceRegistration($request)
+    public function invokeServiceInstanceOperationAPI($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->cancelServiceRegistrationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateServiceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateServiceResponse
-     */
-    public function createServiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateServiceResponse::fromMap($this->doRPCRequest('CreateService', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateServiceRequest $request
-     *
-     * @return CreateServiceResponse
-     */
-    public function createService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createServiceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteServiceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteServiceResponse
-     */
-    public function deleteServiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteServiceResponse::fromMap($this->doRPCRequest('DeleteService', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteServiceRequest $request
-     *
-     * @return DeleteServiceResponse
-     */
-    public function deleteService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteServiceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetServiceRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetServiceResponse
-     */
-    public function getServiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetServiceResponse::fromMap($this->doRPCRequest('GetService', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetServiceRequest $request
-     *
-     * @return GetServiceResponse
-     */
-    public function getService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getServiceWithOptions($request, $runtime);
+        return $this->invokeServiceInstanceOperationAPIWithOptions($request, $runtime);
     }
 
     /**
@@ -210,115 +132,31 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @param GetSupplierInformationRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetSupplierInformationResponse
-     */
-    public function getSupplierInformationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSupplierInformationResponse::fromMap($this->doRPCRequest('GetSupplierInformation', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSupplierInformationRequest $request
-     *
-     * @return GetSupplierInformationResponse
-     */
-    public function getSupplierInformation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSupplierInformationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param LaunchServiceRequest $request
+     * @param DeleteServiceRequest $request
      * @param RuntimeOptions       $runtime
      *
-     * @return LaunchServiceResponse
+     * @return DeleteServiceResponse
      */
-    public function launchServiceWithOptions($request, $runtime)
+    public function deleteServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return LaunchServiceResponse::fromMap($this->doRPCRequest('LaunchService', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteServiceResponse::fromMap($this->doRPCRequest('DeleteService', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param LaunchServiceRequest $request
+     * @param DeleteServiceRequest $request
      *
-     * @return LaunchServiceResponse
+     * @return DeleteServiceResponse
      */
-    public function launchService($request)
+    public function deleteService($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->launchServiceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListServiceInstancesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListServiceInstancesResponse
-     */
-    public function listServiceInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListServiceInstancesResponse::fromMap($this->doRPCRequest('ListServiceInstances', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListServiceInstancesRequest $request
-     *
-     * @return ListServiceInstancesResponse
-     */
-    public function listServiceInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listServiceInstancesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListServiceRegistrationsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListServiceRegistrationsResponse
-     */
-    public function listServiceRegistrationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListServiceRegistrationsResponse::fromMap($this->doRPCRequest('ListServiceRegistrations', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListServiceRegistrationsRequest $request
-     *
-     * @return ListServiceRegistrationsResponse
-     */
-    public function listServiceRegistrations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listServiceRegistrationsWithOptions($request, $runtime);
+        return $this->deleteServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -350,6 +188,118 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @param CancelServiceRegistrationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CancelServiceRegistrationResponse
+     */
+    public function cancelServiceRegistrationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelServiceRegistrationResponse::fromMap($this->doRPCRequest('CancelServiceRegistration', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelServiceRegistrationRequest $request
+     *
+     * @return CancelServiceRegistrationResponse
+     */
+    public function cancelServiceRegistration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelServiceRegistrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListServiceRegistrationsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListServiceRegistrationsResponse
+     */
+    public function listServiceRegistrationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListServiceRegistrationsResponse::fromMap($this->doRPCRequest('ListServiceRegistrations', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListServiceRegistrationsRequest $request
+     *
+     * @return ListServiceRegistrationsResponse
+     */
+    public function listServiceRegistrations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceRegistrationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSupplierInformationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetSupplierInformationResponse
+     */
+    public function getSupplierInformationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSupplierInformationResponse::fromMap($this->doRPCRequest('GetSupplierInformation', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSupplierInformationRequest $request
+     *
+     * @return GetSupplierInformationResponse
+     */
+    public function getSupplierInformation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSupplierInformationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListServiceInstancesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListServiceInstancesResponse
+     */
+    public function listServiceInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListServiceInstancesResponse::fromMap($this->doRPCRequest('ListServiceInstances', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListServiceInstancesRequest $request
+     *
+     * @return ListServiceInstancesResponse
+     */
+    public function listServiceInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RegisterServiceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -375,6 +325,62 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->registerServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateServiceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateServiceResponse
+     */
+    public function createServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateServiceResponse::fromMap($this->doRPCRequest('CreateService', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateServiceRequest $request
+     *
+     * @return CreateServiceResponse
+     */
+    public function createService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPoliciesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListPoliciesResponse
+     */
+    public function listPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListPoliciesResponse::fromMap($this->doRPCRequest('ListPolicies', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListPoliciesRequest $request
+     *
+     * @return ListPoliciesResponse
+     */
+    public function listPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPoliciesWithOptions($request, $runtime);
     }
 
     /**
@@ -406,6 +412,34 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @param LaunchServiceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return LaunchServiceResponse
+     */
+    public function launchServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return LaunchServiceResponse::fromMap($this->doRPCRequest('LaunchService', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param LaunchServiceRequest $request
+     *
+     * @return LaunchServiceResponse
+     */
+    public function launchService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->launchServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param WithdrawServiceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -431,5 +465,61 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->withdrawServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSupplierInformationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateSupplierInformationResponse
+     */
+    public function updateSupplierInformationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateSupplierInformationResponse::fromMap($this->doRPCRequest('UpdateSupplierInformation', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSupplierInformationRequest $request
+     *
+     * @return UpdateSupplierInformationResponse
+     */
+    public function updateSupplierInformation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSupplierInformationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetServiceRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetServiceResponse
+     */
+    public function getServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetServiceResponse::fromMap($this->doRPCRequest('GetService', '2021-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceRequest $request
+     *
+     * @return GetServiceResponse
+     */
+    public function getService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceWithOptions($request, $runtime);
     }
 }

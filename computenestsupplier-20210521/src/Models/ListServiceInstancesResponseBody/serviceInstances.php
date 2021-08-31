@@ -45,11 +45,6 @@ class serviceInstances extends Model
     public $parameters;
 
     /**
-     * @var string
-     */
-    public $statusDetail;
-
-    /**
      * @var int
      */
     public $progress;
@@ -57,18 +52,47 @@ class serviceInstances extends Model
     /**
      * @var string
      */
+    public $statusDetail;
+
+    /**
+     * @var string
+     */
     public $templateName;
+
+    /**
+     * @var string
+     */
+    public $operatedServiceInstanceId;
+
+    /**
+     * @var string
+     */
+    public $operationStartTime;
+
+    /**
+     * @var string
+     */
+    public $operationEndTime;
+
+    /**
+     * @var bool
+     */
+    public $enableInstanceOps;
     protected $_name = [
-        'status'            => 'Status',
-        'updateTime'        => 'UpdateTime',
-        'serviceInstanceId' => 'ServiceInstanceId',
-        'createTime'        => 'CreateTime',
-        'userId'            => 'UserId',
-        'service'           => 'Service',
-        'parameters'        => 'Parameters',
-        'statusDetail'      => 'StatusDetail',
-        'progress'          => 'Progress',
-        'templateName'      => 'TemplateName',
+        'status'                    => 'Status',
+        'updateTime'                => 'UpdateTime',
+        'serviceInstanceId'         => 'ServiceInstanceId',
+        'createTime'                => 'CreateTime',
+        'userId'                    => 'UserId',
+        'service'                   => 'Service',
+        'parameters'                => 'Parameters',
+        'progress'                  => 'Progress',
+        'statusDetail'              => 'StatusDetail',
+        'templateName'              => 'TemplateName',
+        'operatedServiceInstanceId' => 'OperatedServiceInstanceId',
+        'operationStartTime'        => 'OperationStartTime',
+        'operationEndTime'          => 'OperationEndTime',
+        'enableInstanceOps'         => 'EnableInstanceOps',
     ];
 
     public function validate()
@@ -99,14 +123,26 @@ class serviceInstances extends Model
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
-        if (null !== $this->statusDetail) {
-            $res['StatusDetail'] = $this->statusDetail;
-        }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
+        if (null !== $this->statusDetail) {
+            $res['StatusDetail'] = $this->statusDetail;
+        }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->operatedServiceInstanceId) {
+            $res['OperatedServiceInstanceId'] = $this->operatedServiceInstanceId;
+        }
+        if (null !== $this->operationStartTime) {
+            $res['OperationStartTime'] = $this->operationStartTime;
+        }
+        if (null !== $this->operationEndTime) {
+            $res['OperationEndTime'] = $this->operationEndTime;
+        }
+        if (null !== $this->enableInstanceOps) {
+            $res['EnableInstanceOps'] = $this->enableInstanceOps;
         }
 
         return $res;
@@ -141,14 +177,26 @@ class serviceInstances extends Model
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
-        if (isset($map['StatusDetail'])) {
-            $model->statusDetail = $map['StatusDetail'];
-        }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
+        if (isset($map['StatusDetail'])) {
+            $model->statusDetail = $map['StatusDetail'];
+        }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['OperatedServiceInstanceId'])) {
+            $model->operatedServiceInstanceId = $map['OperatedServiceInstanceId'];
+        }
+        if (isset($map['OperationStartTime'])) {
+            $model->operationStartTime = $map['OperationStartTime'];
+        }
+        if (isset($map['OperationEndTime'])) {
+            $model->operationEndTime = $map['OperationEndTime'];
+        }
+        if (isset($map['EnableInstanceOps'])) {
+            $model->enableInstanceOps = $map['EnableInstanceOps'];
         }
 
         return $model;

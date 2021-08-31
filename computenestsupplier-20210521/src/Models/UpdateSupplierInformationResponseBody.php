@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSupplierInformationResponseBody extends Model
+class UpdateSupplierInformationResponseBody extends Model
 {
     /**
      * @description Id of the request
@@ -29,23 +29,11 @@ class GetSupplierInformationResponseBody extends Model
      * @var string
      */
     public $supplierDesc;
-
-    /**
-     * @var string
-     */
-    public $operationIp;
-
-    /**
-     * @var bool
-     */
-    public $operationMfaPresent;
     protected $_name = [
-        'requestId'           => 'RequestId',
-        'supplierName'        => 'SupplierName',
-        'supplierUrl'         => 'SupplierUrl',
-        'supplierDesc'        => 'SupplierDesc',
-        'operationIp'         => 'OperationIp',
-        'operationMfaPresent' => 'OperationMfaPresent',
+        'requestId'    => 'RequestId',
+        'supplierName' => 'SupplierName',
+        'supplierUrl'  => 'SupplierUrl',
+        'supplierDesc' => 'SupplierDesc',
     ];
 
     public function validate()
@@ -67,12 +55,6 @@ class GetSupplierInformationResponseBody extends Model
         if (null !== $this->supplierDesc) {
             $res['SupplierDesc'] = $this->supplierDesc;
         }
-        if (null !== $this->operationIp) {
-            $res['OperationIp'] = $this->operationIp;
-        }
-        if (null !== $this->operationMfaPresent) {
-            $res['OperationMfaPresent'] = $this->operationMfaPresent;
-        }
 
         return $res;
     }
@@ -80,7 +62,7 @@ class GetSupplierInformationResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetSupplierInformationResponseBody
+     * @return UpdateSupplierInformationResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -96,12 +78,6 @@ class GetSupplierInformationResponseBody extends Model
         }
         if (isset($map['SupplierDesc'])) {
             $model->supplierDesc = $map['SupplierDesc'];
-        }
-        if (isset($map['OperationIp'])) {
-            $model->operationIp = $map['OperationIp'];
-        }
-        if (isset($map['OperationMfaPresent'])) {
-            $model->operationMfaPresent = $map['OperationMfaPresent'];
         }
 
         return $model;

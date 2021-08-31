@@ -17,6 +17,11 @@ class GetServiceInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $templateName;
+
+    /**
+     * @var string
+     */
     public $updateTime;
 
     /**
@@ -50,11 +55,6 @@ class GetServiceInstanceResponseBody extends Model
     public $parameters;
 
     /**
-     * @var string
-     */
-    public $statusDetail;
-
-    /**
      * @var int
      */
     public $progress;
@@ -62,19 +62,55 @@ class GetServiceInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $templateName;
+    public $statusDetail;
+
+    /**
+     * @var string
+     */
+    public $operationStartTime;
+
+    /**
+     * @var string
+     */
+    public $operationEndTime;
+
+    /**
+     * @var string
+     */
+    public $operatedServiceInstanceId;
+
+    /**
+     * @var bool
+     */
+    public $isOperated;
+
+    /**
+     * @var bool
+     */
+    public $enableInstanceOps;
+
+    /**
+     * @var string
+     */
+    public $resources;
     protected $_name = [
-        'status'            => 'Status',
-        'updateTime'        => 'UpdateTime',
-        'requestId'         => 'RequestId',
-        'serviceInstanceId' => 'ServiceInstanceId',
-        'createTime'        => 'CreateTime',
-        'userId'            => 'UserId',
-        'service'           => 'Service',
-        'parameters'        => 'Parameters',
-        'statusDetail'      => 'StatusDetail',
-        'progress'          => 'Progress',
-        'templateName'      => 'TemplateName',
+        'status'                    => 'Status',
+        'templateName'              => 'TemplateName',
+        'updateTime'                => 'UpdateTime',
+        'requestId'                 => 'RequestId',
+        'serviceInstanceId'         => 'ServiceInstanceId',
+        'createTime'                => 'CreateTime',
+        'userId'                    => 'UserId',
+        'service'                   => 'Service',
+        'parameters'                => 'Parameters',
+        'progress'                  => 'Progress',
+        'statusDetail'              => 'StatusDetail',
+        'operationStartTime'        => 'OperationStartTime',
+        'operationEndTime'          => 'OperationEndTime',
+        'operatedServiceInstanceId' => 'OperatedServiceInstanceId',
+        'isOperated'                => 'IsOperated',
+        'enableInstanceOps'         => 'EnableInstanceOps',
+        'resources'                 => 'Resources',
     ];
 
     public function validate()
@@ -86,6 +122,9 @@ class GetServiceInstanceResponseBody extends Model
         $res = [];
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -108,14 +147,29 @@ class GetServiceInstanceResponseBody extends Model
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
-        if (null !== $this->statusDetail) {
-            $res['StatusDetail'] = $this->statusDetail;
-        }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
+        if (null !== $this->statusDetail) {
+            $res['StatusDetail'] = $this->statusDetail;
+        }
+        if (null !== $this->operationStartTime) {
+            $res['OperationStartTime'] = $this->operationStartTime;
+        }
+        if (null !== $this->operationEndTime) {
+            $res['OperationEndTime'] = $this->operationEndTime;
+        }
+        if (null !== $this->operatedServiceInstanceId) {
+            $res['OperatedServiceInstanceId'] = $this->operatedServiceInstanceId;
+        }
+        if (null !== $this->isOperated) {
+            $res['IsOperated'] = $this->isOperated;
+        }
+        if (null !== $this->enableInstanceOps) {
+            $res['EnableInstanceOps'] = $this->enableInstanceOps;
+        }
+        if (null !== $this->resources) {
+            $res['Resources'] = $this->resources;
         }
 
         return $res;
@@ -131,6 +185,9 @@ class GetServiceInstanceResponseBody extends Model
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
@@ -153,14 +210,29 @@ class GetServiceInstanceResponseBody extends Model
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
-        if (isset($map['StatusDetail'])) {
-            $model->statusDetail = $map['StatusDetail'];
-        }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
+        if (isset($map['StatusDetail'])) {
+            $model->statusDetail = $map['StatusDetail'];
+        }
+        if (isset($map['OperationStartTime'])) {
+            $model->operationStartTime = $map['OperationStartTime'];
+        }
+        if (isset($map['OperationEndTime'])) {
+            $model->operationEndTime = $map['OperationEndTime'];
+        }
+        if (isset($map['OperatedServiceInstanceId'])) {
+            $model->operatedServiceInstanceId = $map['OperatedServiceInstanceId'];
+        }
+        if (isset($map['IsOperated'])) {
+            $model->isOperated = $map['IsOperated'];
+        }
+        if (isset($map['EnableInstanceOps'])) {
+            $model->enableInstanceOps = $map['EnableInstanceOps'];
+        }
+        if (isset($map['Resources'])) {
+            $model->resources = $map['Resources'];
         }
 
         return $model;
