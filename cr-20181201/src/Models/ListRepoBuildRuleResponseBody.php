@@ -10,29 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListRepoBuildRuleResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $isSuccess;
-
-    /**
-     * @var string
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
-
-    /**
-     * @var buildRules[]
-     */
-    public $buildRules;
+    public $code;
 
     /**
      * @var int
@@ -40,17 +25,32 @@ class ListRepoBuildRuleResponseBody extends Model
     public $pageNo;
 
     /**
+     * @var bool
+     */
+    public $isSuccess;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
-    public $code;
+    public $totalCount;
+
+    /**
+     * @var buildRules[]
+     */
+    public $buildRules;
     protected $_name = [
-        'isSuccess'  => 'IsSuccess',
-        'totalCount' => 'TotalCount',
         'requestId'  => 'RequestId',
-        'pageSize'   => 'PageSize',
-        'buildRules' => 'BuildRules',
-        'pageNo'     => 'PageNo',
         'code'       => 'Code',
+        'pageNo'     => 'PageNo',
+        'isSuccess'  => 'IsSuccess',
+        'pageSize'   => 'PageSize',
+        'totalCount' => 'TotalCount',
+        'buildRules' => 'BuildRules',
     ];
 
     public function validate()
@@ -60,17 +60,23 @@ class ListRepoBuildRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->buildRules) {
             $res['BuildRules'] = [];
@@ -80,12 +86,6 @@ class ListRepoBuildRuleResponseBody extends Model
                     $res['BuildRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -99,17 +99,23 @@ class ListRepoBuildRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['BuildRules'])) {
             if (!empty($map['BuildRules'])) {
@@ -119,12 +125,6 @@ class ListRepoBuildRuleResponseBody extends Model
                     $model->buildRules[$n++] = null !== $item ? buildRules::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

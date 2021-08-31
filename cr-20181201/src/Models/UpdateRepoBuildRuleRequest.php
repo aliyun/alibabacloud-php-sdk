@@ -47,6 +47,11 @@ class UpdateRepoBuildRuleRequest extends Model
      * @var string
      */
     public $buildRuleId;
+
+    /**
+     * @var string[]
+     */
+    public $platforms;
     protected $_name = [
         'instanceId'         => 'InstanceId',
         'repoId'             => 'RepoId',
@@ -56,6 +61,7 @@ class UpdateRepoBuildRuleRequest extends Model
         'pushName'           => 'PushName',
         'imageTag'           => 'ImageTag',
         'buildRuleId'        => 'BuildRuleId',
+        'platforms'          => 'Platforms',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class UpdateRepoBuildRuleRequest extends Model
         }
         if (null !== $this->buildRuleId) {
             $res['BuildRuleId'] = $this->buildRuleId;
+        }
+        if (null !== $this->platforms) {
+            $res['Platforms'] = $this->platforms;
         }
 
         return $res;
@@ -124,6 +133,11 @@ class UpdateRepoBuildRuleRequest extends Model
         }
         if (isset($map['BuildRuleId'])) {
             $model->buildRuleId = $map['BuildRuleId'];
+        }
+        if (isset($map['Platforms'])) {
+            if (!empty($map['Platforms'])) {
+                $model->platforms = $map['Platforms'];
+            }
         }
 
         return $model;

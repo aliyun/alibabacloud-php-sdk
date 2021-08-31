@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetRepoTagLayersResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var bool
      */
     public $isSuccess;
@@ -20,18 +25,13 @@ class GetRepoTagLayersResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var layers[]
      */
     public $layers;
     protected $_name = [
+        'code'      => 'Code',
         'isSuccess' => 'IsSuccess',
         'requestId' => 'RequestId',
-        'code'      => 'Code',
         'layers'    => 'Layers',
     ];
 
@@ -42,14 +42,14 @@ class GetRepoTagLayersResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
         if (null !== $this->layers) {
             $res['Layers'] = [];
@@ -72,14 +72,14 @@ class GetRepoTagLayersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
         if (isset($map['Layers'])) {
             if (!empty($map['Layers'])) {

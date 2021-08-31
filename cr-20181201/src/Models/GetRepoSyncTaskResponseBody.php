@@ -12,9 +12,9 @@ use AlibabaCloud\Tea\Model;
 class GetRepoSyncTaskResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $isSuccess;
+    public $syncRuleId;
 
     /**
      * @var int
@@ -27,9 +27,9 @@ class GetRepoSyncTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @var layerTasks[]
+     * @var int
      */
-    public $layerTasks;
+    public $syncedSize;
 
     /**
      * @var string
@@ -44,22 +44,17 @@ class GetRepoSyncTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
-
-    /**
-     * @var int
-     */
-    public $syncedSize;
+    public $syncBatchTaskId;
 
     /**
      * @var string
      */
-    public $syncRuleId;
+    public $code;
 
     /**
-     * @var imageFrom
+     * @var bool
      */
-    public $imageFrom;
+    public $isSuccess;
 
     /**
      * @var string
@@ -67,28 +62,33 @@ class GetRepoSyncTaskResponseBody extends Model
     public $taskTrigger;
 
     /**
+     * @var imageFrom
+     */
+    public $imageFrom;
+
+    /**
      * @var imageTo
      */
     public $imageTo;
 
     /**
-     * @var string
+     * @var layerTasks[]
      */
-    public $syncBatchTaskId;
+    public $layerTasks;
     protected $_name = [
-        'isSuccess'       => 'IsSuccess',
+        'syncRuleId'      => 'SyncRuleId',
         'progress'        => 'Progress',
         'requestId'       => 'RequestId',
-        'layerTasks'      => 'LayerTasks',
+        'syncedSize'      => 'SyncedSize',
         'taskStatus'      => 'TaskStatus',
         'syncTaskId'      => 'SyncTaskId',
-        'code'            => 'Code',
-        'syncedSize'      => 'SyncedSize',
-        'syncRuleId'      => 'SyncRuleId',
-        'imageFrom'       => 'ImageFrom',
-        'taskTrigger'     => 'TaskTrigger',
-        'imageTo'         => 'ImageTo',
         'syncBatchTaskId' => 'SyncBatchTaskId',
+        'code'            => 'Code',
+        'isSuccess'       => 'IsSuccess',
+        'taskTrigger'     => 'TaskTrigger',
+        'imageFrom'       => 'ImageFrom',
+        'imageTo'         => 'ImageTo',
+        'layerTasks'      => 'LayerTasks',
     ];
 
     public function validate()
@@ -98,14 +98,41 @@ class GetRepoSyncTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
+        if (null !== $this->syncRuleId) {
+            $res['SyncRuleId'] = $this->syncRuleId;
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->syncedSize) {
+            $res['SyncedSize'] = $this->syncedSize;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
+        }
+        if (null !== $this->syncTaskId) {
+            $res['SyncTaskId'] = $this->syncTaskId;
+        }
+        if (null !== $this->syncBatchTaskId) {
+            $res['SyncBatchTaskId'] = $this->syncBatchTaskId;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->taskTrigger) {
+            $res['TaskTrigger'] = $this->taskTrigger;
+        }
+        if (null !== $this->imageFrom) {
+            $res['ImageFrom'] = null !== $this->imageFrom ? $this->imageFrom->toMap() : null;
+        }
+        if (null !== $this->imageTo) {
+            $res['ImageTo'] = null !== $this->imageTo ? $this->imageTo->toMap() : null;
         }
         if (null !== $this->layerTasks) {
             $res['LayerTasks'] = [];
@@ -115,33 +142,6 @@ class GetRepoSyncTaskResponseBody extends Model
                     $res['LayerTasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
-        }
-        if (null !== $this->syncTaskId) {
-            $res['SyncTaskId'] = $this->syncTaskId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->syncedSize) {
-            $res['SyncedSize'] = $this->syncedSize;
-        }
-        if (null !== $this->syncRuleId) {
-            $res['SyncRuleId'] = $this->syncRuleId;
-        }
-        if (null !== $this->imageFrom) {
-            $res['ImageFrom'] = null !== $this->imageFrom ? $this->imageFrom->toMap() : null;
-        }
-        if (null !== $this->taskTrigger) {
-            $res['TaskTrigger'] = $this->taskTrigger;
-        }
-        if (null !== $this->imageTo) {
-            $res['ImageTo'] = null !== $this->imageTo ? $this->imageTo->toMap() : null;
-        }
-        if (null !== $this->syncBatchTaskId) {
-            $res['SyncBatchTaskId'] = $this->syncBatchTaskId;
         }
 
         return $res;
@@ -155,14 +155,41 @@ class GetRepoSyncTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
+        if (isset($map['SyncRuleId'])) {
+            $model->syncRuleId = $map['SyncRuleId'];
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SyncedSize'])) {
+            $model->syncedSize = $map['SyncedSize'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['SyncTaskId'])) {
+            $model->syncTaskId = $map['SyncTaskId'];
+        }
+        if (isset($map['SyncBatchTaskId'])) {
+            $model->syncBatchTaskId = $map['SyncBatchTaskId'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['TaskTrigger'])) {
+            $model->taskTrigger = $map['TaskTrigger'];
+        }
+        if (isset($map['ImageFrom'])) {
+            $model->imageFrom = imageFrom::fromMap($map['ImageFrom']);
+        }
+        if (isset($map['ImageTo'])) {
+            $model->imageTo = imageTo::fromMap($map['ImageTo']);
         }
         if (isset($map['LayerTasks'])) {
             if (!empty($map['LayerTasks'])) {
@@ -172,33 +199,6 @@ class GetRepoSyncTaskResponseBody extends Model
                     $model->layerTasks[$n++] = null !== $item ? layerTasks::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
-        }
-        if (isset($map['SyncTaskId'])) {
-            $model->syncTaskId = $map['SyncTaskId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['SyncedSize'])) {
-            $model->syncedSize = $map['SyncedSize'];
-        }
-        if (isset($map['SyncRuleId'])) {
-            $model->syncRuleId = $map['SyncRuleId'];
-        }
-        if (isset($map['ImageFrom'])) {
-            $model->imageFrom = imageFrom::fromMap($map['ImageFrom']);
-        }
-        if (isset($map['TaskTrigger'])) {
-            $model->taskTrigger = $map['TaskTrigger'];
-        }
-        if (isset($map['ImageTo'])) {
-            $model->imageTo = imageTo::fromMap($map['ImageTo']);
-        }
-        if (isset($map['SyncBatchTaskId'])) {
-            $model->syncBatchTaskId = $map['SyncBatchTaskId'];
         }
 
         return $model;

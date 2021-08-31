@@ -37,6 +37,16 @@ class buildRules extends Model
      * @var string
      */
     public $dockerfileName;
+
+    /**
+     * @var string[]
+     */
+    public $platforms;
+
+    /**
+     * @var string[]
+     */
+    public $buildArgs;
     protected $_name = [
         'dockerfileLocation' => 'DockerfileLocation',
         'buildRuleId'        => 'BuildRuleId',
@@ -44,6 +54,8 @@ class buildRules extends Model
         'pushName'           => 'PushName',
         'imageTag'           => 'ImageTag',
         'dockerfileName'     => 'DockerfileName',
+        'platforms'          => 'Platforms',
+        'buildArgs'          => 'BuildArgs',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class buildRules extends Model
         }
         if (null !== $this->dockerfileName) {
             $res['DockerfileName'] = $this->dockerfileName;
+        }
+        if (null !== $this->platforms) {
+            $res['Platforms'] = $this->platforms;
+        }
+        if (null !== $this->buildArgs) {
+            $res['BuildArgs'] = $this->buildArgs;
         }
 
         return $res;
@@ -100,6 +118,16 @@ class buildRules extends Model
         }
         if (isset($map['DockerfileName'])) {
             $model->dockerfileName = $map['DockerfileName'];
+        }
+        if (isset($map['Platforms'])) {
+            if (!empty($map['Platforms'])) {
+                $model->platforms = $map['Platforms'];
+            }
+        }
+        if (isset($map['BuildArgs'])) {
+            if (!empty($map['BuildArgs'])) {
+                $model->buildArgs = $map['BuildArgs'];
+            }
         }
 
         return $model;

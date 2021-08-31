@@ -16,14 +16,14 @@ class GetInstanceEndpointResponseBody extends Model
     public $status;
 
     /**
-     * @var domains[]
+     * @var string
      */
-    public $domains;
+    public $requestId;
 
     /**
-     * @var aclEntries[]
+     * @var string
      */
-    public $aclEntries;
+    public $code;
 
     /**
      * @var bool
@@ -36,28 +36,28 @@ class GetInstanceEndpointResponseBody extends Model
     public $aclEnable;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $enable;
 
     /**
-     * @var string
+     * @var domains[]
      */
-    public $code;
+    public $domains;
+
+    /**
+     * @var aclEntries[]
+     */
+    public $aclEntries;
     protected $_name = [
         'status'     => 'Status',
-        'domains'    => 'Domains',
-        'aclEntries' => 'AclEntries',
+        'requestId'  => 'RequestId',
+        'code'       => 'Code',
         'isSuccess'  => 'IsSuccess',
         'aclEnable'  => 'AclEnable',
-        'requestId'  => 'RequestId',
         'enable'     => 'Enable',
-        'code'       => 'Code',
+        'domains'    => 'Domains',
+        'aclEntries' => 'AclEntries',
     ];
 
     public function validate()
@@ -69,6 +69,21 @@ class GetInstanceEndpointResponseBody extends Model
         $res = [];
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->aclEnable) {
+            $res['AclEnable'] = $this->aclEnable;
+        }
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
         }
         if (null !== $this->domains) {
             $res['Domains'] = [];
@@ -88,21 +103,6 @@ class GetInstanceEndpointResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
-        if (null !== $this->aclEnable) {
-            $res['AclEnable'] = $this->aclEnable;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
 
         return $res;
     }
@@ -117,6 +117,21 @@ class GetInstanceEndpointResponseBody extends Model
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['AclEnable'])) {
+            $model->aclEnable = $map['AclEnable'];
+        }
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
         }
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
@@ -135,21 +150,6 @@ class GetInstanceEndpointResponseBody extends Model
                     $model->aclEntries[$n++] = null !== $item ? aclEntries::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
-        if (isset($map['AclEnable'])) {
-            $model->aclEnable = $map['AclEnable'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

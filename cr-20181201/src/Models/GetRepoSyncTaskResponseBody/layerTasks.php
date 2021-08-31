@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class layerTasks extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $syncedSize;
+    public $taskStatus;
 
     /**
      * @var string
@@ -19,9 +19,9 @@ class layerTasks extends Model
     public $digest;
 
     /**
-     * @var string
+     * @var int
      */
-    public $taskStatus;
+    public $syncedSize;
 
     /**
      * @var int
@@ -32,12 +32,18 @@ class layerTasks extends Model
      * @var string
      */
     public $syncLayerTaskId;
+
+    /**
+     * @var string
+     */
+    public $artifactDigest;
     protected $_name = [
-        'syncedSize'      => 'SyncedSize',
-        'digest'          => 'Digest',
         'taskStatus'      => 'TaskStatus',
+        'digest'          => 'Digest',
+        'syncedSize'      => 'SyncedSize',
         'size'            => 'Size',
         'syncLayerTaskId' => 'SyncLayerTaskId',
+        'artifactDigest'  => 'ArtifactDigest',
     ];
 
     public function validate()
@@ -47,20 +53,23 @@ class layerTasks extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->syncedSize) {
-            $res['SyncedSize'] = $this->syncedSize;
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
         }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
+        if (null !== $this->syncedSize) {
+            $res['SyncedSize'] = $this->syncedSize;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
         if (null !== $this->syncLayerTaskId) {
             $res['SyncLayerTaskId'] = $this->syncLayerTaskId;
+        }
+        if (null !== $this->artifactDigest) {
+            $res['ArtifactDigest'] = $this->artifactDigest;
         }
 
         return $res;
@@ -74,20 +83,23 @@ class layerTasks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SyncedSize'])) {
-            $model->syncedSize = $map['SyncedSize'];
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
         }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
+        if (isset($map['SyncedSize'])) {
+            $model->syncedSize = $map['SyncedSize'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
         if (isset($map['SyncLayerTaskId'])) {
             $model->syncLayerTaskId = $map['SyncLayerTaskId'];
+        }
+        if (isset($map['ArtifactDigest'])) {
+            $model->artifactDigest = $map['ArtifactDigest'];
         }
 
         return $model;

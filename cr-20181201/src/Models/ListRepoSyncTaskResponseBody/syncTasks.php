@@ -46,14 +46,14 @@ class syncTasks extends Model
     public $taskTrigger;
 
     /**
-     * @var imageTo
-     */
-    public $imageTo;
-
-    /**
      * @var imageFrom
      */
     public $imageFrom;
+
+    /**
+     * @var imageTo
+     */
+    public $imageTo;
     protected $_name = [
         'modifedTime'     => 'ModifedTime',
         'syncRuleId'      => 'SyncRuleId',
@@ -62,8 +62,8 @@ class syncTasks extends Model
         'createTime'      => 'CreateTime',
         'syncBatchTaskId' => 'SyncBatchTaskId',
         'taskTrigger'     => 'TaskTrigger',
-        'imageTo'         => 'ImageTo',
         'imageFrom'       => 'ImageFrom',
+        'imageTo'         => 'ImageTo',
     ];
 
     public function validate()
@@ -94,11 +94,11 @@ class syncTasks extends Model
         if (null !== $this->taskTrigger) {
             $res['TaskTrigger'] = $this->taskTrigger;
         }
-        if (null !== $this->imageTo) {
-            $res['ImageTo'] = null !== $this->imageTo ? $this->imageTo->toMap() : null;
-        }
         if (null !== $this->imageFrom) {
             $res['ImageFrom'] = null !== $this->imageFrom ? $this->imageFrom->toMap() : null;
+        }
+        if (null !== $this->imageTo) {
+            $res['ImageTo'] = null !== $this->imageTo ? $this->imageTo->toMap() : null;
         }
 
         return $res;
@@ -133,11 +133,11 @@ class syncTasks extends Model
         if (isset($map['TaskTrigger'])) {
             $model->taskTrigger = $map['TaskTrigger'];
         }
-        if (isset($map['ImageTo'])) {
-            $model->imageTo = imageTo::fromMap($map['ImageTo']);
-        }
         if (isset($map['ImageFrom'])) {
             $model->imageFrom = imageFrom::fromMap($map['ImageFrom']);
+        }
+        if (isset($map['ImageTo'])) {
+            $model->imageTo = imageTo::fromMap($map['ImageTo']);
         }
 
         return $model;

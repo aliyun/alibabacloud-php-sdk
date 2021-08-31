@@ -16,12 +16,12 @@ class repoTriggerRecords extends Model
     /**
      * @var string
      */
-    public $responseHeaders;
+    public $triggerName;
 
     /**
      * @var string
      */
-    public $triggerName;
+    public $responseHeaders;
 
     /**
      * @var string
@@ -31,7 +31,7 @@ class repoTriggerRecords extends Model
     /**
      * @var string
      */
-    public $requestBody;
+    public $responseBody;
 
     /**
      * @var string
@@ -41,17 +41,17 @@ class repoTriggerRecords extends Model
     /**
      * @var string
      */
-    public $responseBody;
-
-    /**
-     * @var string
-     */
-    public $triggerTag;
+    public $requestBody;
 
     /**
      * @var string
      */
     public $triggerType;
+
+    /**
+     * @var string
+     */
+    public $triggerTag;
 
     /**
      * @var string
@@ -74,14 +74,14 @@ class repoTriggerRecords extends Model
     public $requestTime;
     protected $_name = [
         'requestHeaders'  => 'RequestHeaders',
-        'responseHeaders' => 'ResponseHeaders',
         'triggerName'     => 'TriggerName',
+        'responseHeaders' => 'ResponseHeaders',
         'triggerLogId'    => 'TriggerLogId',
-        'requestBody'     => 'RequestBody',
-        'triggerUrl'      => 'TriggerUrl',
         'responseBody'    => 'ResponseBody',
-        'triggerTag'      => 'TriggerTag',
+        'triggerUrl'      => 'TriggerUrl',
+        'requestBody'     => 'RequestBody',
         'triggerType'     => 'TriggerType',
+        'triggerTag'      => 'TriggerTag',
         'statusCode'      => 'StatusCode',
         'repoEvent'       => 'RepoEvent',
         'triggerId'       => 'TriggerId',
@@ -98,29 +98,29 @@ class repoTriggerRecords extends Model
         if (null !== $this->requestHeaders) {
             $res['RequestHeaders'] = $this->requestHeaders;
         }
-        if (null !== $this->responseHeaders) {
-            $res['ResponseHeaders'] = $this->responseHeaders;
-        }
         if (null !== $this->triggerName) {
             $res['TriggerName'] = $this->triggerName;
+        }
+        if (null !== $this->responseHeaders) {
+            $res['ResponseHeaders'] = $this->responseHeaders;
         }
         if (null !== $this->triggerLogId) {
             $res['TriggerLogId'] = $this->triggerLogId;
         }
-        if (null !== $this->requestBody) {
-            $res['RequestBody'] = $this->requestBody;
+        if (null !== $this->responseBody) {
+            $res['ResponseBody'] = $this->responseBody;
         }
         if (null !== $this->triggerUrl) {
             $res['TriggerUrl'] = $this->triggerUrl;
         }
-        if (null !== $this->responseBody) {
-            $res['ResponseBody'] = $this->responseBody;
-        }
-        if (null !== $this->triggerTag) {
-            $res['TriggerTag'] = $this->triggerTag;
+        if (null !== $this->requestBody) {
+            $res['RequestBody'] = $this->requestBody;
         }
         if (null !== $this->triggerType) {
             $res['TriggerType'] = $this->triggerType;
+        }
+        if (null !== $this->triggerTag) {
+            $res['TriggerTag'] = $this->triggerTag;
         }
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
@@ -149,29 +149,29 @@ class repoTriggerRecords extends Model
         if (isset($map['RequestHeaders'])) {
             $model->requestHeaders = $map['RequestHeaders'];
         }
-        if (isset($map['ResponseHeaders'])) {
-            $model->responseHeaders = $map['ResponseHeaders'];
-        }
         if (isset($map['TriggerName'])) {
             $model->triggerName = $map['TriggerName'];
+        }
+        if (isset($map['ResponseHeaders'])) {
+            $model->responseHeaders = $map['ResponseHeaders'];
         }
         if (isset($map['TriggerLogId'])) {
             $model->triggerLogId = $map['TriggerLogId'];
         }
-        if (isset($map['RequestBody'])) {
-            $model->requestBody = $map['RequestBody'];
+        if (isset($map['ResponseBody'])) {
+            $model->responseBody = $map['ResponseBody'];
         }
         if (isset($map['TriggerUrl'])) {
             $model->triggerUrl = $map['TriggerUrl'];
         }
-        if (isset($map['ResponseBody'])) {
-            $model->responseBody = $map['ResponseBody'];
-        }
-        if (isset($map['TriggerTag'])) {
-            $model->triggerTag = $map['TriggerTag'];
+        if (isset($map['RequestBody'])) {
+            $model->requestBody = $map['RequestBody'];
         }
         if (isset($map['TriggerType'])) {
             $model->triggerType = $map['TriggerType'];
+        }
+        if (isset($map['TriggerTag'])) {
+            $model->triggerTag = $map['TriggerTag'];
         }
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];

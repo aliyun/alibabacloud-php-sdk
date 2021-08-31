@@ -14,18 +14,18 @@ class config extends Model
     public $digest;
 
     /**
-     * @var int
-     */
-    public $size;
-
-    /**
      * @var string
      */
     public $mediaType;
+
+    /**
+     * @var int
+     */
+    public $size;
     protected $_name = [
         'digest'    => 'Digest',
-        'size'      => 'Size',
         'mediaType' => 'MediaType',
+        'size'      => 'Size',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class config extends Model
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
         }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class config extends Model
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
         }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
 
         return $model;

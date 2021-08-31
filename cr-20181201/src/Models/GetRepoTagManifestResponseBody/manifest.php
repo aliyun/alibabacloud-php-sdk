@@ -14,21 +14,6 @@ use AlibabaCloud\Tea\Model;
 class manifest extends Model
 {
     /**
-     * @var history[]
-     */
-    public $history;
-
-    /**
-     * @var int
-     */
-    public $schemaVersion;
-
-    /**
-     * @var layers[]
-     */
-    public $layers;
-
-    /**
      * @var string
      */
     public $tag;
@@ -44,9 +29,24 @@ class manifest extends Model
     public $mediaType;
 
     /**
+     * @var int
+     */
+    public $schemaVersion;
+
+    /**
+     * @var string
+     */
+    public $architecture;
+
+    /**
      * @var fsLayers[]
      */
     public $fsLayers;
+
+    /**
+     * @var history[]
+     */
+    public $history;
 
     /**
      * @var signatures[]
@@ -54,25 +54,25 @@ class manifest extends Model
     public $signatures;
 
     /**
+     * @var layers[]
+     */
+    public $layers;
+
+    /**
      * @var config
      */
     public $config;
-
-    /**
-     * @var string
-     */
-    public $architecture;
     protected $_name = [
-        'history'       => 'History',
-        'schemaVersion' => 'SchemaVersion',
-        'layers'        => 'Layers',
         'tag'           => 'Tag',
         'name'          => 'Name',
         'mediaType'     => 'MediaType',
-        'fsLayers'      => 'FsLayers',
-        'signatures'    => 'Signatures',
-        'config'        => 'Config',
+        'schemaVersion' => 'SchemaVersion',
         'architecture'  => 'Architecture',
+        'fsLayers'      => 'FsLayers',
+        'history'       => 'History',
+        'signatures'    => 'Signatures',
+        'layers'        => 'Layers',
+        'config'        => 'Config',
     ];
 
     public function validate()
@@ -82,27 +82,6 @@ class manifest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->history) {
-            $res['History'] = [];
-            if (null !== $this->history && \is_array($this->history)) {
-                $n = 0;
-                foreach ($this->history as $item) {
-                    $res['History'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->schemaVersion) {
-            $res['SchemaVersion'] = $this->schemaVersion;
-        }
-        if (null !== $this->layers) {
-            $res['Layers'] = [];
-            if (null !== $this->layers && \is_array($this->layers)) {
-                $n = 0;
-                foreach ($this->layers as $item) {
-                    $res['Layers'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
@@ -112,12 +91,27 @@ class manifest extends Model
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
+        if (null !== $this->schemaVersion) {
+            $res['SchemaVersion'] = $this->schemaVersion;
+        }
+        if (null !== $this->architecture) {
+            $res['Architecture'] = $this->architecture;
+        }
         if (null !== $this->fsLayers) {
             $res['FsLayers'] = [];
             if (null !== $this->fsLayers && \is_array($this->fsLayers)) {
                 $n = 0;
                 foreach ($this->fsLayers as $item) {
                     $res['FsLayers'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->history) {
+            $res['History'] = [];
+            if (null !== $this->history && \is_array($this->history)) {
+                $n = 0;
+                foreach ($this->history as $item) {
+                    $res['History'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -130,11 +124,17 @@ class manifest extends Model
                 }
             }
         }
+        if (null !== $this->layers) {
+            $res['Layers'] = [];
+            if (null !== $this->layers && \is_array($this->layers)) {
+                $n = 0;
+                foreach ($this->layers as $item) {
+                    $res['Layers'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->config) {
             $res['Config'] = null !== $this->config ? $this->config->toMap() : null;
-        }
-        if (null !== $this->architecture) {
-            $res['Architecture'] = $this->architecture;
         }
 
         return $res;
@@ -148,27 +148,6 @@ class manifest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['History'])) {
-            if (!empty($map['History'])) {
-                $model->history = [];
-                $n              = 0;
-                foreach ($map['History'] as $item) {
-                    $model->history[$n++] = null !== $item ? history::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['SchemaVersion'])) {
-            $model->schemaVersion = $map['SchemaVersion'];
-        }
-        if (isset($map['Layers'])) {
-            if (!empty($map['Layers'])) {
-                $model->layers = [];
-                $n             = 0;
-                foreach ($map['Layers'] as $item) {
-                    $model->layers[$n++] = null !== $item ? layers::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
@@ -178,12 +157,27 @@ class manifest extends Model
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }
+        if (isset($map['SchemaVersion'])) {
+            $model->schemaVersion = $map['SchemaVersion'];
+        }
+        if (isset($map['Architecture'])) {
+            $model->architecture = $map['Architecture'];
+        }
         if (isset($map['FsLayers'])) {
             if (!empty($map['FsLayers'])) {
                 $model->fsLayers = [];
                 $n               = 0;
                 foreach ($map['FsLayers'] as $item) {
                     $model->fsLayers[$n++] = null !== $item ? fsLayers::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['History'])) {
+            if (!empty($map['History'])) {
+                $model->history = [];
+                $n              = 0;
+                foreach ($map['History'] as $item) {
+                    $model->history[$n++] = null !== $item ? history::fromMap($item) : $item;
                 }
             }
         }
@@ -196,11 +190,17 @@ class manifest extends Model
                 }
             }
         }
+        if (isset($map['Layers'])) {
+            if (!empty($map['Layers'])) {
+                $model->layers = [];
+                $n             = 0;
+                foreach ($map['Layers'] as $item) {
+                    $model->layers[$n++] = null !== $item ? layers::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Config'])) {
             $model->config = config::fromMap($map['Config']);
-        }
-        if (isset($map['Architecture'])) {
-            $model->architecture = $map['Architecture'];
         }
 
         return $model;

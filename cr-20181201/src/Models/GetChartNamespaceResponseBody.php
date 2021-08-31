@@ -11,27 +11,27 @@ class GetChartNamespaceResponseBody extends Model
     /**
      * @var string
      */
-    public $namespaceStatus;
-
-    /**
-     * @var bool
-     */
-    public $isSuccess;
-
-    /**
-     * @var string
-     */
-    public $namespaceName;
-
-    /**
-     * @var string
-     */
     public $defaultRepoType;
 
     /**
      * @var string
      */
+    public $namespaceId;
+
+    /**
+     * @var string
+     */
+    public $namespaceStatus;
+
+    /**
+     * @var string
+     */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $code;
 
     /**
      * @var string
@@ -44,24 +44,24 @@ class GetChartNamespaceResponseBody extends Model
     public $autoCreateRepo;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $namespaceId;
+    public $isSuccess;
 
     /**
      * @var string
      */
-    public $code;
+    public $namespaceName;
     protected $_name = [
-        'namespaceStatus' => 'NamespaceStatus',
-        'isSuccess'       => 'IsSuccess',
-        'namespaceName'   => 'NamespaceName',
         'defaultRepoType' => 'DefaultRepoType',
+        'namespaceId'     => 'NamespaceId',
+        'namespaceStatus' => 'NamespaceStatus',
         'requestId'       => 'RequestId',
+        'code'            => 'Code',
         'instanceId'      => 'InstanceId',
         'autoCreateRepo'  => 'AutoCreateRepo',
-        'namespaceId'     => 'NamespaceId',
-        'code'            => 'Code',
+        'isSuccess'       => 'IsSuccess',
+        'namespaceName'   => 'NamespaceName',
     ];
 
     public function validate()
@@ -71,20 +71,20 @@ class GetChartNamespaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->namespaceStatus) {
-            $res['NamespaceStatus'] = $this->namespaceStatus;
-        }
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
-        if (null !== $this->namespaceName) {
-            $res['NamespaceName'] = $this->namespaceName;
-        }
         if (null !== $this->defaultRepoType) {
             $res['DefaultRepoType'] = $this->defaultRepoType;
         }
+        if (null !== $this->namespaceId) {
+            $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->namespaceStatus) {
+            $res['NamespaceStatus'] = $this->namespaceStatus;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -92,11 +92,11 @@ class GetChartNamespaceResponseBody extends Model
         if (null !== $this->autoCreateRepo) {
             $res['AutoCreateRepo'] = $this->autoCreateRepo;
         }
-        if (null !== $this->namespaceId) {
-            $res['NamespaceId'] = $this->namespaceId;
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->namespaceName) {
+            $res['NamespaceName'] = $this->namespaceName;
         }
 
         return $res;
@@ -110,20 +110,20 @@ class GetChartNamespaceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NamespaceStatus'])) {
-            $model->namespaceStatus = $map['NamespaceStatus'];
-        }
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
-        if (isset($map['NamespaceName'])) {
-            $model->namespaceName = $map['NamespaceName'];
-        }
         if (isset($map['DefaultRepoType'])) {
             $model->defaultRepoType = $map['DefaultRepoType'];
         }
+        if (isset($map['NamespaceId'])) {
+            $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['NamespaceStatus'])) {
+            $model->namespaceStatus = $map['NamespaceStatus'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -131,11 +131,11 @@ class GetChartNamespaceResponseBody extends Model
         if (isset($map['AutoCreateRepo'])) {
             $model->autoCreateRepo = $map['AutoCreateRepo'];
         }
-        if (isset($map['NamespaceId'])) {
-            $model->namespaceId = $map['NamespaceId'];
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['NamespaceName'])) {
+            $model->namespaceName = $map['NamespaceName'];
         }
 
         return $model;

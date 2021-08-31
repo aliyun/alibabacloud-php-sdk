@@ -14,6 +14,11 @@ class GetRepoTagScanStatusResponseBody extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var bool
      */
     public $isSuccess;
@@ -26,12 +31,13 @@ class GetRepoTagScanStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $scanService;
     protected $_name = [
-        'status'    => 'Status',
-        'isSuccess' => 'IsSuccess',
-        'requestId' => 'RequestId',
-        'code'      => 'Code',
+        'status'      => 'Status',
+        'code'        => 'Code',
+        'isSuccess'   => 'IsSuccess',
+        'requestId'   => 'RequestId',
+        'scanService' => 'ScanService',
     ];
 
     public function validate()
@@ -44,14 +50,17 @@ class GetRepoTagScanStatusResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->scanService) {
+            $res['ScanService'] = $this->scanService;
         }
 
         return $res;
@@ -68,14 +77,17 @@ class GetRepoTagScanStatusResponseBody extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['ScanService'])) {
+            $model->scanService = $map['ScanService'];
         }
 
         return $model;

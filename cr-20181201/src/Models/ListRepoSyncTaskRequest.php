@@ -14,6 +14,21 @@ class ListRepoSyncTaskRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $repoNamespaceName;
+
+    /**
+     * @var string
+     */
+    public $repoName;
+
+    /**
+     * @var string
+     */
+    public $tag;
+
+    /**
      * @var int
      */
     public $pageNo;
@@ -28,10 +43,13 @@ class ListRepoSyncTaskRequest extends Model
      */
     public $syncRecordId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'pageNo'       => 'PageNo',
-        'pageSize'     => 'PageSize',
-        'syncRecordId' => 'SyncRecordId',
+        'instanceId'        => 'InstanceId',
+        'repoNamespaceName' => 'RepoNamespaceName',
+        'repoName'          => 'RepoName',
+        'tag'               => 'Tag',
+        'pageNo'            => 'PageNo',
+        'pageSize'          => 'PageSize',
+        'syncRecordId'      => 'SyncRecordId',
     ];
 
     public function validate()
@@ -43,6 +61,15 @@ class ListRepoSyncTaskRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->repoNamespaceName) {
+            $res['RepoNamespaceName'] = $this->repoNamespaceName;
+        }
+        if (null !== $this->repoName) {
+            $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
@@ -67,6 +94,15 @@ class ListRepoSyncTaskRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RepoNamespaceName'])) {
+            $model->repoNamespaceName = $map['RepoNamespaceName'];
+        }
+        if (isset($map['RepoName'])) {
+            $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];

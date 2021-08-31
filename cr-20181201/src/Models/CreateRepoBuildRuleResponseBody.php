@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoBuildRuleResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var bool
      */
     public $isSuccess;
-
-    /**
-     * @var string
-     */
-    public $buildRuleId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class CreateRepoBuildRuleResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $buildRuleId;
     protected $_name = [
-        'isSuccess'   => 'IsSuccess',
-        'buildRuleId' => 'BuildRuleId',
-        'requestId'   => 'RequestId',
         'code'        => 'Code',
+        'isSuccess'   => 'IsSuccess',
+        'requestId'   => 'RequestId',
+        'buildRuleId' => 'BuildRuleId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateRepoBuildRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
-        }
-        if (null !== $this->buildRuleId) {
-            $res['BuildRuleId'] = $this->buildRuleId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->buildRuleId) {
+            $res['BuildRuleId'] = $this->buildRuleId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateRepoBuildRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
-        }
-        if (isset($map['BuildRuleId'])) {
-            $model->buildRuleId = $map['BuildRuleId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['BuildRuleId'])) {
+            $model->buildRuleId = $map['BuildRuleId'];
         }
 
         return $model;

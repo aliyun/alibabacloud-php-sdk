@@ -52,6 +52,11 @@ class vulnerabilities extends Model
      * @var string
      */
     public $versionFixed;
+
+    /**
+     * @var string
+     */
+    public $fixCmd;
     protected $_name = [
         'severity'      => 'Severity',
         'addedBy'       => 'AddedBy',
@@ -62,6 +67,7 @@ class vulnerabilities extends Model
         'versionFormat' => 'VersionFormat',
         'cveLink'       => 'CveLink',
         'versionFixed'  => 'VersionFixed',
+        'fixCmd'        => 'FixCmd',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class vulnerabilities extends Model
         }
         if (null !== $this->versionFixed) {
             $res['VersionFixed'] = $this->versionFixed;
+        }
+        if (null !== $this->fixCmd) {
+            $res['FixCmd'] = $this->fixCmd;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class vulnerabilities extends Model
         }
         if (isset($map['VersionFixed'])) {
             $model->versionFixed = $map['VersionFixed'];
+        }
+        if (isset($map['FixCmd'])) {
+            $model->fixCmd = $map['FixCmd'];
         }
 
         return $model;

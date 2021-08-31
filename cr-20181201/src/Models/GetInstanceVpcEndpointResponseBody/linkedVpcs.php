@@ -19,6 +19,11 @@ class linkedVpcs extends Model
     public $vpcId;
 
     /**
+     * @var string
+     */
+    public $ip;
+
+    /**
      * @var bool
      */
     public $defaultAccess;
@@ -27,17 +32,12 @@ class linkedVpcs extends Model
      * @var string
      */
     public $vswitchId;
-
-    /**
-     * @var string
-     */
-    public $ip;
     protected $_name = [
         'status'        => 'Status',
         'vpcId'         => 'VpcId',
+        'ip'            => 'Ip',
         'defaultAccess' => 'DefaultAccess',
         'vswitchId'     => 'VswitchId',
-        'ip'            => 'Ip',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class linkedVpcs extends Model
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
+        }
         if (null !== $this->defaultAccess) {
             $res['DefaultAccess'] = $this->defaultAccess;
         }
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
-        }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class linkedVpcs extends Model
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
+        }
         if (isset($map['DefaultAccess'])) {
             $model->defaultAccess = $map['DefaultAccess'];
         }
         if (isset($map['VswitchId'])) {
             $model->vswitchId = $map['VswitchId'];
-        }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
         }
 
         return $model;

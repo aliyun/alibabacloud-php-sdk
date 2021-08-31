@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceEndpointResponseBody extends Model
 {
     /**
-     * @var endpoints[]
+     * @var string
      */
-    public $endpoints;
+    public $code;
 
     /**
      * @var bool
@@ -25,14 +25,14 @@ class ListInstanceEndpointResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var endpoints[]
      */
-    public $code;
+    public $endpoints;
     protected $_name = [
-        'endpoints' => 'Endpoints',
+        'code'      => 'Code',
         'isSuccess' => 'IsSuccess',
         'requestId' => 'RequestId',
-        'code'      => 'Code',
+        'endpoints' => 'Endpoints',
     ];
 
     public function validate()
@@ -42,6 +42,15 @@ class ListInstanceEndpointResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->endpoints) {
             $res['Endpoints'] = [];
             if (null !== $this->endpoints && \is_array($this->endpoints)) {
@@ -50,15 +59,6 @@ class ListInstanceEndpointResponseBody extends Model
                     $res['Endpoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -72,6 +72,15 @@ class ListInstanceEndpointResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
@@ -80,15 +89,6 @@ class ListInstanceEndpointResponseBody extends Model
                     $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

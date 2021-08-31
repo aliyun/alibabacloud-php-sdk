@@ -41,12 +41,12 @@ class syncRules extends Model
     /**
      * @var string
      */
-    public $targetRepoName;
+    public $targetInstanceId;
 
     /**
      * @var string
      */
-    public $targetInstanceId;
+    public $targetRepoName;
 
     /**
      * @var string
@@ -94,8 +94,8 @@ class syncRules extends Model
         'syncScope'           => 'SyncScope',
         'tagFilter'           => 'TagFilter',
         'targetNamespaceName' => 'TargetNamespaceName',
-        'targetRepoName'      => 'TargetRepoName',
         'targetInstanceId'    => 'TargetInstanceId',
+        'targetRepoName'      => 'TargetRepoName',
         'syncRuleId'          => 'SyncRuleId',
         'modifiedTime'        => 'ModifiedTime',
         'syncRuleName'        => 'SyncRuleName',
@@ -131,11 +131,11 @@ class syncRules extends Model
         if (null !== $this->targetNamespaceName) {
             $res['TargetNamespaceName'] = $this->targetNamespaceName;
         }
-        if (null !== $this->targetRepoName) {
-            $res['TargetRepoName'] = $this->targetRepoName;
-        }
         if (null !== $this->targetInstanceId) {
             $res['TargetInstanceId'] = $this->targetInstanceId;
+        }
+        if (null !== $this->targetRepoName) {
+            $res['TargetRepoName'] = $this->targetRepoName;
         }
         if (null !== $this->syncRuleId) {
             $res['SyncRuleId'] = $this->syncRuleId;
@@ -191,11 +191,11 @@ class syncRules extends Model
         if (isset($map['TargetNamespaceName'])) {
             $model->targetNamespaceName = $map['TargetNamespaceName'];
         }
-        if (isset($map['TargetRepoName'])) {
-            $model->targetRepoName = $map['TargetRepoName'];
-        }
         if (isset($map['TargetInstanceId'])) {
             $model->targetInstanceId = $map['TargetInstanceId'];
+        }
+        if (isset($map['TargetRepoName'])) {
+            $model->targetRepoName = $map['TargetRepoName'];
         }
         if (isset($map['SyncRuleId'])) {
             $model->syncRuleId = $map['SyncRuleId'];

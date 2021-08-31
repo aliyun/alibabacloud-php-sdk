@@ -27,11 +27,17 @@ class GetRepoTagScanStatusRequest extends Model
      * @var string
      */
     public $scanTaskId;
+
+    /**
+     * @var string
+     */
+    public $digest;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'repoId'     => 'RepoId',
         'tag'        => 'Tag',
         'scanTaskId' => 'ScanTaskId',
+        'digest'     => 'Digest',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class GetRepoTagScanStatusRequest extends Model
         }
         if (null !== $this->scanTaskId) {
             $res['ScanTaskId'] = $this->scanTaskId;
+        }
+        if (null !== $this->digest) {
+            $res['Digest'] = $this->digest;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class GetRepoTagScanStatusRequest extends Model
         }
         if (isset($map['ScanTaskId'])) {
             $model->scanTaskId = $map['ScanTaskId'];
+        }
+        if (isset($map['Digest'])) {
+            $model->digest = $map['Digest'];
         }
 
         return $model;

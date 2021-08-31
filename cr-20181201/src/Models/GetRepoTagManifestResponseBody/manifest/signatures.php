@@ -14,18 +14,18 @@ class signatures extends Model
     public $signature;
 
     /**
-     * @var string
-     */
-    public $protected;
-
-    /**
      * @var mixed[]
      */
     public $header;
+
+    /**
+     * @var string
+     */
+    public $protected;
     protected $_name = [
         'signature' => 'Signature',
-        'protected' => 'Protected',
         'header'    => 'Header',
+        'protected' => 'Protected',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class signatures extends Model
         if (null !== $this->signature) {
             $res['Signature'] = $this->signature;
         }
-        if (null !== $this->protected) {
-            $res['Protected'] = $this->protected;
-        }
         if (null !== $this->header) {
             $res['Header'] = $this->header;
+        }
+        if (null !== $this->protected) {
+            $res['Protected'] = $this->protected;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class signatures extends Model
         if (isset($map['Signature'])) {
             $model->signature = $map['Signature'];
         }
-        if (isset($map['Protected'])) {
-            $model->protected = $map['Protected'];
-        }
         if (isset($map['Header'])) {
             $model->header = $map['Header'];
+        }
+        if (isset($map['Protected'])) {
+            $model->protected = $map['Protected'];
         }
 
         return $model;

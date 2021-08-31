@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAuthorizationTokenResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $isSuccess;
-
-    /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $tempUsername;
-
-    /**
-     * @var string
-     */
-    public $authorizationToken;
 
     /**
      * @var int
@@ -37,13 +22,28 @@ class GetAuthorizationTokenResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var bool
+     */
+    public $isSuccess;
+
+    /**
+     * @var string
+     */
+    public $tempUsername;
+
+    /**
+     * @var string
+     */
+    public $authorizationToken;
     protected $_name = [
-        'isSuccess'          => 'IsSuccess',
         'requestId'          => 'RequestId',
-        'tempUsername'       => 'TempUsername',
-        'authorizationToken' => 'AuthorizationToken',
         'expireTime'         => 'ExpireTime',
         'code'               => 'Code',
+        'isSuccess'          => 'IsSuccess',
+        'tempUsername'       => 'TempUsername',
+        'authorizationToken' => 'AuthorizationToken',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class GetAuthorizationTokenResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->tempUsername) {
-            $res['TempUsername'] = $this->tempUsername;
-        }
-        if (null !== $this->authorizationToken) {
-            $res['AuthorizationToken'] = $this->authorizationToken;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->tempUsername) {
+            $res['TempUsername'] = $this->tempUsername;
+        }
+        if (null !== $this->authorizationToken) {
+            $res['AuthorizationToken'] = $this->authorizationToken;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class GetAuthorizationTokenResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TempUsername'])) {
-            $model->tempUsername = $map['TempUsername'];
-        }
-        if (isset($map['AuthorizationToken'])) {
-            $model->authorizationToken = $map['AuthorizationToken'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['TempUsername'])) {
+            $model->tempUsername = $map['TempUsername'];
+        }
+        if (isset($map['AuthorizationToken'])) {
+            $model->authorizationToken = $map['AuthorizationToken'];
         }
 
         return $model;

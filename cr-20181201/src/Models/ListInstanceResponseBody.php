@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceResponseBody extends Model
 {
     /**
-     * @var instances[]
+     * @var string
      */
-    public $instances;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var int
+     */
+    public $pageNo;
 
     /**
      * @var bool
@@ -22,35 +32,25 @@ class ListInstanceResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
      * @var int
      */
-    public $pageNo;
+    public $totalCount;
 
     /**
-     * @var string
+     * @var instances[]
      */
-    public $code;
+    public $instances;
     protected $_name = [
-        'instances'  => 'Instances',
-        'isSuccess'  => 'IsSuccess',
-        'totalCount' => 'TotalCount',
         'requestId'  => 'RequestId',
-        'pageSize'   => 'PageSize',
-        'pageNo'     => 'PageNo',
         'code'       => 'Code',
+        'pageNo'     => 'PageNo',
+        'isSuccess'  => 'IsSuccess',
+        'pageSize'   => 'PageSize',
+        'totalCount' => 'TotalCount',
+        'instances'  => 'Instances',
     ];
 
     public function validate()
@@ -60,6 +60,24 @@ class ListInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->instances) {
             $res['Instances'] = [];
             if (null !== $this->instances && \is_array($this->instances)) {
@@ -68,24 +86,6 @@ class ListInstanceResponseBody extends Model
                     $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -99,6 +99,24 @@ class ListInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
@@ -107,24 +125,6 @@ class ListInstanceResponseBody extends Model
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

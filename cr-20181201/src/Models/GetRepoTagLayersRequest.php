@@ -22,10 +22,16 @@ class GetRepoTagLayersRequest extends Model
      * @var string
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $digest;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'repoId'     => 'RepoId',
         'tag'        => 'Tag',
+        'digest'     => 'Digest',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class GetRepoTagLayersRequest extends Model
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->digest) {
+            $res['Digest'] = $this->digest;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class GetRepoTagLayersRequest extends Model
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
+        }
+        if (isset($map['Digest'])) {
+            $model->digest = $map['Digest'];
         }
 
         return $model;

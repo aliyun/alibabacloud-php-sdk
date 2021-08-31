@@ -15,14 +15,14 @@ class GetRepoBuildRecordResponseBody extends Model
     public $status;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $isSuccess;
+    public $endTime;
 
     /**
      * @var int
      */
-    public $endTime;
+    public $startTime;
 
     /**
      * @var string
@@ -30,9 +30,14 @@ class GetRepoBuildRecordResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $startTime;
+    public $code;
+
+    /**
+     * @var bool
+     */
+    public $isSuccess;
 
     /**
      * @var string
@@ -43,20 +48,15 @@ class GetRepoBuildRecordResponseBody extends Model
      * @var image
      */
     public $image;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
         'status'        => 'Status',
-        'isSuccess'     => 'IsSuccess',
         'endTime'       => 'EndTime',
-        'requestId'     => 'RequestId',
         'startTime'     => 'StartTime',
+        'requestId'     => 'RequestId',
+        'code'          => 'Code',
+        'isSuccess'     => 'IsSuccess',
         'buildRecordId' => 'BuildRecordId',
         'image'         => 'Image',
-        'code'          => 'Code',
     ];
 
     public function validate()
@@ -69,26 +69,26 @@ class GetRepoBuildRecordResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
         }
         if (null !== $this->buildRecordId) {
             $res['BuildRecordId'] = $this->buildRecordId;
         }
         if (null !== $this->image) {
             $res['Image'] = null !== $this->image ? $this->image->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -105,26 +105,26 @@ class GetRepoBuildRecordResponseBody extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
         }
         if (isset($map['BuildRecordId'])) {
             $model->buildRecordId = $map['BuildRecordId'];
         }
         if (isset($map['Image'])) {
             $model->image = image::fromMap($map['Image']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

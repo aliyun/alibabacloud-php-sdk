@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetRepoTagManifestResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var bool
      */
     public $isSuccess;
@@ -23,16 +28,11 @@ class GetRepoTagManifestResponseBody extends Model
      * @var manifest
      */
     public $manifest;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'      => 'Code',
         'isSuccess' => 'IsSuccess',
         'requestId' => 'RequestId',
         'manifest'  => 'Manifest',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class GetRepoTagManifestResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
@@ -50,9 +53,6 @@ class GetRepoTagManifestResponseBody extends Model
         }
         if (null !== $this->manifest) {
             $res['Manifest'] = null !== $this->manifest ? $this->manifest->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class GetRepoTagManifestResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
@@ -74,9 +77,6 @@ class GetRepoTagManifestResponseBody extends Model
         }
         if (isset($map['Manifest'])) {
             $model->manifest = manifest::fromMap($map['Manifest']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

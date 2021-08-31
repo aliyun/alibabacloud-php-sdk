@@ -42,6 +42,11 @@ class ListRepoTagScanResultRequest extends Model
      * @var string
      */
     public $severity;
+
+    /**
+     * @var string
+     */
+    public $digest;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'repoId'     => 'RepoId',
@@ -50,6 +55,7 @@ class ListRepoTagScanResultRequest extends Model
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
         'severity'   => 'Severity',
+        'digest'     => 'Digest',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class ListRepoTagScanResultRequest extends Model
         }
         if (null !== $this->severity) {
             $res['Severity'] = $this->severity;
+        }
+        if (null !== $this->digest) {
+            $res['Digest'] = $this->digest;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class ListRepoTagScanResultRequest extends Model
         }
         if (isset($map['Severity'])) {
             $model->severity = $map['Severity'];
+        }
+        if (isset($map['Digest'])) {
+            $model->digest = $map['Digest'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoTriggerResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var bool
      */
     public $isSuccess;
@@ -22,16 +27,11 @@ class CreateRepoTriggerResponseBody extends Model
      * @var string
      */
     public $triggerId;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'      => 'Code',
         'isSuccess' => 'IsSuccess',
         'requestId' => 'RequestId',
         'triggerId' => 'TriggerId',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class CreateRepoTriggerResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
@@ -49,9 +52,6 @@ class CreateRepoTriggerResponseBody extends Model
         }
         if (null !== $this->triggerId) {
             $res['TriggerId'] = $this->triggerId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class CreateRepoTriggerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
@@ -73,9 +76,6 @@ class CreateRepoTriggerResponseBody extends Model
         }
         if (isset($map['TriggerId'])) {
             $model->triggerId = $map['TriggerId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

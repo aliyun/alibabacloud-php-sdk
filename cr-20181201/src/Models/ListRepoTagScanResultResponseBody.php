@@ -10,19 +10,24 @@ use AlibabaCloud\Tea\Model;
 class ListRepoTagScanResultResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $isSuccess;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $code;
+
+    /**
+     * @var int
+     */
+    public $pageNo;
+
+    /**
+     * @var bool
+     */
+    public $isSuccess;
 
     /**
      * @var int
@@ -32,25 +37,20 @@ class ListRepoTagScanResultResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNo;
+    public $totalCount;
 
     /**
      * @var vulnerabilities[]
      */
     public $vulnerabilities;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
-        'isSuccess'       => 'IsSuccess',
-        'totalCount'      => 'TotalCount',
         'requestId'       => 'RequestId',
-        'pageSize'        => 'PageSize',
-        'pageNo'          => 'PageNo',
-        'vulnerabilities' => 'Vulnerabilities',
         'code'            => 'Code',
+        'pageNo'          => 'PageNo',
+        'isSuccess'       => 'IsSuccess',
+        'pageSize'        => 'PageSize',
+        'totalCount'      => 'TotalCount',
+        'vulnerabilities' => 'Vulnerabilities',
     ];
 
     public function validate()
@@ -60,20 +60,23 @@ class ListRepoTagScanResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->vulnerabilities) {
             $res['Vulnerabilities'] = [];
@@ -83,9 +86,6 @@ class ListRepoTagScanResultResponseBody extends Model
                     $res['Vulnerabilities'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -99,20 +99,23 @@ class ListRepoTagScanResultResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['Vulnerabilities'])) {
             if (!empty($map['Vulnerabilities'])) {
@@ -122,9 +125,6 @@ class ListRepoTagScanResultResponseBody extends Model
                     $model->vulnerabilities[$n++] = null !== $item ? vulnerabilities::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

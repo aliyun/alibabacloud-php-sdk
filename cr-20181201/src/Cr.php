@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Cr\V20181201;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CancelArtifactBuildTaskRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CancelArtifactBuildTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CancelRepoBuildRecordRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CancelRepoBuildRecordResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRuleRequest;
@@ -23,10 +26,14 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoBuildRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoBuildRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepositoryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepositoryResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoSourceCodeRepoRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoSourceCodeRepoResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoSyncRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoSyncRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoSyncTaskByRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoSyncTaskByRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTagRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTagResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTagScanTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTagScanTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTriggerRequest;
@@ -53,6 +60,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTagRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTagResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTriggerRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTriggerResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetAuthorizationTokenRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetAuthorizationTokenResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartNamespaceRequest;
@@ -76,6 +85,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoBuildRecordStatusRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoBuildRecordStatusResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepositoryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepositoryResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoSourceCodeRepoRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoSourceCodeRepoResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoSyncTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoSyncTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagLayersRequest;
@@ -86,6 +97,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanStatusRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanStatusResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanSummaryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanSummaryResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactBuildTaskLogRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactBuildTaskLogResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChartNamespaceRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChartNamespaceResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChartReleaseRequest;
@@ -134,6 +147,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoBuildRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoBuildRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepositoryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepositoryResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoSourceCodeRepoRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoSourceCodeRepoResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoTriggerRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoTriggerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -172,6 +187,34 @@ class Cr extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CancelArtifactBuildTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CancelArtifactBuildTaskResponse
+     */
+    public function cancelArtifactBuildTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelArtifactBuildTaskResponse::fromMap($this->doRPCRequest('CancelArtifactBuildTask', '2018-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelArtifactBuildTaskRequest $request
+     *
+     * @return CancelArtifactBuildTaskResponse
+     */
+    public function cancelArtifactBuildTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelArtifactBuildTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -427,6 +470,34 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param CreateRepoSourceCodeRepoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateRepoSourceCodeRepoResponse
+     */
+    public function createRepoSourceCodeRepoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateRepoSourceCodeRepoResponse::fromMap($this->doRPCRequest('CreateRepoSourceCodeRepo', '2018-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRepoSourceCodeRepoRequest $request
+     *
+     * @return CreateRepoSourceCodeRepoResponse
+     */
+    public function createRepoSourceCodeRepo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRepoSourceCodeRepoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateRepoSyncRuleRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -480,6 +551,34 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRepoSyncTaskByRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRepoTagRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateRepoTagResponse
+     */
+    public function createRepoTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateRepoTagResponse::fromMap($this->doRPCRequest('CreateRepoTag', '2018-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRepoTagRequest $request
+     *
+     * @return CreateRepoTagResponse
+     */
+    public function createRepoTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRepoTagWithOptions($request, $runtime);
     }
 
     /**
@@ -847,6 +946,35 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param GetArtifactBuildTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetArtifactBuildTaskResponse
+     */
+    public function getArtifactBuildTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetArtifactBuildTaskResponse::fromMap($this->doRPCRequest('GetArtifactBuildTask', '2018-12-01', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetArtifactBuildTaskRequest $request
+     *
+     * @return GetArtifactBuildTaskResponse
+     */
+    public function getArtifactBuildTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getArtifactBuildTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAuthorizationTokenRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1177,6 +1305,34 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param GetRepoSourceCodeRepoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetRepoSourceCodeRepoResponse
+     */
+    public function getRepoSourceCodeRepoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetRepoSourceCodeRepoResponse::fromMap($this->doRPCRequest('GetRepoSourceCodeRepo', '2018-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetRepoSourceCodeRepoRequest $request
+     *
+     * @return GetRepoSourceCodeRepoResponse
+     */
+    public function getRepoSourceCodeRepo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRepoSourceCodeRepoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRepoSyncTaskRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1314,6 +1470,35 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRepoTagScanSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListArtifactBuildTaskLogRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListArtifactBuildTaskLogResponse
+     */
+    public function listArtifactBuildTaskLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListArtifactBuildTaskLogResponse::fromMap($this->doRPCRequest('ListArtifactBuildTaskLog', '2018-12-01', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListArtifactBuildTaskLogRequest $request
+     *
+     * @return ListArtifactBuildTaskLogResponse
+     */
+    public function listArtifactBuildTaskLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listArtifactBuildTaskLogWithOptions($request, $runtime);
     }
 
     /**
@@ -1986,6 +2171,34 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRepositoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRepoSourceCodeRepoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateRepoSourceCodeRepoResponse
+     */
+    public function updateRepoSourceCodeRepoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateRepoSourceCodeRepoResponse::fromMap($this->doRPCRequest('UpdateRepoSourceCodeRepo', '2018-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRepoSourceCodeRepoRequest $request
+     *
+     * @return UpdateRepoSourceCodeRepoResponse
+     */
+    public function updateRepoSourceCodeRepo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRepoSourceCodeRepoWithOptions($request, $runtime);
     }
 
     /**

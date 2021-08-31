@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceVpcEndpointResponseBody extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $domains;
+    public $code;
 
     /**
      * @var bool
@@ -30,20 +30,20 @@ class GetInstanceVpcEndpointResponseBody extends Model
     public $enable;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $code;
+    public $domains;
 
     /**
      * @var linkedVpcs[]
      */
     public $linkedVpcs;
     protected $_name = [
-        'domains'    => 'Domains',
+        'code'       => 'Code',
         'isSuccess'  => 'IsSuccess',
         'requestId'  => 'RequestId',
         'enable'     => 'Enable',
-        'code'       => 'Code',
+        'domains'    => 'Domains',
         'linkedVpcs' => 'LinkedVpcs',
     ];
 
@@ -54,8 +54,8 @@ class GetInstanceVpcEndpointResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domains) {
-            $res['Domains'] = $this->domains;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
@@ -66,8 +66,8 @@ class GetInstanceVpcEndpointResponseBody extends Model
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->domains) {
+            $res['Domains'] = $this->domains;
         }
         if (null !== $this->linkedVpcs) {
             $res['LinkedVpcs'] = [];
@@ -90,10 +90,8 @@ class GetInstanceVpcEndpointResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domains'])) {
-            if (!empty($map['Domains'])) {
-                $model->domains = $map['Domains'];
-            }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
@@ -104,8 +102,10 @@ class GetInstanceVpcEndpointResponseBody extends Model
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Domains'])) {
+            if (!empty($map['Domains'])) {
+                $model->domains = $map['Domains'];
+            }
         }
         if (isset($map['LinkedVpcs'])) {
             if (!empty($map['LinkedVpcs'])) {
