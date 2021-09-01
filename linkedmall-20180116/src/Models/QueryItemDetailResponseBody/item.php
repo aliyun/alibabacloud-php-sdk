@@ -26,9 +26,9 @@ class item extends Model
     public $descOption;
 
     /**
-     * @var itemImages
+     * @var string
      */
-    public $itemImages;
+    public $videoPicUrl;
 
     /**
      * @var string
@@ -61,6 +61,11 @@ class item extends Model
     public $quantity;
 
     /**
+     * @var string
+     */
+    public $videoUrl;
+
+    /**
      * @var mixed[]
      */
     public $customizedAttributeMap;
@@ -83,7 +88,7 @@ class item extends Model
     /**
      * @var string
      */
-    public $tbShopName;
+    public $lmItemId;
 
     /**
      * @var int
@@ -93,12 +98,7 @@ class item extends Model
     /**
      * @var string
      */
-    public $lmItemId;
-
-    /**
-     * @var bool
-     */
-    public $canSell;
+    public $tbShopName;
 
     /**
      * @var int
@@ -108,7 +108,17 @@ class item extends Model
     /**
      * @var bool
      */
+    public $canSell;
+
+    /**
+     * @var bool
+     */
     public $centerInventory;
+
+    /**
+     * @var int
+     */
+    public $sellerType;
 
     /**
      * @var int
@@ -136,11 +146,6 @@ class item extends Model
     public $categoryId;
 
     /**
-     * @var skus
-     */
-    public $skus;
-
-    /**
      * @var string
      */
     public $descPath;
@@ -149,35 +154,48 @@ class item extends Model
      * @var string
      */
     public $properties;
+
+    /**
+     * @var skus
+     */
+    public $skus;
+
+    /**
+     * @var itemImages
+     */
+    public $itemImages;
     protected $_name = [
         'itemTitle'              => 'ItemTitle',
         'minPoints'              => 'MinPoints',
         'descOption'             => 'DescOption',
-        'itemImages'             => 'ItemImages',
+        'videoPicUrl'            => 'VideoPicUrl',
         'extJson'                => 'ExtJson',
         'isSellerPayPostfee'     => 'IsSellerPayPostfee',
         'lmItemCategory'         => 'LmItemCategory',
         'sellerPayPostfee'       => 'SellerPayPostfee',
         'reservePrice'           => 'ReservePrice',
         'quantity'               => 'Quantity',
+        'videoUrl'               => 'VideoUrl',
         'customizedAttributeMap' => 'CustomizedAttributeMap',
         'iforestPropsJson'       => 'IforestPropsJson',
         'propertiesJson'         => 'PropertiesJson',
         'iforestProps'           => 'IforestProps',
-        'tbShopName'             => 'TbShopName',
-        'sellerId'               => 'SellerId',
         'lmItemId'               => 'LmItemId',
-        'canSell'                => 'CanSell',
+        'sellerId'               => 'SellerId',
+        'tbShopName'             => 'TbShopName',
         'itemId'                 => 'ItemId',
+        'canSell'                => 'CanSell',
         'centerInventory'        => 'CenterInventory',
+        'sellerType'             => 'SellerType',
         'totalSoldQuantity'      => 'TotalSoldQuantity',
         'mainPicUrl'             => 'MainPicUrl',
         'minPrice'               => 'MinPrice',
         'isCanSell'              => 'IsCanSell',
         'categoryId'             => 'CategoryId',
-        'skus'                   => 'Skus',
         'descPath'               => 'DescPath',
         'properties'             => 'Properties',
+        'skus'                   => 'Skus',
+        'itemImages'             => 'ItemImages',
     ];
 
     public function validate()
@@ -196,8 +214,8 @@ class item extends Model
         if (null !== $this->descOption) {
             $res['DescOption'] = $this->descOption;
         }
-        if (null !== $this->itemImages) {
-            $res['ItemImages'] = null !== $this->itemImages ? $this->itemImages->toMap() : null;
+        if (null !== $this->videoPicUrl) {
+            $res['VideoPicUrl'] = $this->videoPicUrl;
         }
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
@@ -217,6 +235,9 @@ class item extends Model
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
         }
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
+        }
         if (null !== $this->customizedAttributeMap) {
             $res['CustomizedAttributeMap'] = $this->customizedAttributeMap;
         }
@@ -229,23 +250,26 @@ class item extends Model
         if (null !== $this->iforestProps) {
             $res['IforestProps'] = $this->iforestProps;
         }
-        if (null !== $this->tbShopName) {
-            $res['TbShopName'] = $this->tbShopName;
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
         }
         if (null !== $this->sellerId) {
             $res['SellerId'] = $this->sellerId;
         }
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
-        }
-        if (null !== $this->canSell) {
-            $res['CanSell'] = $this->canSell;
+        if (null !== $this->tbShopName) {
+            $res['TbShopName'] = $this->tbShopName;
         }
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
         }
+        if (null !== $this->canSell) {
+            $res['CanSell'] = $this->canSell;
+        }
         if (null !== $this->centerInventory) {
             $res['CenterInventory'] = $this->centerInventory;
+        }
+        if (null !== $this->sellerType) {
+            $res['SellerType'] = $this->sellerType;
         }
         if (null !== $this->totalSoldQuantity) {
             $res['TotalSoldQuantity'] = $this->totalSoldQuantity;
@@ -262,14 +286,17 @@ class item extends Model
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
-        if (null !== $this->skus) {
-            $res['Skus'] = null !== $this->skus ? $this->skus->toMap() : null;
-        }
         if (null !== $this->descPath) {
             $res['DescPath'] = $this->descPath;
         }
         if (null !== $this->properties) {
             $res['Properties'] = $this->properties;
+        }
+        if (null !== $this->skus) {
+            $res['Skus'] = null !== $this->skus ? $this->skus->toMap() : null;
+        }
+        if (null !== $this->itemImages) {
+            $res['ItemImages'] = null !== $this->itemImages ? $this->itemImages->toMap() : null;
         }
 
         return $res;
@@ -292,8 +319,8 @@ class item extends Model
         if (isset($map['DescOption'])) {
             $model->descOption = $map['DescOption'];
         }
-        if (isset($map['ItemImages'])) {
-            $model->itemImages = itemImages::fromMap($map['ItemImages']);
+        if (isset($map['VideoPicUrl'])) {
+            $model->videoPicUrl = $map['VideoPicUrl'];
         }
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
@@ -313,6 +340,9 @@ class item extends Model
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
         }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
+        }
         if (isset($map['CustomizedAttributeMap'])) {
             $model->customizedAttributeMap = $map['CustomizedAttributeMap'];
         }
@@ -325,23 +355,26 @@ class item extends Model
         if (isset($map['IforestProps'])) {
             $model->iforestProps = $map['IforestProps'];
         }
-        if (isset($map['TbShopName'])) {
-            $model->tbShopName = $map['TbShopName'];
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
         }
         if (isset($map['SellerId'])) {
             $model->sellerId = $map['SellerId'];
         }
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
-        }
-        if (isset($map['CanSell'])) {
-            $model->canSell = $map['CanSell'];
+        if (isset($map['TbShopName'])) {
+            $model->tbShopName = $map['TbShopName'];
         }
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
         }
+        if (isset($map['CanSell'])) {
+            $model->canSell = $map['CanSell'];
+        }
         if (isset($map['CenterInventory'])) {
             $model->centerInventory = $map['CenterInventory'];
+        }
+        if (isset($map['SellerType'])) {
+            $model->sellerType = $map['SellerType'];
         }
         if (isset($map['TotalSoldQuantity'])) {
             $model->totalSoldQuantity = $map['TotalSoldQuantity'];
@@ -358,14 +391,17 @@ class item extends Model
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
-        if (isset($map['Skus'])) {
-            $model->skus = skus::fromMap($map['Skus']);
-        }
         if (isset($map['DescPath'])) {
             $model->descPath = $map['DescPath'];
         }
         if (isset($map['Properties'])) {
             $model->properties = $map['Properties'];
+        }
+        if (isset($map['Skus'])) {
+            $model->skus = skus::fromMap($map['Skus']);
+        }
+        if (isset($map['ItemImages'])) {
+            $model->itemImages = itemImages::fromMap($map['ItemImages']);
         }
 
         return $model;

@@ -12,6 +12,16 @@ class item extends Model
     /**
      * @var string
      */
+    public $extJson;
+
+    /**
+     * @var string
+     */
+    public $mainPicUrl;
+
+    /**
+     * @var string
+     */
     public $itemTitle;
 
     /**
@@ -25,39 +35,14 @@ class item extends Model
     public $sellerId;
 
     /**
-     * @var skuList
+     * @var int
      */
-    public $skuList;
+    public $categoryId;
 
     /**
      * @var bool
      */
     public $canSell;
-
-    /**
-     * @var int
-     */
-    public $itemId;
-
-    /**
-     * @var string
-     */
-    public $taobaoShopName;
-
-    /**
-     * @var string
-     */
-    public $extJson;
-
-    /**
-     * @var string
-     */
-    public $mainPicUrl;
-
-    /**
-     * @var int
-     */
-    public $categoryId;
 
     /**
      * @var string
@@ -67,20 +52,35 @@ class item extends Model
     /**
      * @var int
      */
+    public $itemId;
+
+    /**
+     * @var int
+     */
     public $reservePrice;
+
+    /**
+     * @var string
+     */
+    public $taobaoShopName;
+
+    /**
+     * @var skuList
+     */
+    public $skuList;
     protected $_name = [
+        'extJson'            => 'ExtJson',
+        'mainPicUrl'         => 'MainPicUrl',
         'itemTitle'          => 'ItemTitle',
         'lmItemId'           => 'LmItemId',
         'sellerId'           => 'SellerId',
-        'skuList'            => 'SkuList',
-        'canSell'            => 'CanSell',
-        'itemId'             => 'ItemId',
-        'taobaoShopName'     => 'TaobaoShopName',
-        'extJson'            => 'ExtJson',
-        'mainPicUrl'         => 'MainPicUrl',
         'categoryId'         => 'CategoryId',
+        'canSell'            => 'CanSell',
         'customizedItemName' => 'CustomizedItemName',
+        'itemId'             => 'ItemId',
         'reservePrice'       => 'ReservePrice',
+        'taobaoShopName'     => 'TaobaoShopName',
+        'skuList'            => 'SkuList',
     ];
 
     public function validate()
@@ -90,6 +90,12 @@ class item extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->extJson) {
+            $res['ExtJson'] = $this->extJson;
+        }
+        if (null !== $this->mainPicUrl) {
+            $res['MainPicUrl'] = $this->mainPicUrl;
+        }
         if (null !== $this->itemTitle) {
             $res['ItemTitle'] = $this->itemTitle;
         }
@@ -99,32 +105,26 @@ class item extends Model
         if (null !== $this->sellerId) {
             $res['SellerId'] = $this->sellerId;
         }
-        if (null !== $this->skuList) {
-            $res['SkuList'] = null !== $this->skuList ? $this->skuList->toMap() : null;
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->canSell) {
             $res['CanSell'] = $this->canSell;
         }
+        if (null !== $this->customizedItemName) {
+            $res['CustomizedItemName'] = $this->customizedItemName;
+        }
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
+        }
+        if (null !== $this->reservePrice) {
+            $res['ReservePrice'] = $this->reservePrice;
         }
         if (null !== $this->taobaoShopName) {
             $res['TaobaoShopName'] = $this->taobaoShopName;
         }
-        if (null !== $this->extJson) {
-            $res['ExtJson'] = $this->extJson;
-        }
-        if (null !== $this->mainPicUrl) {
-            $res['MainPicUrl'] = $this->mainPicUrl;
-        }
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
-        }
-        if (null !== $this->customizedItemName) {
-            $res['CustomizedItemName'] = $this->customizedItemName;
-        }
-        if (null !== $this->reservePrice) {
-            $res['ReservePrice'] = $this->reservePrice;
+        if (null !== $this->skuList) {
+            $res['SkuList'] = null !== $this->skuList ? $this->skuList->toMap() : null;
         }
 
         return $res;
@@ -138,6 +138,12 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExtJson'])) {
+            $model->extJson = $map['ExtJson'];
+        }
+        if (isset($map['MainPicUrl'])) {
+            $model->mainPicUrl = $map['MainPicUrl'];
+        }
         if (isset($map['ItemTitle'])) {
             $model->itemTitle = $map['ItemTitle'];
         }
@@ -147,32 +153,26 @@ class item extends Model
         if (isset($map['SellerId'])) {
             $model->sellerId = $map['SellerId'];
         }
-        if (isset($map['SkuList'])) {
-            $model->skuList = skuList::fromMap($map['SkuList']);
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['CanSell'])) {
             $model->canSell = $map['CanSell'];
         }
+        if (isset($map['CustomizedItemName'])) {
+            $model->customizedItemName = $map['CustomizedItemName'];
+        }
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
+        }
+        if (isset($map['ReservePrice'])) {
+            $model->reservePrice = $map['ReservePrice'];
         }
         if (isset($map['TaobaoShopName'])) {
             $model->taobaoShopName = $map['TaobaoShopName'];
         }
-        if (isset($map['ExtJson'])) {
-            $model->extJson = $map['ExtJson'];
-        }
-        if (isset($map['MainPicUrl'])) {
-            $model->mainPicUrl = $map['MainPicUrl'];
-        }
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
-        }
-        if (isset($map['CustomizedItemName'])) {
-            $model->customizedItemName = $map['CustomizedItemName'];
-        }
-        if (isset($map['ReservePrice'])) {
-            $model->reservePrice = $map['ReservePrice'];
+        if (isset($map['SkuList'])) {
+            $model->skuList = skuList::fromMap($map['SkuList']);
         }
 
         return $model;

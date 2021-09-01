@@ -12,6 +12,11 @@ class ListItemActivitiesResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -23,16 +28,11 @@ class ListItemActivitiesResponseBody extends Model
      * @var lmItemActivityModelList
      */
     public $lmItemActivityModelList;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'                    => 'Code',
         'message'                 => 'Message',
         'requestId'               => 'RequestId',
         'lmItemActivityModelList' => 'LmItemActivityModelList',
-        'code'                    => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class ListItemActivitiesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -50,9 +53,6 @@ class ListItemActivitiesResponseBody extends Model
         }
         if (null !== $this->lmItemActivityModelList) {
             $res['LmItemActivityModelList'] = null !== $this->lmItemActivityModelList ? $this->lmItemActivityModelList->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class ListItemActivitiesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -74,9 +77,6 @@ class ListItemActivitiesResponseBody extends Model
         }
         if (isset($map['LmItemActivityModelList'])) {
             $model->lmItemActivityModelList = lmItemActivityModelList::fromMap($map['LmItemActivityModelList']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

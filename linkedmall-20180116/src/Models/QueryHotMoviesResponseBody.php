@@ -15,14 +15,9 @@ class QueryHotMoviesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $logsId;
+    public $success;
 
     /**
      * @var string
@@ -30,9 +25,14 @@ class QueryHotMoviesResponseBody extends Model
     public $subMessage;
 
     /**
-     * @var movies
+     * @var string
      */
-    public $movies;
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
 
     /**
      * @var string
@@ -42,21 +42,21 @@ class QueryHotMoviesResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $logsId;
 
     /**
-     * @var bool
+     * @var movies
      */
-    public $success;
+    public $movies;
     protected $_name = [
         'requestId'  => 'RequestId',
-        'message'    => 'Message',
-        'logsId'     => 'LogsId',
-        'subMessage' => 'SubMessage',
-        'movies'     => 'Movies',
-        'subCode'    => 'SubCode',
-        'code'       => 'Code',
         'success'    => 'Success',
+        'subMessage' => 'SubMessage',
+        'code'       => 'Code',
+        'message'    => 'Message',
+        'subCode'    => 'SubCode',
+        'logsId'     => 'LogsId',
+        'movies'     => 'Movies',
     ];
 
     public function validate()
@@ -69,26 +69,26 @@ class QueryHotMoviesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->logsId) {
-            $res['LogsId'] = $this->logsId;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->subMessage) {
             $res['SubMessage'] = $this->subMessage;
         }
-        if (null !== $this->movies) {
-            $res['Movies'] = null !== $this->movies ? $this->movies->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->subCode) {
             $res['SubCode'] = $this->subCode;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->logsId) {
+            $res['LogsId'] = $this->logsId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->movies) {
+            $res['Movies'] = null !== $this->movies ? $this->movies->toMap() : null;
         }
 
         return $res;
@@ -105,26 +105,26 @@ class QueryHotMoviesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['LogsId'])) {
-            $model->logsId = $map['LogsId'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['SubMessage'])) {
             $model->subMessage = $map['SubMessage'];
         }
-        if (isset($map['Movies'])) {
-            $model->movies = movies::fromMap($map['Movies']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['SubCode'])) {
             $model->subCode = $map['SubCode'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['LogsId'])) {
+            $model->logsId = $map['LogsId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Movies'])) {
+            $model->movies = movies::fromMap($map['Movies']);
         }
 
         return $model;

@@ -15,14 +15,9 @@ class QueryItemInventoryResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $message;
-
-    /**
-     * @var itemList
-     */
-    public $itemList;
+    public $success;
 
     /**
      * @var string
@@ -32,25 +27,30 @@ class QueryItemInventoryResponseBody extends Model
     /**
      * @var string
      */
-    public $subCode;
+    public $code;
 
     /**
      * @var string
      */
-    public $code;
+    public $message;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $subCode;
+
+    /**
+     * @var itemList
+     */
+    public $itemList;
     protected $_name = [
         'requestId'  => 'RequestId',
-        'message'    => 'Message',
-        'itemList'   => 'ItemList',
-        'subMessage' => 'SubMessage',
-        'subCode'    => 'SubCode',
-        'code'       => 'Code',
         'success'    => 'Success',
+        'subMessage' => 'SubMessage',
+        'code'       => 'Code',
+        'message'    => 'Message',
+        'subCode'    => 'SubCode',
+        'itemList'   => 'ItemList',
     ];
 
     public function validate()
@@ -63,23 +63,23 @@ class QueryItemInventoryResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->itemList) {
-            $res['ItemList'] = null !== $this->itemList ? $this->itemList->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->subMessage) {
             $res['SubMessage'] = $this->subMessage;
         }
-        if (null !== $this->subCode) {
-            $res['SubCode'] = $this->subCode;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->subCode) {
+            $res['SubCode'] = $this->subCode;
+        }
+        if (null !== $this->itemList) {
+            $res['ItemList'] = null !== $this->itemList ? $this->itemList->toMap() : null;
         }
 
         return $res;
@@ -96,23 +96,23 @@ class QueryItemInventoryResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['ItemList'])) {
-            $model->itemList = itemList::fromMap($map['ItemList']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['SubMessage'])) {
             $model->subMessage = $map['SubMessage'];
         }
-        if (isset($map['SubCode'])) {
-            $model->subCode = $map['SubCode'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['SubCode'])) {
+            $model->subCode = $map['SubCode'];
+        }
+        if (isset($map['ItemList'])) {
+            $model->itemList = itemList::fromMap($map['ItemList']);
         }
 
         return $model;

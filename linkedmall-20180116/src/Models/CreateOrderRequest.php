@@ -75,6 +75,11 @@ class CreateOrderRequest extends Model
     public $lmItemId;
 
     /**
+     * @var string
+     */
+    public $buyerMessageMap;
+
+    /**
      * @var itemList[]
      */
     public $itemList;
@@ -92,6 +97,7 @@ class CreateOrderRequest extends Model
         'thirdPartyUserId'      => 'ThirdPartyUserId',
         'accountType'           => 'AccountType',
         'lmItemId'              => 'LmItemId',
+        'buyerMessageMap'       => 'BuyerMessageMap',
         'itemList'              => 'ItemList',
     ];
 
@@ -140,6 +146,9 @@ class CreateOrderRequest extends Model
         }
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->buyerMessageMap) {
+            $res['BuyerMessageMap'] = $this->buyerMessageMap;
         }
         if (null !== $this->itemList) {
             $res['ItemList'] = [];
@@ -200,6 +209,9 @@ class CreateOrderRequest extends Model
         }
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['BuyerMessageMap'])) {
+            $model->buyerMessageMap = $map['BuyerMessageMap'];
         }
         if (isset($map['ItemList'])) {
             if (!empty($map['ItemList'])) {

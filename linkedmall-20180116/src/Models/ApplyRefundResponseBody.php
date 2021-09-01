@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ApplyRefundResponseBody extends Model
 {
     /**
-     * @var refundApplicationData
+     * @var string
      */
-    public $refundApplicationData;
+    public $code;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class ApplyRefundResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var refundApplicationData
      */
-    public $code;
+    public $refundApplicationData;
     protected $_name = [
-        'refundApplicationData' => 'RefundApplicationData',
+        'code'                  => 'Code',
         'message'               => 'Message',
         'requestId'             => 'RequestId',
-        'code'                  => 'Code',
+        'refundApplicationData' => 'RefundApplicationData',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class ApplyRefundResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->refundApplicationData) {
-            $res['RefundApplicationData'] = null !== $this->refundApplicationData ? $this->refundApplicationData->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -51,8 +51,8 @@ class ApplyRefundResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->refundApplicationData) {
+            $res['RefundApplicationData'] = null !== $this->refundApplicationData ? $this->refundApplicationData->toMap() : null;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class ApplyRefundResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RefundApplicationData'])) {
-            $model->refundApplicationData = refundApplicationData::fromMap($map['RefundApplicationData']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -75,8 +75,8 @@ class ApplyRefundResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['RefundApplicationData'])) {
+            $model->refundApplicationData = refundApplicationData::fromMap($map['RefundApplicationData']);
         }
 
         return $model;

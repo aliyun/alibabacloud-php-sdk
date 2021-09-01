@@ -15,14 +15,9 @@ class QueryMovieCommentsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $logsId;
+    public $success;
 
     /**
      * @var string
@@ -30,14 +25,14 @@ class QueryMovieCommentsResponseBody extends Model
     public $subMessage;
 
     /**
-     * @var commentList
+     * @var string
      */
-    public $commentList;
+    public $code;
 
     /**
-     * @var int
+     * @var string
      */
-    public $count;
+    public $message;
 
     /**
      * @var string
@@ -47,22 +42,27 @@ class QueryMovieCommentsResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $logsId;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $success;
+    public $count;
+
+    /**
+     * @var commentList
+     */
+    public $commentList;
     protected $_name = [
         'requestId'   => 'RequestId',
-        'message'     => 'Message',
-        'logsId'      => 'LogsId',
-        'subMessage'  => 'SubMessage',
-        'commentList' => 'CommentList',
-        'count'       => 'Count',
-        'subCode'     => 'SubCode',
-        'code'        => 'Code',
         'success'     => 'Success',
+        'subMessage'  => 'SubMessage',
+        'code'        => 'Code',
+        'message'     => 'Message',
+        'subCode'     => 'SubCode',
+        'logsId'      => 'LogsId',
+        'count'       => 'Count',
+        'commentList' => 'CommentList',
     ];
 
     public function validate()
@@ -75,29 +75,29 @@ class QueryMovieCommentsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->logsId) {
-            $res['LogsId'] = $this->logsId;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->subMessage) {
             $res['SubMessage'] = $this->subMessage;
         }
-        if (null !== $this->commentList) {
-            $res['CommentList'] = null !== $this->commentList ? $this->commentList->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->subCode) {
             $res['SubCode'] = $this->subCode;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->logsId) {
+            $res['LogsId'] = $this->logsId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
+        if (null !== $this->commentList) {
+            $res['CommentList'] = null !== $this->commentList ? $this->commentList->toMap() : null;
         }
 
         return $res;
@@ -114,29 +114,29 @@ class QueryMovieCommentsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['LogsId'])) {
-            $model->logsId = $map['LogsId'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['SubMessage'])) {
             $model->subMessage = $map['SubMessage'];
         }
-        if (isset($map['CommentList'])) {
-            $model->commentList = commentList::fromMap($map['CommentList']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['SubCode'])) {
             $model->subCode = $map['SubCode'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['LogsId'])) {
+            $model->logsId = $map['LogsId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
+        if (isset($map['CommentList'])) {
+            $model->commentList = commentList::fromMap($map['CommentList']);
         }
 
         return $model;

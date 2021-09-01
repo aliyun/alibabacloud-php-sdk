@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class skuPropertys extends Model
 {
     /**
-     * @var values[]
-     */
-    public $values;
-
-    /**
      * @var string
      */
     public $text;
@@ -23,10 +18,15 @@ class skuPropertys extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var values[]
+     */
+    public $values;
     protected $_name = [
-        'values' => 'Values',
         'text'   => 'Text',
         'id'     => 'Id',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -36,6 +36,12 @@ class skuPropertys extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->text) {
+            $res['Text'] = $this->text;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->values) {
             $res['Values'] = [];
             if (null !== $this->values && \is_array($this->values)) {
@@ -44,12 +50,6 @@ class skuPropertys extends Model
                     $res['Values'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -63,6 +63,12 @@ class skuPropertys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Text'])) {
+            $model->text = $map['Text'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
@@ -71,12 +77,6 @@ class skuPropertys extends Model
                     $model->values[$n++] = null !== $item ? values::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

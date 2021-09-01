@@ -13,19 +13,14 @@ use AlibabaCloud\Tea\Model;
 class model extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $extInfo;
+
+    /**
      * @var int
      */
     public $buyerCurrentPoints;
-
-    /**
-     * @var invoiceInfo
-     */
-    public $invoiceInfo;
-
-    /**
-     * @var deliveryInfoList[]
-     */
-    public $deliveryInfoList;
 
     /**
      * @var lmItemInfoList[]
@@ -33,21 +28,26 @@ class model extends Model
     public $lmItemInfoList;
 
     /**
-     * @var mixed[]
+     * @var deliveryInfoList[]
      */
-    public $extInfo;
+    public $deliveryInfoList;
 
     /**
      * @var addressInfoList[]
      */
     public $addressInfoList;
+
+    /**
+     * @var invoiceInfo
+     */
+    public $invoiceInfo;
     protected $_name = [
-        'buyerCurrentPoints' => 'BuyerCurrentPoints',
-        'invoiceInfo'        => 'InvoiceInfo',
-        'deliveryInfoList'   => 'DeliveryInfoList',
-        'lmItemInfoList'     => 'LmItemInfoList',
         'extInfo'            => 'ExtInfo',
+        'buyerCurrentPoints' => 'BuyerCurrentPoints',
+        'lmItemInfoList'     => 'LmItemInfoList',
+        'deliveryInfoList'   => 'DeliveryInfoList',
         'addressInfoList'    => 'AddressInfoList',
+        'invoiceInfo'        => 'InvoiceInfo',
     ];
 
     public function validate()
@@ -57,20 +57,11 @@ class model extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
+        }
         if (null !== $this->buyerCurrentPoints) {
             $res['BuyerCurrentPoints'] = $this->buyerCurrentPoints;
-        }
-        if (null !== $this->invoiceInfo) {
-            $res['InvoiceInfo'] = null !== $this->invoiceInfo ? $this->invoiceInfo->toMap() : null;
-        }
-        if (null !== $this->deliveryInfoList) {
-            $res['DeliveryInfoList'] = [];
-            if (null !== $this->deliveryInfoList && \is_array($this->deliveryInfoList)) {
-                $n = 0;
-                foreach ($this->deliveryInfoList as $item) {
-                    $res['DeliveryInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->lmItemInfoList) {
             $res['LmItemInfoList'] = [];
@@ -81,8 +72,14 @@ class model extends Model
                 }
             }
         }
-        if (null !== $this->extInfo) {
-            $res['ExtInfo'] = $this->extInfo;
+        if (null !== $this->deliveryInfoList) {
+            $res['DeliveryInfoList'] = [];
+            if (null !== $this->deliveryInfoList && \is_array($this->deliveryInfoList)) {
+                $n = 0;
+                foreach ($this->deliveryInfoList as $item) {
+                    $res['DeliveryInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->addressInfoList) {
             $res['AddressInfoList'] = [];
@@ -92,6 +89,9 @@ class model extends Model
                     $res['AddressInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->invoiceInfo) {
+            $res['InvoiceInfo'] = null !== $this->invoiceInfo ? $this->invoiceInfo->toMap() : null;
         }
 
         return $res;
@@ -105,20 +105,11 @@ class model extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
+        }
         if (isset($map['BuyerCurrentPoints'])) {
             $model->buyerCurrentPoints = $map['BuyerCurrentPoints'];
-        }
-        if (isset($map['InvoiceInfo'])) {
-            $model->invoiceInfo = invoiceInfo::fromMap($map['InvoiceInfo']);
-        }
-        if (isset($map['DeliveryInfoList'])) {
-            if (!empty($map['DeliveryInfoList'])) {
-                $model->deliveryInfoList = [];
-                $n                       = 0;
-                foreach ($map['DeliveryInfoList'] as $item) {
-                    $model->deliveryInfoList[$n++] = null !== $item ? deliveryInfoList::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['LmItemInfoList'])) {
             if (!empty($map['LmItemInfoList'])) {
@@ -129,8 +120,14 @@ class model extends Model
                 }
             }
         }
-        if (isset($map['ExtInfo'])) {
-            $model->extInfo = $map['ExtInfo'];
+        if (isset($map['DeliveryInfoList'])) {
+            if (!empty($map['DeliveryInfoList'])) {
+                $model->deliveryInfoList = [];
+                $n                       = 0;
+                foreach ($map['DeliveryInfoList'] as $item) {
+                    $model->deliveryInfoList[$n++] = null !== $item ? deliveryInfoList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['AddressInfoList'])) {
             if (!empty($map['AddressInfoList'])) {
@@ -140,6 +137,9 @@ class model extends Model
                     $model->addressInfoList[$n++] = null !== $item ? addressInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['InvoiceInfo'])) {
+            $model->invoiceInfo = invoiceInfo::fromMap($map['InvoiceInfo']);
         }
 
         return $model;

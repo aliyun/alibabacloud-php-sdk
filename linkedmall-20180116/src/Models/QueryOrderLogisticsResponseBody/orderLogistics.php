@@ -12,9 +12,14 @@ use AlibabaCloud\Tea\Model;
 class orderLogistics extends Model
 {
     /**
-     * @var receiver
+     * @var string
      */
-    public $receiver;
+    public $logisticsCompanyCode;
+
+    /**
+     * @var string
+     */
+    public $logisticsCompanyName;
 
     /**
      * @var string
@@ -32,26 +37,21 @@ class orderLogistics extends Model
     public $logisticsDetailList;
 
     /**
-     * @var string
+     * @var receiver
      */
-    public $logisticsCompanyCode;
-
-    /**
-     * @var string
-     */
-    public $logisticsCompanyName;
+    public $receiver;
 
     /**
      * @var fetcher
      */
     public $fetcher;
     protected $_name = [
-        'receiver'             => 'Receiver',
+        'logisticsCompanyCode' => 'LogisticsCompanyCode',
+        'logisticsCompanyName' => 'LogisticsCompanyName',
         'dataProvider'         => 'DataProvider',
         'dataProviderTitle'    => 'DataProviderTitle',
         'logisticsDetailList'  => 'LogisticsDetailList',
-        'logisticsCompanyCode' => 'LogisticsCompanyCode',
-        'logisticsCompanyName' => 'LogisticsCompanyName',
+        'receiver'             => 'Receiver',
         'fetcher'              => 'Fetcher',
     ];
 
@@ -62,8 +62,11 @@ class orderLogistics extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->receiver) {
-            $res['Receiver'] = null !== $this->receiver ? $this->receiver->toMap() : null;
+        if (null !== $this->logisticsCompanyCode) {
+            $res['LogisticsCompanyCode'] = $this->logisticsCompanyCode;
+        }
+        if (null !== $this->logisticsCompanyName) {
+            $res['LogisticsCompanyName'] = $this->logisticsCompanyName;
         }
         if (null !== $this->dataProvider) {
             $res['DataProvider'] = $this->dataProvider;
@@ -74,11 +77,8 @@ class orderLogistics extends Model
         if (null !== $this->logisticsDetailList) {
             $res['LogisticsDetailList'] = null !== $this->logisticsDetailList ? $this->logisticsDetailList->toMap() : null;
         }
-        if (null !== $this->logisticsCompanyCode) {
-            $res['LogisticsCompanyCode'] = $this->logisticsCompanyCode;
-        }
-        if (null !== $this->logisticsCompanyName) {
-            $res['LogisticsCompanyName'] = $this->logisticsCompanyName;
+        if (null !== $this->receiver) {
+            $res['Receiver'] = null !== $this->receiver ? $this->receiver->toMap() : null;
         }
         if (null !== $this->fetcher) {
             $res['Fetcher'] = null !== $this->fetcher ? $this->fetcher->toMap() : null;
@@ -95,8 +95,11 @@ class orderLogistics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Receiver'])) {
-            $model->receiver = receiver::fromMap($map['Receiver']);
+        if (isset($map['LogisticsCompanyCode'])) {
+            $model->logisticsCompanyCode = $map['LogisticsCompanyCode'];
+        }
+        if (isset($map['LogisticsCompanyName'])) {
+            $model->logisticsCompanyName = $map['LogisticsCompanyName'];
         }
         if (isset($map['DataProvider'])) {
             $model->dataProvider = $map['DataProvider'];
@@ -107,11 +110,8 @@ class orderLogistics extends Model
         if (isset($map['LogisticsDetailList'])) {
             $model->logisticsDetailList = logisticsDetailList::fromMap($map['LogisticsDetailList']);
         }
-        if (isset($map['LogisticsCompanyCode'])) {
-            $model->logisticsCompanyCode = $map['LogisticsCompanyCode'];
-        }
-        if (isset($map['LogisticsCompanyName'])) {
-            $model->logisticsCompanyName = $map['LogisticsCompanyName'];
+        if (isset($map['Receiver'])) {
+            $model->receiver = receiver::fromMap($map['Receiver']);
         }
         if (isset($map['Fetcher'])) {
             $model->fetcher = fetcher::fromMap($map['Fetcher']);

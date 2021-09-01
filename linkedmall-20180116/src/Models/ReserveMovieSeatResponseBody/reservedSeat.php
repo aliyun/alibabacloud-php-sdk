@@ -19,19 +19,19 @@ class reservedSeat extends Model
     public $reservedTime;
 
     /**
-     * @var int
-     */
-    public $defaultLockSecond;
-
-    /**
      * @var string
      */
     public $applyKey;
+
+    /**
+     * @var int
+     */
+    public $defaultLockSecond;
     protected $_name = [
         'status'            => 'Status',
         'reservedTime'      => 'ReservedTime',
-        'defaultLockSecond' => 'DefaultLockSecond',
         'applyKey'          => 'ApplyKey',
+        'defaultLockSecond' => 'DefaultLockSecond',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class reservedSeat extends Model
         if (null !== $this->reservedTime) {
             $res['ReservedTime'] = $this->reservedTime;
         }
-        if (null !== $this->defaultLockSecond) {
-            $res['DefaultLockSecond'] = $this->defaultLockSecond;
-        }
         if (null !== $this->applyKey) {
             $res['ApplyKey'] = $this->applyKey;
+        }
+        if (null !== $this->defaultLockSecond) {
+            $res['DefaultLockSecond'] = $this->defaultLockSecond;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class reservedSeat extends Model
         if (isset($map['ReservedTime'])) {
             $model->reservedTime = $map['ReservedTime'];
         }
-        if (isset($map['DefaultLockSecond'])) {
-            $model->defaultLockSecond = $map['DefaultLockSecond'];
-        }
         if (isset($map['ApplyKey'])) {
             $model->applyKey = $map['ApplyKey'];
+        }
+        if (isset($map['DefaultLockSecond'])) {
+            $model->defaultLockSecond = $map['DefaultLockSecond'];
         }
 
         return $model;

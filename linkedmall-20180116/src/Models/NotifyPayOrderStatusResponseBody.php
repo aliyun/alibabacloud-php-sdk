@@ -11,15 +11,15 @@ class NotifyPayOrderStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
+    public $code;
 
     /**
      * @var string
      */
-    public $code;
+    public $message;
     protected $_name = [
-        'message' => 'Message',
         'code'    => 'Code',
+        'message' => 'Message',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class NotifyPayOrderStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class NotifyPayOrderStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         return $model;

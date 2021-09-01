@@ -25,11 +25,6 @@ class RenderOrderRequest extends Model
     public $extJson;
 
     /**
-     * @var itemList[]
-     */
-    public $itemList;
-
-    /**
      * @var string
      */
     public $deliveryAddress;
@@ -53,16 +48,21 @@ class RenderOrderRequest extends Model
      * @var string
      */
     public $accountType;
+
+    /**
+     * @var itemList[]
+     */
+    public $itemList;
     protected $_name = [
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
         'extJson'               => 'ExtJson',
-        'itemList'              => 'ItemList',
         'deliveryAddress'       => 'DeliveryAddress',
         'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
         'thirdPartyUserId'      => 'ThirdPartyUserId',
         'lmItemId'              => 'LmItemId',
         'accountType'           => 'AccountType',
+        'itemList'              => 'ItemList',
     ];
 
     public function validate()
@@ -81,15 +81,6 @@ class RenderOrderRequest extends Model
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
         }
-        if (null !== $this->itemList) {
-            $res['ItemList'] = [];
-            if (null !== $this->itemList && \is_array($this->itemList)) {
-                $n = 0;
-                foreach ($this->itemList as $item) {
-                    $res['ItemList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->deliveryAddress) {
             $res['DeliveryAddress'] = $this->deliveryAddress;
         }
@@ -104,6 +95,15 @@ class RenderOrderRequest extends Model
         }
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
+        }
+        if (null !== $this->itemList) {
+            $res['ItemList'] = [];
+            if (null !== $this->itemList && \is_array($this->itemList)) {
+                $n = 0;
+                foreach ($this->itemList as $item) {
+                    $res['ItemList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -126,15 +126,6 @@ class RenderOrderRequest extends Model
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
         }
-        if (isset($map['ItemList'])) {
-            if (!empty($map['ItemList'])) {
-                $model->itemList = [];
-                $n               = 0;
-                foreach ($map['ItemList'] as $item) {
-                    $model->itemList[$n++] = null !== $item ? itemList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['DeliveryAddress'])) {
             $model->deliveryAddress = $map['DeliveryAddress'];
         }
@@ -149,6 +140,15 @@ class RenderOrderRequest extends Model
         }
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
+        }
+        if (isset($map['ItemList'])) {
+            if (!empty($map['ItemList'])) {
+                $model->itemList = [];
+                $n               = 0;
+                foreach ($map['ItemList'] as $item) {
+                    $model->itemList[$n++] = null !== $item ? itemList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

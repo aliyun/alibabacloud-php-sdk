@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyBasicAndBizItemsResponseBody extends Model
 {
     /**
-     * @var failedItemList
+     * @var string
      */
-    public $failedItemList;
+    public $code;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class ModifyBasicAndBizItemsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var failedItemList
      */
-    public $code;
+    public $failedItemList;
     protected $_name = [
-        'failedItemList' => 'FailedItemList',
+        'code'           => 'Code',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'code'           => 'Code',
+        'failedItemList' => 'FailedItemList',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class ModifyBasicAndBizItemsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->failedItemList) {
-            $res['FailedItemList'] = null !== $this->failedItemList ? $this->failedItemList->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -51,8 +51,8 @@ class ModifyBasicAndBizItemsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->failedItemList) {
+            $res['FailedItemList'] = null !== $this->failedItemList ? $this->failedItemList->toMap() : null;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class ModifyBasicAndBizItemsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FailedItemList'])) {
-            $model->failedItemList = failedItemList::fromMap($map['FailedItemList']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -75,8 +75,8 @@ class ModifyBasicAndBizItemsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['FailedItemList'])) {
+            $model->failedItemList = failedItemList::fromMap($map['FailedItemList']);
         }
 
         return $model;

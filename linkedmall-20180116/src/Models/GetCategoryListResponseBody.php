@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetCategoryListResponseBody extends Model
 {
     /**
-     * @var categoryList
+     * @var string
      */
-    public $categoryList;
+    public $code;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class GetCategoryListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var categoryList
      */
-    public $code;
+    public $categoryList;
     protected $_name = [
-        'categoryList' => 'CategoryList',
+        'code'         => 'Code',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
-        'code'         => 'Code',
+        'categoryList' => 'CategoryList',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class GetCategoryListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->categoryList) {
-            $res['CategoryList'] = null !== $this->categoryList ? $this->categoryList->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -51,8 +51,8 @@ class GetCategoryListResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->categoryList) {
+            $res['CategoryList'] = null !== $this->categoryList ? $this->categoryList->toMap() : null;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class GetCategoryListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CategoryList'])) {
-            $model->categoryList = categoryList::fromMap($map['CategoryList']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -75,8 +75,8 @@ class GetCategoryListResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['CategoryList'])) {
+            $model->categoryList = categoryList::fromMap($map['CategoryList']);
         }
 
         return $model;

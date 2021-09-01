@@ -35,11 +35,6 @@ class activitySession extends Model
     public $description;
 
     /**
-     * @var activitySessionItem
-     */
-    public $activitySessionItem;
-
-    /**
      * @var int
      */
     public $startDate;
@@ -48,15 +43,20 @@ class activitySession extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var activitySessionItem
+     */
+    public $activitySessionItem;
     protected $_name = [
         'subBizCode'          => 'SubBizCode',
         'endDate'             => 'EndDate',
         'displayDate'         => 'DisplayDate',
         'lmSessionId'         => 'LmSessionId',
         'description'         => 'Description',
-        'activitySessionItem' => 'ActivitySessionItem',
         'startDate'           => 'StartDate',
         'title'               => 'Title',
+        'activitySessionItem' => 'ActivitySessionItem',
     ];
 
     public function validate()
@@ -81,14 +81,14 @@ class activitySession extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->activitySessionItem) {
-            $res['ActivitySessionItem'] = null !== $this->activitySessionItem ? $this->activitySessionItem->toMap() : null;
-        }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->activitySessionItem) {
+            $res['ActivitySessionItem'] = null !== $this->activitySessionItem ? $this->activitySessionItem->toMap() : null;
         }
 
         return $res;
@@ -117,14 +117,14 @@ class activitySession extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['ActivitySessionItem'])) {
-            $model->activitySessionItem = activitySessionItem::fromMap($map['ActivitySessionItem']);
-        }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['ActivitySessionItem'])) {
+            $model->activitySessionItem = activitySessionItem::fromMap($map['ActivitySessionItem']);
         }
 
         return $model;

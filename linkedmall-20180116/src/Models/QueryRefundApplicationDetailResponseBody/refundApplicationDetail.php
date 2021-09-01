@@ -11,14 +11,34 @@ use AlibabaCloud\Tea\Model;
 class refundApplicationDetail extends Model
 {
     /**
+     * @var int
+     */
+    public $disputeType;
+
+    /**
+     * @var string
+     */
+    public $lmOrderId;
+
+    /**
      * @var string
      */
     public $refunderName;
 
     /**
+     * @var string
+     */
+    public $sellerAgreeMsg;
+
+    /**
      * @var int
      */
     public $returnGoodLogisticsStatus;
+
+    /**
+     * @var string
+     */
+    public $disputeDesc;
 
     /**
      * @var string
@@ -29,6 +49,16 @@ class refundApplicationDetail extends Model
      * @var int
      */
     public $returnGoodCount;
+
+    /**
+     * @var int
+     */
+    public $disputeId;
+
+    /**
+     * @var string
+     */
+    public $disputeEndTime;
 
     /**
      * @var int
@@ -58,17 +88,22 @@ class refundApplicationDetail extends Model
     /**
      * @var string
      */
+    public $disputeCreateTime;
+
+    /**
+     * @var string
+     */
     public $refunderTel;
 
     /**
      * @var string
      */
-    public $subLmOrderId;
+    public $sellerRefuseReason;
 
     /**
      * @var string
      */
-    public $sellerRefuseReason;
+    public $subLmOrderId;
 
     /**
      * @var string
@@ -81,14 +116,9 @@ class refundApplicationDetail extends Model
     public $disputeStatus;
 
     /**
-     * @var int
-     */
-    public $disputeType;
-
-    /**
      * @var string
      */
-    public $lmOrderId;
+    public $refunderZipCode;
 
     /**
      * @var maxRefundFeeData
@@ -99,61 +129,31 @@ class refundApplicationDetail extends Model
      * @var applyReasonText
      */
     public $applyReasonText;
-
-    /**
-     * @var string
-     */
-    public $sellerAgreeMsg;
-
-    /**
-     * @var string
-     */
-    public $disputeDesc;
-
-    /**
-     * @var int
-     */
-    public $disputeId;
-
-    /**
-     * @var string
-     */
-    public $disputeEndTime;
-
-    /**
-     * @var string
-     */
-    public $disputeCreateTime;
-
-    /**
-     * @var string
-     */
-    public $refunderZipCode;
     protected $_name = [
+        'disputeType'                  => 'DisputeType',
+        'lmOrderId'                    => 'LmOrderId',
         'refunderName'                 => 'RefunderName',
+        'sellerAgreeMsg'               => 'SellerAgreeMsg',
         'returnGoodLogisticsStatus'    => 'ReturnGoodLogisticsStatus',
+        'disputeDesc'                  => 'DisputeDesc',
         'refunderAddress'              => 'RefunderAddress',
         'returnGoodCount'              => 'ReturnGoodCount',
+        'disputeId'                    => 'DisputeId',
+        'disputeEndTime'               => 'DisputeEndTime',
         'orderLogisticsStatus'         => 'OrderLogisticsStatus',
         'bizClaimType'                 => 'BizClaimType',
         'realRefundFee'                => 'RealRefundFee',
         'refundFee'                    => 'RefundFee',
         'sellerRefuseAgreementMessage' => 'SellerRefuseAgreementMessage',
+        'disputeCreateTime'            => 'DisputeCreateTime',
         'refunderTel'                  => 'RefunderTel',
-        'subLmOrderId'                 => 'SubLmOrderId',
         'sellerRefuseReason'           => 'SellerRefuseReason',
+        'subLmOrderId'                 => 'SubLmOrderId',
         'applyDisputeDesc'             => 'ApplyDisputeDesc',
         'disputeStatus'                => 'DisputeStatus',
-        'disputeType'                  => 'DisputeType',
-        'lmOrderId'                    => 'LmOrderId',
+        'refunderZipCode'              => 'RefunderZipCode',
         'maxRefundFeeData'             => 'MaxRefundFeeData',
         'applyReasonText'              => 'ApplyReasonText',
-        'sellerAgreeMsg'               => 'SellerAgreeMsg',
-        'disputeDesc'                  => 'DisputeDesc',
-        'disputeId'                    => 'DisputeId',
-        'disputeEndTime'               => 'DisputeEndTime',
-        'disputeCreateTime'            => 'DisputeCreateTime',
-        'refunderZipCode'              => 'RefunderZipCode',
     ];
 
     public function validate()
@@ -163,17 +163,35 @@ class refundApplicationDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->disputeType) {
+            $res['DisputeType'] = $this->disputeType;
+        }
+        if (null !== $this->lmOrderId) {
+            $res['LmOrderId'] = $this->lmOrderId;
+        }
         if (null !== $this->refunderName) {
             $res['RefunderName'] = $this->refunderName;
         }
+        if (null !== $this->sellerAgreeMsg) {
+            $res['SellerAgreeMsg'] = $this->sellerAgreeMsg;
+        }
         if (null !== $this->returnGoodLogisticsStatus) {
             $res['ReturnGoodLogisticsStatus'] = $this->returnGoodLogisticsStatus;
+        }
+        if (null !== $this->disputeDesc) {
+            $res['DisputeDesc'] = $this->disputeDesc;
         }
         if (null !== $this->refunderAddress) {
             $res['RefunderAddress'] = $this->refunderAddress;
         }
         if (null !== $this->returnGoodCount) {
             $res['ReturnGoodCount'] = $this->returnGoodCount;
+        }
+        if (null !== $this->disputeId) {
+            $res['DisputeId'] = $this->disputeId;
+        }
+        if (null !== $this->disputeEndTime) {
+            $res['DisputeEndTime'] = $this->disputeEndTime;
         }
         if (null !== $this->orderLogisticsStatus) {
             $res['OrderLogisticsStatus'] = $this->orderLogisticsStatus;
@@ -190,14 +208,17 @@ class refundApplicationDetail extends Model
         if (null !== $this->sellerRefuseAgreementMessage) {
             $res['SellerRefuseAgreementMessage'] = $this->sellerRefuseAgreementMessage;
         }
+        if (null !== $this->disputeCreateTime) {
+            $res['DisputeCreateTime'] = $this->disputeCreateTime;
+        }
         if (null !== $this->refunderTel) {
             $res['RefunderTel'] = $this->refunderTel;
         }
-        if (null !== $this->subLmOrderId) {
-            $res['SubLmOrderId'] = $this->subLmOrderId;
-        }
         if (null !== $this->sellerRefuseReason) {
             $res['SellerRefuseReason'] = $this->sellerRefuseReason;
+        }
+        if (null !== $this->subLmOrderId) {
+            $res['SubLmOrderId'] = $this->subLmOrderId;
         }
         if (null !== $this->applyDisputeDesc) {
             $res['ApplyDisputeDesc'] = $this->applyDisputeDesc;
@@ -205,35 +226,14 @@ class refundApplicationDetail extends Model
         if (null !== $this->disputeStatus) {
             $res['DisputeStatus'] = $this->disputeStatus;
         }
-        if (null !== $this->disputeType) {
-            $res['DisputeType'] = $this->disputeType;
-        }
-        if (null !== $this->lmOrderId) {
-            $res['LmOrderId'] = $this->lmOrderId;
+        if (null !== $this->refunderZipCode) {
+            $res['RefunderZipCode'] = $this->refunderZipCode;
         }
         if (null !== $this->maxRefundFeeData) {
             $res['MaxRefundFeeData'] = null !== $this->maxRefundFeeData ? $this->maxRefundFeeData->toMap() : null;
         }
         if (null !== $this->applyReasonText) {
             $res['ApplyReasonText'] = null !== $this->applyReasonText ? $this->applyReasonText->toMap() : null;
-        }
-        if (null !== $this->sellerAgreeMsg) {
-            $res['SellerAgreeMsg'] = $this->sellerAgreeMsg;
-        }
-        if (null !== $this->disputeDesc) {
-            $res['DisputeDesc'] = $this->disputeDesc;
-        }
-        if (null !== $this->disputeId) {
-            $res['DisputeId'] = $this->disputeId;
-        }
-        if (null !== $this->disputeEndTime) {
-            $res['DisputeEndTime'] = $this->disputeEndTime;
-        }
-        if (null !== $this->disputeCreateTime) {
-            $res['DisputeCreateTime'] = $this->disputeCreateTime;
-        }
-        if (null !== $this->refunderZipCode) {
-            $res['RefunderZipCode'] = $this->refunderZipCode;
         }
 
         return $res;
@@ -247,17 +247,35 @@ class refundApplicationDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisputeType'])) {
+            $model->disputeType = $map['DisputeType'];
+        }
+        if (isset($map['LmOrderId'])) {
+            $model->lmOrderId = $map['LmOrderId'];
+        }
         if (isset($map['RefunderName'])) {
             $model->refunderName = $map['RefunderName'];
         }
+        if (isset($map['SellerAgreeMsg'])) {
+            $model->sellerAgreeMsg = $map['SellerAgreeMsg'];
+        }
         if (isset($map['ReturnGoodLogisticsStatus'])) {
             $model->returnGoodLogisticsStatus = $map['ReturnGoodLogisticsStatus'];
+        }
+        if (isset($map['DisputeDesc'])) {
+            $model->disputeDesc = $map['DisputeDesc'];
         }
         if (isset($map['RefunderAddress'])) {
             $model->refunderAddress = $map['RefunderAddress'];
         }
         if (isset($map['ReturnGoodCount'])) {
             $model->returnGoodCount = $map['ReturnGoodCount'];
+        }
+        if (isset($map['DisputeId'])) {
+            $model->disputeId = $map['DisputeId'];
+        }
+        if (isset($map['DisputeEndTime'])) {
+            $model->disputeEndTime = $map['DisputeEndTime'];
         }
         if (isset($map['OrderLogisticsStatus'])) {
             $model->orderLogisticsStatus = $map['OrderLogisticsStatus'];
@@ -274,14 +292,17 @@ class refundApplicationDetail extends Model
         if (isset($map['SellerRefuseAgreementMessage'])) {
             $model->sellerRefuseAgreementMessage = $map['SellerRefuseAgreementMessage'];
         }
+        if (isset($map['DisputeCreateTime'])) {
+            $model->disputeCreateTime = $map['DisputeCreateTime'];
+        }
         if (isset($map['RefunderTel'])) {
             $model->refunderTel = $map['RefunderTel'];
         }
-        if (isset($map['SubLmOrderId'])) {
-            $model->subLmOrderId = $map['SubLmOrderId'];
-        }
         if (isset($map['SellerRefuseReason'])) {
             $model->sellerRefuseReason = $map['SellerRefuseReason'];
+        }
+        if (isset($map['SubLmOrderId'])) {
+            $model->subLmOrderId = $map['SubLmOrderId'];
         }
         if (isset($map['ApplyDisputeDesc'])) {
             $model->applyDisputeDesc = $map['ApplyDisputeDesc'];
@@ -289,35 +310,14 @@ class refundApplicationDetail extends Model
         if (isset($map['DisputeStatus'])) {
             $model->disputeStatus = $map['DisputeStatus'];
         }
-        if (isset($map['DisputeType'])) {
-            $model->disputeType = $map['DisputeType'];
-        }
-        if (isset($map['LmOrderId'])) {
-            $model->lmOrderId = $map['LmOrderId'];
+        if (isset($map['RefunderZipCode'])) {
+            $model->refunderZipCode = $map['RefunderZipCode'];
         }
         if (isset($map['MaxRefundFeeData'])) {
             $model->maxRefundFeeData = maxRefundFeeData::fromMap($map['MaxRefundFeeData']);
         }
         if (isset($map['ApplyReasonText'])) {
             $model->applyReasonText = applyReasonText::fromMap($map['ApplyReasonText']);
-        }
-        if (isset($map['SellerAgreeMsg'])) {
-            $model->sellerAgreeMsg = $map['SellerAgreeMsg'];
-        }
-        if (isset($map['DisputeDesc'])) {
-            $model->disputeDesc = $map['DisputeDesc'];
-        }
-        if (isset($map['DisputeId'])) {
-            $model->disputeId = $map['DisputeId'];
-        }
-        if (isset($map['DisputeEndTime'])) {
-            $model->disputeEndTime = $map['DisputeEndTime'];
-        }
-        if (isset($map['DisputeCreateTime'])) {
-            $model->disputeCreateTime = $map['DisputeCreateTime'];
-        }
-        if (isset($map['RefunderZipCode'])) {
-            $model->refunderZipCode = $map['RefunderZipCode'];
         }
 
         return $model;

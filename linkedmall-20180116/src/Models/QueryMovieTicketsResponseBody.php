@@ -15,6 +15,26 @@ class QueryMovieTicketsResponseBody extends Model
     public $requestId;
 
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $subMessage;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $subCode;
+
+    /**
      * @var string
      */
     public $message;
@@ -28,35 +48,15 @@ class QueryMovieTicketsResponseBody extends Model
      * @var movieTicket
      */
     public $movieTicket;
-
-    /**
-     * @var string
-     */
-    public $subMessage;
-
-    /**
-     * @var string
-     */
-    public $subCode;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'requestId'   => 'RequestId',
+        'success'     => 'Success',
+        'subMessage'  => 'SubMessage',
+        'code'        => 'Code',
+        'subCode'     => 'SubCode',
         'message'     => 'Message',
         'logsId'      => 'LogsId',
         'movieTicket' => 'MovieTicket',
-        'subMessage'  => 'SubMessage',
-        'subCode'     => 'SubCode',
-        'code'        => 'Code',
-        'success'     => 'Success',
     ];
 
     public function validate()
@@ -69,6 +69,18 @@ class QueryMovieTicketsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->subMessage) {
+            $res['SubMessage'] = $this->subMessage;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->subCode) {
+            $res['SubCode'] = $this->subCode;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -77,18 +89,6 @@ class QueryMovieTicketsResponseBody extends Model
         }
         if (null !== $this->movieTicket) {
             $res['MovieTicket'] = null !== $this->movieTicket ? $this->movieTicket->toMap() : null;
-        }
-        if (null !== $this->subMessage) {
-            $res['SubMessage'] = $this->subMessage;
-        }
-        if (null !== $this->subCode) {
-            $res['SubCode'] = $this->subCode;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -105,6 +105,18 @@ class QueryMovieTicketsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['SubMessage'])) {
+            $model->subMessage = $map['SubMessage'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['SubCode'])) {
+            $model->subCode = $map['SubCode'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -113,18 +125,6 @@ class QueryMovieTicketsResponseBody extends Model
         }
         if (isset($map['MovieTicket'])) {
             $model->movieTicket = movieTicket::fromMap($map['MovieTicket']);
-        }
-        if (isset($map['SubMessage'])) {
-            $model->subMessage = $map['SubMessage'];
-        }
-        if (isset($map['SubCode'])) {
-            $model->subCode = $map['SubCode'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

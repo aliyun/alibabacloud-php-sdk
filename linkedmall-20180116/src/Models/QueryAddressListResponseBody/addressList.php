@@ -56,12 +56,12 @@ class addressList extends Model
     /**
      * @var string
      */
-    public $townDivisionCode;
+    public $area;
 
     /**
      * @var string
      */
-    public $area;
+    public $townDivisionCode;
 
     /**
      * @var string
@@ -82,8 +82,8 @@ class addressList extends Model
         'divisionCode'     => 'DivisionCode',
         'mobile'           => 'Mobile',
         'country'          => 'Country',
-        'townDivisionCode' => 'TownDivisionCode',
         'area'             => 'Area',
+        'townDivisionCode' => 'TownDivisionCode',
         'town'             => 'Town',
         'province'         => 'Province',
     ];
@@ -122,11 +122,11 @@ class addressList extends Model
         if (null !== $this->country) {
             $res['Country'] = $this->country;
         }
-        if (null !== $this->townDivisionCode) {
-            $res['TownDivisionCode'] = $this->townDivisionCode;
-        }
         if (null !== $this->area) {
             $res['Area'] = $this->area;
+        }
+        if (null !== $this->townDivisionCode) {
+            $res['TownDivisionCode'] = $this->townDivisionCode;
         }
         if (null !== $this->town) {
             $res['Town'] = $this->town;
@@ -173,11 +173,11 @@ class addressList extends Model
         if (isset($map['Country'])) {
             $model->country = $map['Country'];
         }
-        if (isset($map['TownDivisionCode'])) {
-            $model->townDivisionCode = $map['TownDivisionCode'];
-        }
         if (isset($map['Area'])) {
             $model->area = $map['Area'];
+        }
+        if (isset($map['TownDivisionCode'])) {
+            $model->townDivisionCode = $map['TownDivisionCode'];
         }
         if (isset($map['Town'])) {
             $model->town = $map['Town'];

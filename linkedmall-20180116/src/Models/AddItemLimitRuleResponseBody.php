@@ -11,6 +11,16 @@ class AddItemLimitRuleResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var int
+     */
+    public $model;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -22,22 +32,12 @@ class AddItemLimitRuleResponseBody extends Model
      * @var int
      */
     public $ruleId;
-
-    /**
-     * @var int
-     */
-    public $model;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'      => 'Code',
+        'model'     => 'Model',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'ruleId'    => 'RuleId',
-        'model'     => 'Model',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class AddItemLimitRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -55,12 +61,6 @@ class AddItemLimitRuleResponseBody extends Model
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
-        }
-        if (null !== $this->model) {
-            $res['Model'] = $this->model;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class AddItemLimitRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -82,12 +88,6 @@ class AddItemLimitRuleResponseBody extends Model
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
-        }
-        if (isset($map['Model'])) {
-            $model->model = $map['Model'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

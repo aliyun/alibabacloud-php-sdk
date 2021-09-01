@@ -10,6 +10,9 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\AddAddressRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\AddAddressResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\AddItemLimitRuleRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\AddItemLimitRuleResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\AddItemToSubBizsRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\AddItemToSubBizsResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\AddItemToSubBizsShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\AddSupplierNewItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\AddSupplierNewItemsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ApplyRefundRequest;
@@ -40,6 +43,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeleteItemLimitRuleRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeleteItemLimitRuleResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\EnableOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\EnableOrderResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ExecuteNodeRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ExecuteNodeResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetCategoryChainRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetCategoryChainResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetCategoryListRequest;
@@ -81,6 +86,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAddressListRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAddressListResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAddressRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAddressResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAdvertisementSettleInfoRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAdvertisementSettleInfoResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAgreementRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAgreementResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAllCinemasRequest;
@@ -103,16 +110,26 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemsWithActivityRespon
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemsWithActivityShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupWithOutInventoryRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupWithOutInventoryResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryHotMoviesRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryHotMoviesResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryInventoryOfItemsInBizItemGroupRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryInventoryOfItemsInBizItemGroupResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryInventoryOfItemsInBizItemGroupShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemDetailInnerRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemDetailInnerResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemDetailRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemDetailResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInSubBizsRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInSubBizsResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInSubBizsShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInventoryRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInventoryResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryMediaSettleInfoRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryMediaSettleInfoResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryMessagesRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryMessagesResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryMovieCommentsRequest;
@@ -141,6 +158,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderLogisticsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderLogisticsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplicationDetailRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplicationDetailResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryStatementsRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryStatementsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUnfinishedActivitiesRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUnfinishedActivitiesResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUnfinishedSessions4ItemsRequest;
@@ -337,6 +356,39 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addItemLimitRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddItemToSubBizsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddItemToSubBizsResponse
+     */
+    public function addItemToSubBizsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddItemToSubBizsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->subBizIds)) {
+            $request->subBizIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subBizIds, 'SubBizIds', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddItemToSubBizsResponse::fromMap($this->doRPCRequest('AddItemToSubBizs', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddItemToSubBizsRequest $request
+     *
+     * @return AddItemToSubBizsResponse
+     */
+    public function addItemToSubBizs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addItemToSubBizsWithOptions($request, $runtime);
     }
 
     /**
@@ -758,6 +810,34 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExecuteNodeRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ExecuteNodeResponse
+     */
+    public function executeNodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ExecuteNodeResponse::fromMap($this->doRPCRequest('ExecuteNode', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ExecuteNodeRequest $request
+     *
+     * @return ExecuteNodeResponse
+     */
+    public function executeNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeNodeWithOptions($request, $runtime);
     }
 
     /**
@@ -1330,6 +1410,34 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryAdvertisementSettleInfoRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryAdvertisementSettleInfoResponse
+     */
+    public function queryAdvertisementSettleInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryAdvertisementSettleInfoResponse::fromMap($this->doRPCRequest('QueryAdvertisementSettleInfo', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryAdvertisementSettleInfoRequest $request
+     *
+     * @return QueryAdvertisementSettleInfoResponse
+     */
+    public function queryAdvertisementSettleInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAdvertisementSettleInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryAgreementRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1612,6 +1720,35 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryGuideItemGroupWithOutInventoryRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return QueryGuideItemGroupWithOutInventoryResponse
+     */
+    public function queryGuideItemGroupWithOutInventoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return QueryGuideItemGroupWithOutInventoryResponse::fromMap($this->doRPCRequest('QueryGuideItemGroupWithOutInventory', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryGuideItemGroupWithOutInventoryRequest $request
+     *
+     * @return QueryGuideItemGroupWithOutInventoryResponse
+     */
+    public function queryGuideItemGroupWithOutInventory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGuideItemGroupWithOutInventoryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryHotMoviesRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1637,6 +1774,43 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryHotMoviesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryInventoryOfItemsInBizItemGroupRequest $tmpReq
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return QueryInventoryOfItemsInBizItemGroupResponse
+     */
+    public function queryInventoryOfItemsInBizItemGroupWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryInventoryOfItemsInBizItemGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->itemIds)) {
+            $request->itemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itemIds, 'ItemIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->lmItemIds)) {
+            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return QueryInventoryOfItemsInBizItemGroupResponse::fromMap($this->doRPCRequest('QueryInventoryOfItemsInBizItemGroup', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryInventoryOfItemsInBizItemGroupRequest $request
+     *
+     * @return QueryInventoryOfItemsInBizItemGroupResponse
+     */
+    public function queryInventoryOfItemsInBizItemGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInventoryOfItemsInBizItemGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1696,6 +1870,40 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryItemInSubBizsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryItemInSubBizsResponse
+     */
+    public function queryItemInSubBizsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryItemInSubBizsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->subBizIds)) {
+            $request->subBizIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subBizIds, 'SubBizIds', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return QueryItemInSubBizsResponse::fromMap($this->doRPCRequest('QueryItemInSubBizs', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryItemInSubBizsRequest $request
+     *
+     * @return QueryItemInSubBizsResponse
+     */
+    public function queryItemInSubBizs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryItemInSubBizsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryItemInventoryRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1749,6 +1957,34 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryLogisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryMediaSettleInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryMediaSettleInfoResponse
+     */
+    public function queryMediaSettleInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryMediaSettleInfoResponse::fromMap($this->doRPCRequest('QueryMediaSettleInfo', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryMediaSettleInfoRequest $request
+     *
+     * @return QueryMediaSettleInfoResponse
+     */
+    public function queryMediaSettleInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMediaSettleInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -2143,6 +2379,34 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryRefundApplicationDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryStatementsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryStatementsResponse
+     */
+    public function queryStatementsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryStatementsResponse::fromMap($this->doRPCRequest('QueryStatements', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryStatementsRequest $request
+     *
+     * @return QueryStatementsResponse
+     */
+    public function queryStatements($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryStatementsWithOptions($request, $runtime);
     }
 
     /**

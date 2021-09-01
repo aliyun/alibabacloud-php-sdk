@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class renderOrderInfos extends Model
 {
     /**
-     * @var string[]
+     * @var mixed[]
      */
     public $extInfo;
 

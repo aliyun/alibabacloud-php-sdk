@@ -11,12 +11,12 @@ class activitySessionItemSkuList extends Model
     /**
      * @var int
      */
-    public $priceCent;
+    public $skuId;
 
     /**
      * @var int
      */
-    public $skuId;
+    public $priceCent;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class activitySessionItemSkuList extends Model
      */
     public $pointsAmount;
     protected $_name = [
-        'priceCent'    => 'PriceCent',
         'skuId'        => 'SkuId',
+        'priceCent'    => 'PriceCent',
         'points'       => 'Points',
         'pointsAmount' => 'PointsAmount',
     ];
@@ -41,11 +41,11 @@ class activitySessionItemSkuList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->priceCent) {
-            $res['PriceCent'] = $this->priceCent;
-        }
         if (null !== $this->skuId) {
             $res['SkuId'] = $this->skuId;
+        }
+        if (null !== $this->priceCent) {
+            $res['PriceCent'] = $this->priceCent;
         }
         if (null !== $this->points) {
             $res['Points'] = $this->points;
@@ -65,11 +65,11 @@ class activitySessionItemSkuList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PriceCent'])) {
-            $model->priceCent = $map['PriceCent'];
-        }
         if (isset($map['SkuId'])) {
             $model->skuId = $map['SkuId'];
+        }
+        if (isset($map['PriceCent'])) {
+            $model->priceCent = $map['PriceCent'];
         }
         if (isset($map['Points'])) {
             $model->points = $map['Points'];

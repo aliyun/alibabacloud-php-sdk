@@ -21,6 +21,11 @@ class sku extends Model
     public $skuId;
 
     /**
+     * @var int
+     */
+    public $taoBaoCurrentPrice;
+
+    /**
      * @var bool
      */
     public $canSell;
@@ -46,14 +51,14 @@ class sku extends Model
     public $pointsAmount;
 
     /**
-     * @var userLabelList
-     */
-    public $userLabelList;
-
-    /**
      * @var string
      */
     public $benefitId;
+
+    /**
+     * @var mixed[]
+     */
+    public $customizedAttributeMap;
 
     /**
      * @var gradePriceModels
@@ -61,21 +66,22 @@ class sku extends Model
     public $gradePriceModels;
 
     /**
-     * @var mixed[]
+     * @var userLabelList
      */
-    public $customizedAttributeMap;
+    public $userLabelList;
     protected $_name = [
         'priceCent'              => 'PriceCent',
         'skuId'                  => 'SkuId',
+        'taoBaoCurrentPrice'     => 'TaoBaoCurrentPrice',
         'canSell'                => 'CanSell',
         'skuPicUrl'              => 'SkuPicUrl',
         'points'                 => 'Points',
         'skuTitle'               => 'SkuTitle',
         'pointsAmount'           => 'PointsAmount',
-        'userLabelList'          => 'UserLabelList',
         'benefitId'              => 'BenefitId',
-        'gradePriceModels'       => 'GradePriceModels',
         'customizedAttributeMap' => 'CustomizedAttributeMap',
+        'gradePriceModels'       => 'GradePriceModels',
+        'userLabelList'          => 'UserLabelList',
     ];
 
     public function validate()
@@ -90,6 +96,9 @@ class sku extends Model
         }
         if (null !== $this->skuId) {
             $res['SkuId'] = $this->skuId;
+        }
+        if (null !== $this->taoBaoCurrentPrice) {
+            $res['TaoBaoCurrentPrice'] = $this->taoBaoCurrentPrice;
         }
         if (null !== $this->canSell) {
             $res['CanSell'] = $this->canSell;
@@ -106,17 +115,17 @@ class sku extends Model
         if (null !== $this->pointsAmount) {
             $res['PointsAmount'] = $this->pointsAmount;
         }
-        if (null !== $this->userLabelList) {
-            $res['UserLabelList'] = null !== $this->userLabelList ? $this->userLabelList->toMap() : null;
-        }
         if (null !== $this->benefitId) {
             $res['BenefitId'] = $this->benefitId;
+        }
+        if (null !== $this->customizedAttributeMap) {
+            $res['CustomizedAttributeMap'] = $this->customizedAttributeMap;
         }
         if (null !== $this->gradePriceModels) {
             $res['GradePriceModels'] = null !== $this->gradePriceModels ? $this->gradePriceModels->toMap() : null;
         }
-        if (null !== $this->customizedAttributeMap) {
-            $res['CustomizedAttributeMap'] = $this->customizedAttributeMap;
+        if (null !== $this->userLabelList) {
+            $res['UserLabelList'] = null !== $this->userLabelList ? $this->userLabelList->toMap() : null;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class sku extends Model
         if (isset($map['SkuId'])) {
             $model->skuId = $map['SkuId'];
         }
+        if (isset($map['TaoBaoCurrentPrice'])) {
+            $model->taoBaoCurrentPrice = $map['TaoBaoCurrentPrice'];
+        }
         if (isset($map['CanSell'])) {
             $model->canSell = $map['CanSell'];
         }
@@ -151,17 +163,17 @@ class sku extends Model
         if (isset($map['PointsAmount'])) {
             $model->pointsAmount = $map['PointsAmount'];
         }
-        if (isset($map['UserLabelList'])) {
-            $model->userLabelList = userLabelList::fromMap($map['UserLabelList']);
-        }
         if (isset($map['BenefitId'])) {
             $model->benefitId = $map['BenefitId'];
+        }
+        if (isset($map['CustomizedAttributeMap'])) {
+            $model->customizedAttributeMap = $map['CustomizedAttributeMap'];
         }
         if (isset($map['GradePriceModels'])) {
             $model->gradePriceModels = gradePriceModels::fromMap($map['GradePriceModels']);
         }
-        if (isset($map['CustomizedAttributeMap'])) {
-            $model->customizedAttributeMap = $map['CustomizedAttributeMap'];
+        if (isset($map['UserLabelList'])) {
+            $model->userLabelList = userLabelList::fromMap($map['UserLabelList']);
         }
 
         return $model;

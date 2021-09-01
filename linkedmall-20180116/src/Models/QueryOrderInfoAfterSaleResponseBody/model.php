@@ -20,19 +20,14 @@ class model extends Model
     public $shopServiceTelephone;
 
     /**
-     * @var logisticsList
+     * @var int
      */
-    public $logisticsList;
+    public $refundAmount;
 
     /**
      * @var string
      */
     public $xiaomiCode;
-
-    /**
-     * @var int
-     */
-    public $refundAmount;
 
     /**
      * @var string
@@ -88,12 +83,16 @@ class model extends Model
      * @var string
      */
     public $cashAmount;
+
+    /**
+     * @var logisticsList
+     */
+    public $logisticsList;
     protected $_name = [
         'lmOrderId'            => 'LmOrderId',
         'shopServiceTelephone' => 'ShopServiceTelephone',
-        'logisticsList'        => 'LogisticsList',
-        'xiaomiCode'           => 'XiaomiCode',
         'refundAmount'         => 'RefundAmount',
+        'xiaomiCode'           => 'XiaomiCode',
         'shopName'             => 'ShopName',
         'createDate'           => 'CreateDate',
         'refundRate'           => 'RefundRate',
@@ -105,6 +104,7 @@ class model extends Model
         'refundStatus'         => 'RefundStatus',
         'pointsAmount'         => 'PointsAmount',
         'cashAmount'           => 'CashAmount',
+        'logisticsList'        => 'LogisticsList',
     ];
 
     public function validate()
@@ -120,14 +120,11 @@ class model extends Model
         if (null !== $this->shopServiceTelephone) {
             $res['ShopServiceTelephone'] = $this->shopServiceTelephone;
         }
-        if (null !== $this->logisticsList) {
-            $res['LogisticsList'] = null !== $this->logisticsList ? $this->logisticsList->toMap() : null;
+        if (null !== $this->refundAmount) {
+            $res['RefundAmount'] = $this->refundAmount;
         }
         if (null !== $this->xiaomiCode) {
             $res['XiaomiCode'] = $this->xiaomiCode;
-        }
-        if (null !== $this->refundAmount) {
-            $res['RefundAmount'] = $this->refundAmount;
         }
         if (null !== $this->shopName) {
             $res['ShopName'] = $this->shopName;
@@ -162,6 +159,9 @@ class model extends Model
         if (null !== $this->cashAmount) {
             $res['CashAmount'] = $this->cashAmount;
         }
+        if (null !== $this->logisticsList) {
+            $res['LogisticsList'] = null !== $this->logisticsList ? $this->logisticsList->toMap() : null;
+        }
 
         return $res;
     }
@@ -180,14 +180,11 @@ class model extends Model
         if (isset($map['ShopServiceTelephone'])) {
             $model->shopServiceTelephone = $map['ShopServiceTelephone'];
         }
-        if (isset($map['LogisticsList'])) {
-            $model->logisticsList = logisticsList::fromMap($map['LogisticsList']);
+        if (isset($map['RefundAmount'])) {
+            $model->refundAmount = $map['RefundAmount'];
         }
         if (isset($map['XiaomiCode'])) {
             $model->xiaomiCode = $map['XiaomiCode'];
-        }
-        if (isset($map['RefundAmount'])) {
-            $model->refundAmount = $map['RefundAmount'];
         }
         if (isset($map['ShopName'])) {
             $model->shopName = $map['ShopName'];
@@ -221,6 +218,9 @@ class model extends Model
         }
         if (isset($map['CashAmount'])) {
             $model->cashAmount = $map['CashAmount'];
+        }
+        if (isset($map['LogisticsList'])) {
+            $model->logisticsList = logisticsList::fromMap($map['LogisticsList']);
         }
 
         return $model;

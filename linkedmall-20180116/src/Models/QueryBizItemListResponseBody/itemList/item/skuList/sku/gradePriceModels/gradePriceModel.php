@@ -60,14 +60,14 @@ class gradePriceModel extends Model
     public $characteristicCode;
 
     /**
-     * @var int
-     */
-    public $points;
-
-    /**
      * @var bool
      */
     public $canBuy;
+
+    /**
+     * @var int
+     */
+    public $points;
 
     /**
      * @var int
@@ -89,8 +89,8 @@ class gradePriceModel extends Model
         'accessUrl'          => 'AccessUrl',
         'subBizCode'         => 'SubBizCode',
         'characteristicCode' => 'CharacteristicCode',
-        'points'             => 'Points',
         'canBuy'             => 'CanBuy',
+        'points'             => 'Points',
         'pointsAmount'       => 'PointsAmount',
         'userLabelList'      => 'UserLabelList',
     ];
@@ -132,11 +132,11 @@ class gradePriceModel extends Model
         if (null !== $this->characteristicCode) {
             $res['CharacteristicCode'] = $this->characteristicCode;
         }
-        if (null !== $this->points) {
-            $res['Points'] = $this->points;
-        }
         if (null !== $this->canBuy) {
             $res['CanBuy'] = $this->canBuy;
+        }
+        if (null !== $this->points) {
+            $res['Points'] = $this->points;
         }
         if (null !== $this->pointsAmount) {
             $res['PointsAmount'] = $this->pointsAmount;
@@ -186,11 +186,11 @@ class gradePriceModel extends Model
         if (isset($map['CharacteristicCode'])) {
             $model->characteristicCode = $map['CharacteristicCode'];
         }
-        if (isset($map['Points'])) {
-            $model->points = $map['Points'];
-        }
         if (isset($map['CanBuy'])) {
             $model->canBuy = $map['CanBuy'];
+        }
+        if (isset($map['Points'])) {
+            $model->points = $map['Points'];
         }
         if (isset($map['PointsAmount'])) {
             $model->pointsAmount = $map['PointsAmount'];

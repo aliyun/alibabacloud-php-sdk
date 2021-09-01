@@ -11,12 +11,12 @@ class movie extends Model
     /**
      * @var string
      */
-    public $movieVersion;
+    public $type;
 
     /**
      * @var string
      */
-    public $type;
+    public $movieVersion;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class movie extends Model
     /**
      * @var string
      */
-    public $openDay;
+    public $remark;
 
     /**
      * @var string
      */
-    public $remark;
+    public $openDay;
 
     /**
      * @var string
@@ -51,12 +51,12 @@ class movie extends Model
     /**
      * @var string
      */
-    public $openTime;
+    public $director;
 
     /**
      * @var string
      */
-    public $director;
+    public $openTime;
 
     /**
      * @var string
@@ -103,16 +103,16 @@ class movie extends Model
      */
     public $trailerList;
     protected $_name = [
-        'movieVersion'      => 'MovieVersion',
         'type'              => 'Type',
+        'movieVersion'      => 'MovieVersion',
         'backgroundPicture' => 'BackgroundPicture',
-        'openDay'           => 'OpenDay',
         'remark'            => 'Remark',
+        'openDay'           => 'OpenDay',
         'highlight'         => 'Highlight',
         'movieTypeList'     => 'MovieTypeList',
         'language'          => 'Language',
-        'openTime'          => 'OpenTime',
         'director'          => 'Director',
+        'openTime'          => 'OpenTime',
         'poster'            => 'Poster',
         'movieName'         => 'MovieName',
         'description'       => 'Description',
@@ -131,20 +131,20 @@ class movie extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->movieVersion) {
-            $res['MovieVersion'] = $this->movieVersion;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->movieVersion) {
+            $res['MovieVersion'] = $this->movieVersion;
         }
         if (null !== $this->backgroundPicture) {
             $res['BackgroundPicture'] = $this->backgroundPicture;
         }
-        if (null !== $this->openDay) {
-            $res['OpenDay'] = $this->openDay;
-        }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->openDay) {
+            $res['OpenDay'] = $this->openDay;
         }
         if (null !== $this->highlight) {
             $res['Highlight'] = $this->highlight;
@@ -155,11 +155,11 @@ class movie extends Model
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
-        if (null !== $this->openTime) {
-            $res['OpenTime'] = $this->openTime;
-        }
         if (null !== $this->director) {
             $res['Director'] = $this->director;
+        }
+        if (null !== $this->openTime) {
+            $res['OpenTime'] = $this->openTime;
         }
         if (null !== $this->poster) {
             $res['Poster'] = $this->poster;
@@ -200,20 +200,20 @@ class movie extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MovieVersion'])) {
-            $model->movieVersion = $map['MovieVersion'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['MovieVersion'])) {
+            $model->movieVersion = $map['MovieVersion'];
         }
         if (isset($map['BackgroundPicture'])) {
             $model->backgroundPicture = $map['BackgroundPicture'];
         }
-        if (isset($map['OpenDay'])) {
-            $model->openDay = $map['OpenDay'];
-        }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['OpenDay'])) {
+            $model->openDay = $map['OpenDay'];
         }
         if (isset($map['Highlight'])) {
             $model->highlight = $map['Highlight'];
@@ -224,11 +224,11 @@ class movie extends Model
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
-        if (isset($map['OpenTime'])) {
-            $model->openTime = $map['OpenTime'];
-        }
         if (isset($map['Director'])) {
             $model->director = $map['Director'];
+        }
+        if (isset($map['OpenTime'])) {
+            $model->openTime = $map['OpenTime'];
         }
         if (isset($map['Poster'])) {
             $model->poster = $map['Poster'];

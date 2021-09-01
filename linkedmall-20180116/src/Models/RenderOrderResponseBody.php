@@ -15,6 +15,16 @@ class RenderOrderResponseBody extends Model
     public $requestId;
 
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $subMessage;
+
+    /**
      * @var string
      */
     public $code;
@@ -30,9 +40,9 @@ class RenderOrderResponseBody extends Model
     public $subCode;
 
     /**
-     * @var string
+     * @var int
      */
-    public $subMessage;
+    public $totalCount;
 
     /**
      * @var string
@@ -40,28 +50,18 @@ class RenderOrderResponseBody extends Model
     public $logsId;
 
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var model
      */
     public $model;
     protected $_name = [
         'requestId'  => 'RequestId',
+        'success'    => 'Success',
+        'subMessage' => 'SubMessage',
         'code'       => 'Code',
         'message'    => 'Message',
         'subCode'    => 'SubCode',
-        'subMessage' => 'SubMessage',
-        'logsId'     => 'LogsId',
-        'success'    => 'Success',
         'totalCount' => 'TotalCount',
+        'logsId'     => 'LogsId',
         'model'      => 'Model',
     ];
 
@@ -75,6 +75,12 @@ class RenderOrderResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->subMessage) {
+            $res['SubMessage'] = $this->subMessage;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -84,17 +90,11 @@ class RenderOrderResponseBody extends Model
         if (null !== $this->subCode) {
             $res['SubCode'] = $this->subCode;
         }
-        if (null !== $this->subMessage) {
-            $res['SubMessage'] = $this->subMessage;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->logsId) {
             $res['LogsId'] = $this->logsId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->model) {
             $res['Model'] = null !== $this->model ? $this->model->toMap() : null;
@@ -114,6 +114,12 @@ class RenderOrderResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['SubMessage'])) {
+            $model->subMessage = $map['SubMessage'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -123,17 +129,11 @@ class RenderOrderResponseBody extends Model
         if (isset($map['SubCode'])) {
             $model->subCode = $map['SubCode'];
         }
-        if (isset($map['SubMessage'])) {
-            $model->subMessage = $map['SubMessage'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['LogsId'])) {
             $model->logsId = $map['LogsId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['Model'])) {
             $model->model = model::fromMap($map['Model']);

@@ -12,6 +12,11 @@ class activitySessionItem extends Model
     /**
      * @var int
      */
+    public $sessionQuantity;
+
+    /**
+     * @var int
+     */
     public $limitQuantityForPerson;
 
     /**
@@ -20,18 +25,13 @@ class activitySessionItem extends Model
     public $saleableQuantity;
 
     /**
-     * @var int
-     */
-    public $sessionQuantity;
-
-    /**
      * @var activitySessionItemSkuList
      */
     public $activitySessionItemSkuList;
     protected $_name = [
+        'sessionQuantity'            => 'SessionQuantity',
         'limitQuantityForPerson'     => 'LimitQuantityForPerson',
         'saleableQuantity'           => 'SaleableQuantity',
-        'sessionQuantity'            => 'SessionQuantity',
         'activitySessionItemSkuList' => 'ActivitySessionItemSkuList',
     ];
 
@@ -42,14 +42,14 @@ class activitySessionItem extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sessionQuantity) {
+            $res['SessionQuantity'] = $this->sessionQuantity;
+        }
         if (null !== $this->limitQuantityForPerson) {
             $res['LimitQuantityForPerson'] = $this->limitQuantityForPerson;
         }
         if (null !== $this->saleableQuantity) {
             $res['SaleableQuantity'] = $this->saleableQuantity;
-        }
-        if (null !== $this->sessionQuantity) {
-            $res['SessionQuantity'] = $this->sessionQuantity;
         }
         if (null !== $this->activitySessionItemSkuList) {
             $res['ActivitySessionItemSkuList'] = null !== $this->activitySessionItemSkuList ? $this->activitySessionItemSkuList->toMap() : null;
@@ -66,14 +66,14 @@ class activitySessionItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SessionQuantity'])) {
+            $model->sessionQuantity = $map['SessionQuantity'];
+        }
         if (isset($map['LimitQuantityForPerson'])) {
             $model->limitQuantityForPerson = $map['LimitQuantityForPerson'];
         }
         if (isset($map['SaleableQuantity'])) {
             $model->saleableQuantity = $map['SaleableQuantity'];
-        }
-        if (isset($map['SessionQuantity'])) {
-            $model->sessionQuantity = $map['SessionQuantity'];
         }
         if (isset($map['ActivitySessionItemSkuList'])) {
             $model->activitySessionItemSkuList = activitySessionItemSkuList::fromMap($map['ActivitySessionItemSkuList']);

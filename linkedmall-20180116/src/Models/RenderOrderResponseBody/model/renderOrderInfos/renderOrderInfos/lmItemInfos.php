@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderOrderResponseBody\model\renderOrderInfos\renderOrderInfos;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderOrderResponseBody\model\renderOrderInfos\renderOrderInfos\lmItemInfos\lmItemInfos;
 use AlibabaCloud\Tea\Model;
 
 class lmItemInfos extends Model
 {
     /**
-     * @var lmItemInfos[]
+     * @var \AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderOrderResponseBody\model\renderOrderInfos\renderOrderInfos\lmItemInfos\lmItemInfos[]
      */
     public $lmItemInfos;
     protected $_name = [
@@ -50,7 +49,7 @@ class lmItemInfos extends Model
                 $model->lmItemInfos = [];
                 $n                  = 0;
                 foreach ($map['LmItemInfos'] as $item) {
-                    $model->lmItemInfos[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->lmItemInfos[$n++] = null !== $item ? \AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderOrderResponseBody\model\renderOrderInfos\renderOrderInfos\lmItemInfos\lmItemInfos::fromMap($item) : $item;
                 }
             }
         }

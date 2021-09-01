@@ -11,15 +11,15 @@ class activityItemSku extends Model
     /**
      * @var int
      */
-    public $skuId;
+    public $activityPrice;
 
     /**
      * @var int
      */
-    public $activityPrice;
+    public $skuId;
     protected $_name = [
-        'skuId'         => 'SkuId',
         'activityPrice' => 'ActivityPrice',
+        'skuId'         => 'SkuId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class activityItemSku extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skuId) {
-            $res['SkuId'] = $this->skuId;
-        }
         if (null !== $this->activityPrice) {
             $res['ActivityPrice'] = $this->activityPrice;
+        }
+        if (null !== $this->skuId) {
+            $res['SkuId'] = $this->skuId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class activityItemSku extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkuId'])) {
-            $model->skuId = $map['SkuId'];
-        }
         if (isset($map['ActivityPrice'])) {
             $model->activityPrice = $map['ActivityPrice'];
+        }
+        if (isset($map['SkuId'])) {
+            $model->skuId = $map['SkuId'];
         }
 
         return $model;

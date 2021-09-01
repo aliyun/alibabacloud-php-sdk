@@ -11,7 +11,7 @@ class lmItemInfoList extends Model
     /**
      * @var string
      */
-    public $lmItemId;
+    public $tbShopName;
 
     /**
      * @var int
@@ -21,7 +21,7 @@ class lmItemInfoList extends Model
     /**
      * @var string
      */
-    public $tbShopName;
+    public $lmItemId;
 
     /**
      * @var string
@@ -29,9 +29,9 @@ class lmItemInfoList extends Model
     public $message;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $itemId;
+    public $canSell;
 
     /**
      * @var int
@@ -39,9 +39,9 @@ class lmItemInfoList extends Model
     public $cash;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $canSell;
+    public $itemId;
 
     /**
      * @var string
@@ -54,14 +54,14 @@ class lmItemInfoList extends Model
     public $itemName;
 
     /**
-     * @var string
-     */
-    public $skuName;
-
-    /**
      * @var int
      */
     public $actualPrice;
+
+    /**
+     * @var string
+     */
+    public $skuName;
 
     /**
      * @var int
@@ -98,17 +98,17 @@ class lmItemInfoList extends Model
      */
     public $itemPicUrl;
     protected $_name = [
-        'lmItemId'        => 'LmItemId',
-        'sellerId'        => 'SellerId',
         'tbShopName'      => 'TbShopName',
+        'sellerId'        => 'SellerId',
+        'lmItemId'        => 'LmItemId',
         'message'         => 'Message',
-        'itemId'          => 'ItemId',
-        'cash'            => 'Cash',
         'canSell'         => 'CanSell',
+        'cash'            => 'Cash',
+        'itemId'          => 'ItemId',
         'virtualItemType' => 'VirtualItemType',
         'itemName'        => 'ItemName',
-        'skuName'         => 'SkuName',
         'actualPrice'     => 'ActualPrice',
+        'skuName'         => 'SkuName',
         'skuId'           => 'SkuId',
         'points'          => 'Points',
         'itemUrl'         => 'ItemUrl',
@@ -125,26 +125,26 @@ class lmItemInfoList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
+        if (null !== $this->tbShopName) {
+            $res['TbShopName'] = $this->tbShopName;
         }
         if (null !== $this->sellerId) {
             $res['SellerId'] = $this->sellerId;
         }
-        if (null !== $this->tbShopName) {
-            $res['TbShopName'] = $this->tbShopName;
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
+        if (null !== $this->canSell) {
+            $res['CanSell'] = $this->canSell;
         }
         if (null !== $this->cash) {
             $res['Cash'] = $this->cash;
         }
-        if (null !== $this->canSell) {
-            $res['CanSell'] = $this->canSell;
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->virtualItemType) {
             $res['VirtualItemType'] = $this->virtualItemType;
@@ -152,11 +152,11 @@ class lmItemInfoList extends Model
         if (null !== $this->itemName) {
             $res['ItemName'] = $this->itemName;
         }
-        if (null !== $this->skuName) {
-            $res['SkuName'] = $this->skuName;
-        }
         if (null !== $this->actualPrice) {
             $res['ActualPrice'] = $this->actualPrice;
+        }
+        if (null !== $this->skuName) {
+            $res['SkuName'] = $this->skuName;
         }
         if (null !== $this->skuId) {
             $res['SkuId'] = $this->skuId;
@@ -191,26 +191,26 @@ class lmItemInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
+        if (isset($map['TbShopName'])) {
+            $model->tbShopName = $map['TbShopName'];
         }
         if (isset($map['SellerId'])) {
             $model->sellerId = $map['SellerId'];
         }
-        if (isset($map['TbShopName'])) {
-            $model->tbShopName = $map['TbShopName'];
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
+        if (isset($map['CanSell'])) {
+            $model->canSell = $map['CanSell'];
         }
         if (isset($map['Cash'])) {
             $model->cash = $map['Cash'];
         }
-        if (isset($map['CanSell'])) {
-            $model->canSell = $map['CanSell'];
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['VirtualItemType'])) {
             $model->virtualItemType = $map['VirtualItemType'];
@@ -218,11 +218,11 @@ class lmItemInfoList extends Model
         if (isset($map['ItemName'])) {
             $model->itemName = $map['ItemName'];
         }
-        if (isset($map['SkuName'])) {
-            $model->skuName = $map['SkuName'];
-        }
         if (isset($map['ActualPrice'])) {
             $model->actualPrice = $map['ActualPrice'];
+        }
+        if (isset($map['SkuName'])) {
+            $model->skuName = $map['SkuName'];
         }
         if (isset($map['SkuId'])) {
             $model->skuId = $map['SkuId'];

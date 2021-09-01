@@ -19,19 +19,19 @@ class divisionAddress extends Model
     public $divisionCode;
 
     /**
-     * @var string
-     */
-    public $divisionName;
-
-    /**
      * @var int
      */
     public $divisionLevel;
+
+    /**
+     * @var string
+     */
+    public $divisionName;
     protected $_name = [
         'parentId'      => 'ParentId',
         'divisionCode'  => 'DivisionCode',
-        'divisionName'  => 'DivisionName',
         'divisionLevel' => 'DivisionLevel',
+        'divisionName'  => 'DivisionName',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class divisionAddress extends Model
         if (null !== $this->divisionCode) {
             $res['DivisionCode'] = $this->divisionCode;
         }
-        if (null !== $this->divisionName) {
-            $res['DivisionName'] = $this->divisionName;
-        }
         if (null !== $this->divisionLevel) {
             $res['DivisionLevel'] = $this->divisionLevel;
+        }
+        if (null !== $this->divisionName) {
+            $res['DivisionName'] = $this->divisionName;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class divisionAddress extends Model
         if (isset($map['DivisionCode'])) {
             $model->divisionCode = $map['DivisionCode'];
         }
-        if (isset($map['DivisionName'])) {
-            $model->divisionName = $map['DivisionName'];
-        }
         if (isset($map['DivisionLevel'])) {
             $model->divisionLevel = $map['DivisionLevel'];
+        }
+        if (isset($map['DivisionName'])) {
+            $model->divisionName = $map['DivisionName'];
         }
 
         return $model;

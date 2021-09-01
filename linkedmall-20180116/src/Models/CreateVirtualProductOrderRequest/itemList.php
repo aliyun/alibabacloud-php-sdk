@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class itemList extends Model
 {
     /**
-     * @var string
-     */
-    public $lmItemId;
-
-    /**
      * @var int
      */
     public $skuId;
+
+    /**
+     * @var string
+     */
+    public $lmItemId;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class itemList extends Model
      */
     public $quantity;
     protected $_name = [
-        'lmItemId' => 'LmItemId',
         'skuId'    => 'SkuId',
+        'lmItemId' => 'LmItemId',
         'itemId'   => 'ItemId',
         'quantity' => 'Quantity',
     ];
@@ -41,11 +41,11 @@ class itemList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
-        }
         if (null !== $this->skuId) {
             $res['SkuId'] = $this->skuId;
+        }
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
         }
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
@@ -65,11 +65,11 @@ class itemList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
-        }
         if (isset($map['SkuId'])) {
             $model->skuId = $map['SkuId'];
+        }
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
         }
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];

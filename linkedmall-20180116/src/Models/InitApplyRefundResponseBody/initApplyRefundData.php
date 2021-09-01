@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class initApplyRefundData extends Model
 {
     /**
-     * @var maxRefundFeeData
+     * @var bool
      */
-    public $maxRefundFeeData;
+    public $mainOrderRefund;
 
     /**
      * @var int
@@ -21,19 +21,19 @@ class initApplyRefundData extends Model
     public $bizClaimType;
 
     /**
-     * @var bool
-     */
-    public $mainOrderRefund;
-
-    /**
      * @var refundReasonList
      */
     public $refundReasonList;
+
+    /**
+     * @var maxRefundFeeData
+     */
+    public $maxRefundFeeData;
     protected $_name = [
-        'maxRefundFeeData' => 'MaxRefundFeeData',
-        'bizClaimType'     => 'BizClaimType',
         'mainOrderRefund'  => 'MainOrderRefund',
+        'bizClaimType'     => 'BizClaimType',
         'refundReasonList' => 'RefundReasonList',
+        'maxRefundFeeData' => 'MaxRefundFeeData',
     ];
 
     public function validate()
@@ -43,17 +43,17 @@ class initApplyRefundData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxRefundFeeData) {
-            $res['MaxRefundFeeData'] = null !== $this->maxRefundFeeData ? $this->maxRefundFeeData->toMap() : null;
+        if (null !== $this->mainOrderRefund) {
+            $res['MainOrderRefund'] = $this->mainOrderRefund;
         }
         if (null !== $this->bizClaimType) {
             $res['BizClaimType'] = $this->bizClaimType;
         }
-        if (null !== $this->mainOrderRefund) {
-            $res['MainOrderRefund'] = $this->mainOrderRefund;
-        }
         if (null !== $this->refundReasonList) {
             $res['RefundReasonList'] = null !== $this->refundReasonList ? $this->refundReasonList->toMap() : null;
+        }
+        if (null !== $this->maxRefundFeeData) {
+            $res['MaxRefundFeeData'] = null !== $this->maxRefundFeeData ? $this->maxRefundFeeData->toMap() : null;
         }
 
         return $res;
@@ -67,17 +67,17 @@ class initApplyRefundData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxRefundFeeData'])) {
-            $model->maxRefundFeeData = maxRefundFeeData::fromMap($map['MaxRefundFeeData']);
+        if (isset($map['MainOrderRefund'])) {
+            $model->mainOrderRefund = $map['MainOrderRefund'];
         }
         if (isset($map['BizClaimType'])) {
             $model->bizClaimType = $map['BizClaimType'];
         }
-        if (isset($map['MainOrderRefund'])) {
-            $model->mainOrderRefund = $map['MainOrderRefund'];
-        }
         if (isset($map['RefundReasonList'])) {
             $model->refundReasonList = refundReasonList::fromMap($map['RefundReasonList']);
+        }
+        if (isset($map['MaxRefundFeeData'])) {
+            $model->maxRefundFeeData = maxRefundFeeData::fromMap($map['MaxRefundFeeData']);
         }
 
         return $model;

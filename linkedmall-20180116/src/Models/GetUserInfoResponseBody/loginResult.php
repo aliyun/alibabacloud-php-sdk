@@ -29,11 +29,6 @@ class loginResult extends Model
     public $bizId;
 
     /**
-     * @var string[]
-     */
-    public $subBizId;
-
-    /**
      * @var int
      */
     public $lmUserId;
@@ -42,14 +37,19 @@ class loginResult extends Model
      * @var mixed[]
      */
     public $extInfo;
+
+    /**
+     * @var string[]
+     */
+    public $subBizId;
     protected $_name = [
         'returnUrl'   => 'ReturnUrl',
         'bizUserName' => 'BizUserName',
         'bizUid'      => 'BizUid',
         'bizId'       => 'BizId',
-        'subBizId'    => 'SubBizId',
         'lmUserId'    => 'LmUserId',
         'extInfo'     => 'ExtInfo',
+        'subBizId'    => 'SubBizId',
     ];
 
     public function validate()
@@ -71,14 +71,14 @@ class loginResult extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->subBizId) {
-            $res['SubBizId'] = $this->subBizId;
-        }
         if (null !== $this->lmUserId) {
             $res['LmUserId'] = $this->lmUserId;
         }
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
+        }
+        if (null !== $this->subBizId) {
+            $res['SubBizId'] = $this->subBizId;
         }
 
         return $res;
@@ -104,16 +104,16 @@ class loginResult extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['SubBizId'])) {
-            if (!empty($map['SubBizId'])) {
-                $model->subBizId = $map['SubBizId'];
-            }
-        }
         if (isset($map['LmUserId'])) {
             $model->lmUserId = $map['LmUserId'];
         }
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
+        }
+        if (isset($map['SubBizId'])) {
+            if (!empty($map['SubBizId'])) {
+                $model->subBizId = $map['SubBizId'];
+            }
         }
 
         return $model;

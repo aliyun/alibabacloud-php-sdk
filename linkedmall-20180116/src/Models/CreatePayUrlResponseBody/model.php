@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class model extends Model
 {
     /**
-     * @var string[]
-     */
-    public $payTradeIds;
-
-    /**
      * @var string
      */
     public $redirectUrl;
+
+    /**
+     * @var string[]
+     */
+    public $payTradeIds;
 
     /**
      * @var string[]
@@ -28,8 +28,8 @@ class model extends Model
      */
     public $orderIds;
     protected $_name = [
-        'payTradeIds' => 'PayTradeIds',
         'redirectUrl' => 'RedirectUrl',
+        'payTradeIds' => 'PayTradeIds',
         'lmOrderList' => 'LmOrderList',
         'orderIds'    => 'OrderIds',
     ];
@@ -41,11 +41,11 @@ class model extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->payTradeIds) {
-            $res['PayTradeIds'] = $this->payTradeIds;
-        }
         if (null !== $this->redirectUrl) {
             $res['RedirectUrl'] = $this->redirectUrl;
+        }
+        if (null !== $this->payTradeIds) {
+            $res['PayTradeIds'] = $this->payTradeIds;
         }
         if (null !== $this->lmOrderList) {
             $res['LmOrderList'] = $this->lmOrderList;
@@ -65,13 +65,13 @@ class model extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RedirectUrl'])) {
+            $model->redirectUrl = $map['RedirectUrl'];
+        }
         if (isset($map['PayTradeIds'])) {
             if (!empty($map['PayTradeIds'])) {
                 $model->payTradeIds = $map['PayTradeIds'];
             }
-        }
-        if (isset($map['RedirectUrl'])) {
-            $model->redirectUrl = $map['RedirectUrl'];
         }
         if (isset($map['LmOrderList'])) {
             if (!empty($map['LmOrderList'])) {

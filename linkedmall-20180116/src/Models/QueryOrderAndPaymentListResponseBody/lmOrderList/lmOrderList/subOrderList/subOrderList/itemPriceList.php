@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderAndPaymentListResponseBody\lmOrderList\lmOrderList\subOrderList\subOrderList;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderAndPaymentListResponseBody\lmOrderList\lmOrderList\subOrderList\subOrderList\itemPriceList\itemPriceList;
 use AlibabaCloud\Tea\Model;
 
 class itemPriceList extends Model
 {
     /**
-     * @var itemPriceList[]
+     * @var \AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderAndPaymentListResponseBody\lmOrderList\lmOrderList\subOrderList\subOrderList\itemPriceList\itemPriceList[]
      */
     public $itemPriceList;
     protected $_name = [
@@ -50,7 +49,7 @@ class itemPriceList extends Model
                 $model->itemPriceList = [];
                 $n                    = 0;
                 foreach ($map['ItemPriceList'] as $item) {
-                    $model->itemPriceList[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->itemPriceList[$n++] = null !== $item ? \AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderAndPaymentListResponseBody\lmOrderList\lmOrderList\subOrderList\subOrderList\itemPriceList\itemPriceList::fromMap($item) : $item;
                 }
             }
         }

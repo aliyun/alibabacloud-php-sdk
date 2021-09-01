@@ -12,6 +12,11 @@ class QueryOrderCommissionRateResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -23,16 +28,11 @@ class QueryOrderCommissionRateResponseBody extends Model
      * @var commissionModels[]
      */
     public $commissionModels;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'             => 'Code',
         'message'          => 'Message',
         'requestId'        => 'RequestId',
         'commissionModels' => 'CommissionModels',
-        'code'             => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class QueryOrderCommissionRateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -57,9 +60,6 @@ class QueryOrderCommissionRateResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
 
         return $res;
     }
@@ -72,6 +72,9 @@ class QueryOrderCommissionRateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +89,6 @@ class QueryOrderCommissionRateResponseBody extends Model
                     $model->commissionModels[$n++] = null !== $item ? commissionModels::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

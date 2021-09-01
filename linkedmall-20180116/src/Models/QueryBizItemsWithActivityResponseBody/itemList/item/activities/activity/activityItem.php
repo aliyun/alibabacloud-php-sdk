@@ -12,20 +12,20 @@ class activityItem extends Model
     /**
      * @var int
      */
-    public $limitQuantityForPerson;
+    public $activityQuantity;
 
     /**
      * @var int
      */
-    public $activityQuantity;
+    public $limitQuantityForPerson;
 
     /**
      * @var activityItemSkuList
      */
     public $activityItemSkuList;
     protected $_name = [
-        'limitQuantityForPerson' => 'LimitQuantityForPerson',
         'activityQuantity'       => 'ActivityQuantity',
+        'limitQuantityForPerson' => 'LimitQuantityForPerson',
         'activityItemSkuList'    => 'ActivityItemSkuList',
     ];
 
@@ -36,11 +36,11 @@ class activityItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->limitQuantityForPerson) {
-            $res['LimitQuantityForPerson'] = $this->limitQuantityForPerson;
-        }
         if (null !== $this->activityQuantity) {
             $res['ActivityQuantity'] = $this->activityQuantity;
+        }
+        if (null !== $this->limitQuantityForPerson) {
+            $res['LimitQuantityForPerson'] = $this->limitQuantityForPerson;
         }
         if (null !== $this->activityItemSkuList) {
             $res['ActivityItemSkuList'] = null !== $this->activityItemSkuList ? $this->activityItemSkuList->toMap() : null;
@@ -57,11 +57,11 @@ class activityItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LimitQuantityForPerson'])) {
-            $model->limitQuantityForPerson = $map['LimitQuantityForPerson'];
-        }
         if (isset($map['ActivityQuantity'])) {
             $model->activityQuantity = $map['ActivityQuantity'];
+        }
+        if (isset($map['LimitQuantityForPerson'])) {
+            $model->limitQuantityForPerson = $map['LimitQuantityForPerson'];
         }
         if (isset($map['ActivityItemSkuList'])) {
             $model->activityItemSkuList = activityItemSkuList::fromMap($map['ActivityItemSkuList']);

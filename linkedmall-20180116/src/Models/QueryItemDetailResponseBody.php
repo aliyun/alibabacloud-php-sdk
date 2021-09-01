@@ -10,19 +10,14 @@ use AlibabaCloud\Tea\Model;
 class QueryItemDetailResponseBody extends Model
 {
     /**
-     * @var item
-     */
-    public $item;
-
-    /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $message;
+    public $success;
 
     /**
      * @var string
@@ -32,25 +27,30 @@ class QueryItemDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $subCode;
+    public $code;
 
     /**
      * @var string
      */
-    public $code;
+    public $message;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $subCode;
+
+    /**
+     * @var item
+     */
+    public $item;
     protected $_name = [
-        'item'       => 'Item',
         'requestId'  => 'RequestId',
-        'message'    => 'Message',
-        'subMessage' => 'SubMessage',
-        'subCode'    => 'SubCode',
-        'code'       => 'Code',
         'success'    => 'Success',
+        'subMessage' => 'SubMessage',
+        'code'       => 'Code',
+        'message'    => 'Message',
+        'subCode'    => 'SubCode',
+        'item'       => 'Item',
     ];
 
     public function validate()
@@ -60,26 +60,26 @@ class QueryItemDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->item) {
-            $res['Item'] = null !== $this->item ? $this->item->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->subMessage) {
             $res['SubMessage'] = $this->subMessage;
         }
-        if (null !== $this->subCode) {
-            $res['SubCode'] = $this->subCode;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->subCode) {
+            $res['SubCode'] = $this->subCode;
+        }
+        if (null !== $this->item) {
+            $res['Item'] = null !== $this->item ? $this->item->toMap() : null;
         }
 
         return $res;
@@ -93,26 +93,26 @@ class QueryItemDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Item'])) {
-            $model->item = item::fromMap($map['Item']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['SubMessage'])) {
             $model->subMessage = $map['SubMessage'];
         }
-        if (isset($map['SubCode'])) {
-            $model->subCode = $map['SubCode'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['SubCode'])) {
+            $model->subCode = $map['SubCode'];
+        }
+        if (isset($map['Item'])) {
+            $model->item = item::fromMap($map['Item']);
         }
 
         return $model;

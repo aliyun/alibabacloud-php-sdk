@@ -13,26 +13,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $dataProvider;
-
-    /**
-     * @var string
-     */
-    public $dataProviderTitle;
-
-    /**
-     * @var goods
-     */
-    public $goods;
-
-    /**
-     * @var logisticsDetailList
-     */
-    public $logisticsDetailList;
-
-    /**
-     * @var string
-     */
     public $logisticsCompanyCode;
 
     /**
@@ -44,14 +24,34 @@ class data extends Model
      * @var string
      */
     public $logisticsCompanyName;
+
+    /**
+     * @var string
+     */
+    public $dataProvider;
+
+    /**
+     * @var string
+     */
+    public $dataProviderTitle;
+
+    /**
+     * @var logisticsDetailList
+     */
+    public $logisticsDetailList;
+
+    /**
+     * @var goods
+     */
+    public $goods;
     protected $_name = [
-        'dataProvider'         => 'DataProvider',
-        'dataProviderTitle'    => 'DataProviderTitle',
-        'goods'                => 'Goods',
-        'logisticsDetailList'  => 'LogisticsDetailList',
         'logisticsCompanyCode' => 'LogisticsCompanyCode',
         'mailNo'               => 'MailNo',
         'logisticsCompanyName' => 'LogisticsCompanyName',
+        'dataProvider'         => 'DataProvider',
+        'dataProviderTitle'    => 'DataProviderTitle',
+        'logisticsDetailList'  => 'LogisticsDetailList',
+        'goods'                => 'Goods',
     ];
 
     public function validate()
@@ -61,18 +61,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dataProvider) {
-            $res['DataProvider'] = $this->dataProvider;
-        }
-        if (null !== $this->dataProviderTitle) {
-            $res['DataProviderTitle'] = $this->dataProviderTitle;
-        }
-        if (null !== $this->goods) {
-            $res['Goods'] = null !== $this->goods ? $this->goods->toMap() : null;
-        }
-        if (null !== $this->logisticsDetailList) {
-            $res['LogisticsDetailList'] = null !== $this->logisticsDetailList ? $this->logisticsDetailList->toMap() : null;
-        }
         if (null !== $this->logisticsCompanyCode) {
             $res['LogisticsCompanyCode'] = $this->logisticsCompanyCode;
         }
@@ -81,6 +69,18 @@ class data extends Model
         }
         if (null !== $this->logisticsCompanyName) {
             $res['LogisticsCompanyName'] = $this->logisticsCompanyName;
+        }
+        if (null !== $this->dataProvider) {
+            $res['DataProvider'] = $this->dataProvider;
+        }
+        if (null !== $this->dataProviderTitle) {
+            $res['DataProviderTitle'] = $this->dataProviderTitle;
+        }
+        if (null !== $this->logisticsDetailList) {
+            $res['LogisticsDetailList'] = null !== $this->logisticsDetailList ? $this->logisticsDetailList->toMap() : null;
+        }
+        if (null !== $this->goods) {
+            $res['Goods'] = null !== $this->goods ? $this->goods->toMap() : null;
         }
 
         return $res;
@@ -94,18 +94,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DataProvider'])) {
-            $model->dataProvider = $map['DataProvider'];
-        }
-        if (isset($map['DataProviderTitle'])) {
-            $model->dataProviderTitle = $map['DataProviderTitle'];
-        }
-        if (isset($map['Goods'])) {
-            $model->goods = goods::fromMap($map['Goods']);
-        }
-        if (isset($map['LogisticsDetailList'])) {
-            $model->logisticsDetailList = logisticsDetailList::fromMap($map['LogisticsDetailList']);
-        }
         if (isset($map['LogisticsCompanyCode'])) {
             $model->logisticsCompanyCode = $map['LogisticsCompanyCode'];
         }
@@ -114,6 +102,18 @@ class data extends Model
         }
         if (isset($map['LogisticsCompanyName'])) {
             $model->logisticsCompanyName = $map['LogisticsCompanyName'];
+        }
+        if (isset($map['DataProvider'])) {
+            $model->dataProvider = $map['DataProvider'];
+        }
+        if (isset($map['DataProviderTitle'])) {
+            $model->dataProviderTitle = $map['DataProviderTitle'];
+        }
+        if (isset($map['LogisticsDetailList'])) {
+            $model->logisticsDetailList = logisticsDetailList::fromMap($map['LogisticsDetailList']);
+        }
+        if (isset($map['Goods'])) {
+            $model->goods = goods::fromMap($map['Goods']);
         }
 
         return $model;

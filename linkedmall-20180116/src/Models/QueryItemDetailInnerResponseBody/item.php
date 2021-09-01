@@ -31,16 +31,6 @@ class item extends Model
     public $descOption;
 
     /**
-     * @var string[]
-     */
-    public $itemImages;
-
-    /**
-     * @var skuPropertys[]
-     */
-    public $skuPropertys;
-
-    /**
      * @var bool
      */
     public $isSellerPayPostfee;
@@ -66,14 +56,9 @@ class item extends Model
     public $quantity;
 
     /**
-     * @var mixed[][]
+     * @var int
      */
-    public $iforestProps;
-
-    /**
-     * @var int[]
-     */
-    public $categoryIds;
+    public $sellerId;
 
     /**
      * @var string
@@ -83,17 +68,12 @@ class item extends Model
     /**
      * @var int
      */
-    public $sellerId;
+    public $itemId;
 
     /**
      * @var bool
      */
     public $canSell;
-
-    /**
-     * @var int
-     */
-    public $itemId;
 
     /**
      * @var bool
@@ -116,11 +96,6 @@ class item extends Model
     public $minPrice;
 
     /**
-     * @var int
-     */
-    public $lmShopId;
-
-    /**
      * @var bool
      */
     public $isCanSell;
@@ -128,12 +103,12 @@ class item extends Model
     /**
      * @var int
      */
-    public $categoryId;
+    public $lmShopId;
 
     /**
-     * @var skus[]
+     * @var int
      */
-    public $skus;
+    public $categoryId;
 
     /**
      * @var string
@@ -154,36 +129,61 @@ class item extends Model
      * @var string
      */
     public $province;
+
+    /**
+     * @var skus[]
+     */
+    public $skus;
+
+    /**
+     * @var skuPropertys[]
+     */
+    public $skuPropertys;
+
+    /**
+     * @var int[]
+     */
+    public $categoryIds;
+
+    /**
+     * @var mixed[][]
+     */
+    public $iforestProps;
+
+    /**
+     * @var string[]
+     */
+    public $itemImages;
     protected $_name = [
         'itemTitle'          => 'ItemTitle',
         'city'               => 'City',
         'minPoints'          => 'MinPoints',
         'descOption'         => 'DescOption',
-        'itemImages'         => 'ItemImages',
-        'skuPropertys'       => 'SkuPropertys',
         'isSellerPayPostfee' => 'IsSellerPayPostfee',
         'lmItemCategory'     => 'LmItemCategory',
         'sellerPayPostfee'   => 'SellerPayPostfee',
         'reservePrice'       => 'ReservePrice',
         'quantity'           => 'Quantity',
-        'iforestProps'       => 'IforestProps',
-        'categoryIds'        => 'CategoryIds',
-        'tbShopName'         => 'TbShopName',
         'sellerId'           => 'SellerId',
-        'canSell'            => 'CanSell',
+        'tbShopName'         => 'TbShopName',
         'itemId'             => 'ItemId',
+        'canSell'            => 'CanSell',
         'centerInventory'    => 'CenterInventory',
         'totalSoldQuantity'  => 'TotalSoldQuantity',
         'mainPicUrl'         => 'MainPicUrl',
         'minPrice'           => 'MinPrice',
-        'lmShopId'           => 'LmShopId',
         'isCanSell'          => 'IsCanSell',
+        'lmShopId'           => 'LmShopId',
         'categoryId'         => 'CategoryId',
-        'skus'               => 'Skus',
         'sellerNick'         => 'SellerNick',
         'descPath'           => 'DescPath',
         'properties'         => 'Properties',
         'province'           => 'Province',
+        'skus'               => 'Skus',
+        'skuPropertys'       => 'SkuPropertys',
+        'categoryIds'        => 'CategoryIds',
+        'iforestProps'       => 'IforestProps',
+        'itemImages'         => 'ItemImages',
     ];
 
     public function validate()
@@ -205,18 +205,6 @@ class item extends Model
         if (null !== $this->descOption) {
             $res['DescOption'] = $this->descOption;
         }
-        if (null !== $this->itemImages) {
-            $res['ItemImages'] = $this->itemImages;
-        }
-        if (null !== $this->skuPropertys) {
-            $res['SkuPropertys'] = [];
-            if (null !== $this->skuPropertys && \is_array($this->skuPropertys)) {
-                $n = 0;
-                foreach ($this->skuPropertys as $item) {
-                    $res['SkuPropertys'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->isSellerPayPostfee) {
             $res['IsSellerPayPostfee'] = $this->isSellerPayPostfee;
         }
@@ -232,23 +220,17 @@ class item extends Model
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
         }
-        if (null !== $this->iforestProps) {
-            $res['IforestProps'] = $this->iforestProps;
-        }
-        if (null !== $this->categoryIds) {
-            $res['CategoryIds'] = $this->categoryIds;
+        if (null !== $this->sellerId) {
+            $res['SellerId'] = $this->sellerId;
         }
         if (null !== $this->tbShopName) {
             $res['TbShopName'] = $this->tbShopName;
         }
-        if (null !== $this->sellerId) {
-            $res['SellerId'] = $this->sellerId;
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->canSell) {
             $res['CanSell'] = $this->canSell;
-        }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->centerInventory) {
             $res['CenterInventory'] = $this->centerInventory;
@@ -262,23 +244,14 @@ class item extends Model
         if (null !== $this->minPrice) {
             $res['MinPrice'] = $this->minPrice;
         }
-        if (null !== $this->lmShopId) {
-            $res['LmShopId'] = $this->lmShopId;
-        }
         if (null !== $this->isCanSell) {
             $res['IsCanSell'] = $this->isCanSell;
         }
+        if (null !== $this->lmShopId) {
+            $res['LmShopId'] = $this->lmShopId;
+        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
-        }
-        if (null !== $this->skus) {
-            $res['Skus'] = [];
-            if (null !== $this->skus && \is_array($this->skus)) {
-                $n = 0;
-                foreach ($this->skus as $item) {
-                    $res['Skus'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->sellerNick) {
             $res['SellerNick'] = $this->sellerNick;
@@ -291,6 +264,33 @@ class item extends Model
         }
         if (null !== $this->province) {
             $res['Province'] = $this->province;
+        }
+        if (null !== $this->skus) {
+            $res['Skus'] = [];
+            if (null !== $this->skus && \is_array($this->skus)) {
+                $n = 0;
+                foreach ($this->skus as $item) {
+                    $res['Skus'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->skuPropertys) {
+            $res['SkuPropertys'] = [];
+            if (null !== $this->skuPropertys && \is_array($this->skuPropertys)) {
+                $n = 0;
+                foreach ($this->skuPropertys as $item) {
+                    $res['SkuPropertys'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->categoryIds) {
+            $res['CategoryIds'] = $this->categoryIds;
+        }
+        if (null !== $this->iforestProps) {
+            $res['IforestProps'] = $this->iforestProps;
+        }
+        if (null !== $this->itemImages) {
+            $res['ItemImages'] = $this->itemImages;
         }
 
         return $res;
@@ -316,20 +316,6 @@ class item extends Model
         if (isset($map['DescOption'])) {
             $model->descOption = $map['DescOption'];
         }
-        if (isset($map['ItemImages'])) {
-            if (!empty($map['ItemImages'])) {
-                $model->itemImages = $map['ItemImages'];
-            }
-        }
-        if (isset($map['SkuPropertys'])) {
-            if (!empty($map['SkuPropertys'])) {
-                $model->skuPropertys = [];
-                $n                   = 0;
-                foreach ($map['SkuPropertys'] as $item) {
-                    $model->skuPropertys[$n++] = null !== $item ? skuPropertys::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['IsSellerPayPostfee'])) {
             $model->isSellerPayPostfee = $map['IsSellerPayPostfee'];
         }
@@ -345,27 +331,17 @@ class item extends Model
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
         }
-        if (isset($map['IforestProps'])) {
-            if (!empty($map['IforestProps'])) {
-                $model->iforestProps = $map['IforestProps'];
-            }
-        }
-        if (isset($map['CategoryIds'])) {
-            if (!empty($map['CategoryIds'])) {
-                $model->categoryIds = $map['CategoryIds'];
-            }
+        if (isset($map['SellerId'])) {
+            $model->sellerId = $map['SellerId'];
         }
         if (isset($map['TbShopName'])) {
             $model->tbShopName = $map['TbShopName'];
         }
-        if (isset($map['SellerId'])) {
-            $model->sellerId = $map['SellerId'];
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['CanSell'])) {
             $model->canSell = $map['CanSell'];
-        }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
         }
         if (isset($map['CenterInventory'])) {
             $model->centerInventory = $map['CenterInventory'];
@@ -379,23 +355,14 @@ class item extends Model
         if (isset($map['MinPrice'])) {
             $model->minPrice = $map['MinPrice'];
         }
-        if (isset($map['LmShopId'])) {
-            $model->lmShopId = $map['LmShopId'];
-        }
         if (isset($map['IsCanSell'])) {
             $model->isCanSell = $map['IsCanSell'];
         }
+        if (isset($map['LmShopId'])) {
+            $model->lmShopId = $map['LmShopId'];
+        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
-        }
-        if (isset($map['Skus'])) {
-            if (!empty($map['Skus'])) {
-                $model->skus = [];
-                $n           = 0;
-                foreach ($map['Skus'] as $item) {
-                    $model->skus[$n++] = null !== $item ? skus::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['SellerNick'])) {
             $model->sellerNick = $map['SellerNick'];
@@ -408,6 +375,39 @@ class item extends Model
         }
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
+        }
+        if (isset($map['Skus'])) {
+            if (!empty($map['Skus'])) {
+                $model->skus = [];
+                $n           = 0;
+                foreach ($map['Skus'] as $item) {
+                    $model->skus[$n++] = null !== $item ? skus::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['SkuPropertys'])) {
+            if (!empty($map['SkuPropertys'])) {
+                $model->skuPropertys = [];
+                $n                   = 0;
+                foreach ($map['SkuPropertys'] as $item) {
+                    $model->skuPropertys[$n++] = null !== $item ? skuPropertys::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['CategoryIds'])) {
+            if (!empty($map['CategoryIds'])) {
+                $model->categoryIds = $map['CategoryIds'];
+            }
+        }
+        if (isset($map['IforestProps'])) {
+            if (!empty($map['IforestProps'])) {
+                $model->iforestProps = $map['IforestProps'];
+            }
+        }
+        if (isset($map['ItemImages'])) {
+            if (!empty($map['ItemImages'])) {
+                $model->itemImages = $map['ItemImages'];
+            }
         }
 
         return $model;

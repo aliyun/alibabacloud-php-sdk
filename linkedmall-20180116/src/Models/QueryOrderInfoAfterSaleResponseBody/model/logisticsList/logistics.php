@@ -11,12 +11,12 @@ class logistics extends Model
     /**
      * @var string
      */
-    public $logisticsNo;
+    public $logisticsCompanyCode;
 
     /**
      * @var string
      */
-    public $logisticsCompanyCode;
+    public $logisticsNo;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class logistics extends Model
      */
     public $logisticsCompanyName;
     protected $_name = [
-        'logisticsNo'          => 'LogisticsNo',
         'logisticsCompanyCode' => 'LogisticsCompanyCode',
+        'logisticsNo'          => 'LogisticsNo',
         'logisticsStatus'      => 'LogisticsStatus',
         'logisticsCompanyName' => 'LogisticsCompanyName',
     ];
@@ -41,11 +41,11 @@ class logistics extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logisticsNo) {
-            $res['LogisticsNo'] = $this->logisticsNo;
-        }
         if (null !== $this->logisticsCompanyCode) {
             $res['LogisticsCompanyCode'] = $this->logisticsCompanyCode;
+        }
+        if (null !== $this->logisticsNo) {
+            $res['LogisticsNo'] = $this->logisticsNo;
         }
         if (null !== $this->logisticsStatus) {
             $res['LogisticsStatus'] = $this->logisticsStatus;
@@ -65,11 +65,11 @@ class logistics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogisticsNo'])) {
-            $model->logisticsNo = $map['LogisticsNo'];
-        }
         if (isset($map['LogisticsCompanyCode'])) {
             $model->logisticsCompanyCode = $map['LogisticsCompanyCode'];
+        }
+        if (isset($map['LogisticsNo'])) {
+            $model->logisticsNo = $map['LogisticsNo'];
         }
         if (isset($map['LogisticsStatus'])) {
             $model->logisticsStatus = $map['LogisticsStatus'];

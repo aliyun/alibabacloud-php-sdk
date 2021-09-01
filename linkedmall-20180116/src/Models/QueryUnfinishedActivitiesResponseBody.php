@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class QueryUnfinishedActivitiesResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $code;
 
     /**
      * @var string
@@ -35,22 +35,22 @@ class QueryUnfinishedActivitiesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var lmActivityModelExtList
      */
     public $lmActivityModelExtList;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
-        'totalCount'             => 'TotalCount',
         'requestId'              => 'RequestId',
+        'code'                   => 'Code',
         'message'                => 'Message',
         'pageSize'               => 'PageSize',
         'pageNumber'             => 'PageNumber',
+        'totalCount'             => 'TotalCount',
         'lmActivityModelExtList' => 'LmActivityModelExtList',
-        'code'                   => 'Code',
     ];
 
     public function validate()
@@ -60,11 +60,11 @@ class QueryUnfinishedActivitiesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -75,11 +75,11 @@ class QueryUnfinishedActivitiesResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->lmActivityModelExtList) {
             $res['LmActivityModelExtList'] = null !== $this->lmActivityModelExtList ? $this->lmActivityModelExtList->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -93,11 +93,11 @@ class QueryUnfinishedActivitiesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -108,11 +108,11 @@ class QueryUnfinishedActivitiesResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['LmActivityModelExtList'])) {
             $model->lmActivityModelExtList = lmActivityModelExtList::fromMap($map['LmActivityModelExtList']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

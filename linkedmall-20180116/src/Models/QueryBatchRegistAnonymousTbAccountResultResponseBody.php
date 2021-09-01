@@ -17,6 +17,11 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -30,20 +35,15 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
     public $batchId;
 
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var failIds
      */
     public $failIds;
     protected $_name = [
         'status'    => 'Status',
+        'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'batchId'   => 'BatchId',
-        'code'      => 'Code',
         'failIds'   => 'FailIds',
     ];
 
@@ -57,6 +57,9 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -65,9 +68,6 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
         }
         if (null !== $this->batchId) {
             $res['BatchId'] = $this->batchId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
         if (null !== $this->failIds) {
             $res['FailIds'] = null !== $this->failIds ? $this->failIds->toMap() : null;
@@ -87,6 +87,9 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -95,9 +98,6 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
         }
         if (isset($map['BatchId'])) {
             $model->batchId = $map['BatchId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
         if (isset($map['FailIds'])) {
             $model->failIds = failIds::fromMap($map['FailIds']);

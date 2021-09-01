@@ -11,21 +11,21 @@ class logisticsDetailList extends Model
     /**
      * @var string
      */
+    public $ocurrTimeStr;
+
+    /**
+     * @var string
+     */
     public $standerdDesc;
 
     /**
      * @var string
      */
     public $statusIcon;
-
-    /**
-     * @var string
-     */
-    public $ocurrTimeStr;
     protected $_name = [
+        'ocurrTimeStr' => 'OcurrTimeStr',
         'standerdDesc' => 'StanderdDesc',
         'statusIcon'   => 'StatusIcon',
-        'ocurrTimeStr' => 'OcurrTimeStr',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class logisticsDetailList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ocurrTimeStr) {
+            $res['OcurrTimeStr'] = $this->ocurrTimeStr;
+        }
         if (null !== $this->standerdDesc) {
             $res['StanderdDesc'] = $this->standerdDesc;
         }
         if (null !== $this->statusIcon) {
             $res['StatusIcon'] = $this->statusIcon;
-        }
-        if (null !== $this->ocurrTimeStr) {
-            $res['OcurrTimeStr'] = $this->ocurrTimeStr;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class logisticsDetailList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OcurrTimeStr'])) {
+            $model->ocurrTimeStr = $map['OcurrTimeStr'];
+        }
         if (isset($map['StanderdDesc'])) {
             $model->standerdDesc = $map['StanderdDesc'];
         }
         if (isset($map['StatusIcon'])) {
             $model->statusIcon = $map['StatusIcon'];
-        }
-        if (isset($map['OcurrTimeStr'])) {
-            $model->ocurrTimeStr = $map['OcurrTimeStr'];
         }
 
         return $model;

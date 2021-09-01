@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class categoryList extends Model
 {
     /**
-     * @var int
-     */
-    public $categoryId;
-
-    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $categoryId;
     protected $_name = [
-        'categoryId' => 'CategoryId',
         'name'       => 'Name',
+        'categoryId' => 'CategoryId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class categoryList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class categoryList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
         }
 
         return $model;

@@ -16,12 +16,12 @@ class movieTicket extends Model
     /**
      * @var string
      */
-    public $ticketContents;
+    public $tbOrderId;
 
     /**
      * @var string
      */
-    public $tbOrderId;
+    public $ticketContents;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class movieTicket extends Model
     public $returnMessage;
     protected $_name = [
         'status'         => 'Status',
-        'ticketContents' => 'TicketContents',
         'tbOrderId'      => 'TbOrderId',
+        'ticketContents' => 'TicketContents',
         'returnMessage'  => 'ReturnMessage',
     ];
 
@@ -44,11 +44,11 @@ class movieTicket extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->ticketContents) {
-            $res['TicketContents'] = $this->ticketContents;
-        }
         if (null !== $this->tbOrderId) {
             $res['TbOrderId'] = $this->tbOrderId;
+        }
+        if (null !== $this->ticketContents) {
+            $res['TicketContents'] = $this->ticketContents;
         }
         if (null !== $this->returnMessage) {
             $res['ReturnMessage'] = $this->returnMessage;
@@ -68,11 +68,11 @@ class movieTicket extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['TicketContents'])) {
-            $model->ticketContents = $map['TicketContents'];
-        }
         if (isset($map['TbOrderId'])) {
             $model->tbOrderId = $map['TbOrderId'];
+        }
+        if (isset($map['TicketContents'])) {
+            $model->ticketContents = $map['TicketContents'];
         }
         if (isset($map['ReturnMessage'])) {
             $model->returnMessage = $map['ReturnMessage'];

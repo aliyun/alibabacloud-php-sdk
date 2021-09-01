@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderIdByPayIdResponseBody;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderIdByPayIdResponseBody\lmOrderIds\lmOrderIds;
 use AlibabaCloud\Tea\Model;
 
 class lmOrderIds extends Model
 {
     /**
-     * @var lmOrderIds[]
+     * @var \AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderIdByPayIdResponseBody\lmOrderIds\lmOrderIds[]
      */
     public $lmOrderIds;
     protected $_name = [
@@ -50,7 +49,7 @@ class lmOrderIds extends Model
                 $model->lmOrderIds = [];
                 $n                 = 0;
                 foreach ($map['LmOrderIds'] as $item) {
-                    $model->lmOrderIds[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->lmOrderIds[$n++] = null !== $item ? \AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderIdByPayIdResponseBody\lmOrderIds\lmOrderIds::fromMap($item) : $item;
                 }
             }
         }

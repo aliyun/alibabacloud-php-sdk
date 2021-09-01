@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsResponseBody\data\data;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsResponseBody\data\data\goods\goods;
 use AlibabaCloud\Tea\Model;
 
 class goods extends Model
 {
     /**
-     * @var goods[]
+     * @var \AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsResponseBody\data\data\goods\goods[]
      */
     public $goods;
     protected $_name = [
@@ -50,7 +49,7 @@ class goods extends Model
                 $model->goods = [];
                 $n            = 0;
                 foreach ($map['Goods'] as $item) {
-                    $model->goods[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->goods[$n++] = null !== $item ? \AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsResponseBody\data\data\goods\goods::fromMap($item) : $item;
                 }
             }
         }

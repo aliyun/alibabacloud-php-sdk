@@ -12,6 +12,11 @@ class GetGuidePageResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -23,16 +28,11 @@ class GetGuidePageResponseBody extends Model
      * @var miniShopInfo[]
      */
     public $miniShopInfo;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'         => 'Code',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
         'miniShopInfo' => 'MiniShopInfo',
-        'code'         => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class GetGuidePageResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -57,9 +60,6 @@ class GetGuidePageResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
 
         return $res;
     }
@@ -72,6 +72,9 @@ class GetGuidePageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +89,6 @@ class GetGuidePageResponseBody extends Model
                     $model->miniShopInfo[$n++] = null !== $item ? miniShopInfo::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

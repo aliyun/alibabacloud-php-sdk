@@ -11,27 +11,27 @@ class fetcher extends Model
     /**
      * @var string
      */
-    public $phoneNumber;
-
-    /**
-     * @var string
-     */
-    public $zipCode;
-
-    /**
-     * @var string
-     */
     public $address;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $phoneNumber;
+
+    /**
+     * @var string
+     */
+    public $zipCode;
     protected $_name = [
-        'phoneNumber' => 'PhoneNumber',
-        'zipCode'     => 'ZipCode',
         'address'     => 'Address',
         'name'        => 'Name',
+        'phoneNumber' => 'PhoneNumber',
+        'zipCode'     => 'ZipCode',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class fetcher extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
-        }
-        if (null !== $this->zipCode) {
-            $res['ZipCode'] = $this->zipCode;
-        }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->phoneNumber) {
+            $res['PhoneNumber'] = $this->phoneNumber;
+        }
+        if (null !== $this->zipCode) {
+            $res['ZipCode'] = $this->zipCode;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class fetcher extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PhoneNumber'])) {
-            $model->phoneNumber = $map['PhoneNumber'];
-        }
-        if (isset($map['ZipCode'])) {
-            $model->zipCode = $map['ZipCode'];
-        }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PhoneNumber'])) {
+            $model->phoneNumber = $map['PhoneNumber'];
+        }
+        if (isset($map['ZipCode'])) {
+            $model->zipCode = $map['ZipCode'];
         }
 
         return $model;

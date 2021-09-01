@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundResponseBody\initApplyRefundData;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundResponseBody\initApplyRefundData\refundReasonList\refundReasonList;
 use AlibabaCloud\Tea\Model;
 
 class refundReasonList extends Model
 {
     /**
-     * @var refundReasonList[]
+     * @var \AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundResponseBody\initApplyRefundData\refundReasonList\refundReasonList[]
      */
     public $refundReasonList;
     protected $_name = [
@@ -50,7 +49,7 @@ class refundReasonList extends Model
                 $model->refundReasonList = [];
                 $n                       = 0;
                 foreach ($map['RefundReasonList'] as $item) {
-                    $model->refundReasonList[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->refundReasonList[$n++] = null !== $item ? \AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundResponseBody\initApplyRefundData\refundReasonList\refundReasonList::fromMap($item) : $item;
                 }
             }
         }

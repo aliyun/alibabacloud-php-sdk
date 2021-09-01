@@ -13,12 +13,12 @@ class movie extends Model
     /**
      * @var string
      */
-    public $movieVersion;
+    public $type;
 
     /**
      * @var string
      */
-    public $type;
+    public $movieVersion;
 
     /**
      * @var string
@@ -28,22 +28,17 @@ class movie extends Model
     /**
      * @var string
      */
-    public $openDay;
-
-    /**
-     * @var string
-     */
     public $remark;
 
     /**
      * @var string
      */
-    public $highlight;
+    public $openDay;
 
     /**
-     * @var movieTypeList
+     * @var string
      */
-    public $movieTypeList;
+    public $highlight;
 
     /**
      * @var string
@@ -53,12 +48,12 @@ class movie extends Model
     /**
      * @var string
      */
-    public $director;
+    public $openTime;
 
     /**
      * @var string
      */
-    public $openTime;
+    public $director;
 
     /**
      * @var string
@@ -101,20 +96,24 @@ class movie extends Model
     public $id;
 
     /**
+     * @var movieTypeList
+     */
+    public $movieTypeList;
+
+    /**
      * @var trailerList
      */
     public $trailerList;
     protected $_name = [
-        'movieVersion'      => 'MovieVersion',
         'type'              => 'Type',
+        'movieVersion'      => 'MovieVersion',
         'backgroundPicture' => 'BackgroundPicture',
-        'openDay'           => 'OpenDay',
         'remark'            => 'Remark',
+        'openDay'           => 'OpenDay',
         'highlight'         => 'Highlight',
-        'movieTypeList'     => 'MovieTypeList',
         'language'          => 'Language',
-        'director'          => 'Director',
         'openTime'          => 'OpenTime',
+        'director'          => 'Director',
         'poster'            => 'Poster',
         'movieName'         => 'MovieName',
         'description'       => 'Description',
@@ -123,6 +122,7 @@ class movie extends Model
         'movieNameEn'       => 'MovieNameEn',
         'leadingRole'       => 'LeadingRole',
         'id'                => 'Id',
+        'movieTypeList'     => 'MovieTypeList',
         'trailerList'       => 'TrailerList',
     ];
 
@@ -133,35 +133,32 @@ class movie extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->movieVersion) {
-            $res['MovieVersion'] = $this->movieVersion;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->movieVersion) {
+            $res['MovieVersion'] = $this->movieVersion;
         }
         if (null !== $this->backgroundPicture) {
             $res['BackgroundPicture'] = $this->backgroundPicture;
         }
-        if (null !== $this->openDay) {
-            $res['OpenDay'] = $this->openDay;
-        }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->openDay) {
+            $res['OpenDay'] = $this->openDay;
         }
         if (null !== $this->highlight) {
             $res['Highlight'] = $this->highlight;
         }
-        if (null !== $this->movieTypeList) {
-            $res['MovieTypeList'] = null !== $this->movieTypeList ? $this->movieTypeList->toMap() : null;
-        }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
-        if (null !== $this->director) {
-            $res['Director'] = $this->director;
-        }
         if (null !== $this->openTime) {
             $res['OpenTime'] = $this->openTime;
+        }
+        if (null !== $this->director) {
+            $res['Director'] = $this->director;
         }
         if (null !== $this->poster) {
             $res['Poster'] = $this->poster;
@@ -187,6 +184,9 @@ class movie extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->movieTypeList) {
+            $res['MovieTypeList'] = null !== $this->movieTypeList ? $this->movieTypeList->toMap() : null;
+        }
         if (null !== $this->trailerList) {
             $res['TrailerList'] = null !== $this->trailerList ? $this->trailerList->toMap() : null;
         }
@@ -202,35 +202,32 @@ class movie extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MovieVersion'])) {
-            $model->movieVersion = $map['MovieVersion'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['MovieVersion'])) {
+            $model->movieVersion = $map['MovieVersion'];
         }
         if (isset($map['BackgroundPicture'])) {
             $model->backgroundPicture = $map['BackgroundPicture'];
         }
-        if (isset($map['OpenDay'])) {
-            $model->openDay = $map['OpenDay'];
-        }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['OpenDay'])) {
+            $model->openDay = $map['OpenDay'];
         }
         if (isset($map['Highlight'])) {
             $model->highlight = $map['Highlight'];
         }
-        if (isset($map['MovieTypeList'])) {
-            $model->movieTypeList = movieTypeList::fromMap($map['MovieTypeList']);
-        }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
-        if (isset($map['Director'])) {
-            $model->director = $map['Director'];
-        }
         if (isset($map['OpenTime'])) {
             $model->openTime = $map['OpenTime'];
+        }
+        if (isset($map['Director'])) {
+            $model->director = $map['Director'];
         }
         if (isset($map['Poster'])) {
             $model->poster = $map['Poster'];
@@ -255,6 +252,9 @@ class movie extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['MovieTypeList'])) {
+            $model->movieTypeList = movieTypeList::fromMap($map['MovieTypeList']);
         }
         if (isset($map['TrailerList'])) {
             $model->trailerList = trailerList::fromMap($map['TrailerList']);

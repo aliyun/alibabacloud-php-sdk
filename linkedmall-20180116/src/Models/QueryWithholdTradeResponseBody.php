@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class QueryWithholdTradeResponseBody extends Model
 {
     /**
-     * @var queryWithholdTradeResponse
+     * @var string
      */
-    public $queryWithholdTradeResponse;
+    public $code;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class QueryWithholdTradeResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var queryWithholdTradeResponse
      */
-    public $code;
+    public $queryWithholdTradeResponse;
     protected $_name = [
-        'queryWithholdTradeResponse' => 'QueryWithholdTradeResponse',
+        'code'                       => 'Code',
         'message'                    => 'Message',
         'requestId'                  => 'RequestId',
-        'code'                       => 'Code',
+        'queryWithholdTradeResponse' => 'QueryWithholdTradeResponse',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class QueryWithholdTradeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->queryWithholdTradeResponse) {
-            $res['QueryWithholdTradeResponse'] = null !== $this->queryWithholdTradeResponse ? $this->queryWithholdTradeResponse->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -51,8 +51,8 @@ class QueryWithholdTradeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->queryWithholdTradeResponse) {
+            $res['QueryWithholdTradeResponse'] = null !== $this->queryWithholdTradeResponse ? $this->queryWithholdTradeResponse->toMap() : null;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class QueryWithholdTradeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['QueryWithholdTradeResponse'])) {
-            $model->queryWithholdTradeResponse = queryWithholdTradeResponse::fromMap($map['QueryWithholdTradeResponse']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -75,8 +75,8 @@ class QueryWithholdTradeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['QueryWithholdTradeResponse'])) {
+            $model->queryWithholdTradeResponse = queryWithholdTradeResponse::fromMap($map['QueryWithholdTradeResponse']);
         }
 
         return $model;

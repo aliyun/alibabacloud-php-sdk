@@ -11,15 +11,15 @@ class logisticsDetailList extends Model
     /**
      * @var string
      */
-    public $standerdDesc;
+    public $ocurrTimeStr;
 
     /**
      * @var string
      */
-    public $ocurrTimeStr;
+    public $standerdDesc;
     protected $_name = [
-        'standerdDesc' => 'StanderdDesc',
         'ocurrTimeStr' => 'OcurrTimeStr',
+        'standerdDesc' => 'StanderdDesc',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class logisticsDetailList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->standerdDesc) {
-            $res['StanderdDesc'] = $this->standerdDesc;
-        }
         if (null !== $this->ocurrTimeStr) {
             $res['OcurrTimeStr'] = $this->ocurrTimeStr;
+        }
+        if (null !== $this->standerdDesc) {
+            $res['StanderdDesc'] = $this->standerdDesc;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class logisticsDetailList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StanderdDesc'])) {
-            $model->standerdDesc = $map['StanderdDesc'];
-        }
         if (isset($map['OcurrTimeStr'])) {
             $model->ocurrTimeStr = $map['OcurrTimeStr'];
+        }
+        if (isset($map['StanderdDesc'])) {
+            $model->standerdDesc = $map['StanderdDesc'];
         }
 
         return $model;

@@ -11,14 +11,24 @@ use AlibabaCloud\Tea\Model;
 class activity extends Model
 {
     /**
-     * @var activityItem
+     * @var int
      */
-    public $activityItem;
+    public $startDate;
+
+    /**
+     * @var int
+     */
+    public $lmActivityId;
 
     /**
      * @var int
      */
     public $endDate;
+
+    /**
+     * @var string
+     */
+    public $title;
 
     /**
      * @var string
@@ -31,27 +41,17 @@ class activity extends Model
     public $activitySessions;
 
     /**
-     * @var int
+     * @var activityItem
      */
-    public $startDate;
-
-    /**
-     * @var int
-     */
-    public $lmActivityId;
-
-    /**
-     * @var string
-     */
-    public $title;
+    public $activityItem;
     protected $_name = [
-        'activityItem'     => 'ActivityItem',
-        'endDate'          => 'EndDate',
-        'description'      => 'Description',
-        'activitySessions' => 'ActivitySessions',
         'startDate'        => 'StartDate',
         'lmActivityId'     => 'LmActivityId',
+        'endDate'          => 'EndDate',
         'title'            => 'Title',
+        'description'      => 'Description',
+        'activitySessions' => 'ActivitySessions',
+        'activityItem'     => 'ActivityItem',
     ];
 
     public function validate()
@@ -61,11 +61,17 @@ class activity extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->activityItem) {
-            $res['ActivityItem'] = null !== $this->activityItem ? $this->activityItem->toMap() : null;
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
+        }
+        if (null !== $this->lmActivityId) {
+            $res['LmActivityId'] = $this->lmActivityId;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -73,14 +79,8 @@ class activity extends Model
         if (null !== $this->activitySessions) {
             $res['ActivitySessions'] = null !== $this->activitySessions ? $this->activitySessions->toMap() : null;
         }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
-        if (null !== $this->lmActivityId) {
-            $res['LmActivityId'] = $this->lmActivityId;
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->activityItem) {
+            $res['ActivityItem'] = null !== $this->activityItem ? $this->activityItem->toMap() : null;
         }
 
         return $res;
@@ -94,11 +94,17 @@ class activity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ActivityItem'])) {
-            $model->activityItem = activityItem::fromMap($map['ActivityItem']);
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
+        }
+        if (isset($map['LmActivityId'])) {
+            $model->lmActivityId = $map['LmActivityId'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -106,14 +112,8 @@ class activity extends Model
         if (isset($map['ActivitySessions'])) {
             $model->activitySessions = activitySessions::fromMap($map['ActivitySessions']);
         }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
-        if (isset($map['LmActivityId'])) {
-            $model->lmActivityId = $map['LmActivityId'];
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['ActivityItem'])) {
+            $model->activityItem = activityItem::fromMap($map['ActivityItem']);
         }
 
         return $model;

@@ -11,12 +11,12 @@ class schedule extends Model
     /**
      * @var string
      */
-    public $sessionEndingTime;
+    public $movieVersion;
 
     /**
      * @var string
      */
-    public $movieVersion;
+    public $sessionEndingTime;
 
     /**
      * @var int
@@ -56,12 +56,12 @@ class schedule extends Model
     /**
      * @var string
      */
-    public $releaseDate;
+    public $sectionId;
 
     /**
      * @var string
      */
-    public $sectionId;
+    public $releaseDate;
 
     /**
      * @var int
@@ -78,8 +78,8 @@ class schedule extends Model
      */
     public $id;
     protected $_name = [
-        'sessionEndingTime'   => 'SessionEndingTime',
         'movieVersion'        => 'MovieVersion',
+        'sessionEndingTime'   => 'SessionEndingTime',
         'maxCanBuy'           => 'MaxCanBuy',
         'movieId'             => 'MovieId',
         'scheduleArea'        => 'ScheduleArea',
@@ -87,8 +87,8 @@ class schedule extends Model
         'isExpired'           => 'IsExpired',
         'sessionStartingTime' => 'SessionStartingTime',
         'price'               => 'Price',
-        'releaseDate'         => 'ReleaseDate',
         'sectionId'           => 'SectionId',
+        'releaseDate'         => 'ReleaseDate',
         'cinemaId'            => 'CinemaId',
         'serviceFee'          => 'ServiceFee',
         'id'                  => 'Id',
@@ -101,11 +101,11 @@ class schedule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sessionEndingTime) {
-            $res['SessionEndingTime'] = $this->sessionEndingTime;
-        }
         if (null !== $this->movieVersion) {
             $res['MovieVersion'] = $this->movieVersion;
+        }
+        if (null !== $this->sessionEndingTime) {
+            $res['SessionEndingTime'] = $this->sessionEndingTime;
         }
         if (null !== $this->maxCanBuy) {
             $res['MaxCanBuy'] = $this->maxCanBuy;
@@ -128,11 +128,11 @@ class schedule extends Model
         if (null !== $this->price) {
             $res['Price'] = $this->price;
         }
-        if (null !== $this->releaseDate) {
-            $res['ReleaseDate'] = $this->releaseDate;
-        }
         if (null !== $this->sectionId) {
             $res['SectionId'] = $this->sectionId;
+        }
+        if (null !== $this->releaseDate) {
+            $res['ReleaseDate'] = $this->releaseDate;
         }
         if (null !== $this->cinemaId) {
             $res['CinemaId'] = $this->cinemaId;
@@ -155,11 +155,11 @@ class schedule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SessionEndingTime'])) {
-            $model->sessionEndingTime = $map['SessionEndingTime'];
-        }
         if (isset($map['MovieVersion'])) {
             $model->movieVersion = $map['MovieVersion'];
+        }
+        if (isset($map['SessionEndingTime'])) {
+            $model->sessionEndingTime = $map['SessionEndingTime'];
         }
         if (isset($map['MaxCanBuy'])) {
             $model->maxCanBuy = $map['MaxCanBuy'];
@@ -182,11 +182,11 @@ class schedule extends Model
         if (isset($map['Price'])) {
             $model->price = $map['Price'];
         }
-        if (isset($map['ReleaseDate'])) {
-            $model->releaseDate = $map['ReleaseDate'];
-        }
         if (isset($map['SectionId'])) {
             $model->sectionId = $map['SectionId'];
+        }
+        if (isset($map['ReleaseDate'])) {
+            $model->releaseDate = $map['ReleaseDate'];
         }
         if (isset($map['CinemaId'])) {
             $model->cinemaId = $map['CinemaId'];

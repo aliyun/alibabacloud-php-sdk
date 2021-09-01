@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsResponseBody\data\data;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsResponseBody\data\data\logisticsDetailList\logisticsDetailList;
 use AlibabaCloud\Tea\Model;
 
 class logisticsDetailList extends Model
 {
     /**
-     * @var logisticsDetailList[]
+     * @var \AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsResponseBody\data\data\logisticsDetailList\logisticsDetailList[]
      */
     public $logisticsDetailList;
     protected $_name = [
@@ -50,7 +49,7 @@ class logisticsDetailList extends Model
                 $model->logisticsDetailList = [];
                 $n                          = 0;
                 foreach ($map['LogisticsDetailList'] as $item) {
-                    $model->logisticsDetailList[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->logisticsDetailList[$n++] = null !== $item ? \AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsResponseBody\data\data\logisticsDetailList\logisticsDetailList::fromMap($item) : $item;
                 }
             }
         }

@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderResponseBody\model;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderResponseBody\model\lmOrderList\lmOrderList;
 use AlibabaCloud\Tea\Model;
 
 class lmOrderList extends Model
 {
     /**
-     * @var lmOrderList[]
+     * @var \AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderResponseBody\model\lmOrderList\lmOrderList[]
      */
     public $lmOrderList;
     protected $_name = [
@@ -50,7 +49,7 @@ class lmOrderList extends Model
                 $model->lmOrderList = [];
                 $n                  = 0;
                 foreach ($map['LmOrderList'] as $item) {
-                    $model->lmOrderList[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->lmOrderList[$n++] = null !== $item ? \AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderResponseBody\model\lmOrderList\lmOrderList::fromMap($item) : $item;
                 }
             }
         }

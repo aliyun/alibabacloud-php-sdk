@@ -11,11 +11,6 @@ class deliveryInfos extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var string
-     */
     public $displayName;
 
     /**
@@ -27,11 +22,16 @@ class deliveryInfos extends Model
      * @var int
      */
     public $serviceType;
+
+    /**
+     * @var string
+     */
+    public $id;
     protected $_name = [
-        'id'          => 'Id',
         'displayName' => 'DisplayName',
         'postFee'     => 'PostFee',
         'serviceType' => 'ServiceType',
+        'id'          => 'Id',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class deliveryInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -52,6 +49,9 @@ class deliveryInfos extends Model
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class deliveryInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
@@ -76,6 +73,9 @@ class deliveryInfos extends Model
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

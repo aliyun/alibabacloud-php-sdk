@@ -25,11 +25,6 @@ class subItemOrder extends Model
     public $itemTitle;
 
     /**
-     * @var itemPriceList
-     */
-    public $itemPriceList;
-
-    /**
      * @var int
      */
     public $tbSubOrderId;
@@ -37,12 +32,12 @@ class subItemOrder extends Model
     /**
      * @var string
      */
-    public $totalPaymentInfo;
+    public $lmItemId;
 
     /**
      * @var string
      */
-    public $lmItemId;
+    public $totalPaymentInfo;
 
     /**
      * @var string
@@ -78,14 +73,18 @@ class subItemOrder extends Model
      * @var int
      */
     public $skuId;
+
+    /**
+     * @var itemPriceList
+     */
+    public $itemPriceList;
     protected $_name = [
         'lmOrderId'        => 'LmOrderId',
         'itemPriceInfo'    => 'ItemPriceInfo',
         'itemTitle'        => 'ItemTitle',
-        'itemPriceList'    => 'ItemPriceList',
         'tbSubOrderId'     => 'TbSubOrderId',
-        'totalPaymentInfo' => 'TotalPaymentInfo',
         'lmItemId'         => 'LmItemId',
+        'totalPaymentInfo' => 'TotalPaymentInfo',
         'itemPic'          => 'ItemPic',
         'itemId'           => 'ItemId',
         'channelCode'      => 'ChannelCode',
@@ -93,6 +92,7 @@ class subItemOrder extends Model
         'skuName'          => 'SkuName',
         'number'           => 'Number',
         'skuId'            => 'SkuId',
+        'itemPriceList'    => 'ItemPriceList',
     ];
 
     public function validate()
@@ -111,17 +111,14 @@ class subItemOrder extends Model
         if (null !== $this->itemTitle) {
             $res['ItemTitle'] = $this->itemTitle;
         }
-        if (null !== $this->itemPriceList) {
-            $res['ItemPriceList'] = null !== $this->itemPriceList ? $this->itemPriceList->toMap() : null;
-        }
         if (null !== $this->tbSubOrderId) {
             $res['TbSubOrderId'] = $this->tbSubOrderId;
         }
-        if (null !== $this->totalPaymentInfo) {
-            $res['TotalPaymentInfo'] = $this->totalPaymentInfo;
-        }
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->totalPaymentInfo) {
+            $res['TotalPaymentInfo'] = $this->totalPaymentInfo;
         }
         if (null !== $this->itemPic) {
             $res['ItemPic'] = $this->itemPic;
@@ -144,6 +141,9 @@ class subItemOrder extends Model
         if (null !== $this->skuId) {
             $res['SkuId'] = $this->skuId;
         }
+        if (null !== $this->itemPriceList) {
+            $res['ItemPriceList'] = null !== $this->itemPriceList ? $this->itemPriceList->toMap() : null;
+        }
 
         return $res;
     }
@@ -165,17 +165,14 @@ class subItemOrder extends Model
         if (isset($map['ItemTitle'])) {
             $model->itemTitle = $map['ItemTitle'];
         }
-        if (isset($map['ItemPriceList'])) {
-            $model->itemPriceList = itemPriceList::fromMap($map['ItemPriceList']);
-        }
         if (isset($map['TbSubOrderId'])) {
             $model->tbSubOrderId = $map['TbSubOrderId'];
         }
-        if (isset($map['TotalPaymentInfo'])) {
-            $model->totalPaymentInfo = $map['TotalPaymentInfo'];
-        }
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['TotalPaymentInfo'])) {
+            $model->totalPaymentInfo = $map['TotalPaymentInfo'];
         }
         if (isset($map['ItemPic'])) {
             $model->itemPic = $map['ItemPic'];
@@ -197,6 +194,9 @@ class subItemOrder extends Model
         }
         if (isset($map['SkuId'])) {
             $model->skuId = $map['SkuId'];
+        }
+        if (isset($map['ItemPriceList'])) {
+            $model->itemPriceList = itemPriceList::fromMap($map['ItemPriceList']);
         }
 
         return $model;

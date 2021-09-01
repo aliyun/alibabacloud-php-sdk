@@ -11,11 +11,6 @@ class itemPrice extends Model
     /**
      * @var int
      */
-    public $tbSubOrderId;
-
-    /**
-     * @var int
-     */
     public $fundAmount;
 
     /**
@@ -32,12 +27,17 @@ class itemPrice extends Model
      * @var int
      */
     public $fundAmountMoney;
+
+    /**
+     * @var int
+     */
+    public $tbSubOrderId;
     protected $_name = [
-        'tbSubOrderId'    => 'TbSubOrderId',
         'fundAmount'      => 'FundAmount',
         'tbOrderId'       => 'TbOrderId',
         'fundType'        => 'FundType',
         'fundAmountMoney' => 'FundAmountMoney',
+        'tbSubOrderId'    => 'TbSubOrderId',
     ];
 
     public function validate()
@@ -47,9 +47,6 @@ class itemPrice extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tbSubOrderId) {
-            $res['TbSubOrderId'] = $this->tbSubOrderId;
-        }
         if (null !== $this->fundAmount) {
             $res['FundAmount'] = $this->fundAmount;
         }
@@ -61,6 +58,9 @@ class itemPrice extends Model
         }
         if (null !== $this->fundAmountMoney) {
             $res['FundAmountMoney'] = $this->fundAmountMoney;
+        }
+        if (null !== $this->tbSubOrderId) {
+            $res['TbSubOrderId'] = $this->tbSubOrderId;
         }
 
         return $res;
@@ -74,9 +74,6 @@ class itemPrice extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TbSubOrderId'])) {
-            $model->tbSubOrderId = $map['TbSubOrderId'];
-        }
         if (isset($map['FundAmount'])) {
             $model->fundAmount = $map['FundAmount'];
         }
@@ -88,6 +85,9 @@ class itemPrice extends Model
         }
         if (isset($map['FundAmountMoney'])) {
             $model->fundAmountMoney = $map['FundAmountMoney'];
+        }
+        if (isset($map['TbSubOrderId'])) {
+            $model->tbSubOrderId = $map['TbSubOrderId'];
         }
 
         return $model;

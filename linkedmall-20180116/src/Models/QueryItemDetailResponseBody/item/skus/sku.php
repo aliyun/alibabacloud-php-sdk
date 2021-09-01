@@ -24,14 +24,14 @@ class sku extends Model
     public $pointPrice;
 
     /**
-     * @var int
-     */
-    public $itemId;
-
-    /**
      * @var bool
      */
     public $canSell;
+
+    /**
+     * @var int
+     */
+    public $itemId;
 
     /**
      * @var string
@@ -91,8 +91,8 @@ class sku extends Model
         'priceCent'              => 'PriceCent',
         'lmItemId'               => 'LmItemId',
         'pointPrice'             => 'PointPrice',
-        'itemId'                 => 'ItemId',
         'canSell'                => 'CanSell',
+        'itemId'                 => 'ItemId',
         'skuTitle'               => 'SkuTitle',
         'skuPropertiesJson'      => 'SkuPropertiesJson',
         'extJson'                => 'ExtJson',
@@ -122,11 +122,11 @@ class sku extends Model
         if (null !== $this->pointPrice) {
             $res['PointPrice'] = $this->pointPrice;
         }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
-        }
         if (null !== $this->canSell) {
             $res['CanSell'] = $this->canSell;
+        }
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->skuTitle) {
             $res['SkuTitle'] = $this->skuTitle;
@@ -182,11 +182,11 @@ class sku extends Model
         if (isset($map['PointPrice'])) {
             $model->pointPrice = $map['PointPrice'];
         }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
-        }
         if (isset($map['CanSell'])) {
             $model->canSell = $map['CanSell'];
+        }
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['SkuTitle'])) {
             $model->skuTitle = $map['SkuTitle'];

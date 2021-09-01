@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAddressResponseBody;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAddressResponseBody\divisionAddress\divisionAddress;
 use AlibabaCloud\Tea\Model;
 
 class divisionAddress extends Model
 {
     /**
-     * @var divisionAddress[]
+     * @var \AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAddressResponseBody\divisionAddress\divisionAddress[]
      */
     public $divisionAddress;
     protected $_name = [
@@ -50,7 +49,7 @@ class divisionAddress extends Model
                 $model->divisionAddress = [];
                 $n                      = 0;
                 foreach ($map['DivisionAddress'] as $item) {
-                    $model->divisionAddress[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->divisionAddress[$n++] = null !== $item ? \AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAddressResponseBody\divisionAddress\divisionAddress::fromMap($item) : $item;
                 }
             }
         }

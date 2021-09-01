@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class lmActivityItemModel extends Model
 {
     /**
-     * @var int
-     */
-    public $tbSellerId;
-
-    /**
      * @var string
      */
     public $itemTitle;
+
+    /**
+     * @var int
+     */
+    public $tbSellerId;
 
     /**
      * @var int
@@ -30,9 +30,9 @@ class lmActivityItemModel extends Model
     public $tbShopId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $itemActivityQuantity;
+    public $lmItemId;
 
     /**
      * @var string
@@ -40,9 +40,9 @@ class lmActivityItemModel extends Model
     public $tbShopName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $lmItemId;
+    public $itemActivityQuantity;
 
     /**
      * @var int
@@ -50,14 +50,14 @@ class lmActivityItemModel extends Model
     public $lmActivityId;
 
     /**
-     * @var int
-     */
-    public $itemId;
-
-    /**
      * @var bool
      */
     public $canSell;
+
+    /**
+     * @var int
+     */
+    public $itemId;
 
     /**
      * @var string
@@ -75,30 +75,30 @@ class lmActivityItemModel extends Model
     public $lmShopId;
 
     /**
-     * @var skuModelList
-     */
-    public $skuModelList;
-
-    /**
      * @var string
      */
     public $itemActivityStatus;
+
+    /**
+     * @var skuModelList
+     */
+    public $skuModelList;
     protected $_name = [
-        'tbSellerId'           => 'TbSellerId',
         'itemTitle'            => 'ItemTitle',
+        'tbSellerId'           => 'TbSellerId',
         'sellableQuantity'     => 'SellableQuantity',
         'tbShopId'             => 'TbShopId',
-        'itemActivityQuantity' => 'ItemActivityQuantity',
-        'tbShopName'           => 'TbShopName',
         'lmItemId'             => 'LmItemId',
+        'tbShopName'           => 'TbShopName',
+        'itemActivityQuantity' => 'ItemActivityQuantity',
         'lmActivityId'         => 'LmActivityId',
-        'itemId'               => 'ItemId',
         'canSell'              => 'CanSell',
+        'itemId'               => 'ItemId',
         'mainPicUrl'           => 'MainPicUrl',
         'tips'                 => 'Tips',
         'lmShopId'             => 'LmShopId',
-        'skuModelList'         => 'SkuModelList',
         'itemActivityStatus'   => 'ItemActivityStatus',
+        'skuModelList'         => 'SkuModelList',
     ];
 
     public function validate()
@@ -108,11 +108,11 @@ class lmActivityItemModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tbSellerId) {
-            $res['TbSellerId'] = $this->tbSellerId;
-        }
         if (null !== $this->itemTitle) {
             $res['ItemTitle'] = $this->itemTitle;
+        }
+        if (null !== $this->tbSellerId) {
+            $res['TbSellerId'] = $this->tbSellerId;
         }
         if (null !== $this->sellableQuantity) {
             $res['SellableQuantity'] = $this->sellableQuantity;
@@ -120,23 +120,23 @@ class lmActivityItemModel extends Model
         if (null !== $this->tbShopId) {
             $res['TbShopId'] = $this->tbShopId;
         }
-        if (null !== $this->itemActivityQuantity) {
-            $res['ItemActivityQuantity'] = $this->itemActivityQuantity;
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
         }
         if (null !== $this->tbShopName) {
             $res['TbShopName'] = $this->tbShopName;
         }
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
+        if (null !== $this->itemActivityQuantity) {
+            $res['ItemActivityQuantity'] = $this->itemActivityQuantity;
         }
         if (null !== $this->lmActivityId) {
             $res['LmActivityId'] = $this->lmActivityId;
         }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
-        }
         if (null !== $this->canSell) {
             $res['CanSell'] = $this->canSell;
+        }
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->mainPicUrl) {
             $res['MainPicUrl'] = $this->mainPicUrl;
@@ -147,11 +147,11 @@ class lmActivityItemModel extends Model
         if (null !== $this->lmShopId) {
             $res['LmShopId'] = $this->lmShopId;
         }
-        if (null !== $this->skuModelList) {
-            $res['SkuModelList'] = null !== $this->skuModelList ? $this->skuModelList->toMap() : null;
-        }
         if (null !== $this->itemActivityStatus) {
             $res['ItemActivityStatus'] = $this->itemActivityStatus;
+        }
+        if (null !== $this->skuModelList) {
+            $res['SkuModelList'] = null !== $this->skuModelList ? $this->skuModelList->toMap() : null;
         }
 
         return $res;
@@ -165,11 +165,11 @@ class lmActivityItemModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TbSellerId'])) {
-            $model->tbSellerId = $map['TbSellerId'];
-        }
         if (isset($map['ItemTitle'])) {
             $model->itemTitle = $map['ItemTitle'];
+        }
+        if (isset($map['TbSellerId'])) {
+            $model->tbSellerId = $map['TbSellerId'];
         }
         if (isset($map['SellableQuantity'])) {
             $model->sellableQuantity = $map['SellableQuantity'];
@@ -177,23 +177,23 @@ class lmActivityItemModel extends Model
         if (isset($map['TbShopId'])) {
             $model->tbShopId = $map['TbShopId'];
         }
-        if (isset($map['ItemActivityQuantity'])) {
-            $model->itemActivityQuantity = $map['ItemActivityQuantity'];
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
         }
         if (isset($map['TbShopName'])) {
             $model->tbShopName = $map['TbShopName'];
         }
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
+        if (isset($map['ItemActivityQuantity'])) {
+            $model->itemActivityQuantity = $map['ItemActivityQuantity'];
         }
         if (isset($map['LmActivityId'])) {
             $model->lmActivityId = $map['LmActivityId'];
         }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
-        }
         if (isset($map['CanSell'])) {
             $model->canSell = $map['CanSell'];
+        }
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['MainPicUrl'])) {
             $model->mainPicUrl = $map['MainPicUrl'];
@@ -204,11 +204,11 @@ class lmActivityItemModel extends Model
         if (isset($map['LmShopId'])) {
             $model->lmShopId = $map['LmShopId'];
         }
-        if (isset($map['SkuModelList'])) {
-            $model->skuModelList = skuModelList::fromMap($map['SkuModelList']);
-        }
         if (isset($map['ItemActivityStatus'])) {
             $model->itemActivityStatus = $map['ItemActivityStatus'];
+        }
+        if (isset($map['SkuModelList'])) {
+            $model->skuModelList = skuModelList::fromMap($map['SkuModelList']);
         }
 
         return $model;
