@@ -24,6 +24,8 @@ class ImportDataSourcesRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('dataSources', $this->dataSources, true);
     }
 
     public function toMap()

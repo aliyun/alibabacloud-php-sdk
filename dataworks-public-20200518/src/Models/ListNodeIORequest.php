@@ -30,6 +30,9 @@ class ListNodeIORequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('nodeId', $this->nodeId, true);
+        Model::validateRequired('projectEnv', $this->projectEnv, true);
+        Model::validateRequired('ioType', $this->ioType, true);
     }
 
     public function toMap()

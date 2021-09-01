@@ -24,6 +24,8 @@ class SearchNodesByOutputRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectEnv', $this->projectEnv, true);
+        Model::validateRequired('outputs', $this->outputs, true);
     }
 
     public function toMap()

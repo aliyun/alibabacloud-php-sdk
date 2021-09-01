@@ -30,6 +30,9 @@ class GetInstanceStatusStatisticRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('projectEnv', $this->projectEnv, true);
+        Model::validateRequired('bizDate', $this->bizDate, true);
     }
 
     public function toMap()

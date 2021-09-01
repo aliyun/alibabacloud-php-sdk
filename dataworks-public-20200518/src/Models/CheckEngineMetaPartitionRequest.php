@@ -30,6 +30,9 @@ class CheckEngineMetaPartitionRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('tableGuid', $this->tableGuid, true);
+        Model::validateRequired('partition', $this->partition, true);
+        Model::validateRequired('dataSourceType', $this->dataSourceType, true);
     }
 
     public function toMap()

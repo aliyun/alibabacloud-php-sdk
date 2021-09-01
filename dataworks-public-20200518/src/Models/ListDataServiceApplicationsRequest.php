@@ -36,6 +36,8 @@ class ListDataServiceApplicationsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectIdList', $this->projectIdList, true);
+        Model::validateRequired('tenantId', $this->tenantId, true);
     }
 
     public function toMap()

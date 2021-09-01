@@ -42,6 +42,9 @@ class GetOpRiskDataRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('pageNo', $this->pageNo, true);
+        Model::validateRequired('date', $this->date, true);
     }
 
     public function toMap()

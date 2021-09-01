@@ -42,6 +42,11 @@ class CreateDataServiceApiAuthorityRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('tenantId', $this->tenantId, true);
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('apiId', $this->apiId, true);
+        Model::validateRequired('authorizedProjectId', $this->authorizedProjectId, true);
+        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()

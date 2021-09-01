@@ -18,6 +18,7 @@ class ListProjectIdsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('userId', $this->userId, true);
     }
 
     public function toMap()

@@ -18,6 +18,7 @@ class ScanSensitiveDataRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('data', $this->data, true);
     }
 
     public function toMap()

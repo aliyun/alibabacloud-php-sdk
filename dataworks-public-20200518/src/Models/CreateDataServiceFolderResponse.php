@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceFolderResponse extends Model
 {
     /**
-     * @var string[]
+     * @var int
      */
-    public $headers;
+    public $folderId;
 
     /**
-     * @var CreateDataServiceFolderResponseBody
+     * @var string
      */
-    public $body;
+    public $requestId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'folderId'  => 'FolderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('folderId', $this->folderId, true);
+        Model::validateRequired('requestId', $this->requestId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->folderId) {
+            $res['FolderId'] = $this->folderId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class CreateDataServiceFolderResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['FolderId'])) {
+            $model->folderId = $map['FolderId'];
         }
-        if (isset($map['body'])) {
-            $model->body = CreateDataServiceFolderResponseBody::fromMap($map['body']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

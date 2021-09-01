@@ -36,6 +36,9 @@ class GetQualityEntityRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectName', $this->projectName, true);
+        Model::validateRequired('tableName', $this->tableName, true);
+        Model::validateRequired('envType', $this->envType, true);
     }
 
     public function toMap()

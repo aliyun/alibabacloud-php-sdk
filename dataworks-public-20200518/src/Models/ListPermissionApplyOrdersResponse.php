@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListPermissionApplyOrdersResponse\applyOrders;
 use AlibabaCloud\Tea\Model;
 
 class ListPermissionApplyOrdersResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var ListPermissionApplyOrdersResponseBody
+     * @var applyOrders
      */
-    public $body;
+    public $applyOrders;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'   => 'RequestId',
+        'applyOrders' => 'ApplyOrders',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('applyOrders', $this->applyOrders, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->applyOrders) {
+            $res['ApplyOrders'] = null !== $this->applyOrders ? $this->applyOrders->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class ListPermissionApplyOrdersResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = ListPermissionApplyOrdersResponseBody::fromMap($map['body']);
+        if (isset($map['ApplyOrders'])) {
+            $model->applyOrders = applyOrders::fromMap($map['ApplyOrders']);
         }
 
         return $model;

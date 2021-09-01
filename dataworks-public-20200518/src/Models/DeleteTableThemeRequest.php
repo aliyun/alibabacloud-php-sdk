@@ -24,6 +24,7 @@ class DeleteTableThemeRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('themeId', $this->themeId, true);
     }
 
     public function toMap()

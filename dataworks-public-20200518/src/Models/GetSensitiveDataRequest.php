@@ -30,6 +30,9 @@ class GetSensitiveDataRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('pageNo', $this->pageNo, true);
+        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

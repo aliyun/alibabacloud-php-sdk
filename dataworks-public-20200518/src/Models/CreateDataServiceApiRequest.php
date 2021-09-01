@@ -108,6 +108,18 @@ class CreateDataServiceApiRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('tenantId', $this->tenantId, true);
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('apiName', $this->apiName, true);
+        Model::validateRequired('groupId', $this->groupId, true);
+        Model::validateRequired('apiMode', $this->apiMode, true);
+        Model::validateRequired('requestMethod', $this->requestMethod, true);
+        Model::validateRequired('responseContentType', $this->responseContentType, true);
+        Model::validateRequired('timeout', $this->timeout, true);
+        Model::validateRequired('visibleRange', $this->visibleRange, true);
+        Model::validateRequired('protocols', $this->protocols, true);
+        Model::validateRequired('apiPath', $this->apiPath, true);
+        Model::validateRequired('apiDescription', $this->apiDescription, true);
     }
 
     public function toMap()

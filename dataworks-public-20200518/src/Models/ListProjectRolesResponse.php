@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectRolesResponse\projectRoleList;
 use AlibabaCloud\Tea\Model;
 
 class ListProjectRolesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var ListProjectRolesResponseBody
+     * @var projectRoleList[]
      */
-    public $body;
+    public $projectRoleList;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'       => 'RequestId',
+        'projectRoleList' => 'ProjectRoleList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('projectRoleList', $this->projectRoleList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->projectRoleList) {
+            $res['ProjectRoleList'] = [];
+            if (null !== $this->projectRoleList && \is_array($this->projectRoleList)) {
+                $n = 0;
+                foreach ($this->projectRoleList as $item) {
+                    $res['ProjectRoleList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class ListProjectRolesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = ListProjectRolesResponseBody::fromMap($map['body']);
+        if (isset($map['ProjectRoleList'])) {
+            if (!empty($map['ProjectRoleList'])) {
+                $model->projectRoleList = [];
+                $n                      = 0;
+                foreach ($map['ProjectRoleList'] as $item) {
+                    $model->projectRoleList[$n++] = null !== $item ? projectRoleList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -24,6 +24,8 @@ class ImportConnectionsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('connections', $this->connections, true);
     }
 
     public function toMap()

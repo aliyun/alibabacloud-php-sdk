@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableLevelResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DeleteTableLevelResponseBody
+     * @var bool
      */
-    public $body;
+    public $deleteResult;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'    => 'RequestId',
+        'deleteResult' => 'DeleteResult',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('deleteResult', $this->deleteResult, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->deleteResult) {
+            $res['DeleteResult'] = $this->deleteResult;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class DeleteTableLevelResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DeleteTableLevelResponseBody::fromMap($map['body']);
+        if (isset($map['DeleteResult'])) {
+            $model->deleteResult = $map['DeleteResult'];
         }
 
         return $model;

@@ -30,6 +30,9 @@ class DeleteDISyncTaskRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('taskType', $this->taskType, true);
+        Model::validateRequired('fileId', $this->fileId, true);
     }
 
     public function toMap()

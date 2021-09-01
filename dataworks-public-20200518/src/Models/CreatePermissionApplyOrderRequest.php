@@ -61,6 +61,11 @@ class CreatePermissionApplyOrderRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('applyUserIds', $this->applyUserIds, true);
+        Model::validateRequired('applyReason', $this->applyReason, true);
+        Model::validateRequired('maxComputeProjectName', $this->maxComputeProjectName, true);
+        Model::validateRequired('workspaceId', $this->workspaceId, true);
+        Model::validateRequired('applyObject', $this->applyObject, true);
     }
 
     public function toMap()

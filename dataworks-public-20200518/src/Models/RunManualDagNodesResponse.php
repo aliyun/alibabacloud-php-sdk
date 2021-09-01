@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class RunManualDagNodesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var RunManualDagNodesResponseBody
+     * @var int
      */
-    public $body;
+    public $dagId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'dagId'     => 'DagId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('dagId', $this->dagId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->dagId) {
+            $res['DagId'] = $this->dagId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class RunManualDagNodesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = RunManualDagNodesResponseBody::fromMap($map['body']);
+        if (isset($map['DagId'])) {
+            $model->dagId = $map['DagId'];
         }
 
         return $model;

@@ -68,6 +68,9 @@ class CreateImportMigrationAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('packageFileObject', $this->packageFileObject, true);
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('packageType', $this->packageType, true);
     }
 
     public function toMap()

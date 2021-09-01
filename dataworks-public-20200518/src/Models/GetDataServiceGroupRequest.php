@@ -30,6 +30,9 @@ class GetDataServiceGroupRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('tenantId', $this->tenantId, true);
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('groupId', $this->groupId, true);
     }
 
     public function toMap()
