@@ -13,14 +13,18 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateResourceMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSshKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateVariableGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateVariableGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteHostGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteResourceMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteVariableGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\FrozenWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetHostGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVariableGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRunsRequest;
@@ -32,6 +36,10 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceConnectionsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceConnectionsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesShrinkRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ReleaseWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ResetSshKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\RetryPipelineJobRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\SkipPipelineJobRunResponse;
@@ -491,6 +499,62 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param CreateWorkspaceRequest $request
+     *
+     * @return CreateWorkspaceResponse
+     */
+    public function createWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkspaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateWorkspaceRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateWorkspaceResponse
+     */
+    public function createWorkspaceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            @$body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->workspaceTemplate)) {
+            @$body['workspaceTemplate'] = $request->workspaceTemplate;
+        }
+        if (!Utils::isUnset($request->codeUrl)) {
+            @$body['codeUrl'] = $request->codeUrl;
+        }
+        if (!Utils::isUnset($request->codeVersion)) {
+            @$body['codeVersion'] = $request->codeVersion;
+        }
+        if (!Utils::isUnset($request->filePath)) {
+            @$body['filePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->reuse)) {
+            @$body['reuse'] = $request->reuse;
+        }
+        if (!Utils::isUnset($request->resourceIdentifier)) {
+            @$body['resourceIdentifier'] = $request->resourceIdentifier;
+        }
+        if (!Utils::isUnset($request->requestFrom)) {
+            @$body['requestFrom'] = $request->requestFrom;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return CreateWorkspaceResponse::fromMap($this->doROARequestWithForm('CreateWorkspace', '2021-06-25', 'HTTPS', 'POST', 'AK', '/api/workspaces', 'json', $req, $runtime));
+    }
+
+    /**
      * @param string                        $organizationId
      * @param ListServiceConnectionsRequest $request
      *
@@ -844,6 +908,58 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param ListWorkspacesRequest $request
+     *
+     * @return ListWorkspacesResponse
+     */
+    public function listWorkspaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkspacesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListWorkspacesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListWorkspacesResponse
+     */
+    public function listWorkspacesWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListWorkspacesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->statusList)) {
+            $request->statusListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'statusList', 'simple');
+        }
+        if (!Utils::isUnset($tmpReq->workspaceTemplateList)) {
+            $request->workspaceTemplateListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->workspaceTemplateList, 'workspaceTemplateList', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->statusListShrink)) {
+            @$query['statusList'] = $request->statusListShrink;
+        }
+        if (!Utils::isUnset($request->workspaceTemplateListShrink)) {
+            @$query['workspaceTemplateList'] = $request->workspaceTemplateListShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+
+        return ListWorkspacesResponse::fromMap($this->doROARequest('ListWorkspaces', '2021-06-25', 'HTTPS', 'GET', 'AK', '/api/workspaces', 'json', $req, $runtime));
+    }
+
+    /**
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
@@ -982,6 +1098,35 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string $workspaceId
+     *
+     * @return GetWorkspaceResponse
+     */
+    public function getWorkspace($workspaceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkspaceWithOptions($workspaceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $workspaceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetWorkspaceResponse
+     */
+    public function getWorkspaceWithOptions($workspaceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return GetWorkspaceResponse::fromMap($this->doROARequest('GetWorkspace', '2021-06-25', 'HTTPS', 'GET', 'AK', '/api/workspaces/' . $workspaceId . '', 'json', $req, $runtime));
+    }
+
+    /**
      * @param string $organizationId
      *
      * @return CreateSshKeyResponse
@@ -1039,6 +1184,35 @@ class Devops extends OpenApiClient
         ]);
 
         return DeleteHostGroupResponse::fromMap($this->doROARequest('DeleteHostGroup', '2021-06-25', 'HTTPS', 'DELETE', 'AK', '/organization/' . $organizationId . '/hostGroups/' . $id . '', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string $workspaceId
+     *
+     * @return ReleaseWorkspaceResponse
+     */
+    public function releaseWorkspace($workspaceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->releaseWorkspaceWithOptions($workspaceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $workspaceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ReleaseWorkspaceResponse
+     */
+    public function releaseWorkspaceWithOptions($workspaceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return ReleaseWorkspaceResponse::fromMap($this->doROARequest('ReleaseWorkspace', '2021-06-25', 'HTTPS', 'DELETE', 'AK', '/api/workspaces/' . $workspaceId . '/release', 'json', $req, $runtime));
     }
 
     /**
@@ -1116,6 +1290,35 @@ class Devops extends OpenApiClient
         ]);
 
         return DeletePipelineResponse::fromMap($this->doROARequest('DeletePipeline', '2021-06-25', 'HTTPS', 'DELETE', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string $workspaceId
+     *
+     * @return FrozenWorkspaceResponse
+     */
+    public function frozenWorkspace($workspaceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->frozenWorkspaceWithOptions($workspaceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $workspaceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return FrozenWorkspaceResponse
+     */
+    public function frozenWorkspaceWithOptions($workspaceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return FrozenWorkspaceResponse::fromMap($this->doROARequest('FrozenWorkspace', '2021-06-25', 'HTTPS', 'PUT', 'AK', '/api/workspaces/' . $workspaceId . '/frozen', 'json', $req, $runtime));
     }
 
     /**
