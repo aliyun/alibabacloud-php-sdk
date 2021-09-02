@@ -173,6 +173,12 @@ class PaiPlugin extends OpenApiClient
         if (!Utils::isUnset($request->processInstanceID)) {
             @$body['ProcessInstanceID'] = $request->processInstanceID;
         }
+        if (!Utils::isUnset($request->signatureID)) {
+            @$body['SignatureID'] = $request->signatureID;
+        }
+        if (!Utils::isUnset($request->type)) {
+            @$body['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),

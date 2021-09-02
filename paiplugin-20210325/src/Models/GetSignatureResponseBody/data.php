@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 签名归属方的三证合一，OSS地址
+     * @description 签名归属方的三证合一，OSS地址，必须以https开头，使用前需要授权
      *
      * @var string
      */
@@ -44,7 +44,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description 授权委托书(Power of attorney)， OSS地址
+     * @description 授权委托书(Power of attorney)， OSS地址，必须以https或oss开头，使用前需要授权，同上
      *
      * @var string
      */

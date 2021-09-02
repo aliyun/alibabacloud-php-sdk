@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplateResponseBody extends Model
 {
     /**
+     * @description 返回数据
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description 错误码
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @description 错误信息
+     *
      * @var string
      */
     public $errorMessage;

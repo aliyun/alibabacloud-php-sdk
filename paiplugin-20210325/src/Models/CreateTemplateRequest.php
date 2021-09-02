@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateRequest extends Model
 {
     /**
-     * @description 模板内容，请注意控制总字数在70个字以内，超出部分按长短信收费，按67个字为单位记一条短信，必须在结尾添加"回T退订"
+     * @description 模板内容，请注意控制总字数在70个字以内，超出部分按长短信收费，按67个字为单位记一条短信，必须在结尾添加”回T退订“
      *
      * @var string
      */
@@ -35,11 +35,27 @@ class CreateTemplateRequest extends Model
      * @var string
      */
     public $processInstanceID;
+
+    /**
+     * @description 签名ID
+     *
+     * @var string
+     */
+    public $signatureID;
+
+    /**
+     * @description 模板类型：
+     * 3：国际/港澳台消息。
+     * @var int
+     */
+    public $type;
     protected $_name = [
         'content'           => 'Content',
         'description'       => 'Description',
         'name'              => 'Name',
         'processInstanceID' => 'ProcessInstanceID',
+        'signatureID'       => 'SignatureID',
+        'type'              => 'Type',
     ];
 
     public function validate()
@@ -60,6 +76,12 @@ class CreateTemplateRequest extends Model
         }
         if (null !== $this->processInstanceID) {
             $res['ProcessInstanceID'] = $this->processInstanceID;
+        }
+        if (null !== $this->signatureID) {
+            $res['SignatureID'] = $this->signatureID;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -84,6 +106,12 @@ class CreateTemplateRequest extends Model
         }
         if (isset($map['ProcessInstanceID'])) {
             $model->processInstanceID = $map['ProcessInstanceID'];
+        }
+        if (isset($map['SignatureID'])) {
+            $model->signatureID = $map['SignatureID'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
