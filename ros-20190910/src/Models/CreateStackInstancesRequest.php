@@ -58,6 +58,11 @@ class CreateStackInstancesRequest extends Model
      * @var parameterOverrides[]
      */
     public $parameterOverrides;
+
+    /**
+     * @var mixed[]
+     */
+    public $deploymentTargets;
     protected $_name = [
         'regionId'             => 'RegionId',
         'stackGroupName'       => 'StackGroupName',
@@ -69,6 +74,7 @@ class CreateStackInstancesRequest extends Model
         'timeoutInMinutes'     => 'TimeoutInMinutes',
         'disableRollback'      => 'DisableRollback',
         'parameterOverrides'   => 'ParameterOverrides',
+        'deploymentTargets'    => 'DeploymentTargets',
     ];
 
     public function validate()
@@ -113,6 +119,9 @@ class CreateStackInstancesRequest extends Model
                     $res['ParameterOverrides'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->deploymentTargets) {
+            $res['DeploymentTargets'] = $this->deploymentTargets;
         }
 
         return $res;
@@ -161,6 +170,9 @@ class CreateStackInstancesRequest extends Model
                     $model->parameterOverrides[$n++] = null !== $item ? parameterOverrides::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DeploymentTargets'])) {
+            $model->deploymentTargets = $map['DeploymentTargets'];
         }
 
         return $model;

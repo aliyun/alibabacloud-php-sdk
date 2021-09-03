@@ -11,15 +11,15 @@ class UpdateStackGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $operationId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $operationId;
     protected $_name = [
-        'operationId' => 'OperationId',
         'requestId'   => 'RequestId',
+        'operationId' => 'OperationId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateStackGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->operationId) {
-            $res['OperationId'] = $this->operationId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->operationId) {
+            $res['OperationId'] = $this->operationId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateStackGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OperationId'])) {
-            $model->operationId = $map['OperationId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['OperationId'])) {
+            $model->operationId = $map['OperationId'];
         }
 
         return $model;

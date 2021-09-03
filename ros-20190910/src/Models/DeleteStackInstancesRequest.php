@@ -47,6 +47,11 @@ class DeleteStackInstancesRequest extends Model
      * @var mixed[]
      */
     public $operationPreferences;
+
+    /**
+     * @var mixed[]
+     */
+    public $deploymentTargets;
     protected $_name = [
         'regionId'             => 'RegionId',
         'stackGroupName'       => 'StackGroupName',
@@ -56,6 +61,7 @@ class DeleteStackInstancesRequest extends Model
         'clientToken'          => 'ClientToken',
         'operationDescription' => 'OperationDescription',
         'operationPreferences' => 'OperationPreferences',
+        'deploymentTargets'    => 'DeploymentTargets',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class DeleteStackInstancesRequest extends Model
         }
         if (null !== $this->operationPreferences) {
             $res['OperationPreferences'] = $this->operationPreferences;
+        }
+        if (null !== $this->deploymentTargets) {
+            $res['DeploymentTargets'] = $this->deploymentTargets;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class DeleteStackInstancesRequest extends Model
         }
         if (isset($map['OperationPreferences'])) {
             $model->operationPreferences = $map['OperationPreferences'];
+        }
+        if (isset($map['DeploymentTargets'])) {
+            $model->deploymentTargets = $map['DeploymentTargets'];
         }
 
         return $model;

@@ -52,6 +52,11 @@ class stackInstances extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $rdFolderId;
     protected $_name = [
         'status'             => 'Status',
         'stackGroupId'       => 'StackGroupId',
@@ -62,6 +67,7 @@ class stackInstances extends Model
         'stackGroupName'     => 'StackGroupName',
         'accountId'          => 'AccountId',
         'regionId'           => 'RegionId',
+        'rdFolderId'         => 'RdFolderId',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class stackInstances extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->rdFolderId) {
+            $res['RdFolderId'] = $this->rdFolderId;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class stackInstances extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RdFolderId'])) {
+            $model->rdFolderId = $map['RdFolderId'];
         }
 
         return $model;

@@ -53,6 +53,11 @@ class UpdateStackInstancesShrinkRequest extends Model
      * @var parameterOverrides[]
      */
     public $parameterOverrides;
+
+    /**
+     * @var string
+     */
+    public $deploymentTargetsShrink;
     protected $_name = [
         'regionId'                   => 'RegionId',
         'stackGroupName'             => 'StackGroupName',
@@ -63,6 +68,7 @@ class UpdateStackInstancesShrinkRequest extends Model
         'operationPreferencesShrink' => 'OperationPreferences',
         'timeoutInMinutes'           => 'TimeoutInMinutes',
         'parameterOverrides'         => 'ParameterOverrides',
+        'deploymentTargetsShrink'    => 'DeploymentTargets',
     ];
 
     public function validate()
@@ -104,6 +110,9 @@ class UpdateStackInstancesShrinkRequest extends Model
                     $res['ParameterOverrides'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->deploymentTargetsShrink) {
+            $res['DeploymentTargets'] = $this->deploymentTargetsShrink;
         }
 
         return $res;
@@ -149,6 +158,9 @@ class UpdateStackInstancesShrinkRequest extends Model
                     $model->parameterOverrides[$n++] = null !== $item ? parameterOverrides::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DeploymentTargets'])) {
+            $model->deploymentTargetsShrink = $map['DeploymentTargets'];
         }
 
         return $model;

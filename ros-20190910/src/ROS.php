@@ -14,6 +14,7 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\CreateChangeSetRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateChangeSetResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackGroupRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackGroupResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackGroupShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackInstancesRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackInstancesResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackInstancesShrinkRequest;
@@ -285,14 +286,19 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param CreateStackGroupRequest $request
+     * @param CreateStackGroupRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
      * @return CreateStackGroupResponse
      */
-    public function createStackGroupWithOptions($request, $runtime)
+    public function createStackGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateStackGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->autoDeployment)) {
+            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->autoDeployment, 'AutoDeployment', 'json');
+        }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
@@ -331,6 +337,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -482,6 +491,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -1809,6 +1821,12 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
+        if (!Utils::isUnset($tmpReq->autoDeployment)) {
+            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->autoDeployment, 'AutoDeployment', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
+        }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
@@ -1847,6 +1865,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),

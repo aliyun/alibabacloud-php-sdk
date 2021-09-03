@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\ListStackGroupsResponseBody;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackGroupsResponseBody\stackGroups\autoDeployment;
 use AlibabaCloud\Tea\Model;
 
 class stackGroups extends Model
@@ -42,6 +43,16 @@ class stackGroups extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $permissionModel;
+
+    /**
+     * @var autoDeployment
+     */
+    public $autoDeployment;
     protected $_name = [
         'stackGroupId'          => 'StackGroupId',
         'status'                => 'Status',
@@ -50,6 +61,8 @@ class stackGroups extends Model
         'stackGroupDriftStatus' => 'StackGroupDriftStatus',
         'stackGroupName'        => 'StackGroupName',
         'resourceGroupId'       => 'ResourceGroupId',
+        'permissionModel'       => 'PermissionModel',
+        'autoDeployment'        => 'AutoDeployment',
     ];
 
     public function validate()
@@ -79,6 +92,12 @@ class stackGroups extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->permissionModel) {
+            $res['PermissionModel'] = $this->permissionModel;
+        }
+        if (null !== $this->autoDeployment) {
+            $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
         }
 
         return $res;
@@ -112,6 +131,12 @@ class stackGroups extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['PermissionModel'])) {
+            $model->permissionModel = $map['PermissionModel'];
+        }
+        if (isset($map['AutoDeployment'])) {
+            $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
         }
 
         return $model;

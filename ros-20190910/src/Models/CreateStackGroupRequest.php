@@ -68,6 +68,16 @@ class CreateStackGroupRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $permissionModel;
+
+    /**
+     * @var mixed[]
+     */
+    public $autoDeployment;
     protected $_name = [
         'regionId'               => 'RegionId',
         'stackGroupName'         => 'StackGroupName',
@@ -81,6 +91,8 @@ class CreateStackGroupRequest extends Model
         'templateVersion'        => 'TemplateVersion',
         'parameters'             => 'Parameters',
         'resourceGroupId'        => 'ResourceGroupId',
+        'permissionModel'        => 'PermissionModel',
+        'autoDeployment'         => 'AutoDeployment',
     ];
 
     public function validate()
@@ -131,6 +143,12 @@ class CreateStackGroupRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->permissionModel) {
+            $res['PermissionModel'] = $this->permissionModel;
+        }
+        if (null !== $this->autoDeployment) {
+            $res['AutoDeployment'] = $this->autoDeployment;
         }
 
         return $res;
@@ -185,6 +203,12 @@ class CreateStackGroupRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['PermissionModel'])) {
+            $model->permissionModel = $map['PermissionModel'];
+        }
+        if (isset($map['AutoDeployment'])) {
+            $model->autoDeployment = $map['AutoDeployment'];
         }
 
         return $model;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupResponseBody;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupResponseBody\stackGroup\autoDeployment;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupResponseBody\stackGroup\parameters;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupResponseBody\stackGroup\stackGroupDriftDetectionDetail;
 use AlibabaCloud\Tea\Model;
@@ -59,6 +60,21 @@ class stackGroup extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $permissionModel;
+
+    /**
+     * @var autoDeployment
+     */
+    public $autoDeployment;
+
+    /**
+     * @var string[]
+     */
+    public $rdFolderIds;
     protected $_name = [
         'stackGroupId'                   => 'StackGroupId',
         'status'                         => 'Status',
@@ -70,6 +86,9 @@ class stackGroup extends Model
         'templateBody'                   => 'TemplateBody',
         'stackGroupDriftDetectionDetail' => 'StackGroupDriftDetectionDetail',
         'resourceGroupId'                => 'ResourceGroupId',
+        'permissionModel'                => 'PermissionModel',
+        'autoDeployment'                 => 'AutoDeployment',
+        'rdFolderIds'                    => 'RdFolderIds',
     ];
 
     public function validate()
@@ -114,6 +133,15 @@ class stackGroup extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->permissionModel) {
+            $res['PermissionModel'] = $this->permissionModel;
+        }
+        if (null !== $this->autoDeployment) {
+            $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
+        }
+        if (null !== $this->rdFolderIds) {
+            $res['RdFolderIds'] = $this->rdFolderIds;
         }
 
         return $res;
@@ -162,6 +190,17 @@ class stackGroup extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['PermissionModel'])) {
+            $model->permissionModel = $map['PermissionModel'];
+        }
+        if (isset($map['AutoDeployment'])) {
+            $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
+        }
+        if (isset($map['RdFolderIds'])) {
+            if (!empty($map['RdFolderIds'])) {
+                $model->rdFolderIds = $map['RdFolderIds'];
+            }
         }
 
         return $model;

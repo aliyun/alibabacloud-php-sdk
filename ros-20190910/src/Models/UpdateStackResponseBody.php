@@ -11,15 +11,15 @@ class UpdateStackResponseBody extends Model
     /**
      * @var string
      */
-    public $stackId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $stackId;
     protected $_name = [
-        'stackId'   => 'StackId',
         'requestId' => 'RequestId',
+        'stackId'   => 'StackId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateStackResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateStackResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
 
         return $model;

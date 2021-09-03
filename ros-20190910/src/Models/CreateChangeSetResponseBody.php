@@ -11,7 +11,7 @@ class CreateChangeSetResponseBody extends Model
     /**
      * @var string
      */
-    public $stackId;
+    public $changeSetId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class CreateChangeSetResponseBody extends Model
     /**
      * @var string
      */
-    public $changeSetId;
+    public $stackId;
     protected $_name = [
-        'stackId'     => 'StackId',
-        'requestId'   => 'RequestId',
         'changeSetId' => 'ChangeSetId',
+        'requestId'   => 'RequestId',
+        'stackId'     => 'StackId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateChangeSetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
+        if (null !== $this->changeSetId) {
+            $res['ChangeSetId'] = $this->changeSetId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->changeSetId) {
-            $res['ChangeSetId'] = $this->changeSetId;
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateChangeSetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
+        if (isset($map['ChangeSetId'])) {
+            $model->changeSetId = $map['ChangeSetId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ChangeSetId'])) {
-            $model->changeSetId = $map['ChangeSetId'];
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
 
         return $model;

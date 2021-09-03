@@ -83,6 +83,21 @@ class UpdateStackGroupRequest extends Model
      * @var parameters[]
      */
     public $parameters;
+
+    /**
+     * @var string
+     */
+    public $permissionModel;
+
+    /**
+     * @var mixed[]
+     */
+    public $autoDeployment;
+
+    /**
+     * @var mixed[]
+     */
+    public $deploymentTargets;
     protected $_name = [
         'regionId'               => 'RegionId',
         'stackGroupName'         => 'StackGroupName',
@@ -99,6 +114,9 @@ class UpdateStackGroupRequest extends Model
         'templateId'             => 'TemplateId',
         'templateVersion'        => 'TemplateVersion',
         'parameters'             => 'Parameters',
+        'permissionModel'        => 'PermissionModel',
+        'autoDeployment'         => 'AutoDeployment',
+        'deploymentTargets'      => 'DeploymentTargets',
     ];
 
     public function validate()
@@ -158,6 +176,15 @@ class UpdateStackGroupRequest extends Model
                     $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->permissionModel) {
+            $res['PermissionModel'] = $this->permissionModel;
+        }
+        if (null !== $this->autoDeployment) {
+            $res['AutoDeployment'] = $this->autoDeployment;
+        }
+        if (null !== $this->deploymentTargets) {
+            $res['DeploymentTargets'] = $this->deploymentTargets;
         }
 
         return $res;
@@ -221,6 +248,15 @@ class UpdateStackGroupRequest extends Model
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PermissionModel'])) {
+            $model->permissionModel = $map['PermissionModel'];
+        }
+        if (isset($map['AutoDeployment'])) {
+            $model->autoDeployment = $map['AutoDeployment'];
+        }
+        if (isset($map['DeploymentTargets'])) {
+            $model->deploymentTargets = $map['DeploymentTargets'];
         }
 
         return $model;

@@ -47,6 +47,11 @@ class DeleteStackInstancesShrinkRequest extends Model
      * @var string
      */
     public $operationPreferencesShrink;
+
+    /**
+     * @var string
+     */
+    public $deploymentTargetsShrink;
     protected $_name = [
         'regionId'                   => 'RegionId',
         'stackGroupName'             => 'StackGroupName',
@@ -56,6 +61,7 @@ class DeleteStackInstancesShrinkRequest extends Model
         'clientToken'                => 'ClientToken',
         'operationDescription'       => 'OperationDescription',
         'operationPreferencesShrink' => 'OperationPreferences',
+        'deploymentTargetsShrink'    => 'DeploymentTargets',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class DeleteStackInstancesShrinkRequest extends Model
         }
         if (null !== $this->operationPreferencesShrink) {
             $res['OperationPreferences'] = $this->operationPreferencesShrink;
+        }
+        if (null !== $this->deploymentTargetsShrink) {
+            $res['DeploymentTargets'] = $this->deploymentTargetsShrink;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class DeleteStackInstancesShrinkRequest extends Model
         }
         if (isset($map['OperationPreferences'])) {
             $model->operationPreferencesShrink = $map['OperationPreferences'];
+        }
+        if (isset($map['DeploymentTargets'])) {
+            $model->deploymentTargetsShrink = $map['DeploymentTargets'];
         }
 
         return $model;

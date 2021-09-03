@@ -11,20 +11,20 @@ class resourcesToImport extends Model
     /**
      * @var string
      */
-    public $logicalResourceId;
+    public $resourceIdentifier;
 
     /**
      * @var string
      */
-    public $resourceIdentifier;
+    public $logicalResourceId;
 
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'logicalResourceId'  => 'LogicalResourceId',
         'resourceIdentifier' => 'ResourceIdentifier',
+        'logicalResourceId'  => 'LogicalResourceId',
         'resourceType'       => 'ResourceType',
     ];
 
@@ -35,11 +35,11 @@ class resourcesToImport extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logicalResourceId) {
-            $res['LogicalResourceId'] = $this->logicalResourceId;
-        }
         if (null !== $this->resourceIdentifier) {
             $res['ResourceIdentifier'] = $this->resourceIdentifier;
+        }
+        if (null !== $this->logicalResourceId) {
+            $res['LogicalResourceId'] = $this->logicalResourceId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -56,11 +56,11 @@ class resourcesToImport extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogicalResourceId'])) {
-            $model->logicalResourceId = $map['LogicalResourceId'];
-        }
         if (isset($map['ResourceIdentifier'])) {
             $model->resourceIdentifier = $map['ResourceIdentifier'];
+        }
+        if (isset($map['LogicalResourceId'])) {
+            $model->logicalResourceId = $map['LogicalResourceId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

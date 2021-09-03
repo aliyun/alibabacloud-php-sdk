@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateStackGroupShrinkRequest\parameters;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackGroupShrinkRequest\parameters;
 use AlibabaCloud\Tea\Model;
 
-class UpdateStackGroupShrinkRequest extends Model
+class CreateStackGroupShrinkRequest extends Model
 {
     /**
      * @var string
@@ -27,16 +27,6 @@ class UpdateStackGroupShrinkRequest extends Model
     /**
      * @var string
      */
-    public $accountIdsShrink;
-
-    /**
-     * @var string
-     */
-    public $regionIdsShrink;
-
-    /**
-     * @var string
-     */
     public $templateBody;
 
     /**
@@ -48,16 +38,6 @@ class UpdateStackGroupShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $operationDescription;
-
-    /**
-     * @var string
-     */
-    public $operationPreferencesShrink;
 
     /**
      * @var string
@@ -87,36 +67,32 @@ class UpdateStackGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $permissionModel;
 
     /**
      * @var string
      */
     public $autoDeploymentShrink;
-
-    /**
-     * @var string
-     */
-    public $deploymentTargetsShrink;
     protected $_name = [
-        'regionId'                   => 'RegionId',
-        'stackGroupName'             => 'StackGroupName',
-        'description'                => 'Description',
-        'accountIdsShrink'           => 'AccountIds',
-        'regionIdsShrink'            => 'RegionIds',
-        'templateBody'               => 'TemplateBody',
-        'templateURL'                => 'TemplateURL',
-        'clientToken'                => 'ClientToken',
-        'operationDescription'       => 'OperationDescription',
-        'operationPreferencesShrink' => 'OperationPreferences',
-        'administrationRoleName'     => 'AdministrationRoleName',
-        'executionRoleName'          => 'ExecutionRoleName',
-        'templateId'                 => 'TemplateId',
-        'templateVersion'            => 'TemplateVersion',
-        'parameters'                 => 'Parameters',
-        'permissionModel'            => 'PermissionModel',
-        'autoDeploymentShrink'       => 'AutoDeployment',
-        'deploymentTargetsShrink'    => 'DeploymentTargets',
+        'regionId'               => 'RegionId',
+        'stackGroupName'         => 'StackGroupName',
+        'description'            => 'Description',
+        'templateBody'           => 'TemplateBody',
+        'templateURL'            => 'TemplateURL',
+        'clientToken'            => 'ClientToken',
+        'administrationRoleName' => 'AdministrationRoleName',
+        'executionRoleName'      => 'ExecutionRoleName',
+        'templateId'             => 'TemplateId',
+        'templateVersion'        => 'TemplateVersion',
+        'parameters'             => 'Parameters',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'permissionModel'        => 'PermissionModel',
+        'autoDeploymentShrink'   => 'AutoDeployment',
     ];
 
     public function validate()
@@ -135,12 +111,6 @@ class UpdateStackGroupShrinkRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->accountIdsShrink) {
-            $res['AccountIds'] = $this->accountIdsShrink;
-        }
-        if (null !== $this->regionIdsShrink) {
-            $res['RegionIds'] = $this->regionIdsShrink;
-        }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
         }
@@ -149,12 +119,6 @@ class UpdateStackGroupShrinkRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->operationDescription) {
-            $res['OperationDescription'] = $this->operationDescription;
-        }
-        if (null !== $this->operationPreferencesShrink) {
-            $res['OperationPreferences'] = $this->operationPreferencesShrink;
         }
         if (null !== $this->administrationRoleName) {
             $res['AdministrationRoleName'] = $this->administrationRoleName;
@@ -177,14 +141,14 @@ class UpdateStackGroupShrinkRequest extends Model
                 }
             }
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->permissionModel) {
             $res['PermissionModel'] = $this->permissionModel;
         }
         if (null !== $this->autoDeploymentShrink) {
             $res['AutoDeployment'] = $this->autoDeploymentShrink;
-        }
-        if (null !== $this->deploymentTargetsShrink) {
-            $res['DeploymentTargets'] = $this->deploymentTargetsShrink;
         }
 
         return $res;
@@ -193,7 +157,7 @@ class UpdateStackGroupShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateStackGroupShrinkRequest
+     * @return CreateStackGroupShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -207,12 +171,6 @@ class UpdateStackGroupShrinkRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['AccountIds'])) {
-            $model->accountIdsShrink = $map['AccountIds'];
-        }
-        if (isset($map['RegionIds'])) {
-            $model->regionIdsShrink = $map['RegionIds'];
-        }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }
@@ -221,12 +179,6 @@ class UpdateStackGroupShrinkRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['OperationDescription'])) {
-            $model->operationDescription = $map['OperationDescription'];
-        }
-        if (isset($map['OperationPreferences'])) {
-            $model->operationPreferencesShrink = $map['OperationPreferences'];
         }
         if (isset($map['AdministrationRoleName'])) {
             $model->administrationRoleName = $map['AdministrationRoleName'];
@@ -249,14 +201,14 @@ class UpdateStackGroupShrinkRequest extends Model
                 }
             }
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['PermissionModel'])) {
             $model->permissionModel = $map['PermissionModel'];
         }
         if (isset($map['AutoDeployment'])) {
             $model->autoDeploymentShrink = $map['AutoDeployment'];
-        }
-        if (isset($map['DeploymentTargets'])) {
-            $model->deploymentTargetsShrink = $map['DeploymentTargets'];
         }
 
         return $model;

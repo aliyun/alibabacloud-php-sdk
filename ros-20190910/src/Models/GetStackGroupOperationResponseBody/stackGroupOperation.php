@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupOperationResponseBody;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupOperationResponseBody\stackGroupOperation\deploymentTargets;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupOperationResponseBody\stackGroupOperation\operationPreferences;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupOperationResponseBody\stackGroupOperation\stackGroupDriftDetectionDetail;
 use AlibabaCloud\Tea\Model;
@@ -14,11 +15,6 @@ class stackGroupOperation extends Model
      * @var string
      */
     public $status;
-
-    /**
-     * @var string
-     */
-    public $endTime;
 
     /**
      * @var string
@@ -34,11 +30,6 @@ class stackGroupOperation extends Model
      * @var string
      */
     public $createTime;
-
-    /**
-     * @var string
-     */
-    public $executionRoleName;
 
     /**
      * @var bool
@@ -61,9 +52,9 @@ class stackGroupOperation extends Model
     public $operationDescription;
 
     /**
-     * @var string
+     * @var stackGroupDriftDetectionDetail
      */
-    public $administratorRoleName;
+    public $stackGroupDriftDetectionDetail;
 
     /**
      * @var operationPreferences
@@ -71,23 +62,39 @@ class stackGroupOperation extends Model
     public $operationPreferences;
 
     /**
-     * @var stackGroupDriftDetectionDetail
+     * @var string
      */
-    public $stackGroupDriftDetectionDetail;
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $executionRoleName;
+
+    /**
+     * @var string
+     */
+    public $administratorRoleName;
+
+    /**
+     * @var deploymentTargets
+     */
+    public $deploymentTargets;
     protected $_name = [
         'status'                         => 'Status',
-        'endTime'                        => 'EndTime',
         'stackGroupId'                   => 'StackGroupId',
         'action'                         => 'Action',
         'createTime'                     => 'CreateTime',
-        'executionRoleName'              => 'ExecutionRoleName',
         'retainStacks'                   => 'RetainStacks',
         'stackGroupName'                 => 'StackGroupName',
         'operationId'                    => 'OperationId',
         'operationDescription'           => 'OperationDescription',
-        'administratorRoleName'          => 'AdministratorRoleName',
-        'operationPreferences'           => 'OperationPreferences',
         'stackGroupDriftDetectionDetail' => 'StackGroupDriftDetectionDetail',
+        'operationPreferences'           => 'OperationPreferences',
+        'endTime'                        => 'EndTime',
+        'executionRoleName'              => 'ExecutionRoleName',
+        'administratorRoleName'          => 'AdministratorRoleName',
+        'deploymentTargets'              => 'DeploymentTargets',
     ];
 
     public function validate()
@@ -100,9 +107,6 @@ class stackGroupOperation extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
         if (null !== $this->stackGroupId) {
             $res['StackGroupId'] = $this->stackGroupId;
         }
@@ -111,9 +115,6 @@ class stackGroupOperation extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->executionRoleName) {
-            $res['ExecutionRoleName'] = $this->executionRoleName;
         }
         if (null !== $this->retainStacks) {
             $res['RetainStacks'] = $this->retainStacks;
@@ -127,14 +128,23 @@ class stackGroupOperation extends Model
         if (null !== $this->operationDescription) {
             $res['OperationDescription'] = $this->operationDescription;
         }
-        if (null !== $this->administratorRoleName) {
-            $res['AdministratorRoleName'] = $this->administratorRoleName;
+        if (null !== $this->stackGroupDriftDetectionDetail) {
+            $res['StackGroupDriftDetectionDetail'] = null !== $this->stackGroupDriftDetectionDetail ? $this->stackGroupDriftDetectionDetail->toMap() : null;
         }
         if (null !== $this->operationPreferences) {
             $res['OperationPreferences'] = null !== $this->operationPreferences ? $this->operationPreferences->toMap() : null;
         }
-        if (null !== $this->stackGroupDriftDetectionDetail) {
-            $res['StackGroupDriftDetectionDetail'] = null !== $this->stackGroupDriftDetectionDetail ? $this->stackGroupDriftDetectionDetail->toMap() : null;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->executionRoleName) {
+            $res['ExecutionRoleName'] = $this->executionRoleName;
+        }
+        if (null !== $this->administratorRoleName) {
+            $res['AdministratorRoleName'] = $this->administratorRoleName;
+        }
+        if (null !== $this->deploymentTargets) {
+            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
         }
 
         return $res;
@@ -151,9 +161,6 @@ class stackGroupOperation extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
         if (isset($map['StackGroupId'])) {
             $model->stackGroupId = $map['StackGroupId'];
         }
@@ -162,9 +169,6 @@ class stackGroupOperation extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ExecutionRoleName'])) {
-            $model->executionRoleName = $map['ExecutionRoleName'];
         }
         if (isset($map['RetainStacks'])) {
             $model->retainStacks = $map['RetainStacks'];
@@ -178,14 +182,23 @@ class stackGroupOperation extends Model
         if (isset($map['OperationDescription'])) {
             $model->operationDescription = $map['OperationDescription'];
         }
-        if (isset($map['AdministratorRoleName'])) {
-            $model->administratorRoleName = $map['AdministratorRoleName'];
+        if (isset($map['StackGroupDriftDetectionDetail'])) {
+            $model->stackGroupDriftDetectionDetail = stackGroupDriftDetectionDetail::fromMap($map['StackGroupDriftDetectionDetail']);
         }
         if (isset($map['OperationPreferences'])) {
             $model->operationPreferences = operationPreferences::fromMap($map['OperationPreferences']);
         }
-        if (isset($map['StackGroupDriftDetectionDetail'])) {
-            $model->stackGroupDriftDetectionDetail = stackGroupDriftDetectionDetail::fromMap($map['StackGroupDriftDetectionDetail']);
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ExecutionRoleName'])) {
+            $model->executionRoleName = $map['ExecutionRoleName'];
+        }
+        if (isset($map['AdministratorRoleName'])) {
+            $model->administratorRoleName = $map['AdministratorRoleName'];
+        }
+        if (isset($map['DeploymentTargets'])) {
+            $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
         }
 
         return $model;

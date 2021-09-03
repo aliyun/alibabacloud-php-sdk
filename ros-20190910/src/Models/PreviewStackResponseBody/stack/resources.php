@@ -29,21 +29,21 @@ class resources extends Model
     public $stack;
 
     /**
-     * @var mixed[]
-     */
-    public $properties;
-
-    /**
      * @var string[]
      */
     public $requiredBy;
+
+    /**
+     * @var mixed[]
+     */
+    public $properties;
     protected $_name = [
         'logicalResourceId' => 'LogicalResourceId',
         'resourceType'      => 'ResourceType',
         'description'       => 'Description',
         'stack'             => 'Stack',
-        'properties'        => 'Properties',
         'requiredBy'        => 'RequiredBy',
+        'properties'        => 'Properties',
     ];
 
     public function validate()
@@ -65,11 +65,11 @@ class resources extends Model
         if (null !== $this->stack) {
             $res['Stack'] = $this->stack;
         }
-        if (null !== $this->properties) {
-            $res['Properties'] = $this->properties;
-        }
         if (null !== $this->requiredBy) {
             $res['RequiredBy'] = $this->requiredBy;
+        }
+        if (null !== $this->properties) {
+            $res['Properties'] = $this->properties;
         }
 
         return $res;
@@ -95,13 +95,13 @@ class resources extends Model
         if (isset($map['Stack'])) {
             $model->stack = $map['Stack'];
         }
-        if (isset($map['Properties'])) {
-            $model->properties = $map['Properties'];
-        }
         if (isset($map['RequiredBy'])) {
             if (!empty($map['RequiredBy'])) {
                 $model->requiredBy = $map['RequiredBy'];
             }
+        }
+        if (isset($map['Properties'])) {
+            $model->properties = $map['Properties'];
         }
 
         return $model;
