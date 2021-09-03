@@ -44,6 +44,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileSignedURIRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileSignedURIResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeUrlRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeUrlResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeUrlShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaShrinkRequest;
@@ -53,6 +56,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryRequest;
@@ -608,6 +614,48 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param GetWebofficeUrlRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetWebofficeUrlResponse
+     */
+    public function getWebofficeUrlWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetWebofficeUrlShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->permission)) {
+            $request->permissionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->permission), 'Permission', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->user)) {
+            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->user), 'User', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->watermark)) {
+            $request->watermarkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->watermark), 'Watermark', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->assumeRoleChain)) {
+            $request->assumeRoleChainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->assumeRoleChain), 'AssumeRoleChain', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetWebofficeUrlResponse::fromMap($this->doRPCRequest('GetWebofficeUrl', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetWebofficeUrlRequest $request
+     *
+     * @return GetWebofficeUrlResponse
+     */
+    public function getWebofficeUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWebofficeUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param IndexFileMetaRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
@@ -722,6 +770,39 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RefreshWebofficeTokenRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RefreshWebofficeTokenResponse
+     */
+    public function refreshWebofficeTokenWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RefreshWebofficeTokenShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->assumeRoleChain)) {
+            $request->assumeRoleChainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->assumeRoleChain), 'AssumeRoleChain', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RefreshWebofficeTokenResponse::fromMap($this->doRPCRequest('RefreshWebofficeToken', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RefreshWebofficeTokenRequest $request
+     *
+     * @return RefreshWebofficeTokenResponse
+     */
+    public function refreshWebofficeToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshWebofficeTokenWithOptions($request, $runtime);
     }
 
     /**
