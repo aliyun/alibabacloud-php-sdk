@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackGroupRequest\autoDeployment;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackGroupRequest\parameters;
 use AlibabaCloud\Tea\Model;
 
@@ -75,7 +76,7 @@ class CreateStackGroupRequest extends Model
     public $permissionModel;
 
     /**
-     * @var mixed[]
+     * @var autoDeployment
      */
     public $autoDeployment;
     protected $_name = [
@@ -148,7 +149,7 @@ class CreateStackGroupRequest extends Model
             $res['PermissionModel'] = $this->permissionModel;
         }
         if (null !== $this->autoDeployment) {
-            $res['AutoDeployment'] = $this->autoDeployment;
+            $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
         }
 
         return $res;
@@ -208,7 +209,7 @@ class CreateStackGroupRequest extends Model
             $model->permissionModel = $map['PermissionModel'];
         }
         if (isset($map['AutoDeployment'])) {
-            $model->autoDeployment = $map['AutoDeployment'];
+            $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
         }
 
         return $model;

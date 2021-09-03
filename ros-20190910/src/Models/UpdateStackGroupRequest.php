@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateStackGroupRequest\autoDeployment;
+use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateStackGroupRequest\deploymentTargets;
 use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateStackGroupRequest\parameters;
 use AlibabaCloud\Tea\Model;
 
@@ -25,12 +27,12 @@ class UpdateStackGroupRequest extends Model
     public $description;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $accountIds;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $regionIds;
 
@@ -90,12 +92,12 @@ class UpdateStackGroupRequest extends Model
     public $permissionModel;
 
     /**
-     * @var mixed[]
+     * @var autoDeployment
      */
     public $autoDeployment;
 
     /**
-     * @var mixed[]
+     * @var deploymentTargets
      */
     public $deploymentTargets;
     protected $_name = [
@@ -181,10 +183,10 @@ class UpdateStackGroupRequest extends Model
             $res['PermissionModel'] = $this->permissionModel;
         }
         if (null !== $this->autoDeployment) {
-            $res['AutoDeployment'] = $this->autoDeployment;
+            $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
         }
         if (null !== $this->deploymentTargets) {
-            $res['DeploymentTargets'] = $this->deploymentTargets;
+            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
         }
 
         return $res;
@@ -208,10 +210,14 @@ class UpdateStackGroupRequest extends Model
             $model->description = $map['Description'];
         }
         if (isset($map['AccountIds'])) {
-            $model->accountIds = $map['AccountIds'];
+            if (!empty($map['AccountIds'])) {
+                $model->accountIds = $map['AccountIds'];
+            }
         }
         if (isset($map['RegionIds'])) {
-            $model->regionIds = $map['RegionIds'];
+            if (!empty($map['RegionIds'])) {
+                $model->regionIds = $map['RegionIds'];
+            }
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
@@ -253,10 +259,10 @@ class UpdateStackGroupRequest extends Model
             $model->permissionModel = $map['PermissionModel'];
         }
         if (isset($map['AutoDeployment'])) {
-            $model->autoDeployment = $map['AutoDeployment'];
+            $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
         }
         if (isset($map['DeploymentTargets'])) {
-            $model->deploymentTargets = $map['DeploymentTargets'];
+            $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
         }
 
         return $model;

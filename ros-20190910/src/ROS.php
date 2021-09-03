@@ -135,6 +135,7 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -297,7 +298,7 @@ class ROS extends OpenApiClient
         $request = new CreateStackGroupShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->autoDeployment)) {
-            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->autoDeployment, 'AutoDeployment', 'json');
+            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->autoDeployment), 'AutoDeployment', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -339,7 +340,7 @@ class ROS extends OpenApiClient
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
         if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -493,7 +494,7 @@ class ROS extends OpenApiClient
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
         if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -1822,10 +1823,10 @@ class ROS extends OpenApiClient
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
         if (!Utils::isUnset($tmpReq->autoDeployment)) {
-            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->autoDeployment, 'AutoDeployment', 'json');
+            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->autoDeployment), 'AutoDeployment', 'json');
         }
         if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -1867,7 +1868,7 @@ class ROS extends OpenApiClient
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
         if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),

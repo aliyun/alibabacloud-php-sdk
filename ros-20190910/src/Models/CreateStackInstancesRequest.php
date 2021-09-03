@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackInstancesRequest\deploymentTargets;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackInstancesRequest\parameterOverrides;
 use AlibabaCloud\Tea\Model;
 
@@ -20,12 +21,12 @@ class CreateStackInstancesRequest extends Model
     public $stackGroupName;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $accountIds;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $regionIds;
 
@@ -60,7 +61,7 @@ class CreateStackInstancesRequest extends Model
     public $parameterOverrides;
 
     /**
-     * @var mixed[]
+     * @var deploymentTargets
      */
     public $deploymentTargets;
     protected $_name = [
@@ -121,7 +122,7 @@ class CreateStackInstancesRequest extends Model
             }
         }
         if (null !== $this->deploymentTargets) {
-            $res['DeploymentTargets'] = $this->deploymentTargets;
+            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
         }
 
         return $res;
@@ -142,10 +143,14 @@ class CreateStackInstancesRequest extends Model
             $model->stackGroupName = $map['StackGroupName'];
         }
         if (isset($map['AccountIds'])) {
-            $model->accountIds = $map['AccountIds'];
+            if (!empty($map['AccountIds'])) {
+                $model->accountIds = $map['AccountIds'];
+            }
         }
         if (isset($map['RegionIds'])) {
-            $model->regionIds = $map['RegionIds'];
+            if (!empty($map['RegionIds'])) {
+                $model->regionIds = $map['RegionIds'];
+            }
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -172,7 +177,7 @@ class CreateStackInstancesRequest extends Model
             }
         }
         if (isset($map['DeploymentTargets'])) {
-            $model->deploymentTargets = $map['DeploymentTargets'];
+            $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
         }
 
         return $model;
