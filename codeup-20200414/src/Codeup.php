@@ -76,6 +76,8 @@ use AlibabaCloud\SDK\Codeup\V20200414\Models\GetMergeRequestDetailRequest;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\GetMergeRequestDetailResponse;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\GetMergeRequestSettingRequest;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\GetMergeRequestSettingResponse;
+use AlibabaCloud\SDK\Codeup\V20200414\Models\GetOrganizationRepositorySettingRequest;
+use AlibabaCloud\SDK\Codeup\V20200414\Models\GetOrganizationRepositorySettingResponse;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\GetOrganizationSecurityCenterStatusRequest;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\GetOrganizationSecurityCenterStatusResponse;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\GetProjectMemberRequest;
@@ -126,6 +128,8 @@ use AlibabaCloud\SDK\Codeup\V20200414\Models\ListRepositoryWebhookRequest;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\ListRepositoryWebhookResponse;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\MergeMergeRequestRequest;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\MergeMergeRequestResponse;
+use AlibabaCloud\SDK\Codeup\V20200414\Models\TriggerRepositoryMirrorSyncRequest;
+use AlibabaCloud\SDK\Codeup\V20200414\Models\TriggerRepositoryMirrorSyncResponse;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\UpdateFileRequest;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\UpdateFileResponse;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\UpdateGroupMemberRequest;
@@ -558,6 +562,52 @@ class Codeup extends OpenApiClient
         ]);
 
         return UpdateMergeRequestCommentResponse::fromMap($this->doROARequest('UpdateMergeRequestComment', '2020-04-14', 'HTTPS', 'PUT', 'AK', '/api/v3/projects/' . $ProjectId . '/merge_requests/' . $MergeRequestId . '/notes/' . $NoteId . '', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string                             $ProjectId
+     * @param TriggerRepositoryMirrorSyncRequest $request
+     *
+     * @return TriggerRepositoryMirrorSyncResponse
+     */
+    public function triggerRepositoryMirrorSync($ProjectId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->triggerRepositoryMirrorSyncWithOptions($ProjectId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                             $ProjectId
+     * @param TriggerRepositoryMirrorSyncRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return TriggerRepositoryMirrorSyncResponse
+     */
+    public function triggerRepositoryMirrorSyncWithOptions($ProjectId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            @$query['AccessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->account)) {
+            @$query['Account'] = $request->account;
+        }
+        if (!Utils::isUnset($request->token)) {
+            @$query['Token'] = $request->token;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+
+        return TriggerRepositoryMirrorSyncResponse::fromMap($this->doROARequest('TriggerRepositoryMirrorSync', '2020-04-14', 'HTTPS', 'POST', 'AK', '/api/v4/projects/' . $ProjectId . '/mirror', 'json', $req, $runtime));
     }
 
     /**
@@ -2996,6 +3046,44 @@ class Codeup extends OpenApiClient
         ]);
 
         return CreateBranchResponse::fromMap($this->doROARequest('CreateBranch', '2020-04-14', 'HTTPS', 'POST', 'AK', '/api/v3/projects/' . $ProjectId . '/repository/branches', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetOrganizationRepositorySettingRequest $request
+     *
+     * @return GetOrganizationRepositorySettingResponse
+     */
+    public function getOrganizationRepositorySetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getOrganizationRepositorySettingWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetOrganizationRepositorySettingRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetOrganizationRepositorySettingResponse
+     */
+    public function getOrganizationRepositorySettingWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            @$query['AccessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+
+        return GetOrganizationRepositorySettingResponse::fromMap($this->doROARequest('GetOrganizationRepositorySetting', '2020-04-14', 'HTTPS', 'GET', 'AK', '/api/v4/organization/settings/repo', 'json', $req, $runtime));
     }
 
     /**
