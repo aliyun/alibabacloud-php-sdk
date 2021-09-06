@@ -45,16 +45,6 @@ class serviceInstances extends Model
     public $statusDetail;
 
     /**
-     * @var string
-     */
-    public $resources;
-
-    /**
-     * @var service
-     */
-    public $service;
-
-    /**
      * @var int
      */
     public $progress;
@@ -62,19 +52,53 @@ class serviceInstances extends Model
     /**
      * @var string
      */
+    public $resources;
+
+    /**
+     * @var string
+     */
     public $templateName;
+
+    /**
+     * @var string
+     */
+    public $operatedServiceInstanceId;
+
+    /**
+     * @var service
+     */
+    public $service;
+
+    /**
+     * @var string
+     */
+    public $operationStartTime;
+
+    /**
+     * @var string
+     */
+    public $operationEndTime;
+
+    /**
+     * @var bool
+     */
+    public $enableInstanceOps;
     protected $_name = [
-        'status'            => 'Status',
-        'outputs'           => 'Outputs',
-        'updateTime'        => 'UpdateTime',
-        'parameters'        => 'Parameters',
-        'serviceInstanceId' => 'ServiceInstanceId',
-        'createTime'        => 'CreateTime',
-        'statusDetail'      => 'StatusDetail',
-        'resources'         => 'Resources',
-        'service'           => 'Service',
-        'progress'          => 'Progress',
-        'templateName'      => 'TemplateName',
+        'status'                    => 'Status',
+        'outputs'                   => 'Outputs',
+        'updateTime'                => 'UpdateTime',
+        'parameters'                => 'Parameters',
+        'serviceInstanceId'         => 'ServiceInstanceId',
+        'createTime'                => 'CreateTime',
+        'statusDetail'              => 'StatusDetail',
+        'progress'                  => 'Progress',
+        'resources'                 => 'Resources',
+        'templateName'              => 'TemplateName',
+        'operatedServiceInstanceId' => 'OperatedServiceInstanceId',
+        'service'                   => 'Service',
+        'operationStartTime'        => 'OperationStartTime',
+        'operationEndTime'          => 'OperationEndTime',
+        'enableInstanceOps'         => 'EnableInstanceOps',
     ];
 
     public function validate()
@@ -105,17 +129,29 @@ class serviceInstances extends Model
         if (null !== $this->statusDetail) {
             $res['StatusDetail'] = $this->statusDetail;
         }
+        if (null !== $this->progress) {
+            $res['Progress'] = $this->progress;
+        }
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->operatedServiceInstanceId) {
+            $res['OperatedServiceInstanceId'] = $this->operatedServiceInstanceId;
         }
         if (null !== $this->service) {
             $res['Service'] = null !== $this->service ? $this->service->toMap() : null;
         }
-        if (null !== $this->progress) {
-            $res['Progress'] = $this->progress;
+        if (null !== $this->operationStartTime) {
+            $res['OperationStartTime'] = $this->operationStartTime;
         }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
+        if (null !== $this->operationEndTime) {
+            $res['OperationEndTime'] = $this->operationEndTime;
+        }
+        if (null !== $this->enableInstanceOps) {
+            $res['EnableInstanceOps'] = $this->enableInstanceOps;
         }
 
         return $res;
@@ -150,17 +186,29 @@ class serviceInstances extends Model
         if (isset($map['StatusDetail'])) {
             $model->statusDetail = $map['StatusDetail'];
         }
+        if (isset($map['Progress'])) {
+            $model->progress = $map['Progress'];
+        }
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['OperatedServiceInstanceId'])) {
+            $model->operatedServiceInstanceId = $map['OperatedServiceInstanceId'];
         }
         if (isset($map['Service'])) {
             $model->service = service::fromMap($map['Service']);
         }
-        if (isset($map['Progress'])) {
-            $model->progress = $map['Progress'];
+        if (isset($map['OperationStartTime'])) {
+            $model->operationStartTime = $map['OperationStartTime'];
         }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
+        if (isset($map['OperationEndTime'])) {
+            $model->operationEndTime = $map['OperationEndTime'];
+        }
+        if (isset($map['EnableInstanceOps'])) {
+            $model->enableInstanceOps = $map['EnableInstanceOps'];
         }
 
         return $model;

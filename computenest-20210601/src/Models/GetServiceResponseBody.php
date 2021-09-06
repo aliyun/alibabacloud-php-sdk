@@ -68,19 +68,37 @@ class GetServiceResponseBody extends Model
      * @var string
      */
     public $commodityCode;
+
+    /**
+     * @var bool
+     */
+    public $isSupportOperated;
+
+    /**
+     * @var string
+     */
+    public $policyNames;
+
+    /**
+     * @var int
+     */
+    public $duration;
     protected $_name = [
-        'status'         => 'Status',
-        'deployMetadata' => 'DeployMetadata',
-        'publishTime'    => 'PublishTime',
-        'requestId'      => 'RequestId',
-        'version'        => 'Version',
-        'deployType'     => 'DeployType',
-        'serviceId'      => 'ServiceId',
-        'supplierUrl'    => 'SupplierUrl',
-        'serviceType'    => 'ServiceType',
-        'supplierName'   => 'SupplierName',
-        'serviceInfos'   => 'ServiceInfos',
-        'commodityCode'  => 'CommodityCode',
+        'status'            => 'Status',
+        'deployMetadata'    => 'DeployMetadata',
+        'publishTime'       => 'PublishTime',
+        'requestId'         => 'RequestId',
+        'version'           => 'Version',
+        'deployType'        => 'DeployType',
+        'serviceId'         => 'ServiceId',
+        'supplierUrl'       => 'SupplierUrl',
+        'serviceType'       => 'ServiceType',
+        'supplierName'      => 'SupplierName',
+        'serviceInfos'      => 'ServiceInfos',
+        'commodityCode'     => 'CommodityCode',
+        'isSupportOperated' => 'IsSupportOperated',
+        'policyNames'       => 'PolicyNames',
+        'duration'          => 'Duration',
     ];
 
     public function validate()
@@ -131,6 +149,15 @@ class GetServiceResponseBody extends Model
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->isSupportOperated) {
+            $res['IsSupportOperated'] = $this->isSupportOperated;
+        }
+        if (null !== $this->policyNames) {
+            $res['PolicyNames'] = $this->policyNames;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
 
         return $res;
@@ -185,6 +212,15 @@ class GetServiceResponseBody extends Model
         }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['IsSupportOperated'])) {
+            $model->isSupportOperated = $map['IsSupportOperated'];
+        }
+        if (isset($map['PolicyNames'])) {
+            $model->policyNames = $map['PolicyNames'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
 
         return $model;

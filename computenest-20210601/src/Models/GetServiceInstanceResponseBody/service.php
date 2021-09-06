@@ -27,6 +27,11 @@ class service extends Model
     /**
      * @var string
      */
+    public $deployMetadata;
+
+    /**
+     * @var string
+     */
     public $deployType;
 
     /**
@@ -53,22 +58,17 @@ class service extends Model
      * @var serviceInfos[]
      */
     public $serviceInfos;
-
-    /**
-     * @var string
-     */
-    public $deployMetadata;
     protected $_name = [
         'status'         => 'Status',
         'publishTime'    => 'PublishTime',
         'version'        => 'Version',
+        'deployMetadata' => 'DeployMetadata',
         'deployType'     => 'DeployType',
         'serviceId'      => 'ServiceId',
         'supplierUrl'    => 'SupplierUrl',
         'serviceType'    => 'ServiceType',
         'supplierName'   => 'SupplierName',
         'serviceInfos'   => 'ServiceInfos',
-        'deployMetadata' => 'DeployMetadata',
     ];
 
     public function validate()
@@ -86,6 +86,9 @@ class service extends Model
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
+        }
+        if (null !== $this->deployMetadata) {
+            $res['DeployMetadata'] = $this->deployMetadata;
         }
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
@@ -111,9 +114,6 @@ class service extends Model
                 }
             }
         }
-        if (null !== $this->deployMetadata) {
-            $res['DeployMetadata'] = $this->deployMetadata;
-        }
 
         return $res;
     }
@@ -134,6 +134,9 @@ class service extends Model
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
+        }
+        if (isset($map['DeployMetadata'])) {
+            $model->deployMetadata = $map['DeployMetadata'];
         }
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];
@@ -158,9 +161,6 @@ class service extends Model
                     $model->serviceInfos[$n++] = null !== $item ? serviceInfos::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['DeployMetadata'])) {
-            $model->deployMetadata = $map['DeployMetadata'];
         }
 
         return $model;

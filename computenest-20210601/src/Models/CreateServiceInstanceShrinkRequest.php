@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceInstanceShrinkRequest\operationMetadata;
 use AlibabaCloud\Tea\Model;
 
 class CreateServiceInstanceShrinkRequest extends Model
@@ -47,6 +48,11 @@ class CreateServiceInstanceShrinkRequest extends Model
      * @var string
      */
     public $templateName;
+
+    /**
+     * @var operationMetadata
+     */
+    public $operationMetadata;
     protected $_name = [
         'regionId'          => 'RegionId',
         'serviceId'         => 'ServiceId',
@@ -56,6 +62,7 @@ class CreateServiceInstanceShrinkRequest extends Model
         'enableInstanceOps' => 'EnableInstanceOps',
         'enableAccountOps'  => 'EnableAccountOps',
         'templateName'      => 'TemplateName',
+        'operationMetadata' => 'OperationMetadata',
     ];
 
     public function validate()
@@ -88,6 +95,9 @@ class CreateServiceInstanceShrinkRequest extends Model
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->operationMetadata) {
+            $res['OperationMetadata'] = null !== $this->operationMetadata ? $this->operationMetadata->toMap() : null;
         }
 
         return $res;
@@ -124,6 +134,9 @@ class CreateServiceInstanceShrinkRequest extends Model
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['OperationMetadata'])) {
+            $model->operationMetadata = operationMetadata::fromMap($map['OperationMetadata']);
         }
 
         return $model;
