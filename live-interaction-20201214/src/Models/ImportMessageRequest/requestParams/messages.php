@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ImportMessageRequest\requestParams;
 
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ImportMessageRequest\requestParams\messages\receiverUsers;
 use AlibabaCloud\Tea\Model;
 
 class messages extends Model
@@ -40,9 +39,9 @@ class messages extends Model
     /**
      * @description 接受者列表, 群聊如果列表为空者全员接收
      *
-     * @var receiverUsers[]
+     * @var string[]
      */
-    public $receiverUsers;
+    public $receiverIds;
 
     /**
      * @description 消息类型
@@ -76,7 +75,7 @@ class messages extends Model
         'appCid'           => 'AppCid',
         'conversationType' => 'ConversationType',
         'senderId'         => 'SenderId',
-        'receiverUsers'    => 'ReceiverUsers',
+        'receiverIds'      => 'ReceiverIds',
         'contentType'      => 'ContentType',
         'content'          => 'Content',
         'createTime'       => 'CreateTime',
@@ -102,14 +101,8 @@ class messages extends Model
         if (null !== $this->senderId) {
             $res['SenderId'] = $this->senderId;
         }
-        if (null !== $this->receiverUsers) {
-            $res['ReceiverUsers'] = [];
-            if (null !== $this->receiverUsers && \is_array($this->receiverUsers)) {
-                $n = 0;
-                foreach ($this->receiverUsers as $item) {
-                    $res['ReceiverUsers'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->receiverIds) {
+            $res['ReceiverIds'] = $this->receiverIds;
         }
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
@@ -147,13 +140,9 @@ class messages extends Model
         if (isset($map['SenderId'])) {
             $model->senderId = $map['SenderId'];
         }
-        if (isset($map['ReceiverUsers'])) {
-            if (!empty($map['ReceiverUsers'])) {
-                $model->receiverUsers = [];
-                $n                    = 0;
-                foreach ($map['ReceiverUsers'] as $item) {
-                    $model->receiverUsers[$n++] = null !== $item ? receiverUsers::fromMap($item) : $item;
-                }
+        if (isset($map['ReceiverIds'])) {
+            if (!empty($map['ReceiverIds'])) {
+                $model->receiverIds = $map['ReceiverIds'];
             }
         }
         if (isset($map['ContentType'])) {

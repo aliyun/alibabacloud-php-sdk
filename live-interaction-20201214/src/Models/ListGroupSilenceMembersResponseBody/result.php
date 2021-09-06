@@ -23,7 +23,7 @@ class result extends Model
     public $whitelist;
 
     /**
-     * @description 禁言黑名单用户及对应禁言截止时间
+     * @description 禁言黑名单用户及对应禁言时长
      *
      * @var int[]
      */

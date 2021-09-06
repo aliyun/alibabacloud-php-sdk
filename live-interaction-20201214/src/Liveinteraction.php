@@ -94,6 +94,9 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListRoomUsersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ReadMessageRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ReadMessageResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ReadMessageShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageShrinkRequest;
@@ -915,6 +918,39 @@ class Liveinteraction extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRoomStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReadMessageRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ReadMessageResponse
+     */
+    public function readMessageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ReadMessageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ReadMessageResponse::fromMap($this->doRPCRequest('ReadMessage', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ReadMessageRequest $request
+     *
+     * @return ReadMessageResponse
+     */
+    public function readMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readMessageWithOptions($request, $runtime);
     }
 
     /**
