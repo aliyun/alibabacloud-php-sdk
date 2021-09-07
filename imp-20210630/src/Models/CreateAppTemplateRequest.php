@@ -23,6 +23,13 @@ class CreateAppTemplateRequest extends Model
     public $scene;
 
     /**
+     * @description 集成方式（一体化SDK：paasSDK，样板间：standardRoom）
+     *
+     * @var string
+     */
+    public $integrationMode;
+
+    /**
      * @description 组件列表
      *
      * @var string[]
@@ -31,6 +38,7 @@ class CreateAppTemplateRequest extends Model
     protected $_name = [
         'appTemplateName' => 'AppTemplateName',
         'scene'           => 'Scene',
+        'integrationMode' => 'IntegrationMode',
         'componentList'   => 'ComponentList',
     ];
 
@@ -46,6 +54,9 @@ class CreateAppTemplateRequest extends Model
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
+        }
+        if (null !== $this->integrationMode) {
+            $res['IntegrationMode'] = $this->integrationMode;
         }
         if (null !== $this->componentList) {
             $res['ComponentList'] = $this->componentList;
@@ -67,6 +78,9 @@ class CreateAppTemplateRequest extends Model
         }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
+        }
+        if (isset($map['IntegrationMode'])) {
+            $model->integrationMode = $map['IntegrationMode'];
         }
         if (isset($map['ComponentList'])) {
             if (!empty($map['ComponentList'])) {

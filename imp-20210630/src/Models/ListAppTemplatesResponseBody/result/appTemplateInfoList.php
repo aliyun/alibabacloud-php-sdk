@@ -64,6 +64,27 @@ class appTemplateInfoList extends Model
      * @var configList[]
      */
     public $configList;
+
+    /**
+     * @description 应用模板场景，电商business，课堂classroom
+     *
+     * @var string
+     */
+    public $scene;
+
+    /**
+     * @description 集成方式：- 一体化SDK：paasSDK - 样板间：standardRoom
+     *
+     * @var string
+     */
+    public $integrationMode;
+
+    /**
+     * @description 样板间信息
+     *
+     * @var string
+     */
+    public $standardRoomInfo;
     protected $_name = [
         'appTemplateId'      => 'AppTemplateId',
         'appTemplateName'    => 'AppTemplateName',
@@ -73,6 +94,9 @@ class appTemplateInfoList extends Model
         'createTime'         => 'CreateTime',
         'sdkInfo'            => 'SdkInfo',
         'configList'         => 'ConfigList',
+        'scene'              => 'Scene',
+        'integrationMode'    => 'IntegrationMode',
+        'standardRoomInfo'   => 'StandardRoomInfo',
     ];
 
     public function validate()
@@ -111,6 +135,15 @@ class appTemplateInfoList extends Model
                     $res['ConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
+        }
+        if (null !== $this->integrationMode) {
+            $res['IntegrationMode'] = $this->integrationMode;
+        }
+        if (null !== $this->standardRoomInfo) {
+            $res['StandardRoomInfo'] = $this->standardRoomInfo;
         }
 
         return $res;
@@ -155,6 +188,15 @@ class appTemplateInfoList extends Model
                     $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
+        }
+        if (isset($map['IntegrationMode'])) {
+            $model->integrationMode = $map['IntegrationMode'];
+        }
+        if (isset($map['StandardRoomInfo'])) {
+            $model->standardRoomInfo = $map['StandardRoomInfo'];
         }
 
         return $model;

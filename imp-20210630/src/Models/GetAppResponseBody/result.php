@@ -37,6 +37,13 @@ class result extends Model
     public $appStatus;
 
     /**
+     * @description 应用配置状态
+     *
+     * @var string
+     */
+    public $appConfigStatus;
+
+    /**
      * @description 应用Key
      *
      * @var string
@@ -51,19 +58,36 @@ class result extends Model
     public $createTime;
 
     /**
+     * @description 集成方式：- 一体化SDK：paasSDK - 样板间：standardRoom
+     *
+     * @var string
+     */
+    public $integrationMode;
+
+    /**
+     * @description 样板间信息
+     *
+     * @var string
+     */
+    public $standardRoomInfo;
+
+    /**
      * @description 组件列表。
      *
      * @var string[]
      */
     public $componentList;
     protected $_name = [
-        'appName'         => 'AppName',
-        'appTemplateId'   => 'AppTemplateId',
-        'appTemplateName' => 'AppTemplateName',
-        'appStatus'       => 'AppStatus',
-        'appKey'          => 'AppKey',
-        'createTime'      => 'CreateTime',
-        'componentList'   => 'ComponentList',
+        'appName'          => 'AppName',
+        'appTemplateId'    => 'AppTemplateId',
+        'appTemplateName'  => 'AppTemplateName',
+        'appStatus'        => 'AppStatus',
+        'appConfigStatus'  => 'AppConfigStatus',
+        'appKey'           => 'AppKey',
+        'createTime'       => 'CreateTime',
+        'integrationMode'  => 'IntegrationMode',
+        'standardRoomInfo' => 'StandardRoomInfo',
+        'componentList'    => 'ComponentList',
     ];
 
     public function validate()
@@ -85,11 +109,20 @@ class result extends Model
         if (null !== $this->appStatus) {
             $res['AppStatus'] = $this->appStatus;
         }
+        if (null !== $this->appConfigStatus) {
+            $res['AppConfigStatus'] = $this->appConfigStatus;
+        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->integrationMode) {
+            $res['IntegrationMode'] = $this->integrationMode;
+        }
+        if (null !== $this->standardRoomInfo) {
+            $res['StandardRoomInfo'] = $this->standardRoomInfo;
         }
         if (null !== $this->componentList) {
             $res['ComponentList'] = $this->componentList;
@@ -118,11 +151,20 @@ class result extends Model
         if (isset($map['AppStatus'])) {
             $model->appStatus = $map['AppStatus'];
         }
+        if (isset($map['AppConfigStatus'])) {
+            $model->appConfigStatus = $map['AppConfigStatus'];
+        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['IntegrationMode'])) {
+            $model->integrationMode = $map['IntegrationMode'];
+        }
+        if (isset($map['StandardRoomInfo'])) {
+            $model->standardRoomInfo = $map['StandardRoomInfo'];
         }
         if (isset($map['ComponentList'])) {
             if (!empty($map['ComponentList'])) {

@@ -21,9 +21,25 @@ class ListAppsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description 应用状态
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @description 集成方式：- 一体化SDK：paasSDK - 样板间：standardRoom
+     *
+     * @var string
+     */
+    public $integrationMode;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'status'          => 'Status',
+        'integrationMode' => 'IntegrationMode',
     ];
 
     public function validate()
@@ -38,6 +54,12 @@ class ListAppsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->integrationMode) {
+            $res['IntegrationMode'] = $this->integrationMode;
         }
 
         return $res;
@@ -56,6 +78,12 @@ class ListAppsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['IntegrationMode'])) {
+            $model->integrationMode = $map['IntegrationMode'];
         }
 
         return $model;
