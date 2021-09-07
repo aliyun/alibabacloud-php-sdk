@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Liveinteraction\V20201214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ReadMessageShrinkRequest extends Model
+class SetMessageReadShrinkRequest extends Model
 {
     /**
      * @description AppId
@@ -44,7 +44,7 @@ class ReadMessageShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return ReadMessageShrinkRequest
+     * @return SetMessageReadShrinkRequest
      */
     public static function fromMap($map = [])
     {

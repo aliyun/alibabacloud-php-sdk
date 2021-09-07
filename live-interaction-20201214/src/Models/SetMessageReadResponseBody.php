@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Liveinteraction\V20201214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ReadMessageResponseBody extends Model
+class SetMessageReadResponseBody extends Model
 {
     /**
      * @var string
@@ -51,7 +51,7 @@ class ReadMessageResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ReadMessageResponseBody
+     * @return SetMessageReadResponseBody
      */
     public static function fromMap($map = [])
     {

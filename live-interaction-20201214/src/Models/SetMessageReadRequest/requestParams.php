@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ReadMessageRequest;
+namespace AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetMessageReadRequest;
 
 use AlibabaCloud\Tea\Model;
 

@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Liveinteraction\V20201214\Models;
 
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ReadMessageRequest\requestParams;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetMessageReadRequest\requestParams;
 use AlibabaCloud\Tea\Model;
 
-class ReadMessageRequest extends Model
+class SetMessageReadRequest extends Model
 {
     /**
      * @description AppId
@@ -45,7 +45,7 @@ class ReadMessageRequest extends Model
     /**
      * @param array $map
      *
-     * @return ReadMessageRequest
+     * @return SetMessageReadRequest
      */
     public static function fromMap($map = [])
     {
