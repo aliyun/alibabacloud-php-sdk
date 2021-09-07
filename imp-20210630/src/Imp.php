@@ -64,6 +64,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomJumpUrlRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomJumpUrlResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListApplyLinkMicUsersRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListApplyLinkMicUsersResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppsRequest;
@@ -880,6 +882,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createLiveWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetStandardRoomJumpUrlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetStandardRoomJumpUrlResponse
+     */
+    public function getStandardRoomJumpUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetStandardRoomJumpUrlResponse::fromMap($this->doRPCRequest('GetStandardRoomJumpUrl', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetStandardRoomJumpUrlRequest $request
+     *
+     * @return GetStandardRoomJumpUrlResponse
+     */
+    public function getStandardRoomJumpUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStandardRoomJumpUrlWithOptions($request, $runtime);
     }
 
     /**
