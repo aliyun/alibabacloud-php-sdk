@@ -36,7 +36,6 @@ class UpdateAppPackageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('packageUrl', $this->packageUrl, true);
     }
 
     public function toMap()

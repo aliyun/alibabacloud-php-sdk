@@ -102,8 +102,6 @@ class DescribeVerifyTokenRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('bizType', $this->bizType, true);
-        Model::validateRequired('bizId', $this->bizId, true);
     }
 
     public function toMap()

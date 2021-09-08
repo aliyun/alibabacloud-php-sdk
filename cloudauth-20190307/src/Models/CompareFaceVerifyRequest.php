@@ -72,6 +72,11 @@ class CompareFaceVerifyRequest extends Model
      * @var string
      */
     public $targetOssObjectName;
+
+    /**
+     * @var string
+     */
+    public $crop;
     protected $_name = [
         'sceneId'                      => 'SceneId',
         'outerOrderNo'                 => 'OuterOrderNo',
@@ -86,6 +91,7 @@ class CompareFaceVerifyRequest extends Model
         'targetCertifyId'              => 'TargetCertifyId',
         'targetOssBucketName'          => 'TargetOssBucketName',
         'targetOssObjectName'          => 'TargetOssObjectName',
+        'crop'                         => 'Crop',
     ];
 
     public function validate()
@@ -133,6 +139,9 @@ class CompareFaceVerifyRequest extends Model
         }
         if (null !== $this->targetOssObjectName) {
             $res['TargetOssObjectName'] = $this->targetOssObjectName;
+        }
+        if (null !== $this->crop) {
+            $res['Crop'] = $this->crop;
         }
 
         return $res;
@@ -184,6 +193,9 @@ class CompareFaceVerifyRequest extends Model
         }
         if (isset($map['TargetOssObjectName'])) {
             $model->targetOssObjectName = $map['TargetOssObjectName'];
+        }
+        if (isset($map['Crop'])) {
+            $model->crop = $map['Crop'];
         }
 
         return $model;

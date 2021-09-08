@@ -93,6 +93,11 @@ class ContrastFaceVerifyAdvanceRequest extends Model
      * @var string
      */
     public $model;
+
+    /**
+     * @var string
+     */
+    public $crop;
     protected $_name = [
         'faceContrastFileObject' => 'FaceContrastFileObject',
         'sceneId'                => 'SceneId',
@@ -111,6 +116,7 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         'ossBucketName'          => 'OssBucketName',
         'ossObjectName'          => 'OssObjectName',
         'model'                  => 'Model',
+        'crop'                   => 'Crop',
     ];
 
     public function validate()
@@ -171,6 +177,9 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         }
         if (null !== $this->model) {
             $res['Model'] = $this->model;
+        }
+        if (null !== $this->crop) {
+            $res['Crop'] = $this->crop;
         }
 
         return $res;
@@ -234,6 +243,9 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         }
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
+        }
+        if (isset($map['Crop'])) {
+            $model->crop = $map['Crop'];
         }
 
         return $model;

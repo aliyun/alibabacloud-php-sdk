@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserStatusResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bool
+     * @var DescribeUserStatusResponseBody
      */
-    public $enabled;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'enabled'   => 'Enabled',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('enabled', $this->enabled, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class DescribeUserStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
+        if (isset($map['body'])) {
+            $model->body = DescribeUserStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

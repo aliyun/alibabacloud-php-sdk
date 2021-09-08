@@ -4,59 +4,38 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFaceVerifyResponse\resultObject;
 use AlibabaCloud\Tea\Model;
 
 class CompareFaceVerifyResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CompareFaceVerifyResponseBody
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var resultObject
-     */
-    public $resultObject;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'message'      => 'Message',
-        'code'         => 'Code',
-        'resultObject' => 'ResultObject',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('message', $this->message, true);
-        Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('resultObject', $this->resultObject, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->resultObject) {
-            $res['ResultObject'] = null !== $this->resultObject ? $this->resultObject->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -70,17 +49,11 @@ class CompareFaceVerifyResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['ResultObject'])) {
-            $model->resultObject = resultObject::fromMap($map['ResultObject']);
+        if (isset($map['body'])) {
+            $model->body = CompareFaceVerifyResponseBody::fromMap($map['body']);
         }
 
         return $model;

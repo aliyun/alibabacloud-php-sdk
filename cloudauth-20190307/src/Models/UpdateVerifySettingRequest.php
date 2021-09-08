@@ -48,7 +48,6 @@ class UpdateVerifySettingRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('bizType', $this->bizType, true);
     }
 
     public function toMap()

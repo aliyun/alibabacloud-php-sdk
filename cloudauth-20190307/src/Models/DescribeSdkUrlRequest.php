@@ -24,7 +24,6 @@ class DescribeSdkUrlRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('id', $this->id, true);
     }
 
     public function toMap()

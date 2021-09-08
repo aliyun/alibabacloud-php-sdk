@@ -102,6 +102,11 @@ class InitFaceVerifyRequest extends Model
      * @var string
      */
     public $callbackToken;
+
+    /**
+     * @var string
+     */
+    public $crop;
     protected $_name = [
         'sceneId'                => 'SceneId',
         'outerOrderNo'           => 'OuterOrderNo',
@@ -122,6 +127,7 @@ class InitFaceVerifyRequest extends Model
         'model'                  => 'Model',
         'callbackUrl'            => 'CallbackUrl',
         'callbackToken'          => 'CallbackToken',
+        'crop'                   => 'Crop',
     ];
 
     public function validate()
@@ -187,6 +193,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->callbackToken) {
             $res['CallbackToken'] = $this->callbackToken;
+        }
+        if (null !== $this->crop) {
+            $res['Crop'] = $this->crop;
         }
 
         return $res;
@@ -256,6 +265,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['CallbackToken'])) {
             $model->callbackToken = $map['CallbackToken'];
+        }
+        if (isset($map['Crop'])) {
+            $model->crop = $map['Crop'];
         }
 
         return $model;

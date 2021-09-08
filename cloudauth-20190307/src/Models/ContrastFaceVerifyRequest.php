@@ -92,6 +92,11 @@ class ContrastFaceVerifyRequest extends Model
      * @var string
      */
     public $faceContrastFile;
+
+    /**
+     * @var string
+     */
+    public $crop;
     protected $_name = [
         'sceneId'                => 'SceneId',
         'outerOrderNo'           => 'OuterOrderNo',
@@ -110,6 +115,7 @@ class ContrastFaceVerifyRequest extends Model
         'ossObjectName'          => 'OssObjectName',
         'model'                  => 'Model',
         'faceContrastFile'       => 'FaceContrastFile',
+        'crop'                   => 'Crop',
     ];
 
     public function validate()
@@ -169,6 +175,9 @@ class ContrastFaceVerifyRequest extends Model
         }
         if (null !== $this->faceContrastFile) {
             $res['FaceContrastFile'] = $this->faceContrastFile;
+        }
+        if (null !== $this->crop) {
+            $res['Crop'] = $this->crop;
         }
 
         return $res;
@@ -232,6 +241,9 @@ class ContrastFaceVerifyRequest extends Model
         }
         if (isset($map['FaceContrastFile'])) {
             $model->faceContrastFile = $map['FaceContrastFile'];
+        }
+        if (isset($map['Crop'])) {
+            $model->crop = $map['Crop'];
         }
 
         return $model;

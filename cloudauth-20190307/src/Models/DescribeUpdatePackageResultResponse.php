@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeUpdatePackageResultResponse\appInfo;
 use AlibabaCloud\Tea\Model;
 
 class DescribeUpdatePackageResultResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var appInfo
+     * @var DescribeUpdatePackageResultResponseBody
      */
-    public $appInfo;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'appInfo'   => 'AppInfo',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('appInfo', $this->appInfo, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->appInfo) {
-            $res['AppInfo'] = null !== $this->appInfo ? $this->appInfo->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeUpdatePackageResultResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['AppInfo'])) {
-            $model->appInfo = appInfo::fromMap($map['AppInfo']);
+        if (isset($map['body'])) {
+            $model->body = DescribeUpdatePackageResultResponseBody::fromMap($map['body']);
         }
 
         return $model;

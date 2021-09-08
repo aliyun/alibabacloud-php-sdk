@@ -30,7 +30,6 @@ class DescribeRPSDKRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('taskId', $this->taskId, true);
     }
 
     public function toMap()
