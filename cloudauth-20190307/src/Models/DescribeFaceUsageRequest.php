@@ -24,6 +24,8 @@ class DescribeFaceUsageRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('startDate', $this->startDate, true);
+        Model::validateRequired('endDate', $this->endDate, true);
     }
 
     public function toMap()

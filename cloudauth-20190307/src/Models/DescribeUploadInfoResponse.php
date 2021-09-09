@@ -9,33 +9,83 @@ use AlibabaCloud\Tea\Model;
 class DescribeUploadInfoResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeUploadInfoResponseBody
+     * @var string
      */
-    public $body;
+    public $accessid;
+
+    /**
+     * @var string
+     */
+    public $policy;
+
+    /**
+     * @var string
+     */
+    public $signature;
+
+    /**
+     * @var string
+     */
+    public $folder;
+
+    /**
+     * @var string
+     */
+    public $host;
+
+    /**
+     * @var int
+     */
+    public $expire;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'accessid'  => 'Accessid',
+        'policy'    => 'Policy',
+        'signature' => 'Signature',
+        'folder'    => 'Folder',
+        'host'      => 'Host',
+        'expire'    => 'Expire',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('accessid', $this->accessid, true);
+        Model::validateRequired('policy', $this->policy, true);
+        Model::validateRequired('signature', $this->signature, true);
+        Model::validateRequired('folder', $this->folder, true);
+        Model::validateRequired('host', $this->host, true);
+        Model::validateRequired('expire', $this->expire, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->accessid) {
+            $res['Accessid'] = $this->accessid;
+        }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
+        }
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
+        }
+        if (null !== $this->folder) {
+            $res['Folder'] = $this->folder;
+        }
+        if (null !== $this->host) {
+            $res['Host'] = $this->host;
+        }
+        if (null !== $this->expire) {
+            $res['Expire'] = $this->expire;
         }
 
         return $res;
@@ -49,11 +99,26 @@ class DescribeUploadInfoResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeUploadInfoResponseBody::fromMap($map['body']);
+        if (isset($map['Accessid'])) {
+            $model->accessid = $map['Accessid'];
+        }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
+        }
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
+        }
+        if (isset($map['Folder'])) {
+            $model->folder = $map['Folder'];
+        }
+        if (isset($map['Host'])) {
+            $model->host = $map['Host'];
+        }
+        if (isset($map['Expire'])) {
+            $model->expire = $map['Expire'];
         }
 
         return $model;

@@ -36,6 +36,8 @@ class UpdateFaceConfigRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('bizType', $this->bizType, true);
+        Model::validateRequired('bizName', $this->bizName, true);
     }
 
     public function toMap()

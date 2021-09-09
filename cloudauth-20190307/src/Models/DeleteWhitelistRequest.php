@@ -30,6 +30,7 @@ class DeleteWhitelistRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('ids', $this->ids, true);
     }
 
     public function toMap()

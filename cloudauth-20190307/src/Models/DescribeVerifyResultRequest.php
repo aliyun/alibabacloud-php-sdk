@@ -24,6 +24,8 @@ class DescribeVerifyResultRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('bizId', $this->bizId, true);
+        Model::validateRequired('bizType', $this->bizType, true);
     }
 
     public function toMap()

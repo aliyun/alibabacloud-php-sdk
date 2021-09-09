@@ -48,6 +48,9 @@ class CreateWhitelistRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('bizId', $this->bizId, true);
+        Model::validateRequired('idCardNum', $this->idCardNum, true);
+        Model::validateRequired('validDay', $this->validDay, true);
     }
 
     public function toMap()

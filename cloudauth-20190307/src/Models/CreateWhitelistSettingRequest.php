@@ -54,6 +54,8 @@ class CreateWhitelistSettingRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('serviceCode', $this->serviceCode, true);
+        Model::validateRequired('validDay', $this->validDay, true);
     }
 
     public function toMap()

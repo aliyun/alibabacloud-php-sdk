@@ -36,6 +36,7 @@ class CreateRPSDKRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('appUrl', $this->appUrl, true);
     }
 
     public function toMap()
