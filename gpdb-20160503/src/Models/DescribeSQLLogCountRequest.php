@@ -62,6 +62,16 @@ class DescribeSQLLogCountRequest extends Model
      * @var string
      */
     public $operationType;
+
+    /**
+     * @var string
+     */
+    public $maxExecuteCost;
+
+    /**
+     * @var string
+     */
+    public $minExecuteCost;
     protected $_name = [
         'DBInstanceId'   => 'DBInstanceId',
         'queryKeywords'  => 'QueryKeywords',
@@ -74,6 +84,8 @@ class DescribeSQLLogCountRequest extends Model
         'executeState'   => 'ExecuteState',
         'operationClass' => 'OperationClass',
         'operationType'  => 'OperationType',
+        'maxExecuteCost' => 'MaxExecuteCost',
+        'minExecuteCost' => 'MinExecuteCost',
     ];
 
     public function validate()
@@ -115,6 +127,12 @@ class DescribeSQLLogCountRequest extends Model
         }
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
+        }
+        if (null !== $this->maxExecuteCost) {
+            $res['MaxExecuteCost'] = $this->maxExecuteCost;
+        }
+        if (null !== $this->minExecuteCost) {
+            $res['MinExecuteCost'] = $this->minExecuteCost;
         }
 
         return $res;
@@ -160,6 +178,12 @@ class DescribeSQLLogCountRequest extends Model
         }
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
+        }
+        if (isset($map['MaxExecuteCost'])) {
+            $model->maxExecuteCost = $map['MaxExecuteCost'];
+        }
+        if (isset($map['MinExecuteCost'])) {
+            $model->minExecuteCost = $map['MinExecuteCost'];
         }
 
         return $model;

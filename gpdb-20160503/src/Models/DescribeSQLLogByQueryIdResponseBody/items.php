@@ -82,6 +82,11 @@ class items extends Model
      * @var string
      */
     public $queryId;
+
+    /**
+     * @var string[]
+     */
+    public $sliceIds;
     protected $_name = [
         'operationClass'       => 'OperationClass',
         'executeState'         => 'ExecuteState',
@@ -98,6 +103,7 @@ class items extends Model
         'scanRowCounts'        => 'ScanRowCounts',
         'accountName'          => 'AccountName',
         'queryId'              => 'QueryId',
+        'sliceIds'             => 'SliceIds',
     ];
 
     public function validate()
@@ -151,6 +157,9 @@ class items extends Model
         }
         if (null !== $this->queryId) {
             $res['QueryId'] = $this->queryId;
+        }
+        if (null !== $this->sliceIds) {
+            $res['SliceIds'] = $this->sliceIds;
         }
 
         return $res;
@@ -208,6 +217,11 @@ class items extends Model
         }
         if (isset($map['QueryId'])) {
             $model->queryId = $map['QueryId'];
+        }
+        if (isset($map['SliceIds'])) {
+            if (!empty($map['SliceIds'])) {
+                $model->sliceIds = $map['SliceIds'];
+            }
         }
 
         return $model;

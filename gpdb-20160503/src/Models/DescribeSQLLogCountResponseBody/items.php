@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var series[]
      */
     public $series;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'name'   => 'Name',
         'series' => 'Series',
+        'name'   => 'Name',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->series) {
             $res['Series'] = [];
             if (null !== $this->series && \is_array($this->series)) {
@@ -41,6 +38,9 @@ class items extends Model
                     $res['Series'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Series'])) {
             if (!empty($map['Series'])) {
                 $model->series = [];
@@ -65,6 +62,9 @@ class items extends Model
                     $model->series[$n++] = null !== $item ? series::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

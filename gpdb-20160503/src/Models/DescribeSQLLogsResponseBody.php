@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $pageRecordCount;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -20,18 +25,13 @@ class DescribeSQLLogsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var int
-     */
-    public $pageRecordCount;
-
-    /**
      * @var items[]
      */
     public $items;
     protected $_name = [
+        'pageRecordCount' => 'PageRecordCount',
         'requestId'       => 'RequestId',
         'pageNumber'      => 'PageNumber',
-        'pageRecordCount' => 'PageRecordCount',
         'items'           => 'Items',
     ];
 
@@ -42,14 +42,14 @@ class DescribeSQLLogsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageRecordCount) {
+            $res['PageRecordCount'] = $this->pageRecordCount;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageRecordCount) {
-            $res['PageRecordCount'] = $this->pageRecordCount;
         }
         if (null !== $this->items) {
             $res['Items'] = [];
@@ -72,14 +72,14 @@ class DescribeSQLLogsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageRecordCount'])) {
+            $model->pageRecordCount = $map['PageRecordCount'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageRecordCount'])) {
-            $model->pageRecordCount = $map['PageRecordCount'];
         }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {

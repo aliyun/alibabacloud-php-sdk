@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogCountResponseBody\items;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSQLPatternsResponseBody\patterns;
 use AlibabaCloud\Tea\Model;
 
-class DescribeSQLLogCountResponseBody extends Model
+class DescribeDBInstanceSQLPatternsResponseBody extends Model
 {
     /**
      * @var string
@@ -30,15 +30,15 @@ class DescribeSQLLogCountResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @var items[]
+     * @var patterns[]
      */
-    public $items;
+    public $patterns;
     protected $_name = [
         'endTime'     => 'EndTime',
         'requestId'   => 'RequestId',
         'startTime'   => 'StartTime',
         'DBClusterId' => 'DBClusterId',
-        'items'       => 'Items',
+        'patterns'    => 'Patterns',
     ];
 
     public function validate()
@@ -60,12 +60,12 @@ class DescribeSQLLogCountResponseBody extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->items) {
-            $res['Items'] = [];
-            if (null !== $this->items && \is_array($this->items)) {
+        if (null !== $this->patterns) {
+            $res['Patterns'] = [];
+            if (null !== $this->patterns && \is_array($this->patterns)) {
                 $n = 0;
-                foreach ($this->items as $item) {
-                    $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->patterns as $item) {
+                    $res['Patterns'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -76,7 +76,7 @@ class DescribeSQLLogCountResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSQLLogCountResponseBody
+     * @return DescribeDBInstanceSQLPatternsResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -93,12 +93,12 @@ class DescribeSQLLogCountResponseBody extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['Items'])) {
-            if (!empty($map['Items'])) {
-                $model->items = [];
-                $n            = 0;
-                foreach ($map['Items'] as $item) {
-                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
+        if (isset($map['Patterns'])) {
+            if (!empty($map['Patterns'])) {
+                $model->patterns = [];
+                $n               = 0;
+                foreach ($map['Patterns'] as $item) {
+                    $model->patterns[$n++] = null !== $item ? patterns::fromMap($item) : $item;
                 }
             }
         }

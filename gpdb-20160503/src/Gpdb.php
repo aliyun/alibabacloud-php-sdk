@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceOnECSAttributeReque
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceOnECSAttributeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePerformanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePerformanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSQLPatternsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSQLPatternsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLRequest;
@@ -77,6 +79,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogFilesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogFilesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsOnSliceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsOnSliceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsRequest;
@@ -737,6 +741,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBInstanceSQLPatternsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDBInstanceSQLPatternsResponse
+     */
+    public function describeDBInstanceSQLPatternsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDBInstanceSQLPatternsResponse::fromMap($this->doRPCRequest('DescribeDBInstanceSQLPatterns', '2016-05-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceSQLPatternsRequest $request
+     *
+     * @return DescribeDBInstanceSQLPatternsResponse
+     */
+    public function describeDBInstanceSQLPatterns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceSQLPatternsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBInstanceSSLRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1210,6 +1242,34 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSQLLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSQLLogsOnSliceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSQLLogsOnSliceResponse
+     */
+    public function describeSQLLogsOnSliceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSQLLogsOnSliceResponse::fromMap($this->doRPCRequest('DescribeSQLLogsOnSlice', '2016-05-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSQLLogsOnSliceRequest $request
+     *
+     * @return DescribeSQLLogsOnSliceResponse
+     */
+    public function describeSQLLogsOnSlice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQLLogsOnSliceWithOptions($request, $runtime);
     }
 
     /**

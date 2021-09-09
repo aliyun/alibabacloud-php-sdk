@@ -16,7 +16,7 @@ class items extends Model
     /**
      * @var string
      */
-    public $SQLText;
+    public $executeState;
 
     /**
      * @var float
@@ -26,7 +26,7 @@ class items extends Model
     /**
      * @var string
      */
-    public $executeState;
+    public $SQLText;
 
     /**
      * @var int
@@ -46,12 +46,12 @@ class items extends Model
     /**
      * @var string
      */
-    public $SQLPlan;
+    public $sourceIP;
 
     /**
      * @var string
      */
-    public $sourceIP;
+    public $SQLPlan;
 
     /**
      * @var int
@@ -79,14 +79,14 @@ class items extends Model
     public $accountName;
     protected $_name = [
         'operationClass'       => 'OperationClass',
-        'SQLText'              => 'SQLText',
-        'executeCost'          => 'ExecuteCost',
         'executeState'         => 'ExecuteState',
+        'executeCost'          => 'ExecuteCost',
+        'SQLText'              => 'SQLText',
         'sourcePort'           => 'SourcePort',
         'DBRole'               => 'DBRole',
         'operationType'        => 'OperationType',
-        'SQLPlan'              => 'SQLPlan',
         'sourceIP'             => 'SourceIP',
+        'SQLPlan'              => 'SQLPlan',
         'returnRowCounts'      => 'ReturnRowCounts',
         'DBName'               => 'DBName',
         'operationExecuteTime' => 'OperationExecuteTime',
@@ -104,14 +104,14 @@ class items extends Model
         if (null !== $this->operationClass) {
             $res['OperationClass'] = $this->operationClass;
         }
-        if (null !== $this->SQLText) {
-            $res['SQLText'] = $this->SQLText;
+        if (null !== $this->executeState) {
+            $res['ExecuteState'] = $this->executeState;
         }
         if (null !== $this->executeCost) {
             $res['ExecuteCost'] = $this->executeCost;
         }
-        if (null !== $this->executeState) {
-            $res['ExecuteState'] = $this->executeState;
+        if (null !== $this->SQLText) {
+            $res['SQLText'] = $this->SQLText;
         }
         if (null !== $this->sourcePort) {
             $res['SourcePort'] = $this->sourcePort;
@@ -122,11 +122,11 @@ class items extends Model
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
         }
-        if (null !== $this->SQLPlan) {
-            $res['SQLPlan'] = $this->SQLPlan;
-        }
         if (null !== $this->sourceIP) {
             $res['SourceIP'] = $this->sourceIP;
+        }
+        if (null !== $this->SQLPlan) {
+            $res['SQLPlan'] = $this->SQLPlan;
         }
         if (null !== $this->returnRowCounts) {
             $res['ReturnRowCounts'] = $this->returnRowCounts;
@@ -158,14 +158,14 @@ class items extends Model
         if (isset($map['OperationClass'])) {
             $model->operationClass = $map['OperationClass'];
         }
-        if (isset($map['SQLText'])) {
-            $model->SQLText = $map['SQLText'];
+        if (isset($map['ExecuteState'])) {
+            $model->executeState = $map['ExecuteState'];
         }
         if (isset($map['ExecuteCost'])) {
             $model->executeCost = $map['ExecuteCost'];
         }
-        if (isset($map['ExecuteState'])) {
-            $model->executeState = $map['ExecuteState'];
+        if (isset($map['SQLText'])) {
+            $model->SQLText = $map['SQLText'];
         }
         if (isset($map['SourcePort'])) {
             $model->sourcePort = $map['SourcePort'];
@@ -176,11 +176,11 @@ class items extends Model
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
         }
-        if (isset($map['SQLPlan'])) {
-            $model->SQLPlan = $map['SQLPlan'];
-        }
         if (isset($map['SourceIP'])) {
             $model->sourceIP = $map['SourceIP'];
+        }
+        if (isset($map['SQLPlan'])) {
+            $model->SQLPlan = $map['SQLPlan'];
         }
         if (isset($map['ReturnRowCounts'])) {
             $model->returnRowCounts = $map['ReturnRowCounts'];
