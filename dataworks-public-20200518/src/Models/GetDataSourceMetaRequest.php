@@ -42,8 +42,6 @@ class GetDataSourceMetaRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('datasourceName', $this->datasourceName, true);
     }
 
     public function toMap()

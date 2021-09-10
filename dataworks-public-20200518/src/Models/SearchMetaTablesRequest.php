@@ -54,7 +54,6 @@ class SearchMetaTablesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('keyword', $this->keyword, true);
     }
 
     public function toMap()

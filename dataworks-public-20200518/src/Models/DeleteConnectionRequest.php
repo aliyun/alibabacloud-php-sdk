@@ -18,7 +18,6 @@ class DeleteConnectionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('connectionId', $this->connectionId, true);
     }
 
     public function toMap()

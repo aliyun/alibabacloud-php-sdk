@@ -42,10 +42,6 @@ class CreateDagTestRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectEnv', $this->projectEnv, true);
-        Model::validateRequired('bizdate', $this->bizdate, true);
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('nodeId', $this->nodeId, true);
     }
 
     public function toMap()

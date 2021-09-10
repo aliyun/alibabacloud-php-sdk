@@ -24,8 +24,6 @@ class UpdateMetaTableIntroWikiRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('tableGuid', $this->tableGuid, true);
-        Model::validateRequired('content', $this->content, true);
     }
 
     public function toMap()

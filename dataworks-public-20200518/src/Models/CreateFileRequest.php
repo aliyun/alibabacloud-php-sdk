@@ -162,9 +162,6 @@ class CreateFileRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('fileName', $this->fileName, true);
-        Model::validateRequired('fileType', $this->fileType, true);
-        Model::validateRequired('inputList', $this->inputList, true);
     }
 
     public function toMap()

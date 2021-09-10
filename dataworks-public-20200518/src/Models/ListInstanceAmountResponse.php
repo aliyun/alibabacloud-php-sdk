@@ -4,45 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstanceAmountResponse\instanceCounts;
 use AlibabaCloud\Tea\Model;
 
 class ListInstanceAmountResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var instanceCounts[]
+     * @var ListInstanceAmountResponseBody
      */
-    public $instanceCounts;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'instanceCounts' => 'InstanceCounts',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('instanceCounts', $this->instanceCounts, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->instanceCounts) {
-            $res['InstanceCounts'] = [];
-            if (null !== $this->instanceCounts && \is_array($this->instanceCounts)) {
-                $n = 0;
-                foreach ($this->instanceCounts as $item) {
-                    $res['InstanceCounts'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +49,11 @@ class ListInstanceAmountResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['InstanceCounts'])) {
-            if (!empty($map['InstanceCounts'])) {
-                $model->instanceCounts = [];
-                $n                     = 0;
-                foreach ($map['InstanceCounts'] as $item) {
-                    $model->instanceCounts[$n++] = null !== $item ? instanceCounts::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = ListInstanceAmountResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -60,10 +60,6 @@ class ListAlertMessagesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('beginTime', $this->beginTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()

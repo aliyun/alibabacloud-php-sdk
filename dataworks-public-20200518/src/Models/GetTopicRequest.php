@@ -18,7 +18,6 @@ class GetTopicRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('topicId', $this->topicId, true);
     }
 
     public function toMap()

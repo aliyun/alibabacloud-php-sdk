@@ -30,7 +30,6 @@ class DeleteBusinessRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('businessId', $this->businessId, true);
     }
 
     public function toMap()

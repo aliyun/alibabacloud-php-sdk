@@ -48,10 +48,6 @@ class RevokeTablePermissionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('workspaceId', $this->workspaceId, true);
-        Model::validateRequired('maxComputeProjectName', $this->maxComputeProjectName, true);
-        Model::validateRequired('tableName', $this->tableName, true);
-        Model::validateRequired('actions', $this->actions, true);
     }
 
     public function toMap()

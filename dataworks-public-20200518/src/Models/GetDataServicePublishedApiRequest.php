@@ -30,9 +30,6 @@ class GetDataServicePublishedApiRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('tenantId', $this->tenantId, true);
-        Model::validateRequired('apiId', $this->apiId, true);
     }
 
     public function toMap()

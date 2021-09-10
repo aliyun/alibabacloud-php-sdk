@@ -30,9 +30,6 @@ class GetBaselineStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('baselineId', $this->baselineId, true);
-        Model::validateRequired('bizdate', $this->bizdate, true);
-        Model::validateRequired('inGroupId', $this->inGroupId, true);
     }
 
     public function toMap()

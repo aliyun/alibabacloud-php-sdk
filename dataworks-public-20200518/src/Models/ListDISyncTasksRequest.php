@@ -36,8 +36,6 @@ class ListDISyncTasksRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('taskType', $this->taskType, true);
     }
 
     public function toMap()

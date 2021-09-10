@@ -30,7 +30,6 @@ class UpdateMetaCategoryRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('categoryId', $this->categoryId, true);
     }
 
     public function toMap()

@@ -36,8 +36,6 @@ class CreateTableLevelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('levelType', $this->levelType, true);
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()
