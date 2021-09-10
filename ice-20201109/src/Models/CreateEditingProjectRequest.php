@@ -37,17 +37,33 @@ class CreateEditingProjectRequest extends Model
     public $coverURL;
 
     /**
-     * @description FEExtend
+     * @description 工程关联素材，多个素材以逗号（,）分隔；每种类型最多支持10个素材ID
      *
      * @var string
      */
-    public $FEExtend;
+    public $materialMaps;
+
+    /**
+     * @description 工程业务配置。如果是直播剪辑工程必填OutputMediaConfig.StorageLocation,   Path 不填默认合成的直播片段存储在根路径下 OutputMediaTarget 不填默认oss-object，可以填vod-media 表示存储到vod  OutputMediaTarget 为vod-media 时，Path不生效。
+     *
+     * @var string
+     */
+    public $businessConfig;
+
+    /**
+     * @description 剪辑工程类型，EditingProject: 普通剪辑工程；LiveEditingProject: 直播剪辑工程
+     *
+     * @var string
+     */
+    public $projectType;
     protected $_name = [
-        'title'       => 'Title',
-        'description' => 'Description',
-        'timeline'    => 'Timeline',
-        'coverURL'    => 'CoverURL',
-        'FEExtend'    => 'FEExtend',
+        'title'          => 'Title',
+        'description'    => 'Description',
+        'timeline'       => 'Timeline',
+        'coverURL'       => 'CoverURL',
+        'materialMaps'   => 'MaterialMaps',
+        'businessConfig' => 'BusinessConfig',
+        'projectType'    => 'ProjectType',
     ];
 
     public function validate()
@@ -69,8 +85,14 @@ class CreateEditingProjectRequest extends Model
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
         }
-        if (null !== $this->FEExtend) {
-            $res['FEExtend'] = $this->FEExtend;
+        if (null !== $this->materialMaps) {
+            $res['MaterialMaps'] = $this->materialMaps;
+        }
+        if (null !== $this->businessConfig) {
+            $res['BusinessConfig'] = $this->businessConfig;
+        }
+        if (null !== $this->projectType) {
+            $res['ProjectType'] = $this->projectType;
         }
 
         return $res;
@@ -96,8 +118,14 @@ class CreateEditingProjectRequest extends Model
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
         }
-        if (isset($map['FEExtend'])) {
-            $model->FEExtend = $map['FEExtend'];
+        if (isset($map['MaterialMaps'])) {
+            $model->materialMaps = $map['MaterialMaps'];
+        }
+        if (isset($map['BusinessConfig'])) {
+            $model->businessConfig = $map['BusinessConfig'];
+        }
+        if (isset($map['ProjectType'])) {
+            $model->projectType = $map['ProjectType'];
         }
 
         return $model;

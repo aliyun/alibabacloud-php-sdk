@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingJobResponseBody\liveEditingJob;
 use AlibabaCloud\Tea\Model;
 
-class DeleteEditingProjectsResponseBody extends Model
+class GetLiveEditingJobResponseBody extends Model
 {
     /**
      * @description Id of the request
@@ -14,8 +15,14 @@ class DeleteEditingProjectsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var liveEditingJob
+     */
+    public $liveEditingJob;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'requestId'      => 'RequestId',
+        'liveEditingJob' => 'LiveEditingJob',
     ];
 
     public function validate()
@@ -28,6 +35,9 @@ class DeleteEditingProjectsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->liveEditingJob) {
+            $res['LiveEditingJob'] = null !== $this->liveEditingJob ? $this->liveEditingJob->toMap() : null;
+        }
 
         return $res;
     }
@@ -35,13 +45,16 @@ class DeleteEditingProjectsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteEditingProjectsResponseBody
+     * @return GetLiveEditingJobResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['LiveEditingJob'])) {
+            $model->liveEditingJob = liveEditingJob::fromMap($map['LiveEditingJob']);
         }
 
         return $model;

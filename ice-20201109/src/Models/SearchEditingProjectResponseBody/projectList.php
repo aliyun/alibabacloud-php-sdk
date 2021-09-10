@@ -105,6 +105,21 @@ class projectList extends Model
      * @var string
      */
     public $templateType;
+
+    /**
+     * @var string
+     */
+    public $projectType;
+
+    /**
+     * @var string
+     */
+    public $businessConfig;
+
+    /**
+     * @var string
+     */
+    public $businessStatus;
     protected $_name = [
         'projectId'      => 'ProjectId',
         'title'          => 'Title',
@@ -120,6 +135,9 @@ class projectList extends Model
         'createSource'   => 'CreateSource',
         'modifiedSource' => 'ModifiedSource',
         'templateType'   => 'TemplateType',
+        'projectType'    => 'ProjectType',
+        'businessConfig' => 'BusinessConfig',
+        'businessStatus' => 'BusinessStatus',
     ];
 
     public function validate()
@@ -170,6 +188,15 @@ class projectList extends Model
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
+        }
+        if (null !== $this->projectType) {
+            $res['ProjectType'] = $this->projectType;
+        }
+        if (null !== $this->businessConfig) {
+            $res['BusinessConfig'] = $this->businessConfig;
+        }
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
         }
 
         return $res;
@@ -224,6 +251,15 @@ class projectList extends Model
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
+        }
+        if (isset($map['ProjectType'])) {
+            $model->projectType = $map['ProjectType'];
+        }
+        if (isset($map['BusinessConfig'])) {
+            $model->businessConfig = $map['BusinessConfig'];
+        }
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
         }
 
         return $model;

@@ -32,6 +32,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEventCallbackResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingIndexFileRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingIndexFileResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobRequest;
@@ -76,6 +80,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitIRJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitIRJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitKeyWordCutJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitKeyWordCutJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitLiveEditingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitLiveEditingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMattingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMattingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaProducingJobRequest;
@@ -220,6 +226,34 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetLiveEditingJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetLiveEditingJobResponse
+     */
+    public function getLiveEditingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetLiveEditingJobResponse::fromMap($this->doRPCRequest('GetLiveEditingJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetLiveEditingJobRequest $request
+     *
+     * @return GetLiveEditingJobResponse
+     */
+    public function getLiveEditingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLiveEditingJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeRelatedAuthorizationStatusResponse
@@ -278,12 +312,11 @@ class ICE extends OpenApiClient
     public function addTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return AddTemplateResponse::fromMap($this->doRPCRequest('AddTemplate', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return AddTemplateResponse::fromMap($this->doRPCRequest('AddTemplate', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -679,6 +712,35 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeIceProductStatusWithOptions($runtime);
+    }
+
+    /**
+     * @param GetLiveEditingIndexFileRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetLiveEditingIndexFileResponse
+     */
+    public function getLiveEditingIndexFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetLiveEditingIndexFileResponse::fromMap($this->doRPCRequest('GetLiveEditingIndexFile', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetLiveEditingIndexFileRequest $request
+     *
+     * @return GetLiveEditingIndexFileResponse
+     */
+    public function getLiveEditingIndexFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLiveEditingIndexFileWithOptions($request, $runtime);
     }
 
     /**
@@ -1143,12 +1205,11 @@ class ICE extends OpenApiClient
     public function updateTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return UpdateTemplateResponse::fromMap($this->doRPCRequest('UpdateTemplate', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return UpdateTemplateResponse::fromMap($this->doRPCRequest('UpdateTemplate', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1436,6 +1497,34 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitH2VJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitLiveEditingJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitLiveEditingJobResponse
+     */
+    public function submitLiveEditingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitLiveEditingJobResponse::fromMap($this->doRPCRequest('SubmitLiveEditingJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitLiveEditingJobRequest $request
+     *
+     * @return SubmitLiveEditingJobResponse
+     */
+    public function submitLiveEditingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitLiveEditingJobWithOptions($request, $runtime);
     }
 
     /**

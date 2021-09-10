@@ -6,16 +6,14 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteEditingProjectsResponseBody extends Model
+class GetLiveEditingJobRequest extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
-    public $requestId;
+    public $jobId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class DeleteEditingProjectsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class DeleteEditingProjectsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteEditingProjectsResponseBody
+     * @return GetLiveEditingJobRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         return $model;

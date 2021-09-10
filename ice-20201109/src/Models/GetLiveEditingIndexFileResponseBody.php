@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteEditingProjectsResponseBody extends Model
+class GetLiveEditingIndexFileResponseBody extends Model
 {
     /**
      * @description Id of the request
@@ -14,8 +14,14 @@ class DeleteEditingProjectsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $indexFile;
     protected $_name = [
         'requestId' => 'RequestId',
+        'indexFile' => 'IndexFile',
     ];
 
     public function validate()
@@ -28,6 +34,9 @@ class DeleteEditingProjectsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->indexFile) {
+            $res['IndexFile'] = $this->indexFile;
+        }
 
         return $res;
     }
@@ -35,13 +44,16 @@ class DeleteEditingProjectsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteEditingProjectsResponseBody
+     * @return GetLiveEditingIndexFileResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['IndexFile'])) {
+            $model->indexFile = $map['IndexFile'];
         }
 
         return $model;

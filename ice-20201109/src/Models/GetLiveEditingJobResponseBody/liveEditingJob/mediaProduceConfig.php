@@ -2,20 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingJobResponseBody\liveEditingJob;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteEditingProjectsResponseBody extends Model
+class mediaProduceConfig extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
-    public $requestId;
+    public $mode;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'mode' => 'Mode',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class DeleteEditingProjectsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class DeleteEditingProjectsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteEditingProjectsResponseBody
+     * @return mediaProduceConfig
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
 
         return $model;

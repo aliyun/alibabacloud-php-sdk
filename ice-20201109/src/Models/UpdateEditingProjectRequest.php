@@ -42,12 +42,18 @@ class UpdateEditingProjectRequest extends Model
      * @var string
      */
     public $projectId;
+
+    /**
+     * @var string
+     */
+    public $businessStatus;
     protected $_name = [
-        'title'       => 'Title',
-        'description' => 'Description',
-        'timeline'    => 'Timeline',
-        'coverURL'    => 'CoverURL',
-        'projectId'   => 'ProjectId',
+        'title'          => 'Title',
+        'description'    => 'Description',
+        'timeline'       => 'Timeline',
+        'coverURL'       => 'CoverURL',
+        'projectId'      => 'ProjectId',
+        'businessStatus' => 'BusinessStatus',
     ];
 
     public function validate()
@@ -71,6 +77,9 @@ class UpdateEditingProjectRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
         }
 
         return $res;
@@ -98,6 +107,9 @@ class UpdateEditingProjectRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
         }
 
         return $model;

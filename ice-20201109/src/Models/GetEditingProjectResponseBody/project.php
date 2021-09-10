@@ -91,6 +91,21 @@ class project extends Model
      * @var string
      */
     public $modifiedSource;
+
+    /**
+     * @var string
+     */
+    public $projectType;
+
+    /**
+     * @var string
+     */
+    public $businessConfig;
+
+    /**
+     * @var string
+     */
+    public $businessStatus;
     protected $_name = [
         'projectId'      => 'ProjectId',
         'title'          => 'Title',
@@ -104,6 +119,9 @@ class project extends Model
         'createSource'   => 'CreateSource',
         'templateType'   => 'TemplateType',
         'modifiedSource' => 'ModifiedSource',
+        'projectType'    => 'ProjectType',
+        'businessConfig' => 'BusinessConfig',
+        'businessStatus' => 'BusinessStatus',
     ];
 
     public function validate()
@@ -148,6 +166,15 @@ class project extends Model
         }
         if (null !== $this->modifiedSource) {
             $res['ModifiedSource'] = $this->modifiedSource;
+        }
+        if (null !== $this->projectType) {
+            $res['ProjectType'] = $this->projectType;
+        }
+        if (null !== $this->businessConfig) {
+            $res['BusinessConfig'] = $this->businessConfig;
+        }
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
         }
 
         return $res;
@@ -196,6 +223,15 @@ class project extends Model
         }
         if (isset($map['ModifiedSource'])) {
             $model->modifiedSource = $map['ModifiedSource'];
+        }
+        if (isset($map['ProjectType'])) {
+            $model->projectType = $map['ProjectType'];
+        }
+        if (isset($map['BusinessConfig'])) {
+            $model->businessConfig = $map['BusinessConfig'];
+        }
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
         }
 
         return $model;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateEditingProjectResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description 请求ID
      *
      * @var string
      */

@@ -63,6 +63,11 @@ class SearchEditingProjectRequest extends Model
      * @var string
      */
     public $templateType;
+
+    /**
+     * @var string
+     */
+    public $projectType;
     protected $_name = [
         'startTime'    => 'StartTime',
         'endTime'      => 'EndTime',
@@ -72,6 +77,7 @@ class SearchEditingProjectRequest extends Model
         'maxResults'   => 'MaxResults',
         'createSource' => 'CreateSource',
         'templateType' => 'TemplateType',
+        'projectType'  => 'ProjectType',
     ];
 
     public function validate()
@@ -104,6 +110,9 @@ class SearchEditingProjectRequest extends Model
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
+        }
+        if (null !== $this->projectType) {
+            $res['ProjectType'] = $this->projectType;
         }
 
         return $res;
@@ -140,6 +149,9 @@ class SearchEditingProjectRequest extends Model
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
+        }
+        if (isset($map['ProjectType'])) {
+            $model->projectType = $map['ProjectType'];
         }
 
         return $model;
