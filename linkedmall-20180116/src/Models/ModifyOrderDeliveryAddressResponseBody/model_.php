@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\ValidateTaobaoAccountResponseBody;
+namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyOrderDeliveryAddressResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class model extends Model
+class model_ extends Model
 {
     /**
-     * @var bool
+     * @var mixed[]
      */
-    public $match;
+    public $resultInfo;
     protected $_name = [
-        'match' => 'Match',
+        'resultInfo' => 'ResultInfo',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class model extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->match) {
-            $res['Match'] = $this->match;
+        if (null !== $this->resultInfo) {
+            $res['ResultInfo'] = $this->resultInfo;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class model extends Model
     /**
      * @param array $map
      *
-     * @return model
+     * @return model_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Match'])) {
-            $model->match = $map['Match'];
+        if (isset($map['ResultInfo'])) {
+            $model->resultInfo = $map['ResultInfo'];
         }
 
         return $model;

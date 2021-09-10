@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderV2ResponseBody\model;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderV2ResponseBody\model_;
 use AlibabaCloud\Tea\Model;
 
 class CreateOrderV2ResponseBody extends Model
@@ -50,7 +50,7 @@ class CreateOrderV2ResponseBody extends Model
     public $logsId;
 
     /**
-     * @var model
+     * @var model_
      */
     public $model;
     protected $_name = [
@@ -136,7 +136,7 @@ class CreateOrderV2ResponseBody extends Model
             $model->logsId = $map['LogsId'];
         }
         if (isset($map['Model'])) {
-            $model->model = model::fromMap($map['Model']);
+            $model->model = model_::fromMap($map['Model']);
         }
 
         return $model;

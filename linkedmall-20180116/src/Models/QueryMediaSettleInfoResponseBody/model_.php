@@ -7,7 +7,7 @@ namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryMediaSettleInfoRespo
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryMediaSettleInfoResponseBody\model\mediaSettleInfoList;
 use AlibabaCloud\Tea\Model;
 
-class model extends Model
+class model_ extends Model
 {
     /**
      * @var int
@@ -67,7 +67,7 @@ class model extends Model
     /**
      * @param array $map
      *
-     * @return model
+     * @return model_
      */
     public static function fromMap($map = [])
     {

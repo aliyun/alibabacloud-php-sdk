@@ -10,7 +10,7 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderH5OrderResponseBody\model
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderH5OrderResponseBody\model\lmItemInfoList;
 use AlibabaCloud\Tea\Model;
 
-class model extends Model
+class model_ extends Model
 {
     /**
      * @var mixed[]
@@ -100,7 +100,7 @@ class model extends Model
     /**
      * @param array $map
      *
-     * @return model
+     * @return model_
      */
     public static function fromMap($map = [])
     {

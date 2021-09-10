@@ -2,14 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderV2ResponseBody;
+namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderResponseBody;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderV2ResponseBody\model\lmOrderList;
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderV2ResponseBody\model\orderIds;
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderV2ResponseBody\model\payTradeIds;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderResponseBody\model\lmOrderList;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderResponseBody\model\orderIds;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderResponseBody\model\payTradeIds;
 use AlibabaCloud\Tea\Model;
 
-class model extends Model
+class model_ extends Model
 {
     /**
      * @var string
@@ -63,7 +63,7 @@ class model extends Model
     /**
      * @param array $map
      *
-     * @return model
+     * @return model_
      */
     public static function fromMap($map = [])
     {

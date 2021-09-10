@@ -7,7 +7,7 @@ namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderOrderResponseBody;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderOrderResponseBody\model\renderOrderInfos;
 use AlibabaCloud\Tea\Model;
 
-class model extends Model
+class model_ extends Model
 {
     /**
      * @var renderOrderInfos
@@ -34,7 +34,7 @@ class model extends Model
     /**
      * @param array $map
      *
-     * @return model
+     * @return model_
      */
     public static function fromMap($map = [])
     {

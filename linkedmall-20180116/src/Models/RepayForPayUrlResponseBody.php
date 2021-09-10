@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RepayForPayUrlResponseBody\model;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RepayForPayUrlResponseBody\model_;
 use AlibabaCloud\Tea\Model;
 
 class RepayForPayUrlResponseBody extends Model
@@ -25,7 +25,7 @@ class RepayForPayUrlResponseBody extends Model
     public $requestId;
 
     /**
-     * @var model
+     * @var model_
      */
     public $model;
     protected $_name = [
@@ -76,7 +76,7 @@ class RepayForPayUrlResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Model'])) {
-            $model->model = model::fromMap($map['Model']);
+            $model->model = model_::fromMap($map['Model']);
         }
 
         return $model;

@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ExecuteNodeResponseBody\model_;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyOrderDeliveryAddressResponseBody\model_;
 use AlibabaCloud\Tea\Model;
 
-class ExecuteNodeResponseBody extends Model
+class ModifyOrderDeliveryAddressResponseBody extends Model
 {
     /**
      * @var string
@@ -106,7 +106,7 @@ class ExecuteNodeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ExecuteNodeResponseBody
+     * @return ModifyOrderDeliveryAddressResponseBody
      */
     public static function fromMap($map = [])
     {

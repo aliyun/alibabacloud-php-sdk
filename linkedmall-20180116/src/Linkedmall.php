@@ -74,6 +74,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBizItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBizItemsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyItemLimitRuleRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyItemLimitRuleResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyOrderDeliveryAddressRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyOrderDeliveryAddressResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyPayOrderStatusRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyPayOrderStatusResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyWithholdFundRequest;
@@ -1239,6 +1241,34 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyItemLimitRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyOrderDeliveryAddressRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyOrderDeliveryAddressResponse
+     */
+    public function modifyOrderDeliveryAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyOrderDeliveryAddressResponse::fromMap($this->doRPCRequest('ModifyOrderDeliveryAddress', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyOrderDeliveryAddressRequest $request
+     *
+     * @return ModifyOrderDeliveryAddressResponse
+     */
+    public function modifyOrderDeliveryAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyOrderDeliveryAddressWithOptions($request, $runtime);
     }
 
     /**

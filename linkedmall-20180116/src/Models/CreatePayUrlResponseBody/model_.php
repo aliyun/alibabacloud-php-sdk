@@ -2,13 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateMovieTicketOrderResponseBody;
+namespace AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreatePayUrlResponseBody;
 
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateMovieTicketOrderResponseBody\model\orderIds;
-use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateMovieTicketOrderResponseBody\model\payTradeIds;
 use AlibabaCloud\Tea\Model;
 
-class model extends Model
+class model_ extends Model
 {
     /**
      * @var string
@@ -16,17 +14,23 @@ class model extends Model
     public $redirectUrl;
 
     /**
-     * @var payTradeIds
+     * @var string[]
      */
     public $payTradeIds;
 
     /**
-     * @var orderIds
+     * @var string[]
+     */
+    public $lmOrderList;
+
+    /**
+     * @var string[]
      */
     public $orderIds;
     protected $_name = [
         'redirectUrl' => 'RedirectUrl',
         'payTradeIds' => 'PayTradeIds',
+        'lmOrderList' => 'LmOrderList',
         'orderIds'    => 'OrderIds',
     ];
 
@@ -41,10 +45,13 @@ class model extends Model
             $res['RedirectUrl'] = $this->redirectUrl;
         }
         if (null !== $this->payTradeIds) {
-            $res['PayTradeIds'] = null !== $this->payTradeIds ? $this->payTradeIds->toMap() : null;
+            $res['PayTradeIds'] = $this->payTradeIds;
+        }
+        if (null !== $this->lmOrderList) {
+            $res['LmOrderList'] = $this->lmOrderList;
         }
         if (null !== $this->orderIds) {
-            $res['OrderIds'] = null !== $this->orderIds ? $this->orderIds->toMap() : null;
+            $res['OrderIds'] = $this->orderIds;
         }
 
         return $res;
@@ -53,7 +60,7 @@ class model extends Model
     /**
      * @param array $map
      *
-     * @return model
+     * @return model_
      */
     public static function fromMap($map = [])
     {
@@ -62,10 +69,19 @@ class model extends Model
             $model->redirectUrl = $map['RedirectUrl'];
         }
         if (isset($map['PayTradeIds'])) {
-            $model->payTradeIds = payTradeIds::fromMap($map['PayTradeIds']);
+            if (!empty($map['PayTradeIds'])) {
+                $model->payTradeIds = $map['PayTradeIds'];
+            }
+        }
+        if (isset($map['LmOrderList'])) {
+            if (!empty($map['LmOrderList'])) {
+                $model->lmOrderList = $map['LmOrderList'];
+            }
         }
         if (isset($map['OrderIds'])) {
-            $model->orderIds = orderIds::fromMap($map['OrderIds']);
+            if (!empty($map['OrderIds'])) {
+                $model->orderIds = $map['OrderIds'];
+            }
         }
 
         return $model;
