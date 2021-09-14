@@ -70,6 +70,20 @@ class liveList extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @description 用户访问人次。
+     *
+     * @var int
+     */
+    public $pv;
+
+    /**
+     * @description 在线用户数。
+     *
+     * @var int
+     */
+    public $onlineCount;
     protected $_name = [
         'roomId'      => 'RoomId',
         'title'       => 'Title',
@@ -80,6 +94,8 @@ class liveList extends Model
         'extension'   => 'Extension',
         'liveId'      => 'LiveId',
         'status'      => 'Status',
+        'pv'          => 'Pv',
+        'onlineCount' => 'OnlineCount',
     ];
 
     public function validate()
@@ -115,6 +131,12 @@ class liveList extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->pv) {
+            $res['Pv'] = $this->pv;
+        }
+        if (null !== $this->onlineCount) {
+            $res['OnlineCount'] = $this->onlineCount;
         }
 
         return $res;
@@ -154,6 +176,12 @@ class liveList extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Pv'])) {
+            $model->pv = $map['Pv'];
+        }
+        if (isset($map['OnlineCount'])) {
+            $model->onlineCount = $map['OnlineCount'];
         }
 
         return $model;

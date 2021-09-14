@@ -85,6 +85,13 @@ class roomInfo extends Model
      * @var string[]
      */
     public $extension;
+
+    /**
+     * @description 访问用户人次。
+     *
+     * @var int
+     */
+    public $pv;
     protected $_name = [
         'roomId'                 => 'RoomId',
         'title'                  => 'Title',
@@ -97,6 +104,7 @@ class roomInfo extends Model
         'appId'                  => 'AppId',
         'templateId'             => 'TemplateId',
         'extension'              => 'Extension',
+        'pv'                     => 'Pv',
     ];
 
     public function validate()
@@ -144,6 +152,9 @@ class roomInfo extends Model
         }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
+        }
+        if (null !== $this->pv) {
+            $res['Pv'] = $this->pv;
         }
 
         return $res;
@@ -195,6 +206,9 @@ class roomInfo extends Model
         }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
+        }
+        if (isset($map['Pv'])) {
+            $model->pv = $map['Pv'];
         }
 
         return $model;
