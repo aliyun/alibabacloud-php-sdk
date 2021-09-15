@@ -27,11 +27,17 @@ class SearchFaceRequest extends Model
      * @var string
      */
     public $dbNames;
+
+    /**
+     * @var float
+     */
+    public $qualityScoreThreshold;
     protected $_name = [
-        'dbName'   => 'DbName',
-        'imageUrl' => 'ImageUrl',
-        'limit'    => 'Limit',
-        'dbNames'  => 'DbNames',
+        'dbName'                => 'DbName',
+        'imageUrl'              => 'ImageUrl',
+        'limit'                 => 'Limit',
+        'dbNames'               => 'DbNames',
+        'qualityScoreThreshold' => 'QualityScoreThreshold',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class SearchFaceRequest extends Model
         }
         if (null !== $this->dbNames) {
             $res['DbNames'] = $this->dbNames;
+        }
+        if (null !== $this->qualityScoreThreshold) {
+            $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class SearchFaceRequest extends Model
         }
         if (isset($map['DbNames'])) {
             $model->dbNames = $map['DbNames'];
+        }
+        if (isset($map['QualityScoreThreshold'])) {
+            $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
         }
 
         return $model;

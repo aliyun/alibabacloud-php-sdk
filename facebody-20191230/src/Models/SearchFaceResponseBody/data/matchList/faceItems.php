@@ -32,12 +32,18 @@ class faceItems extends Model
      * @var string
      */
     public $dbName;
+
+    /**
+     * @var float
+     */
+    public $confidence;
     protected $_name = [
-        'entityId'  => 'EntityId',
-        'faceId'    => 'FaceId',
-        'score'     => 'Score',
-        'extraData' => 'ExtraData',
-        'dbName'    => 'DbName',
+        'entityId'   => 'EntityId',
+        'faceId'     => 'FaceId',
+        'score'      => 'Score',
+        'extraData'  => 'ExtraData',
+        'dbName'     => 'DbName',
+        'confidence' => 'Confidence',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class faceItems extends Model
         }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->confidence) {
+            $res['Confidence'] = $this->confidence;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class faceItems extends Model
         }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+        if (isset($map['Confidence'])) {
+            $model->confidence = $map['Confidence'];
         }
 
         return $model;

@@ -28,11 +28,17 @@ class SearchFaceAdvanceRequest extends Model
      * @var string
      */
     public $dbNames;
+
+    /**
+     * @var float
+     */
+    public $qualityScoreThreshold;
     protected $_name = [
-        'imageUrlObject' => 'ImageUrlObject',
-        'dbName'         => 'DbName',
-        'limit'          => 'Limit',
-        'dbNames'        => 'DbNames',
+        'imageUrlObject'        => 'ImageUrlObject',
+        'dbName'                => 'DbName',
+        'limit'                 => 'Limit',
+        'dbNames'               => 'DbNames',
+        'qualityScoreThreshold' => 'QualityScoreThreshold',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class SearchFaceAdvanceRequest extends Model
         }
         if (null !== $this->dbNames) {
             $res['DbNames'] = $this->dbNames;
+        }
+        if (null !== $this->qualityScoreThreshold) {
+            $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
         }
 
         return $res;
@@ -78,6 +87,9 @@ class SearchFaceAdvanceRequest extends Model
         }
         if (isset($map['DbNames'])) {
             $model->dbNames = $map['DbNames'];
+        }
+        if (isset($map['QualityScoreThreshold'])) {
+            $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
         }
 
         return $model;
