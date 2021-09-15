@@ -11,16 +11,6 @@ class CreateBackupPolicyShrinkRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -43,13 +33,11 @@ class CreateBackupPolicyShrinkRequest extends Model
      */
     public $uuidList;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'name'            => 'Name',
-        'policyShrink'    => 'Policy',
-        'policyVersion'   => 'PolicyVersion',
-        'policyRegionId'  => 'PolicyRegionId',
-        'uuidList'        => 'UuidList',
+        'name'           => 'Name',
+        'policyShrink'   => 'Policy',
+        'policyVersion'  => 'PolicyVersion',
+        'policyRegionId' => 'PolicyRegionId',
+        'uuidList'       => 'UuidList',
     ];
 
     public function validate()
@@ -59,12 +47,6 @@ class CreateBackupPolicyShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -92,12 +74,6 @@ class CreateBackupPolicyShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

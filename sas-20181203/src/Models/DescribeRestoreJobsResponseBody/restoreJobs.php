@@ -64,7 +64,7 @@ class restoreJobs extends Model
     public $percentage;
 
     /**
-     * @var int
+     * @var string
      */
     public $gmtModified;
 
@@ -72,11 +72,6 @@ class restoreJobs extends Model
      * @var string
      */
     public $restoreType;
-
-    /**
-     * @var string
-     */
-    public $extra;
 
     /**
      * @var string
@@ -211,11 +206,6 @@ class restoreJobs extends Model
     /**
      * @var int
      */
-    public $id;
-
-    /**
-     * @var int
-     */
     public $bytesDone;
     protected $_name = [
         'status'          => 'Status',
@@ -231,7 +221,6 @@ class restoreJobs extends Model
         'percentage'      => 'Percentage',
         'gmtModified'     => 'GmtModified',
         'restoreType'     => 'RestoreType',
-        'extra'           => 'Extra',
         'exitCode'        => 'ExitCode',
         'clientId'        => 'ClientId',
         'itemsDone'       => 'ItemsDone',
@@ -258,7 +247,6 @@ class restoreJobs extends Model
         'duration'        => 'Duration',
         'errorCount'      => 'ErrorCount',
         'itemsTotal'      => 'ItemsTotal',
-        'id'              => 'Id',
         'bytesDone'       => 'BytesDone',
     ];
 
@@ -307,9 +295,6 @@ class restoreJobs extends Model
         }
         if (null !== $this->restoreType) {
             $res['RestoreType'] = $this->restoreType;
-        }
-        if (null !== $this->extra) {
-            $res['Extra'] = $this->extra;
         }
         if (null !== $this->exitCode) {
             $res['ExitCode'] = $this->exitCode;
@@ -389,9 +374,6 @@ class restoreJobs extends Model
         if (null !== $this->itemsTotal) {
             $res['ItemsTotal'] = $this->itemsTotal;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->bytesDone) {
             $res['BytesDone'] = $this->bytesDone;
         }
@@ -445,9 +427,6 @@ class restoreJobs extends Model
         }
         if (isset($map['RestoreType'])) {
             $model->restoreType = $map['RestoreType'];
-        }
-        if (isset($map['Extra'])) {
-            $model->extra = $map['Extra'];
         }
         if (isset($map['ExitCode'])) {
             $model->exitCode = $map['ExitCode'];
@@ -526,9 +505,6 @@ class restoreJobs extends Model
         }
         if (isset($map['ItemsTotal'])) {
             $model->itemsTotal = $map['ItemsTotal'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
         if (isset($map['BytesDone'])) {
             $model->bytesDone = $map['BytesDone'];

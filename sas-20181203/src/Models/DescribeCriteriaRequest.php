@@ -17,9 +17,15 @@ class DescribeCriteriaRequest extends Model
      * @var string
      */
     public $value;
+
+    /**
+     * @var bool
+     */
+    public $supportAutoTag;
     protected $_name = [
-        'machineTypes' => 'MachineTypes',
-        'value'        => 'Value',
+        'machineTypes'   => 'MachineTypes',
+        'value'          => 'Value',
+        'supportAutoTag' => 'SupportAutoTag',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DescribeCriteriaRequest extends Model
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
+        }
+        if (null !== $this->supportAutoTag) {
+            $res['SupportAutoTag'] = $this->supportAutoTag;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DescribeCriteriaRequest extends Model
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
+        }
+        if (isset($map['SupportAutoTag'])) {
+            $model->supportAutoTag = $map['SupportAutoTag'];
         }
 
         return $model;

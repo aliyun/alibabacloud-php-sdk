@@ -16,6 +16,11 @@ class vulWhitelists extends Model
     /**
      * @var string
      */
+    public $targetInfo;
+
+    /**
+     * @var string
+     */
     public $aliasName;
 
     /**
@@ -27,11 +32,18 @@ class vulWhitelists extends Model
      * @var string
      */
     public $reason;
+
+    /**
+     * @var string
+     */
+    public $id;
     protected $_name = [
-        'type'      => 'Type',
-        'aliasName' => 'AliasName',
-        'name'      => 'Name',
-        'reason'    => 'Reason',
+        'type'       => 'Type',
+        'targetInfo' => 'TargetInfo',
+        'aliasName'  => 'AliasName',
+        'name'       => 'Name',
+        'reason'     => 'Reason',
+        'id'         => 'Id',
     ];
 
     public function validate()
@@ -44,6 +56,9 @@ class vulWhitelists extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+        if (null !== $this->targetInfo) {
+            $res['TargetInfo'] = $this->targetInfo;
+        }
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
@@ -52,6 +67,9 @@ class vulWhitelists extends Model
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -68,6 +86,9 @@ class vulWhitelists extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+        if (isset($map['TargetInfo'])) {
+            $model->targetInfo = $map['TargetInfo'];
+        }
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
@@ -76,6 +97,9 @@ class vulWhitelists extends Model
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

@@ -11,16 +11,6 @@ class DescribeRestoreJobsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
     public $status;
 
     /**
@@ -38,12 +28,10 @@ class DescribeRestoreJobsRequest extends Model
      */
     public $currentPage;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'status'          => 'Status',
-        'machineRemark'   => 'MachineRemark',
-        'pageSize'        => 'PageSize',
-        'currentPage'     => 'CurrentPage',
+        'status'        => 'Status',
+        'machineRemark' => 'MachineRemark',
+        'pageSize'      => 'PageSize',
+        'currentPage'   => 'CurrentPage',
     ];
 
     public function validate()
@@ -53,12 +41,6 @@ class DescribeRestoreJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -83,12 +65,6 @@ class DescribeRestoreJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

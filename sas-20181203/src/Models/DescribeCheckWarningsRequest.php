@@ -37,6 +37,11 @@ class DescribeCheckWarningsRequest extends Model
      * @var int
      */
     public $currentPage;
+
+    /**
+     * @var int
+     */
+    public $checkId;
     protected $_name = [
         'sourceIp'    => 'SourceIp',
         'lang'        => 'Lang',
@@ -44,6 +49,7 @@ class DescribeCheckWarningsRequest extends Model
         'riskId'      => 'RiskId',
         'pageSize'    => 'PageSize',
         'currentPage' => 'CurrentPage',
+        'checkId'     => 'CheckId',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class DescribeCheckWarningsRequest extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->checkId) {
+            $res['CheckId'] = $this->checkId;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class DescribeCheckWarningsRequest extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['CheckId'])) {
+            $model->checkId = $map['CheckId'];
         }
 
         return $model;

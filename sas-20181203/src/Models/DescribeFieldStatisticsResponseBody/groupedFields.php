@@ -76,6 +76,11 @@ class groupedFields extends Model
     /**
      * @var int
      */
+    public $pauseInstanceCount;
+
+    /**
+     * @var int
+     */
     public $idcInstanceCount;
 
     /**
@@ -106,6 +111,7 @@ class groupedFields extends Model
         'testAssetCount'           => 'TestAssetCount',
         'vpcCount'                 => 'VpcCount',
         'instanceCount'            => 'InstanceCount',
+        'pauseInstanceCount'       => 'PauseInstanceCount',
         'idcInstanceCount'         => 'IdcInstanceCount',
         'notRunningStatusCount'    => 'NotRunningStatusCount',
         'aliYunInstanceCount'      => 'AliYunInstanceCount',
@@ -157,6 +163,9 @@ class groupedFields extends Model
         }
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
+        }
+        if (null !== $this->pauseInstanceCount) {
+            $res['PauseInstanceCount'] = $this->pauseInstanceCount;
         }
         if (null !== $this->idcInstanceCount) {
             $res['IdcInstanceCount'] = $this->idcInstanceCount;
@@ -220,6 +229,9 @@ class groupedFields extends Model
         }
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
+        }
+        if (isset($map['PauseInstanceCount'])) {
+            $model->pauseInstanceCount = $map['PauseInstanceCount'];
         }
         if (isset($map['IdcInstanceCount'])) {
             $model->idcInstanceCount = $map['IdcInstanceCount'];

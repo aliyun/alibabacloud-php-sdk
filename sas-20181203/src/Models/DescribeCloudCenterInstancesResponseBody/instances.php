@@ -71,6 +71,11 @@ class instances extends Model
     /**
      * @var int
      */
+    public $lastLoginTimestamp;
+
+    /**
+     * @var int
+     */
     public $authVersion;
 
     /**
@@ -238,52 +243,53 @@ class instances extends Model
      */
     public $ipListString;
     protected $_name = [
-        'status'           => 'Status',
-        'cpuInfo'          => 'CpuInfo',
-        'internetIp'       => 'InternetIp',
-        'kernel'           => 'Kernel',
-        'bind'             => 'Bind',
-        'osName'           => 'OsName',
-        'tag'              => 'Tag',
-        'clientStatus'     => 'ClientStatus',
-        'mem'              => 'Mem',
-        'vpcInstanceId'    => 'VpcInstanceId',
-        'tagId'            => 'TagId',
-        'flag'             => 'Flag',
-        'authVersion'      => 'AuthVersion',
-        'region'           => 'Region',
-        'instanceName'     => 'InstanceName',
-        'podCount'         => 'PodCount',
-        'vulCount'         => 'VulCount',
-        'hcStatus'         => 'HcStatus',
-        'createdTime'      => 'CreatedTime',
-        'groupTrace'       => 'GroupTrace',
-        'clusterId'        => 'ClusterId',
-        'riskStatus'       => 'RiskStatus',
-        'cores'            => 'Cores',
-        'vulStatus'        => 'VulStatus',
-        'alarmStatus'      => 'AlarmStatus',
-        'macListString'    => 'MacListString',
-        'importance'       => 'Importance',
-        'healthCheckCount' => 'HealthCheckCount',
-        'ip'               => 'Ip',
-        'os'               => 'Os',
-        'authModifyTime'   => 'AuthModifyTime',
-        'safeEventCount'   => 'SafeEventCount',
-        'instanceId'       => 'InstanceId',
-        'assetType'        => 'AssetType',
-        'intranetIp'       => 'IntranetIp',
-        'vendor'           => 'Vendor',
-        'regionId'         => 'RegionId',
-        'uuid'             => 'Uuid',
-        'groupId'          => 'GroupId',
-        'regionName'       => 'RegionName',
-        'vendorName'       => 'VendorName',
-        'authVersionName'  => 'AuthVersionName',
-        'clusterName'      => 'ClusterName',
-        'exposedStatus'    => 'ExposedStatus',
-        'riskCount'        => 'RiskCount',
-        'ipListString'     => 'IpListString',
+        'status'             => 'Status',
+        'cpuInfo'            => 'CpuInfo',
+        'internetIp'         => 'InternetIp',
+        'kernel'             => 'Kernel',
+        'bind'               => 'Bind',
+        'osName'             => 'OsName',
+        'tag'                => 'Tag',
+        'clientStatus'       => 'ClientStatus',
+        'mem'                => 'Mem',
+        'vpcInstanceId'      => 'VpcInstanceId',
+        'tagId'              => 'TagId',
+        'flag'               => 'Flag',
+        'lastLoginTimestamp' => 'LastLoginTimestamp',
+        'authVersion'        => 'AuthVersion',
+        'region'             => 'Region',
+        'instanceName'       => 'InstanceName',
+        'podCount'           => 'PodCount',
+        'vulCount'           => 'VulCount',
+        'hcStatus'           => 'HcStatus',
+        'createdTime'        => 'CreatedTime',
+        'groupTrace'         => 'GroupTrace',
+        'clusterId'          => 'ClusterId',
+        'riskStatus'         => 'RiskStatus',
+        'cores'              => 'Cores',
+        'vulStatus'          => 'VulStatus',
+        'alarmStatus'        => 'AlarmStatus',
+        'macListString'      => 'MacListString',
+        'importance'         => 'Importance',
+        'healthCheckCount'   => 'HealthCheckCount',
+        'ip'                 => 'Ip',
+        'os'                 => 'Os',
+        'authModifyTime'     => 'AuthModifyTime',
+        'safeEventCount'     => 'SafeEventCount',
+        'instanceId'         => 'InstanceId',
+        'assetType'          => 'AssetType',
+        'intranetIp'         => 'IntranetIp',
+        'vendor'             => 'Vendor',
+        'regionId'           => 'RegionId',
+        'uuid'               => 'Uuid',
+        'groupId'            => 'GroupId',
+        'regionName'         => 'RegionName',
+        'vendorName'         => 'VendorName',
+        'authVersionName'    => 'AuthVersionName',
+        'clusterName'        => 'ClusterName',
+        'exposedStatus'      => 'ExposedStatus',
+        'riskCount'          => 'RiskCount',
+        'ipListString'       => 'IpListString',
     ];
 
     public function validate()
@@ -328,6 +334,9 @@ class instances extends Model
         }
         if (null !== $this->flag) {
             $res['Flag'] = $this->flag;
+        }
+        if (null !== $this->lastLoginTimestamp) {
+            $res['LastLoginTimestamp'] = $this->lastLoginTimestamp;
         }
         if (null !== $this->authVersion) {
             $res['AuthVersion'] = $this->authVersion;
@@ -478,6 +487,9 @@ class instances extends Model
         }
         if (isset($map['Flag'])) {
             $model->flag = $map['Flag'];
+        }
+        if (isset($map['LastLoginTimestamp'])) {
+            $model->lastLoginTimestamp = $map['LastLoginTimestamp'];
         }
         if (isset($map['AuthVersion'])) {
             $model->authVersion = $map['AuthVersion'];

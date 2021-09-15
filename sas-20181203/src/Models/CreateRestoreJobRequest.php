@@ -11,16 +11,6 @@ class CreateRestoreJobRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
     public $uuid;
 
     /**
@@ -58,8 +48,6 @@ class CreateRestoreJobRequest extends Model
      */
     public $includes;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
         'uuid'            => 'Uuid',
         'snapshotId'      => 'SnapshotId',
         'snapshotHash'    => 'SnapshotHash',
@@ -77,12 +65,6 @@ class CreateRestoreJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -119,12 +101,6 @@ class CreateRestoreJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

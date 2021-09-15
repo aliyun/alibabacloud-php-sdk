@@ -86,7 +86,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPoliciesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPoliciesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPolicyResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupRestoreCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupRestoreCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceSummaryResponse;
@@ -242,7 +241,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyTargetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSummaryInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSummaryInfoResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSupportRegionRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSupportRegionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventDetailResponse;
@@ -260,7 +258,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniRecoverableListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniRecoverableListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniSupportRegionResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBackupMachinesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBackupMachinesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationResponse;
@@ -379,6 +376,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUnbindRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUnbindResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperateAgentClientInstallRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperateAgentClientInstallResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousTargetConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousTargetConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateVulsRequest;
@@ -1652,31 +1651,25 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupRestoreCountRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeBackupRestoreCountResponse
      */
-    public function describeBackupRestoreCountWithOptions($request, $runtime)
+    public function describeBackupRestoreCountWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
         return DescribeBackupRestoreCountResponse::fromMap($this->doRPCRequest('DescribeBackupRestoreCount', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupRestoreCountRequest $request
-     *
      * @return DescribeBackupRestoreCountResponse
      */
-    public function describeBackupRestoreCount($request)
+    public function describeBackupRestoreCount()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeBackupRestoreCountWithOptions($request, $runtime);
+        return $this->describeBackupRestoreCountWithOptions($runtime);
     }
 
     /**
@@ -3900,31 +3893,25 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSupportRegionRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeSupportRegionResponse
      */
-    public function describeSupportRegionWithOptions($request, $runtime)
+    public function describeSupportRegionWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
         return DescribeSupportRegionResponse::fromMap($this->doRPCRequest('DescribeSupportRegion', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeSupportRegionRequest $request
-     *
      * @return DescribeSupportRegionResponse
      */
-    public function describeSupportRegion($request)
+    public function describeSupportRegion()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeSupportRegionWithOptions($request, $runtime);
+        return $this->describeSupportRegionWithOptions($runtime);
     }
 
     /**
@@ -4168,31 +4155,25 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserBackupMachinesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeUserBackupMachinesResponse
      */
-    public function describeUserBackupMachinesWithOptions($request, $runtime)
+    public function describeUserBackupMachinesWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
         return DescribeUserBackupMachinesResponse::fromMap($this->doRPCRequest('DescribeUserBackupMachines', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeUserBackupMachinesRequest $request
-     *
      * @return DescribeUserBackupMachinesResponse
      */
-    public function describeUserBackupMachines($request)
+    public function describeUserBackupMachines()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeUserBackupMachinesWithOptions($request, $runtime);
+        return $this->describeUserBackupMachinesWithOptions($runtime);
     }
 
     /**
@@ -5840,6 +5821,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyWebLockUpdateConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OperateAgentClientInstallRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return OperateAgentClientInstallResponse
+     */
+    public function operateAgentClientInstallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return OperateAgentClientInstallResponse::fromMap($this->doRPCRequest('OperateAgentClientInstall', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param OperateAgentClientInstallRequest $request
+     *
+     * @return OperateAgentClientInstallResponse
+     */
+    public function operateAgentClientInstall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateAgentClientInstallWithOptions($request, $runtime);
     }
 
     /**

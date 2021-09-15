@@ -14,34 +14,9 @@ class warningMachines extends Model
     public $status;
 
     /**
-     * @var int
-     */
-    public $lowWarningCount;
-
-    /**
-     * @var string
-     */
-    public $uuid;
-
-    /**
-     * @var int
-     */
-    public $mediumWarningCount;
-
-    /**
-     * @var int
-     */
-    public $passCount;
-
-    /**
      * @var string
      */
     public $internetIp;
-
-    /**
-     * @var string
-     */
-    public $instanceName;
 
     /**
      * @var string
@@ -62,18 +37,49 @@ class warningMachines extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $lowWarningCount;
+
+    /**
+     * @var bool
+     */
+    public $portOpen;
+
+    /**
+     * @var string
+     */
+    public $uuid;
+
+    /**
+     * @var int
+     */
+    public $mediumWarningCount;
+
+    /**
+     * @var int
+     */
+    public $passCount;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
     protected $_name = [
         'status'             => 'Status',
-        'lowWarningCount'    => 'LowWarningCount',
-        'uuid'               => 'Uuid',
-        'mediumWarningCount' => 'MediumWarningCount',
-        'passCount'          => 'PassCount',
         'internetIp'         => 'InternetIp',
-        'instanceName'       => 'InstanceName',
         'instanceId'         => 'InstanceId',
         'highWarningCount'   => 'HighWarningCount',
         'intranetIp'         => 'IntranetIp',
         'regionId'           => 'RegionId',
+        'lowWarningCount'    => 'LowWarningCount',
+        'portOpen'           => 'PortOpen',
+        'uuid'               => 'Uuid',
+        'mediumWarningCount' => 'MediumWarningCount',
+        'passCount'          => 'PassCount',
+        'instanceName'       => 'InstanceName',
     ];
 
     public function validate()
@@ -86,23 +92,8 @@ class warningMachines extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->lowWarningCount) {
-            $res['LowWarningCount'] = $this->lowWarningCount;
-        }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->mediumWarningCount) {
-            $res['MediumWarningCount'] = $this->mediumWarningCount;
-        }
-        if (null !== $this->passCount) {
-            $res['PassCount'] = $this->passCount;
-        }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -115,6 +106,24 @@ class warningMachines extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->lowWarningCount) {
+            $res['LowWarningCount'] = $this->lowWarningCount;
+        }
+        if (null !== $this->portOpen) {
+            $res['PortOpen'] = $this->portOpen;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
+        }
+        if (null !== $this->mediumWarningCount) {
+            $res['MediumWarningCount'] = $this->mediumWarningCount;
+        }
+        if (null !== $this->passCount) {
+            $res['PassCount'] = $this->passCount;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         return $res;
@@ -131,23 +140,8 @@ class warningMachines extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['LowWarningCount'])) {
-            $model->lowWarningCount = $map['LowWarningCount'];
-        }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['MediumWarningCount'])) {
-            $model->mediumWarningCount = $map['MediumWarningCount'];
-        }
-        if (isset($map['PassCount'])) {
-            $model->passCount = $map['PassCount'];
-        }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -160,6 +154,24 @@ class warningMachines extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['LowWarningCount'])) {
+            $model->lowWarningCount = $map['LowWarningCount'];
+        }
+        if (isset($map['PortOpen'])) {
+            $model->portOpen = $map['PortOpen'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
+        }
+        if (isset($map['MediumWarningCount'])) {
+            $model->mediumWarningCount = $map['MediumWarningCount'];
+        }
+        if (isset($map['PassCount'])) {
+            $model->passCount = $map['PassCount'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         return $model;

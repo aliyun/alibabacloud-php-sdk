@@ -41,37 +41,12 @@ class snapshots extends Model
     /**
      * @var int
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $backupType;
-
-    /**
-     * @var int
-     */
     public $actualBytes;
 
     /**
      * @var string
      */
-    public $prefix;
-
-    /**
-     * @var string
-     */
     public $sourceType;
-
-    /**
-     * @var string
-     */
-    public $extra;
-
-    /**
-     * @var string
-     */
-    public $serverId;
 
     /**
      * @var string
@@ -96,11 +71,6 @@ class snapshots extends Model
     /**
      * @var int
      */
-    public $completeTime;
-
-    /**
-     * @var int
-     */
     public $retention;
 
     /**
@@ -116,17 +86,7 @@ class snapshots extends Model
     /**
      * @var string
      */
-    public $bucket;
-
-    /**
-     * @var string
-     */
     public $parentSnapshotHash;
-
-    /**
-     * @var string
-     */
-    public $machineInfoJson;
 
     /**
      * @var string
@@ -151,17 +111,7 @@ class snapshots extends Model
     /**
      * @var string
      */
-    public $fileSystemId;
-
-    /**
-     * @var string
-     */
     public $parentHash;
-
-    /**
-     * @var int
-     */
-    public $startTime;
 
     /**
      * @var string
@@ -187,11 +137,6 @@ class snapshots extends Model
      * @var string
      */
     public $snapshotOption;
-
-    /**
-     * @var int
-     */
-    public $updatedTime;
 
     /**
      * @var string
@@ -244,37 +189,26 @@ class snapshots extends Model
         'errorMessage'        => 'ErrorMessage',
         'actualItems'         => 'ActualItems',
         'vaultId'             => 'VaultId',
-        'createTime'          => 'CreateTime',
-        'backupType'          => 'BackupType',
         'actualBytes'         => 'ActualBytes',
-        'prefix'              => 'Prefix',
         'sourceType'          => 'SourceType',
-        'extra'               => 'Extra',
-        'serverId'            => 'ServerId',
         'exitCode'            => 'ExitCode',
         'clientId'            => 'ClientId',
         'itemsDone'           => 'ItemsDone',
         'bytesTotal'          => 'BytesTotal',
-        'completeTime'        => 'CompleteTime',
         'retention'           => 'Retention',
         'errorType'           => 'ErrorType',
         'createdTime'         => 'CreatedTime',
-        'bucket'              => 'Bucket',
         'parentSnapshotHash'  => 'ParentSnapshotHash',
-        'machineInfoJson'     => 'MachineInfoJson',
         'instanceId'          => 'InstanceId',
         'planId'              => 'PlanId',
         'source'              => 'Source',
         'regionId'            => 'RegionId',
-        'fileSystemId'        => 'FileSystemId',
         'parentHash'          => 'ParentHash',
-        'startTime'           => 'StartTime',
         'uuid'                => 'Uuid',
         'errorFile'           => 'ErrorFile',
         'snapshotType'        => 'SnapshotType',
         'snapshotName'        => 'SnapshotName',
         'snapshotOption'      => 'SnapshotOption',
-        'updatedTime'         => 'UpdatedTime',
         'snapshotId'          => 'SnapshotId',
         'jobId'               => 'JobId',
         'size'                => 'Size',
@@ -311,26 +245,11 @@ class snapshots extends Model
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->backupType) {
-            $res['BackupType'] = $this->backupType;
-        }
         if (null !== $this->actualBytes) {
             $res['ActualBytes'] = $this->actualBytes;
         }
-        if (null !== $this->prefix) {
-            $res['Prefix'] = $this->prefix;
-        }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
-        }
-        if (null !== $this->extra) {
-            $res['Extra'] = $this->extra;
-        }
-        if (null !== $this->serverId) {
-            $res['ServerId'] = $this->serverId;
         }
         if (null !== $this->exitCode) {
             $res['ExitCode'] = $this->exitCode;
@@ -344,9 +263,6 @@ class snapshots extends Model
         if (null !== $this->bytesTotal) {
             $res['BytesTotal'] = $this->bytesTotal;
         }
-        if (null !== $this->completeTime) {
-            $res['CompleteTime'] = $this->completeTime;
-        }
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
         }
@@ -356,14 +272,8 @@ class snapshots extends Model
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
-        if (null !== $this->bucket) {
-            $res['Bucket'] = $this->bucket;
-        }
         if (null !== $this->parentSnapshotHash) {
             $res['ParentSnapshotHash'] = $this->parentSnapshotHash;
-        }
-        if (null !== $this->machineInfoJson) {
-            $res['MachineInfoJson'] = $this->machineInfoJson;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -377,14 +287,8 @@ class snapshots extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->fileSystemId) {
-            $res['FileSystemId'] = $this->fileSystemId;
-        }
         if (null !== $this->parentHash) {
             $res['ParentHash'] = $this->parentHash;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
@@ -400,9 +304,6 @@ class snapshots extends Model
         }
         if (null !== $this->snapshotOption) {
             $res['SnapshotOption'] = $this->snapshotOption;
-        }
-        if (null !== $this->updatedTime) {
-            $res['UpdatedTime'] = $this->updatedTime;
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
@@ -461,26 +362,11 @@ class snapshots extends Model
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['BackupType'])) {
-            $model->backupType = $map['BackupType'];
-        }
         if (isset($map['ActualBytes'])) {
             $model->actualBytes = $map['ActualBytes'];
         }
-        if (isset($map['Prefix'])) {
-            $model->prefix = $map['Prefix'];
-        }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
-        }
-        if (isset($map['Extra'])) {
-            $model->extra = $map['Extra'];
-        }
-        if (isset($map['ServerId'])) {
-            $model->serverId = $map['ServerId'];
         }
         if (isset($map['ExitCode'])) {
             $model->exitCode = $map['ExitCode'];
@@ -494,9 +380,6 @@ class snapshots extends Model
         if (isset($map['BytesTotal'])) {
             $model->bytesTotal = $map['BytesTotal'];
         }
-        if (isset($map['CompleteTime'])) {
-            $model->completeTime = $map['CompleteTime'];
-        }
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
         }
@@ -506,14 +389,8 @@ class snapshots extends Model
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
-        if (isset($map['Bucket'])) {
-            $model->bucket = $map['Bucket'];
-        }
         if (isset($map['ParentSnapshotHash'])) {
             $model->parentSnapshotHash = $map['ParentSnapshotHash'];
-        }
-        if (isset($map['MachineInfoJson'])) {
-            $model->machineInfoJson = $map['MachineInfoJson'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -527,14 +404,8 @@ class snapshots extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['FileSystemId'])) {
-            $model->fileSystemId = $map['FileSystemId'];
-        }
         if (isset($map['ParentHash'])) {
             $model->parentHash = $map['ParentHash'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
@@ -550,9 +421,6 @@ class snapshots extends Model
         }
         if (isset($map['SnapshotOption'])) {
             $model->snapshotOption = $map['SnapshotOption'];
-        }
-        if (isset($map['UpdatedTime'])) {
-            $model->updatedTime = $map['UpdatedTime'];
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];

@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupMachineStatusRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var int
      */
     public $policyId;
@@ -33,11 +23,9 @@ class DescribeBackupMachineStatusRequest extends Model
      */
     public $policyVersion;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'policyId'        => 'PolicyId',
-        'uuid'            => 'Uuid',
-        'policyVersion'   => 'PolicyVersion',
+        'policyId'      => 'PolicyId',
+        'uuid'          => 'Uuid',
+        'policyVersion' => 'PolicyVersion',
     ];
 
     public function validate()
@@ -47,12 +35,6 @@ class DescribeBackupMachineStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
@@ -74,12 +56,6 @@ class DescribeBackupMachineStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }

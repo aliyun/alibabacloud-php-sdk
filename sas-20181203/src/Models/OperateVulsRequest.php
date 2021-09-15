@@ -19,16 +19,6 @@ class OperateVulsRequest extends Model
     public $operateType;
 
     /**
-     * @var string
-     */
-    public $reason;
-
-    /**
-     * @var int
-     */
-    public $precondition;
-
-    /**
      * @var string[]
      */
     public $vulNames;
@@ -38,12 +28,10 @@ class OperateVulsRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'type'         => 'Type',
-        'operateType'  => 'OperateType',
-        'reason'       => 'Reason',
-        'precondition' => 'Precondition',
-        'vulNames'     => 'VulNames',
-        'uuids'        => 'Uuids',
+        'type'        => 'Type',
+        'operateType' => 'OperateType',
+        'vulNames'    => 'VulNames',
+        'uuids'       => 'Uuids',
     ];
 
     public function validate()
@@ -58,12 +46,6 @@ class OperateVulsRequest extends Model
         }
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
-        }
-        if (null !== $this->reason) {
-            $res['Reason'] = $this->reason;
-        }
-        if (null !== $this->precondition) {
-            $res['Precondition'] = $this->precondition;
         }
         if (null !== $this->vulNames) {
             $res['VulNames'] = $this->vulNames;
@@ -88,12 +70,6 @@ class OperateVulsRequest extends Model
         }
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];
-        }
-        if (isset($map['Reason'])) {
-            $model->reason = $map['Reason'];
-        }
-        if (isset($map['Precondition'])) {
-            $model->precondition = $map['Precondition'];
         }
         if (isset($map['VulNames'])) {
             if (!empty($map['VulNames'])) {

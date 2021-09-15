@@ -17,9 +17,15 @@ class ModifyCreateVulWhitelistRequest extends Model
      * @var string
      */
     public $reason;
+
+    /**
+     * @var string
+     */
+    public $targetInfo;
     protected $_name = [
-        'whitelist' => 'Whitelist',
-        'reason'    => 'Reason',
+        'whitelist'  => 'Whitelist',
+        'reason'     => 'Reason',
+        'targetInfo' => 'TargetInfo',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class ModifyCreateVulWhitelistRequest extends Model
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->targetInfo) {
+            $res['TargetInfo'] = $this->targetInfo;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class ModifyCreateVulWhitelistRequest extends Model
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['TargetInfo'])) {
+            $model->targetInfo = $map['TargetInfo'];
         }
 
         return $model;

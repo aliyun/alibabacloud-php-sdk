@@ -17,15 +17,9 @@ class excludePaths extends Model
      * @var string
      */
     public $os;
-
-    /**
-     * @var int
-     */
-    public $id;
     protected $_name = [
         'path' => 'Path',
         'os'   => 'Os',
-        'id'   => 'Id',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class excludePaths extends Model
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class excludePaths extends Model
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;
