@@ -14,8 +14,14 @@ class LabelBuildRequest extends Model
      * @var string
      */
     public $sceneId;
+
+    /**
+     * @var string
+     */
+    public $mode;
     protected $_name = [
         'sceneId' => 'SceneId',
+        'mode'    => 'Mode',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class LabelBuildRequest extends Model
         $res = [];
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class LabelBuildRequest extends Model
         $model = new self();
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
 
         return $model;

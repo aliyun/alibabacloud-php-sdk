@@ -14,18 +14,18 @@ class DeleteFileResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $errMessage;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $errMessage;
     protected $_name = [
         'requestId'  => 'RequestId',
-        'errMessage' => 'ErrMessage',
         'success'    => 'Success',
+        'errMessage' => 'ErrMessage',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteFileResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->errMessage) {
+            $res['ErrMessage'] = $this->errMessage;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DeleteFileResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['ErrMessage'])) {
+            $model->errMessage = $map['ErrMessage'];
         }
 
         return $model;

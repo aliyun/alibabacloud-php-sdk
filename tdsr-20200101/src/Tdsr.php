@@ -1525,34 +1525,6 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return GetPolicyResponse
-     */
-    public function getPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetPolicyResponse::fromMap($this->doRPCRequest('GetPolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetPolicyRequest $request
-     *
-     * @return GetPolicyResponse
-     */
-    public function getPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPolicyWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetScenePreviewInfoRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1578,6 +1550,34 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getScenePreviewInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPolicyRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetPolicyResponse
+     */
+    public function getPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetPolicyResponse::fromMap($this->doRPCRequest('GetPolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetPolicyRequest $request
+     *
+     * @return GetPolicyResponse
+     */
+    public function getPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPolicyWithOptions($request, $runtime);
     }
 
     /**
