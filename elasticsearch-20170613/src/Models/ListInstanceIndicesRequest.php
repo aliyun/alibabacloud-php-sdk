@@ -22,10 +22,28 @@ class ListInstanceIndicesRequest extends Model
      * @var bool
      */
     public $isManaged;
+
+    /**
+     * @var bool
+     */
+    public $isOpenstore;
+
+    /**
+     * @var int
+     */
+    public $page;
+
+    /**
+     * @var int
+     */
+    public $size;
     protected $_name = [
-        'all'       => 'all',
-        'name'      => 'name',
-        'isManaged' => 'isManaged',
+        'all'         => 'all',
+        'name'        => 'name',
+        'isManaged'   => 'isManaged',
+        'isOpenstore' => 'isOpenstore',
+        'page'        => 'page',
+        'size'        => 'size',
     ];
 
     public function validate()
@@ -43,6 +61,15 @@ class ListInstanceIndicesRequest extends Model
         }
         if (null !== $this->isManaged) {
             $res['isManaged'] = $this->isManaged;
+        }
+        if (null !== $this->isOpenstore) {
+            $res['isOpenstore'] = $this->isOpenstore;
+        }
+        if (null !== $this->page) {
+            $res['page'] = $this->page;
+        }
+        if (null !== $this->size) {
+            $res['size'] = $this->size;
         }
 
         return $res;
@@ -64,6 +91,15 @@ class ListInstanceIndicesRequest extends Model
         }
         if (isset($map['isManaged'])) {
             $model->isManaged = $map['isManaged'];
+        }
+        if (isset($map['isOpenstore'])) {
+            $model->isOpenstore = $map['isOpenstore'];
+        }
+        if (isset($map['page'])) {
+            $model->page = $map['page'];
+        }
+        if (isset($map['size'])) {
+            $model->size = $map['size'];
         }
 
         return $model;

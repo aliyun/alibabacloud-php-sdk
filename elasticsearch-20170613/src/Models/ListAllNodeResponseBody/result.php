@@ -21,6 +21,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $hostName;
+
+    /**
+     * @var string
+     */
     public $cpuPercent;
 
     /**
@@ -55,6 +60,7 @@ class result extends Model
     protected $_name = [
         'heapPercent'     => 'heapPercent',
         'zoneId'          => 'zoneId',
+        'hostName'        => 'hostName',
         'cpuPercent'      => 'cpuPercent',
         'host'            => 'host',
         'nodeType'        => 'nodeType',
@@ -76,6 +82,9 @@ class result extends Model
         }
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
+        }
+        if (null !== $this->hostName) {
+            $res['hostName'] = $this->hostName;
         }
         if (null !== $this->cpuPercent) {
             $res['cpuPercent'] = $this->cpuPercent;
@@ -115,6 +124,9 @@ class result extends Model
         }
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
+        }
+        if (isset($map['hostName'])) {
+            $model->hostName = $map['hostName'];
         }
         if (isset($map['cpuPercent'])) {
             $model->cpuPercent = $map['cpuPercent'];

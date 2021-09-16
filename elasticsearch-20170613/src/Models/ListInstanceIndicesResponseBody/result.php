@@ -37,6 +37,16 @@ class result extends Model
      * @var string
      */
     public $health;
+
+    /**
+     * @var string
+     */
+    public $phase;
+
+    /**
+     * @var string
+     */
+    public $ilmExplain;
     protected $_name = [
         'isManaged'     => 'isManaged',
         'createTime'    => 'createTime',
@@ -44,6 +54,8 @@ class result extends Model
         'managedStatus' => 'managedStatus',
         'name'          => 'name',
         'health'        => 'health',
+        'phase'         => 'phase',
+        'ilmExplain'    => 'ilmExplain',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class result extends Model
         }
         if (null !== $this->health) {
             $res['health'] = $this->health;
+        }
+        if (null !== $this->phase) {
+            $res['phase'] = $this->phase;
+        }
+        if (null !== $this->ilmExplain) {
+            $res['ilmExplain'] = $this->ilmExplain;
         }
 
         return $res;
@@ -100,6 +118,12 @@ class result extends Model
         }
         if (isset($map['health'])) {
             $model->health = $map['health'];
+        }
+        if (isset($map['phase'])) {
+            $model->phase = $map['phase'];
+        }
+        if (isset($map['ilmExplain'])) {
+            $model->ilmExplain = $map['ilmExplain'];
         }
 
         return $model;
