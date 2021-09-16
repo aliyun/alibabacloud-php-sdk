@@ -38,7 +38,7 @@ class data extends Model
     public $webhookLink;
 
     /**
-     * @description WEIXIN_GROUP 企微群 钉钉群
+     * @description WEIXIN_GROUP 微信 DING_GROUP 钉钉 FEISHU_GROUP飞书
      *
      * @var string
      */
@@ -64,6 +64,13 @@ class data extends Model
      * @var int
      */
     public $serviceGroupId;
+
+    /**
+     * @description 创建时间
+     *
+     * @var string
+     */
+    public $createTime;
     protected $_name = [
         'updateTime'              => 'updateTime',
         'users'                   => 'users',
@@ -73,6 +80,7 @@ class data extends Model
         'enableWebhook'           => 'enableWebhook',
         'serviceGroupName'        => 'serviceGroupName',
         'serviceGroupId'          => 'serviceGroupId',
+        'createTime'              => 'createTime',
     ];
 
     public function validate()
@@ -111,6 +119,9 @@ class data extends Model
         }
         if (null !== $this->serviceGroupId) {
             $res['serviceGroupId'] = $this->serviceGroupId;
+        }
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
         }
 
         return $res;
@@ -153,6 +164,9 @@ class data extends Model
         }
         if (isset($map['serviceGroupId'])) {
             $model->serviceGroupId = $map['serviceGroupId'];
+        }
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
         }
 
         return $model;

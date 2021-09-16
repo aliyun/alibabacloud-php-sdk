@@ -30,20 +30,32 @@ class ListAlertsRequest extends Model
     public $alertName;
 
     /**
+     * @description 当前页
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 页大小
+     *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description 报警来源
+     *
+     * @var string
+     */
+    public $alertSourceName;
     protected $_name = [
         'alertLevel'       => 'alertLevel',
         'relatedServiceId' => 'relatedServiceId',
         'alertName'        => 'alertName',
         'pageNumber'       => 'pageNumber',
         'pageSize'         => 'pageSize',
+        'alertSourceName'  => 'alertSourceName',
     ];
 
     public function validate()
@@ -67,6 +79,9 @@ class ListAlertsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->alertSourceName) {
+            $res['alertSourceName'] = $this->alertSourceName;
         }
 
         return $res;
@@ -94,6 +109,9 @@ class ListAlertsRequest extends Model
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['alertSourceName'])) {
+            $model->alertSourceName = $map['alertSourceName'];
         }
 
         return $model;

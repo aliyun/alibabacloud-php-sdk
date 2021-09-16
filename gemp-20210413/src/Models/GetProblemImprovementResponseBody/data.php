@@ -87,6 +87,13 @@ class data extends Model
     public $replayDutyUserId;
 
     /**
+     * @description 复盘负责人手机号
+     *
+     * @var string
+     */
+    public $replayDutyUserPhone;
+
+    /**
      * @description 故障责任部门
      *
      * @var string
@@ -99,6 +106,13 @@ class data extends Model
      * @var string
      */
     public $dutyUserName;
+
+    /**
+     * @description 故障责任人手机号
+     *
+     * @var string
+     */
+    public $dutyUserPhone;
 
     /**
      * @description 复盘负责人名称
@@ -135,24 +149,26 @@ class data extends Model
      */
     public $measureList;
     protected $_name = [
-        'problemId'          => 'problemId',
-        'problemReason'      => 'problemReason',
-        'recentActivity'     => 'recentActivity',
-        'injectionMode'      => 'injectionMode',
-        'recoveryMode'       => 'recoveryMode',
-        'discoverSource'     => 'discoverSource',
-        'userReport'         => 'userReport',
-        'monitorSourceName'  => 'monitorSourceName',
-        'relationChanges'    => 'relationChanges',
-        'dutyUserId'         => 'dutyUserId',
-        'replayDutyUserId'   => 'replayDutyUserId',
-        'dutyDepartmentId'   => 'dutyDepartmentId',
-        'dutyUserName'       => 'dutyUserName',
-        'replayDutyUserName' => 'replayDutyUserName',
-        'remark'             => 'remark',
-        'isManual'           => 'isManual',
-        'dutyDepartmentName' => 'dutyDepartmentName',
-        'measureList'        => 'measureList',
+        'problemId'           => 'problemId',
+        'problemReason'       => 'problemReason',
+        'recentActivity'      => 'recentActivity',
+        'injectionMode'       => 'injectionMode',
+        'recoveryMode'        => 'recoveryMode',
+        'discoverSource'      => 'discoverSource',
+        'userReport'          => 'userReport',
+        'monitorSourceName'   => 'monitorSourceName',
+        'relationChanges'     => 'relationChanges',
+        'dutyUserId'          => 'dutyUserId',
+        'replayDutyUserId'    => 'replayDutyUserId',
+        'replayDutyUserPhone' => 'replayDutyUserPhone',
+        'dutyDepartmentId'    => 'dutyDepartmentId',
+        'dutyUserName'        => 'dutyUserName',
+        'dutyUserPhone'       => 'dutyUserPhone',
+        'replayDutyUserName'  => 'replayDutyUserName',
+        'remark'              => 'remark',
+        'isManual'            => 'isManual',
+        'dutyDepartmentName'  => 'dutyDepartmentName',
+        'measureList'         => 'measureList',
     ];
 
     public function validate()
@@ -195,11 +211,17 @@ class data extends Model
         if (null !== $this->replayDutyUserId) {
             $res['replayDutyUserId'] = $this->replayDutyUserId;
         }
+        if (null !== $this->replayDutyUserPhone) {
+            $res['replayDutyUserPhone'] = $this->replayDutyUserPhone;
+        }
         if (null !== $this->dutyDepartmentId) {
             $res['dutyDepartmentId'] = $this->dutyDepartmentId;
         }
         if (null !== $this->dutyUserName) {
             $res['dutyUserName'] = $this->dutyUserName;
+        }
+        if (null !== $this->dutyUserPhone) {
+            $res['dutyUserPhone'] = $this->dutyUserPhone;
         }
         if (null !== $this->replayDutyUserName) {
             $res['replayDutyUserName'] = $this->replayDutyUserName;
@@ -267,11 +289,17 @@ class data extends Model
         if (isset($map['replayDutyUserId'])) {
             $model->replayDutyUserId = $map['replayDutyUserId'];
         }
+        if (isset($map['replayDutyUserPhone'])) {
+            $model->replayDutyUserPhone = $map['replayDutyUserPhone'];
+        }
         if (isset($map['dutyDepartmentId'])) {
             $model->dutyDepartmentId = $map['dutyDepartmentId'];
         }
         if (isset($map['dutyUserName'])) {
             $model->dutyUserName = $map['dutyUserName'];
+        }
+        if (isset($map['dutyUserPhone'])) {
+            $model->dutyUserPhone = $map['dutyUserPhone'];
         }
         if (isset($map['replayDutyUserName'])) {
             $model->replayDutyUserName = $map['replayDutyUserName'];

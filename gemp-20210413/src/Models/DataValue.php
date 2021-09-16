@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DataValue extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description 配置描述
      *
      * @var string
@@ -49,25 +59,15 @@ class DataValue extends Model
      * @var bool
      */
     public $requirement;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $description;
     protected $_name = [
+        'code'              => 'code',
+        'description'       => 'description',
         'configDescription' => 'configDescription',
         'configCode'        => 'configCode',
         'parentCode'        => 'parentCode',
         'configKey'         => 'configKey',
         'configValue'       => 'configValue',
         'requirement'       => 'requirement',
-        'code'              => 'code',
-        'description'       => 'description',
     ];
 
     public function validate()
@@ -77,6 +77,12 @@ class DataValue extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
         if (null !== $this->configDescription) {
             $res['configDescription'] = $this->configDescription;
         }
@@ -95,12 +101,6 @@ class DataValue extends Model
         if (null !== $this->requirement) {
             $res['requirement'] = $this->requirement;
         }
-        if (null !== $this->code) {
-            $res['code'] = $this->code;
-        }
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
-        }
 
         return $res;
     }
@@ -113,6 +113,12 @@ class DataValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
         if (isset($map['configDescription'])) {
             $model->configDescription = $map['configDescription'];
         }
@@ -130,12 +136,6 @@ class DataValue extends Model
         }
         if (isset($map['requirement'])) {
             $model->requirement = $map['requirement'];
-        }
-        if (isset($map['code'])) {
-            $model->code = $map['code'];
-        }
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
         }
 
         return $model;

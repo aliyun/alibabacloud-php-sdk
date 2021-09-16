@@ -17,6 +17,13 @@ class CreateRouteRuleRequest extends Model
     public $ruleName;
 
     /**
+     * @description 启用状态
+     *
+     * @var string
+     */
+    public $enableStatus;
+
+    /**
      * @description 关联服务ID
      *
      * @var int
@@ -101,6 +108,7 @@ class CreateRouteRuleRequest extends Model
     public $clientToken;
     protected $_name = [
         'ruleName'         => 'ruleName',
+        'enableStatus'     => 'enableStatus',
         'relatedServiceId' => 'relatedServiceId',
         'routeType'        => 'routeType',
         'incidentLevel'    => 'incidentLevel',
@@ -124,6 +132,9 @@ class CreateRouteRuleRequest extends Model
         $res = [];
         if (null !== $this->ruleName) {
             $res['ruleName'] = $this->ruleName;
+        }
+        if (null !== $this->enableStatus) {
+            $res['enableStatus'] = $this->enableStatus;
         }
         if (null !== $this->relatedServiceId) {
             $res['relatedServiceId'] = $this->relatedServiceId;
@@ -181,6 +192,9 @@ class CreateRouteRuleRequest extends Model
         $model = new self();
         if (isset($map['ruleName'])) {
             $model->ruleName = $map['ruleName'];
+        }
+        if (isset($map['enableStatus'])) {
+            $model->enableStatus = $map['enableStatus'];
         }
         if (isset($map['relatedServiceId'])) {
             $model->relatedServiceId = $map['relatedServiceId'];

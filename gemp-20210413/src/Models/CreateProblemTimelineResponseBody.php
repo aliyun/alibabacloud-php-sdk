@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateProblemTimelineResponseBody extends Model
 {
     /**
+     * @description id of the request
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Object
+     *
      * @var data
      */
     public $data;

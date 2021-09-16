@@ -17,6 +17,8 @@ class ListServiceGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 服务组列表
+     *
      * @var data[]
      */
     public $data;

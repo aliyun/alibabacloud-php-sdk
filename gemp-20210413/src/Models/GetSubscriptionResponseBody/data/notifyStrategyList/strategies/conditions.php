@@ -28,10 +28,18 @@ class conditions extends Model
      * @var string
      */
     public $level;
+
+    /**
+     * @description 事件动作
+     *
+     * @var string
+     */
+    public $action;
     protected $_name = [
         'effection'         => 'effection',
         'problemNotifyType' => 'problemNotifyType',
         'level'             => 'level',
+        'action'            => 'action',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class conditions extends Model
         }
         if (null !== $this->level) {
             $res['level'] = $this->level;
+        }
+        if (null !== $this->action) {
+            $res['action'] = $this->action;
         }
 
         return $res;
@@ -70,6 +81,9 @@ class conditions extends Model
         }
         if (isset($map['level'])) {
             $model->level = $map['level'];
+        }
+        if (isset($map['action'])) {
+            $model->action = $map['action'];
         }
 
         return $model;

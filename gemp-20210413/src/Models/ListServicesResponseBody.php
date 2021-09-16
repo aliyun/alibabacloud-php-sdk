@@ -33,7 +33,7 @@ class ListServicesResponseBody extends Model
      *
      * @var int
      */
-    public $pageSIze;
+    public $pageSize;
 
     /**
      * @description 总条数
@@ -45,7 +45,7 @@ class ListServicesResponseBody extends Model
         'requestId'  => 'requestId',
         'data'       => 'data',
         'pageNumber' => 'pageNumber',
-        'pageSIze'   => 'pageSIze',
+        'pageSize'   => 'pageSize',
         'totalCount' => 'totalCount',
     ];
 
@@ -71,8 +71,8 @@ class ListServicesResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->pageSIze) {
-            $res['pageSIze'] = $this->pageSIze;
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
         }
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
@@ -104,8 +104,8 @@ class ListServicesResponseBody extends Model
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
-        if (isset($map['pageSIze'])) {
-            $model->pageSIze = $map['pageSIze'];
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
         }
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];

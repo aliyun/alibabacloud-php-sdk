@@ -49,6 +49,20 @@ class data extends Model
      * @var int
      */
     public $sourceEventCount;
+
+    /**
+     * @description 报警源
+     *
+     * @var string
+     */
+    public $alertSourceName;
+
+    /**
+     * @description 关联流转规则ID
+     *
+     * @var int
+     */
+    public $routeRuleId;
     protected $_name = [
         'alertId'            => 'alertId',
         'createTime'         => 'createTime',
@@ -56,6 +70,8 @@ class data extends Model
         'alertLevel'         => 'alertLevel',
         'title'              => 'title',
         'sourceEventCount'   => 'sourceEventCount',
+        'alertSourceName'    => 'alertSourceName',
+        'routeRuleId'        => 'routeRuleId',
     ];
 
     public function validate()
@@ -82,6 +98,12 @@ class data extends Model
         }
         if (null !== $this->sourceEventCount) {
             $res['sourceEventCount'] = $this->sourceEventCount;
+        }
+        if (null !== $this->alertSourceName) {
+            $res['alertSourceName'] = $this->alertSourceName;
+        }
+        if (null !== $this->routeRuleId) {
+            $res['routeRuleId'] = $this->routeRuleId;
         }
 
         return $res;
@@ -112,6 +134,12 @@ class data extends Model
         }
         if (isset($map['sourceEventCount'])) {
             $model->sourceEventCount = $map['sourceEventCount'];
+        }
+        if (isset($map['alertSourceName'])) {
+            $model->alertSourceName = $map['alertSourceName'];
+        }
+        if (isset($map['routeRuleId'])) {
+            $model->routeRuleId = $map['routeRuleId'];
         }
 
         return $model;

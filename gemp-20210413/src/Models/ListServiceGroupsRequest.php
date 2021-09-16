@@ -42,12 +42,20 @@ class ListServiceGroupsRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @description 是否已经排班
+     *
+     * @var bool
+     */
+    public $isScheduled;
     protected $_name = [
         'queryName'   => 'queryName',
         'queryType'   => 'queryType',
         'pageNumber'  => 'pageNumber',
         'pageSize'    => 'pageSize',
         'clientToken' => 'clientToken',
+        'isScheduled' => 'isScheduled',
     ];
 
     public function validate()
@@ -71,6 +79,9 @@ class ListServiceGroupsRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->isScheduled) {
+            $res['isScheduled'] = $this->isScheduled;
         }
 
         return $res;
@@ -98,6 +109,9 @@ class ListServiceGroupsRequest extends Model
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['isScheduled'])) {
+            $model->isScheduled = $map['isScheduled'];
         }
 
         return $model;

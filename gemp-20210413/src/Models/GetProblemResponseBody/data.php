@@ -129,6 +129,13 @@ class data extends Model
     public $mainHandlerId;
 
     /**
+     * @description 主要处理人手机号
+     *
+     * @var string
+     */
+    public $mainHandlerPhone;
+
+    /**
      * @description 舆情反馈
      *
      * @var string
@@ -221,6 +228,7 @@ class data extends Model
         'preliminaryReason'           => 'preliminaryReason',
         'mainHandler'                 => 'mainHandler',
         'mainHandlerId'               => 'mainHandlerId',
+        'mainHandlerPhone'            => 'mainHandlerPhone',
         'feedback'                    => 'feedback',
         'cancelReasonDescription'     => 'cancelReasonDescription',
         'cancelReason'                => 'cancelReason',
@@ -288,6 +296,9 @@ class data extends Model
         }
         if (null !== $this->mainHandlerId) {
             $res['mainHandlerId'] = $this->mainHandlerId;
+        }
+        if (null !== $this->mainHandlerPhone) {
+            $res['mainHandlerPhone'] = $this->mainHandlerPhone;
         }
         if (null !== $this->feedback) {
             $res['feedback'] = $this->feedback;
@@ -429,6 +440,9 @@ class data extends Model
         }
         if (isset($map['mainHandlerId'])) {
             $model->mainHandlerId = $map['mainHandlerId'];
+        }
+        if (isset($map['mainHandlerPhone'])) {
+            $model->mainHandlerPhone = $map['mainHandlerPhone'];
         }
         if (isset($map['feedback'])) {
             $model->feedback = $map['feedback'];

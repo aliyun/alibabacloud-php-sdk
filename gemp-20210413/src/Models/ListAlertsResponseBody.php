@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListAlertsResponseBody extends Model
 {
     /**
+     * @description 请求ID
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 报警列表
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description 总条数
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description 当前页
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 页的大小
+     *
      * @var int
      */
     public $pageSize;

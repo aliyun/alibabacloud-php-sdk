@@ -63,6 +63,13 @@ class CreateIncidentRequest extends Model
      * @var string[]
      */
     public $channels;
+
+    /**
+     * @description 服务组Id
+     *
+     * @var int
+     */
+    public $serviceGroupId;
     protected $_name = [
         'incidentLevel'       => 'incidentLevel',
         'clientToken'         => 'clientToken',
@@ -72,6 +79,7 @@ class CreateIncidentRequest extends Model
         'assignUserId'        => 'assignUserId',
         'incidentDescription' => 'incidentDescription',
         'channels'            => 'channels',
+        'serviceGroupId'      => 'serviceGroupId',
     ];
 
     public function validate()
@@ -104,6 +112,9 @@ class CreateIncidentRequest extends Model
         }
         if (null !== $this->channels) {
             $res['channels'] = $this->channels;
+        }
+        if (null !== $this->serviceGroupId) {
+            $res['serviceGroupId'] = $this->serviceGroupId;
         }
 
         return $res;
@@ -142,6 +153,9 @@ class CreateIncidentRequest extends Model
             if (!empty($map['channels'])) {
                 $model->channels = $map['channels'];
             }
+        }
+        if (isset($map['serviceGroupId'])) {
+            $model->serviceGroupId = $map['serviceGroupId'];
         }
 
         return $model;

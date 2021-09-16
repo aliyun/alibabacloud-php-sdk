@@ -28,10 +28,18 @@ class data extends Model
      * @var string
      */
     public $createRamName;
+
+    /**
+     * @description 操作人手机号
+     *
+     * @var string
+     */
+    public $createUserPhone;
     protected $_name = [
-        'description'   => 'description',
-        'createTime'    => 'createTime',
-        'createRamName' => 'createRamName',
+        'description'     => 'description',
+        'createTime'      => 'createTime',
+        'createRamName'   => 'createRamName',
+        'createUserPhone' => 'createUserPhone',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class data extends Model
         }
         if (null !== $this->createRamName) {
             $res['createRamName'] = $this->createRamName;
+        }
+        if (null !== $this->createUserPhone) {
+            $res['createUserPhone'] = $this->createUserPhone;
         }
 
         return $res;
@@ -70,6 +81,9 @@ class data extends Model
         }
         if (isset($map['createRamName'])) {
             $model->createRamName = $map['createRamName'];
+        }
+        if (isset($map['createUserPhone'])) {
+            $model->createUserPhone = $map['createUserPhone'];
         }
 
         return $model;
