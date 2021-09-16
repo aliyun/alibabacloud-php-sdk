@@ -11,15 +11,15 @@ class AddVodTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $vodTemplateId;
 
     /**
      * @var string
      */
-    public $vodTemplateId;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'vodTemplateId' => 'VodTemplateId',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AddVodTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->vodTemplateId) {
             $res['VodTemplateId'] = $this->vodTemplateId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class AddVodTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['VodTemplateId'])) {
             $model->vodTemplateId = $map['VodTemplateId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

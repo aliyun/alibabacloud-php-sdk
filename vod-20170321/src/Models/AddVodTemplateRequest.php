@@ -21,11 +21,6 @@ class AddVodTemplateRequest extends Model
     /**
      * @var string
      */
-    public $subTemplateType;
-
-    /**
-     * @var string
-     */
     public $templateConfig;
 
     /**
@@ -33,11 +28,10 @@ class AddVodTemplateRequest extends Model
      */
     public $appId;
     protected $_name = [
-        'name'            => 'Name',
-        'templateType'    => 'TemplateType',
-        'subTemplateType' => 'SubTemplateType',
-        'templateConfig'  => 'TemplateConfig',
-        'appId'           => 'AppId',
+        'name'           => 'Name',
+        'templateType'   => 'TemplateType',
+        'templateConfig' => 'TemplateConfig',
+        'appId'          => 'AppId',
     ];
 
     public function validate()
@@ -52,9 +46,6 @@ class AddVodTemplateRequest extends Model
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
-        }
-        if (null !== $this->subTemplateType) {
-            $res['SubTemplateType'] = $this->subTemplateType;
         }
         if (null !== $this->templateConfig) {
             $res['TemplateConfig'] = $this->templateConfig;
@@ -79,9 +70,6 @@ class AddVodTemplateRequest extends Model
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
-        }
-        if (isset($map['SubTemplateType'])) {
-            $model->subTemplateType = $map['SubTemplateType'];
         }
         if (isset($map['TemplateConfig'])) {
             $model->templateConfig = $map['TemplateConfig'];

@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetAttachedMediaInfoResponseBody extends Model
 {
     /**
-     * @var string[]
-     */
-    public $nonExistMediaIds;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string[]
+     */
+    public $nonExistMediaIds;
 
     /**
      * @var attachedMediaList[]
      */
     public $attachedMediaList;
     protected $_name = [
-        'nonExistMediaIds'  => 'NonExistMediaIds',
         'requestId'         => 'RequestId',
+        'nonExistMediaIds'  => 'NonExistMediaIds',
         'attachedMediaList' => 'AttachedMediaList',
     ];
 
@@ -36,11 +36,11 @@ class GetAttachedMediaInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nonExistMediaIds) {
-            $res['NonExistMediaIds'] = $this->nonExistMediaIds;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->nonExistMediaIds) {
+            $res['NonExistMediaIds'] = $this->nonExistMediaIds;
         }
         if (null !== $this->attachedMediaList) {
             $res['AttachedMediaList'] = [];
@@ -63,13 +63,13 @@ class GetAttachedMediaInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['NonExistMediaIds'])) {
             if (!empty($map['NonExistMediaIds'])) {
                 $model->nonExistMediaIds = $map['NonExistMediaIds'];
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['AttachedMediaList'])) {
             if (!empty($map['AttachedMediaList'])) {

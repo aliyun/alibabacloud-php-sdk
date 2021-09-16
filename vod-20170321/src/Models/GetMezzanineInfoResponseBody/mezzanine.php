@@ -13,17 +13,12 @@ class mezzanine extends Model
     /**
      * @var string
      */
-    public $status;
+    public $creationTime;
 
     /**
      * @var string
      */
-    public $creationTime;
-
-    /**
-     * @var videoStreamList[]
-     */
-    public $videoStreamList;
+    public $status;
 
     /**
      * @var string
@@ -43,17 +38,12 @@ class mezzanine extends Model
     /**
      * @var string
      */
-    public $fileName;
+    public $bitrate;
 
     /**
      * @var string
      */
-    public $bitrate;
-
-    /**
-     * @var audioStreamList[]
-     */
-    public $audioStreamList;
+    public $fileName;
 
     /**
      * @var string
@@ -79,21 +69,31 @@ class mezzanine extends Model
      * @var string
      */
     public $fps;
+
+    /**
+     * @var audioStreamList[]
+     */
+    public $audioStreamList;
+
+    /**
+     * @var videoStreamList[]
+     */
+    public $videoStreamList;
     protected $_name = [
-        'status'          => 'Status',
         'creationTime'    => 'CreationTime',
-        'videoStreamList' => 'VideoStreamList',
+        'status'          => 'Status',
         'fileURL'         => 'FileURL',
         'videoId'         => 'VideoId',
         'height'          => 'Height',
-        'fileName'        => 'FileName',
         'bitrate'         => 'Bitrate',
-        'audioStreamList' => 'AudioStreamList',
+        'fileName'        => 'FileName',
         'outputType'      => 'OutputType',
         'width'           => 'Width',
         'size'            => 'Size',
         'duration'        => 'Duration',
         'fps'             => 'Fps',
+        'audioStreamList' => 'AudioStreamList',
+        'videoStreamList' => 'VideoStreamList',
     ];
 
     public function validate()
@@ -103,20 +103,11 @@ class mezzanine extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->videoStreamList) {
-            $res['VideoStreamList'] = [];
-            if (null !== $this->videoStreamList && \is_array($this->videoStreamList)) {
-                $n = 0;
-                foreach ($this->videoStreamList as $item) {
-                    $res['VideoStreamList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->fileURL) {
             $res['FileURL'] = $this->fileURL;
@@ -127,20 +118,11 @@ class mezzanine extends Model
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
-        if (null !== $this->fileName) {
-            $res['FileName'] = $this->fileName;
-        }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
-        if (null !== $this->audioStreamList) {
-            $res['AudioStreamList'] = [];
-            if (null !== $this->audioStreamList && \is_array($this->audioStreamList)) {
-                $n = 0;
-                foreach ($this->audioStreamList as $item) {
-                    $res['AudioStreamList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
@@ -157,6 +139,24 @@ class mezzanine extends Model
         if (null !== $this->fps) {
             $res['Fps'] = $this->fps;
         }
+        if (null !== $this->audioStreamList) {
+            $res['AudioStreamList'] = [];
+            if (null !== $this->audioStreamList && \is_array($this->audioStreamList)) {
+                $n = 0;
+                foreach ($this->audioStreamList as $item) {
+                    $res['AudioStreamList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->videoStreamList) {
+            $res['VideoStreamList'] = [];
+            if (null !== $this->videoStreamList && \is_array($this->videoStreamList)) {
+                $n = 0;
+                foreach ($this->videoStreamList as $item) {
+                    $res['VideoStreamList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -169,20 +169,11 @@ class mezzanine extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['VideoStreamList'])) {
-            if (!empty($map['VideoStreamList'])) {
-                $model->videoStreamList = [];
-                $n                      = 0;
-                foreach ($map['VideoStreamList'] as $item) {
-                    $model->videoStreamList[$n++] = null !== $item ? videoStreamList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['FileURL'])) {
             $model->fileURL = $map['FileURL'];
@@ -193,20 +184,11 @@ class mezzanine extends Model
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
-        if (isset($map['FileName'])) {
-            $model->fileName = $map['FileName'];
-        }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
-        if (isset($map['AudioStreamList'])) {
-            if (!empty($map['AudioStreamList'])) {
-                $model->audioStreamList = [];
-                $n                      = 0;
-                foreach ($map['AudioStreamList'] as $item) {
-                    $model->audioStreamList[$n++] = null !== $item ? audioStreamList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];
@@ -222,6 +204,24 @@ class mezzanine extends Model
         }
         if (isset($map['Fps'])) {
             $model->fps = $map['Fps'];
+        }
+        if (isset($map['AudioStreamList'])) {
+            if (!empty($map['AudioStreamList'])) {
+                $model->audioStreamList = [];
+                $n                      = 0;
+                foreach ($map['AudioStreamList'] as $item) {
+                    $model->audioStreamList[$n++] = null !== $item ? audioStreamList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['VideoStreamList'])) {
+            if (!empty($map['VideoStreamList'])) {
+                $model->videoStreamList = [];
+                $n                      = 0;
+                foreach ($map['VideoStreamList'] as $item) {
+                    $model->videoStreamList[$n++] = null !== $item ? videoStreamList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetAIImageJobsResponseBody extends Model
 {
     /**
-     * @var AIImageJobList[]
-     */
-    public $AIImageJobList;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var AIImageJobList[]
+     */
+    public $AIImageJobList;
     protected $_name = [
-        'AIImageJobList' => 'AIImageJobList',
         'requestId'      => 'RequestId',
+        'AIImageJobList' => 'AIImageJobList',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class GetAIImageJobsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->AIImageJobList) {
             $res['AIImageJobList'] = [];
             if (null !== $this->AIImageJobList && \is_array($this->AIImageJobList)) {
@@ -38,9 +41,6 @@ class GetAIImageJobsResponseBody extends Model
                     $res['AIImageJobList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class GetAIImageJobsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['AIImageJobList'])) {
             if (!empty($map['AIImageJobList'])) {
                 $model->AIImageJobList = [];
@@ -62,9 +65,6 @@ class GetAIImageJobsResponseBody extends Model
                     $model->AIImageJobList[$n++] = null !== $item ? AIImageJobList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

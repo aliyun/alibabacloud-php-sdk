@@ -15,18 +15,18 @@ class GetTranscodeSummaryResponseBody extends Model
     public $requestId;
 
     /**
-     * @var transcodeSummaryList[]
-     */
-    public $transcodeSummaryList;
-
-    /**
      * @var string[]
      */
     public $nonExistVideoIds;
+
+    /**
+     * @var transcodeSummaryList[]
+     */
+    public $transcodeSummaryList;
     protected $_name = [
         'requestId'            => 'RequestId',
-        'transcodeSummaryList' => 'TranscodeSummaryList',
         'nonExistVideoIds'     => 'NonExistVideoIds',
+        'transcodeSummaryList' => 'TranscodeSummaryList',
     ];
 
     public function validate()
@@ -39,6 +39,9 @@ class GetTranscodeSummaryResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->nonExistVideoIds) {
+            $res['NonExistVideoIds'] = $this->nonExistVideoIds;
+        }
         if (null !== $this->transcodeSummaryList) {
             $res['TranscodeSummaryList'] = [];
             if (null !== $this->transcodeSummaryList && \is_array($this->transcodeSummaryList)) {
@@ -47,9 +50,6 @@ class GetTranscodeSummaryResponseBody extends Model
                     $res['TranscodeSummaryList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nonExistVideoIds) {
-            $res['NonExistVideoIds'] = $this->nonExistVideoIds;
         }
 
         return $res;
@@ -66,6 +66,11 @@ class GetTranscodeSummaryResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['NonExistVideoIds'])) {
+            if (!empty($map['NonExistVideoIds'])) {
+                $model->nonExistVideoIds = $map['NonExistVideoIds'];
+            }
+        }
         if (isset($map['TranscodeSummaryList'])) {
             if (!empty($map['TranscodeSummaryList'])) {
                 $model->transcodeSummaryList = [];
@@ -73,11 +78,6 @@ class GetTranscodeSummaryResponseBody extends Model
                 foreach ($map['TranscodeSummaryList'] as $item) {
                     $model->transcodeSummaryList[$n++] = null !== $item ? transcodeSummaryList::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['NonExistVideoIds'])) {
-            if (!empty($map['NonExistVideoIds'])) {
-                $model->nonExistVideoIds = $map['NonExistVideoIds'];
             }
         }
 

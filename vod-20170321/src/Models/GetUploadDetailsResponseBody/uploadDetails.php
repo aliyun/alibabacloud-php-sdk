@@ -11,7 +11,7 @@ class uploadDetails extends Model
     /**
      * @var string
      */
-    public $uploadSource;
+    public $status;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class uploadDetails extends Model
     /**
      * @var string
      */
-    public $status;
+    public $uploadSource;
 
     /**
      * @var string
@@ -73,9 +73,9 @@ class uploadDetails extends Model
      */
     public $fileSize;
     protected $_name = [
-        'uploadSource'     => 'UploadSource',
-        'creationTime'     => 'CreationTime',
         'status'           => 'Status',
+        'creationTime'     => 'CreationTime',
+        'uploadSource'     => 'UploadSource',
         'uploadIP'         => 'UploadIP',
         'deviceModel'      => 'DeviceModel',
         'modificationTime' => 'ModificationTime',
@@ -95,14 +95,14 @@ class uploadDetails extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uploadSource) {
-            $res['UploadSource'] = $this->uploadSource;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->uploadSource) {
+            $res['UploadSource'] = $this->uploadSource;
         }
         if (null !== $this->uploadIP) {
             $res['UploadIP'] = $this->uploadIP;
@@ -146,14 +146,14 @@ class uploadDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UploadSource'])) {
-            $model->uploadSource = $map['UploadSource'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['UploadSource'])) {
+            $model->uploadSource = $map['UploadSource'];
         }
         if (isset($map['UploadIP'])) {
             $model->uploadIP = $map['UploadIP'];

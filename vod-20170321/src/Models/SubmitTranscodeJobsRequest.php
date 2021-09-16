@@ -42,11 +42,6 @@ class SubmitTranscodeJobsRequest extends Model
      * @var string
      */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $fileUrl;
     protected $_name = [
         'videoId'         => 'VideoId',
         'templateGroupId' => 'TemplateGroupId',
@@ -55,7 +50,6 @@ class SubmitTranscodeJobsRequest extends Model
         'overrideParams'  => 'OverrideParams',
         'priority'        => 'Priority',
         'userData'        => 'UserData',
-        'fileUrl'         => 'FileUrl',
     ];
 
     public function validate()
@@ -85,9 +79,6 @@ class SubmitTranscodeJobsRequest extends Model
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
         }
 
         return $res;
@@ -121,9 +112,6 @@ class SubmitTranscodeJobsRequest extends Model
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['FileUrl'])) {
-            $model->fileUrl = $map['FileUrl'];
         }
 
         return $model;

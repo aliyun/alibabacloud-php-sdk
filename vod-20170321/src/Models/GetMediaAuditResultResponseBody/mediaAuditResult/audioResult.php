@@ -11,12 +11,12 @@ class audioResult extends Model
     /**
      * @var string
      */
-    public $suggestion;
+    public $score;
 
     /**
      * @var string
      */
-    public $score;
+    public $suggestion;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class audioResult extends Model
      */
     public $scene;
     protected $_name = [
-        'suggestion' => 'Suggestion',
         'score'      => 'Score',
+        'suggestion' => 'Suggestion',
         'label'      => 'Label',
         'scene'      => 'Scene',
     ];
@@ -41,11 +41,11 @@ class audioResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
-        }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
+        }
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
@@ -65,11 +65,11 @@ class audioResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
-        }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
+        }
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];

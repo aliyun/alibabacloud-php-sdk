@@ -16,22 +16,22 @@ class securityIpList extends Model
     /**
      * @var string
      */
-    public $securityGroupName;
-
-    /**
-     * @var string
-     */
     public $ips;
 
     /**
      * @var string
      */
     public $modificationTime;
+
+    /**
+     * @var string
+     */
+    public $securityGroupName;
     protected $_name = [
         'creationTime'      => 'CreationTime',
-        'securityGroupName' => 'SecurityGroupName',
         'ips'               => 'Ips',
         'modificationTime'  => 'ModificationTime',
+        'securityGroupName' => 'SecurityGroupName',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class securityIpList extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->securityGroupName) {
-            $res['SecurityGroupName'] = $this->securityGroupName;
-        }
         if (null !== $this->ips) {
             $res['Ips'] = $this->ips;
         }
         if (null !== $this->modificationTime) {
             $res['ModificationTime'] = $this->modificationTime;
+        }
+        if (null !== $this->securityGroupName) {
+            $res['SecurityGroupName'] = $this->securityGroupName;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class securityIpList extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['SecurityGroupName'])) {
-            $model->securityGroupName = $map['SecurityGroupName'];
-        }
         if (isset($map['Ips'])) {
             $model->ips = $map['Ips'];
         }
         if (isset($map['ModificationTime'])) {
             $model->modificationTime = $map['ModificationTime'];
+        }
+        if (isset($map['SecurityGroupName'])) {
+            $model->securityGroupName = $map['SecurityGroupName'];
         }
 
         return $model;

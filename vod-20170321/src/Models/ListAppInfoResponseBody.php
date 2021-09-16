@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListAppInfoResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $total;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var appInfoList[]
      */
     public $appInfoList;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'total'       => 'Total',
+        'requestId'   => 'RequestId',
         'appInfoList' => 'AppInfoList',
     ];
 
@@ -36,11 +36,11 @@ class ListAppInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->appInfoList) {
             $res['AppInfoList'] = [];
@@ -63,11 +63,11 @@ class ListAppInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['AppInfoList'])) {
             if (!empty($map['AppInfoList'])) {

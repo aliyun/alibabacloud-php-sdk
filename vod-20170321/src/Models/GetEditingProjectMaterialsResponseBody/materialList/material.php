@@ -13,17 +13,12 @@ class material extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $status;
 
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var sprites
-     */
-    public $sprites;
+    public $creationTime;
 
     /**
      * @var int
@@ -33,12 +28,12 @@ class material extends Model
     /**
      * @var string
      */
-    public $tags;
+    public $materialType;
 
     /**
      * @var string
      */
-    public $materialType;
+    public $tags;
 
     /**
      * @var string
@@ -49,11 +44,6 @@ class material extends Model
      * @var string
      */
     public $source;
-
-    /**
-     * @var snapshots
-     */
-    public $snapshots;
 
     /**
      * @var string
@@ -94,16 +84,24 @@ class material extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var sprites
+     */
+    public $sprites;
+
+    /**
+     * @var snapshots
+     */
+    public $snapshots;
     protected $_name = [
-        'creationTime' => 'CreationTime',
         'status'       => 'Status',
-        'sprites'      => 'Sprites',
+        'creationTime' => 'CreationTime',
         'cateId'       => 'CateId',
-        'tags'         => 'Tags',
         'materialType' => 'MaterialType',
+        'tags'         => 'Tags',
         'spriteConfig' => 'SpriteConfig',
         'source'       => 'Source',
-        'snapshots'    => 'Snapshots',
         'cateName'     => 'CateName',
         'modifiedTime' => 'ModifiedTime',
         'description'  => 'Description',
@@ -112,6 +110,8 @@ class material extends Model
         'coverURL'     => 'CoverURL',
         'duration'     => 'Duration',
         'title'        => 'Title',
+        'sprites'      => 'Sprites',
+        'snapshots'    => 'Snapshots',
     ];
 
     public function validate()
@@ -121,32 +121,26 @@ class material extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->sprites) {
-            $res['Sprites'] = null !== $this->sprites ? $this->sprites->toMap() : null;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->cateId) {
             $res['CateId'] = $this->cateId;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->materialType) {
             $res['MaterialType'] = $this->materialType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->spriteConfig) {
             $res['SpriteConfig'] = $this->spriteConfig;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
-        }
-        if (null !== $this->snapshots) {
-            $res['Snapshots'] = null !== $this->snapshots ? $this->snapshots->toMap() : null;
         }
         if (null !== $this->cateName) {
             $res['CateName'] = $this->cateName;
@@ -172,6 +166,12 @@ class material extends Model
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+        if (null !== $this->sprites) {
+            $res['Sprites'] = null !== $this->sprites ? $this->sprites->toMap() : null;
+        }
+        if (null !== $this->snapshots) {
+            $res['Snapshots'] = null !== $this->snapshots ? $this->snapshots->toMap() : null;
+        }
 
         return $res;
     }
@@ -184,32 +184,26 @@ class material extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['Sprites'])) {
-            $model->sprites = sprites::fromMap($map['Sprites']);
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['CateId'])) {
             $model->cateId = $map['CateId'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
         if (isset($map['MaterialType'])) {
             $model->materialType = $map['MaterialType'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['SpriteConfig'])) {
             $model->spriteConfig = $map['SpriteConfig'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
-        }
-        if (isset($map['Snapshots'])) {
-            $model->snapshots = snapshots::fromMap($map['Snapshots']);
         }
         if (isset($map['CateName'])) {
             $model->cateName = $map['CateName'];
@@ -234,6 +228,12 @@ class material extends Model
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['Sprites'])) {
+            $model->sprites = sprites::fromMap($map['Sprites']);
+        }
+        if (isset($map['Snapshots'])) {
+            $model->snapshots = snapshots::fromMap($map['Snapshots']);
         }
 
         return $model;

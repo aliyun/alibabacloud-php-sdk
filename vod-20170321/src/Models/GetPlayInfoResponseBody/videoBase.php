@@ -42,6 +42,11 @@ class videoBase extends Model
      * @var string
      */
     public $mediaType;
+
+    /**
+     * @var string
+     */
+    public $danMuURL;
     protected $_name = [
         'creationTime' => 'CreationTime',
         'status'       => 'Status',
@@ -50,6 +55,7 @@ class videoBase extends Model
         'duration'     => 'Duration',
         'title'        => 'Title',
         'mediaType'    => 'MediaType',
+        'danMuURL'     => 'DanMuURL',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class videoBase extends Model
         }
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
+        }
+        if (null !== $this->danMuURL) {
+            $res['DanMuURL'] = $this->danMuURL;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class videoBase extends Model
         }
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
+        }
+        if (isset($map['DanMuURL'])) {
+            $model->danMuURL = $map['DanMuURL'];
         }
 
         return $model;

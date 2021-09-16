@@ -52,16 +52,6 @@ class UpdateEditingProjectRequest extends Model
      * @var string
      */
     public $coverURL;
-
-    /**
-     * @var string
-     */
-    public $FEExtend;
-
-    /**
-     * @var float
-     */
-    public $duration;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -72,8 +62,6 @@ class UpdateEditingProjectRequest extends Model
         'timeline'             => 'Timeline',
         'description'          => 'Description',
         'coverURL'             => 'CoverURL',
-        'FEExtend'             => 'FEExtend',
-        'duration'             => 'Duration',
     ];
 
     public function validate()
@@ -109,12 +97,6 @@ class UpdateEditingProjectRequest extends Model
         }
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
-        }
-        if (null !== $this->FEExtend) {
-            $res['FEExtend'] = $this->FEExtend;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
         }
 
         return $res;
@@ -154,12 +136,6 @@ class UpdateEditingProjectRequest extends Model
         }
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
-        }
-        if (isset($map['FEExtend'])) {
-            $model->FEExtend = $map['FEExtend'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
         }
 
         return $model;

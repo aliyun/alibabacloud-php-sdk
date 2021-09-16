@@ -18,24 +18,19 @@ class mediaList extends Model
     public $creationTime;
 
     /**
-     * @var video
+     * @var string
      */
-    public $video;
-
-    /**
-     * @var attachedMedia
-     */
-    public $attachedMedia;
-
-    /**
-     * @var image
-     */
-    public $image;
+    public $mediaType;
 
     /**
      * @var string
      */
-    public $mediaType;
+    public $mediaId;
+
+    /**
+     * @var video
+     */
+    public $video;
 
     /**
      * @var audio
@@ -43,17 +38,22 @@ class mediaList extends Model
     public $audio;
 
     /**
-     * @var string
+     * @var image
      */
-    public $mediaId;
+    public $image;
+
+    /**
+     * @var attachedMedia
+     */
+    public $attachedMedia;
     protected $_name = [
         'creationTime'  => 'CreationTime',
-        'video'         => 'Video',
-        'attachedMedia' => 'AttachedMedia',
-        'image'         => 'Image',
         'mediaType'     => 'MediaType',
-        'audio'         => 'Audio',
         'mediaId'       => 'MediaId',
+        'video'         => 'Video',
+        'audio'         => 'Audio',
+        'image'         => 'Image',
+        'attachedMedia' => 'AttachedMedia',
     ];
 
     public function validate()
@@ -66,23 +66,23 @@ class mediaList extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->video) {
-            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
-        }
-        if (null !== $this->attachedMedia) {
-            $res['AttachedMedia'] = null !== $this->attachedMedia ? $this->attachedMedia->toMap() : null;
-        }
-        if (null !== $this->image) {
-            $res['Image'] = null !== $this->image ? $this->image->toMap() : null;
-        }
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
+        }
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
+        }
+        if (null !== $this->video) {
+            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
         }
         if (null !== $this->audio) {
             $res['Audio'] = null !== $this->audio ? $this->audio->toMap() : null;
         }
-        if (null !== $this->mediaId) {
-            $res['MediaId'] = $this->mediaId;
+        if (null !== $this->image) {
+            $res['Image'] = null !== $this->image ? $this->image->toMap() : null;
+        }
+        if (null !== $this->attachedMedia) {
+            $res['AttachedMedia'] = null !== $this->attachedMedia ? $this->attachedMedia->toMap() : null;
         }
 
         return $res;
@@ -99,23 +99,23 @@ class mediaList extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['Video'])) {
-            $model->video = video::fromMap($map['Video']);
-        }
-        if (isset($map['AttachedMedia'])) {
-            $model->attachedMedia = attachedMedia::fromMap($map['AttachedMedia']);
-        }
-        if (isset($map['Image'])) {
-            $model->image = image::fromMap($map['Image']);
-        }
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
+        }
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
+        }
+        if (isset($map['Video'])) {
+            $model->video = video::fromMap($map['Video']);
         }
         if (isset($map['Audio'])) {
             $model->audio = audio::fromMap($map['Audio']);
         }
-        if (isset($map['MediaId'])) {
-            $model->mediaId = $map['MediaId'];
+        if (isset($map['Image'])) {
+            $model->image = image::fromMap($map['Image']);
+        }
+        if (isset($map['AttachedMedia'])) {
+            $model->attachedMedia = attachedMedia::fromMap($map['AttachedMedia']);
         }
 
         return $model;

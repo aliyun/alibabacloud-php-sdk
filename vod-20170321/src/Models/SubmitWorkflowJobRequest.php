@@ -17,15 +17,9 @@ class SubmitWorkflowJobRequest extends Model
      * @var string
      */
     public $mediaId;
-
-    /**
-     * @var string
-     */
-    public $fileUrl;
     protected $_name = [
         'workflowId' => 'WorkflowId',
         'mediaId'    => 'MediaId',
-        'fileUrl'    => 'FileUrl',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class SubmitWorkflowJobRequest extends Model
         }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
-        }
-        if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class SubmitWorkflowJobRequest extends Model
         }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
-        }
-        if (isset($map['FileUrl'])) {
-            $model->fileUrl = $map['FileUrl'];
         }
 
         return $model;

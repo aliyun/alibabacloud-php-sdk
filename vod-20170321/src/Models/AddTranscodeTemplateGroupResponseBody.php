@@ -11,15 +11,15 @@ class AddTranscodeTemplateGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $transcodeTemplateGroupId;
 
     /**
      * @var string
      */
-    public $transcodeTemplateGroupId;
+    public $requestId;
     protected $_name = [
-        'requestId'                => 'RequestId',
         'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
+        'requestId'                => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AddTranscodeTemplateGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->transcodeTemplateGroupId) {
             $res['TranscodeTemplateGroupId'] = $this->transcodeTemplateGroupId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class AddTranscodeTemplateGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['TranscodeTemplateGroupId'])) {
             $model->transcodeTemplateGroupId = $map['TranscodeTemplateGroupId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

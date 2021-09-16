@@ -15,18 +15,18 @@ class GetVideoPlayAuthResponseBody extends Model
     public $playAuth;
 
     /**
-     * @var videoMeta
-     */
-    public $videoMeta;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var videoMeta
+     */
+    public $videoMeta;
     protected $_name = [
         'playAuth'  => 'PlayAuth',
-        'videoMeta' => 'VideoMeta',
         'requestId' => 'RequestId',
+        'videoMeta' => 'VideoMeta',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class GetVideoPlayAuthResponseBody extends Model
         if (null !== $this->playAuth) {
             $res['PlayAuth'] = $this->playAuth;
         }
-        if (null !== $this->videoMeta) {
-            $res['VideoMeta'] = null !== $this->videoMeta ? $this->videoMeta->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->videoMeta) {
+            $res['VideoMeta'] = null !== $this->videoMeta ? $this->videoMeta->toMap() : null;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class GetVideoPlayAuthResponseBody extends Model
         if (isset($map['PlayAuth'])) {
             $model->playAuth = $map['PlayAuth'];
         }
-        if (isset($map['VideoMeta'])) {
-            $model->videoMeta = videoMeta::fromMap($map['VideoMeta']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VideoMeta'])) {
+            $model->videoMeta = videoMeta::fromMap($map['VideoMeta']);
         }
 
         return $model;

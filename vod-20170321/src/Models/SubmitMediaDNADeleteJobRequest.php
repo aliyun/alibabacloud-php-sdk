@@ -32,18 +32,12 @@ class SubmitMediaDNADeleteJobRequest extends Model
      * @var string
      */
     public $mediaId;
-
-    /**
-     * @var string
-     */
-    public $fpDBId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'ownerAccount'         => 'OwnerAccount',
         'mediaId'              => 'MediaId',
-        'fpDBId'               => 'FpDBId',
     ];
 
     public function validate()
@@ -67,9 +61,6 @@ class SubmitMediaDNADeleteJobRequest extends Model
         }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
-        }
-        if (null !== $this->fpDBId) {
-            $res['FpDBId'] = $this->fpDBId;
         }
 
         return $res;
@@ -97,9 +88,6 @@ class SubmitMediaDNADeleteJobRequest extends Model
         }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
-        }
-        if (isset($map['FpDBId'])) {
-            $model->fpDBId = $map['FpDBId'];
         }
 
         return $model;

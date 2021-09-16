@@ -32,18 +32,12 @@ class GetEditingProjectRequest extends Model
      * @var string
      */
     public $projectId;
-
-    /**
-     * @var int
-     */
-    public $FEExtendFlag;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'ownerAccount'         => 'OwnerAccount',
         'projectId'            => 'ProjectId',
-        'FEExtendFlag'         => 'FEExtendFlag',
     ];
 
     public function validate()
@@ -67,9 +61,6 @@ class GetEditingProjectRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->FEExtendFlag) {
-            $res['FEExtendFlag'] = $this->FEExtendFlag;
         }
 
         return $res;
@@ -97,9 +88,6 @@ class GetEditingProjectRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['FEExtendFlag'])) {
-            $model->FEExtendFlag = $map['FEExtendFlag'];
         }
 
         return $model;

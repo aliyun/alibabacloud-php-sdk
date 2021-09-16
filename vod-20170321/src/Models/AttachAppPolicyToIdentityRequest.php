@@ -27,17 +27,11 @@ class AttachAppPolicyToIdentityRequest extends Model
      * @var string
      */
     public $policyNames;
-
-    /**
-     * @var string
-     */
-    public $resourceRealOwnerId;
     protected $_name = [
-        'identityType'        => 'IdentityType',
-        'identityName'        => 'IdentityName',
-        'appId'               => 'AppId',
-        'policyNames'         => 'PolicyNames',
-        'resourceRealOwnerId' => 'ResourceRealOwnerId',
+        'identityType' => 'IdentityType',
+        'identityName' => 'IdentityName',
+        'appId'        => 'AppId',
+        'policyNames'  => 'PolicyNames',
     ];
 
     public function validate()
@@ -58,9 +52,6 @@ class AttachAppPolicyToIdentityRequest extends Model
         }
         if (null !== $this->policyNames) {
             $res['PolicyNames'] = $this->policyNames;
-        }
-        if (null !== $this->resourceRealOwnerId) {
-            $res['ResourceRealOwnerId'] = $this->resourceRealOwnerId;
         }
 
         return $res;
@@ -85,9 +76,6 @@ class AttachAppPolicyToIdentityRequest extends Model
         }
         if (isset($map['PolicyNames'])) {
             $model->policyNames = $map['PolicyNames'];
-        }
-        if (isset($map['ResourceRealOwnerId'])) {
-            $model->resourceRealOwnerId = $map['ResourceRealOwnerId'];
         }
 
         return $model;

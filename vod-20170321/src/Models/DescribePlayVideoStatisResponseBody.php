@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayVideoStatisResponseBody extends Model
 {
     /**
-     * @var videoPlayStatisDetails
-     */
-    public $videoPlayStatisDetails;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var videoPlayStatisDetails
+     */
+    public $videoPlayStatisDetails;
     protected $_name = [
-        'videoPlayStatisDetails' => 'VideoPlayStatisDetails',
         'requestId'              => 'RequestId',
+        'videoPlayStatisDetails' => 'VideoPlayStatisDetails',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribePlayVideoStatisResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoPlayStatisDetails) {
-            $res['VideoPlayStatisDetails'] = null !== $this->videoPlayStatisDetails ? $this->videoPlayStatisDetails->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->videoPlayStatisDetails) {
+            $res['VideoPlayStatisDetails'] = null !== $this->videoPlayStatisDetails ? $this->videoPlayStatisDetails->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribePlayVideoStatisResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoPlayStatisDetails'])) {
-            $model->videoPlayStatisDetails = videoPlayStatisDetails::fromMap($map['VideoPlayStatisDetails']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VideoPlayStatisDetails'])) {
+            $model->videoPlayStatisDetails = videoPlayStatisDetails::fromMap($map['VideoPlayStatisDetails']);
         }
 
         return $model;

@@ -37,11 +37,6 @@ class DescribeVodStorageDataRequest extends Model
      * @var string
      */
     public $storage;
-
-    /**
-     * @var string
-     */
-    public $interval;
     protected $_name = [
         'ownerId'     => 'OwnerId',
         'startTime'   => 'StartTime',
@@ -49,7 +44,6 @@ class DescribeVodStorageDataRequest extends Model
         'region'      => 'Region',
         'storageType' => 'StorageType',
         'storage'     => 'Storage',
-        'interval'    => 'Interval',
     ];
 
     public function validate()
@@ -76,9 +70,6 @@ class DescribeVodStorageDataRequest extends Model
         }
         if (null !== $this->storage) {
             $res['Storage'] = $this->storage;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
         }
 
         return $res;
@@ -109,9 +100,6 @@ class DescribeVodStorageDataRequest extends Model
         }
         if (isset($map['Storage'])) {
             $model->storage = $map['Storage'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
         }
 
         return $model;

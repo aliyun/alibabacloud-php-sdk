@@ -14,18 +14,12 @@ class DeleteMessageCallbackRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var int
-     */
-    public $resourceRealOwnerId;
-
-    /**
      * @var string
      */
     public $appId;
     protected $_name = [
-        'ownerAccount'        => 'OwnerAccount',
-        'resourceRealOwnerId' => 'ResourceRealOwnerId',
-        'appId'               => 'AppId',
+        'ownerAccount' => 'OwnerAccount',
+        'appId'        => 'AppId',
     ];
 
     public function validate()
@@ -37,9 +31,6 @@ class DeleteMessageCallbackRequest extends Model
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->resourceRealOwnerId) {
-            $res['ResourceRealOwnerId'] = $this->resourceRealOwnerId;
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
@@ -58,9 +49,6 @@ class DeleteMessageCallbackRequest extends Model
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['ResourceRealOwnerId'])) {
-            $model->resourceRealOwnerId = $map['ResourceRealOwnerId'];
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];

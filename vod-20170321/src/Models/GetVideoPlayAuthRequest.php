@@ -17,21 +17,9 @@ class GetVideoPlayAuthRequest extends Model
      * @var int
      */
     public $authInfoTimeout;
-
-    /**
-     * @var string
-     */
-    public $reAuthInfo;
-
-    /**
-     * @var string
-     */
-    public $playConfig;
     protected $_name = [
         'videoId'         => 'VideoId',
         'authInfoTimeout' => 'AuthInfoTimeout',
-        'reAuthInfo'      => 'ReAuthInfo',
-        'playConfig'      => 'PlayConfig',
     ];
 
     public function validate()
@@ -46,12 +34,6 @@ class GetVideoPlayAuthRequest extends Model
         }
         if (null !== $this->authInfoTimeout) {
             $res['AuthInfoTimeout'] = $this->authInfoTimeout;
-        }
-        if (null !== $this->reAuthInfo) {
-            $res['ReAuthInfo'] = $this->reAuthInfo;
-        }
-        if (null !== $this->playConfig) {
-            $res['PlayConfig'] = $this->playConfig;
         }
 
         return $res;
@@ -70,12 +52,6 @@ class GetVideoPlayAuthRequest extends Model
         }
         if (isset($map['AuthInfoTimeout'])) {
             $model->authInfoTimeout = $map['AuthInfoTimeout'];
-        }
-        if (isset($map['ReAuthInfo'])) {
-            $model->reAuthInfo = $map['ReAuthInfo'];
-        }
-        if (isset($map['PlayConfig'])) {
-            $model->playConfig = $map['PlayConfig'];
         }
 
         return $model;

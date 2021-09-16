@@ -15,18 +15,18 @@ class GetAppInfosResponseBody extends Model
     public $requestId;
 
     /**
-     * @var appInfoList[]
-     */
-    public $appInfoList;
-
-    /**
      * @var string[]
      */
     public $nonExistAppIds;
+
+    /**
+     * @var appInfoList[]
+     */
+    public $appInfoList;
     protected $_name = [
         'requestId'      => 'RequestId',
-        'appInfoList'    => 'AppInfoList',
         'nonExistAppIds' => 'NonExistAppIds',
+        'appInfoList'    => 'AppInfoList',
     ];
 
     public function validate()
@@ -39,6 +39,9 @@ class GetAppInfosResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->nonExistAppIds) {
+            $res['NonExistAppIds'] = $this->nonExistAppIds;
+        }
         if (null !== $this->appInfoList) {
             $res['AppInfoList'] = [];
             if (null !== $this->appInfoList && \is_array($this->appInfoList)) {
@@ -47,9 +50,6 @@ class GetAppInfosResponseBody extends Model
                     $res['AppInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nonExistAppIds) {
-            $res['NonExistAppIds'] = $this->nonExistAppIds;
         }
 
         return $res;
@@ -66,6 +66,11 @@ class GetAppInfosResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['NonExistAppIds'])) {
+            if (!empty($map['NonExistAppIds'])) {
+                $model->nonExistAppIds = $map['NonExistAppIds'];
+            }
+        }
         if (isset($map['AppInfoList'])) {
             if (!empty($map['AppInfoList'])) {
                 $model->appInfoList = [];
@@ -73,11 +78,6 @@ class GetAppInfosResponseBody extends Model
                 foreach ($map['AppInfoList'] as $item) {
                     $model->appInfoList[$n++] = null !== $item ? appInfoList::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['NonExistAppIds'])) {
-            if (!empty($map['NonExistAppIds'])) {
-                $model->nonExistAppIds = $map['NonExistAppIds'];
             }
         }
 

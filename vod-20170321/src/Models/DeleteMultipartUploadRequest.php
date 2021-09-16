@@ -14,11 +14,6 @@ class DeleteMultipartUploadRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var int
-     */
-    public $resourceRealOwnerId;
-
-    /**
      * @var string
      */
     public $mediaId;
@@ -28,10 +23,9 @@ class DeleteMultipartUploadRequest extends Model
      */
     public $mediaType;
     protected $_name = [
-        'ownerAccount'        => 'OwnerAccount',
-        'resourceRealOwnerId' => 'ResourceRealOwnerId',
-        'mediaId'             => 'MediaId',
-        'mediaType'           => 'MediaType',
+        'ownerAccount' => 'OwnerAccount',
+        'mediaId'      => 'MediaId',
+        'mediaType'    => 'MediaType',
     ];
 
     public function validate()
@@ -43,9 +37,6 @@ class DeleteMultipartUploadRequest extends Model
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->resourceRealOwnerId) {
-            $res['ResourceRealOwnerId'] = $this->resourceRealOwnerId;
         }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
@@ -67,9 +58,6 @@ class DeleteMultipartUploadRequest extends Model
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['ResourceRealOwnerId'])) {
-            $model->resourceRealOwnerId = $map['ResourceRealOwnerId'];
         }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];

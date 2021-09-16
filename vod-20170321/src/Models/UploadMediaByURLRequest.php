@@ -31,16 +31,6 @@ class UploadMediaByURLRequest extends Model
     /**
      * @var string
      */
-    public $priority;
-
-    /**
-     * @var string
-     */
-    public $messageCallback;
-
-    /**
-     * @var string
-     */
     public $userData;
 
     /**
@@ -57,8 +47,6 @@ class UploadMediaByURLRequest extends Model
         'templateGroupId' => 'TemplateGroupId',
         'storageLocation' => 'StorageLocation',
         'uploadMetadatas' => 'UploadMetadatas',
-        'priority'        => 'Priority',
-        'messageCallback' => 'MessageCallback',
         'userData'        => 'UserData',
         'appId'           => 'AppId',
         'workflowId'      => 'WorkflowId',
@@ -82,12 +70,6 @@ class UploadMediaByURLRequest extends Model
         }
         if (null !== $this->uploadMetadatas) {
             $res['UploadMetadatas'] = $this->uploadMetadatas;
-        }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
-        }
-        if (null !== $this->messageCallback) {
-            $res['MessageCallback'] = $this->messageCallback;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -121,12 +103,6 @@ class UploadMediaByURLRequest extends Model
         }
         if (isset($map['UploadMetadatas'])) {
             $model->uploadMetadatas = $map['UploadMetadatas'];
-        }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
-        }
-        if (isset($map['MessageCallback'])) {
-            $model->messageCallback = $map['MessageCallback'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

@@ -26,12 +26,12 @@ class outputFile extends Model
     /**
      * @var string
      */
-    public $subtitleStreamList;
+    public $height;
 
     /**
      * @var string
      */
-    public $height;
+    public $subtitleStreamList;
 
     /**
      * @var string
@@ -44,11 +44,6 @@ class outputFile extends Model
     public $audioStreamList;
 
     /**
-     * @var string[]
-     */
-    public $watermarkIdList;
-
-    /**
      * @var string
      */
     public $width;
@@ -56,12 +51,12 @@ class outputFile extends Model
     /**
      * @var string
      */
-    public $duration;
+    public $fps;
 
     /**
      * @var string
      */
-    public $fps;
+    public $duration;
 
     /**
      * @var string
@@ -72,20 +67,25 @@ class outputFile extends Model
      * @var int
      */
     public $filesize;
+
+    /**
+     * @var string[]
+     */
+    public $watermarkIdList;
     protected $_name = [
         'videoStreamList'    => 'VideoStreamList',
         'outputFileUrl'      => 'OutputFileUrl',
         'encryption'         => 'Encryption',
-        'subtitleStreamList' => 'SubtitleStreamList',
         'height'             => 'Height',
+        'subtitleStreamList' => 'SubtitleStreamList',
         'bitrate'            => 'Bitrate',
         'audioStreamList'    => 'AudioStreamList',
-        'watermarkIdList'    => 'WatermarkIdList',
         'width'              => 'Width',
-        'duration'           => 'Duration',
         'fps'                => 'Fps',
+        'duration'           => 'Duration',
         'format'             => 'Format',
         'filesize'           => 'Filesize',
+        'watermarkIdList'    => 'WatermarkIdList',
     ];
 
     public function validate()
@@ -104,11 +104,11 @@ class outputFile extends Model
         if (null !== $this->encryption) {
             $res['Encryption'] = $this->encryption;
         }
-        if (null !== $this->subtitleStreamList) {
-            $res['SubtitleStreamList'] = $this->subtitleStreamList;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+        if (null !== $this->subtitleStreamList) {
+            $res['SubtitleStreamList'] = $this->subtitleStreamList;
         }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
@@ -116,23 +116,23 @@ class outputFile extends Model
         if (null !== $this->audioStreamList) {
             $res['AudioStreamList'] = $this->audioStreamList;
         }
-        if (null !== $this->watermarkIdList) {
-            $res['WatermarkIdList'] = $this->watermarkIdList;
-        }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
         if (null !== $this->fps) {
             $res['Fps'] = $this->fps;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
         if (null !== $this->filesize) {
             $res['Filesize'] = $this->filesize;
+        }
+        if (null !== $this->watermarkIdList) {
+            $res['WatermarkIdList'] = $this->watermarkIdList;
         }
 
         return $res;
@@ -155,11 +155,11 @@ class outputFile extends Model
         if (isset($map['Encryption'])) {
             $model->encryption = $map['Encryption'];
         }
-        if (isset($map['SubtitleStreamList'])) {
-            $model->subtitleStreamList = $map['SubtitleStreamList'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['SubtitleStreamList'])) {
+            $model->subtitleStreamList = $map['SubtitleStreamList'];
         }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
@@ -167,25 +167,25 @@ class outputFile extends Model
         if (isset($map['AudioStreamList'])) {
             $model->audioStreamList = $map['AudioStreamList'];
         }
-        if (isset($map['WatermarkIdList'])) {
-            if (!empty($map['WatermarkIdList'])) {
-                $model->watermarkIdList = $map['WatermarkIdList'];
-            }
-        }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
         if (isset($map['Fps'])) {
             $model->fps = $map['Fps'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }
         if (isset($map['Filesize'])) {
             $model->filesize = $map['Filesize'];
+        }
+        if (isset($map['WatermarkIdList'])) {
+            if (!empty($map['WatermarkIdList'])) {
+                $model->watermarkIdList = $map['WatermarkIdList'];
+            }
         }
 
         return $model;

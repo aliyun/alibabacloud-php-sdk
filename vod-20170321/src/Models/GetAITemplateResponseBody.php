@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetAITemplateResponseBody extends Model
 {
     /**
-     * @var templateInfo
-     */
-    public $templateInfo;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var templateInfo
+     */
+    public $templateInfo;
     protected $_name = [
-        'templateInfo' => 'TemplateInfo',
         'requestId'    => 'RequestId',
+        'templateInfo' => 'TemplateInfo',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetAITemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateInfo) {
-            $res['TemplateInfo'] = null !== $this->templateInfo ? $this->templateInfo->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->templateInfo) {
+            $res['TemplateInfo'] = null !== $this->templateInfo ? $this->templateInfo->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetAITemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateInfo'])) {
-            $model->templateInfo = templateInfo::fromMap($map['TemplateInfo']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TemplateInfo'])) {
+            $model->templateInfo = templateInfo::fromMap($map['TemplateInfo']);
         }
 
         return $model;

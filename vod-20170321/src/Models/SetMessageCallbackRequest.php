@@ -16,11 +16,6 @@ class SetMessageCallbackRequest extends Model
     /**
      * @var string
      */
-    public $callbackSwitch;
-
-    /**
-     * @var string
-     */
     public $callbackType;
 
     /**
@@ -44,11 +39,6 @@ class SetMessageCallbackRequest extends Model
     public $authKey;
 
     /**
-     * @var int
-     */
-    public $resourceRealOwnerId;
-
-    /**
      * @var string
      */
     public $mnsEndpoint;
@@ -63,17 +53,15 @@ class SetMessageCallbackRequest extends Model
      */
     public $appId;
     protected $_name = [
-        'ownerAccount'        => 'OwnerAccount',
-        'callbackSwitch'      => 'CallbackSwitch',
-        'callbackType'        => 'CallbackType',
-        'callbackURL'         => 'CallbackURL',
-        'eventTypeList'       => 'EventTypeList',
-        'authSwitch'          => 'AuthSwitch',
-        'authKey'             => 'AuthKey',
-        'resourceRealOwnerId' => 'ResourceRealOwnerId',
-        'mnsEndpoint'         => 'MnsEndpoint',
-        'mnsQueueName'        => 'MnsQueueName',
-        'appId'               => 'AppId',
+        'ownerAccount'  => 'OwnerAccount',
+        'callbackType'  => 'CallbackType',
+        'callbackURL'   => 'CallbackURL',
+        'eventTypeList' => 'EventTypeList',
+        'authSwitch'    => 'AuthSwitch',
+        'authKey'       => 'AuthKey',
+        'mnsEndpoint'   => 'MnsEndpoint',
+        'mnsQueueName'  => 'MnsQueueName',
+        'appId'         => 'AppId',
     ];
 
     public function validate()
@@ -85,9 +73,6 @@ class SetMessageCallbackRequest extends Model
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->callbackSwitch) {
-            $res['CallbackSwitch'] = $this->callbackSwitch;
         }
         if (null !== $this->callbackType) {
             $res['CallbackType'] = $this->callbackType;
@@ -103,9 +88,6 @@ class SetMessageCallbackRequest extends Model
         }
         if (null !== $this->authKey) {
             $res['AuthKey'] = $this->authKey;
-        }
-        if (null !== $this->resourceRealOwnerId) {
-            $res['ResourceRealOwnerId'] = $this->resourceRealOwnerId;
         }
         if (null !== $this->mnsEndpoint) {
             $res['MnsEndpoint'] = $this->mnsEndpoint;
@@ -131,9 +113,6 @@ class SetMessageCallbackRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['CallbackSwitch'])) {
-            $model->callbackSwitch = $map['CallbackSwitch'];
-        }
         if (isset($map['CallbackType'])) {
             $model->callbackType = $map['CallbackType'];
         }
@@ -148,9 +127,6 @@ class SetMessageCallbackRequest extends Model
         }
         if (isset($map['AuthKey'])) {
             $model->authKey = $map['AuthKey'];
-        }
-        if (isset($map['ResourceRealOwnerId'])) {
-            $model->resourceRealOwnerId = $map['ResourceRealOwnerId'];
         }
         if (isset($map['MnsEndpoint'])) {
             $model->mnsEndpoint = $map['MnsEndpoint'];

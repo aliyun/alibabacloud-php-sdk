@@ -11,15 +11,15 @@ class RefreshVodObjectCachesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $refreshTaskId;
 
     /**
      * @var string
      */
-    public $refreshTaskId;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'refreshTaskId' => 'RefreshTaskId',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RefreshVodObjectCachesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->refreshTaskId) {
             $res['RefreshTaskId'] = $this->refreshTaskId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RefreshVodObjectCachesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['RefreshTaskId'])) {
             $model->refreshTaskId = $map['RefreshTaskId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

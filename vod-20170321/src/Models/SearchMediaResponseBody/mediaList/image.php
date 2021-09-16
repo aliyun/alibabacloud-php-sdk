@@ -11,7 +11,7 @@ class image extends Model
     /**
      * @var string
      */
-    public $status;
+    public $storageLocation;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class image extends Model
     /**
      * @var string
      */
-    public $storageLocation;
+    public $status;
 
     /**
      * @var int
@@ -68,9 +68,9 @@ class image extends Model
      */
     public $imageId;
     protected $_name = [
-        'status'           => 'Status',
-        'creationTime'     => 'CreationTime',
         'storageLocation'  => 'StorageLocation',
+        'creationTime'     => 'CreationTime',
+        'status'           => 'Status',
         'cateId'           => 'CateId',
         'tags'             => 'Tags',
         'modificationTime' => 'ModificationTime',
@@ -89,14 +89,14 @@ class image extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->storageLocation) {
+            $res['StorageLocation'] = $this->storageLocation;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->storageLocation) {
-            $res['StorageLocation'] = $this->storageLocation;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->cateId) {
             $res['CateId'] = $this->cateId;
@@ -137,14 +137,14 @@ class image extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['StorageLocation'])) {
+            $model->storageLocation = $map['StorageLocation'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['StorageLocation'])) {
-            $model->storageLocation = $map['StorageLocation'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['CateId'])) {
             $model->cateId = $map['CateId'];

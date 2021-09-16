@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayTopVideosResponseBody extends Model
 {
     /**
-     * @var topPlayVideos
-     */
-    public $topPlayVideos;
-
-    /**
      * @var int
      */
-    public $totalNum;
+    public $pageNo;
 
     /**
      * @var string
@@ -32,13 +27,18 @@ class DescribePlayTopVideosResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNo;
+    public $totalNum;
+
+    /**
+     * @var topPlayVideos
+     */
+    public $topPlayVideos;
     protected $_name = [
-        'topPlayVideos' => 'TopPlayVideos',
-        'totalNum'      => 'TotalNum',
+        'pageNo'        => 'PageNo',
         'requestId'     => 'RequestId',
         'pageSize'      => 'PageSize',
-        'pageNo'        => 'PageNo',
+        'totalNum'      => 'TotalNum',
+        'topPlayVideos' => 'TopPlayVideos',
     ];
 
     public function validate()
@@ -48,11 +48,8 @@ class DescribePlayTopVideosResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topPlayVideos) {
-            $res['TopPlayVideos'] = null !== $this->topPlayVideos ? $this->topPlayVideos->toMap() : null;
-        }
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -60,8 +57,11 @@ class DescribePlayTopVideosResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
+        }
+        if (null !== $this->topPlayVideos) {
+            $res['TopPlayVideos'] = null !== $this->topPlayVideos ? $this->topPlayVideos->toMap() : null;
         }
 
         return $res;
@@ -75,11 +75,8 @@ class DescribePlayTopVideosResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TopPlayVideos'])) {
-            $model->topPlayVideos = topPlayVideos::fromMap($map['TopPlayVideos']);
-        }
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -87,8 +84,11 @@ class DescribePlayTopVideosResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
+        }
+        if (isset($map['TopPlayVideos'])) {
+            $model->topPlayVideos = topPlayVideos::fromMap($map['TopPlayVideos']);
         }
 
         return $model;

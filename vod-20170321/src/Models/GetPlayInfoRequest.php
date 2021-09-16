@@ -26,26 +26,6 @@ class GetPlayInfoRequest extends Model
     /**
      * @var string
      */
-    public $rand;
-
-    /**
-     * @var string
-     */
-    public $authInfo;
-
-    /**
-     * @var string
-     */
-    public $channel;
-
-    /**
-     * @var string
-     */
-    public $playerVersion;
-
-    /**
-     * @var string
-     */
     public $outputType;
 
     /**
@@ -72,20 +52,22 @@ class GetPlayInfoRequest extends Model
      * @var string
      */
     public $playConfig;
+
+    /**
+     * @var string
+     */
+    public $additionType;
     protected $_name = [
-        'videoId'       => 'VideoId',
-        'formats'       => 'Formats',
-        'authTimeout'   => 'AuthTimeout',
-        'rand'          => 'Rand',
-        'authInfo'      => 'AuthInfo',
-        'channel'       => 'Channel',
-        'playerVersion' => 'PlayerVersion',
-        'outputType'    => 'OutputType',
-        'streamType'    => 'StreamType',
-        'reAuthInfo'    => 'ReAuthInfo',
-        'definition'    => 'Definition',
-        'resultType'    => 'ResultType',
-        'playConfig'    => 'PlayConfig',
+        'videoId'      => 'VideoId',
+        'formats'      => 'Formats',
+        'authTimeout'  => 'AuthTimeout',
+        'outputType'   => 'OutputType',
+        'streamType'   => 'StreamType',
+        'reAuthInfo'   => 'ReAuthInfo',
+        'definition'   => 'Definition',
+        'resultType'   => 'ResultType',
+        'playConfig'   => 'PlayConfig',
+        'additionType' => 'AdditionType',
     ];
 
     public function validate()
@@ -104,18 +86,6 @@ class GetPlayInfoRequest extends Model
         if (null !== $this->authTimeout) {
             $res['AuthTimeout'] = $this->authTimeout;
         }
-        if (null !== $this->rand) {
-            $res['Rand'] = $this->rand;
-        }
-        if (null !== $this->authInfo) {
-            $res['AuthInfo'] = $this->authInfo;
-        }
-        if (null !== $this->channel) {
-            $res['Channel'] = $this->channel;
-        }
-        if (null !== $this->playerVersion) {
-            $res['PlayerVersion'] = $this->playerVersion;
-        }
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
         }
@@ -133,6 +103,9 @@ class GetPlayInfoRequest extends Model
         }
         if (null !== $this->playConfig) {
             $res['PlayConfig'] = $this->playConfig;
+        }
+        if (null !== $this->additionType) {
+            $res['AdditionType'] = $this->additionType;
         }
 
         return $res;
@@ -155,18 +128,6 @@ class GetPlayInfoRequest extends Model
         if (isset($map['AuthTimeout'])) {
             $model->authTimeout = $map['AuthTimeout'];
         }
-        if (isset($map['Rand'])) {
-            $model->rand = $map['Rand'];
-        }
-        if (isset($map['AuthInfo'])) {
-            $model->authInfo = $map['AuthInfo'];
-        }
-        if (isset($map['Channel'])) {
-            $model->channel = $map['Channel'];
-        }
-        if (isset($map['PlayerVersion'])) {
-            $model->playerVersion = $map['PlayerVersion'];
-        }
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];
         }
@@ -184,6 +145,9 @@ class GetPlayInfoRequest extends Model
         }
         if (isset($map['PlayConfig'])) {
             $model->playConfig = $map['PlayConfig'];
+        }
+        if (isset($map['AdditionType'])) {
+            $model->additionType = $map['AdditionType'];
         }
 
         return $model;

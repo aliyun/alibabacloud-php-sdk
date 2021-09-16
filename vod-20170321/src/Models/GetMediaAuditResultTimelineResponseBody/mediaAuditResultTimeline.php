@@ -14,6 +14,21 @@ use AlibabaCloud\Tea\Model;
 class mediaAuditResultTimeline extends Model
 {
     /**
+     * @var porn[]
+     */
+    public $porn;
+
+    /**
+     * @var terrorism[]
+     */
+    public $terrorism;
+
+    /**
+     * @var logo[]
+     */
+    public $logo;
+
+    /**
      * @var live[]
      */
     public $live;
@@ -22,27 +37,12 @@ class mediaAuditResultTimeline extends Model
      * @var ad[]
      */
     public $ad;
-
-    /**
-     * @var logo[]
-     */
-    public $logo;
-
-    /**
-     * @var terrorism[]
-     */
-    public $terrorism;
-
-    /**
-     * @var porn[]
-     */
-    public $porn;
     protected $_name = [
+        'porn'      => 'Porn',
+        'terrorism' => 'Terrorism',
+        'logo'      => 'Logo',
         'live'      => 'Live',
         'ad'        => 'Ad',
-        'logo'      => 'Logo',
-        'terrorism' => 'Terrorism',
-        'porn'      => 'Porn',
     ];
 
     public function validate()
@@ -52,6 +52,33 @@ class mediaAuditResultTimeline extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->porn) {
+            $res['Porn'] = [];
+            if (null !== $this->porn && \is_array($this->porn)) {
+                $n = 0;
+                foreach ($this->porn as $item) {
+                    $res['Porn'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->terrorism) {
+            $res['Terrorism'] = [];
+            if (null !== $this->terrorism && \is_array($this->terrorism)) {
+                $n = 0;
+                foreach ($this->terrorism as $item) {
+                    $res['Terrorism'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->logo) {
+            $res['Logo'] = [];
+            if (null !== $this->logo && \is_array($this->logo)) {
+                $n = 0;
+                foreach ($this->logo as $item) {
+                    $res['Logo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->live) {
             $res['Live'] = [];
             if (null !== $this->live && \is_array($this->live)) {
@@ -70,33 +97,6 @@ class mediaAuditResultTimeline extends Model
                 }
             }
         }
-        if (null !== $this->logo) {
-            $res['Logo'] = [];
-            if (null !== $this->logo && \is_array($this->logo)) {
-                $n = 0;
-                foreach ($this->logo as $item) {
-                    $res['Logo'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->terrorism) {
-            $res['Terrorism'] = [];
-            if (null !== $this->terrorism && \is_array($this->terrorism)) {
-                $n = 0;
-                foreach ($this->terrorism as $item) {
-                    $res['Terrorism'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->porn) {
-            $res['Porn'] = [];
-            if (null !== $this->porn && \is_array($this->porn)) {
-                $n = 0;
-                foreach ($this->porn as $item) {
-                    $res['Porn'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
 
         return $res;
     }
@@ -109,6 +109,33 @@ class mediaAuditResultTimeline extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Porn'])) {
+            if (!empty($map['Porn'])) {
+                $model->porn = [];
+                $n           = 0;
+                foreach ($map['Porn'] as $item) {
+                    $model->porn[$n++] = null !== $item ? porn::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Terrorism'])) {
+            if (!empty($map['Terrorism'])) {
+                $model->terrorism = [];
+                $n                = 0;
+                foreach ($map['Terrorism'] as $item) {
+                    $model->terrorism[$n++] = null !== $item ? terrorism::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Logo'])) {
+            if (!empty($map['Logo'])) {
+                $model->logo = [];
+                $n           = 0;
+                foreach ($map['Logo'] as $item) {
+                    $model->logo[$n++] = null !== $item ? logo::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Live'])) {
             if (!empty($map['Live'])) {
                 $model->live = [];
@@ -124,33 +151,6 @@ class mediaAuditResultTimeline extends Model
                 $n         = 0;
                 foreach ($map['Ad'] as $item) {
                     $model->ad[$n++] = null !== $item ? ad::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Logo'])) {
-            if (!empty($map['Logo'])) {
-                $model->logo = [];
-                $n           = 0;
-                foreach ($map['Logo'] as $item) {
-                    $model->logo[$n++] = null !== $item ? logo::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Terrorism'])) {
-            if (!empty($map['Terrorism'])) {
-                $model->terrorism = [];
-                $n                = 0;
-                foreach ($map['Terrorism'] as $item) {
-                    $model->terrorism[$n++] = null !== $item ? terrorism::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Porn'])) {
-            if (!empty($map['Porn'])) {
-                $model->porn = [];
-                $n           = 0;
-                foreach ($map['Porn'] as $item) {
-                    $model->porn[$n++] = null !== $item ? porn::fromMap($item) : $item;
                 }
             }
         }

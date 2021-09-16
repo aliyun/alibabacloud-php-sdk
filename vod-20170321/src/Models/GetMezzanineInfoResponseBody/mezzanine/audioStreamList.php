@@ -11,22 +11,22 @@ class audioStreamList extends Model
     /**
      * @var string
      */
-    public $timebase;
-
-    /**
-     * @var string
-     */
     public $index;
 
     /**
      * @var string
      */
-    public $sampleRate;
+    public $timebase;
 
     /**
      * @var string
      */
     public $sampleFmt;
+
+    /**
+     * @var string
+     */
+    public $sampleRate;
 
     /**
      * @var string
@@ -88,10 +88,10 @@ class audioStreamList extends Model
      */
     public $codecTimeBase;
     protected $_name = [
-        'timebase'       => 'Timebase',
         'index'          => 'Index',
-        'sampleRate'     => 'SampleRate',
+        'timebase'       => 'Timebase',
         'sampleFmt'      => 'SampleFmt',
+        'sampleRate'     => 'SampleRate',
         'channelLayout'  => 'ChannelLayout',
         'lang'           => 'Lang',
         'codecLongName'  => 'CodecLongName',
@@ -113,17 +113,17 @@ class audioStreamList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timebase) {
-            $res['Timebase'] = $this->timebase;
-        }
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
-        if (null !== $this->sampleRate) {
-            $res['SampleRate'] = $this->sampleRate;
+        if (null !== $this->timebase) {
+            $res['Timebase'] = $this->timebase;
         }
         if (null !== $this->sampleFmt) {
             $res['SampleFmt'] = $this->sampleFmt;
+        }
+        if (null !== $this->sampleRate) {
+            $res['SampleRate'] = $this->sampleRate;
         }
         if (null !== $this->channelLayout) {
             $res['ChannelLayout'] = $this->channelLayout;
@@ -173,17 +173,17 @@ class audioStreamList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Timebase'])) {
-            $model->timebase = $map['Timebase'];
-        }
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
-        if (isset($map['SampleRate'])) {
-            $model->sampleRate = $map['SampleRate'];
+        if (isset($map['Timebase'])) {
+            $model->timebase = $map['Timebase'];
         }
         if (isset($map['SampleFmt'])) {
             $model->sampleFmt = $map['SampleFmt'];
+        }
+        if (isset($map['SampleRate'])) {
+            $model->sampleRate = $map['SampleRate'];
         }
         if (isset($map['ChannelLayout'])) {
             $model->channelLayout = $map['ChannelLayout'];

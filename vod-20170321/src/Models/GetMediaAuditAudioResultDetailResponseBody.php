@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditAudioResultDetailResponseBody extends Model
 {
     /**
-     * @var mediaAuditAudioResultDetail
-     */
-    public $mediaAuditAudioResultDetail;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var mediaAuditAudioResultDetail
+     */
+    public $mediaAuditAudioResultDetail;
     protected $_name = [
-        'mediaAuditAudioResultDetail' => 'MediaAuditAudioResultDetail',
         'requestId'                   => 'RequestId',
+        'mediaAuditAudioResultDetail' => 'MediaAuditAudioResultDetail',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetMediaAuditAudioResultDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mediaAuditAudioResultDetail) {
-            $res['MediaAuditAudioResultDetail'] = null !== $this->mediaAuditAudioResultDetail ? $this->mediaAuditAudioResultDetail->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->mediaAuditAudioResultDetail) {
+            $res['MediaAuditAudioResultDetail'] = null !== $this->mediaAuditAudioResultDetail ? $this->mediaAuditAudioResultDetail->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetMediaAuditAudioResultDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MediaAuditAudioResultDetail'])) {
-            $model->mediaAuditAudioResultDetail = mediaAuditAudioResultDetail::fromMap($map['MediaAuditAudioResultDetail']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['MediaAuditAudioResultDetail'])) {
+            $model->mediaAuditAudioResultDetail = mediaAuditAudioResultDetail::fromMap($map['MediaAuditAudioResultDetail']);
         }
 
         return $model;

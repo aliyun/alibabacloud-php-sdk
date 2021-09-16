@@ -19,19 +19,13 @@ class GetAttachedMediaInfoRequest extends Model
     public $authTimeout;
 
     /**
-     * @var int
-     */
-    public $resourceRealOwnerId;
-
-    /**
      * @var string
      */
     public $outputType;
     protected $_name = [
-        'mediaIds'            => 'MediaIds',
-        'authTimeout'         => 'AuthTimeout',
-        'resourceRealOwnerId' => 'ResourceRealOwnerId',
-        'outputType'          => 'OutputType',
+        'mediaIds'    => 'MediaIds',
+        'authTimeout' => 'AuthTimeout',
+        'outputType'  => 'OutputType',
     ];
 
     public function validate()
@@ -46,9 +40,6 @@ class GetAttachedMediaInfoRequest extends Model
         }
         if (null !== $this->authTimeout) {
             $res['AuthTimeout'] = $this->authTimeout;
-        }
-        if (null !== $this->resourceRealOwnerId) {
-            $res['ResourceRealOwnerId'] = $this->resourceRealOwnerId;
         }
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
@@ -70,9 +61,6 @@ class GetAttachedMediaInfoRequest extends Model
         }
         if (isset($map['AuthTimeout'])) {
             $model->authTimeout = $map['AuthTimeout'];
-        }
-        if (isset($map['ResourceRealOwnerId'])) {
-            $model->resourceRealOwnerId = $map['ResourceRealOwnerId'];
         }
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];

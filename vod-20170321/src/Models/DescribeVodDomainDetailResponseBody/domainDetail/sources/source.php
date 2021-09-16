@@ -16,11 +16,6 @@ class source extends Model
     /**
      * @var string
      */
-    public $enabled;
-
-    /**
-     * @var string
-     */
     public $priority;
 
     /**
@@ -32,12 +27,17 @@ class source extends Model
      * @var string
      */
     public $content;
+
+    /**
+     * @var string
+     */
+    public $enabled;
     protected $_name = [
         'type'     => 'Type',
-        'enabled'  => 'Enabled',
         'priority' => 'Priority',
         'port'     => 'Port',
         'content'  => 'Content',
+        'enabled'  => 'Enabled',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class source extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
-        }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
@@ -61,6 +58,9 @@ class source extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class source extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
-        }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
@@ -88,6 +85,9 @@ class source extends Model
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
         }
 
         return $model;

@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetUploadDetailsResponseBody extends Model
 {
     /**
-     * @var string[]
-     */
-    public $nonExistMediaIds;
-
-    /**
-     * @var uploadDetails[]
-     */
-    public $uploadDetails;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -28,11 +18,21 @@ class GetUploadDetailsResponseBody extends Model
      * @var string[]
      */
     public $forbiddenMediaIds;
+
+    /**
+     * @var string[]
+     */
+    public $nonExistMediaIds;
+
+    /**
+     * @var uploadDetails[]
+     */
+    public $uploadDetails;
     protected $_name = [
-        'nonExistMediaIds'  => 'NonExistMediaIds',
-        'uploadDetails'     => 'UploadDetails',
         'requestId'         => 'RequestId',
         'forbiddenMediaIds' => 'ForbiddenMediaIds',
+        'nonExistMediaIds'  => 'NonExistMediaIds',
+        'uploadDetails'     => 'UploadDetails',
     ];
 
     public function validate()
@@ -42,6 +42,12 @@ class GetUploadDetailsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->forbiddenMediaIds) {
+            $res['ForbiddenMediaIds'] = $this->forbiddenMediaIds;
+        }
         if (null !== $this->nonExistMediaIds) {
             $res['NonExistMediaIds'] = $this->nonExistMediaIds;
         }
@@ -53,12 +59,6 @@ class GetUploadDetailsResponseBody extends Model
                     $res['UploadDetails'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->forbiddenMediaIds) {
-            $res['ForbiddenMediaIds'] = $this->forbiddenMediaIds;
         }
 
         return $res;
@@ -72,6 +72,14 @@ class GetUploadDetailsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ForbiddenMediaIds'])) {
+            if (!empty($map['ForbiddenMediaIds'])) {
+                $model->forbiddenMediaIds = $map['ForbiddenMediaIds'];
+            }
+        }
         if (isset($map['NonExistMediaIds'])) {
             if (!empty($map['NonExistMediaIds'])) {
                 $model->nonExistMediaIds = $map['NonExistMediaIds'];
@@ -84,14 +92,6 @@ class GetUploadDetailsResponseBody extends Model
                 foreach ($map['UploadDetails'] as $item) {
                     $model->uploadDetails[$n++] = null !== $item ? uploadDetails::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ForbiddenMediaIds'])) {
-            if (!empty($map['ForbiddenMediaIds'])) {
-                $model->forbiddenMediaIds = $map['ForbiddenMediaIds'];
             }
         }
 

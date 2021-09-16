@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class liveRecordVideo extends Model
 {
     /**
-     * @var video
-     */
-    public $video;
-
-    /**
      * @var string
      */
     public $appName;
@@ -43,14 +38,19 @@ class liveRecordVideo extends Model
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var video
+     */
+    public $video;
     protected $_name = [
-        'video'           => 'Video',
         'appName'         => 'AppName',
         'playlistId'      => 'PlaylistId',
         'streamName'      => 'StreamName',
         'recordEndTime'   => 'RecordEndTime',
         'recordStartTime' => 'RecordStartTime',
         'domainName'      => 'DomainName',
+        'video'           => 'Video',
     ];
 
     public function validate()
@@ -60,9 +60,6 @@ class liveRecordVideo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->video) {
-            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -81,6 +78,9 @@ class liveRecordVideo extends Model
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->video) {
+            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
+        }
 
         return $res;
     }
@@ -93,9 +93,6 @@ class liveRecordVideo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Video'])) {
-            $model->video = video::fromMap($map['Video']);
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
@@ -113,6 +110,9 @@ class liveRecordVideo extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['Video'])) {
+            $model->video = video::fromMap($map['Video']);
         }
 
         return $model;

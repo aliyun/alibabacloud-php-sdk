@@ -11,15 +11,15 @@ class DeleteAITemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $templateId;
 
     /**
      * @var string
      */
-    public $templateId;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'templateId' => 'TemplateId',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteAITemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteAITemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

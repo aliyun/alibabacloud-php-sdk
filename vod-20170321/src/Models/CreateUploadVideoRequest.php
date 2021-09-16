@@ -31,11 +31,6 @@ class CreateUploadVideoRequest extends Model
     /**
      * @var string
      */
-    public $IP;
-
-    /**
-     * @var string
-     */
     public $title;
 
     /**
@@ -47,11 +42,6 @@ class CreateUploadVideoRequest extends Model
      * @var string
      */
     public $tags;
-
-    /**
-     * @var string
-     */
-    public $transcodeMode;
 
     /**
      * @var string
@@ -76,27 +66,19 @@ class CreateUploadVideoRequest extends Model
     /**
      * @var string
      */
-    public $customMediaInfo;
-
-    /**
-     * @var string
-     */
     public $appId;
     protected $_name = [
         'coverURL'        => 'CoverURL',
         'description'     => 'Description',
         'fileName'        => 'FileName',
         'fileSize'        => 'FileSize',
-        'IP'              => 'IP',
         'title'           => 'Title',
         'cateId'          => 'CateId',
         'tags'            => 'Tags',
-        'transcodeMode'   => 'TranscodeMode',
         'userData'        => 'UserData',
         'templateGroupId' => 'TemplateGroupId',
         'workflowId'      => 'WorkflowId',
         'storageLocation' => 'StorageLocation',
-        'customMediaInfo' => 'CustomMediaInfo',
         'appId'           => 'AppId',
     ];
 
@@ -119,9 +101,6 @@ class CreateUploadVideoRequest extends Model
         if (null !== $this->fileSize) {
             $res['FileSize'] = $this->fileSize;
         }
-        if (null !== $this->IP) {
-            $res['IP'] = $this->IP;
-        }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -130,9 +109,6 @@ class CreateUploadVideoRequest extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
-        }
-        if (null !== $this->transcodeMode) {
-            $res['TranscodeMode'] = $this->transcodeMode;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -145,9 +121,6 @@ class CreateUploadVideoRequest extends Model
         }
         if (null !== $this->storageLocation) {
             $res['StorageLocation'] = $this->storageLocation;
-        }
-        if (null !== $this->customMediaInfo) {
-            $res['CustomMediaInfo'] = $this->customMediaInfo;
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
@@ -176,9 +149,6 @@ class CreateUploadVideoRequest extends Model
         if (isset($map['FileSize'])) {
             $model->fileSize = $map['FileSize'];
         }
-        if (isset($map['IP'])) {
-            $model->IP = $map['IP'];
-        }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
@@ -187,9 +157,6 @@ class CreateUploadVideoRequest extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
-        }
-        if (isset($map['TranscodeMode'])) {
-            $model->transcodeMode = $map['TranscodeMode'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
@@ -202,9 +169,6 @@ class CreateUploadVideoRequest extends Model
         }
         if (isset($map['StorageLocation'])) {
             $model->storageLocation = $map['StorageLocation'];
-        }
-        if (isset($map['CustomMediaInfo'])) {
-            $model->customMediaInfo = $map['CustomMediaInfo'];
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];

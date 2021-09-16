@@ -14,16 +14,6 @@ use AlibabaCloud\Tea\Model;
 class videoTagResult extends Model
 {
     /**
-     * @var time[]
-     */
-    public $time;
-
-    /**
-     * @var keyword[]
-     */
-    public $keyword;
-
-    /**
      * @var category[]
      */
     public $category;
@@ -34,15 +24,25 @@ class videoTagResult extends Model
     public $person;
 
     /**
+     * @var time[]
+     */
+    public $time;
+
+    /**
      * @var location[]
      */
     public $location;
+
+    /**
+     * @var keyword[]
+     */
+    public $keyword;
     protected $_name = [
-        'time'     => 'Time',
-        'keyword'  => 'Keyword',
         'category' => 'Category',
         'person'   => 'Person',
+        'time'     => 'Time',
         'location' => 'Location',
+        'keyword'  => 'Keyword',
     ];
 
     public function validate()
@@ -52,24 +52,6 @@ class videoTagResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = [];
-            if (null !== $this->time && \is_array($this->time)) {
-                $n = 0;
-                foreach ($this->time as $item) {
-                    $res['Time'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = [];
-            if (null !== $this->keyword && \is_array($this->keyword)) {
-                $n = 0;
-                foreach ($this->keyword as $item) {
-                    $res['Keyword'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->category) {
             $res['Category'] = [];
             if (null !== $this->category && \is_array($this->category)) {
@@ -88,12 +70,30 @@ class videoTagResult extends Model
                 }
             }
         }
+        if (null !== $this->time) {
+            $res['Time'] = [];
+            if (null !== $this->time && \is_array($this->time)) {
+                $n = 0;
+                foreach ($this->time as $item) {
+                    $res['Time'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->location) {
             $res['Location'] = [];
             if (null !== $this->location && \is_array($this->location)) {
                 $n = 0;
                 foreach ($this->location as $item) {
                     $res['Location'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->keyword) {
+            $res['Keyword'] = [];
+            if (null !== $this->keyword && \is_array($this->keyword)) {
+                $n = 0;
+                foreach ($this->keyword as $item) {
+                    $res['Keyword'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -109,24 +109,6 @@ class videoTagResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            if (!empty($map['Time'])) {
-                $model->time = [];
-                $n           = 0;
-                foreach ($map['Time'] as $item) {
-                    $model->time[$n++] = null !== $item ? time::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Keyword'])) {
-            if (!empty($map['Keyword'])) {
-                $model->keyword = [];
-                $n              = 0;
-                foreach ($map['Keyword'] as $item) {
-                    $model->keyword[$n++] = null !== $item ? keyword::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Category'])) {
             if (!empty($map['Category'])) {
                 $model->category = [];
@@ -145,12 +127,30 @@ class videoTagResult extends Model
                 }
             }
         }
+        if (isset($map['Time'])) {
+            if (!empty($map['Time'])) {
+                $model->time = [];
+                $n           = 0;
+                foreach ($map['Time'] as $item) {
+                    $model->time[$n++] = null !== $item ? time::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Location'])) {
             if (!empty($map['Location'])) {
                 $model->location = [];
                 $n               = 0;
                 foreach ($map['Location'] as $item) {
                     $model->location[$n++] = null !== $item ? location::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Keyword'])) {
+            if (!empty($map['Keyword'])) {
+                $model->keyword = [];
+                $n              = 0;
+                foreach ($map['Keyword'] as $item) {
+                    $model->keyword[$n++] = null !== $item ? keyword::fromMap($item) : $item;
                 }
             }
         }

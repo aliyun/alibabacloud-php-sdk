@@ -11,20 +11,20 @@ class storageDataItem extends Model
     /**
      * @var string
      */
-    public $storageUtilization;
+    public $timeStamp;
 
     /**
      * @var string
      */
-    public $timeStamp;
+    public $storageUtilization;
 
     /**
      * @var string
      */
     public $networkOut;
     protected $_name = [
-        'storageUtilization' => 'StorageUtilization',
         'timeStamp'          => 'TimeStamp',
+        'storageUtilization' => 'StorageUtilization',
         'networkOut'         => 'NetworkOut',
     ];
 
@@ -35,11 +35,11 @@ class storageDataItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->storageUtilization) {
-            $res['StorageUtilization'] = $this->storageUtilization;
-        }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
+        }
+        if (null !== $this->storageUtilization) {
+            $res['StorageUtilization'] = $this->storageUtilization;
         }
         if (null !== $this->networkOut) {
             $res['NetworkOut'] = $this->networkOut;
@@ -56,11 +56,11 @@ class storageDataItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StorageUtilization'])) {
-            $model->storageUtilization = $map['StorageUtilization'];
-        }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
+        }
+        if (isset($map['StorageUtilization'])) {
+            $model->storageUtilization = $map['StorageUtilization'];
         }
         if (isset($map['NetworkOut'])) {
             $model->networkOut = $map['NetworkOut'];

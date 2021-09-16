@@ -37,31 +37,13 @@ class UpdateVideoInfoRequest extends Model
      * @var int
      */
     public $cateId;
-
-    /**
-     * @var string
-     */
-    public $downloadSwitch;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $customMediaInfo;
     protected $_name = [
-        'videoId'         => 'VideoId',
-        'title'           => 'Title',
-        'tags'            => 'Tags',
-        'description'     => 'Description',
-        'coverURL'        => 'CoverURL',
-        'cateId'          => 'CateId',
-        'downloadSwitch'  => 'DownloadSwitch',
-        'status'          => 'Status',
-        'customMediaInfo' => 'CustomMediaInfo',
+        'videoId'     => 'VideoId',
+        'title'       => 'Title',
+        'tags'        => 'Tags',
+        'description' => 'Description',
+        'coverURL'    => 'CoverURL',
+        'cateId'      => 'CateId',
     ];
 
     public function validate()
@@ -88,15 +70,6 @@ class UpdateVideoInfoRequest extends Model
         }
         if (null !== $this->cateId) {
             $res['CateId'] = $this->cateId;
-        }
-        if (null !== $this->downloadSwitch) {
-            $res['DownloadSwitch'] = $this->downloadSwitch;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->customMediaInfo) {
-            $res['CustomMediaInfo'] = $this->customMediaInfo;
         }
 
         return $res;
@@ -127,15 +100,6 @@ class UpdateVideoInfoRequest extends Model
         }
         if (isset($map['CateId'])) {
             $model->cateId = $map['CateId'];
-        }
-        if (isset($map['DownloadSwitch'])) {
-            $model->downloadSwitch = $map['DownloadSwitch'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['CustomMediaInfo'])) {
-            $model->customMediaInfo = $map['CustomMediaInfo'];
         }
 
         return $model;

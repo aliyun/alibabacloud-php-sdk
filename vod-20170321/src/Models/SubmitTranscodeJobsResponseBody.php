@@ -12,21 +12,21 @@ class SubmitTranscodeJobsResponseBody extends Model
     /**
      * @var string
      */
+    public $transcodeTaskId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var transcodeJobs
      */
     public $transcodeJobs;
-
-    /**
-     * @var string
-     */
-    public $transcodeTaskId;
     protected $_name = [
+        'transcodeTaskId' => 'TranscodeTaskId',
         'requestId'       => 'RequestId',
         'transcodeJobs'   => 'TranscodeJobs',
-        'transcodeTaskId' => 'TranscodeTaskId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class SubmitTranscodeJobsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->transcodeTaskId) {
+            $res['TranscodeTaskId'] = $this->transcodeTaskId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->transcodeJobs) {
             $res['TranscodeJobs'] = null !== $this->transcodeJobs ? $this->transcodeJobs->toMap() : null;
-        }
-        if (null !== $this->transcodeTaskId) {
-            $res['TranscodeTaskId'] = $this->transcodeTaskId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class SubmitTranscodeJobsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TranscodeTaskId'])) {
+            $model->transcodeTaskId = $map['TranscodeTaskId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['TranscodeJobs'])) {
             $model->transcodeJobs = transcodeJobs::fromMap($map['TranscodeJobs']);
-        }
-        if (isset($map['TranscodeTaskId'])) {
-            $model->transcodeTaskId = $map['TranscodeTaskId'];
         }
 
         return $model;

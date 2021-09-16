@@ -14,19 +14,14 @@ use AlibabaCloud\Tea\Model;
 class videoResult extends Model
 {
     /**
-     * @var logoResult
+     * @var string
      */
-    public $logoResult;
+    public $label;
 
     /**
      * @var string
      */
     public $suggestion;
-
-    /**
-     * @var liveResult
-     */
-    public $liveResult;
 
     /**
      * @var pornResult
@@ -39,21 +34,26 @@ class videoResult extends Model
     public $adResult;
 
     /**
-     * @var string
+     * @var logoResult
      */
-    public $label;
+    public $logoResult;
+
+    /**
+     * @var liveResult
+     */
+    public $liveResult;
 
     /**
      * @var terrorismResult
      */
     public $terrorismResult;
     protected $_name = [
-        'logoResult'      => 'LogoResult',
+        'label'           => 'Label',
         'suggestion'      => 'Suggestion',
-        'liveResult'      => 'LiveResult',
         'pornResult'      => 'PornResult',
         'adResult'        => 'AdResult',
-        'label'           => 'Label',
+        'logoResult'      => 'LogoResult',
+        'liveResult'      => 'LiveResult',
         'terrorismResult' => 'TerrorismResult',
     ];
 
@@ -64,14 +64,11 @@ class videoResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logoResult) {
-            $res['LogoResult'] = null !== $this->logoResult ? $this->logoResult->toMap() : null;
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
-        }
-        if (null !== $this->liveResult) {
-            $res['LiveResult'] = null !== $this->liveResult ? $this->liveResult->toMap() : null;
         }
         if (null !== $this->pornResult) {
             $res['PornResult'] = null !== $this->pornResult ? $this->pornResult->toMap() : null;
@@ -79,8 +76,11 @@ class videoResult extends Model
         if (null !== $this->adResult) {
             $res['AdResult'] = null !== $this->adResult ? $this->adResult->toMap() : null;
         }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
+        if (null !== $this->logoResult) {
+            $res['LogoResult'] = null !== $this->logoResult ? $this->logoResult->toMap() : null;
+        }
+        if (null !== $this->liveResult) {
+            $res['LiveResult'] = null !== $this->liveResult ? $this->liveResult->toMap() : null;
         }
         if (null !== $this->terrorismResult) {
             $res['TerrorismResult'] = null !== $this->terrorismResult ? $this->terrorismResult->toMap() : null;
@@ -97,14 +97,11 @@ class videoResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogoResult'])) {
-            $model->logoResult = logoResult::fromMap($map['LogoResult']);
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
-        }
-        if (isset($map['LiveResult'])) {
-            $model->liveResult = liveResult::fromMap($map['LiveResult']);
         }
         if (isset($map['PornResult'])) {
             $model->pornResult = pornResult::fromMap($map['PornResult']);
@@ -112,8 +109,11 @@ class videoResult extends Model
         if (isset($map['AdResult'])) {
             $model->adResult = adResult::fromMap($map['AdResult']);
         }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
+        if (isset($map['LogoResult'])) {
+            $model->logoResult = logoResult::fromMap($map['LogoResult']);
+        }
+        if (isset($map['LiveResult'])) {
+            $model->liveResult = liveResult::fromMap($map['LiveResult']);
         }
         if (isset($map['TerrorismResult'])) {
             $model->terrorismResult = terrorismResult::fromMap($map['TerrorismResult']);

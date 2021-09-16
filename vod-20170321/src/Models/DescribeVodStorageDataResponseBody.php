@@ -12,20 +12,20 @@ class DescribeVodStorageDataResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $dataInterval;
 
     /**
      * @var string
      */
-    public $dataInterval;
+    public $requestId;
 
     /**
      * @var storageData
      */
     public $storageData;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'dataInterval' => 'DataInterval',
+        'requestId'    => 'RequestId',
         'storageData'  => 'StorageData',
     ];
 
@@ -36,11 +36,11 @@ class DescribeVodStorageDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->storageData) {
             $res['StorageData'] = null !== $this->storageData ? $this->storageData->toMap() : null;
@@ -57,11 +57,11 @@ class DescribeVodStorageDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StorageData'])) {
             $model->storageData = storageData::fromMap($map['StorageData']);

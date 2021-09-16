@@ -45,26 +45,6 @@ class DescribeVodUserDomainsRequest extends Model
     public $domainSearchType;
 
     /**
-     * @var string
-     */
-    public $cdnType;
-
-    /**
-     * @var bool
-     */
-    public $checkDomainShow;
-
-    /**
-     * @var string
-     */
-    public $funcId;
-
-    /**
-     * @var string
-     */
-    public $funcFilter;
-
-    /**
      * @var tag[]
      */
     public $tag;
@@ -76,10 +56,6 @@ class DescribeVodUserDomainsRequest extends Model
         'domainName'       => 'DomainName',
         'domainStatus'     => 'DomainStatus',
         'domainSearchType' => 'DomainSearchType',
-        'cdnType'          => 'CdnType',
-        'checkDomainShow'  => 'CheckDomainShow',
-        'funcId'           => 'FuncId',
-        'funcFilter'       => 'FuncFilter',
         'tag'              => 'Tag',
     ];
 
@@ -110,18 +86,6 @@ class DescribeVodUserDomainsRequest extends Model
         }
         if (null !== $this->domainSearchType) {
             $res['DomainSearchType'] = $this->domainSearchType;
-        }
-        if (null !== $this->cdnType) {
-            $res['CdnType'] = $this->cdnType;
-        }
-        if (null !== $this->checkDomainShow) {
-            $res['CheckDomainShow'] = $this->checkDomainShow;
-        }
-        if (null !== $this->funcId) {
-            $res['FuncId'] = $this->funcId;
-        }
-        if (null !== $this->funcFilter) {
-            $res['FuncFilter'] = $this->funcFilter;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -164,18 +128,6 @@ class DescribeVodUserDomainsRequest extends Model
         }
         if (isset($map['DomainSearchType'])) {
             $model->domainSearchType = $map['DomainSearchType'];
-        }
-        if (isset($map['CdnType'])) {
-            $model->cdnType = $map['CdnType'];
-        }
-        if (isset($map['CheckDomainShow'])) {
-            $model->checkDomainShow = $map['CheckDomainShow'];
-        }
-        if (isset($map['FuncId'])) {
-            $model->funcId = $map['FuncId'];
-        }
-        if (isset($map['FuncFilter'])) {
-            $model->funcFilter = $map['FuncFilter'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

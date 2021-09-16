@@ -11,22 +11,22 @@ use AlibabaCloud\Tea\Model;
 class GetPlayInfoResponseBody extends Model
 {
     /**
-     * @var videoBase
-     */
-    public $videoBase;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var videoBase
+     */
+    public $videoBase;
 
     /**
      * @var playInfoList
      */
     public $playInfoList;
     protected $_name = [
-        'videoBase'    => 'VideoBase',
         'requestId'    => 'RequestId',
+        'videoBase'    => 'VideoBase',
         'playInfoList' => 'PlayInfoList',
     ];
 
@@ -37,11 +37,11 @@ class GetPlayInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoBase) {
-            $res['VideoBase'] = null !== $this->videoBase ? $this->videoBase->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->videoBase) {
+            $res['VideoBase'] = null !== $this->videoBase ? $this->videoBase->toMap() : null;
         }
         if (null !== $this->playInfoList) {
             $res['PlayInfoList'] = null !== $this->playInfoList ? $this->playInfoList->toMap() : null;
@@ -58,11 +58,11 @@ class GetPlayInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoBase'])) {
-            $model->videoBase = videoBase::fromMap($map['VideoBase']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VideoBase'])) {
+            $model->videoBase = videoBase::fromMap($map['VideoBase']);
         }
         if (isset($map['PlayInfoList'])) {
             $model->playInfoList = playInfoList::fromMap($map['PlayInfoList']);

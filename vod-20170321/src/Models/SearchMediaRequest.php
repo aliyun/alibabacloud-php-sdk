@@ -42,16 +42,6 @@ class SearchMediaRequest extends Model
      * @var string
      */
     public $scrollToken;
-
-    /**
-     * @var string
-     */
-    public $sessionId;
-
-    /**
-     * @var string
-     */
-    public $resultTypes;
     protected $_name = [
         'searchType'  => 'SearchType',
         'fields'      => 'Fields',
@@ -60,8 +50,6 @@ class SearchMediaRequest extends Model
         'pageNo'      => 'PageNo',
         'pageSize'    => 'PageSize',
         'scrollToken' => 'ScrollToken',
-        'sessionId'   => 'SessionId',
-        'resultTypes' => 'ResultTypes',
     ];
 
     public function validate()
@@ -91,12 +79,6 @@ class SearchMediaRequest extends Model
         }
         if (null !== $this->scrollToken) {
             $res['ScrollToken'] = $this->scrollToken;
-        }
-        if (null !== $this->sessionId) {
-            $res['SessionId'] = $this->sessionId;
-        }
-        if (null !== $this->resultTypes) {
-            $res['ResultTypes'] = $this->resultTypes;
         }
 
         return $res;
@@ -130,12 +112,6 @@ class SearchMediaRequest extends Model
         }
         if (isset($map['ScrollToken'])) {
             $model->scrollToken = $map['ScrollToken'];
-        }
-        if (isset($map['SessionId'])) {
-            $model->sessionId = $map['SessionId'];
-        }
-        if (isset($map['ResultTypes'])) {
-            $model->resultTypes = $map['ResultTypes'];
         }
 
         return $model;

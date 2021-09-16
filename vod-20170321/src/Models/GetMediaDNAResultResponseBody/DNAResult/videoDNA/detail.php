@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
-     * @var duplication
-     */
-    public $duplication;
-
-    /**
      * @var input
      */
     public $input;
+
+    /**
+     * @var duplication
+     */
+    public $duplication;
     protected $_name = [
-        'duplication' => 'Duplication',
         'input'       => 'Input',
+        'duplication' => 'Duplication',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class detail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->duplication) {
-            $res['Duplication'] = null !== $this->duplication ? $this->duplication->toMap() : null;
-        }
         if (null !== $this->input) {
             $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
+        }
+        if (null !== $this->duplication) {
+            $res['Duplication'] = null !== $this->duplication ? $this->duplication->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class detail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Duplication'])) {
-            $model->duplication = duplication::fromMap($map['Duplication']);
-        }
         if (isset($map['Input'])) {
             $model->input = input::fromMap($map['Input']);
+        }
+        if (isset($map['Duplication'])) {
+            $model->duplication = duplication::fromMap($map['Duplication']);
         }
 
         return $model;

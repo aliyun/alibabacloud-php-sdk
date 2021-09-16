@@ -11,12 +11,12 @@ class transcodeTemplateList extends Model
     /**
      * @var string
      */
-    public $video;
+    public $type;
 
     /**
      * @var string
      */
-    public $type;
+    public $video;
 
     /**
      * @var string
@@ -26,17 +26,12 @@ class transcodeTemplateList extends Model
     /**
      * @var string
      */
-    public $transcodeTemplateId;
-
-    /**
-     * @var string
-     */
     public $rotate;
 
     /**
      * @var string
      */
-    public $encryptSetting;
+    public $transcodeTemplateId;
 
     /**
      * @var string
@@ -46,12 +41,12 @@ class transcodeTemplateList extends Model
     /**
      * @var string
      */
-    public $audio;
+    public $encryptSetting;
 
     /**
      * @var string
      */
-    public $container;
+    public $audio;
 
     /**
      * @var string
@@ -61,7 +56,7 @@ class transcodeTemplateList extends Model
     /**
      * @var string
      */
-    public $definition;
+    public $container;
 
     /**
      * @var string
@@ -71,12 +66,12 @@ class transcodeTemplateList extends Model
     /**
      * @var string
      */
-    public $packageSetting;
+    public $definition;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $watermarkIds;
+    public $packageSetting;
 
     /**
      * @var string
@@ -87,23 +82,28 @@ class transcodeTemplateList extends Model
      * @var string
      */
     public $muxConfig;
+
+    /**
+     * @var string[]
+     */
+    public $watermarkIds;
     protected $_name = [
-        'video'                => 'Video',
         'type'                 => 'Type',
+        'video'                => 'Video',
         'transConfig'          => 'TransConfig',
-        'transcodeTemplateId'  => 'TranscodeTemplateId',
         'rotate'               => 'Rotate',
-        'encryptSetting'       => 'EncryptSetting',
+        'transcodeTemplateId'  => 'TranscodeTemplateId',
         'templateName'         => 'TemplateName',
+        'encryptSetting'       => 'EncryptSetting',
         'audio'                => 'Audio',
-        'container'            => 'Container',
         'transcodeFileRegular' => 'TranscodeFileRegular',
-        'definition'           => 'Definition',
+        'container'            => 'Container',
         'clip'                 => 'Clip',
+        'definition'           => 'Definition',
         'packageSetting'       => 'PackageSetting',
-        'watermarkIds'         => 'WatermarkIds',
         'subtitleList'         => 'SubtitleList',
         'muxConfig'            => 'MuxConfig',
+        'watermarkIds'         => 'WatermarkIds',
     ];
 
     public function validate()
@@ -113,53 +113,53 @@ class transcodeTemplateList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->video) {
-            $res['Video'] = $this->video;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->video) {
+            $res['Video'] = $this->video;
         }
         if (null !== $this->transConfig) {
             $res['TransConfig'] = $this->transConfig;
         }
-        if (null !== $this->transcodeTemplateId) {
-            $res['TranscodeTemplateId'] = $this->transcodeTemplateId;
-        }
         if (null !== $this->rotate) {
             $res['Rotate'] = $this->rotate;
         }
-        if (null !== $this->encryptSetting) {
-            $res['EncryptSetting'] = $this->encryptSetting;
+        if (null !== $this->transcodeTemplateId) {
+            $res['TranscodeTemplateId'] = $this->transcodeTemplateId;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
+        if (null !== $this->encryptSetting) {
+            $res['EncryptSetting'] = $this->encryptSetting;
+        }
         if (null !== $this->audio) {
             $res['Audio'] = $this->audio;
-        }
-        if (null !== $this->container) {
-            $res['Container'] = $this->container;
         }
         if (null !== $this->transcodeFileRegular) {
             $res['TranscodeFileRegular'] = $this->transcodeFileRegular;
         }
-        if (null !== $this->definition) {
-            $res['Definition'] = $this->definition;
+        if (null !== $this->container) {
+            $res['Container'] = $this->container;
         }
         if (null !== $this->clip) {
             $res['Clip'] = $this->clip;
         }
+        if (null !== $this->definition) {
+            $res['Definition'] = $this->definition;
+        }
         if (null !== $this->packageSetting) {
             $res['PackageSetting'] = $this->packageSetting;
-        }
-        if (null !== $this->watermarkIds) {
-            $res['WatermarkIds'] = $this->watermarkIds;
         }
         if (null !== $this->subtitleList) {
             $res['SubtitleList'] = $this->subtitleList;
         }
         if (null !== $this->muxConfig) {
             $res['MuxConfig'] = $this->muxConfig;
+        }
+        if (null !== $this->watermarkIds) {
+            $res['WatermarkIds'] = $this->watermarkIds;
         }
 
         return $res;
@@ -173,55 +173,55 @@ class transcodeTemplateList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Video'])) {
-            $model->video = $map['Video'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['Video'])) {
+            $model->video = $map['Video'];
         }
         if (isset($map['TransConfig'])) {
             $model->transConfig = $map['TransConfig'];
         }
-        if (isset($map['TranscodeTemplateId'])) {
-            $model->transcodeTemplateId = $map['TranscodeTemplateId'];
-        }
         if (isset($map['Rotate'])) {
             $model->rotate = $map['Rotate'];
         }
-        if (isset($map['EncryptSetting'])) {
-            $model->encryptSetting = $map['EncryptSetting'];
+        if (isset($map['TranscodeTemplateId'])) {
+            $model->transcodeTemplateId = $map['TranscodeTemplateId'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
+        if (isset($map['EncryptSetting'])) {
+            $model->encryptSetting = $map['EncryptSetting'];
+        }
         if (isset($map['Audio'])) {
             $model->audio = $map['Audio'];
-        }
-        if (isset($map['Container'])) {
-            $model->container = $map['Container'];
         }
         if (isset($map['TranscodeFileRegular'])) {
             $model->transcodeFileRegular = $map['TranscodeFileRegular'];
         }
-        if (isset($map['Definition'])) {
-            $model->definition = $map['Definition'];
+        if (isset($map['Container'])) {
+            $model->container = $map['Container'];
         }
         if (isset($map['Clip'])) {
             $model->clip = $map['Clip'];
         }
+        if (isset($map['Definition'])) {
+            $model->definition = $map['Definition'];
+        }
         if (isset($map['PackageSetting'])) {
             $model->packageSetting = $map['PackageSetting'];
-        }
-        if (isset($map['WatermarkIds'])) {
-            if (!empty($map['WatermarkIds'])) {
-                $model->watermarkIds = $map['WatermarkIds'];
-            }
         }
         if (isset($map['SubtitleList'])) {
             $model->subtitleList = $map['SubtitleList'];
         }
         if (isset($map['MuxConfig'])) {
             $model->muxConfig = $map['MuxConfig'];
+        }
+        if (isset($map['WatermarkIds'])) {
+            if (!empty($map['WatermarkIds'])) {
+                $model->watermarkIds = $map['WatermarkIds'];
+            }
         }
 
         return $model;

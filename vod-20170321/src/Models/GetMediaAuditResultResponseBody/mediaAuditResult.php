@@ -18,21 +18,6 @@ class mediaAuditResult extends Model
     public $suggestion;
 
     /**
-     * @var imageResult[]
-     */
-    public $imageResult;
-
-    /**
-     * @var audioResult[]
-     */
-    public $audioResult;
-
-    /**
-     * @var videoResult
-     */
-    public $videoResult;
-
-    /**
      * @var string
      */
     public $abnormalModules;
@@ -43,17 +28,32 @@ class mediaAuditResult extends Model
     public $label;
 
     /**
+     * @var audioResult[]
+     */
+    public $audioResult;
+
+    /**
+     * @var imageResult[]
+     */
+    public $imageResult;
+
+    /**
      * @var textResult[]
      */
     public $textResult;
+
+    /**
+     * @var videoResult
+     */
+    public $videoResult;
     protected $_name = [
         'suggestion'      => 'Suggestion',
-        'imageResult'     => 'ImageResult',
-        'audioResult'     => 'AudioResult',
-        'videoResult'     => 'VideoResult',
         'abnormalModules' => 'AbnormalModules',
         'label'           => 'Label',
+        'audioResult'     => 'AudioResult',
+        'imageResult'     => 'ImageResult',
         'textResult'      => 'TextResult',
+        'videoResult'     => 'VideoResult',
     ];
 
     public function validate()
@@ -66,14 +66,11 @@ class mediaAuditResult extends Model
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
-        if (null !== $this->imageResult) {
-            $res['ImageResult'] = [];
-            if (null !== $this->imageResult && \is_array($this->imageResult)) {
-                $n = 0;
-                foreach ($this->imageResult as $item) {
-                    $res['ImageResult'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->abnormalModules) {
+            $res['AbnormalModules'] = $this->abnormalModules;
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
         if (null !== $this->audioResult) {
             $res['AudioResult'] = [];
@@ -84,14 +81,14 @@ class mediaAuditResult extends Model
                 }
             }
         }
-        if (null !== $this->videoResult) {
-            $res['VideoResult'] = null !== $this->videoResult ? $this->videoResult->toMap() : null;
-        }
-        if (null !== $this->abnormalModules) {
-            $res['AbnormalModules'] = $this->abnormalModules;
-        }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
+        if (null !== $this->imageResult) {
+            $res['ImageResult'] = [];
+            if (null !== $this->imageResult && \is_array($this->imageResult)) {
+                $n = 0;
+                foreach ($this->imageResult as $item) {
+                    $res['ImageResult'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->textResult) {
             $res['TextResult'] = [];
@@ -101,6 +98,9 @@ class mediaAuditResult extends Model
                     $res['TextResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->videoResult) {
+            $res['VideoResult'] = null !== $this->videoResult ? $this->videoResult->toMap() : null;
         }
 
         return $res;
@@ -117,14 +117,11 @@ class mediaAuditResult extends Model
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }
-        if (isset($map['ImageResult'])) {
-            if (!empty($map['ImageResult'])) {
-                $model->imageResult = [];
-                $n                  = 0;
-                foreach ($map['ImageResult'] as $item) {
-                    $model->imageResult[$n++] = null !== $item ? imageResult::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['AbnormalModules'])) {
+            $model->abnormalModules = $map['AbnormalModules'];
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
         if (isset($map['AudioResult'])) {
             if (!empty($map['AudioResult'])) {
@@ -135,14 +132,14 @@ class mediaAuditResult extends Model
                 }
             }
         }
-        if (isset($map['VideoResult'])) {
-            $model->videoResult = videoResult::fromMap($map['VideoResult']);
-        }
-        if (isset($map['AbnormalModules'])) {
-            $model->abnormalModules = $map['AbnormalModules'];
-        }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
+        if (isset($map['ImageResult'])) {
+            if (!empty($map['ImageResult'])) {
+                $model->imageResult = [];
+                $n                  = 0;
+                foreach ($map['ImageResult'] as $item) {
+                    $model->imageResult[$n++] = null !== $item ? imageResult::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TextResult'])) {
             if (!empty($map['TextResult'])) {
@@ -152,6 +149,9 @@ class mediaAuditResult extends Model
                     $model->textResult[$n++] = null !== $item ? textResult::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['VideoResult'])) {
+            $model->videoResult = videoResult::fromMap($map['VideoResult']);
         }
 
         return $model;

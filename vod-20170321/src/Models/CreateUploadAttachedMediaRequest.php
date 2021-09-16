@@ -39,11 +39,6 @@ class CreateUploadAttachedMediaRequest extends Model
     public $tags;
 
     /**
-     * @var int
-     */
-    public $cateId;
-
-    /**
      * @var string
      */
     public $storageLocation;
@@ -67,11 +62,6 @@ class CreateUploadAttachedMediaRequest extends Model
      * @var string
      */
     public $appId;
-
-    /**
-     * @var string
-     */
-    public $icon;
     protected $_name = [
         'title'           => 'Title',
         'businessType'    => 'BusinessType',
@@ -79,13 +69,11 @@ class CreateUploadAttachedMediaRequest extends Model
         'fileName'        => 'FileName',
         'fileSize'        => 'FileSize',
         'tags'            => 'Tags',
-        'cateId'          => 'CateId',
         'storageLocation' => 'StorageLocation',
         'description'     => 'Description',
         'userData'        => 'UserData',
         'cateIds'         => 'CateIds',
         'appId'           => 'AppId',
-        'icon'            => 'Icon',
     ];
 
     public function validate()
@@ -113,9 +101,6 @@ class CreateUploadAttachedMediaRequest extends Model
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-        if (null !== $this->cateId) {
-            $res['CateId'] = $this->cateId;
-        }
         if (null !== $this->storageLocation) {
             $res['StorageLocation'] = $this->storageLocation;
         }
@@ -130,9 +115,6 @@ class CreateUploadAttachedMediaRequest extends Model
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
-        }
-        if (null !== $this->icon) {
-            $res['Icon'] = $this->icon;
         }
 
         return $res;
@@ -164,9 +146,6 @@ class CreateUploadAttachedMediaRequest extends Model
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-        if (isset($map['CateId'])) {
-            $model->cateId = $map['CateId'];
-        }
         if (isset($map['StorageLocation'])) {
             $model->storageLocation = $map['StorageLocation'];
         }
@@ -181,9 +160,6 @@ class CreateUploadAttachedMediaRequest extends Model
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
-        }
-        if (isset($map['Icon'])) {
-            $model->icon = $map['Icon'];
         }
 
         return $model;

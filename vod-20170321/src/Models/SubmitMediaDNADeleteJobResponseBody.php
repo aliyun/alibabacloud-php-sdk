@@ -16,15 +16,9 @@ class SubmitMediaDNADeleteJobResponseBody extends Model
     /**
      * @var string
      */
-    public $mediaId;
-
-    /**
-     * @var string
-     */
     public $jobId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'mediaId'   => 'MediaId',
         'jobId'     => 'JobId',
     ];
 
@@ -37,9 +31,6 @@ class SubmitMediaDNADeleteJobResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->mediaId) {
-            $res['MediaId'] = $this->mediaId;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
@@ -58,9 +49,6 @@ class SubmitMediaDNADeleteJobResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MediaId'])) {
-            $model->mediaId = $map['MediaId'];
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];

@@ -16,16 +16,16 @@ class DeleteMezzaninesResponseBody extends Model
     /**
      * @var string[]
      */
-    public $nonExistVideoIds;
+    public $unRemoveableVideoIds;
 
     /**
      * @var string[]
      */
-    public $unRemoveableVideoIds;
+    public $nonExistVideoIds;
     protected $_name = [
         'requestId'            => 'RequestId',
-        'nonExistVideoIds'     => 'NonExistVideoIds',
         'unRemoveableVideoIds' => 'UnRemoveableVideoIds',
+        'nonExistVideoIds'     => 'NonExistVideoIds',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteMezzaninesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->nonExistVideoIds) {
-            $res['NonExistVideoIds'] = $this->nonExistVideoIds;
-        }
         if (null !== $this->unRemoveableVideoIds) {
             $res['UnRemoveableVideoIds'] = $this->unRemoveableVideoIds;
+        }
+        if (null !== $this->nonExistVideoIds) {
+            $res['NonExistVideoIds'] = $this->nonExistVideoIds;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class DeleteMezzaninesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['NonExistVideoIds'])) {
-            if (!empty($map['NonExistVideoIds'])) {
-                $model->nonExistVideoIds = $map['NonExistVideoIds'];
-            }
-        }
         if (isset($map['UnRemoveableVideoIds'])) {
             if (!empty($map['UnRemoveableVideoIds'])) {
                 $model->unRemoveableVideoIds = $map['UnRemoveableVideoIds'];
+            }
+        }
+        if (isset($map['NonExistVideoIds'])) {
+            if (!empty($map['NonExistVideoIds'])) {
+                $model->nonExistVideoIds = $map['NonExistVideoIds'];
             }
         }
 

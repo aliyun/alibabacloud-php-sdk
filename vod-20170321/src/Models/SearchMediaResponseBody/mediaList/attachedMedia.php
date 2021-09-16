@@ -12,7 +12,7 @@ class attachedMedia extends Model
     /**
      * @var string
      */
-    public $storageLocation;
+    public $creationTime;
 
     /**
      * @var string
@@ -22,7 +22,7 @@ class attachedMedia extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $storageLocation;
 
     /**
      * @var string
@@ -50,11 +50,6 @@ class attachedMedia extends Model
     public $description;
 
     /**
-     * @var categories[]
-     */
-    public $categories;
-
-    /**
      * @var string
      */
     public $appId;
@@ -68,19 +63,24 @@ class attachedMedia extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var categories[]
+     */
+    public $categories;
     protected $_name = [
-        'storageLocation'  => 'StorageLocation',
-        'status'           => 'Status',
         'creationTime'     => 'CreationTime',
+        'status'           => 'Status',
+        'storageLocation'  => 'StorageLocation',
         'tags'             => 'Tags',
         'modificationTime' => 'ModificationTime',
         'mediaId'          => 'MediaId',
         'businessType'     => 'BusinessType',
         'description'      => 'Description',
-        'categories'       => 'Categories',
         'appId'            => 'AppId',
         'URL'              => 'URL',
         'title'            => 'Title',
+        'categories'       => 'Categories',
     ];
 
     public function validate()
@@ -90,14 +90,14 @@ class attachedMedia extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->storageLocation) {
-            $res['StorageLocation'] = $this->storageLocation;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
+        if (null !== $this->storageLocation) {
+            $res['StorageLocation'] = $this->storageLocation;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -114,15 +114,6 @@ class attachedMedia extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->categories) {
-            $res['Categories'] = [];
-            if (null !== $this->categories && \is_array($this->categories)) {
-                $n = 0;
-                foreach ($this->categories as $item) {
-                    $res['Categories'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -131,6 +122,15 @@ class attachedMedia extends Model
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->categories) {
+            $res['Categories'] = [];
+            if (null !== $this->categories && \is_array($this->categories)) {
+                $n = 0;
+                foreach ($this->categories as $item) {
+                    $res['Categories'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -144,14 +144,14 @@ class attachedMedia extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StorageLocation'])) {
-            $model->storageLocation = $map['StorageLocation'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
+        if (isset($map['StorageLocation'])) {
+            $model->storageLocation = $map['StorageLocation'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
@@ -168,15 +168,6 @@ class attachedMedia extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Categories'])) {
-            if (!empty($map['Categories'])) {
-                $model->categories = [];
-                $n                 = 0;
-                foreach ($map['Categories'] as $item) {
-                    $model->categories[$n++] = null !== $item ? categories::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
@@ -185,6 +176,15 @@ class attachedMedia extends Model
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['Categories'])) {
+            if (!empty($map['Categories'])) {
+                $model->categories = [];
+                $n                 = 0;
+                foreach ($map['Categories'] as $item) {
+                    $model->categories[$n++] = null !== $item ? categories::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

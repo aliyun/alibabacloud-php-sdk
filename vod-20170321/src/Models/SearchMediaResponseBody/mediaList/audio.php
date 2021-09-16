@@ -69,9 +69,9 @@ class audio extends Model
     public $downloadSwitch;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $snapshots;
+    public $cateName;
 
     /**
      * @var string
@@ -81,17 +81,7 @@ class audio extends Model
     /**
      * @var string
      */
-    public $cateName;
-
-    /**
-     * @var string
-     */
     public $preprocessStatus;
-
-    /**
-     * @var string[]
-     */
-    public $spriteSnapshots;
 
     /**
      * @var int
@@ -107,6 +97,16 @@ class audio extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var string[]
+     */
+    public $spriteSnapshots;
+
+    /**
+     * @var string[]
+     */
+    public $snapshots;
     protected $_name = [
         'status'           => 'Status',
         'creationTime'     => 'CreationTime',
@@ -120,14 +120,14 @@ class audio extends Model
         'coverURL'         => 'CoverURL',
         'audioId'          => 'AudioId',
         'downloadSwitch'   => 'DownloadSwitch',
-        'snapshots'        => 'Snapshots',
-        'transcodeMode'    => 'TranscodeMode',
         'cateName'         => 'CateName',
+        'transcodeMode'    => 'TranscodeMode',
         'preprocessStatus' => 'PreprocessStatus',
-        'spriteSnapshots'  => 'SpriteSnapshots',
         'size'             => 'Size',
         'duration'         => 'Duration',
         'title'            => 'Title',
+        'spriteSnapshots'  => 'SpriteSnapshots',
+        'snapshots'        => 'Snapshots',
     ];
 
     public function validate()
@@ -173,20 +173,14 @@ class audio extends Model
         if (null !== $this->downloadSwitch) {
             $res['DownloadSwitch'] = $this->downloadSwitch;
         }
-        if (null !== $this->snapshots) {
-            $res['Snapshots'] = $this->snapshots;
+        if (null !== $this->cateName) {
+            $res['CateName'] = $this->cateName;
         }
         if (null !== $this->transcodeMode) {
             $res['TranscodeMode'] = $this->transcodeMode;
         }
-        if (null !== $this->cateName) {
-            $res['CateName'] = $this->cateName;
-        }
         if (null !== $this->preprocessStatus) {
             $res['PreprocessStatus'] = $this->preprocessStatus;
-        }
-        if (null !== $this->spriteSnapshots) {
-            $res['SpriteSnapshots'] = $this->spriteSnapshots;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -196,6 +190,12 @@ class audio extends Model
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->spriteSnapshots) {
+            $res['SpriteSnapshots'] = $this->spriteSnapshots;
+        }
+        if (null !== $this->snapshots) {
+            $res['Snapshots'] = $this->snapshots;
         }
 
         return $res;
@@ -245,24 +245,14 @@ class audio extends Model
         if (isset($map['DownloadSwitch'])) {
             $model->downloadSwitch = $map['DownloadSwitch'];
         }
-        if (isset($map['Snapshots'])) {
-            if (!empty($map['Snapshots'])) {
-                $model->snapshots = $map['Snapshots'];
-            }
+        if (isset($map['CateName'])) {
+            $model->cateName = $map['CateName'];
         }
         if (isset($map['TranscodeMode'])) {
             $model->transcodeMode = $map['TranscodeMode'];
         }
-        if (isset($map['CateName'])) {
-            $model->cateName = $map['CateName'];
-        }
         if (isset($map['PreprocessStatus'])) {
             $model->preprocessStatus = $map['PreprocessStatus'];
-        }
-        if (isset($map['SpriteSnapshots'])) {
-            if (!empty($map['SpriteSnapshots'])) {
-                $model->spriteSnapshots = $map['SpriteSnapshots'];
-            }
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
@@ -272,6 +262,16 @@ class audio extends Model
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['SpriteSnapshots'])) {
+            if (!empty($map['SpriteSnapshots'])) {
+                $model->spriteSnapshots = $map['SpriteSnapshots'];
+            }
+        }
+        if (isset($map['Snapshots'])) {
+            if (!empty($map['Snapshots'])) {
+                $model->snapshots = $map['Snapshots'];
+            }
         }
 
         return $model;

@@ -24,11 +24,6 @@ class ListLiveRecordVideoRequest extends Model
     public $appName;
 
     /**
-     * @var string
-     */
-    public $queryType;
-
-    /**
      * @var int
      */
     public $pageNo;
@@ -56,7 +51,6 @@ class ListLiveRecordVideoRequest extends Model
         'streamName' => 'StreamName',
         'domainName' => 'DomainName',
         'appName'    => 'AppName',
-        'queryType'  => 'QueryType',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
         'sortBy'     => 'SortBy',
@@ -79,9 +73,6 @@ class ListLiveRecordVideoRequest extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->queryType) {
-            $res['QueryType'] = $this->queryType;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
@@ -118,9 +109,6 @@ class ListLiveRecordVideoRequest extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
-        }
-        if (isset($map['QueryType'])) {
-            $model->queryType = $map['QueryType'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];

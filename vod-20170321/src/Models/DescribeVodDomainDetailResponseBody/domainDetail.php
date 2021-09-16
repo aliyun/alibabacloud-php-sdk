@@ -12,32 +12,17 @@ class domainDetail extends Model
     /**
      * @var string
      */
-    public $SSLPub;
-
-    /**
-     * @var sources
-     */
-    public $sources;
-
-    /**
-     * @var string
-     */
-    public $gmtModified;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
-     * @var string
-     */
     public $gmtCreated;
 
     /**
      * @var string
      */
     public $weight;
+
+    /**
+     * @var string
+     */
+    public $SSLPub;
 
     /**
      * @var string
@@ -68,19 +53,34 @@ class domainDetail extends Model
      * @var string
      */
     public $domainStatus;
+
+    /**
+     * @var string
+     */
+    public $gmtModified;
+
+    /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
+     * @var sources
+     */
+    public $sources;
     protected $_name = [
-        'SSLPub'       => 'SSLPub',
-        'sources'      => 'Sources',
-        'gmtModified'  => 'GmtModified',
-        'domainName'   => 'DomainName',
         'gmtCreated'   => 'GmtCreated',
         'weight'       => 'Weight',
+        'SSLPub'       => 'SSLPub',
         'description'  => 'Description',
         'SSLProtocol'  => 'SSLProtocol',
         'certName'     => 'CertName',
         'scope'        => 'Scope',
         'cname'        => 'Cname',
         'domainStatus' => 'DomainStatus',
+        'gmtModified'  => 'GmtModified',
+        'domainName'   => 'DomainName',
+        'sources'      => 'Sources',
     ];
 
     public function validate()
@@ -90,23 +90,14 @@ class domainDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->SSLPub) {
-            $res['SSLPub'] = $this->SSLPub;
-        }
-        if (null !== $this->sources) {
-            $res['Sources'] = null !== $this->sources ? $this->sources->toMap() : null;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
         }
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
+        }
+        if (null !== $this->SSLPub) {
+            $res['SSLPub'] = $this->SSLPub;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -126,6 +117,15 @@ class domainDetail extends Model
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
         }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->sources) {
+            $res['Sources'] = null !== $this->sources ? $this->sources->toMap() : null;
+        }
 
         return $res;
     }
@@ -138,23 +138,14 @@ class domainDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SSLPub'])) {
-            $model->SSLPub = $map['SSLPub'];
-        }
-        if (isset($map['Sources'])) {
-            $model->sources = sources::fromMap($map['Sources']);
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];
         }
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
+        }
+        if (isset($map['SSLPub'])) {
+            $model->SSLPub = $map['SSLPub'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -173,6 +164,15 @@ class domainDetail extends Model
         }
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['Sources'])) {
+            $model->sources = sources::fromMap($map['Sources']);
         }
 
         return $model;

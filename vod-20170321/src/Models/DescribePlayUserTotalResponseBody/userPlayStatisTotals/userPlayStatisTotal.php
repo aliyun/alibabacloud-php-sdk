@@ -13,17 +13,12 @@ class userPlayStatisTotal extends Model
     /**
      * @var string
      */
-    public $playDuration;
+    public $date;
 
     /**
      * @var string
      */
-    public $date;
-
-    /**
-     * @var VV
-     */
-    public $VV;
+    public $playDuration;
 
     /**
      * @var string
@@ -31,14 +26,19 @@ class userPlayStatisTotal extends Model
     public $playRange;
 
     /**
+     * @var VV
+     */
+    public $VV;
+
+    /**
      * @var UV
      */
     public $UV;
     protected $_name = [
-        'playDuration' => 'PlayDuration',
         'date'         => 'Date',
-        'VV'           => 'VV',
+        'playDuration' => 'PlayDuration',
         'playRange'    => 'PlayRange',
+        'VV'           => 'VV',
         'UV'           => 'UV',
     ];
 
@@ -49,17 +49,17 @@ class userPlayStatisTotal extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->playDuration) {
-            $res['PlayDuration'] = $this->playDuration;
-        }
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
-        if (null !== $this->VV) {
-            $res['VV'] = null !== $this->VV ? $this->VV->toMap() : null;
+        if (null !== $this->playDuration) {
+            $res['PlayDuration'] = $this->playDuration;
         }
         if (null !== $this->playRange) {
             $res['PlayRange'] = $this->playRange;
+        }
+        if (null !== $this->VV) {
+            $res['VV'] = null !== $this->VV ? $this->VV->toMap() : null;
         }
         if (null !== $this->UV) {
             $res['UV'] = null !== $this->UV ? $this->UV->toMap() : null;
@@ -76,17 +76,17 @@ class userPlayStatisTotal extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PlayDuration'])) {
-            $model->playDuration = $map['PlayDuration'];
-        }
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
-        if (isset($map['VV'])) {
-            $model->VV = VV::fromMap($map['VV']);
+        if (isset($map['PlayDuration'])) {
+            $model->playDuration = $map['PlayDuration'];
         }
         if (isset($map['PlayRange'])) {
             $model->playRange = $map['PlayRange'];
+        }
+        if (isset($map['VV'])) {
+            $model->VV = VV::fromMap($map['VV']);
         }
         if (isset($map['UV'])) {
             $model->UV = UV::fromMap($map['UV']);

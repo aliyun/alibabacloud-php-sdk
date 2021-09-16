@@ -14,18 +14,18 @@ class person extends Model
     public $faceUrl;
 
     /**
-     * @var string[]
-     */
-    public $times;
-
-    /**
      * @var string
      */
     public $tag;
+
+    /**
+     * @var string[]
+     */
+    public $times;
     protected $_name = [
         'faceUrl' => 'FaceUrl',
-        'times'   => 'Times',
         'tag'     => 'Tag',
+        'times'   => 'Times',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class person extends Model
         if (null !== $this->faceUrl) {
             $res['FaceUrl'] = $this->faceUrl;
         }
-        if (null !== $this->times) {
-            $res['Times'] = $this->times;
-        }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->times) {
+            $res['Times'] = $this->times;
         }
 
         return $res;
@@ -59,13 +59,13 @@ class person extends Model
         if (isset($map['FaceUrl'])) {
             $model->faceUrl = $map['FaceUrl'];
         }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
+        }
         if (isset($map['Times'])) {
             if (!empty($map['Times'])) {
                 $model->times = $map['Times'];
             }
-        }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
         }
 
         return $model;

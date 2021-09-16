@@ -11,12 +11,12 @@ class playInfo extends Model
     /**
      * @var string
      */
-    public $status;
+    public $creationTime;
 
     /**
      * @var string
      */
-    public $creationTime;
+    public $status;
 
     /**
      * @var string
@@ -103,8 +103,8 @@ class playInfo extends Model
      */
     public $format;
     protected $_name = [
-        'status'           => 'Status',
         'creationTime'     => 'CreationTime',
+        'status'           => 'Status',
         'specification'    => 'Specification',
         'narrowBandType'   => 'NarrowBandType',
         'height'           => 'Height',
@@ -131,11 +131,11 @@ class playInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->specification) {
             $res['Specification'] = $this->specification;
@@ -200,11 +200,11 @@ class playInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Specification'])) {
             $model->specification = $map['Specification'];

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class MoveAppResourceResponseBody extends Model
 {
     /**
-     * @var string[]
-     */
-    public $failedResourceIds;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -22,10 +17,15 @@ class MoveAppResourceResponseBody extends Model
      * @var string[]
      */
     public $nonExistResourceIds;
+
+    /**
+     * @var string[]
+     */
+    public $failedResourceIds;
     protected $_name = [
-        'failedResourceIds'   => 'FailedResourceIds',
         'requestId'           => 'RequestId',
         'nonExistResourceIds' => 'NonExistResourceIds',
+        'failedResourceIds'   => 'FailedResourceIds',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class MoveAppResourceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->failedResourceIds) {
-            $res['FailedResourceIds'] = $this->failedResourceIds;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->nonExistResourceIds) {
             $res['NonExistResourceIds'] = $this->nonExistResourceIds;
+        }
+        if (null !== $this->failedResourceIds) {
+            $res['FailedResourceIds'] = $this->failedResourceIds;
         }
 
         return $res;
@@ -56,17 +56,17 @@ class MoveAppResourceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FailedResourceIds'])) {
-            if (!empty($map['FailedResourceIds'])) {
-                $model->failedResourceIds = $map['FailedResourceIds'];
-            }
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['NonExistResourceIds'])) {
             if (!empty($map['NonExistResourceIds'])) {
                 $model->nonExistResourceIds = $map['NonExistResourceIds'];
+            }
+        }
+        if (isset($map['FailedResourceIds'])) {
+            if (!empty($map['FailedResourceIds'])) {
+                $model->failedResourceIds = $map['FailedResourceIds'];
             }
         }
 

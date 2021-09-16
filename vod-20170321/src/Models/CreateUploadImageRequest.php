@@ -26,11 +26,6 @@ class CreateUploadImageRequest extends Model
     /**
      * @var string
      */
-    public $originalFileName;
-
-    /**
-     * @var string
-     */
     public $tags;
 
     /**
@@ -58,16 +53,15 @@ class CreateUploadImageRequest extends Model
      */
     public $appId;
     protected $_name = [
-        'title'            => 'Title',
-        'imageType'        => 'ImageType',
-        'imageExt'         => 'ImageExt',
-        'originalFileName' => 'OriginalFileName',
-        'tags'             => 'Tags',
-        'storageLocation'  => 'StorageLocation',
-        'cateId'           => 'CateId',
-        'userData'         => 'UserData',
-        'description'      => 'Description',
-        'appId'            => 'AppId',
+        'title'           => 'Title',
+        'imageType'       => 'ImageType',
+        'imageExt'        => 'ImageExt',
+        'tags'            => 'Tags',
+        'storageLocation' => 'StorageLocation',
+        'cateId'          => 'CateId',
+        'userData'        => 'UserData',
+        'description'     => 'Description',
+        'appId'           => 'AppId',
     ];
 
     public function validate()
@@ -85,9 +79,6 @@ class CreateUploadImageRequest extends Model
         }
         if (null !== $this->imageExt) {
             $res['ImageExt'] = $this->imageExt;
-        }
-        if (null !== $this->originalFileName) {
-            $res['OriginalFileName'] = $this->originalFileName;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -127,9 +118,6 @@ class CreateUploadImageRequest extends Model
         }
         if (isset($map['ImageExt'])) {
             $model->imageExt = $map['ImageExt'];
-        }
-        if (isset($map['OriginalFileName'])) {
-            $model->originalFileName = $map['OriginalFileName'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

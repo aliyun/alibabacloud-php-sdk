@@ -16,19 +16,9 @@ class pornResult extends Model
     public $suggestion;
 
     /**
-     * @var topList[]
-     */
-    public $topList;
-
-    /**
      * @var string
      */
     public $averageScore;
-
-    /**
-     * @var counterList[]
-     */
-    public $counterList;
 
     /**
      * @var string
@@ -39,13 +29,23 @@ class pornResult extends Model
      * @var string
      */
     public $maxScore;
+
+    /**
+     * @var counterList[]
+     */
+    public $counterList;
+
+    /**
+     * @var topList[]
+     */
+    public $topList;
     protected $_name = [
         'suggestion'   => 'Suggestion',
-        'topList'      => 'TopList',
         'averageScore' => 'AverageScore',
-        'counterList'  => 'CounterList',
         'label'        => 'Label',
         'maxScore'     => 'MaxScore',
+        'counterList'  => 'CounterList',
+        'topList'      => 'TopList',
     ];
 
     public function validate()
@@ -58,17 +58,14 @@ class pornResult extends Model
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
-        if (null !== $this->topList) {
-            $res['TopList'] = [];
-            if (null !== $this->topList && \is_array($this->topList)) {
-                $n = 0;
-                foreach ($this->topList as $item) {
-                    $res['TopList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->averageScore) {
             $res['AverageScore'] = $this->averageScore;
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
+        if (null !== $this->maxScore) {
+            $res['MaxScore'] = $this->maxScore;
         }
         if (null !== $this->counterList) {
             $res['CounterList'] = [];
@@ -79,11 +76,14 @@ class pornResult extends Model
                 }
             }
         }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
-        }
-        if (null !== $this->maxScore) {
-            $res['MaxScore'] = $this->maxScore;
+        if (null !== $this->topList) {
+            $res['TopList'] = [];
+            if (null !== $this->topList && \is_array($this->topList)) {
+                $n = 0;
+                foreach ($this->topList as $item) {
+                    $res['TopList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -100,17 +100,14 @@ class pornResult extends Model
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }
-        if (isset($map['TopList'])) {
-            if (!empty($map['TopList'])) {
-                $model->topList = [];
-                $n              = 0;
-                foreach ($map['TopList'] as $item) {
-                    $model->topList[$n++] = null !== $item ? topList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['AverageScore'])) {
             $model->averageScore = $map['AverageScore'];
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
+        if (isset($map['MaxScore'])) {
+            $model->maxScore = $map['MaxScore'];
         }
         if (isset($map['CounterList'])) {
             if (!empty($map['CounterList'])) {
@@ -121,11 +118,14 @@ class pornResult extends Model
                 }
             }
         }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
-        }
-        if (isset($map['MaxScore'])) {
-            $model->maxScore = $map['MaxScore'];
+        if (isset($map['TopList'])) {
+            if (!empty($map['TopList'])) {
+                $model->topList = [];
+                $n              = 0;
+                foreach ($map['TopList'] as $item) {
+                    $model->topList[$n++] = null !== $item ? topList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

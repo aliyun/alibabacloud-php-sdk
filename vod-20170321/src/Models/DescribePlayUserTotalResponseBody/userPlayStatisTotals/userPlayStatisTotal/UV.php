@@ -11,27 +11,27 @@ class UV extends Model
     /**
      * @var string
      */
-    public $iOS;
-
-    /**
-     * @var string
-     */
-    public $android;
-
-    /**
-     * @var string
-     */
     public $flash;
 
     /**
      * @var string
      */
+    public $iOS;
+
+    /**
+     * @var string
+     */
     public $HTML5;
+
+    /**
+     * @var string
+     */
+    public $android;
     protected $_name = [
-        'iOS'     => 'iOS',
-        'android' => 'Android',
         'flash'   => 'Flash',
+        'iOS'     => 'iOS',
         'HTML5'   => 'HTML5',
+        'android' => 'Android',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UV extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iOS) {
-            $res['iOS'] = $this->iOS;
-        }
-        if (null !== $this->android) {
-            $res['Android'] = $this->android;
-        }
         if (null !== $this->flash) {
             $res['Flash'] = $this->flash;
         }
+        if (null !== $this->iOS) {
+            $res['iOS'] = $this->iOS;
+        }
         if (null !== $this->HTML5) {
             $res['HTML5'] = $this->HTML5;
+        }
+        if (null !== $this->android) {
+            $res['Android'] = $this->android;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UV extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['iOS'])) {
-            $model->iOS = $map['iOS'];
-        }
-        if (isset($map['Android'])) {
-            $model->android = $map['Android'];
-        }
         if (isset($map['Flash'])) {
             $model->flash = $map['Flash'];
         }
+        if (isset($map['iOS'])) {
+            $model->iOS = $map['iOS'];
+        }
         if (isset($map['HTML5'])) {
             $model->HTML5 = $map['HTML5'];
+        }
+        if (isset($map['Android'])) {
+            $model->android = $map['Android'];
         }
 
         return $model;

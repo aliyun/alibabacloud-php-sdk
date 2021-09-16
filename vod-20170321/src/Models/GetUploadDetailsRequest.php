@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetUploadDetailsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceRealOwnerId;
-
-    /**
      * @var string
      */
     public $mediaIds;
@@ -23,9 +18,8 @@ class GetUploadDetailsRequest extends Model
      */
     public $mediaType;
     protected $_name = [
-        'resourceRealOwnerId' => 'ResourceRealOwnerId',
-        'mediaIds'            => 'MediaIds',
-        'mediaType'           => 'MediaType',
+        'mediaIds'  => 'MediaIds',
+        'mediaType' => 'MediaType',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class GetUploadDetailsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceRealOwnerId) {
-            $res['ResourceRealOwnerId'] = $this->resourceRealOwnerId;
-        }
         if (null !== $this->mediaIds) {
             $res['MediaIds'] = $this->mediaIds;
         }
@@ -56,9 +47,6 @@ class GetUploadDetailsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceRealOwnerId'])) {
-            $model->resourceRealOwnerId = $map['ResourceRealOwnerId'];
-        }
         if (isset($map['MediaIds'])) {
             $model->mediaIds = $map['MediaIds'];
         }

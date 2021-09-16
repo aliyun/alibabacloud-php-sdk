@@ -9,17 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAppInfosRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceRealOwnerId;
-
-    /**
      * @var string
      */
     public $appIds;
     protected $_name = [
-        'resourceRealOwnerId' => 'ResourceRealOwnerId',
-        'appIds'              => 'AppIds',
+        'appIds' => 'AppIds',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class GetAppInfosRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceRealOwnerId) {
-            $res['ResourceRealOwnerId'] = $this->resourceRealOwnerId;
-        }
         if (null !== $this->appIds) {
             $res['AppIds'] = $this->appIds;
         }
@@ -47,9 +38,6 @@ class GetAppInfosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceRealOwnerId'])) {
-            $model->resourceRealOwnerId = $map['ResourceRealOwnerId'];
-        }
         if (isset($map['AppIds'])) {
             $model->appIds = $map['AppIds'];
         }

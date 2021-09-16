@@ -21,12 +21,12 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $pornScore;
+    public $pornLabel;
 
     /**
      * @var string
      */
-    public $pornLabel;
+    public $pornScore;
 
     /**
      * @var string
@@ -46,12 +46,12 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $liveScore;
+    public $adScore;
 
     /**
      * @var string
      */
-    public $adScore;
+    public $liveScore;
 
     /**
      * @var string
@@ -70,13 +70,13 @@ class list_ extends Model
     protected $_name = [
         'terrorismScore' => 'TerrorismScore',
         'adLabel'        => 'AdLabel',
-        'pornScore'      => 'PornScore',
         'pornLabel'      => 'PornLabel',
+        'pornScore'      => 'PornScore',
         'liveLabel'      => 'LiveLabel',
         'url'            => 'Url',
         'timestamp'      => 'Timestamp',
-        'liveScore'      => 'LiveScore',
         'adScore'        => 'AdScore',
+        'liveScore'      => 'LiveScore',
         'logoScore'      => 'LogoScore',
         'logoLabel'      => 'LogoLabel',
         'terrorismLabel' => 'TerrorismLabel',
@@ -95,11 +95,11 @@ class list_ extends Model
         if (null !== $this->adLabel) {
             $res['AdLabel'] = $this->adLabel;
         }
-        if (null !== $this->pornScore) {
-            $res['PornScore'] = $this->pornScore;
-        }
         if (null !== $this->pornLabel) {
             $res['PornLabel'] = $this->pornLabel;
+        }
+        if (null !== $this->pornScore) {
+            $res['PornScore'] = $this->pornScore;
         }
         if (null !== $this->liveLabel) {
             $res['LiveLabel'] = $this->liveLabel;
@@ -110,11 +110,11 @@ class list_ extends Model
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
-        if (null !== $this->liveScore) {
-            $res['LiveScore'] = $this->liveScore;
-        }
         if (null !== $this->adScore) {
             $res['AdScore'] = $this->adScore;
+        }
+        if (null !== $this->liveScore) {
+            $res['LiveScore'] = $this->liveScore;
         }
         if (null !== $this->logoScore) {
             $res['LogoScore'] = $this->logoScore;
@@ -143,11 +143,11 @@ class list_ extends Model
         if (isset($map['AdLabel'])) {
             $model->adLabel = $map['AdLabel'];
         }
-        if (isset($map['PornScore'])) {
-            $model->pornScore = $map['PornScore'];
-        }
         if (isset($map['PornLabel'])) {
             $model->pornLabel = $map['PornLabel'];
+        }
+        if (isset($map['PornScore'])) {
+            $model->pornScore = $map['PornScore'];
         }
         if (isset($map['LiveLabel'])) {
             $model->liveLabel = $map['LiveLabel'];
@@ -158,11 +158,11 @@ class list_ extends Model
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
-        if (isset($map['LiveScore'])) {
-            $model->liveScore = $map['LiveScore'];
-        }
         if (isset($map['AdScore'])) {
             $model->adScore = $map['AdScore'];
+        }
+        if (isset($map['LiveScore'])) {
+            $model->liveScore = $map['LiveScore'];
         }
         if (isset($map['LogoScore'])) {
             $model->logoScore = $map['LogoScore'];

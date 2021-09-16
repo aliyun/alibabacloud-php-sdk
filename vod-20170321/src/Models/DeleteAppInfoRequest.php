@@ -9,17 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppInfoRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceRealOwnerId;
-
-    /**
      * @var string
      */
     public $appId;
     protected $_name = [
-        'resourceRealOwnerId' => 'ResourceRealOwnerId',
-        'appId'               => 'AppId',
+        'appId' => 'AppId',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class DeleteAppInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceRealOwnerId) {
-            $res['ResourceRealOwnerId'] = $this->resourceRealOwnerId;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -47,9 +38,6 @@ class DeleteAppInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceRealOwnerId'])) {
-            $model->resourceRealOwnerId = $map['ResourceRealOwnerId'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

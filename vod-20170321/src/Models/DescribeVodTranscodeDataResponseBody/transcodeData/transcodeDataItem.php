@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class transcodeDataItem extends Model
 {
     /**
-     * @var data
-     */
-    public $data;
-
-    /**
      * @var string
      */
     public $timeStamp;
+
+    /**
+     * @var data
+     */
+    public $data;
     protected $_name = [
-        'data'      => 'Data',
         'timeStamp' => 'TimeStamp',
+        'data'      => 'Data',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class transcodeDataItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class transcodeDataItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class mediaAuditAudioResultDetail extends Model
 {
     /**
-     * @var list_[]
+     * @var int
      */
-    public $list;
+    public $total;
 
     /**
      * @var int
@@ -20,13 +20,13 @@ class mediaAuditAudioResultDetail extends Model
     public $pageTotal;
 
     /**
-     * @var int
+     * @var list_[]
      */
-    public $total;
+    public $list;
     protected $_name = [
-        'list'      => 'List',
-        'pageTotal' => 'PageTotal',
         'total'     => 'Total',
+        'pageTotal' => 'PageTotal',
+        'list'      => 'List',
     ];
 
     public function validate()
@@ -36,6 +36,12 @@ class mediaAuditAudioResultDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
+        }
+        if (null !== $this->pageTotal) {
+            $res['PageTotal'] = $this->pageTotal;
+        }
         if (null !== $this->list) {
             $res['List'] = [];
             if (null !== $this->list && \is_array($this->list)) {
@@ -44,12 +50,6 @@ class mediaAuditAudioResultDetail extends Model
                     $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageTotal) {
-            $res['PageTotal'] = $this->pageTotal;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -63,6 +63,12 @@ class mediaAuditAudioResultDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
+        }
+        if (isset($map['PageTotal'])) {
+            $model->pageTotal = $map['PageTotal'];
+        }
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
@@ -71,12 +77,6 @@ class mediaAuditAudioResultDetail extends Model
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageTotal'])) {
-            $model->pageTotal = $map['PageTotal'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
         }
 
         return $model;

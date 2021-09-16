@@ -12,14 +12,8 @@ class GetVideoInfosRequest extends Model
      * @var string
      */
     public $videoIds;
-
-    /**
-     * @var string
-     */
-    public $additionType;
     protected $_name = [
-        'videoIds'     => 'VideoIds',
-        'additionType' => 'AdditionType',
+        'videoIds' => 'VideoIds',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class GetVideoInfosRequest extends Model
         $res = [];
         if (null !== $this->videoIds) {
             $res['VideoIds'] = $this->videoIds;
-        }
-        if (null !== $this->additionType) {
-            $res['AdditionType'] = $this->additionType;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class GetVideoInfosRequest extends Model
         $model = new self();
         if (isset($map['VideoIds'])) {
             $model->videoIds = $map['VideoIds'];
-        }
-        if (isset($map['AdditionType'])) {
-            $model->additionType = $map['AdditionType'];
         }
 
         return $model;

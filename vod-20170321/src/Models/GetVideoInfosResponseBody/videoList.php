@@ -11,7 +11,7 @@ class videoList extends Model
     /**
      * @var string
      */
-    public $status;
+    public $storageLocation;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class videoList extends Model
     /**
      * @var string
      */
-    public $storageLocation;
+    public $status;
 
     /**
      * @var int
@@ -42,11 +42,6 @@ class videoList extends Model
      * @var string
      */
     public $modificationTime;
-
-    /**
-     * @var string[]
-     */
-    public $snapshots;
 
     /**
      * @var string
@@ -87,15 +82,19 @@ class videoList extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var string[]
+     */
+    public $snapshots;
     protected $_name = [
-        'status'           => 'Status',
-        'creationTime'     => 'CreationTime',
         'storageLocation'  => 'StorageLocation',
+        'creationTime'     => 'CreationTime',
+        'status'           => 'Status',
         'cateId'           => 'CateId',
         'videoId'          => 'VideoId',
         'tags'             => 'Tags',
         'modificationTime' => 'ModificationTime',
-        'snapshots'        => 'Snapshots',
         'cateName'         => 'CateName',
         'description'      => 'Description',
         'appId'            => 'AppId',
@@ -104,6 +103,7 @@ class videoList extends Model
         'templateGroupId'  => 'TemplateGroupId',
         'duration'         => 'Duration',
         'title'            => 'Title',
+        'snapshots'        => 'Snapshots',
     ];
 
     public function validate()
@@ -113,14 +113,14 @@ class videoList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->storageLocation) {
+            $res['StorageLocation'] = $this->storageLocation;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->storageLocation) {
-            $res['StorageLocation'] = $this->storageLocation;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->cateId) {
             $res['CateId'] = $this->cateId;
@@ -133,9 +133,6 @@ class videoList extends Model
         }
         if (null !== $this->modificationTime) {
             $res['ModificationTime'] = $this->modificationTime;
-        }
-        if (null !== $this->snapshots) {
-            $res['Snapshots'] = $this->snapshots;
         }
         if (null !== $this->cateName) {
             $res['CateName'] = $this->cateName;
@@ -161,6 +158,9 @@ class videoList extends Model
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+        if (null !== $this->snapshots) {
+            $res['Snapshots'] = $this->snapshots;
+        }
 
         return $res;
     }
@@ -173,14 +173,14 @@ class videoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['StorageLocation'])) {
+            $model->storageLocation = $map['StorageLocation'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['StorageLocation'])) {
-            $model->storageLocation = $map['StorageLocation'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['CateId'])) {
             $model->cateId = $map['CateId'];
@@ -193,11 +193,6 @@ class videoList extends Model
         }
         if (isset($map['ModificationTime'])) {
             $model->modificationTime = $map['ModificationTime'];
-        }
-        if (isset($map['Snapshots'])) {
-            if (!empty($map['Snapshots'])) {
-                $model->snapshots = $map['Snapshots'];
-            }
         }
         if (isset($map['CateName'])) {
             $model->cateName = $map['CateName'];
@@ -222,6 +217,11 @@ class videoList extends Model
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['Snapshots'])) {
+            if (!empty($map['Snapshots'])) {
+                $model->snapshots = $map['Snapshots'];
+            }
         }
 
         return $model;

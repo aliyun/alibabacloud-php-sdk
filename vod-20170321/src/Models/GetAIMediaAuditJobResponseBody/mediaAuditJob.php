@@ -25,11 +25,6 @@ class mediaAuditJob extends Model
     public $status;
 
     /**
-     * @var data
-     */
-    public $data;
-
-    /**
      * @var string
      */
     public $completeTime;
@@ -53,16 +48,21 @@ class mediaAuditJob extends Model
      * @var string
      */
     public $mediaId;
+
+    /**
+     * @var data
+     */
+    public $data;
     protected $_name = [
         'creationTime' => 'CreationTime',
         'type'         => 'Type',
         'status'       => 'Status',
-        'data'         => 'Data',
         'completeTime' => 'CompleteTime',
         'jobId'        => 'JobId',
         'code'         => 'Code',
         'message'      => 'Message',
         'mediaId'      => 'MediaId',
+        'data'         => 'Data',
     ];
 
     public function validate()
@@ -81,9 +81,6 @@ class mediaAuditJob extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
         if (null !== $this->completeTime) {
             $res['CompleteTime'] = $this->completeTime;
         }
@@ -98,6 +95,9 @@ class mediaAuditJob extends Model
         }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -120,9 +120,6 @@ class mediaAuditJob extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
         if (isset($map['CompleteTime'])) {
             $model->completeTime = $map['CompleteTime'];
         }
@@ -137,6 +134,9 @@ class mediaAuditJob extends Model
         }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

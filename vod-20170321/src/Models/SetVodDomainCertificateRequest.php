@@ -42,11 +42,6 @@ class SetVodDomainCertificateRequest extends Model
      * @var string
      */
     public $SSLPri;
-
-    /**
-     * @var string
-     */
-    public $region;
     protected $_name = [
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
@@ -55,7 +50,6 @@ class SetVodDomainCertificateRequest extends Model
         'SSLProtocol'   => 'SSLProtocol',
         'SSLPub'        => 'SSLPub',
         'SSLPri'        => 'SSLPri',
-        'region'        => 'Region',
     ];
 
     public function validate()
@@ -85,9 +79,6 @@ class SetVodDomainCertificateRequest extends Model
         }
         if (null !== $this->SSLPri) {
             $res['SSLPri'] = $this->SSLPri;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -121,9 +112,6 @@ class SetVodDomainCertificateRequest extends Model
         }
         if (isset($map['SSLPri'])) {
             $model->SSLPri = $map['SSLPri'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class videoStreamList extends Model
     /**
      * @var string
      */
-    public $index;
+    public $timebase;
 
     /**
      * @var string
      */
-    public $timebase;
+    public $index;
 
     /**
      * @var string
@@ -31,17 +31,12 @@ class videoStreamList extends Model
     /**
      * @var string
      */
-    public $sar;
-
-    /**
-     * @var string
-     */
     public $lang;
 
     /**
      * @var string
      */
-    public $codecLongName;
+    public $sar;
 
     /**
      * @var string
@@ -51,17 +46,22 @@ class videoStreamList extends Model
     /**
      * @var string
      */
+    public $codecLongName;
+
+    /**
+     * @var string
+     */
     public $numFrames;
 
     /**
      * @var string
      */
-    public $rotate;
+    public $bitrate;
 
     /**
      * @var string
      */
-    public $bitrate;
+    public $rotate;
 
     /**
      * @var string
@@ -123,17 +123,17 @@ class videoStreamList extends Model
      */
     public $level;
     protected $_name = [
-        'index'          => 'Index',
         'timebase'       => 'Timebase',
+        'index'          => 'Index',
         'avgFPS'         => 'AvgFPS',
         'pixFmt'         => 'PixFmt',
-        'sar'            => 'Sar',
         'lang'           => 'Lang',
-        'codecLongName'  => 'CodecLongName',
+        'sar'            => 'Sar',
         'height'         => 'Height',
+        'codecLongName'  => 'CodecLongName',
         'numFrames'      => 'NumFrames',
-        'rotate'         => 'Rotate',
         'bitrate'        => 'Bitrate',
+        'rotate'         => 'Rotate',
         'codecTagString' => 'CodecTagString',
         'hasBFrames'     => 'HasBFrames',
         'profile'        => 'Profile',
@@ -155,11 +155,11 @@ class videoStreamList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->index) {
-            $res['Index'] = $this->index;
-        }
         if (null !== $this->timebase) {
             $res['Timebase'] = $this->timebase;
+        }
+        if (null !== $this->index) {
+            $res['Index'] = $this->index;
         }
         if (null !== $this->avgFPS) {
             $res['AvgFPS'] = $this->avgFPS;
@@ -167,26 +167,26 @@ class videoStreamList extends Model
         if (null !== $this->pixFmt) {
             $res['PixFmt'] = $this->pixFmt;
         }
-        if (null !== $this->sar) {
-            $res['Sar'] = $this->sar;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->codecLongName) {
-            $res['CodecLongName'] = $this->codecLongName;
+        if (null !== $this->sar) {
+            $res['Sar'] = $this->sar;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+        if (null !== $this->codecLongName) {
+            $res['CodecLongName'] = $this->codecLongName;
+        }
         if (null !== $this->numFrames) {
             $res['NumFrames'] = $this->numFrames;
         }
-        if (null !== $this->rotate) {
-            $res['Rotate'] = $this->rotate;
-        }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
+        }
+        if (null !== $this->rotate) {
+            $res['Rotate'] = $this->rotate;
         }
         if (null !== $this->codecTagString) {
             $res['CodecTagString'] = $this->codecTagString;
@@ -236,11 +236,11 @@ class videoStreamList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Index'])) {
-            $model->index = $map['Index'];
-        }
         if (isset($map['Timebase'])) {
             $model->timebase = $map['Timebase'];
+        }
+        if (isset($map['Index'])) {
+            $model->index = $map['Index'];
         }
         if (isset($map['AvgFPS'])) {
             $model->avgFPS = $map['AvgFPS'];
@@ -248,26 +248,26 @@ class videoStreamList extends Model
         if (isset($map['PixFmt'])) {
             $model->pixFmt = $map['PixFmt'];
         }
-        if (isset($map['Sar'])) {
-            $model->sar = $map['Sar'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['CodecLongName'])) {
-            $model->codecLongName = $map['CodecLongName'];
+        if (isset($map['Sar'])) {
+            $model->sar = $map['Sar'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+        if (isset($map['CodecLongName'])) {
+            $model->codecLongName = $map['CodecLongName'];
+        }
         if (isset($map['NumFrames'])) {
             $model->numFrames = $map['NumFrames'];
         }
-        if (isset($map['Rotate'])) {
-            $model->rotate = $map['Rotate'];
-        }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
+        }
+        if (isset($map['Rotate'])) {
+            $model->rotate = $map['Rotate'];
         }
         if (isset($map['CodecTagString'])) {
             $model->codecTagString = $map['CodecTagString'];

@@ -52,11 +52,6 @@ class SubmitSnapshotJobRequest extends Model
      * @var string
      */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $fileUrl;
     protected $_name = [
         'videoId'              => 'VideoId',
         'specifiedOffsetTime'  => 'SpecifiedOffsetTime',
@@ -67,7 +62,6 @@ class SubmitSnapshotJobRequest extends Model
         'spriteSnapshotConfig' => 'SpriteSnapshotConfig',
         'snapshotTemplateId'   => 'SnapshotTemplateId',
         'userData'             => 'UserData',
-        'fileUrl'              => 'FileUrl',
     ];
 
     public function validate()
@@ -103,9 +97,6 @@ class SubmitSnapshotJobRequest extends Model
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
         }
 
         return $res;
@@ -145,9 +136,6 @@ class SubmitSnapshotJobRequest extends Model
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['FileUrl'])) {
-            $model->fileUrl = $map['FileUrl'];
         }
 
         return $model;

@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class imageInfo extends Model
 {
     /**
-     * @var mezzanine
-     */
-    public $mezzanine;
-
-    /**
      * @var string
      */
-    public $status;
+    public $creationTime;
 
     /**
      * @var string
@@ -27,7 +22,7 @@ class imageInfo extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $status;
 
     /**
      * @var int
@@ -42,12 +37,12 @@ class imageInfo extends Model
     /**
      * @var string
      */
-    public $cateName;
+    public $imageType;
 
     /**
      * @var string
      */
-    public $imageType;
+    public $cateName;
 
     /**
      * @var string
@@ -73,20 +68,25 @@ class imageInfo extends Model
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var mezzanine
+     */
+    public $mezzanine;
     protected $_name = [
-        'mezzanine'       => 'Mezzanine',
-        'status'          => 'Status',
-        'storageLocation' => 'StorageLocation',
         'creationTime'    => 'CreationTime',
+        'storageLocation' => 'StorageLocation',
+        'status'          => 'Status',
         'cateId'          => 'CateId',
         'tags'            => 'Tags',
-        'cateName'        => 'CateName',
         'imageType'       => 'ImageType',
+        'cateName'        => 'CateName',
         'description'     => 'Description',
         'appId'           => 'AppId',
         'URL'             => 'URL',
         'title'           => 'Title',
         'imageId'         => 'ImageId',
+        'mezzanine'       => 'Mezzanine',
     ];
 
     public function validate()
@@ -96,17 +96,14 @@ class imageInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mezzanine) {
-            $res['Mezzanine'] = null !== $this->mezzanine ? $this->mezzanine->toMap() : null;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->storageLocation) {
             $res['StorageLocation'] = $this->storageLocation;
         }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->cateId) {
             $res['CateId'] = $this->cateId;
@@ -114,11 +111,11 @@ class imageInfo extends Model
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-        if (null !== $this->cateName) {
-            $res['CateName'] = $this->cateName;
-        }
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
+        }
+        if (null !== $this->cateName) {
+            $res['CateName'] = $this->cateName;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -135,6 +132,9 @@ class imageInfo extends Model
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+        if (null !== $this->mezzanine) {
+            $res['Mezzanine'] = null !== $this->mezzanine ? $this->mezzanine->toMap() : null;
+        }
 
         return $res;
     }
@@ -147,17 +147,14 @@ class imageInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Mezzanine'])) {
-            $model->mezzanine = mezzanine::fromMap($map['Mezzanine']);
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['StorageLocation'])) {
             $model->storageLocation = $map['StorageLocation'];
         }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['CateId'])) {
             $model->cateId = $map['CateId'];
@@ -165,11 +162,11 @@ class imageInfo extends Model
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-        if (isset($map['CateName'])) {
-            $model->cateName = $map['CateName'];
-        }
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
+        }
+        if (isset($map['CateName'])) {
+            $model->cateName = $map['CateName'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -185,6 +182,9 @@ class imageInfo extends Model
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['Mezzanine'])) {
+            $model->mezzanine = mezzanine::fromMap($map['Mezzanine']);
         }
 
         return $model;

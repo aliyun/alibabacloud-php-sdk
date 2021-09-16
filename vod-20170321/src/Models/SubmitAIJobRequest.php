@@ -47,11 +47,6 @@ class SubmitAIJobRequest extends Model
      * @var string
      */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $input;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -61,7 +56,6 @@ class SubmitAIJobRequest extends Model
         'types'                => 'Types',
         'config'               => 'Config',
         'userData'             => 'UserData',
-        'input'                => 'Input',
     ];
 
     public function validate()
@@ -94,9 +88,6 @@ class SubmitAIJobRequest extends Model
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->input) {
-            $res['Input'] = $this->input;
         }
 
         return $res;
@@ -133,9 +124,6 @@ class SubmitAIJobRequest extends Model
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['Input'])) {
-            $model->input = $map['Input'];
         }
 
         return $model;

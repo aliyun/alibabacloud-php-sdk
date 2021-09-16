@@ -12,12 +12,12 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     /**
      * @var string
      */
-    public $ispNameEn;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $startTime;
 
     /**
      * @var string
@@ -27,7 +27,7 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $ispNameEn;
 
     /**
      * @var string
@@ -37,7 +37,7 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $domainName;
 
     /**
      * @var string
@@ -49,12 +49,12 @@ class DescribeVodDomainBpsDataResponseBody extends Model
      */
     public $bpsDataPerInterval;
     protected $_name = [
-        'ispNameEn'          => 'IspNameEn',
         'endTime'            => 'EndTime',
-        'requestId'          => 'RequestId',
-        'domainName'         => 'DomainName',
-        'locationNameEn'     => 'LocationNameEn',
         'startTime'          => 'StartTime',
+        'requestId'          => 'RequestId',
+        'ispNameEn'          => 'IspNameEn',
+        'locationNameEn'     => 'LocationNameEn',
+        'domainName'         => 'DomainName',
         'dataInterval'       => 'DataInterval',
         'bpsDataPerInterval' => 'BpsDataPerInterval',
     ];
@@ -66,23 +66,23 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ispNameEn) {
-            $res['IspNameEn'] = $this->ispNameEn;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->ispNameEn) {
+            $res['IspNameEn'] = $this->ispNameEn;
         }
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
@@ -102,23 +102,23 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IspNameEn'])) {
-            $model->ispNameEn = $map['IspNameEn'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['IspNameEn'])) {
+            $model->ispNameEn = $map['IspNameEn'];
         }
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];

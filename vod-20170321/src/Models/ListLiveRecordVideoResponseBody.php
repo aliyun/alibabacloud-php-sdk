@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordVideoResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $total;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var liveRecordVideoList
      */
     public $liveRecordVideoList;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'total'               => 'Total',
+        'requestId'           => 'RequestId',
         'liveRecordVideoList' => 'LiveRecordVideoList',
     ];
 
@@ -36,11 +36,11 @@ class ListLiveRecordVideoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->liveRecordVideoList) {
             $res['LiveRecordVideoList'] = null !== $this->liveRecordVideoList ? $this->liveRecordVideoList->toMap() : null;
@@ -57,11 +57,11 @@ class ListLiveRecordVideoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['LiveRecordVideoList'])) {
             $model->liveRecordVideoList = liveRecordVideoList::fromMap($map['LiveRecordVideoList']);

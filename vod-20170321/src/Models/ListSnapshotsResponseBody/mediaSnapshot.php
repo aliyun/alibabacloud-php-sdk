@@ -17,11 +17,6 @@ class mediaSnapshot extends Model
     /**
      * @var string
      */
-    public $jobId;
-
-    /**
-     * @var string
-     */
     public $regular;
 
     /**
@@ -30,14 +25,19 @@ class mediaSnapshot extends Model
     public $total;
 
     /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
      * @var snapshots
      */
     public $snapshots;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'jobId'        => 'JobId',
         'regular'      => 'Regular',
         'total'        => 'Total',
+        'jobId'        => 'JobId',
         'snapshots'    => 'Snapshots',
     ];
 
@@ -51,14 +51,14 @@ class mediaSnapshot extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->regular) {
             $res['Regular'] = $this->regular;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->snapshots) {
             $res['Snapshots'] = null !== $this->snapshots ? $this->snapshots->toMap() : null;
@@ -78,14 +78,14 @@ class mediaSnapshot extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['Regular'])) {
             $model->regular = $map['Regular'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['Snapshots'])) {
             $model->snapshots = snapshots::fromMap($map['Snapshots']);

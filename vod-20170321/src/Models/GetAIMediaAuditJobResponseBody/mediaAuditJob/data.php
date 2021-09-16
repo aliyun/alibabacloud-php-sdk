@@ -18,21 +18,6 @@ class data extends Model
     public $suggestion;
 
     /**
-     * @var imageResult[]
-     */
-    public $imageResult;
-
-    /**
-     * @var audioResult[]
-     */
-    public $audioResult;
-
-    /**
-     * @var videoResult
-     */
-    public $videoResult;
-
-    /**
      * @var string
      */
     public $abnormalModules;
@@ -43,17 +28,32 @@ class data extends Model
     public $label;
 
     /**
+     * @var imageResult[]
+     */
+    public $imageResult;
+
+    /**
      * @var textResult[]
      */
     public $textResult;
+
+    /**
+     * @var audioResult[]
+     */
+    public $audioResult;
+
+    /**
+     * @var videoResult
+     */
+    public $videoResult;
     protected $_name = [
         'suggestion'      => 'Suggestion',
-        'imageResult'     => 'ImageResult',
-        'audioResult'     => 'AudioResult',
-        'videoResult'     => 'VideoResult',
         'abnormalModules' => 'AbnormalModules',
         'label'           => 'Label',
+        'imageResult'     => 'ImageResult',
         'textResult'      => 'TextResult',
+        'audioResult'     => 'AudioResult',
+        'videoResult'     => 'VideoResult',
     ];
 
     public function validate()
@@ -66,12 +66,27 @@ class data extends Model
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
+        if (null !== $this->abnormalModules) {
+            $res['AbnormalModules'] = $this->abnormalModules;
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
         if (null !== $this->imageResult) {
             $res['ImageResult'] = [];
             if (null !== $this->imageResult && \is_array($this->imageResult)) {
                 $n = 0;
                 foreach ($this->imageResult as $item) {
                     $res['ImageResult'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->textResult) {
+            $res['TextResult'] = [];
+            if (null !== $this->textResult && \is_array($this->textResult)) {
+                $n = 0;
+                foreach ($this->textResult as $item) {
+                    $res['TextResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -86,21 +101,6 @@ class data extends Model
         }
         if (null !== $this->videoResult) {
             $res['VideoResult'] = null !== $this->videoResult ? $this->videoResult->toMap() : null;
-        }
-        if (null !== $this->abnormalModules) {
-            $res['AbnormalModules'] = $this->abnormalModules;
-        }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
-        }
-        if (null !== $this->textResult) {
-            $res['TextResult'] = [];
-            if (null !== $this->textResult && \is_array($this->textResult)) {
-                $n = 0;
-                foreach ($this->textResult as $item) {
-                    $res['TextResult'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -117,12 +117,27 @@ class data extends Model
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }
+        if (isset($map['AbnormalModules'])) {
+            $model->abnormalModules = $map['AbnormalModules'];
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
         if (isset($map['ImageResult'])) {
             if (!empty($map['ImageResult'])) {
                 $model->imageResult = [];
                 $n                  = 0;
                 foreach ($map['ImageResult'] as $item) {
                     $model->imageResult[$n++] = null !== $item ? imageResult::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['TextResult'])) {
+            if (!empty($map['TextResult'])) {
+                $model->textResult = [];
+                $n                 = 0;
+                foreach ($map['TextResult'] as $item) {
+                    $model->textResult[$n++] = null !== $item ? textResult::fromMap($item) : $item;
                 }
             }
         }
@@ -137,21 +152,6 @@ class data extends Model
         }
         if (isset($map['VideoResult'])) {
             $model->videoResult = videoResult::fromMap($map['VideoResult']);
-        }
-        if (isset($map['AbnormalModules'])) {
-            $model->abnormalModules = $map['AbnormalModules'];
-        }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
-        }
-        if (isset($map['TextResult'])) {
-            if (!empty($map['TextResult'])) {
-                $model->textResult = [];
-                $n                 = 0;
-                foreach ($map['TextResult'] as $item) {
-                    $model->textResult[$n++] = null !== $item ? textResult::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;
