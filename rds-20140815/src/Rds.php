@@ -58,8 +58,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDedicatedHostUserRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDedicatedHostUserResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDiagnosticReportRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDiagnosticReportResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGdnInstanceRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGdnInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskForSQLServerRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskForSQLServerResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskRequest;
@@ -106,10 +104,10 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostClassesR
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostClassesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostZonesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostZonesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableMetricsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableMetricsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableRecoveryTimeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableRecoveryTimeResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableResourceRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableResourceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeBackupDatabaseRequest;
@@ -148,6 +146,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceIPArrayListRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceIPArrayListResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceIpHostnameRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceIpHostnameResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceMetricsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceMetricsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceMonitorRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceMonitorResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceNetInfoRequest;
@@ -190,6 +190,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDetachedBackupsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDetachedBackupsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDiagnosticReportListRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDiagnosticReportListResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDownloadLinkDetailsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDownloadLinkDetailsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDTCSecurityIpHostsForSQLServerRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDTCSecurityIpHostsForSQLServerResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeErrorLogsRequest;
@@ -268,6 +270,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTasksResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeVSwitchesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeVSwitchesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DestroyDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DestroyDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DropDedicatedHostUserRequest;
@@ -322,6 +326,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceHAConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceHAConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceMaintainTimeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceMaintainTimeResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceMetricsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceMetricsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceMonitorRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceMonitorResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceNetworkExpireTimeRequest;
@@ -449,7 +455,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBProxyInstanceKernelVersionRes
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
-use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Rds extends OpenApiClient
@@ -541,33 +546,11 @@ class Rds extends OpenApiClient
     public function addTagsToResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['proxyId']              = $request->proxyId;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['Tags']                 = $request->tags;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'AddTagsToResource',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return AddTagsToResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddTagsToResourceResponse::fromMap($this->doRPCRequest('AddTagsToResource', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -591,31 +574,11 @@ class Rds extends OpenApiClient
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['OwnerId']                = $request->ownerId;
-        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']        = $request->resourceOwnerId;
-        $query['DBInstanceId']           = $request->DBInstanceId;
-        $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
-        $query['Port']                   = $request->port;
-        $query['OwnerAccount']           = $request->ownerAccount;
-        $req                             = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'AllocateInstancePublicConnection',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AllocateInstancePublicConnectionResponse::fromMap($this->doRPCRequest('AllocateInstancePublicConnection', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -639,35 +602,11 @@ class Rds extends OpenApiClient
     public function allocateReadWriteSplittingConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['OwnerId']                = $request->ownerId;
-        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']        = $request->resourceOwnerId;
-        $query['OwnerAccount']           = $request->ownerAccount;
-        $query['DBInstanceId']           = $request->DBInstanceId;
-        $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
-        $query['Port']                   = $request->port;
-        $query['MaxDelayTime']           = $request->maxDelayTime;
-        $query['NetType']                = $request->netType;
-        $query['DistributionType']       = $request->distributionType;
-        $query['Weight']                 = $request->weight;
-        $req                             = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'AllocateReadWriteSplittingConnection',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return AllocateReadWriteSplittingConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AllocateReadWriteSplittingConnectionResponse::fromMap($this->doRPCRequest('AllocateReadWriteSplittingConnection', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -691,26 +630,11 @@ class Rds extends OpenApiClient
     public function calculateDBInstanceWeightWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['DBInstanceId']    = $request->DBInstanceId;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CalculateDBInstanceWeight',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CalculateDBInstanceWeightResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CalculateDBInstanceWeightResponse::fromMap($this->doRPCRequest('CalculateDBInstanceWeight', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -734,30 +658,11 @@ class Rds extends OpenApiClient
     public function cancelImportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['ImportId']             = $request->importId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CancelImport',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CancelImportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelImportResponse::fromMap($this->doRPCRequest('CancelImport', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -781,31 +686,11 @@ class Rds extends OpenApiClient
     public function checkAccountNameAvailableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['AccountName']          = $request->accountName;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckAccountNameAvailable',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CheckAccountNameAvailableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckAccountNameAvailableResponse::fromMap($this->doRPCRequest('CheckAccountNameAvailable', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -829,32 +714,11 @@ class Rds extends OpenApiClient
     public function checkCloudResourceAuthorizedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['SecurityToken']        = $request->securityToken;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['TargetRegionId']       = $request->targetRegionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckCloudResourceAuthorized',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckCloudResourceAuthorizedResponse::fromMap($this->doRPCRequest('CheckCloudResourceAuthorized', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -878,40 +742,11 @@ class Rds extends OpenApiClient
     public function checkCreateDdrDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['Engine']               = $request->engine;
-        $query['EngineVersion']        = $request->engineVersion;
-        $query['DBInstanceClass']      = $request->DBInstanceClass;
-        $query['DBInstanceStorage']    = $request->DBInstanceStorage;
-        $query['RestoreType']          = $request->restoreType;
-        $query['BackupSetId']          = $request->backupSetId;
-        $query['RestoreTime']          = $request->restoreTime;
-        $query['SourceRegion']         = $request->sourceRegion;
-        $query['SourceDBInstanceName'] = $request->sourceDBInstanceName;
-        $query['BinlogName']           = $request->binlogName;
-        $query['BinlogPosition']       = $request->binlogPosition;
-        $query['BinlogRole']           = $request->binlogRole;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckCreateDdrDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CheckCreateDdrDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckCreateDdrDBInstanceResponse::fromMap($this->doRPCRequest('CheckCreateDdrDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -935,31 +770,11 @@ class Rds extends OpenApiClient
     public function checkDBNameAvailableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBName']               = $request->DBName;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckDBNameAvailable',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CheckDBNameAvailableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckDBNameAvailableResponse::fromMap($this->doRPCRequest('CheckDBNameAvailable', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -983,28 +798,11 @@ class Rds extends OpenApiClient
     public function checkInstanceExistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckInstanceExist',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CheckInstanceExistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckInstanceExistResponse::fromMap($this->doRPCRequest('CheckInstanceExist', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1028,30 +826,11 @@ class Rds extends OpenApiClient
     public function clearDedicatedHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['FailoverMode']         = $request->failoverMode;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ClearDedicatedHost',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ClearDedicatedHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ClearDedicatedHostResponse::fromMap($this->doRPCRequest('ClearDedicatedHost', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1075,46 +854,11 @@ class Rds extends OpenApiClient
     public function cloneDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['ResourceOwnerId']       = $request->resourceOwnerId;
-        $query['RegionId']              = $request->regionId;
-        $query['ZoneId']                = $request->zoneId;
-        $query['DBInstanceClass']       = $request->DBInstanceClass;
-        $query['DBInstanceStorage']     = $request->DBInstanceStorage;
-        $query['DbNames']               = $request->dbNames;
-        $query['PayType']               = $request->payType;
-        $query['InstanceNetworkType']   = $request->instanceNetworkType;
-        $query['DBInstanceId']          = $request->DBInstanceId;
-        $query['BackupId']              = $request->backupId;
-        $query['RestoreTime']           = $request->restoreTime;
-        $query['VPCId']                 = $request->VPCId;
-        $query['VSwitchId']             = $request->vSwitchId;
-        $query['PrivateIpAddress']      = $request->privateIpAddress;
-        $query['UsedTime']              = $request->usedTime;
-        $query['Period']                = $request->period;
-        $query['Category']              = $request->category;
-        $query['DBInstanceStorageType'] = $request->DBInstanceStorageType;
-        $query['RestoreTable']          = $request->restoreTable;
-        $query['TableMeta']             = $request->tableMeta;
-        $query['DedicatedHostGroupId']  = $request->dedicatedHostGroupId;
-        $query['BackupType']            = $request->backupType;
-        $req                            = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CloneDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CloneDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CloneDBInstanceResponse::fromMap($this->doRPCRequest('CloneDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1138,32 +882,11 @@ class Rds extends OpenApiClient
     public function cloneParameterGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['TargetRegionId']       = $request->targetRegionId;
-        $query['ParameterGroupId']     = $request->parameterGroupId;
-        $query['ParameterGroupName']   = $request->parameterGroupName;
-        $query['ParameterGroupDesc']   = $request->parameterGroupDesc;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CloneParameterGroup',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CloneParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CloneParameterGroupResponse::fromMap($this->doRPCRequest('CloneParameterGroup', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1187,27 +910,11 @@ class Rds extends OpenApiClient
     public function copyDatabaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CopyDatabase',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CopyDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CopyDatabaseResponse::fromMap($this->doRPCRequest('CopyDatabase', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1231,31 +938,11 @@ class Rds extends OpenApiClient
     public function copyDatabaseBetweenInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['ResourceOwnerId']    = $request->resourceOwnerId;
-        $query['DBInstanceId']       = $request->DBInstanceId;
-        $query['TargetDBInstanceId'] = $request->targetDBInstanceId;
-        $query['DbNames']            = $request->dbNames;
-        $query['BackupId']           = $request->backupId;
-        $query['RestoreTime']        = $request->restoreTime;
-        $query['SyncUserPrivilege']  = $request->syncUserPrivilege;
-        $req                         = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CopyDatabaseBetweenInstances',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CopyDatabaseBetweenInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CopyDatabaseBetweenInstancesResponse::fromMap($this->doRPCRequest('CopyDatabaseBetweenInstances', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1279,33 +966,11 @@ class Rds extends OpenApiClient
     public function createAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['AccountName']          = $request->accountName;
-        $query['AccountPassword']      = $request->accountPassword;
-        $query['AccountDescription']   = $request->accountDescription;
-        $query['AccountType']          = $request->accountType;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateAccount',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAccountResponse::fromMap($this->doRPCRequest('CreateAccount', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1329,30 +994,11 @@ class Rds extends OpenApiClient
     public function createBackupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['DBInstanceId']    = $request->DBInstanceId;
-        $query['DBName']          = $request->DBName;
-        $query['BackupStrategy']  = $request->backupStrategy;
-        $query['BackupMethod']    = $request->backupMethod;
-        $query['BackupType']      = $request->backupType;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateBackup',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateBackupResponse::fromMap($this->doRPCRequest('CreateBackup', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1376,32 +1022,11 @@ class Rds extends OpenApiClient
     public function createDatabaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBName']               = $request->DBName;
-        $query['CharacterSetName']     = $request->characterSetName;
-        $query['DBDescription']        = $request->DBDescription;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDatabase',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDatabaseResponse::fromMap($this->doRPCRequest('CreateDatabase', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1425,67 +1050,11 @@ class Rds extends OpenApiClient
     public function createDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                   = [];
-        $query['ResourceOwnerId']                = $request->resourceOwnerId;
-        $query['RegionId']                       = $request->regionId;
-        $query['Engine']                         = $request->engine;
-        $query['EngineVersion']                  = $request->engineVersion;
-        $query['DBInstanceClass']                = $request->DBInstanceClass;
-        $query['DBInstanceStorage']              = $request->DBInstanceStorage;
-        $query['SystemDBCharset']                = $request->systemDBCharset;
-        $query['DBInstanceNetType']              = $request->DBInstanceNetType;
-        $query['DBInstanceDescription']          = $request->DBInstanceDescription;
-        $query['SecurityIPList']                 = $request->securityIPList;
-        $query['ClientToken']                    = $request->clientToken;
-        $query['PayType']                        = $request->payType;
-        $query['ZoneId']                         = $request->zoneId;
-        $query['ZoneIdSlave1']                   = $request->zoneIdSlave1;
-        $query['ZoneIdSlave2']                   = $request->zoneIdSlave2;
-        $query['InstanceNetworkType']            = $request->instanceNetworkType;
-        $query['ConnectionMode']                 = $request->connectionMode;
-        $query['VPCId']                          = $request->VPCId;
-        $query['VSwitchId']                      = $request->vSwitchId;
-        $query['PrivateIpAddress']               = $request->privateIpAddress;
-        $query['UsedTime']                       = $request->usedTime;
-        $query['Period']                         = $request->period;
-        $query['ResourceGroupId']                = $request->resourceGroupId;
-        $query['DBInstanceStorageType']          = $request->DBInstanceStorageType;
-        $query['BusinessInfo']                   = $request->businessInfo;
-        $query['EncryptionKey']                  = $request->encryptionKey;
-        $query['RoleARN']                        = $request->roleARN;
-        $query['AutoRenew']                      = $request->autoRenew;
-        $query['Category']                       = $request->category;
-        $query['DedicatedHostGroupId']           = $request->dedicatedHostGroupId;
-        $query['TargetDedicatedHostIdForMaster'] = $request->targetDedicatedHostIdForMaster;
-        $query['TargetDedicatedHostIdForSlave']  = $request->targetDedicatedHostIdForSlave;
-        $query['TargetDedicatedHostIdForLog']    = $request->targetDedicatedHostIdForLog;
-        $query['DBParamGroupId']                 = $request->DBParamGroupId;
-        $query['DBTimeZone']                     = $request->DBTimeZone;
-        $query['DBIsIgnoreCase']                 = $request->DBIsIgnoreCase;
-        $query['TargetMinorVersion']             = $request->targetMinorVersion;
-        $query['StorageAutoScale']               = $request->storageAutoScale;
-        $query['StorageThreshold']               = $request->storageThreshold;
-        $query['StorageUpperBound']              = $request->storageUpperBound;
-        $query['DryRun']                         = $request->dryRun;
-        $query['UserBackupId']                   = $request->userBackupId;
-        $query['Tag']                            = $request->tag;
-        $req                                     = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDBInstanceResponse::fromMap($this->doRPCRequest('CreateDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1509,33 +1078,11 @@ class Rds extends OpenApiClient
     public function createDBProxyEndpointAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                = [];
-        $query['RegionId']                    = $request->regionId;
-        $query['DBInstanceId']                = $request->DBInstanceId;
-        $query['DBInstanceId']                = $request->DBInstanceId;
-        $query['DBProxyEndpointId']           = $request->DBProxyEndpointId;
-        $query['ConnectionStringPrefix']      = $request->connectionStringPrefix;
-        $query['DBProxyNewConnectStringPort'] = $request->DBProxyNewConnectStringPort;
-        $query['DBProxyConnectStringNetType'] = $request->DBProxyConnectStringNetType;
-        $query['VPCId']                       = $request->VPCId;
-        $query['VSwitchId']                   = $request->vSwitchId;
-        $req                                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDBProxyEndpointAddress',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateDBProxyEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDBProxyEndpointAddressResponse::fromMap($this->doRPCRequest('CreateDBProxyEndpointAddress', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1559,57 +1106,11 @@ class Rds extends OpenApiClient
     public function createDdrInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['OwnerId']               = $request->ownerId;
-        $query['ResourceOwnerAccount']  = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']       = $request->resourceOwnerId;
-        $query['RegionId']              = $request->regionId;
-        $query['Engine']                = $request->engine;
-        $query['EngineVersion']         = $request->engineVersion;
-        $query['DBInstanceClass']       = $request->DBInstanceClass;
-        $query['DBInstanceStorage']     = $request->DBInstanceStorage;
-        $query['SystemDBCharset']       = $request->systemDBCharset;
-        $query['DBInstanceNetType']     = $request->DBInstanceNetType;
-        $query['DBInstanceDescription'] = $request->DBInstanceDescription;
-        $query['SecurityIPList']        = $request->securityIPList;
-        $query['ClientToken']           = $request->clientToken;
-        $query['PayType']               = $request->payType;
-        $query['ZoneId']                = $request->zoneId;
-        $query['InstanceNetworkType']   = $request->instanceNetworkType;
-        $query['ConnectionMode']        = $request->connectionMode;
-        $query['VPCId']                 = $request->VPCId;
-        $query['VSwitchId']             = $request->vSwitchId;
-        $query['PrivateIpAddress']      = $request->privateIpAddress;
-        $query['OwnerAccount']          = $request->ownerAccount;
-        $query['UsedTime']              = $request->usedTime;
-        $query['Period']                = $request->period;
-        $query['ResourceGroupId']       = $request->resourceGroupId;
-        $query['RestoreType']           = $request->restoreType;
-        $query['BackupSetId']           = $request->backupSetId;
-        $query['RestoreTime']           = $request->restoreTime;
-        $query['SourceRegion']          = $request->sourceRegion;
-        $query['SourceDBInstanceName']  = $request->sourceDBInstanceName;
-        $query['DBInstanceStorageType'] = $request->DBInstanceStorageType;
-        $query['BinlogName']            = $request->binlogName;
-        $query['BinlogPosition']        = $request->binlogPosition;
-        $query['BinlogRole']            = $request->binlogRole;
-        $req                            = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDdrInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateDdrInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDdrInstanceResponse::fromMap($this->doRPCRequest('CreateDdrInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1633,38 +1134,11 @@ class Rds extends OpenApiClient
     public function createDedicatedHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['HostName']             = $request->hostName;
-        $query['ZoneId']               = $request->zoneId;
-        $query['VSwitchId']            = $request->vSwitchId;
-        $query['HostClass']            = $request->hostClass;
-        $query['PayType']              = $request->payType;
-        $query['Period']               = $request->period;
-        $query['UsedTime']             = $request->usedTime;
-        $query['ClientToken']          = $request->clientToken;
-        $query['AutoRenew']            = $request->autoRenew;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDedicatedHost',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateDedicatedHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDedicatedHostResponse::fromMap($this->doRPCRequest('CreateDedicatedHost', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1688,31 +1162,11 @@ class Rds extends OpenApiClient
     public function createDedicatedHostAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['AccountName']          = $request->accountName;
-        $query['AccountPassword']      = $request->accountPassword;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDedicatedHostAccount',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateDedicatedHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDedicatedHostAccountResponse::fromMap($this->doRPCRequest('CreateDedicatedHostAccount', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1736,37 +1190,11 @@ class Rds extends OpenApiClient
     public function createDedicatedHostGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['Engine']               = $request->engine;
-        $query['CpuAllocationRatio']   = $request->cpuAllocationRatio;
-        $query['MemAllocationRatio']   = $request->memAllocationRatio;
-        $query['DiskAllocationRatio']  = $request->diskAllocationRatio;
-        $query['AllocationPolicy']     = $request->allocationPolicy;
-        $query['VPCId']                = $request->VPCId;
-        $query['HostReplacePolicy']    = $request->hostReplacePolicy;
-        $query['ClientToken']          = $request->clientToken;
-        $query['OpenPermission']       = $request->openPermission;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDedicatedHostGroup',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateDedicatedHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDedicatedHostGroupResponse::fromMap($this->doRPCRequest('CreateDedicatedHostGroup', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1790,31 +1218,11 @@ class Rds extends OpenApiClient
     public function createDedicatedHostUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DedicatedHostName']    = $request->dedicatedHostName;
-        $query['UserName']             = $request->userName;
-        $query['UserPassword']         = $request->userPassword;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDedicatedHostUser',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateDedicatedHostUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDedicatedHostUserResponse::fromMap($this->doRPCRequest('CreateDedicatedHostUser', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1838,27 +1246,11 @@ class Rds extends OpenApiClient
     public function createDiagnosticReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DBInstanceId'] = $request->DBInstanceId;
-        $query['StartTime']    = $request->startTime;
-        $query['EndTime']      = $request->endTime;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDiagnosticReport',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateDiagnosticReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDiagnosticReportResponse::fromMap($this->doRPCRequest('CreateDiagnosticReport', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1874,54 +1266,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateGdnInstanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateGdnInstanceResponse
-     */
-    public function createGdnInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                          = [];
-        $query['OwnerId']               = $request->ownerId;
-        $query['ResourceOwnerAccount']  = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']       = $request->resourceOwnerId;
-        $query['ClientToken']           = $request->clientToken;
-        $query['PrimaryInstanceName']   = $request->primaryInstanceName;
-        $query['PrimaryInstanceRegion'] = $request->primaryInstanceRegion;
-        $query['Description']           = $request->description;
-        $req                            = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateGdnInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateGdnInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateGdnInstanceRequest $request
-     *
-     * @return CreateGdnInstanceResponse
-     */
-    public function createGdnInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createGdnInstanceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateMigrateTaskRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1930,35 +1274,11 @@ class Rds extends OpenApiClient
     public function createMigrateTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBName']               = $request->DBName;
-        $query['BackupMode']           = $request->backupMode;
-        $query['IsOnlineDB']           = $request->isOnlineDB;
-        $query['CheckDBMode']          = $request->checkDBMode;
-        $query['OssObjectPositions']   = $request->ossObjectPositions;
-        $query['OSSUrls']              = $request->OSSUrls;
-        $query['MigrateTaskId']        = $request->migrateTaskId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateMigrateTask',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateMigrateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateMigrateTaskResponse::fromMap($this->doRPCRequest('CreateMigrateTask', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1982,32 +1302,11 @@ class Rds extends OpenApiClient
     public function createMigrateTaskForSQLServerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBName']               = $request->DBName;
-        $query['TaskType']             = $request->taskType;
-        $query['IsOnlineDB']           = $request->isOnlineDB;
-        $query['OSSUrls']              = $request->OSSUrls;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateMigrateTaskForSQLServer',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateMigrateTaskForSQLServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateMigrateTaskForSQLServerResponse::fromMap($this->doRPCRequest('CreateMigrateTaskForSQLServer', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2031,33 +1330,11 @@ class Rds extends OpenApiClient
     public function createOnlineDatabaseTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBName']               = $request->DBName;
-        $query['MigrateTaskId']        = $request->migrateTaskId;
-        $query['CheckDBMode']          = $request->checkDBMode;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateOnlineDatabaseTask',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateOnlineDatabaseTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOnlineDatabaseTaskResponse::fromMap($this->doRPCRequest('CreateOnlineDatabaseTask', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2081,33 +1358,11 @@ class Rds extends OpenApiClient
     public function createParameterGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ParameterGroupName']   = $request->parameterGroupName;
-        $query['Engine']               = $request->engine;
-        $query['EngineVersion']        = $request->engineVersion;
-        $query['Parameters']           = $request->parameters;
-        $query['ParameterGroupDesc']   = $request->parameterGroupDesc;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateParameterGroup',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateParameterGroupResponse::fromMap($this->doRPCRequest('CreateParameterGroup', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2131,53 +1386,11 @@ class Rds extends OpenApiClient
     public function createReadOnlyDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                   = [];
-        $query['OwnerId']                        = $request->ownerId;
-        $query['ResourceOwnerAccount']           = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']                = $request->resourceOwnerId;
-        $query['ClientToken']                    = $request->clientToken;
-        $query['RegionId']                       = $request->regionId;
-        $query['ZoneId']                         = $request->zoneId;
-        $query['DBInstanceId']                   = $request->DBInstanceId;
-        $query['DBInstanceClass']                = $request->DBInstanceClass;
-        $query['DBInstanceStorage']              = $request->DBInstanceStorage;
-        $query['EngineVersion']                  = $request->engineVersion;
-        $query['PayType']                        = $request->payType;
-        $query['DBInstanceDescription']          = $request->DBInstanceDescription;
-        $query['InstanceNetworkType']            = $request->instanceNetworkType;
-        $query['VPCId']                          = $request->VPCId;
-        $query['VSwitchId']                      = $request->vSwitchId;
-        $query['PrivateIpAddress']               = $request->privateIpAddress;
-        $query['OwnerAccount']                   = $request->ownerAccount;
-        $query['ResourceGroupId']                = $request->resourceGroupId;
-        $query['Category']                       = $request->category;
-        $query['DBInstanceStorageType']          = $request->DBInstanceStorageType;
-        $query['DedicatedHostGroupId']           = $request->dedicatedHostGroupId;
-        $query['TargetDedicatedHostIdForMaster'] = $request->targetDedicatedHostIdForMaster;
-        $query['GdnInstanceName']                = $request->gdnInstanceName;
-        $query['TddlBizType']                    = $request->tddlBizType;
-        $query['TddlRegionConfig']               = $request->tddlRegionConfig;
-        $query['InstructionSetArch']             = $request->instructionSetArch;
-        $query['UsedTime']                       = $request->usedTime;
-        $query['Period']                         = $request->period;
-        $query['AutoRenew']                      = $request->autoRenew;
-        $req                                     = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateReadOnlyDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateReadOnlyDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateReadOnlyDBInstanceResponse::fromMap($this->doRPCRequest('CreateReadOnlyDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2201,31 +1414,11 @@ class Rds extends OpenApiClient
     public function createTempDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['BackupId']             = $request->backupId;
-        $query['RestoreTime']          = $request->restoreTime;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateTempDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateTempDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTempDBInstanceResponse::fromMap($this->doRPCRequest('CreateTempDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2249,30 +1442,11 @@ class Rds extends OpenApiClient
     public function deleteAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['AccountName']          = $request->accountName;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteAccount',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAccountResponse::fromMap($this->doRPCRequest('DeleteAccount', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2296,30 +1470,11 @@ class Rds extends OpenApiClient
     public function deleteBackupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['BackupId']             = $request->backupId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteBackup',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteBackupResponse::fromMap($this->doRPCRequest('DeleteBackup', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2343,32 +1498,11 @@ class Rds extends OpenApiClient
     public function deleteBackupFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['BackupId']             = $request->backupId;
-        $query['DBName']               = $request->DBName;
-        $query['BackupTime']           = $request->backupTime;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteBackupFile',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteBackupFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteBackupFileResponse::fromMap($this->doRPCRequest('DeleteBackupFile', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2392,27 +1526,11 @@ class Rds extends OpenApiClient
     public function deleteDatabaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['DBInstanceId']    = $request->DBInstanceId;
-        $query['DBName']          = $request->DBName;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDatabase',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDatabaseResponse::fromMap($this->doRPCRequest('DeleteDatabase', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2436,30 +1554,11 @@ class Rds extends OpenApiClient
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['ReleasedKeepPolicy']   = $request->releasedKeepPolicy;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDBInstanceResponse::fromMap($this->doRPCRequest('DeleteDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2483,29 +1582,11 @@ class Rds extends OpenApiClient
     public function deleteDBProxyEndpointAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                = [];
-        $query['RegionId']                    = $request->regionId;
-        $query['DBInstanceId']                = $request->DBInstanceId;
-        $query['DBInstanceId']                = $request->DBInstanceId;
-        $query['DBProxyEndpointId']           = $request->DBProxyEndpointId;
-        $query['DBProxyConnectStringNetType'] = $request->DBProxyConnectStringNetType;
-        $req                                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDBProxyEndpointAddress',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteDBProxyEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDBProxyEndpointAddressResponse::fromMap($this->doRPCRequest('DeleteDBProxyEndpointAddress', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2529,30 +1610,11 @@ class Rds extends OpenApiClient
     public function deleteDedicatedHostAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['AccountName']          = $request->accountName;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDedicatedHostAccount',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteDedicatedHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDedicatedHostAccountResponse::fromMap($this->doRPCRequest('DeleteDedicatedHostAccount', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2576,29 +1638,11 @@ class Rds extends OpenApiClient
     public function deleteDedicatedHostGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDedicatedHostGroup',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteDedicatedHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDedicatedHostGroupResponse::fromMap($this->doRPCRequest('DeleteDedicatedHostGroup', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2622,29 +1666,11 @@ class Rds extends OpenApiClient
     public function deleteParameterGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ParameterGroupId']     = $request->parameterGroupId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteParameterGroup',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteParameterGroupResponse::fromMap($this->doRPCRequest('DeleteParameterGroup', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2668,29 +1694,11 @@ class Rds extends OpenApiClient
     public function deleteUserBackupFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['BackupId']             = $request->backupId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteUserBackupFile',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteUserBackupFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserBackupFileResponse::fromMap($this->doRPCRequest('DeleteUserBackupFile', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2714,36 +1722,11 @@ class Rds extends OpenApiClient
     public function descibeImportsFromDatabaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['Engine']               = $request->engine;
-        $query['ImportId']             = $request->importId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescibeImportsFromDatabase',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescibeImportsFromDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescibeImportsFromDatabaseResponse::fromMap($this->doRPCRequest('DescibeImportsFromDatabase', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2767,30 +1750,11 @@ class Rds extends OpenApiClient
     public function describeAccountsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['AccountName']          = $request->accountName;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAccounts',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAccountsResponse::fromMap($this->doRPCRequest('DescribeAccounts', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2814,28 +1778,11 @@ class Rds extends OpenApiClient
     public function describeActionEventPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeActionEventPolicy',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeActionEventPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeActionEventPolicyResponse::fromMap($this->doRPCRequest('DescribeActionEventPolicy', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2859,35 +1806,11 @@ class Rds extends OpenApiClient
     public function describeAvailableClassesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['ResourceOwnerId']       = $request->resourceOwnerId;
-        $query['RegionId']              = $request->regionId;
-        $query['ZoneId']                = $request->zoneId;
-        $query['InstanceChargeType']    = $request->instanceChargeType;
-        $query['Engine']                = $request->engine;
-        $query['EngineVersion']         = $request->engineVersion;
-        $query['DBInstanceId']          = $request->DBInstanceId;
-        $query['OrderType']             = $request->orderType;
-        $query['DBInstanceStorageType'] = $request->DBInstanceStorageType;
-        $query['Category']              = $request->category;
-        $query['CommodityCode']         = $request->commodityCode;
-        $req                            = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAvailableClasses',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeAvailableClassesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAvailableClassesResponse::fromMap($this->doRPCRequest('DescribeAvailableClasses', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2911,28 +1834,11 @@ class Rds extends OpenApiClient
     public function describeAvailableCrossRegionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAvailableCrossRegion',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeAvailableCrossRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAvailableCrossRegionResponse::fromMap($this->doRPCRequest('DescribeAvailableCrossRegion', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2956,30 +1862,11 @@ class Rds extends OpenApiClient
     public function describeAvailableDedicatedHostClassesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ZoneId']               = $request->zoneId;
-        $query['StorageType']          = $request->storageType;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAvailableDedicatedHostClasses',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeAvailableDedicatedHostClassesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAvailableDedicatedHostClassesResponse::fromMap($this->doRPCRequest('DescribeAvailableDedicatedHostClasses', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3003,28 +1890,11 @@ class Rds extends OpenApiClient
     public function describeAvailableDedicatedHostZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAvailableDedicatedHostZones',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeAvailableDedicatedHostZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAvailableDedicatedHostZonesResponse::fromMap($this->doRPCRequest('DescribeAvailableDedicatedHostZones', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3040,6 +1910,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeAvailableMetricsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAvailableMetricsResponse
+     */
+    public function describeAvailableMetricsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAvailableMetricsResponse::fromMap($this->doRPCRequest('DescribeAvailableMetrics', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAvailableMetricsRequest $request
+     *
+     * @return DescribeAvailableMetricsResponse
+     */
+    public function describeAvailableMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableMetricsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAvailableRecoveryTimeRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -3048,29 +1946,11 @@ class Rds extends OpenApiClient
     public function describeAvailableRecoveryTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['CrossBackupId']        = $request->crossBackupId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAvailableRecoveryTime',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeAvailableRecoveryTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAvailableRecoveryTimeResponse::fromMap($this->doRPCRequest('DescribeAvailableRecoveryTime', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3086,58 +1966,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeAvailableResourceResponse
-     */
-    public function describeAvailableResourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                          = [];
-        $query['ResourceOwnerId']       = $request->resourceOwnerId;
-        $query['RegionId']              = $request->regionId;
-        $query['ZoneId']                = $request->zoneId;
-        $query['InstanceChargeType']    = $request->instanceChargeType;
-        $query['Engine']                = $request->engine;
-        $query['EngineVersion']         = $request->engineVersion;
-        $query['DBInstanceClass']       = $request->DBInstanceClass;
-        $query['OrderType']             = $request->orderType;
-        $query['DBInstanceStorageType'] = $request->DBInstanceStorageType;
-        $query['Category']              = $request->category;
-        $query['DispenseMode']          = $request->dispenseMode;
-        $req                            = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAvailableResource',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAvailableResourceRequest $request
-     *
-     * @return DescribeAvailableResourceResponse
-     */
-    public function describeAvailableResource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAvailableResourceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeAvailableZonesRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3146,33 +1974,11 @@ class Rds extends OpenApiClient
     public function describeAvailableZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['RegionId']        = $request->regionId;
-        $query['Engine']          = $request->engine;
-        $query['ZoneId']          = $request->zoneId;
-        $query['EngineVersion']   = $request->engineVersion;
-        $query['CommodityCode']   = $request->commodityCode;
-        $query['DispenseMode']    = $request->dispenseMode;
-        $query['DBInstanceName']  = $request->DBInstanceName;
-        $query['Category']        = $request->category;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAvailableZones',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAvailableZonesResponse::fromMap($this->doRPCRequest('DescribeAvailableZones', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3196,29 +2002,11 @@ class Rds extends OpenApiClient
     public function describeBackupDatabaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['BackupId']             = $request->backupId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBackupDatabase',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeBackupDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupDatabaseResponse::fromMap($this->doRPCRequest('DescribeBackupDatabase', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3242,32 +2030,11 @@ class Rds extends OpenApiClient
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['BackupPolicyMode']     = $request->backupPolicyMode;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['CompressType']         = $request->compressType;
-        $query['ReleasedKeepPolicy']   = $request->releasedKeepPolicy;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBackupPolicy',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupPolicyResponse::fromMap($this->doRPCRequest('DescribeBackupPolicy', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3291,33 +2058,11 @@ class Rds extends OpenApiClient
     public function describeBackupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['DBInstanceId']    = $request->DBInstanceId;
-        $query['BackupId']        = $request->backupId;
-        $query['BackupStatus']    = $request->backupStatus;
-        $query['BackupMode']      = $request->backupMode;
-        $query['StartTime']       = $request->startTime;
-        $query['EndTime']         = $request->endTime;
-        $query['PageSize']        = $request->pageSize;
-        $query['PageNumber']      = $request->pageNumber;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBackups',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupsResponse::fromMap($this->doRPCRequest('DescribeBackups', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3341,34 +2086,11 @@ class Rds extends OpenApiClient
     public function describeBackupTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['Flag']                 = $request->flag;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['BackupJobId']          = $request->backupJobId;
-        $query['BackupMode']           = $request->backupMode;
-        $query['BackupJobStatus']      = $request->backupJobStatus;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBackupTasks',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeBackupTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupTasksResponse::fromMap($this->doRPCRequest('DescribeBackupTasks', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3392,33 +2114,11 @@ class Rds extends OpenApiClient
     public function describeBinlogFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBinlogFiles',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeBinlogFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBinlogFilesResponse::fromMap($this->doRPCRequest('DescribeBinlogFiles', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3442,30 +2142,11 @@ class Rds extends OpenApiClient
     public function describeCharacterSetNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Engine']               = $request->engine;
-        $query['RegionId']             = $request->regionId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeCharacterSetName',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeCharacterSetNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCharacterSetNameResponse::fromMap($this->doRPCRequest('DescribeCharacterSetName', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3489,27 +2170,11 @@ class Rds extends OpenApiClient
     public function describeCollationTimeZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeCollationTimeZones',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeCollationTimeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCollationTimeZonesResponse::fromMap($this->doRPCRequest('DescribeCollationTimeZones', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3533,33 +2198,11 @@ class Rds extends OpenApiClient
     public function describeCrossBackupMetaListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['BackupSetId']          = $request->backupSetId;
-        $query['GetDbName']            = $request->getDbName;
-        $query['Pattern']              = $request->pattern;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageIndex']            = $request->pageIndex;
-        $query['Region']               = $request->region;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeCrossBackupMetaList',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeCrossBackupMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCrossBackupMetaListResponse::fromMap($this->doRPCRequest('DescribeCrossBackupMetaList', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3583,31 +2226,11 @@ class Rds extends OpenApiClient
     public function describeCrossRegionBackupDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeCrossRegionBackupDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeCrossRegionBackupDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCrossRegionBackupDBInstanceResponse::fromMap($this->doRPCRequest('DescribeCrossRegionBackupDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3631,36 +2254,11 @@ class Rds extends OpenApiClient
     public function describeCrossRegionBackupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $query['CrossBackupRegion']    = $request->crossBackupRegion;
-        $query['CrossBackupId']        = $request->crossBackupId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['BackupId']             = $request->backupId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeCrossRegionBackups',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeCrossRegionBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCrossRegionBackupsResponse::fromMap($this->doRPCRequest('DescribeCrossRegionBackups', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3684,34 +2282,11 @@ class Rds extends OpenApiClient
     public function describeCrossRegionLogBackupFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $query['CrossBackupRegion']    = $request->crossBackupRegion;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeCrossRegionLogBackupFiles',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeCrossRegionLogBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCrossRegionLogBackupFilesResponse::fromMap($this->doRPCRequest('DescribeCrossRegionLogBackupFiles', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3735,33 +2310,11 @@ class Rds extends OpenApiClient
     public function describeDatabasesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBName']               = $request->DBName;
-        $query['DBStatus']             = $request->DBStatus;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDatabases',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDatabasesResponse::fromMap($this->doRPCRequest('DescribeDatabases', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3785,27 +2338,11 @@ class Rds extends OpenApiClient
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['DBInstanceId']    = $request->DBInstanceId;
-        $query['Expired']         = $request->expired;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceAttribute',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceAttributeResponse::fromMap($this->doRPCRequest('DescribeDBInstanceAttribute', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3829,30 +2366,11 @@ class Rds extends OpenApiClient
     public function describeDBInstanceDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceDetail',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstanceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceDetailResponse::fromMap($this->doRPCRequest('DescribeDBInstanceDetail', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3876,33 +2394,11 @@ class Rds extends OpenApiClient
     public function describeDBInstanceEncryptionKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['SecurityToken']        = $request->securityToken;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['EncryptionKey']        = $request->encryptionKey;
-        $query['TargetRegionId']       = $request->targetRegionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceEncryptionKey',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstanceEncryptionKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceEncryptionKeyResponse::fromMap($this->doRPCRequest('DescribeDBInstanceEncryptionKey', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3926,29 +2422,11 @@ class Rds extends OpenApiClient
     public function describeDBInstanceHAConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceHAConfig',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstanceHAConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceHAConfigResponse::fromMap($this->doRPCRequest('DescribeDBInstanceHAConfig', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3972,28 +2450,11 @@ class Rds extends OpenApiClient
     public function describeDBInstanceIPArrayListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['WhitelistNetworkType'] = $request->whitelistNetworkType;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceIPArrayList',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstanceIPArrayListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceIPArrayListResponse::fromMap($this->doRPCRequest('DescribeDBInstanceIPArrayList', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4017,31 +2478,11 @@ class Rds extends OpenApiClient
     public function describeDBInstanceIpHostnameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['SecurityToken']        = $request->securityToken;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceIpHostname',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstanceIpHostnameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceIpHostnameResponse::fromMap($this->doRPCRequest('DescribeDBInstanceIpHostname', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4057,6 +2498,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBInstanceMetricsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDBInstanceMetricsResponse
+     */
+    public function describeDBInstanceMetricsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDBInstanceMetricsResponse::fromMap($this->doRPCRequest('DescribeDBInstanceMetrics', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceMetricsRequest $request
+     *
+     * @return DescribeDBInstanceMetricsResponse
+     */
+    public function describeDBInstanceMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceMetricsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBInstanceMonitorRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -4065,30 +2534,11 @@ class Rds extends OpenApiClient
     public function describeDBInstanceMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceMonitor',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceMonitorResponse::fromMap($this->doRPCRequest('DescribeDBInstanceMonitor', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4112,32 +2562,11 @@ class Rds extends OpenApiClient
     public function describeDBInstanceNetInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['OwnerId']                  = $request->ownerId;
-        $query['ResourceOwnerAccount']     = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']          = $request->resourceOwnerId;
-        $query['ClientToken']              = $request->clientToken;
-        $query['DBInstanceId']             = $request->DBInstanceId;
-        $query['Flag']                     = $request->flag;
-        $query['DBInstanceNetRWSplitType'] = $request->DBInstanceNetRWSplitType;
-        $query['OwnerAccount']             = $request->ownerAccount;
-        $req                               = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceNetInfo',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstanceNetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceNetInfoResponse::fromMap($this->doRPCRequest('DescribeDBInstanceNetInfo', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4161,29 +2590,11 @@ class Rds extends OpenApiClient
     public function describeDBInstancePerformanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['DBInstanceId']    = $request->DBInstanceId;
-        $query['Key']             = $request->key;
-        $query['StartTime']       = $request->startTime;
-        $query['EndTime']         = $request->endTime;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstancePerformance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstancePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstancePerformanceResponse::fromMap($this->doRPCRequest('DescribeDBInstancePerformance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4207,28 +2618,11 @@ class Rds extends OpenApiClient
     public function describeDBInstanceProxyConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceProxyConfiguration',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstanceProxyConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceProxyConfigurationResponse::fromMap($this->doRPCRequest('DescribeDBInstanceProxyConfiguration', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4252,53 +2646,11 @@ class Rds extends OpenApiClient
     public function describeDBInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['proxyId']              = $request->proxyId;
-        $query['Engine']               = $request->engine;
-        $query['ZoneId']               = $request->zoneId;
-        $query['ResourceGroupId']      = $request->resourceGroupId;
-        $query['DBInstanceStatus']     = $request->DBInstanceStatus;
-        $query['Expired']              = $request->expired;
-        $query['SearchKey']            = $request->searchKey;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBInstanceType']       = $request->DBInstanceType;
-        $query['RegionId']             = $request->regionId;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['InstanceNetworkType']  = $request->instanceNetworkType;
-        $query['VpcId']                = $request->vpcId;
-        $query['VSwitchId']            = $request->vSwitchId;
-        $query['DBInstanceClass']      = $request->DBInstanceClass;
-        $query['EngineVersion']        = $request->engineVersion;
-        $query['PayType']              = $request->payType;
-        $query['ConnectionMode']       = $request->connectionMode;
-        $query['Tags']                 = $request->tags;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['InstanceLevel']        = $request->instanceLevel;
-        $query['ConnectionString']     = $request->connectionString;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstances',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstancesResponse::fromMap($this->doRPCRequest('DescribeDBInstances', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4322,29 +2674,11 @@ class Rds extends OpenApiClient
     public function describeDBInstancesAsCsvWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstancesAsCsv',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstancesAsCsvResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstancesAsCsvResponse::fromMap($this->doRPCRequest('DescribeDBInstancesAsCsv', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4368,35 +2702,11 @@ class Rds extends OpenApiClient
     public function describeDBInstancesByExpireTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['proxyId']              = $request->proxyId;
-        $query['ExpirePeriod']         = $request->expirePeriod;
-        $query['Expired']              = $request->expired;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['Tags']                 = $request->tags;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstancesByExpireTime',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstancesByExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstancesByExpireTimeResponse::fromMap($this->doRPCRequest('DescribeDBInstancesByExpireTime', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4420,37 +2730,11 @@ class Rds extends OpenApiClient
     public function describeDBInstancesByPerformanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['proxyId']              = $request->proxyId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['SortMethod']           = $request->sortMethod;
-        $query['SortKey']              = $request->sortKey;
-        $query['Tags']                 = $request->tags;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstancesByPerformance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstancesByPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstancesByPerformanceResponse::fromMap($this->doRPCRequest('DescribeDBInstancesByPerformance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4474,49 +2758,11 @@ class Rds extends OpenApiClient
     public function describeDBInstancesForCloneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['proxyId']              = $request->proxyId;
-        $query['Engine']               = $request->engine;
-        $query['ZoneId']               = $request->zoneId;
-        $query['DBInstanceStatus']     = $request->DBInstanceStatus;
-        $query['Expired']              = $request->expired;
-        $query['SearchKey']            = $request->searchKey;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBInstanceType']       = $request->DBInstanceType;
-        $query['RegionId']             = $request->regionId;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['InstanceNetworkType']  = $request->instanceNetworkType;
-        $query['VpcId']                = $request->vpcId;
-        $query['VSwitchId']            = $request->vSwitchId;
-        $query['DBInstanceClass']      = $request->DBInstanceClass;
-        $query['EngineVersion']        = $request->engineVersion;
-        $query['NodeType']             = $request->nodeType;
-        $query['PayType']              = $request->payType;
-        $query['ConnectionMode']       = $request->connectionMode;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['CurrentInstanceId']    = $request->currentInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstancesForClone',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstancesForCloneResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstancesForCloneResponse::fromMap($this->doRPCRequest('DescribeDBInstancesForClone', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4540,29 +2786,11 @@ class Rds extends OpenApiClient
     public function describeDBInstanceSSLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceSSL',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceSSLResponse::fromMap($this->doRPCRequest('DescribeDBInstanceSSL', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4588,21 +2816,10 @@ class Rds extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceStatus',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'query' => $query,
         ]);
 
-        return DescribeDBInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceStatusResponse::fromMap($this->doRPCRequest('DescribeDBInstanceStatus', '2014-08-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4626,29 +2843,11 @@ class Rds extends OpenApiClient
     public function describeDBInstanceTDEWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceTDE',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceTDEResponse::fromMap($this->doRPCRequest('DescribeDBInstanceTDE', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4672,30 +2871,11 @@ class Rds extends OpenApiClient
     public function describeDBProxyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBProxy',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBProxyResponse::fromMap($this->doRPCRequest('DescribeDBProxy', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4719,32 +2899,11 @@ class Rds extends OpenApiClient
     public function describeDBProxyEndpointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBProxyEndpointId']    = $request->DBProxyEndpointId;
-        $query['DBProxyConnectString'] = $request->DBProxyConnectString;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBProxyEndpoint',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBProxyEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBProxyEndpointResponse::fromMap($this->doRPCRequest('DescribeDBProxyEndpoint', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4768,34 +2927,11 @@ class Rds extends OpenApiClient
     public function describeDBProxyPerformanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBProxyInstanceType']  = $request->DBProxyInstanceType;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['RegionId']             = $request->regionId;
-        $query['MetricsName']          = $request->metricsName;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBProxyPerformance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBProxyPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBProxyPerformanceResponse::fromMap($this->doRPCRequest('DescribeDBProxyPerformance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4819,30 +2955,11 @@ class Rds extends OpenApiClient
     public function describeDedicatedHostAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDedicatedHostAttribute',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDedicatedHostAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDedicatedHostAttributeResponse::fromMap($this->doRPCRequest('DescribeDedicatedHostAttribute', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4866,30 +2983,11 @@ class Rds extends OpenApiClient
     public function describeDedicatedHostGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['ImageCategory']        = $request->imageCategory;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDedicatedHostGroups',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDedicatedHostGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDedicatedHostGroupsResponse::fromMap($this->doRPCRequest('DescribeDedicatedHostGroups', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4913,29 +3011,11 @@ class Rds extends OpenApiClient
     public function describeDedicatedHostImageCategoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['HostGroup']            = $request->hostGroup;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDedicatedHostImageCategories',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDedicatedHostImageCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDedicatedHostImageCategoriesResponse::fromMap($this->doRPCRequest('DescribeDedicatedHostImageCategories', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4959,35 +3039,11 @@ class Rds extends OpenApiClient
     public function describeDedicatedHostsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['OrderId']              = $request->orderId;
-        $query['HostType']             = $request->hostType;
-        $query['HostStatus']           = $request->hostStatus;
-        $query['AllocationStatus']     = $request->allocationStatus;
-        $query['ZoneId']               = $request->zoneId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDedicatedHosts',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDedicatedHostsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDedicatedHostsResponse::fromMap($this->doRPCRequest('DescribeDedicatedHosts', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5011,34 +3067,11 @@ class Rds extends OpenApiClient
     public function describeDetachedBackupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['DBInstanceId']    = $request->DBInstanceId;
-        $query['BackupId']        = $request->backupId;
-        $query['BackupStatus']    = $request->backupStatus;
-        $query['BackupMode']      = $request->backupMode;
-        $query['StartTime']       = $request->startTime;
-        $query['EndTime']         = $request->endTime;
-        $query['PageSize']        = $request->pageSize;
-        $query['PageNumber']      = $request->pageNumber;
-        $query['Region']          = $request->region;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDetachedBackups',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDetachedBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDetachedBackupsResponse::fromMap($this->doRPCRequest('DescribeDetachedBackups', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5062,25 +3095,11 @@ class Rds extends OpenApiClient
     public function describeDiagnosticReportListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DBInstanceId'] = $request->DBInstanceId;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDiagnosticReportList',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDiagnosticReportListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDiagnosticReportListResponse::fromMap($this->doRPCRequest('DescribeDiagnosticReportList', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5096,6 +3115,35 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeDownloadLinkDetailsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDownloadLinkDetailsResponse
+     */
+    public function describeDownloadLinkDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return DescribeDownloadLinkDetailsResponse::fromMap($this->doRPCRequest('DescribeDownloadLinkDetails', '2014-08-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDownloadLinkDetailsRequest $request
+     *
+     * @return DescribeDownloadLinkDetailsResponse
+     */
+    public function describeDownloadLinkDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDownloadLinkDetailsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDTCSecurityIpHostsForSQLServerRequest $request
      * @param RuntimeOptions                                $runtime
      *
@@ -5104,31 +3152,11 @@ class Rds extends OpenApiClient
     public function describeDTCSecurityIpHostsForSQLServerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['SecurityToken']        = $request->securityToken;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDTCSecurityIpHostsForSQLServer',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDTCSecurityIpHostsForSQLServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDTCSecurityIpHostsForSQLServerResponse::fromMap($this->doRPCRequest('DescribeDTCSecurityIpHostsForSQLServer', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5152,33 +3180,11 @@ class Rds extends OpenApiClient
     public function describeErrorLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeErrorLogs',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeErrorLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeErrorLogsResponse::fromMap($this->doRPCRequest('DescribeErrorLogs', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5202,32 +3208,11 @@ class Rds extends OpenApiClient
     public function describeEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeEvents',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEventsResponse::fromMap($this->doRPCRequest('DescribeEvents', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5251,29 +3236,11 @@ class Rds extends OpenApiClient
     public function describeHADiagnoseConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeHADiagnoseConfig',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeHADiagnoseConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHADiagnoseConfigResponse::fromMap($this->doRPCRequest('DescribeHADiagnoseConfig', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5297,29 +3264,11 @@ class Rds extends OpenApiClient
     public function describeHASwitchConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeHASwitchConfig',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeHASwitchConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHASwitchConfigResponse::fromMap($this->doRPCRequest('DescribeHASwitchConfig', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5343,34 +3292,11 @@ class Rds extends OpenApiClient
     public function describeInstanceAutoRenewalAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['proxyId']              = $request->proxyId;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstanceAutoRenewalAttribute',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->doRPCRequest('DescribeInstanceAutoRenewalAttribute', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5394,29 +3320,11 @@ class Rds extends OpenApiClient
     public function describeInstanceCrossBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstanceCrossBackupPolicy',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeInstanceCrossBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceCrossBackupPolicyResponse::fromMap($this->doRPCRequest('DescribeInstanceCrossBackupPolicy', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5440,29 +3348,11 @@ class Rds extends OpenApiClient
     public function describeInstanceKeywordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Key']                  = $request->key;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstanceKeywords',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeInstanceKeywordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceKeywordsResponse::fromMap($this->doRPCRequest('DescribeInstanceKeywords', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5486,29 +3376,11 @@ class Rds extends OpenApiClient
     public function describeLocalAvailableRecoveryTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['Region']               = $request->region;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLocalAvailableRecoveryTime',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeLocalAvailableRecoveryTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLocalAvailableRecoveryTimeResponse::fromMap($this->doRPCRequest('DescribeLocalAvailableRecoveryTime', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5532,33 +3404,11 @@ class Rds extends OpenApiClient
     public function describeLogBackupFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLogBackupFiles',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeLogBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLogBackupFilesResponse::fromMap($this->doRPCRequest('DescribeLogBackupFiles', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5582,36 +3432,11 @@ class Rds extends OpenApiClient
     public function describeMetaListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RestoreType']          = $request->restoreType;
-        $query['BackupSetID']          = $request->backupSetID;
-        $query['RestoreTime']          = $request->restoreTime;
-        $query['GetDbName']            = $request->getDbName;
-        $query['Pattern']              = $request->pattern;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageIndex']            = $request->pageIndex;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMetaList',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMetaListResponse::fromMap($this->doRPCRequest('DescribeMetaList', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5635,29 +3460,11 @@ class Rds extends OpenApiClient
     public function describeMigrateTaskByIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['MigrateTaskId']        = $request->migrateTaskId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMigrateTaskById',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeMigrateTaskByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMigrateTaskByIdResponse::fromMap($this->doRPCRequest('DescribeMigrateTaskById', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5681,32 +3488,11 @@ class Rds extends OpenApiClient
     public function describeMigrateTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMigrateTasks',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeMigrateTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMigrateTasksResponse::fromMap($this->doRPCRequest('DescribeMigrateTasks', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5730,32 +3516,11 @@ class Rds extends OpenApiClient
     public function describeMigrateTasksForSQLServerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMigrateTasksForSQLServer',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeMigrateTasksForSQLServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMigrateTasksForSQLServerResponse::fromMap($this->doRPCRequest('DescribeMigrateTasksForSQLServer', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5779,33 +3544,11 @@ class Rds extends OpenApiClient
     public function describeModifyParameterLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeModifyParameterLog',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeModifyParameterLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeModifyParameterLogResponse::fromMap($this->doRPCRequest('DescribeModifyParameterLog', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5829,29 +3572,11 @@ class Rds extends OpenApiClient
     public function describeOssDownloadsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['MigrateTaskId']        = $request->migrateTaskId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeOssDownloads',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeOssDownloadsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeOssDownloadsResponse::fromMap($this->doRPCRequest('DescribeOssDownloads', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5875,29 +3600,11 @@ class Rds extends OpenApiClient
     public function describeOssDownloadsForSQLServerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['MigrateTaskId']        = $request->migrateTaskId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeOssDownloadsForSQLServer',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeOssDownloadsForSQLServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeOssDownloadsForSQLServerResponse::fromMap($this->doRPCRequest('DescribeOssDownloadsForSQLServer', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5921,29 +3628,11 @@ class Rds extends OpenApiClient
     public function describeParameterGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ParameterGroupId']     = $request->parameterGroupId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeParameterGroup',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeParameterGroupResponse::fromMap($this->doRPCRequest('DescribeParameterGroup', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5967,28 +3656,11 @@ class Rds extends OpenApiClient
     public function describeParameterGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeParameterGroups',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeParameterGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeParameterGroupsResponse::fromMap($this->doRPCRequest('DescribeParameterGroups', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6012,30 +3684,11 @@ class Rds extends OpenApiClient
     public function describeParametersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeParameters',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeParametersResponse::fromMap($this->doRPCRequest('DescribeParameters', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6059,34 +3712,11 @@ class Rds extends OpenApiClient
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['Engine']               = $request->engine;
-        $query['EngineVersion']        = $request->engineVersion;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['Category']             = $request->category;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeParameterTemplates',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeParameterTemplatesResponse::fromMap($this->doRPCRequest('DescribeParameterTemplates', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6110,44 +3740,11 @@ class Rds extends OpenApiClient
     public function describePriceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['OwnerId']               = $request->ownerId;
-        $query['ResourceOwnerAccount']  = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']       = $request->resourceOwnerId;
-        $query['ClientToken']           = $request->clientToken;
-        $query['OwnerAccount']          = $request->ownerAccount;
-        $query['CommodityCode']         = $request->commodityCode;
-        $query['RegionId']              = $request->regionId;
-        $query['Engine']                = $request->engine;
-        $query['EngineVersion']         = $request->engineVersion;
-        $query['DBInstanceClass']       = $request->DBInstanceClass;
-        $query['DBInstanceStorage']     = $request->DBInstanceStorage;
-        $query['PayType']               = $request->payType;
-        $query['ZoneId']                = $request->zoneId;
-        $query['UsedTime']              = $request->usedTime;
-        $query['TimeType']              = $request->timeType;
-        $query['Quantity']              = $request->quantity;
-        $query['InstanceUsedType']      = $request->instanceUsedType;
-        $query['OrderType']             = $request->orderType;
-        $query['DBInstanceStorageType'] = $request->DBInstanceStorageType;
-        $query['DBInstanceId']          = $request->DBInstanceId;
-        $req                            = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePrice',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePriceResponse::fromMap($this->doRPCRequest('DescribePrice', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6171,28 +3768,11 @@ class Rds extends OpenApiClient
     public function describeRdsResourceSettingsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ResourceNiche']        = $request->resourceNiche;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRdsResourceSettings',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeRdsResourceSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRdsResourceSettingsResponse::fromMap($this->doRPCRequest('DescribeRdsResourceSettings', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6216,31 +3796,11 @@ class Rds extends OpenApiClient
     public function describeReadDBInstanceDelayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['SecurityToken']        = $request->securityToken;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['ReadInstanceId']       = $request->readInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeReadDBInstanceDelay',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeReadDBInstanceDelayResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeReadDBInstanceDelayResponse::fromMap($this->doRPCRequest('DescribeReadDBInstanceDelay', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6264,32 +3824,11 @@ class Rds extends OpenApiClient
     public function describeRegionInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['RegionId']             = $request->regionId;
-        $query['InstanceUsedType']     = $request->instanceUsedType;
-        $query['SpecifyCount']         = $request->specifyCount;
-        $query['HostType']             = $request->hostType;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRegionInfos',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeRegionInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionInfosResponse::fromMap($this->doRPCRequest('DescribeRegionInfos', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6313,25 +3852,11 @@ class Rds extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6355,38 +3880,11 @@ class Rds extends OpenApiClient
     public function describeRenewalPriceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $query['PayType']              = $request->payType;
-        $query['DBInstanceClass']      = $request->DBInstanceClass;
-        $query['UsedTime']             = $request->usedTime;
-        $query['TimeType']             = $request->timeType;
-        $query['Quantity']             = $request->quantity;
-        $query['OrderType']            = $request->orderType;
-        $query['BusinessInfo']         = $request->businessInfo;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRenewalPrice',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeRenewalPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRenewalPriceResponse::fromMap($this->doRPCRequest('DescribeRenewalPrice', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6410,29 +3908,11 @@ class Rds extends OpenApiClient
     public function describeResourceUsageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeResourceUsage',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeResourceUsageResponse::fromMap($this->doRPCRequest('DescribeResourceUsage', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6456,28 +3936,11 @@ class Rds extends OpenApiClient
     public function describeSecurityGroupConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSecurityGroupConfiguration',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeSecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSecurityGroupConfigurationResponse::fromMap($this->doRPCRequest('DescribeSecurityGroupConfiguration', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6501,35 +3964,11 @@ class Rds extends OpenApiClient
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['SQLHASH']              = $request->SQLHASH;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['DBName']               = $request->DBName;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSlowLogRecords',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlowLogRecordsResponse::fromMap($this->doRPCRequest('DescribeSlowLogRecords', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6553,35 +3992,11 @@ class Rds extends OpenApiClient
     public function describeSlowLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['DBName']               = $request->DBName;
-        $query['SortKey']              = $request->sortKey;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSlowLogs',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeSlowLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlowLogsResponse::fromMap($this->doRPCRequest('DescribeSlowLogs', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6605,31 +4020,11 @@ class Rds extends OpenApiClient
     public function describeSQLCollectorPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['ResourceGroupId']      = $request->resourceGroupId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLCollectorPolicy',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeSQLCollectorPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSQLCollectorPolicyResponse::fromMap($this->doRPCRequest('DescribeSQLCollectorPolicy', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6653,31 +4048,11 @@ class Rds extends OpenApiClient
     public function describeSQLCollectorRetentionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['SecurityToken']        = $request->securityToken;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['ResourceGroupId']      = $request->resourceGroupId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLCollectorRetention',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeSQLCollectorRetentionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSQLCollectorRetentionResponse::fromMap($this->doRPCRequest('DescribeSQLCollectorRetention', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6701,32 +4076,11 @@ class Rds extends OpenApiClient
     public function describeSQLLogFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['FileName']             = $request->fileName;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLLogFiles',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeSQLLogFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSQLLogFilesResponse::fromMap($this->doRPCRequest('DescribeSQLLogFiles', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6750,39 +4104,11 @@ class Rds extends OpenApiClient
     public function describeSQLLogRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['SQLId']                = $request->SQLId;
-        $query['QueryKeywords']        = $request->queryKeywords;
-        $query['StartTime']            = $request->startTime;
-        $query['Database']             = $request->database;
-        $query['User']                 = $request->user;
-        $query['Form']                 = $request->form;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLLogRecords',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeSQLLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSQLLogRecordsResponse::fromMap($this->doRPCRequest('DescribeSQLLogRecords', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6806,33 +4132,11 @@ class Rds extends OpenApiClient
     public function describeSQLLogReportListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLLogReportList',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeSQLLogReportListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSQLLogReportListResponse::fromMap($this->doRPCRequest('DescribeSQLLogReportList', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6856,33 +4160,11 @@ class Rds extends OpenApiClient
     public function describeSQLLogReportsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLLogReports',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeSQLLogReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSQLLogReportsResponse::fromMap($this->doRPCRequest('DescribeSQLLogReports', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6906,34 +4188,11 @@ class Rds extends OpenApiClient
     public function describeTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['proxyId']              = $request->proxyId;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['Tags']                 = $request->tags;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['ResourceType']         = $request->resourceType;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeTags',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTagsResponse::fromMap($this->doRPCRequest('DescribeTags', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6957,35 +4216,11 @@ class Rds extends OpenApiClient
     public function describeTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['StartTime']            = $request->startTime;
-        $query['EndTime']              = $request->endTime;
-        $query['PageSize']             = $request->pageSize;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['Status']               = $request->status;
-        $query['TaskAction']           = $request->taskAction;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeTasks',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTasksResponse::fromMap($this->doRPCRequest('DescribeTasks', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7001,6 +4236,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeVSwitchesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitchesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVSwitchesResponse::fromMap($this->doRPCRequest('DescribeVSwitches', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVSwitchesRequest $request
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVSwitchesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DestroyDBInstanceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -7009,30 +4272,11 @@ class Rds extends OpenApiClient
     public function destroyDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DestroyDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DestroyDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DestroyDBInstanceResponse::fromMap($this->doRPCRequest('DestroyDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7056,30 +4300,11 @@ class Rds extends OpenApiClient
     public function dropDedicatedHostUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DedicatedHostName']    = $request->dedicatedHostName;
-        $query['UserName']             = $request->userName;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DropDedicatedHostUser',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DropDedicatedHostUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DropDedicatedHostUserResponse::fromMap($this->doRPCRequest('DropDedicatedHostUser', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7103,34 +4328,11 @@ class Rds extends OpenApiClient
     public function evaluateDedicatedHostInstanceResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['DiskType']             = $request->diskType;
-        $query['DiskSize']             = $request->diskSize;
-        $query['InstanceClassNames']   = $request->instanceClassNames;
-        $query['Engine']               = $request->engine;
-        $query['EngineVersion']        = $request->engineVersion;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'EvaluateDedicatedHostInstanceResource',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return EvaluateDedicatedHostInstanceResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EvaluateDedicatedHostInstanceResourceResponse::fromMap($this->doRPCRequest('EvaluateDedicatedHostInstanceResource', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7154,27 +4356,11 @@ class Rds extends OpenApiClient
     public function getDbProxyInstanceSslWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['RegionId']     = $request->regionId;
-        $query['DbInstanceId'] = $request->dbInstanceId;
-        $query['DbInstanceId'] = $request->dbInstanceId;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDbProxyInstanceSsl',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return GetDbProxyInstanceSslResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDbProxyInstanceSslResponse::fromMap($this->doRPCRequest('GetDbProxyInstanceSsl', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7198,29 +4384,11 @@ class Rds extends OpenApiClient
     public function grantAccountPrivilegeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ResourceOwnerId']  = $request->resourceOwnerId;
-        $query['DBInstanceId']     = $request->DBInstanceId;
-        $query['AccountName']      = $request->accountName;
-        $query['DBName']           = $request->DBName;
-        $query['AccountPrivilege'] = $request->accountPrivilege;
-        $req                       = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'GrantAccountPrivilege',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return GrantAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GrantAccountPrivilegeResponse::fromMap($this->doRPCRequest('GrantAccountPrivilege', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7244,31 +4412,11 @@ class Rds extends OpenApiClient
     public function grantOperatorPermissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['ExpiredTime']          = $request->expiredTime;
-        $query['Privileges']           = $request->privileges;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'GrantOperatorPermission',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return GrantOperatorPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GrantOperatorPermissionResponse::fromMap($this->doRPCRequest('GrantOperatorPermission', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7292,31 +4440,11 @@ class Rds extends OpenApiClient
     public function importDatabaseBetweenInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['SourceDBInstanceId']   = $request->sourceDBInstanceId;
-        $query['DBInfo']               = $request->DBInfo;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ImportDatabaseBetweenInstances',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ImportDatabaseBetweenInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportDatabaseBetweenInstancesResponse::fromMap($this->doRPCRequest('ImportDatabaseBetweenInstances', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7340,35 +4468,11 @@ class Rds extends OpenApiClient
     public function importUserBackupFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['EngineVersion']        = $request->engineVersion;
-        $query['BucketRegion']         = $request->bucketRegion;
-        $query['BackupFile']           = $request->backupFile;
-        $query['Comment']              = $request->comment;
-        $query['RestoreSize']          = $request->restoreSize;
-        $query['Retention']            = $request->retention;
-        $query['ZoneId']               = $request->zoneId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ImportUserBackupFile',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ImportUserBackupFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportUserBackupFileResponse::fromMap($this->doRPCRequest('ImportUserBackupFile', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7392,32 +4496,11 @@ class Rds extends OpenApiClient
     public function listClassesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['CommodityCode']        = $request->commodityCode;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OrderType']            = $request->orderType;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ListClasses',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ListClassesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClassesResponse::fromMap($this->doRPCRequest('ListClasses', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7441,32 +4524,11 @@ class Rds extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceType']         = $request->resourceType;
-        $query['NextToken']            = $request->nextToken;
-        $query['ResourceId']           = $request->resourceId;
-        $query['Tag']                  = $request->tag;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7490,33 +4552,11 @@ class Rds extends OpenApiClient
     public function listUserBackupFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Status']               = $request->status;
-        $query['RegionId']             = $request->regionId;
-        $query['Comment']              = $request->comment;
-        $query['BackupId']             = $request->backupId;
-        $query['OssUrl']               = $request->ossUrl;
-        $query['Tags']                 = $request->tags;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ListUserBackupFiles',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ListUserBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserBackupFilesResponse::fromMap($this->doRPCRequest('ListUserBackupFiles', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7540,29 +4580,11 @@ class Rds extends OpenApiClient
     public function lockAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['AccountName']          = $request->accountName;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'LockAccount',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return LockAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LockAccountResponse::fromMap($this->doRPCRequest('LockAccount', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7586,36 +4608,11 @@ class Rds extends OpenApiClient
     public function migrateDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                   = [];
-        $query['OwnerId']                        = $request->ownerId;
-        $query['ResourceOwnerAccount']           = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']                = $request->resourceOwnerId;
-        $query['RegionId']                       = $request->regionId;
-        $query['DedicatedHostGroupId']           = $request->dedicatedHostGroupId;
-        $query['DBInstanceId']                   = $request->DBInstanceId;
-        $query['TargetDedicatedHostIdForMaster'] = $request->targetDedicatedHostIdForMaster;
-        $query['TargetDedicatedHostIdForSlave']  = $request->targetDedicatedHostIdForSlave;
-        $query['EffectiveTime']                  = $request->effectiveTime;
-        $query['SpecifiedTime']                  = $request->specifiedTime;
-        $query['ZoneIdForLog']                   = $request->zoneIdForLog;
-        $query['ZoneIdForFollower']              = $request->zoneIdForFollower;
-        $req                                     = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'MigrateDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return MigrateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MigrateDBInstanceResponse::fromMap($this->doRPCRequest('MigrateDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7639,28 +4636,11 @@ class Rds extends OpenApiClient
     public function migrateSecurityIPModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'MigrateSecurityIPMode',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return MigrateSecurityIPModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MigrateSecurityIPModeResponse::fromMap($this->doRPCRequest('MigrateSecurityIPMode', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7684,36 +4664,11 @@ class Rds extends OpenApiClient
     public function migrateToOtherZoneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['VPCId']                = $request->VPCId;
-        $query['ZoneId']               = $request->zoneId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['EffectiveTime']        = $request->effectiveTime;
-        $query['VSwitchId']            = $request->vSwitchId;
-        $query['Category']             = $request->category;
-        $query['ZoneIdSlave1']         = $request->zoneIdSlave1;
-        $query['ZoneIdSlave2']         = $request->zoneIdSlave2;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'MigrateToOtherZone',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return MigrateToOtherZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MigrateToOtherZoneResponse::fromMap($this->doRPCRequest('MigrateToOtherZone', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7737,31 +4692,11 @@ class Rds extends OpenApiClient
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['AccountName']          = $request->accountName;
-        $query['AccountDescription']   = $request->accountDescription;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyAccountDescription',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAccountDescriptionResponse::fromMap($this->doRPCRequest('ModifyAccountDescription', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7785,29 +4720,11 @@ class Rds extends OpenApiClient
     public function modifyActionEventPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['EnableEventLog']       = $request->enableEventLog;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyActionEventPolicy',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyActionEventPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyActionEventPolicyResponse::fromMap($this->doRPCRequest('ModifyActionEventPolicy', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7831,49 +4748,11 @@ class Rds extends OpenApiClient
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                  = [];
-        $query['OwnerId']                       = $request->ownerId;
-        $query['ResourceOwnerAccount']          = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']               = $request->resourceOwnerId;
-        $query['DBInstanceId']                  = $request->DBInstanceId;
-        $query['BackupPolicyMode']              = $request->backupPolicyMode;
-        $query['PreferredBackupTime']           = $request->preferredBackupTime;
-        $query['PreferredBackupPeriod']         = $request->preferredBackupPeriod;
-        $query['BackupRetentionPeriod']         = $request->backupRetentionPeriod;
-        $query['BackupLog']                     = $request->backupLog;
-        $query['LogBackupRetentionPeriod']      = $request->logBackupRetentionPeriod;
-        $query['OwnerAccount']                  = $request->ownerAccount;
-        $query['EnableBackupLog']               = $request->enableBackupLog;
-        $query['LocalLogRetentionHours']        = $request->localLogRetentionHours;
-        $query['LocalLogRetentionSpace']        = $request->localLogRetentionSpace;
-        $query['HighSpaceUsageProtection']      = $request->highSpaceUsageProtection;
-        $query['LogBackupFrequency']            = $request->logBackupFrequency;
-        $query['CompressType']                  = $request->compressType;
-        $query['ArchiveBackupRetentionPeriod']  = $request->archiveBackupRetentionPeriod;
-        $query['ArchiveBackupKeepPolicy']       = $request->archiveBackupKeepPolicy;
-        $query['ArchiveBackupKeepCount']        = $request->archiveBackupKeepCount;
-        $query['ReleasedKeepPolicy']            = $request->releasedKeepPolicy;
-        $query['LogBackupLocalRetentionNumber'] = $request->logBackupLocalRetentionNumber;
-        $query['Category']                      = $request->category;
-        $query['BackupInterval']                = $request->backupInterval;
-        $query['BackupMethod']                  = $request->backupMethod;
-        $req                                    = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyBackupPolicy',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyBackupPolicyResponse::fromMap($this->doRPCRequest('ModifyBackupPolicy', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7897,30 +4776,11 @@ class Rds extends OpenApiClient
     public function modifyCollationTimeZoneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['Collation']            = $request->collation;
-        $query['Timezone']             = $request->timezone;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyCollationTimeZone',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyCollationTimeZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyCollationTimeZoneResponse::fromMap($this->doRPCRequest('ModifyCollationTimeZone', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7944,32 +4804,11 @@ class Rds extends OpenApiClient
     public function modifyDasInstanceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['StorageAutoScale']     = $request->storageAutoScale;
-        $query['StorageThreshold']     = $request->storageThreshold;
-        $query['StorageUpperBound']    = $request->storageUpperBound;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDasInstanceConfig',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDasInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDasInstanceConfigResponse::fromMap($this->doRPCRequest('ModifyDasInstanceConfig', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -7993,31 +4832,11 @@ class Rds extends OpenApiClient
     public function modifyDBDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DBName']               = $request->DBName;
-        $query['DBDescription']        = $request->DBDescription;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBDescription',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBDescriptionResponse::fromMap($this->doRPCRequest('ModifyDBDescription', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8041,30 +4860,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceAutoUpgradeMinorVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['OwnerId']                 = $request->ownerId;
-        $query['ResourceOwnerAccount']    = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']         = $request->resourceOwnerId;
-        $query['ClientToken']             = $request->clientToken;
-        $query['DBInstanceId']            = $request->DBInstanceId;
-        $query['AutoUpgradeMinorVersion'] = $request->autoUpgradeMinorVersion;
-        $req                              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceAutoUpgradeMinorVersion',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceAutoUpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceAutoUpgradeMinorVersionResponse::fromMap($this->doRPCRequest('ModifyDBInstanceAutoUpgradeMinorVersion', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8088,30 +4888,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceConnectionModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['ConnectionMode']       = $request->connectionMode;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceConnectionMode',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceConnectionModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceConnectionModeResponse::fromMap($this->doRPCRequest('ModifyDBInstanceConnectionMode', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8135,32 +4916,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceConnectionStringWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['OwnerId']                 = $request->ownerId;
-        $query['ResourceOwnerAccount']    = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']         = $request->resourceOwnerId;
-        $query['DBInstanceId']            = $request->DBInstanceId;
-        $query['CurrentConnectionString'] = $request->currentConnectionString;
-        $query['ConnectionStringPrefix']  = $request->connectionStringPrefix;
-        $query['Port']                    = $request->port;
-        $query['OwnerAccount']            = $request->ownerAccount;
-        $req                              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceConnectionString',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceConnectionStringResponse::fromMap($this->doRPCRequest('ModifyDBInstanceConnectionString', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8184,30 +4944,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['OwnerId']               = $request->ownerId;
-        $query['ResourceOwnerAccount']  = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']       = $request->resourceOwnerId;
-        $query['DBInstanceId']          = $request->DBInstanceId;
-        $query['DBInstanceDescription'] = $request->DBInstanceDescription;
-        $query['OwnerAccount']          = $request->ownerAccount;
-        $req                            = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceDescription',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceDescriptionResponse::fromMap($this->doRPCRequest('ModifyDBInstanceDescription', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8231,31 +4972,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceHAConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SyncMode']             = $request->syncMode;
-        $query['HAMode']               = $request->HAMode;
-        $query['DbInstanceId']         = $request->dbInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceHAConfig',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceHAConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceHAConfigResponse::fromMap($this->doRPCRequest('ModifyDBInstanceHAConfig', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8279,31 +5000,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceMaintainTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['MaintainTime']         = $request->maintainTime;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceMaintainTime',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceMaintainTimeResponse::fromMap($this->doRPCRequest('ModifyDBInstanceMaintainTime', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8319,6 +5020,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param ModifyDBInstanceMetricsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyDBInstanceMetricsResponse
+     */
+    public function modifyDBInstanceMetricsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyDBInstanceMetricsResponse::fromMap($this->doRPCRequest('ModifyDBInstanceMetrics', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBInstanceMetricsRequest $request
+     *
+     * @return ModifyDBInstanceMetricsResponse
+     */
+    public function modifyDBInstanceMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceMetricsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDBInstanceMonitorRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -8327,31 +5056,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['Period']               = $request->period;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceMonitor',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceMonitorResponse::fromMap($this->doRPCRequest('ModifyDBInstanceMonitor', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8375,31 +5084,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceNetworkExpireTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['ConnectionString']     = $request->connectionString;
-        $query['ClassicExpiredDays']   = $request->classicExpiredDays;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceNetworkExpireTime',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceNetworkExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceNetworkExpireTimeResponse::fromMap($this->doRPCRequest('ModifyDBInstanceNetworkExpireTime', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8423,37 +5112,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceNetworkTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                         = [];
-        $query['OwnerId']                              = $request->ownerId;
-        $query['ResourceOwnerAccount']                 = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']                      = $request->resourceOwnerId;
-        $query['DBInstanceId']                         = $request->DBInstanceId;
-        $query['RetainClassic']                        = $request->retainClassic;
-        $query['ClassicExpiredDays']                   = $request->classicExpiredDays;
-        $query['InstanceNetworkType']                  = $request->instanceNetworkType;
-        $query['ReadWriteSplittingClassicExpiredDays'] = $request->readWriteSplittingClassicExpiredDays;
-        $query['VPCId']                                = $request->VPCId;
-        $query['VSwitchId']                            = $request->vSwitchId;
-        $query['PrivateIpAddress']                     = $request->privateIpAddress;
-        $query['ReadWriteSplittingPrivateIpAddress']   = $request->readWriteSplittingPrivateIpAddress;
-        $query['OwnerAccount']                         = $request->ownerAccount;
-        $req                                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceNetworkType',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceNetworkTypeResponse::fromMap($this->doRPCRequest('ModifyDBInstanceNetworkType', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8477,29 +5140,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstancePayTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['DBInstanceId']    = $request->DBInstanceId;
-        $query['UsedTime']        = $request->usedTime;
-        $query['PayType']         = $request->payType;
-        $query['Period']          = $request->period;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstancePayType',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstancePayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstancePayTypeResponse::fromMap($this->doRPCRequest('ModifyDBInstancePayType', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8523,30 +5168,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceProxyConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['OwnerId']                 = $request->ownerId;
-        $query['ResourceOwnerAccount']    = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']         = $request->resourceOwnerId;
-        $query['DBInstanceId']            = $request->DBInstanceId;
-        $query['ProxyConfigurationKey']   = $request->proxyConfigurationKey;
-        $query['ProxyConfigurationValue'] = $request->proxyConfigurationValue;
-        $req                              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceProxyConfiguration',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceProxyConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceProxyConfigurationResponse::fromMap($this->doRPCRequest('ModifyDBInstanceProxyConfiguration', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8570,39 +5196,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceSpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['OwnerId']               = $request->ownerId;
-        $query['ResourceOwnerAccount']  = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']       = $request->resourceOwnerId;
-        $query['DBInstanceId']          = $request->DBInstanceId;
-        $query['DBInstanceClass']       = $request->DBInstanceClass;
-        $query['DBInstanceStorage']     = $request->DBInstanceStorage;
-        $query['PayType']               = $request->payType;
-        $query['OwnerAccount']          = $request->ownerAccount;
-        $query['EffectiveTime']         = $request->effectiveTime;
-        $query['EngineVersion']         = $request->engineVersion;
-        $query['DBInstanceStorageType'] = $request->DBInstanceStorageType;
-        $query['Direction']             = $request->direction;
-        $query['SourceBiz']             = $request->sourceBiz;
-        $query['DedicatedHostGroupId']  = $request->dedicatedHostGroupId;
-        $query['ZoneId']                = $request->zoneId;
-        $req                            = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceSpec',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceSpecResponse::fromMap($this->doRPCRequest('ModifyDBInstanceSpec', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8626,40 +5224,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceSSLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['OwnerId']                  = $request->ownerId;
-        $query['ResourceOwnerAccount']     = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']          = $request->resourceOwnerId;
-        $query['DBInstanceId']             = $request->DBInstanceId;
-        $query['ConnectionString']         = $request->connectionString;
-        $query['OwnerAccount']             = $request->ownerAccount;
-        $query['SSLEnabled']               = $request->SSLEnabled;
-        $query['CAType']                   = $request->CAType;
-        $query['ServerCert']               = $request->serverCert;
-        $query['ServerKey']                = $request->serverKey;
-        $query['ClientCAEnabled']          = $request->clientCAEnabled;
-        $query['ClientCACert']             = $request->clientCACert;
-        $query['ClientCrlEnabled']         = $request->clientCrlEnabled;
-        $query['ClientCertRevocationList'] = $request->clientCertRevocationList;
-        $query['ACL']                      = $request->ACL;
-        $query['ReplicationACL']           = $request->replicationACL;
-        $req                               = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceSSL',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceSSLResponse::fromMap($this->doRPCRequest('ModifyDBInstanceSSL', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8683,33 +5252,11 @@ class Rds extends OpenApiClient
     public function modifyDBInstanceTDEWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['TDEStatus']            = $request->TDEStatus;
-        $query['DBName']               = $request->DBName;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['EncryptionKey']        = $request->encryptionKey;
-        $query['RoleArn']              = $request->roleArn;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceTDE',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceTDEResponse::fromMap($this->doRPCRequest('ModifyDBInstanceTDE', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8733,35 +5280,11 @@ class Rds extends OpenApiClient
     public function modifyDBProxyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['ConfigDBProxyService'] = $request->configDBProxyService;
-        $query['DBProxyInstanceNum']   = $request->DBProxyInstanceNum;
-        $query['RegionId']             = $request->regionId;
-        $query['InstanceNetworkType']  = $request->instanceNetworkType;
-        $query['VPCId']                = $request->VPCId;
-        $query['VSwitchId']            = $request->vSwitchId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBProxy',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBProxyResponse::fromMap($this->doRPCRequest('ModifyDBProxy', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8785,39 +5308,11 @@ class Rds extends OpenApiClient
     public function modifyDBProxyEndpointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                     = [];
-        $query['OwnerId']                          = $request->ownerId;
-        $query['ResourceOwnerAccount']             = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']                  = $request->resourceOwnerId;
-        $query['DBInstanceId']                     = $request->DBInstanceId;
-        $query['DBProxyEndpointId']                = $request->DBProxyEndpointId;
-        $query['ConfigDBProxyFeatures']            = $request->configDBProxyFeatures;
-        $query['RegionId']                         = $request->regionId;
-        $query['ReadOnlyInstanceMaxDelayTime']     = $request->readOnlyInstanceMaxDelayTime;
-        $query['ReadOnlyInstanceDistributionType'] = $request->readOnlyInstanceDistributionType;
-        $query['ReadOnlyInstanceWeight']           = $request->readOnlyInstanceWeight;
-        $query['DBInstanceId']                     = $request->DBInstanceId;
-        $query['DbEndpointOperator']               = $request->dbEndpointOperator;
-        $query['DbEndpointAliases']                = $request->dbEndpointAliases;
-        $query['DbEndpointType']                   = $request->dbEndpointType;
-        $query['DbEndpointReadWriteMode']          = $request->dbEndpointReadWriteMode;
-        $req                                       = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBProxyEndpoint',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBProxyEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBProxyEndpointResponse::fromMap($this->doRPCRequest('ModifyDBProxyEndpoint', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8841,33 +5336,11 @@ class Rds extends OpenApiClient
     public function modifyDBProxyEndpointAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                = [];
-        $query['OwnerId']                     = $request->ownerId;
-        $query['ResourceOwnerAccount']        = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']             = $request->resourceOwnerId;
-        $query['DBInstanceId']                = $request->DBInstanceId;
-        $query['DBInstanceId']                = $request->DBInstanceId;
-        $query['DBProxyEndpointId']           = $request->DBProxyEndpointId;
-        $query['DBProxyNewConnectString']     = $request->DBProxyNewConnectString;
-        $query['DBProxyNewConnectStringPort'] = $request->DBProxyNewConnectStringPort;
-        $query['DBProxyConnectStringNetType'] = $request->DBProxyConnectStringNetType;
-        $req                                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBProxyEndpointAddress',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBProxyEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBProxyEndpointAddressResponse::fromMap($this->doRPCRequest('ModifyDBProxyEndpointAddress', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8891,34 +5364,11 @@ class Rds extends OpenApiClient
     public function modifyDBProxyInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['OwnerId']               = $request->ownerId;
-        $query['ResourceOwnerAccount']  = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']       = $request->resourceOwnerId;
-        $query['DBInstanceId']          = $request->DBInstanceId;
-        $query['DBProxyInstanceType']   = $request->DBProxyInstanceType;
-        $query['DBProxyInstanceNum']    = $request->DBProxyInstanceNum;
-        $query['EffectiveTime']         = $request->effectiveTime;
-        $query['EffectiveSpecificTime'] = $request->effectiveSpecificTime;
-        $query['RegionId']              = $request->regionId;
-        $query['DBInstanceId']          = $request->DBInstanceId;
-        $req                            = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBProxyInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDBProxyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBProxyInstanceResponse::fromMap($this->doRPCRequest('ModifyDBProxyInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8942,30 +5392,11 @@ class Rds extends OpenApiClient
     public function modifyDbProxyInstanceSslWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['RegionId']             = $request->regionId;
-        $query['DbInstanceId']         = $request->dbInstanceId;
-        $query['DbInstanceId']         = $request->dbInstanceId;
-        $query['DbProxyEndpointId']    = $request->dbProxyEndpointId;
-        $query['DbProxyConnectString'] = $request->dbProxyConnectString;
-        $query['DbProxySslEnabled']    = $request->dbProxySslEnabled;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDbProxyInstanceSsl',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDbProxyInstanceSslResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDbProxyInstanceSslResponse::fromMap($this->doRPCRequest('ModifyDbProxyInstanceSsl', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -8989,31 +5420,11 @@ class Rds extends OpenApiClient
     public function modifyDedicatedHostAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['AccountName']          = $request->accountName;
-        $query['AccountPassword']      = $request->accountPassword;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDedicatedHostAccount',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDedicatedHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDedicatedHostAccountResponse::fromMap($this->doRPCRequest('ModifyDedicatedHostAccount', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9037,31 +5448,11 @@ class Rds extends OpenApiClient
     public function modifyDedicatedHostAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['HostName']             = $request->hostName;
-        $query['AllocationStatus']     = $request->allocationStatus;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDedicatedHostAttribute',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDedicatedHostAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDedicatedHostAttributeResponse::fromMap($this->doRPCRequest('ModifyDedicatedHostAttribute', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9085,35 +5476,11 @@ class Rds extends OpenApiClient
     public function modifyDedicatedHostGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['OwnerId']                = $request->ownerId;
-        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']        = $request->resourceOwnerId;
-        $query['RegionId']               = $request->regionId;
-        $query['DedicatedHostGroupId']   = $request->dedicatedHostGroupId;
-        $query['DedicatedHostGroupDesc'] = $request->dedicatedHostGroupDesc;
-        $query['CpuAllocationRatio']     = $request->cpuAllocationRatio;
-        $query['MemAllocationRatio']     = $request->memAllocationRatio;
-        $query['DiskAllocationRatio']    = $request->diskAllocationRatio;
-        $query['AllocationPolicy']       = $request->allocationPolicy;
-        $query['HostReplacePolicy']      = $request->hostReplacePolicy;
-        $req                             = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDedicatedHostGroupAttribute',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDedicatedHostGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDedicatedHostGroupAttributeResponse::fromMap($this->doRPCRequest('ModifyDedicatedHostGroupAttribute', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9137,32 +5504,11 @@ class Rds extends OpenApiClient
     public function modifyDedicatedHostUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DedicatedHostName']    = $request->dedicatedHostName;
-        $query['UserName']             = $request->userName;
-        $query['OldPassword']          = $request->oldPassword;
-        $query['NewPassword']          = $request->newPassword;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDedicatedHostUser',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDedicatedHostUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDedicatedHostUserResponse::fromMap($this->doRPCRequest('ModifyDedicatedHostUser', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9186,33 +5532,11 @@ class Rds extends OpenApiClient
     public function modifyDTCSecurityIpHostsForSQLServerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['SecurityToken']        = $request->securityToken;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['SecurityIpHosts']      = $request->securityIpHosts;
-        $query['WhiteListGroupName']   = $request->whiteListGroupName;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDTCSecurityIpHostsForSQLServer',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDTCSecurityIpHostsForSQLServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDTCSecurityIpHostsForSQLServerResponse::fromMap($this->doRPCRequest('ModifyDTCSecurityIpHostsForSQLServer', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9236,30 +5560,11 @@ class Rds extends OpenApiClient
     public function modifyHADiagnoseConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['TcpConnectionType']    = $request->tcpConnectionType;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyHADiagnoseConfig',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyHADiagnoseConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHADiagnoseConfigResponse::fromMap($this->doRPCRequest('ModifyHADiagnoseConfig', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9283,31 +5588,11 @@ class Rds extends OpenApiClient
     public function modifyHASwitchConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['HAConfig']             = $request->HAConfig;
-        $query['ManualHATime']         = $request->manualHATime;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyHASwitchConfig',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyHASwitchConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHASwitchConfigResponse::fromMap($this->doRPCRequest('ModifyHASwitchConfig', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9331,33 +5616,11 @@ class Rds extends OpenApiClient
     public function modifyInstanceAutoRenewalAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['Duration']             = $request->duration;
-        $query['AutoRenew']            = $request->autoRenew;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyInstanceAutoRenewalAttribute',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->doRPCRequest('ModifyInstanceAutoRenewalAttribute', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9381,35 +5644,11 @@ class Rds extends OpenApiClient
     public function modifyInstanceCrossBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $query['CrossBackupType']      = $request->crossBackupType;
-        $query['LogBackupEnabled']     = $request->logBackupEnabled;
-        $query['BackupEnabled']        = $request->backupEnabled;
-        $query['CrossBackupRegion']    = $request->crossBackupRegion;
-        $query['RetentType']           = $request->retentType;
-        $query['Retention']            = $request->retention;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyInstanceCrossBackupPolicy',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyInstanceCrossBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyInstanceCrossBackupPolicyResponse::fromMap($this->doRPCRequest('ModifyInstanceCrossBackupPolicy', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9433,33 +5672,11 @@ class Rds extends OpenApiClient
     public function modifyParameterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['Parameters']           = $request->parameters;
-        $query['Forcerestart']         = $request->forcerestart;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['ParameterGroupId']     = $request->parameterGroupId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyParameter',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyParameterResponse::fromMap($this->doRPCRequest('ModifyParameter', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9483,32 +5700,11 @@ class Rds extends OpenApiClient
     public function modifyParameterGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ParameterGroupId']     = $request->parameterGroupId;
-        $query['ParameterGroupName']   = $request->parameterGroupName;
-        $query['ParameterGroupDesc']   = $request->parameterGroupDesc;
-        $query['Parameters']           = $request->parameters;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyParameterGroup',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyParameterGroupResponse::fromMap($this->doRPCRequest('ModifyParameterGroup', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9532,29 +5728,11 @@ class Rds extends OpenApiClient
     public function modifyReadonlyInstanceDelayReplicationTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['OwnerId']                = $request->ownerId;
-        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']        = $request->resourceOwnerId;
-        $query['DBInstanceId']           = $request->DBInstanceId;
-        $query['ReadSQLReplicationTime'] = $request->readSQLReplicationTime;
-        $req                             = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyReadonlyInstanceDelayReplicationTime',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyReadonlyInstanceDelayReplicationTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyReadonlyInstanceDelayReplicationTimeResponse::fromMap($this->doRPCRequest('ModifyReadonlyInstanceDelayReplicationTime', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9578,34 +5756,11 @@ class Rds extends OpenApiClient
     public function modifyReadWriteSplittingConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['OwnerId']                = $request->ownerId;
-        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']        = $request->resourceOwnerId;
-        $query['OwnerAccount']           = $request->ownerAccount;
-        $query['DBInstanceId']           = $request->DBInstanceId;
-        $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
-        $query['Port']                   = $request->port;
-        $query['MaxDelayTime']           = $request->maxDelayTime;
-        $query['DistributionType']       = $request->distributionType;
-        $query['Weight']                 = $request->weight;
-        $req                             = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyReadWriteSplittingConnection',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyReadWriteSplittingConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyReadWriteSplittingConnectionResponse::fromMap($this->doRPCRequest('ModifyReadWriteSplittingConnection', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9629,31 +5784,11 @@ class Rds extends OpenApiClient
     public function modifyResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['ResourceGroupId']      = $request->resourceGroupId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyResourceGroup',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyResourceGroupResponse::fromMap($this->doRPCRequest('ModifyResourceGroup', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9677,29 +5812,11 @@ class Rds extends OpenApiClient
     public function modifySecurityGroupConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['SecurityGroupId']      = $request->securityGroupId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifySecurityGroupConfiguration',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifySecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySecurityGroupConfigurationResponse::fromMap($this->doRPCRequest('ModifySecurityGroupConfiguration', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9723,32 +5840,11 @@ class Rds extends OpenApiClient
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                               = [];
-        $query['ResourceOwnerId']            = $request->resourceOwnerId;
-        $query['DBInstanceId']               = $request->DBInstanceId;
-        $query['SecurityIps']                = $request->securityIps;
-        $query['DBInstanceIPArrayName']      = $request->DBInstanceIPArrayName;
-        $query['DBInstanceIPArrayAttribute'] = $request->DBInstanceIPArrayAttribute;
-        $query['SecurityIPType']             = $request->securityIPType;
-        $query['WhitelistNetworkType']       = $request->whitelistNetworkType;
-        $query['ModifyMode']                 = $request->modifyMode;
-        $req                                 = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifySecurityIps',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySecurityIpsResponse::fromMap($this->doRPCRequest('ModifySecurityIps', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9772,31 +5868,11 @@ class Rds extends OpenApiClient
     public function modifySQLCollectorPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['SQLCollectorStatus']   = $request->SQLCollectorStatus;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['ResourceGroupId']      = $request->resourceGroupId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifySQLCollectorPolicy',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifySQLCollectorPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySQLCollectorPolicyResponse::fromMap($this->doRPCRequest('ModifySQLCollectorPolicy', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9820,32 +5896,11 @@ class Rds extends OpenApiClient
     public function modifySQLCollectorRetentionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['SecurityToken']        = $request->securityToken;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['ConfigValue']          = $request->configValue;
-        $query['ResourceGroupId']      = $request->resourceGroupId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifySQLCollectorRetention',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifySQLCollectorRetentionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySQLCollectorRetentionResponse::fromMap($this->doRPCRequest('ModifySQLCollectorRetention', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9869,30 +5924,11 @@ class Rds extends OpenApiClient
     public function purgeDBInstanceLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'PurgeDBInstanceLog',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return PurgeDBInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PurgeDBInstanceLogResponse::fromMap($this->doRPCRequest('PurgeDBInstanceLog', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9916,32 +5952,11 @@ class Rds extends OpenApiClient
     public function rebuildDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['RebuildNodeType']      = $request->rebuildNodeType;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'RebuildDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return RebuildDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RebuildDBInstanceResponse::fromMap($this->doRPCRequest('RebuildDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -9965,40 +5980,11 @@ class Rds extends OpenApiClient
     public function recoveryDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['ResourceOwnerId']       = $request->resourceOwnerId;
-        $query['DBInstanceClass']       = $request->DBInstanceClass;
-        $query['DBInstanceStorage']     = $request->DBInstanceStorage;
-        $query['PayType']               = $request->payType;
-        $query['InstanceNetworkType']   = $request->instanceNetworkType;
-        $query['DBInstanceId']          = $request->DBInstanceId;
-        $query['TargetDBInstanceId']    = $request->targetDBInstanceId;
-        $query['DbNames']               = $request->dbNames;
-        $query['BackupId']              = $request->backupId;
-        $query['RestoreTime']           = $request->restoreTime;
-        $query['VPCId']                 = $request->VPCId;
-        $query['VSwitchId']             = $request->vSwitchId;
-        $query['PrivateIpAddress']      = $request->privateIpAddress;
-        $query['UsedTime']              = $request->usedTime;
-        $query['Period']                = $request->period;
-        $query['DBInstanceStorageType'] = $request->DBInstanceStorageType;
-        $req                            = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'RecoveryDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return RecoveryDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RecoveryDBInstanceResponse::fromMap($this->doRPCRequest('RecoveryDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10022,31 +6008,11 @@ class Rds extends OpenApiClient
     public function releaseInstanceConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['OwnerId']                 = $request->ownerId;
-        $query['ResourceOwnerAccount']    = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']         = $request->resourceOwnerId;
-        $query['DBInstanceId']            = $request->DBInstanceId;
-        $query['CurrentConnectionString'] = $request->currentConnectionString;
-        $query['InstanceNetworkType']     = $request->instanceNetworkType;
-        $query['OwnerAccount']            = $request->ownerAccount;
-        $req                              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ReleaseInstanceConnection',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ReleaseInstanceConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseInstanceConnectionResponse::fromMap($this->doRPCRequest('ReleaseInstanceConnection', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10070,30 +6036,11 @@ class Rds extends OpenApiClient
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['OwnerId']                 = $request->ownerId;
-        $query['ResourceOwnerAccount']    = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']         = $request->resourceOwnerId;
-        $query['DBInstanceId']            = $request->DBInstanceId;
-        $query['CurrentConnectionString'] = $request->currentConnectionString;
-        $query['OwnerAccount']            = $request->ownerAccount;
-        $req                              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ReleaseInstancePublicConnection',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseInstancePublicConnectionResponse::fromMap($this->doRPCRequest('ReleaseInstancePublicConnection', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10117,29 +6064,11 @@ class Rds extends OpenApiClient
     public function releaseReadWriteSplittingConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ReleaseReadWriteSplittingConnection',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ReleaseReadWriteSplittingConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseReadWriteSplittingConnectionResponse::fromMap($this->doRPCRequest('ReleaseReadWriteSplittingConnection', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10163,33 +6092,11 @@ class Rds extends OpenApiClient
     public function removeTagsFromResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['proxyId']              = $request->proxyId;
-        $query['RegionId']             = $request->regionId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['Tags']                 = $request->tags;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveTagsFromResource',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return RemoveTagsFromResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveTagsFromResourceResponse::fromMap($this->doRPCRequest('RemoveTagsFromResource', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10213,31 +6120,11 @@ class Rds extends OpenApiClient
     public function renewInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['Period']               = $request->period;
-        $query['AutoPay']              = $request->autoPay;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'RenewInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenewInstanceResponse::fromMap($this->doRPCRequest('RenewInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10261,30 +6148,11 @@ class Rds extends OpenApiClient
     public function replaceDedicatedHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['FailoverMode']         = $request->failoverMode;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ReplaceDedicatedHost',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ReplaceDedicatedHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReplaceDedicatedHostResponse::fromMap($this->doRPCRequest('ReplaceDedicatedHost', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10308,31 +6176,11 @@ class Rds extends OpenApiClient
     public function resetAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['AccountName']          = $request->accountName;
-        $query['AccountPassword']      = $request->accountPassword;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ResetAccount',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ResetAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetAccountResponse::fromMap($this->doRPCRequest('ResetAccount', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10356,31 +6204,11 @@ class Rds extends OpenApiClient
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['AccountName']          = $request->accountName;
-        $query['AccountPassword']      = $request->accountPassword;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ResetAccountPassword',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetAccountPasswordResponse::fromMap($this->doRPCRequest('ResetAccountPassword', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10404,30 +6232,11 @@ class Rds extends OpenApiClient
     public function restartDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'RestartDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartDBInstanceResponse::fromMap($this->doRPCRequest('RestartDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10451,30 +6260,11 @@ class Rds extends OpenApiClient
     public function restartDedicatedHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['FailoverMode']         = $request->failoverMode;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'RestartDedicatedHost',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return RestartDedicatedHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartDedicatedHostResponse::fromMap($this->doRPCRequest('RestartDedicatedHost', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10498,36 +6288,11 @@ class Rds extends OpenApiClient
     public function restoreDdrTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['RestoreType']          = $request->restoreType;
-        $query['BackupId']             = $request->backupId;
-        $query['RestoreTime']          = $request->restoreTime;
-        $query['SourceRegion']         = $request->sourceRegion;
-        $query['SourceDBInstanceName'] = $request->sourceDBInstanceName;
-        $query['TableMeta']            = $request->tableMeta;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'RestoreDdrTable',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return RestoreDdrTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestoreDdrTableResponse::fromMap($this->doRPCRequest('RestoreDdrTable', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10551,33 +6316,11 @@ class Rds extends OpenApiClient
     public function restoreTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['BackupId']             = $request->backupId;
-        $query['RestoreTime']          = $request->restoreTime;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['TableMeta']            = $request->tableMeta;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'RestoreTable',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return RestoreTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestoreTableResponse::fromMap($this->doRPCRequest('RestoreTable', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10601,31 +6344,11 @@ class Rds extends OpenApiClient
     public function revokeAccountPrivilegeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['AccountName']          = $request->accountName;
-        $query['DBName']               = $request->DBName;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'RevokeAccountPrivilege',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return RevokeAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeAccountPrivilegeResponse::fromMap($this->doRPCRequest('RevokeAccountPrivilege', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10649,29 +6372,11 @@ class Rds extends OpenApiClient
     public function revokeOperatorPermissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'RevokeOperatorPermission',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return RevokeOperatorPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeOperatorPermissionResponse::fromMap($this->doRPCRequest('RevokeOperatorPermission', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10695,41 +6400,11 @@ class Rds extends OpenApiClient
     public function startDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                   = [];
-        $query['OwnerId']                        = $request->ownerId;
-        $query['ResourceOwnerAccount']           = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']                = $request->resourceOwnerId;
-        $query['RegionId']                       = $request->regionId;
-        $query['DedicatedHostGroupId']           = $request->dedicatedHostGroupId;
-        $query['DBInstanceId']                   = $request->DBInstanceId;
-        $query['TargetDedicatedHostIdForMaster'] = $request->targetDedicatedHostIdForMaster;
-        $query['TargetDedicatedHostIdForSlave']  = $request->targetDedicatedHostIdForSlave;
-        $query['TargetDedicatedHostIdForLog']    = $request->targetDedicatedHostIdForLog;
-        $query['EffectiveTime']                  = $request->effectiveTime;
-        $query['SpecifiedTime']                  = $request->specifiedTime;
-        $query['TargetDBInstanceClass']          = $request->targetDBInstanceClass;
-        $query['EngineVersion']                  = $request->engineVersion;
-        $query['DBInstanceTransType']            = $request->DBInstanceTransType;
-        $query['Storage']                        = $request->storage;
-        $query['VSwitchId']                      = $request->vSwitchId;
-        $query['ZoneId']                         = $request->zoneId;
-        $req                                     = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'StartDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return StartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartDBInstanceResponse::fromMap($this->doRPCRequest('StartDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10753,29 +6428,11 @@ class Rds extends OpenApiClient
     public function stopDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'StopDBInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return StopDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopDBInstanceResponse::fromMap($this->doRPCRequest('StopDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10799,32 +6456,11 @@ class Rds extends OpenApiClient
     public function switchDBInstanceHAWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['NodeId']               = $request->nodeId;
-        $query['Force']                = $request->force;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['EffectiveTime']        = $request->effectiveTime;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'SwitchDBInstanceHA',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return SwitchDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SwitchDBInstanceHAResponse::fromMap($this->doRPCRequest('SwitchDBInstanceHA', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10848,33 +6484,11 @@ class Rds extends OpenApiClient
     public function switchDBInstanceNetTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['OwnerId']                = $request->ownerId;
-        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']        = $request->resourceOwnerId;
-        $query['ClientToken']            = $request->clientToken;
-        $query['DBInstanceId']           = $request->DBInstanceId;
-        $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
-        $query['Port']                   = $request->port;
-        $query['ConnectionStringType']   = $request->connectionStringType;
-        $query['OwnerAccount']           = $request->ownerAccount;
-        $req                             = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'SwitchDBInstanceNetType',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return SwitchDBInstanceNetTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SwitchDBInstanceNetTypeResponse::fromMap($this->doRPCRequest('SwitchDBInstanceNetType', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10898,29 +6512,11 @@ class Rds extends OpenApiClient
     public function switchDBInstanceVpcWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ResourceOwnerId']  = $request->resourceOwnerId;
-        $query['DBInstanceId']     = $request->DBInstanceId;
-        $query['VPCId']            = $request->VPCId;
-        $query['VSwitchId']        = $request->vSwitchId;
-        $query['PrivateIpAddress'] = $request->privateIpAddress;
-        $req                       = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'SwitchDBInstanceVpc',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return SwitchDBInstanceVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SwitchDBInstanceVpcResponse::fromMap($this->doRPCRequest('SwitchDBInstanceVpc', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10944,31 +6540,11 @@ class Rds extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceType']         = $request->resourceType;
-        $query['ResourceId']           = $request->resourceId;
-        $query['Tag']                  = $request->tag;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -10992,29 +6568,11 @@ class Rds extends OpenApiClient
     public function terminateMigrateTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['MigrateTaskId']        = $request->migrateTaskId;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'TerminateMigrateTask',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return TerminateMigrateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TerminateMigrateTaskResponse::fromMap($this->doRPCRequest('TerminateMigrateTask', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -11038,34 +6596,11 @@ class Rds extends OpenApiClient
     public function transformDBInstancePayTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['UsedTime']             = $request->usedTime;
-        $query['PayType']              = $request->payType;
-        $query['Period']               = $request->period;
-        $query['BusinessInfo']         = $request->businessInfo;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'TransformDBInstancePayType',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return TransformDBInstancePayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TransformDBInstancePayTypeResponse::fromMap($this->doRPCRequest('TransformDBInstancePayType', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -11089,29 +6624,11 @@ class Rds extends OpenApiClient
     public function unlockAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['AccountName']          = $request->accountName;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'UnlockAccount',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return UnlockAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnlockAccountResponse::fromMap($this->doRPCRequest('UnlockAccount', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -11135,32 +6652,11 @@ class Rds extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceType']         = $request->resourceType;
-        $query['All']                  = $request->all;
-        $query['ResourceId']           = $request->resourceId;
-        $query['TagKey']               = $request->tagKey;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -11184,31 +6680,11 @@ class Rds extends OpenApiClient
     public function updateUserBackupFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['BackupId']             = $request->backupId;
-        $query['RegionId']             = $request->regionId;
-        $query['Comment']              = $request->comment;
-        $query['Retention']            = $request->retention;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateUserBackupFile',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return UpdateUserBackupFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserBackupFileResponse::fromMap($this->doRPCRequest('UpdateUserBackupFile', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -11232,32 +6708,11 @@ class Rds extends OpenApiClient
     public function upgradeDBInstanceEngineVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['EngineVersion']        = $request->engineVersion;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['EffectiveTime']        = $request->effectiveTime;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'UpgradeDBInstanceEngineVersion',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return UpgradeDBInstanceEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeDBInstanceEngineVersionResponse::fromMap($this->doRPCRequest('UpgradeDBInstanceEngineVersion', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -11281,31 +6736,11 @@ class Rds extends OpenApiClient
     public function upgradeDBInstanceKernelVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['UpgradeTime']          = $request->upgradeTime;
-        $query['SwitchTime']           = $request->switchTime;
-        $query['TargetMinorVersion']   = $request->targetMinorVersion;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'UpgradeDBInstanceKernelVersion',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return UpgradeDBInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeDBInstanceKernelVersionResponse::fromMap($this->doRPCRequest('UpgradeDBInstanceKernelVersion', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -11329,30 +6764,11 @@ class Rds extends OpenApiClient
     public function upgradeDBProxyInstanceKernelVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['UpgradeTime']          = $request->upgradeTime;
-        $query['SwitchTime']           = $request->switchTime;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'UpgradeDBProxyInstanceKernelVersion',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return UpgradeDBProxyInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeDBProxyInstanceKernelVersionResponse::fromMap($this->doRPCRequest('UpgradeDBProxyInstanceKernelVersion', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**

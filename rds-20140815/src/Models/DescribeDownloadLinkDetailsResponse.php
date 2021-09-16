@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateGdnInstanceResponse extends Model
+class DescribeDownloadLinkDetailsResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class CreateGdnInstanceResponse extends Model
     public $headers;
 
     /**
-     * @var CreateGdnInstanceResponseBody
+     * @var DescribeDownloadLinkDetailsResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class CreateGdnInstanceResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateGdnInstanceResponse
+     * @return DescribeDownloadLinkDetailsResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class CreateGdnInstanceResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateGdnInstanceResponseBody::fromMap($map['body']);
+            $model->body = DescribeDownloadLinkDetailsResponseBody::fromMap($map['body']);
         }
 
         return $model;

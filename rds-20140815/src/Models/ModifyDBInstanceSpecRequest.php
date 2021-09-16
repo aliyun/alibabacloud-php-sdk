@@ -82,6 +82,11 @@ class ModifyDBInstanceSpecRequest extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var string
+     */
+    public $switchTime;
     protected $_name = [
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
@@ -98,6 +103,7 @@ class ModifyDBInstanceSpecRequest extends Model
         'sourceBiz'             => 'SourceBiz',
         'dedicatedHostGroupId'  => 'DedicatedHostGroupId',
         'zoneId'                => 'ZoneId',
+        'switchTime'            => 'SwitchTime',
     ];
 
     public function validate()
@@ -151,6 +157,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->switchTime) {
+            $res['SwitchTime'] = $this->switchTime;
         }
 
         return $res;
@@ -208,6 +217,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['SwitchTime'])) {
+            $model->switchTime = $map['SwitchTime'];
         }
 
         return $model;

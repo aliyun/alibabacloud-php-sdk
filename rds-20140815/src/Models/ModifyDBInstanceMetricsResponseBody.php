@@ -4,23 +4,28 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableResourceResponseBody\availableZones;
 use AlibabaCloud\Tea\Model;
 
-class DescribeAvailableResourceResponseBody extends Model
+class ModifyDBInstanceMetricsResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
     /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @var availableZones
+     * @var string
      */
-    public $availableZones;
+    public $scope;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'availableZones' => 'AvailableZones',
+        'DBInstanceId' => 'DBInstanceId',
+        'requestId'    => 'RequestId',
+        'scope'        => 'Scope',
     ];
 
     public function validate()
@@ -30,11 +35,14 @@ class DescribeAvailableResourceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->availableZones) {
-            $res['AvailableZones'] = null !== $this->availableZones ? $this->availableZones->toMap() : null;
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
         }
 
         return $res;
@@ -43,16 +51,19 @@ class DescribeAvailableResourceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeAvailableResourceResponseBody
+     * @return ModifyDBInstanceMetricsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['AvailableZones'])) {
-            $model->availableZones = availableZones::fromMap($map['AvailableZones']);
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
         }
 
         return $model;

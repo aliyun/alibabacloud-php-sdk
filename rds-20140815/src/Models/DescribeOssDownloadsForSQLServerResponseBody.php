@@ -12,7 +12,7 @@ class DescribeOssDownloadsForSQLServerResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $migrateIaskId;
 
     /**
      * @var string
@@ -22,16 +22,16 @@ class DescribeOssDownloadsForSQLServerResponseBody extends Model
     /**
      * @var string
      */
-    public $migrateIaskId;
+    public $requestId;
 
     /**
      * @var items
      */
     public $items;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'DBInstanceName' => 'DBInstanceName',
         'migrateIaskId'  => 'MigrateIaskId',
+        'DBInstanceName' => 'DBInstanceName',
+        'requestId'      => 'RequestId',
         'items'          => 'Items',
     ];
 
@@ -42,14 +42,14 @@ class DescribeOssDownloadsForSQLServerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->migrateIaskId) {
+            $res['MigrateIaskId'] = $this->migrateIaskId;
         }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
-        if (null !== $this->migrateIaskId) {
-            $res['MigrateIaskId'] = $this->migrateIaskId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
@@ -66,14 +66,14 @@ class DescribeOssDownloadsForSQLServerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['MigrateIaskId'])) {
+            $model->migrateIaskId = $map['MigrateIaskId'];
         }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
-        if (isset($map['MigrateIaskId'])) {
-            $model->migrateIaskId = $map['MigrateIaskId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);

@@ -42,6 +42,11 @@ class AllocateInstancePublicConnectionRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
+    /**
+     * @var string
+     */
+    public $generalGroupName;
     protected $_name = [
         'ownerId'                => 'OwnerId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
@@ -50,6 +55,7 @@ class AllocateInstancePublicConnectionRequest extends Model
         'connectionStringPrefix' => 'ConnectionStringPrefix',
         'port'                   => 'Port',
         'ownerAccount'           => 'OwnerAccount',
+        'generalGroupName'       => 'GeneralGroupName',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class AllocateInstancePublicConnectionRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->generalGroupName) {
+            $res['GeneralGroupName'] = $this->generalGroupName;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class AllocateInstancePublicConnectionRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['GeneralGroupName'])) {
+            $model->generalGroupName = $map['GeneralGroupName'];
         }
 
         return $model;

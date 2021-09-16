@@ -31,12 +31,22 @@ class CreateDBInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $DBInstanceId;
 
     /**
      * @var string
      */
     public $port;
+
+    /**
+     * @var string
+     */
+    public $taskId;
 
     /**
      * @var bool
@@ -52,8 +62,10 @@ class CreateDBInstanceResponseBody extends Model
         'tagResult'        => 'TagResult',
         'requestId'        => 'RequestId',
         'connectionString' => 'ConnectionString',
+        'message'          => 'Message',
         'DBInstanceId'     => 'DBInstanceId',
         'port'             => 'Port',
+        'taskId'           => 'TaskId',
         'dryRun'           => 'DryRun',
         'orderId'          => 'OrderId',
     ];
@@ -77,11 +89,17 @@ class CreateDBInstanceResponseBody extends Model
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
@@ -113,11 +131,17 @@ class CreateDBInstanceResponseBody extends Model
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];

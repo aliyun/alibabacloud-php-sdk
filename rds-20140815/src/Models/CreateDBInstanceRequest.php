@@ -220,6 +220,16 @@ class CreateDBInstanceRequest extends Model
     public $userBackupId;
 
     /**
+     * @var int
+     */
+    public $amount;
+
+    /**
+     * @var string
+     */
+    public $createStrategy;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -266,6 +276,8 @@ class CreateDBInstanceRequest extends Model
         'storageUpperBound'              => 'StorageUpperBound',
         'dryRun'                         => 'DryRun',
         'userBackupId'                   => 'UserBackupId',
+        'amount'                         => 'Amount',
+        'createStrategy'                 => 'CreateStrategy',
         'tag'                            => 'Tag',
     ];
 
@@ -401,6 +413,12 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->userBackupId) {
             $res['UserBackupId'] = $this->userBackupId;
+        }
+        if (null !== $this->amount) {
+            $res['Amount'] = $this->amount;
+        }
+        if (null !== $this->createStrategy) {
+            $res['CreateStrategy'] = $this->createStrategy;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -548,6 +566,12 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['UserBackupId'])) {
             $model->userBackupId = $map['UserBackupId'];
+        }
+        if (isset($map['Amount'])) {
+            $model->amount = $map['Amount'];
+        }
+        if (isset($map['CreateStrategy'])) {
+            $model->createStrategy = $map['CreateStrategy'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

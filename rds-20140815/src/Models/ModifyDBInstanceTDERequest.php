@@ -52,6 +52,21 @@ class ModifyDBInstanceTDERequest extends Model
      * @var string
      */
     public $roleArn;
+
+    /**
+     * @var string
+     */
+    public $certificate;
+
+    /**
+     * @var string
+     */
+    public $privateKey;
+
+    /**
+     * @var string
+     */
+    public $passWord;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -62,6 +77,9 @@ class ModifyDBInstanceTDERequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'encryptionKey'        => 'EncryptionKey',
         'roleArn'              => 'RoleArn',
+        'certificate'          => 'Certificate',
+        'privateKey'           => 'PrivateKey',
+        'passWord'             => 'PassWord',
     ];
 
     public function validate()
@@ -97,6 +115,15 @@ class ModifyDBInstanceTDERequest extends Model
         }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
+        }
+        if (null !== $this->certificate) {
+            $res['Certificate'] = $this->certificate;
+        }
+        if (null !== $this->privateKey) {
+            $res['PrivateKey'] = $this->privateKey;
+        }
+        if (null !== $this->passWord) {
+            $res['PassWord'] = $this->passWord;
         }
 
         return $res;
@@ -136,6 +163,15 @@ class ModifyDBInstanceTDERequest extends Model
         }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
+        }
+        if (isset($map['Certificate'])) {
+            $model->certificate = $map['Certificate'];
+        }
+        if (isset($map['PrivateKey'])) {
+            $model->privateKey = $map['PrivateKey'];
+        }
+        if (isset($map['PassWord'])) {
+            $model->passWord = $map['PassWord'];
         }
 
         return $model;

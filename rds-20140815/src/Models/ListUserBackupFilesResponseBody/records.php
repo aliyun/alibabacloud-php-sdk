@@ -21,6 +21,11 @@ class records extends Model
     /**
      * @var string
      */
+    public $finishTime;
+
+    /**
+     * @var string
+     */
     public $comment;
 
     /**
@@ -100,6 +105,7 @@ class records extends Model
     protected $_name = [
         'status'           => 'Status',
         'creationTime'     => 'CreationTime',
+        'finishTime'       => 'FinishTime',
         'comment'          => 'Comment',
         'ossFilePath'      => 'OssFilePath',
         'ossBucket'        => 'OssBucket',
@@ -130,6 +136,9 @@ class records extends Model
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
@@ -196,6 +205,9 @@ class records extends Model
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeRegionsRequest extends Model
+class DescribeAvailableMetricsRequest extends Model
 {
     /**
      * @var int
@@ -16,10 +16,10 @@ class DescribeRegionsRequest extends Model
     /**
      * @var string
      */
-    public $acceptLanguage;
+    public $DBInstanceName;
     protected $_name = [
         'resourceOwnerId' => 'ResourceOwnerId',
-        'acceptLanguage'  => 'AcceptLanguage',
+        'DBInstanceName'  => 'DBInstanceName',
     ];
 
     public function validate()
@@ -32,8 +32,8 @@ class DescribeRegionsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->acceptLanguage) {
-            $res['AcceptLanguage'] = $this->acceptLanguage;
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
         return $res;
@@ -42,7 +42,7 @@ class DescribeRegionsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRegionsRequest
+     * @return DescribeAvailableMetricsRequest
      */
     public static function fromMap($map = [])
     {
@@ -50,8 +50,8 @@ class DescribeRegionsRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['AcceptLanguage'])) {
-            $model->acceptLanguage = $map['AcceptLanguage'];
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
         }
 
         return $model;
