@@ -74,7 +74,7 @@ class stackGroupOperation extends Model
     /**
      * @var string
      */
-    public $administratorRoleName;
+    public $administrationRoleName;
 
     /**
      * @var deploymentTargets
@@ -93,7 +93,7 @@ class stackGroupOperation extends Model
         'operationPreferences'           => 'OperationPreferences',
         'endTime'                        => 'EndTime',
         'executionRoleName'              => 'ExecutionRoleName',
-        'administratorRoleName'          => 'AdministratorRoleName',
+        'administrationRoleName'         => 'AdministrationRoleName',
         'deploymentTargets'              => 'DeploymentTargets',
     ];
 
@@ -140,8 +140,8 @@ class stackGroupOperation extends Model
         if (null !== $this->executionRoleName) {
             $res['ExecutionRoleName'] = $this->executionRoleName;
         }
-        if (null !== $this->administratorRoleName) {
-            $res['AdministratorRoleName'] = $this->administratorRoleName;
+        if (null !== $this->administrationRoleName) {
+            $res['AdministrationRoleName'] = $this->administrationRoleName;
         }
         if (null !== $this->deploymentTargets) {
             $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
@@ -194,8 +194,8 @@ class stackGroupOperation extends Model
         if (isset($map['ExecutionRoleName'])) {
             $model->executionRoleName = $map['ExecutionRoleName'];
         }
-        if (isset($map['AdministratorRoleName'])) {
-            $model->administratorRoleName = $map['AdministratorRoleName'];
+        if (isset($map['AdministrationRoleName'])) {
+            $model->administrationRoleName = $map['AdministrationRoleName'];
         }
         if (isset($map['DeploymentTargets'])) {
             $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
