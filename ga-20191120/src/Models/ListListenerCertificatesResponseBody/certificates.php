@@ -14,11 +14,6 @@ class certificates extends Model
     public $certificateId;
 
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
      * @var bool
      */
     public $isDefault;
@@ -29,7 +24,6 @@ class certificates extends Model
     public $domain;
     protected $_name = [
         'certificateId' => 'CertificateId',
-        'type'          => 'Type',
         'isDefault'     => 'IsDefault',
         'domain'        => 'Domain',
     ];
@@ -43,9 +37,6 @@ class certificates extends Model
         $res = [];
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
@@ -67,9 +58,6 @@ class certificates extends Model
         $model = new self();
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];

@@ -16,12 +16,12 @@ class ListListenerCertificatesRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $acceleratorId;
 
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $role;
 
     /**
      * @var string
@@ -39,8 +39,8 @@ class ListListenerCertificatesRequest extends Model
     public $maxResults;
     protected $_name = [
         'regionId'      => 'RegionId',
-        'clientToken'   => 'ClientToken',
         'acceleratorId' => 'AcceleratorId',
+        'role'          => 'Role',
         'listenerId'    => 'ListenerId',
         'nextToken'     => 'NextToken',
         'maxResults'    => 'MaxResults',
@@ -56,11 +56,11 @@ class ListListenerCertificatesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
@@ -86,11 +86,11 @@ class ListListenerCertificatesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
