@@ -19,24 +19,24 @@ class secretBindDetailDTO extends Model
     public $extension;
 
     /**
-     * @var int
-     */
-    public $groupId;
-
-    /**
      * @var string
      */
     public $phoneNoB;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $ASRStatus;
+    public $groupId;
 
     /**
      * @var bool
      */
     public $needRecord;
+
+    /**
+     * @var bool
+     */
+    public $ASRStatus;
 
     /**
      * @var string
@@ -56,12 +56,12 @@ class secretBindDetailDTO extends Model
     /**
      * @var string
      */
-    public $callRestrict;
+    public $phoneNoX;
 
     /**
      * @var string
      */
-    public $phoneNoX;
+    public $callRestrict;
 
     /**
      * @var string
@@ -75,15 +75,15 @@ class secretBindDetailDTO extends Model
     protected $_name = [
         'status'       => 'Status',
         'extension'    => 'Extension',
-        'groupId'      => 'GroupId',
         'phoneNoB'     => 'PhoneNoB',
-        'ASRStatus'    => 'ASRStatus',
+        'groupId'      => 'GroupId',
         'needRecord'   => 'NeedRecord',
+        'ASRStatus'    => 'ASRStatus',
         'gmtCreate'    => 'GmtCreate',
         'expireDate'   => 'ExpireDate',
         'subsId'       => 'SubsId',
-        'callRestrict' => 'CallRestrict',
         'phoneNoX'     => 'PhoneNoX',
+        'callRestrict' => 'CallRestrict',
         'ASRModelId'   => 'ASRModelId',
         'phoneNoA'     => 'PhoneNoA',
     ];
@@ -101,17 +101,17 @@ class secretBindDetailDTO extends Model
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->phoneNoB) {
             $res['PhoneNoB'] = $this->phoneNoB;
         }
-        if (null !== $this->ASRStatus) {
-            $res['ASRStatus'] = $this->ASRStatus;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->needRecord) {
             $res['NeedRecord'] = $this->needRecord;
+        }
+        if (null !== $this->ASRStatus) {
+            $res['ASRStatus'] = $this->ASRStatus;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -122,11 +122,11 @@ class secretBindDetailDTO extends Model
         if (null !== $this->subsId) {
             $res['SubsId'] = $this->subsId;
         }
-        if (null !== $this->callRestrict) {
-            $res['CallRestrict'] = $this->callRestrict;
-        }
         if (null !== $this->phoneNoX) {
             $res['PhoneNoX'] = $this->phoneNoX;
+        }
+        if (null !== $this->callRestrict) {
+            $res['CallRestrict'] = $this->callRestrict;
         }
         if (null !== $this->ASRModelId) {
             $res['ASRModelId'] = $this->ASRModelId;
@@ -152,17 +152,17 @@ class secretBindDetailDTO extends Model
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['PhoneNoB'])) {
             $model->phoneNoB = $map['PhoneNoB'];
         }
-        if (isset($map['ASRStatus'])) {
-            $model->ASRStatus = $map['ASRStatus'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['NeedRecord'])) {
             $model->needRecord = $map['NeedRecord'];
+        }
+        if (isset($map['ASRStatus'])) {
+            $model->ASRStatus = $map['ASRStatus'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
@@ -173,11 +173,11 @@ class secretBindDetailDTO extends Model
         if (isset($map['SubsId'])) {
             $model->subsId = $map['SubsId'];
         }
-        if (isset($map['CallRestrict'])) {
-            $model->callRestrict = $map['CallRestrict'];
-        }
         if (isset($map['PhoneNoX'])) {
             $model->phoneNoX = $map['PhoneNoX'];
+        }
+        if (isset($map['CallRestrict'])) {
+            $model->callRestrict = $map['CallRestrict'];
         }
         if (isset($map['ASRModelId'])) {
             $model->ASRModelId = $map['ASRModelId'];

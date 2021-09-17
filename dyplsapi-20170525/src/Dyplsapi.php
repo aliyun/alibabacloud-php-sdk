@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BuySecretNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BuySecretNoResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfirmSendSmsRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfirmSendSmsResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateSubscriptionRequest;
@@ -106,143 +108,31 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param AddAxnTrackNoRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DeleteSecretBlacklistRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return AddAxnTrackNoResponse
+     * @return DeleteSecretBlacklistResponse
      */
-    public function addAxnTrackNoWithOptions($request, $runtime)
+    public function deleteSecretBlacklistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return AddAxnTrackNoResponse::fromMap($this->doRPCRequest('AddAxnTrackNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSecretBlacklistResponse::fromMap($this->doRPCRequest('DeleteSecretBlacklist', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param AddAxnTrackNoRequest $request
+     * @param DeleteSecretBlacklistRequest $request
      *
-     * @return AddAxnTrackNoResponse
+     * @return DeleteSecretBlacklistResponse
      */
-    public function addAxnTrackNo($request)
+    public function deleteSecretBlacklist($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->addAxnTrackNoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddSecretBlacklistRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return AddSecretBlacklistResponse
-     */
-    public function addSecretBlacklistWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddSecretBlacklistResponse::fromMap($this->doRPCRequest('AddSecretBlacklist', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddSecretBlacklistRequest $request
-     *
-     * @return AddSecretBlacklistResponse
-     */
-    public function addSecretBlacklist($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addSecretBlacklistWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BindAxbRequest $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return BindAxbResponse
-     */
-    public function bindAxbWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BindAxbResponse::fromMap($this->doRPCRequest('BindAxb', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BindAxbRequest $request
-     *
-     * @return BindAxbResponse
-     */
-    public function bindAxb($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->bindAxbWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BindAxgRequest $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return BindAxgResponse
-     */
-    public function bindAxgWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BindAxgResponse::fromMap($this->doRPCRequest('BindAxg', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BindAxgRequest $request
-     *
-     * @return BindAxgResponse
-     */
-    public function bindAxg($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->bindAxgWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BindAxnRequest $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return BindAxnResponse
-     */
-    public function bindAxnWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BindAxnResponse::fromMap($this->doRPCRequest('BindAxn', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BindAxnRequest $request
-     *
-     * @return BindAxnResponse
-     */
-    public function bindAxn($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->bindAxnWithOptions($request, $runtime);
+        return $this->deleteSecretBlacklistWithOptions($request, $runtime);
     }
 
     /**
@@ -274,199 +164,31 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BuySecretNoRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param UpdatePhoneSwitchRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return BuySecretNoResponse
+     * @return UpdatePhoneSwitchResponse
      */
-    public function buySecretNoWithOptions($request, $runtime)
+    public function updatePhoneSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return BuySecretNoResponse::fromMap($this->doRPCRequest('BuySecretNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdatePhoneSwitchResponse::fromMap($this->doRPCRequest('UpdatePhoneSwitch', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param BuySecretNoRequest $request
+     * @param UpdatePhoneSwitchRequest $request
      *
-     * @return BuySecretNoResponse
+     * @return UpdatePhoneSwitchResponse
      */
-    public function buySecretNo($request)
+    public function updatePhoneSwitch($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->buySecretNoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateAxgGroupRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateAxgGroupResponse
-     */
-    public function createAxgGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateAxgGroupResponse::fromMap($this->doRPCRequest('CreateAxgGroup', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateAxgGroupRequest $request
-     *
-     * @return CreateAxgGroupResponse
-     */
-    public function createAxgGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createAxgGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSubscriptionRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateSubscriptionResponse
-     */
-    public function createSubscriptionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateSubscriptionResponse::fromMap($this->doRPCRequest('CreateSubscription', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateSubscriptionRequest $request
-     *
-     * @return CreateSubscriptionResponse
-     */
-    public function createSubscription($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSubscriptionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteSecretBlacklistRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteSecretBlacklistResponse
-     */
-    public function deleteSecretBlacklistWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteSecretBlacklistResponse::fromMap($this->doRPCRequest('DeleteSecretBlacklist', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSecretBlacklistRequest $request
-     *
-     * @return DeleteSecretBlacklistResponse
-     */
-    public function deleteSecretBlacklist($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSecretBlacklistWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetFaceVerifyRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetFaceVerifyResponse
-     */
-    public function getFaceVerifyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetFaceVerifyResponse::fromMap($this->doRPCRequest('GetFaceVerify', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetFaceVerifyRequest $request
-     *
-     * @return GetFaceVerifyResponse
-     */
-    public function getFaceVerify($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getFaceVerifyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSecretAsrDetailRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetSecretAsrDetailResponse
-     */
-    public function getSecretAsrDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSecretAsrDetailResponse::fromMap($this->doRPCRequest('GetSecretAsrDetail', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSecretAsrDetailRequest $request
-     *
-     * @return GetSecretAsrDetailResponse
-     */
-    public function getSecretAsrDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSecretAsrDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSubscriptionDetailRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetSubscriptionDetailResponse
-     */
-    public function getSubscriptionDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSubscriptionDetailResponse::fromMap($this->doRPCRequest('GetSubscriptionDetail', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSubscriptionDetailRequest $request
-     *
-     * @return GetSubscriptionDetailResponse
-     */
-    public function getSubscriptionDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSubscriptionDetailWithOptions($request, $runtime);
+        return $this->updatePhoneSwitchWithOptions($request, $runtime);
     }
 
     /**
@@ -498,227 +220,87 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param InitFaceVerifyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param BuySecretNoRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return InitFaceVerifyResponse
+     * @return BuySecretNoResponse
      */
-    public function initFaceVerifyWithOptions($request, $runtime)
+    public function buySecretNoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return InitFaceVerifyResponse::fromMap($this->doRPCRequest('InitFaceVerify', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BuySecretNoResponse::fromMap($this->doRPCRequest('BuySecretNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param InitFaceVerifyRequest $request
+     * @param BuySecretNoRequest $request
      *
-     * @return InitFaceVerifyResponse
+     * @return BuySecretNoResponse
      */
-    public function initFaceVerify($request)
+    public function buySecretNo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->initFaceVerifyWithOptions($request, $runtime);
+        return $this->buySecretNoWithOptions($request, $runtime);
     }
 
     /**
-     * @param LockSecretNoRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param CreateSubscriptionRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return LockSecretNoResponse
+     * @return CreateSubscriptionResponse
      */
-    public function lockSecretNoWithOptions($request, $runtime)
+    public function createSubscriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return LockSecretNoResponse::fromMap($this->doRPCRequest('LockSecretNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSubscriptionResponse::fromMap($this->doRPCRequest('CreateSubscription', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param LockSecretNoRequest $request
+     * @param CreateSubscriptionRequest $request
      *
-     * @return LockSecretNoResponse
+     * @return CreateSubscriptionResponse
      */
-    public function lockSecretNo($request)
+    public function createSubscription($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->lockSecretNoWithOptions($request, $runtime);
+        return $this->createSubscriptionWithOptions($request, $runtime);
     }
 
     /**
-     * @param OperateAxgGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param GetFaceVerifyRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return OperateAxgGroupResponse
+     * @return GetFaceVerifyResponse
      */
-    public function operateAxgGroupWithOptions($request, $runtime)
+    public function getFaceVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return OperateAxgGroupResponse::fromMap($this->doRPCRequest('OperateAxgGroup', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetFaceVerifyResponse::fromMap($this->doRPCRequest('GetFaceVerify', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param OperateAxgGroupRequest $request
+     * @param GetFaceVerifyRequest $request
      *
-     * @return OperateAxgGroupResponse
+     * @return GetFaceVerifyResponse
      */
-    public function operateAxgGroup($request)
+    public function getFaceVerify($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->operateAxgGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OperateBlackNoRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return OperateBlackNoResponse
-     */
-    public function operateBlackNoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OperateBlackNoResponse::fromMap($this->doRPCRequest('OperateBlackNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OperateBlackNoRequest $request
-     *
-     * @return OperateBlackNoResponse
-     */
-    public function operateBlackNo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->operateBlackNoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryCallStatusRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return QueryCallStatusResponse
-     */
-    public function queryCallStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryCallStatusResponse::fromMap($this->doRPCRequest('QueryCallStatus', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryCallStatusRequest $request
-     *
-     * @return QueryCallStatusResponse
-     */
-    public function queryCallStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryCallStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryPhoneNoAByTrackNoRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return QueryPhoneNoAByTrackNoResponse
-     */
-    public function queryPhoneNoAByTrackNoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryPhoneNoAByTrackNoResponse::fromMap($this->doRPCRequest('QueryPhoneNoAByTrackNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryPhoneNoAByTrackNoRequest $request
-     *
-     * @return QueryPhoneNoAByTrackNoResponse
-     */
-    public function queryPhoneNoAByTrackNo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryPhoneNoAByTrackNoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryRecordFileDownloadUrlRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return QueryRecordFileDownloadUrlResponse
-     */
-    public function queryRecordFileDownloadUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryRecordFileDownloadUrlResponse::fromMap($this->doRPCRequest('QueryRecordFileDownloadUrl', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryRecordFileDownloadUrlRequest $request
-     *
-     * @return QueryRecordFileDownloadUrlResponse
-     */
-    public function queryRecordFileDownloadUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryRecordFileDownloadUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QuerySecretNoRemainRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return QuerySecretNoRemainResponse
-     */
-    public function querySecretNoRemainWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QuerySecretNoRemainResponse::fromMap($this->doRPCRequest('QuerySecretNoRemain', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QuerySecretNoRemainRequest $request
-     *
-     * @return QuerySecretNoRemainResponse
-     */
-    public function querySecretNoRemain($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->querySecretNoRemainWithOptions($request, $runtime);
+        return $this->getFaceVerifyWithOptions($request, $runtime);
     }
 
     /**
@@ -750,143 +332,31 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySubsIdRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return QuerySubsIdResponse
-     */
-    public function querySubsIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QuerySubsIdResponse::fromMap($this->doRPCRequest('QuerySubsId', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QuerySubsIdRequest $request
-     *
-     * @return QuerySubsIdResponse
-     */
-    public function querySubsId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->querySubsIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ReleaseSecretNoRequest $request
+     * @param QueryCallStatusRequest $request
      * @param RuntimeOptions         $runtime
      *
-     * @return ReleaseSecretNoResponse
+     * @return QueryCallStatusResponse
      */
-    public function releaseSecretNoWithOptions($request, $runtime)
+    public function queryCallStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ReleaseSecretNoResponse::fromMap($this->doRPCRequest('ReleaseSecretNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCallStatusResponse::fromMap($this->doRPCRequest('QueryCallStatus', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ReleaseSecretNoRequest $request
+     * @param QueryCallStatusRequest $request
      *
-     * @return ReleaseSecretNoResponse
+     * @return QueryCallStatusResponse
      */
-    public function releaseSecretNo($request)
+    public function queryCallStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->releaseSecretNoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnbindSubscriptionRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UnbindSubscriptionResponse
-     */
-    public function unbindSubscriptionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UnbindSubscriptionResponse::fromMap($this->doRPCRequest('UnbindSubscription', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UnbindSubscriptionRequest $request
-     *
-     * @return UnbindSubscriptionResponse
-     */
-    public function unbindSubscription($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unbindSubscriptionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnlockSecretNoRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UnlockSecretNoResponse
-     */
-    public function unlockSecretNoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UnlockSecretNoResponse::fromMap($this->doRPCRequest('UnlockSecretNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UnlockSecretNoRequest $request
-     *
-     * @return UnlockSecretNoResponse
-     */
-    public function unlockSecretNo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unlockSecretNoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateDefaultBRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateDefaultBResponse
-     */
-    public function updateDefaultBWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateDefaultBResponse::fromMap($this->doRPCRequest('UpdateDefaultB', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateDefaultBRequest $request
-     *
-     * @return UpdateDefaultBResponse
-     */
-    public function updateDefaultB($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDefaultBWithOptions($request, $runtime);
+        return $this->queryCallStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -918,31 +388,59 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param UpdatePhoneSwitchRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param OperateBlackNoRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return UpdatePhoneSwitchResponse
+     * @return OperateBlackNoResponse
      */
-    public function updatePhoneSwitchWithOptions($request, $runtime)
+    public function operateBlackNoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdatePhoneSwitchResponse::fromMap($this->doRPCRequest('UpdatePhoneSwitch', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OperateBlackNoResponse::fromMap($this->doRPCRequest('OperateBlackNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdatePhoneSwitchRequest $request
+     * @param OperateBlackNoRequest $request
      *
-     * @return UpdatePhoneSwitchResponse
+     * @return OperateBlackNoResponse
      */
-    public function updatePhoneSwitch($request)
+    public function operateBlackNo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updatePhoneSwitchWithOptions($request, $runtime);
+        return $this->operateBlackNoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSecretAsrDetailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetSecretAsrDetailResponse
+     */
+    public function getSecretAsrDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSecretAsrDetailResponse::fromMap($this->doRPCRequest('GetSecretAsrDetail', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSecretAsrDetailRequest $request
+     *
+     * @return GetSecretAsrDetailResponse
+     */
+    public function getSecretAsrDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecretAsrDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -971,5 +469,537 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSubscriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param LockSecretNoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return LockSecretNoResponse
+     */
+    public function lockSecretNoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return LockSecretNoResponse::fromMap($this->doRPCRequest('LockSecretNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param LockSecretNoRequest $request
+     *
+     * @return LockSecretNoResponse
+     */
+    public function lockSecretNo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->lockSecretNoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnlockSecretNoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnlockSecretNoResponse
+     */
+    public function unlockSecretNoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UnlockSecretNoResponse::fromMap($this->doRPCRequest('UnlockSecretNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UnlockSecretNoRequest $request
+     *
+     * @return UnlockSecretNoResponse
+     */
+    public function unlockSecretNo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unlockSecretNoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReleaseSecretNoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReleaseSecretNoResponse
+     */
+    public function releaseSecretNoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ReleaseSecretNoResponse::fromMap($this->doRPCRequest('ReleaseSecretNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseSecretNoRequest $request
+     *
+     * @return ReleaseSecretNoResponse
+     */
+    public function releaseSecretNo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseSecretNoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OperateAxgGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OperateAxgGroupResponse
+     */
+    public function operateAxgGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return OperateAxgGroupResponse::fromMap($this->doRPCRequest('OperateAxgGroup', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param OperateAxgGroupRequest $request
+     *
+     * @return OperateAxgGroupResponse
+     */
+    public function operateAxgGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateAxgGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDefaultBRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateDefaultBResponse
+     */
+    public function updateDefaultBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDefaultBResponse::fromMap($this->doRPCRequest('UpdateDefaultB', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDefaultBRequest $request
+     *
+     * @return UpdateDefaultBResponse
+     */
+    public function updateDefaultB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDefaultBWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryPhoneNoAByTrackNoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryPhoneNoAByTrackNoResponse
+     */
+    public function queryPhoneNoAByTrackNoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryPhoneNoAByTrackNoResponse::fromMap($this->doRPCRequest('QueryPhoneNoAByTrackNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryPhoneNoAByTrackNoRequest $request
+     *
+     * @return QueryPhoneNoAByTrackNoResponse
+     */
+    public function queryPhoneNoAByTrackNo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPhoneNoAByTrackNoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddAxnTrackNoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddAxnTrackNoResponse
+     */
+    public function addAxnTrackNoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddAxnTrackNoResponse::fromMap($this->doRPCRequest('AddAxnTrackNo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddAxnTrackNoRequest $request
+     *
+     * @return AddAxnTrackNoResponse
+     */
+    public function addAxnTrackNo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAxnTrackNoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySecretNoRemainRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QuerySecretNoRemainResponse
+     */
+    public function querySecretNoRemainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QuerySecretNoRemainResponse::fromMap($this->doRPCRequest('QuerySecretNoRemain', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QuerySecretNoRemainRequest $request
+     *
+     * @return QuerySecretNoRemainResponse
+     */
+    public function querySecretNoRemain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySecretNoRemainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAxgGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateAxgGroupResponse
+     */
+    public function createAxgGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateAxgGroupResponse::fromMap($this->doRPCRequest('CreateAxgGroup', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateAxgGroupRequest $request
+     *
+     * @return CreateAxgGroupResponse
+     */
+    public function createAxgGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAxgGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BindAxbRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return BindAxbResponse
+     */
+    public function bindAxbWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BindAxbResponse::fromMap($this->doRPCRequest('BindAxb', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BindAxbRequest $request
+     *
+     * @return BindAxbResponse
+     */
+    public function bindAxb($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindAxbWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnbindSubscriptionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UnbindSubscriptionResponse
+     */
+    public function unbindSubscriptionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UnbindSubscriptionResponse::fromMap($this->doRPCRequest('UnbindSubscription', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UnbindSubscriptionRequest $request
+     *
+     * @return UnbindSubscriptionResponse
+     */
+    public function unbindSubscription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindSubscriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySubsIdRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return QuerySubsIdResponse
+     */
+    public function querySubsIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QuerySubsIdResponse::fromMap($this->doRPCRequest('QuerySubsId', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QuerySubsIdRequest $request
+     *
+     * @return QuerySubsIdResponse
+     */
+    public function querySubsId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySubsIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfirmSendSmsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ConfirmSendSmsResponse
+     */
+    public function confirmSendSmsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ConfirmSendSmsResponse::fromMap($this->doRPCRequest('ConfirmSendSms', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ConfirmSendSmsRequest $request
+     *
+     * @return ConfirmSendSmsResponse
+     */
+    public function confirmSendSms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmSendSmsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSubscriptionDetailRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetSubscriptionDetailResponse
+     */
+    public function getSubscriptionDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSubscriptionDetailResponse::fromMap($this->doRPCRequest('GetSubscriptionDetail', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSubscriptionDetailRequest $request
+     *
+     * @return GetSubscriptionDetailResponse
+     */
+    public function getSubscriptionDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSubscriptionDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BindAxgRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return BindAxgResponse
+     */
+    public function bindAxgWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BindAxgResponse::fromMap($this->doRPCRequest('BindAxg', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BindAxgRequest $request
+     *
+     * @return BindAxgResponse
+     */
+    public function bindAxg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindAxgWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryRecordFileDownloadUrlRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryRecordFileDownloadUrlResponse
+     */
+    public function queryRecordFileDownloadUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryRecordFileDownloadUrlResponse::fromMap($this->doRPCRequest('QueryRecordFileDownloadUrl', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryRecordFileDownloadUrlRequest $request
+     *
+     * @return QueryRecordFileDownloadUrlResponse
+     */
+    public function queryRecordFileDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRecordFileDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InitFaceVerifyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return InitFaceVerifyResponse
+     */
+    public function initFaceVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return InitFaceVerifyResponse::fromMap($this->doRPCRequest('InitFaceVerify', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param InitFaceVerifyRequest $request
+     *
+     * @return InitFaceVerifyResponse
+     */
+    public function initFaceVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initFaceVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BindAxnRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return BindAxnResponse
+     */
+    public function bindAxnWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BindAxnResponse::fromMap($this->doRPCRequest('BindAxn', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BindAxnRequest $request
+     *
+     * @return BindAxnResponse
+     */
+    public function bindAxn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindAxnWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddSecretBlacklistRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddSecretBlacklistResponse
+     */
+    public function addSecretBlacklistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddSecretBlacklistResponse::fromMap($this->doRPCRequest('AddSecretBlacklist', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddSecretBlacklistRequest $request
+     *
+     * @return AddSecretBlacklistResponse
+     */
+    public function addSecretBlacklist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addSecretBlacklistWithOptions($request, $runtime);
     }
 }

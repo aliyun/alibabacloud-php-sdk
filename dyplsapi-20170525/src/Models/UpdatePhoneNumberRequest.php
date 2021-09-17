@@ -26,11 +26,6 @@ class UpdatePhoneNumberRequest extends Model
     /**
      * @var string
      */
-    public $prodCode;
-
-    /**
-     * @var string
-     */
     public $poolKey;
 
     /**
@@ -56,7 +51,6 @@ class UpdatePhoneNumberRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'prodCode'             => 'ProdCode',
         'poolKey'              => 'PoolKey',
         'subsId'               => 'SubsId',
         'secretNo'             => 'SecretNo',
@@ -79,9 +73,6 @@ class UpdatePhoneNumberRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->prodCode) {
-            $res['ProdCode'] = $this->prodCode;
         }
         if (null !== $this->poolKey) {
             $res['PoolKey'] = $this->poolKey;
@@ -118,9 +109,6 @@ class UpdatePhoneNumberRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ProdCode'])) {
-            $model->prodCode = $map['ProdCode'];
         }
         if (isset($map['PoolKey'])) {
             $model->poolKey = $map['PoolKey'];

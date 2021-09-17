@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class secretCallStatusDTO extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
      * @var string
      */
     public $calledNo;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'   => 'Status',
         'calledNo' => 'CalledNo',
+        'status'   => 'Status',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class secretCallStatusDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->calledNo) {
             $res['CalledNo'] = $this->calledNo;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class secretCallStatusDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CalledNo'])) {
             $model->calledNo = $map['CalledNo'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

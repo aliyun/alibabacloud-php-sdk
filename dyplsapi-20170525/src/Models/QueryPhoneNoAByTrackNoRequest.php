@@ -26,18 +26,24 @@ class QueryPhoneNoAByTrackNoRequest extends Model
     /**
      * @var string
      */
-    public $phoneNoX;
+    public $trackNo;
 
     /**
      * @var string
      */
-    public $trackNo;
+    public $cabinetNo;
+
+    /**
+     * @var string
+     */
+    public $phoneNoX;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'phoneNoX'             => 'PhoneNoX',
         'trackNo'              => 'trackNo',
+        'cabinetNo'            => 'CabinetNo',
+        'phoneNoX'             => 'PhoneNoX',
     ];
 
     public function validate()
@@ -56,11 +62,14 @@ class QueryPhoneNoAByTrackNoRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->phoneNoX) {
-            $res['PhoneNoX'] = $this->phoneNoX;
-        }
         if (null !== $this->trackNo) {
             $res['trackNo'] = $this->trackNo;
+        }
+        if (null !== $this->cabinetNo) {
+            $res['CabinetNo'] = $this->cabinetNo;
+        }
+        if (null !== $this->phoneNoX) {
+            $res['PhoneNoX'] = $this->phoneNoX;
         }
 
         return $res;
@@ -83,11 +92,14 @@ class QueryPhoneNoAByTrackNoRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['PhoneNoX'])) {
-            $model->phoneNoX = $map['PhoneNoX'];
-        }
         if (isset($map['trackNo'])) {
             $model->trackNo = $map['trackNo'];
+        }
+        if (isset($map['CabinetNo'])) {
+            $model->cabinetNo = $map['CabinetNo'];
+        }
+        if (isset($map['PhoneNoX'])) {
+            $model->phoneNoX = $map['PhoneNoX'];
         }
 
         return $model;

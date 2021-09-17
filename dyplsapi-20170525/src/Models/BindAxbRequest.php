@@ -92,6 +92,11 @@ class BindAxbRequest extends Model
      * @var string
      */
     public $ASRModelId;
+
+    /**
+     * @var int
+     */
+    public $callTimeout;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -110,6 +115,7 @@ class BindAxbRequest extends Model
         'ringConfig'           => 'RingConfig',
         'ASRStatus'            => 'ASRStatus',
         'ASRModelId'           => 'ASRModelId',
+        'callTimeout'          => 'CallTimeout',
     ];
 
     public function validate()
@@ -169,6 +175,9 @@ class BindAxbRequest extends Model
         }
         if (null !== $this->ASRModelId) {
             $res['ASRModelId'] = $this->ASRModelId;
+        }
+        if (null !== $this->callTimeout) {
+            $res['CallTimeout'] = $this->callTimeout;
         }
 
         return $res;
@@ -232,6 +241,9 @@ class BindAxbRequest extends Model
         }
         if (isset($map['ASRModelId'])) {
             $model->ASRModelId = $map['ASRModelId'];
+        }
+        if (isset($map['CallTimeout'])) {
+            $model->callTimeout = $map['CallTimeout'];
         }
 
         return $model;

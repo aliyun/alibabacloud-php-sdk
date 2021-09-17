@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class QuerySubscriptionDetailResponseBody extends Model
 {
     /**
-     * @var secretBindDetailDTO
+     * @var string
      */
-    public $secretBindDetailDTO;
+    public $code;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class QuerySubscriptionDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var secretBindDetailDTO
      */
-    public $code;
+    public $secretBindDetailDTO;
     protected $_name = [
-        'secretBindDetailDTO' => 'SecretBindDetailDTO',
+        'code'                => 'Code',
         'message'             => 'Message',
         'requestId'           => 'RequestId',
-        'code'                => 'Code',
+        'secretBindDetailDTO' => 'SecretBindDetailDTO',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class QuerySubscriptionDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->secretBindDetailDTO) {
-            $res['SecretBindDetailDTO'] = null !== $this->secretBindDetailDTO ? $this->secretBindDetailDTO->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -51,8 +51,8 @@ class QuerySubscriptionDetailResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->secretBindDetailDTO) {
+            $res['SecretBindDetailDTO'] = null !== $this->secretBindDetailDTO ? $this->secretBindDetailDTO->toMap() : null;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class QuerySubscriptionDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecretBindDetailDTO'])) {
-            $model->secretBindDetailDTO = secretBindDetailDTO::fromMap($map['SecretBindDetailDTO']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -75,8 +75,8 @@ class QuerySubscriptionDetailResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['SecretBindDetailDTO'])) {
+            $model->secretBindDetailDTO = secretBindDetailDTO::fromMap($map['SecretBindDetailDTO']);
         }
 
         return $model;

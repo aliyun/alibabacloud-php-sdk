@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetFaceVerifyRequest extends Model
+class ConfirmSendSmsRequest extends Model
 {
     /**
      * @var int
@@ -26,12 +26,24 @@ class GetFaceVerifyRequest extends Model
     /**
      * @var string
      */
-    public $verifyToken;
+    public $poolKey;
+
+    /**
+     * @var string
+     */
+    public $secretNo;
+
+    /**
+     * @var string
+     */
+    public $callId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'verifyToken'          => 'VerifyToken',
+        'poolKey'              => 'PoolKey',
+        'secretNo'             => 'SecretNo',
+        'callId'               => 'CallId',
     ];
 
     public function validate()
@@ -50,8 +62,14 @@ class GetFaceVerifyRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->verifyToken) {
-            $res['VerifyToken'] = $this->verifyToken;
+        if (null !== $this->poolKey) {
+            $res['PoolKey'] = $this->poolKey;
+        }
+        if (null !== $this->secretNo) {
+            $res['SecretNo'] = $this->secretNo;
+        }
+        if (null !== $this->callId) {
+            $res['CallId'] = $this->callId;
         }
 
         return $res;
@@ -60,7 +78,7 @@ class GetFaceVerifyRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetFaceVerifyRequest
+     * @return ConfirmSendSmsRequest
      */
     public static function fromMap($map = [])
     {
@@ -74,8 +92,14 @@ class GetFaceVerifyRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['VerifyToken'])) {
-            $model->verifyToken = $map['VerifyToken'];
+        if (isset($map['PoolKey'])) {
+            $model->poolKey = $map['PoolKey'];
+        }
+        if (isset($map['SecretNo'])) {
+            $model->secretNo = $map['SecretNo'];
+        }
+        if (isset($map['CallId'])) {
+            $model->callId = $map['CallId'];
         }
 
         return $model;

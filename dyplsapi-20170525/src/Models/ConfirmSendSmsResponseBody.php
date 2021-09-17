@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AddSecretBlacklistResponseBody extends Model
+class ConfirmSendSmsResponseBody extends Model
 {
     /**
      * @var string
@@ -21,10 +21,16 @@ class AddSecretBlacklistResponseBody extends Model
     /**
      * @var string
      */
+    public $data;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
+        'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
 
@@ -41,6 +47,9 @@ class AddSecretBlacklistResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,7 +60,7 @@ class AddSecretBlacklistResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AddSecretBlacklistResponseBody
+     * @return ConfirmSendSmsResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -61,6 +70,9 @@ class AddSecretBlacklistResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

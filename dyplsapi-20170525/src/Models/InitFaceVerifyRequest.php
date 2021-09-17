@@ -26,17 +26,11 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
-    public $prodCode;
-
-    /**
-     * @var string
-     */
     public $metaInfo;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'prodCode'             => 'ProdCode',
         'metaInfo'             => 'MetaInfo',
     ];
 
@@ -55,9 +49,6 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->prodCode) {
-            $res['ProdCode'] = $this->prodCode;
         }
         if (null !== $this->metaInfo) {
             $res['MetaInfo'] = $this->metaInfo;
@@ -82,9 +73,6 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ProdCode'])) {
-            $model->prodCode = $map['ProdCode'];
         }
         if (isset($map['MetaInfo'])) {
             $model->metaInfo = $map['MetaInfo'];

@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetSecretAsrDetailRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
     public $callId;
@@ -38,12 +23,9 @@ class GetSecretAsrDetailRequest extends Model
      */
     public $poolKey;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'callId'               => 'CallId',
-        'callTime'             => 'CallTime',
-        'poolKey'              => 'PoolKey',
+        'callId'   => 'CallId',
+        'callTime' => 'CallTime',
+        'poolKey'  => 'PoolKey',
     ];
 
     public function validate()
@@ -53,15 +35,6 @@ class GetSecretAsrDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
         }
@@ -83,15 +56,6 @@ class GetSecretAsrDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
         }

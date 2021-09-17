@@ -42,11 +42,6 @@ class UpdatePhoneSwitchRequest extends Model
      * @var int
      */
     public $switchStatus;
-
-    /**
-     * @var string
-     */
-    public $prodCode;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -55,7 +50,6 @@ class UpdatePhoneSwitchRequest extends Model
         'subsId'               => 'SubsId',
         'secretNo'             => 'SecretNo',
         'switchStatus'         => 'SwitchStatus',
-        'prodCode'             => 'ProdCode',
     ];
 
     public function validate()
@@ -85,9 +79,6 @@ class UpdatePhoneSwitchRequest extends Model
         }
         if (null !== $this->switchStatus) {
             $res['SwitchStatus'] = $this->switchStatus;
-        }
-        if (null !== $this->prodCode) {
-            $res['ProdCode'] = $this->prodCode;
         }
 
         return $res;
@@ -121,9 +112,6 @@ class UpdatePhoneSwitchRequest extends Model
         }
         if (isset($map['SwitchStatus'])) {
             $model->switchStatus = $map['SwitchStatus'];
-        }
-        if (isset($map['ProdCode'])) {
-            $model->prodCode = $map['ProdCode'];
         }
 
         return $model;

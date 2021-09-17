@@ -42,11 +42,6 @@ class CreateSubscriptionRequest extends Model
      * @var string
      */
     public $bindToken;
-
-    /**
-     * @var string
-     */
-    public $prodCode;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -55,7 +50,6 @@ class CreateSubscriptionRequest extends Model
         'secretNo'             => 'SecretNo',
         'phoneNo'              => 'PhoneNo',
         'bindToken'            => 'BindToken',
-        'prodCode'             => 'ProdCode',
     ];
 
     public function validate()
@@ -85,9 +79,6 @@ class CreateSubscriptionRequest extends Model
         }
         if (null !== $this->bindToken) {
             $res['BindToken'] = $this->bindToken;
-        }
-        if (null !== $this->prodCode) {
-            $res['ProdCode'] = $this->prodCode;
         }
 
         return $res;
@@ -121,9 +112,6 @@ class CreateSubscriptionRequest extends Model
         }
         if (isset($map['BindToken'])) {
             $model->bindToken = $map['BindToken'];
-        }
-        if (isset($map['ProdCode'])) {
-            $model->prodCode = $map['ProdCode'];
         }
 
         return $model;
