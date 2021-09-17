@@ -272,6 +272,46 @@ class PushRequest extends Model
      * @var string
      */
     public $androidXiaomiBigPictureUrl;
+
+    /**
+     * @var string
+     */
+    public $iOSNotificationThreadId;
+
+    /**
+     * @var string
+     */
+    public $androidBigPictureUrl;
+
+    /**
+     * @var string
+     */
+    public $androidInboxBody;
+
+    /**
+     * @var string
+     */
+    public $androidImageUrl;
+
+    /**
+     * @var string
+     */
+    public $androidXiaomiImageUrl;
+
+    /**
+     * @var string
+     */
+    public $androidMessageHuaweiUrgency;
+
+    /**
+     * @var string
+     */
+    public $androidMessageHuaweiCategory;
+
+    /**
+     * @var string
+     */
+    public $sendChannels;
     protected $_name = [
         'appKey'                           => 'AppKey',
         'pushType'                         => 'PushType',
@@ -326,6 +366,14 @@ class PushRequest extends Model
         'androidBigTitle'                  => 'AndroidBigTitle',
         'androidBigBody'                   => 'AndroidBigBody',
         'androidXiaomiBigPictureUrl'       => 'AndroidXiaomiBigPictureUrl',
+        'iOSNotificationThreadId'          => 'iOSNotificationThreadId',
+        'androidBigPictureUrl'             => 'AndroidBigPictureUrl',
+        'androidInboxBody'                 => 'AndroidInboxBody',
+        'androidImageUrl'                  => 'AndroidImageUrl',
+        'androidXiaomiImageUrl'            => 'AndroidXiaomiImageUrl',
+        'androidMessageHuaweiUrgency'      => 'AndroidMessageHuaweiUrgency',
+        'androidMessageHuaweiCategory'     => 'AndroidMessageHuaweiCategory',
+        'sendChannels'                     => 'SendChannels',
     ];
 
     public function validate()
@@ -493,6 +541,30 @@ class PushRequest extends Model
         }
         if (null !== $this->androidXiaomiBigPictureUrl) {
             $res['AndroidXiaomiBigPictureUrl'] = $this->androidXiaomiBigPictureUrl;
+        }
+        if (null !== $this->iOSNotificationThreadId) {
+            $res['iOSNotificationThreadId'] = $this->iOSNotificationThreadId;
+        }
+        if (null !== $this->androidBigPictureUrl) {
+            $res['AndroidBigPictureUrl'] = $this->androidBigPictureUrl;
+        }
+        if (null !== $this->androidInboxBody) {
+            $res['AndroidInboxBody'] = $this->androidInboxBody;
+        }
+        if (null !== $this->androidImageUrl) {
+            $res['AndroidImageUrl'] = $this->androidImageUrl;
+        }
+        if (null !== $this->androidXiaomiImageUrl) {
+            $res['AndroidXiaomiImageUrl'] = $this->androidXiaomiImageUrl;
+        }
+        if (null !== $this->androidMessageHuaweiUrgency) {
+            $res['AndroidMessageHuaweiUrgency'] = $this->androidMessageHuaweiUrgency;
+        }
+        if (null !== $this->androidMessageHuaweiCategory) {
+            $res['AndroidMessageHuaweiCategory'] = $this->androidMessageHuaweiCategory;
+        }
+        if (null !== $this->sendChannels) {
+            $res['SendChannels'] = $this->sendChannels;
         }
 
         return $res;
@@ -664,6 +736,30 @@ class PushRequest extends Model
         }
         if (isset($map['AndroidXiaomiBigPictureUrl'])) {
             $model->androidXiaomiBigPictureUrl = $map['AndroidXiaomiBigPictureUrl'];
+        }
+        if (isset($map['iOSNotificationThreadId'])) {
+            $model->iOSNotificationThreadId = $map['iOSNotificationThreadId'];
+        }
+        if (isset($map['AndroidBigPictureUrl'])) {
+            $model->androidBigPictureUrl = $map['AndroidBigPictureUrl'];
+        }
+        if (isset($map['AndroidInboxBody'])) {
+            $model->androidInboxBody = $map['AndroidInboxBody'];
+        }
+        if (isset($map['AndroidImageUrl'])) {
+            $model->androidImageUrl = $map['AndroidImageUrl'];
+        }
+        if (isset($map['AndroidXiaomiImageUrl'])) {
+            $model->androidXiaomiImageUrl = $map['AndroidXiaomiImageUrl'];
+        }
+        if (isset($map['AndroidMessageHuaweiUrgency'])) {
+            $model->androidMessageHuaweiUrgency = $map['AndroidMessageHuaweiUrgency'];
+        }
+        if (isset($map['AndroidMessageHuaweiCategory'])) {
+            $model->androidMessageHuaweiCategory = $map['AndroidMessageHuaweiCategory'];
+        }
+        if (isset($map['SendChannels'])) {
+            $model->sendChannels = $map['SendChannels'];
         }
 
         return $model;
