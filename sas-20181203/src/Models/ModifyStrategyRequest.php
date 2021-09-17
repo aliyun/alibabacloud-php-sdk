@@ -37,13 +37,25 @@ class ModifyStrategyRequest extends Model
      * @var string
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $riskCustomParams;
+
+    /**
+     * @var string
+     */
+    public $customType;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'cycleDays'       => 'CycleDays',
-        'name'            => 'Name',
-        'cycleStartTime'  => 'CycleStartTime',
-        'riskSubTypeName' => 'RiskSubTypeName',
-        'id'              => 'Id',
+        'sourceIp'         => 'SourceIp',
+        'cycleDays'        => 'CycleDays',
+        'name'             => 'Name',
+        'cycleStartTime'   => 'CycleStartTime',
+        'riskSubTypeName'  => 'RiskSubTypeName',
+        'id'               => 'Id',
+        'riskCustomParams' => 'RiskCustomParams',
+        'customType'       => 'CustomType',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class ModifyStrategyRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->riskCustomParams) {
+            $res['RiskCustomParams'] = $this->riskCustomParams;
+        }
+        if (null !== $this->customType) {
+            $res['CustomType'] = $this->customType;
         }
 
         return $res;
@@ -100,6 +118,12 @@ class ModifyStrategyRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['RiskCustomParams'])) {
+            $model->riskCustomParams = $map['RiskCustomParams'];
+        }
+        if (isset($map['CustomType'])) {
+            $model->customType = $map['CustomType'];
         }
 
         return $model;

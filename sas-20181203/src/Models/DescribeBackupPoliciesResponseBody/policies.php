@@ -29,6 +29,11 @@ class policies extends Model
     public $policy;
 
     /**
+     * @var string
+     */
+    public $upgradeStatus;
+
+    /**
      * @var int
      */
     public $serviceErrorCount;
@@ -87,6 +92,7 @@ class policies extends Model
         'status'               => 'Status',
         'policyVersion'        => 'PolicyVersion',
         'policy'               => 'Policy',
+        'upgradeStatus'        => 'UpgradeStatus',
         'serviceErrorCount'    => 'ServiceErrorCount',
         'policyRegionId'       => 'PolicyRegionId',
         'clientStatus'         => 'ClientStatus',
@@ -118,6 +124,9 @@ class policies extends Model
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
+        }
+        if (null !== $this->upgradeStatus) {
+            $res['UpgradeStatus'] = $this->upgradeStatus;
         }
         if (null !== $this->serviceErrorCount) {
             $res['ServiceErrorCount'] = $this->serviceErrorCount;
@@ -175,6 +184,9 @@ class policies extends Model
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
+        }
+        if (isset($map['UpgradeStatus'])) {
+            $model->upgradeStatus = $map['UpgradeStatus'];
         }
         if (isset($map['ServiceErrorCount'])) {
             $model->serviceErrorCount = $map['ServiceErrorCount'];

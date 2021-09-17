@@ -21,6 +21,11 @@ class propertys extends Model
     /**
      * @var string
      */
+    public $pid;
+
+    /**
+     * @var string
+     */
     public $bindIp;
 
     /**
@@ -70,6 +75,7 @@ class propertys extends Model
     protected $_name = [
         'create'          => 'Create',
         'internetIp'      => 'InternetIp',
+        'pid'             => 'Pid',
         'bindIp'          => 'BindIp',
         'ip'              => 'Ip',
         'procName'        => 'ProcName',
@@ -94,6 +100,9 @@ class propertys extends Model
         }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
         }
         if (null !== $this->bindIp) {
             $res['BindIp'] = $this->bindIp;
@@ -142,6 +151,9 @@ class propertys extends Model
         }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
         }
         if (isset($map['BindIp'])) {
             $model->bindIp = $map['BindIp'];

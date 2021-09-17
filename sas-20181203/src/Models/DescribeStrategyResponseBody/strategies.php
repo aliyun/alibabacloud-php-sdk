@@ -12,17 +12,27 @@ class strategies extends Model
     /**
      * @var int
      */
-    public $execStatus;
-
-    /**
-     * @var int
-     */
     public $type;
 
     /**
      * @var int
      */
+    public $execStatus;
+
+    /**
+     * @var int
+     */
+    public $passRate;
+
+    /**
+     * @var int
+     */
     public $cycleStartTime;
+
+    /**
+     * @var string
+     */
+    public $customType;
 
     /**
      * @var int
@@ -52,11 +62,6 @@ class strategies extends Model
     /**
      * @var int
      */
-    public $passRate;
-
-    /**
-     * @var int
-     */
     public $id;
 
     /**
@@ -64,15 +69,16 @@ class strategies extends Model
      */
     public $configTargets;
     protected $_name = [
-        'execStatus'     => 'ExecStatus',
         'type'           => 'Type',
+        'execStatus'     => 'ExecStatus',
+        'passRate'       => 'PassRate',
         'cycleStartTime' => 'CycleStartTime',
+        'customType'     => 'CustomType',
         'ecsCount'       => 'EcsCount',
         'processRate'    => 'ProcessRate',
         'cycleDays'      => 'CycleDays',
         'riskCount'      => 'RiskCount',
         'name'           => 'Name',
-        'passRate'       => 'PassRate',
         'id'             => 'Id',
         'configTargets'  => 'ConfigTargets',
     ];
@@ -84,14 +90,20 @@ class strategies extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->execStatus) {
-            $res['ExecStatus'] = $this->execStatus;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+        if (null !== $this->execStatus) {
+            $res['ExecStatus'] = $this->execStatus;
+        }
+        if (null !== $this->passRate) {
+            $res['PassRate'] = $this->passRate;
+        }
         if (null !== $this->cycleStartTime) {
             $res['CycleStartTime'] = $this->cycleStartTime;
+        }
+        if (null !== $this->customType) {
+            $res['CustomType'] = $this->customType;
         }
         if (null !== $this->ecsCount) {
             $res['EcsCount'] = $this->ecsCount;
@@ -107,9 +119,6 @@ class strategies extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->passRate) {
-            $res['PassRate'] = $this->passRate;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -135,14 +144,20 @@ class strategies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExecStatus'])) {
-            $model->execStatus = $map['ExecStatus'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+        if (isset($map['ExecStatus'])) {
+            $model->execStatus = $map['ExecStatus'];
+        }
+        if (isset($map['PassRate'])) {
+            $model->passRate = $map['PassRate'];
+        }
         if (isset($map['CycleStartTime'])) {
             $model->cycleStartTime = $map['CycleStartTime'];
+        }
+        if (isset($map['CustomType'])) {
+            $model->customType = $map['CustomType'];
         }
         if (isset($map['EcsCount'])) {
             $model->ecsCount = $map['EcsCount'];
@@ -158,9 +173,6 @@ class strategies extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['PassRate'])) {
-            $model->passRate = $map['PassRate'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

@@ -22,10 +22,16 @@ class DescribeStrategyRequest extends Model
      * @var string
      */
     public $strategyIds;
+
+    /**
+     * @var string
+     */
+    public $customType;
     protected $_name = [
         'sourceIp'    => 'SourceIp',
         'lang'        => 'Lang',
         'strategyIds' => 'StrategyIds',
+        'customType'  => 'CustomType',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DescribeStrategyRequest extends Model
         }
         if (null !== $this->strategyIds) {
             $res['StrategyIds'] = $this->strategyIds;
+        }
+        if (null !== $this->customType) {
+            $res['CustomType'] = $this->customType;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class DescribeStrategyRequest extends Model
         }
         if (isset($map['StrategyIds'])) {
             $model->strategyIds = $map['StrategyIds'];
+        }
+        if (isset($map['CustomType'])) {
+            $model->customType = $map['CustomType'];
         }
 
         return $model;

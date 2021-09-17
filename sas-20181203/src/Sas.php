@@ -414,6 +414,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallUniBackupAgentRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallUniBackupAgentResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpgradeBackupPolicyVersionRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpgradeBackupPolicyVersionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ValidateHcWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ValidateHcWarningsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -6353,6 +6355,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uninstallUniBackupAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeBackupPolicyVersionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpgradeBackupPolicyVersionResponse
+     */
+    public function upgradeBackupPolicyVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpgradeBackupPolicyVersionResponse::fromMap($this->doRPCRequest('UpgradeBackupPolicyVersion', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeBackupPolicyVersionRequest $request
+     *
+     * @return UpgradeBackupPolicyVersionResponse
+     */
+    public function upgradeBackupPolicyVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeBackupPolicyVersionWithOptions($request, $runtime);
     }
 
     /**
