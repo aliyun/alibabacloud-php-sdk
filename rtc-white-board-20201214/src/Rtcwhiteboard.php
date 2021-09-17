@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\CreateWhiteBoardRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\CreateWhiteBoardResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeAppsRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeAppsResponse;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeWhiteBoardRecordingsRequest;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeWhiteBoardRecordingsResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeWhiteBoardsRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeWhiteBoardsResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\OpenWhiteBoardRequest;
@@ -493,6 +495,34 @@ class Rtcwhiteboard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setAppStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWhiteBoardRecordingsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeWhiteBoardRecordingsResponse
+     */
+    public function describeWhiteBoardRecordingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeWhiteBoardRecordingsResponse::fromMap($this->doRPCRequest('DescribeWhiteBoardRecordings', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWhiteBoardRecordingsRequest $request
+     *
+     * @return DescribeWhiteBoardRecordingsResponse
+     */
+    public function describeWhiteBoardRecordings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhiteBoardRecordingsWithOptions($request, $runtime);
     }
 
     /**
