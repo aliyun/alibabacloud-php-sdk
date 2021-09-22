@@ -5,8 +5,6 @@
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CheckServiceLinkedRoleForDeletingRequest;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CheckServiceLinkedRoleForDeletingResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateVerifySchemeRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateVerifySchemeResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\DeleteVerifySchemeRequest;
@@ -23,8 +21,6 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensResponse;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsCodeRequest;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsCodeResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\TwiceTelVerifyRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\TwiceTelVerifyResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyMobileRequest;
@@ -153,34 +149,6 @@ class Dypnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVerifySchemeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSmsCodeRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetSmsCodeResponse
-     */
-    public function getSmsCodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSmsCodeResponse::fromMap($this->doRPCRequest('GetSmsCode', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSmsCodeRequest $request
-     *
-     * @return GetSmsCodeResponse
-     */
-    public function getSmsCode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSmsCodeWithOptions($request, $runtime);
     }
 
     /**
@@ -433,33 +401,5 @@ class Dypnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->verifyMobileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CheckServiceLinkedRoleForDeletingRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return CheckServiceLinkedRoleForDeletingResponse
-     */
-    public function checkServiceLinkedRoleForDeletingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CheckServiceLinkedRoleForDeletingResponse::fromMap($this->doRPCRequest('CheckServiceLinkedRoleForDeleting', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CheckServiceLinkedRoleForDeletingRequest $request
-     *
-     * @return CheckServiceLinkedRoleForDeletingResponse
-     */
-    public function checkServiceLinkedRoleForDeleting($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkServiceLinkedRoleForDeletingWithOptions($request, $runtime);
     }
 }
