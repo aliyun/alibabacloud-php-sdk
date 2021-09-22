@@ -16,12 +16,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $verifyDesc;
+    public $identityInfo;
 
     /**
      * @var string
      */
-    public $identityInfo;
+    public $verifyDesc;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class data extends Model
     public $deviceToken;
     protected $_name = [
         'materialInfo' => 'MaterialInfo',
-        'verifyDesc'   => 'VerifyDesc',
         'identityInfo' => 'IdentityInfo',
+        'verifyDesc'   => 'VerifyDesc',
         'verifyResult' => 'VerifyResult',
         'deviceToken'  => 'DeviceToken',
     ];
@@ -50,11 +50,11 @@ class data extends Model
         if (null !== $this->materialInfo) {
             $res['MaterialInfo'] = $this->materialInfo;
         }
-        if (null !== $this->verifyDesc) {
-            $res['VerifyDesc'] = $this->verifyDesc;
-        }
         if (null !== $this->identityInfo) {
             $res['IdentityInfo'] = $this->identityInfo;
+        }
+        if (null !== $this->verifyDesc) {
+            $res['VerifyDesc'] = $this->verifyDesc;
         }
         if (null !== $this->verifyResult) {
             $res['VerifyResult'] = $this->verifyResult;
@@ -77,11 +77,11 @@ class data extends Model
         if (isset($map['MaterialInfo'])) {
             $model->materialInfo = $map['MaterialInfo'];
         }
-        if (isset($map['VerifyDesc'])) {
-            $model->verifyDesc = $map['VerifyDesc'];
-        }
         if (isset($map['IdentityInfo'])) {
             $model->identityInfo = $map['IdentityInfo'];
+        }
+        if (isset($map['VerifyDesc'])) {
+            $model->verifyDesc = $map['VerifyDesc'];
         }
         if (isset($map['VerifyResult'])) {
             $model->verifyResult = $map['VerifyResult'];

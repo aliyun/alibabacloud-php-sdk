@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CheckServiceLinkedRoleForDeletingRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CheckServiceLinkedRoleForDeletingResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateVerifySchemeRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateVerifySchemeResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\DeleteVerifySchemeRequest;
@@ -19,12 +21,18 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetCertifyResultRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetCertifyResultResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsCodeRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsCodeResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\TwiceTelVerifyRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\TwiceTelVerifyResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyMobileRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyMobileResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyPhoneWithTokenRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyPhoneWithTokenResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifySmsCodeRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifySmsCodeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -64,6 +72,62 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
+     * @param GetAuthorizationUrlRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAuthorizationUrlResponse
+     */
+    public function getAuthorizationUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetAuthorizationUrlResponse::fromMap($this->doRPCRequest('GetAuthorizationUrl', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAuthorizationUrlRequest $request
+     *
+     * @return GetAuthorizationUrlResponse
+     */
+    public function getAuthorizationUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthorizationUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSmsAuthTokensRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSmsAuthTokensResponse
+     */
+    public function getSmsAuthTokensWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSmsAuthTokensResponse::fromMap($this->doRPCRequest('GetSmsAuthTokens', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSmsAuthTokensRequest $request
+     *
+     * @return GetSmsAuthTokensResponse
+     */
+    public function getSmsAuthTokens($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSmsAuthTokensWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateVerifySchemeRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -89,6 +153,62 @@ class Dypnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVerifySchemeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSmsCodeRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetSmsCodeResponse
+     */
+    public function getSmsCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSmsCodeResponse::fromMap($this->doRPCRequest('GetSmsCode', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSmsCodeRequest $request
+     *
+     * @return GetSmsCodeResponse
+     */
+    public function getSmsCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSmsCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifySmsCodeRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return VerifySmsCodeResponse
+     */
+    public function verifySmsCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return VerifySmsCodeResponse::fromMap($this->doRPCRequest('VerifySmsCode', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param VerifySmsCodeRequest $request
+     *
+     * @return VerifySmsCodeResponse
+     */
+    public function verifySmsCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifySmsCodeWithOptions($request, $runtime);
     }
 
     /**
@@ -120,115 +240,31 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeVerifySchemeRequest $request
+     * @param VerifyPhoneWithTokenRequest $request
      * @param RuntimeOptions              $runtime
      *
-     * @return DescribeVerifySchemeResponse
+     * @return VerifyPhoneWithTokenResponse
      */
-    public function describeVerifySchemeWithOptions($request, $runtime)
+    public function verifyPhoneWithTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeVerifySchemeResponse::fromMap($this->doRPCRequest('DescribeVerifyScheme', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return VerifyPhoneWithTokenResponse::fromMap($this->doRPCRequest('VerifyPhoneWithToken', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeVerifySchemeRequest $request
+     * @param VerifyPhoneWithTokenRequest $request
      *
-     * @return DescribeVerifySchemeResponse
+     * @return VerifyPhoneWithTokenResponse
      */
-    public function describeVerifyScheme($request)
+    public function verifyPhoneWithToken($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVerifySchemeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAuthorizationUrlRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetAuthorizationUrlResponse
-     */
-    public function getAuthorizationUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetAuthorizationUrlResponse::fromMap($this->doRPCRequest('GetAuthorizationUrl', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAuthorizationUrlRequest $request
-     *
-     * @return GetAuthorizationUrlResponse
-     */
-    public function getAuthorizationUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAuthorizationUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAuthTokenRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetAuthTokenResponse
-     */
-    public function getAuthTokenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetAuthTokenResponse::fromMap($this->doRPCRequest('GetAuthToken', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAuthTokenRequest $request
-     *
-     * @return GetAuthTokenResponse
-     */
-    public function getAuthToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAuthTokenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetCertifyResultRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetCertifyResultResponse
-     */
-    public function getCertifyResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetCertifyResultResponse::fromMap($this->doRPCRequest('GetCertifyResult', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetCertifyResultRequest $request
-     *
-     * @return GetCertifyResultResponse
-     */
-    public function getCertifyResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getCertifyResultWithOptions($request, $runtime);
+        return $this->verifyPhoneWithTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -288,6 +324,90 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
+     * @param GetCertifyResultRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetCertifyResultResponse
+     */
+    public function getCertifyResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetCertifyResultResponse::fromMap($this->doRPCRequest('GetCertifyResult', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetCertifyResultRequest $request
+     *
+     * @return GetCertifyResultResponse
+     */
+    public function getCertifyResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCertifyResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVerifySchemeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeVerifySchemeResponse
+     */
+    public function describeVerifySchemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVerifySchemeResponse::fromMap($this->doRPCRequest('DescribeVerifyScheme', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVerifySchemeRequest $request
+     *
+     * @return DescribeVerifySchemeResponse
+     */
+    public function describeVerifyScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifySchemeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAuthTokenRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAuthTokenResponse
+     */
+    public function getAuthTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetAuthTokenResponse::fromMap($this->doRPCRequest('GetAuthToken', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAuthTokenRequest $request
+     *
+     * @return GetAuthTokenResponse
+     */
+    public function getAuthToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param VerifyMobileRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -316,30 +436,30 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param VerifyPhoneWithTokenRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CheckServiceLinkedRoleForDeletingRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return VerifyPhoneWithTokenResponse
+     * @return CheckServiceLinkedRoleForDeletingResponse
      */
-    public function verifyPhoneWithTokenWithOptions($request, $runtime)
+    public function checkServiceLinkedRoleForDeletingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return VerifyPhoneWithTokenResponse::fromMap($this->doRPCRequest('VerifyPhoneWithToken', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckServiceLinkedRoleForDeletingResponse::fromMap($this->doRPCRequest('CheckServiceLinkedRoleForDeleting', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param VerifyPhoneWithTokenRequest $request
+     * @param CheckServiceLinkedRoleForDeletingRequest $request
      *
-     * @return VerifyPhoneWithTokenResponse
+     * @return CheckServiceLinkedRoleForDeletingResponse
      */
-    public function verifyPhoneWithToken($request)
+    public function checkServiceLinkedRoleForDeleting($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->verifyPhoneWithTokenWithOptions($request, $runtime);
+        return $this->checkServiceLinkedRoleForDeletingWithOptions($request, $runtime);
     }
 }

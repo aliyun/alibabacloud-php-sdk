@@ -12,6 +12,11 @@ class CreateVerifySchemeResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -23,16 +28,11 @@ class CreateVerifySchemeResponseBody extends Model
      * @var gateVerifySchemeDTO
      */
     public $gateVerifySchemeDTO;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'                => 'Code',
         'message'             => 'Message',
         'requestId'           => 'RequestId',
         'gateVerifySchemeDTO' => 'GateVerifySchemeDTO',
-        'code'                => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class CreateVerifySchemeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -50,9 +53,6 @@ class CreateVerifySchemeResponseBody extends Model
         }
         if (null !== $this->gateVerifySchemeDTO) {
             $res['GateVerifySchemeDTO'] = null !== $this->gateVerifySchemeDTO ? $this->gateVerifySchemeDTO->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class CreateVerifySchemeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -74,9 +77,6 @@ class CreateVerifySchemeResponseBody extends Model
         }
         if (isset($map['GateVerifySchemeDTO'])) {
             $model->gateVerifySchemeDTO = gateVerifySchemeDTO::fromMap($map['GateVerifySchemeDTO']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

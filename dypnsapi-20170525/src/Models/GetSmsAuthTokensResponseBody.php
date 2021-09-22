@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models;
 
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyPhoneWithTokenResponseBody\gateVerify;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class VerifyPhoneWithTokenResponseBody extends Model
+class GetSmsAuthTokensResponseBody extends Model
 {
     /**
      * @var string
@@ -25,14 +25,14 @@ class VerifyPhoneWithTokenResponseBody extends Model
     public $requestId;
 
     /**
-     * @var gateVerify
+     * @var data
      */
-    public $gateVerify;
+    public $data;
     protected $_name = [
-        'code'       => 'Code',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'gateVerify' => 'GateVerify',
+        'code'      => 'Code',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'data'      => 'Data',
     ];
 
     public function validate()
@@ -51,8 +51,8 @@ class VerifyPhoneWithTokenResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->gateVerify) {
-            $res['GateVerify'] = null !== $this->gateVerify ? $this->gateVerify->toMap() : null;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -61,7 +61,7 @@ class VerifyPhoneWithTokenResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return VerifyPhoneWithTokenResponseBody
+     * @return GetSmsAuthTokensResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -75,8 +75,8 @@ class VerifyPhoneWithTokenResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['GateVerify'])) {
-            $model->gateVerify = gateVerify::fromMap($map['GateVerify']);
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

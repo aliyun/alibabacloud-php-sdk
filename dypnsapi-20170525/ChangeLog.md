@@ -1,3 +1,6 @@
+2021-09-22 Version: 1.0.2
+- Support Sms Verification for Dypnsapi.
+
 2021-03-17 Version: 1.0.1
 - Generated php 2017-05-25 for Dypnsapi.
 

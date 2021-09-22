@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class VerifyMobileResponseBody extends Model
 {
     /**
-     * @var gateVerifyResultDTO
+     * @var string
      */
-    public $gateVerifyResultDTO;
+    public $code;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class VerifyMobileResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var gateVerifyResultDTO
      */
-    public $code;
+    public $gateVerifyResultDTO;
     protected $_name = [
-        'gateVerifyResultDTO' => 'GateVerifyResultDTO',
+        'code'                => 'Code',
         'message'             => 'Message',
         'requestId'           => 'RequestId',
-        'code'                => 'Code',
+        'gateVerifyResultDTO' => 'GateVerifyResultDTO',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class VerifyMobileResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gateVerifyResultDTO) {
-            $res['GateVerifyResultDTO'] = null !== $this->gateVerifyResultDTO ? $this->gateVerifyResultDTO->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -51,8 +51,8 @@ class VerifyMobileResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->gateVerifyResultDTO) {
+            $res['GateVerifyResultDTO'] = null !== $this->gateVerifyResultDTO ? $this->gateVerifyResultDTO->toMap() : null;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class VerifyMobileResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GateVerifyResultDTO'])) {
-            $model->gateVerifyResultDTO = gateVerifyResultDTO::fromMap($map['GateVerifyResultDTO']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -75,8 +75,8 @@ class VerifyMobileResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['GateVerifyResultDTO'])) {
+            $model->gateVerifyResultDTO = gateVerifyResultDTO::fromMap($map['GateVerifyResultDTO']);
         }
 
         return $model;

@@ -26,17 +26,11 @@ class GetCertifyResultRequest extends Model
     /**
      * @var string
      */
-    public $productCode;
-
-    /**
-     * @var string
-     */
     public $token;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'productCode'          => 'ProductCode',
         'token'                => 'Token',
     ];
 
@@ -55,9 +49,6 @@ class GetCertifyResultRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
@@ -82,9 +73,6 @@ class GetCertifyResultRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];

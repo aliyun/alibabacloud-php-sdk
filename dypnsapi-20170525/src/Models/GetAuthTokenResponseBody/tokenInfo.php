@@ -11,15 +11,15 @@ class tokenInfo extends Model
     /**
      * @var string
      */
-    public $jwtToken;
+    public $accessToken;
 
     /**
      * @var string
      */
-    public $accessToken;
+    public $jwtToken;
     protected $_name = [
-        'jwtToken'    => 'JwtToken',
         'accessToken' => 'AccessToken',
+        'jwtToken'    => 'JwtToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class tokenInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jwtToken) {
-            $res['JwtToken'] = $this->jwtToken;
-        }
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
+        }
+        if (null !== $this->jwtToken) {
+            $res['JwtToken'] = $this->jwtToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class tokenInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JwtToken'])) {
-            $model->jwtToken = $map['JwtToken'];
-        }
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
+        }
+        if (isset($map['JwtToken'])) {
+            $model->jwtToken = $map['JwtToken'];
         }
 
         return $model;

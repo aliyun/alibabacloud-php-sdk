@@ -12,6 +12,11 @@ class GetCertifyResultResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -23,16 +28,11 @@ class GetCertifyResultResponseBody extends Model
      * @var data[]
      */
     public $data;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'data'      => 'Data',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class GetCertifyResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -57,9 +60,6 @@ class GetCertifyResultResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
 
         return $res;
     }
@@ -72,6 +72,9 @@ class GetCertifyResultResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +89,6 @@ class GetCertifyResultResponseBody extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;
