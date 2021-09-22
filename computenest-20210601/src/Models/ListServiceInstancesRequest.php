@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesRequest\filter;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesRequest\requestTags;
 use AlibabaCloud\Tea\Model;
 
 class ListServiceInstancesRequest extends Model
@@ -28,11 +29,17 @@ class ListServiceInstancesRequest extends Model
      * @var filter[]
      */
     public $filter;
+
+    /**
+     * @var requestTags[]
+     */
+    public $requestTags;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'filter'     => 'Filter',
+        'regionId'    => 'RegionId',
+        'maxResults'  => 'MaxResults',
+        'nextToken'   => 'NextToken',
+        'filter'      => 'Filter',
+        'requestTags' => 'RequestTags',
     ];
 
     public function validate()
@@ -57,6 +64,15 @@ class ListServiceInstancesRequest extends Model
                 $n = 0;
                 foreach ($this->filter as $item) {
                     $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->requestTags) {
+            $res['RequestTags'] = [];
+            if (null !== $this->requestTags && \is_array($this->requestTags)) {
+                $n = 0;
+                foreach ($this->requestTags as $item) {
+                    $res['RequestTags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -87,6 +103,15 @@ class ListServiceInstancesRequest extends Model
                 $n             = 0;
                 foreach ($map['Filter'] as $item) {
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['RequestTags'])) {
+            if (!empty($map['RequestTags'])) {
+                $model->requestTags = [];
+                $n                  = 0;
+                foreach ($map['RequestTags'] as $item) {
+                    $model->requestTags[$n++] = null !== $item ? requestTags::fromMap($item) : $item;
                 }
             }
         }
