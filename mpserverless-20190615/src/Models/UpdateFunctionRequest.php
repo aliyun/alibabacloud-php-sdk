@@ -42,6 +42,16 @@ class UpdateFunctionRequest extends Model
      * @var string
      */
     public $timingTriggerConfig;
+
+    /**
+     * @var int
+     */
+    public $instanceConcurrency;
+
+    /**
+     * @var string
+     */
+    public $runtime;
     protected $_name = [
         'desc'                => 'Desc',
         'name'                => 'Name',
@@ -50,6 +60,8 @@ class UpdateFunctionRequest extends Model
         'timeout'             => 'Timeout',
         'httpTriggerPath'     => 'HttpTriggerPath',
         'timingTriggerConfig' => 'TimingTriggerConfig',
+        'instanceConcurrency' => 'InstanceConcurrency',
+        'runtime'             => 'Runtime',
     ];
 
     public function validate()
@@ -79,6 +91,12 @@ class UpdateFunctionRequest extends Model
         }
         if (null !== $this->timingTriggerConfig) {
             $res['TimingTriggerConfig'] = $this->timingTriggerConfig;
+        }
+        if (null !== $this->instanceConcurrency) {
+            $res['InstanceConcurrency'] = $this->instanceConcurrency;
+        }
+        if (null !== $this->runtime) {
+            $res['Runtime'] = $this->runtime;
         }
 
         return $res;
@@ -112,6 +130,12 @@ class UpdateFunctionRequest extends Model
         }
         if (isset($map['TimingTriggerConfig'])) {
             $model->timingTriggerConfig = $map['TimingTriggerConfig'];
+        }
+        if (isset($map['InstanceConcurrency'])) {
+            $model->instanceConcurrency = $map['InstanceConcurrency'];
+        }
+        if (isset($map['Runtime'])) {
+            $model->runtime = $map['Runtime'];
         }
 
         return $model;

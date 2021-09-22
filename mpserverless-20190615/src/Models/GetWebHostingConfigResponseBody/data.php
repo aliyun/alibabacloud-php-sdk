@@ -16,22 +16,28 @@ class data extends Model
     /**
      * @var string
      */
+    public $allowedIps;
+
+    /**
+     * @var string
+     */
+    public $errorPath;
+
+    /**
+     * @var string
+     */
     public $defaultDomain;
 
     /**
      * @var string
      */
     public $indexPath;
-
-    /**
-     * @var string
-     */
-    public $errorPath;
     protected $_name = [
         'spaceId'       => 'SpaceId',
+        'allowedIps'    => 'AllowedIps',
+        'errorPath'     => 'ErrorPath',
         'defaultDomain' => 'DefaultDomain',
         'indexPath'     => 'IndexPath',
-        'errorPath'     => 'ErrorPath',
     ];
 
     public function validate()
@@ -44,14 +50,17 @@ class data extends Model
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
         }
+        if (null !== $this->allowedIps) {
+            $res['AllowedIps'] = $this->allowedIps;
+        }
+        if (null !== $this->errorPath) {
+            $res['ErrorPath'] = $this->errorPath;
+        }
         if (null !== $this->defaultDomain) {
             $res['DefaultDomain'] = $this->defaultDomain;
         }
         if (null !== $this->indexPath) {
             $res['IndexPath'] = $this->indexPath;
-        }
-        if (null !== $this->errorPath) {
-            $res['ErrorPath'] = $this->errorPath;
         }
 
         return $res;
@@ -68,14 +77,17 @@ class data extends Model
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
         }
+        if (isset($map['AllowedIps'])) {
+            $model->allowedIps = $map['AllowedIps'];
+        }
+        if (isset($map['ErrorPath'])) {
+            $model->errorPath = $map['ErrorPath'];
+        }
         if (isset($map['DefaultDomain'])) {
             $model->defaultDomain = $map['DefaultDomain'];
         }
         if (isset($map['IndexPath'])) {
             $model->indexPath = $map['IndexPath'];
-        }
-        if (isset($map['ErrorPath'])) {
-            $model->errorPath = $map['ErrorPath'];
         }
 
         return $model;

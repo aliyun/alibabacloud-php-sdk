@@ -16,12 +16,12 @@ class QueryDBImportTaskStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $failedCount;
 
     /**
      * @var string
      */
-    public $failedCount;
+    public $requestId;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class QueryDBImportTaskStatusResponseBody extends Model
     public $successCount;
     protected $_name = [
         'status'        => 'Status',
-        'requestId'     => 'RequestId',
         'failedCount'   => 'FailedCount',
+        'requestId'     => 'RequestId',
         'detailMessage' => 'DetailMessage',
         'successCount'  => 'SuccessCount',
     ];
@@ -50,11 +50,11 @@ class QueryDBImportTaskStatusResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->failedCount) {
             $res['FailedCount'] = $this->failedCount;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->detailMessage) {
             $res['DetailMessage'] = $this->detailMessage;
@@ -77,11 +77,11 @@ class QueryDBImportTaskStatusResponseBody extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['FailedCount'])) {
             $model->failedCount = $map['FailedCount'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['DetailMessage'])) {
             $model->detailMessage = $map['DetailMessage'];

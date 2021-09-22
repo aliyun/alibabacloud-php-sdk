@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListSmsSignsResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -22,23 +17,28 @@ class ListSmsSignsResponseBody extends Model
     /**
      * @var int
      */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
 
     /**
      * @var smsSigns[]
      */
     public $smsSigns;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'requestId'  => 'RequestId',
-        'pageSize'   => 'PageSize',
-        'smsSigns'   => 'SmsSigns',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'totalCount' => 'TotalCount',
+        'smsSigns'   => 'SmsSigns',
     ];
 
     public function validate()
@@ -48,14 +48,17 @@ class ListSmsSignsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->smsSigns) {
             $res['SmsSigns'] = [];
@@ -65,9 +68,6 @@ class ListSmsSignsResponseBody extends Model
                     $res['SmsSigns'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -81,14 +81,17 @@ class ListSmsSignsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['SmsSigns'])) {
             if (!empty($map['SmsSigns'])) {
@@ -98,9 +101,6 @@ class ListSmsSignsResponseBody extends Model
                     $model->smsSigns[$n++] = null !== $item ? smsSigns::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
         }
 
         return $model;

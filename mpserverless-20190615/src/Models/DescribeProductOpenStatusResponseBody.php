@@ -11,15 +11,15 @@ class DescribeProductOpenStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $spaceId;
 
     /**
      * @var string
      */
-    public $spaceId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'spaceId'   => 'SpaceId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeProductOpenStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeProductOpenStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

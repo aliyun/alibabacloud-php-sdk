@@ -17,9 +17,27 @@ class UpdateHttpTriggerConfigRequest extends Model
      * @var string
      */
     public $spaceId;
+
+    /**
+     * @var string
+     */
+    public $customDomain;
+
+    /**
+     * @var string
+     */
+    public $customDomainCertificate;
+
+    /**
+     * @var string
+     */
+    public $customDomainPrivateKey;
     protected $_name = [
-        'enableService' => 'EnableService',
-        'spaceId'       => 'SpaceId',
+        'enableService'           => 'EnableService',
+        'spaceId'                 => 'SpaceId',
+        'customDomain'            => 'CustomDomain',
+        'customDomainCertificate' => 'CustomDomainCertificate',
+        'customDomainPrivateKey'  => 'CustomDomainPrivateKey',
     ];
 
     public function validate()
@@ -34,6 +52,15 @@ class UpdateHttpTriggerConfigRequest extends Model
         }
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
+        }
+        if (null !== $this->customDomain) {
+            $res['CustomDomain'] = $this->customDomain;
+        }
+        if (null !== $this->customDomainCertificate) {
+            $res['CustomDomainCertificate'] = $this->customDomainCertificate;
+        }
+        if (null !== $this->customDomainPrivateKey) {
+            $res['CustomDomainPrivateKey'] = $this->customDomainPrivateKey;
         }
 
         return $res;
@@ -52,6 +79,15 @@ class UpdateHttpTriggerConfigRequest extends Model
         }
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
+        }
+        if (isset($map['CustomDomain'])) {
+            $model->customDomain = $map['CustomDomain'];
+        }
+        if (isset($map['CustomDomainCertificate'])) {
+            $model->customDomainCertificate = $map['CustomDomainCertificate'];
+        }
+        if (isset($map['CustomDomainPrivateKey'])) {
+            $model->customDomainPrivateKey = $map['CustomDomainPrivateKey'];
         }
 
         return $model;

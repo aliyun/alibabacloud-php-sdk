@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $domain;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $domain;
     protected $_name = [
-        'domain'  => 'Domain',
         'content' => 'Content',
+        'domain'  => 'Domain',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
 
         return $model;

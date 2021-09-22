@@ -14,11 +14,6 @@ class dataList extends Model
     public $status;
 
     /**
-     * @var string[]
-     */
-    public $timestamps;
-
-    /**
      * @var string
      */
     public $spaceId;
@@ -36,6 +31,11 @@ class dataList extends Model
     /**
      * @var string[]
      */
+    public $timestamps;
+
+    /**
+     * @var string[]
+     */
     public $contents;
 
     /**
@@ -44,10 +44,10 @@ class dataList extends Model
     public $levels;
     protected $_name = [
         'status'       => 'Status',
-        'timestamps'   => 'Timestamps',
         'spaceId'      => 'SpaceId',
         'requestId'    => 'RequestId',
         'functionName' => 'FunctionName',
+        'timestamps'   => 'Timestamps',
         'contents'     => 'Contents',
         'levels'       => 'Levels',
     ];
@@ -62,9 +62,6 @@ class dataList extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->timestamps) {
-            $res['Timestamps'] = $this->timestamps;
-        }
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
         }
@@ -73,6 +70,9 @@ class dataList extends Model
         }
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
+        }
+        if (null !== $this->timestamps) {
+            $res['Timestamps'] = $this->timestamps;
         }
         if (null !== $this->contents) {
             $res['Contents'] = $this->contents;
@@ -95,11 +95,6 @@ class dataList extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['Timestamps'])) {
-            if (!empty($map['Timestamps'])) {
-                $model->timestamps = $map['Timestamps'];
-            }
-        }
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
         }
@@ -108,6 +103,11 @@ class dataList extends Model
         }
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
+        }
+        if (isset($map['Timestamps'])) {
+            if (!empty($map['Timestamps'])) {
+                $model->timestamps = $map['Timestamps'];
+            }
         }
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {

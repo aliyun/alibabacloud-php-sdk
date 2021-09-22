@@ -21,11 +21,17 @@ class spec extends Model
     /**
      * @var string
      */
+    public $instanceConcurrency;
+
+    /**
+     * @var string
+     */
     public $memory;
     protected $_name = [
-        'timeout' => 'Timeout',
-        'runtime' => 'Runtime',
-        'memory'  => 'Memory',
+        'timeout'             => 'Timeout',
+        'runtime'             => 'Runtime',
+        'instanceConcurrency' => 'InstanceConcurrency',
+        'memory'              => 'Memory',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class spec extends Model
         }
         if (null !== $this->runtime) {
             $res['Runtime'] = $this->runtime;
+        }
+        if (null !== $this->instanceConcurrency) {
+            $res['InstanceConcurrency'] = $this->instanceConcurrency;
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
@@ -61,6 +70,9 @@ class spec extends Model
         }
         if (isset($map['Runtime'])) {
             $model->runtime = $map['Runtime'];
+        }
+        if (isset($map['InstanceConcurrency'])) {
+            $model->instanceConcurrency = $map['InstanceConcurrency'];
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];

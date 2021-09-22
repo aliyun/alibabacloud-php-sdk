@@ -22,10 +22,16 @@ class ModifyWebHostingConfigRequest extends Model
      * @var string
      */
     public $errorPath;
+
+    /**
+     * @var string
+     */
+    public $allowedIps;
     protected $_name = [
-        'spaceId'   => 'SpaceId',
-        'indexPath' => 'IndexPath',
-        'errorPath' => 'ErrorPath',
+        'spaceId'    => 'SpaceId',
+        'indexPath'  => 'IndexPath',
+        'errorPath'  => 'ErrorPath',
+        'allowedIps' => 'AllowedIps',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ModifyWebHostingConfigRequest extends Model
         }
         if (null !== $this->errorPath) {
             $res['ErrorPath'] = $this->errorPath;
+        }
+        if (null !== $this->allowedIps) {
+            $res['AllowedIps'] = $this->allowedIps;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ModifyWebHostingConfigRequest extends Model
         }
         if (isset($map['ErrorPath'])) {
             $model->errorPath = $map['ErrorPath'];
+        }
+        if (isset($map['AllowedIps'])) {
+            $model->allowedIps = $map['AllowedIps'];
         }
 
         return $model;

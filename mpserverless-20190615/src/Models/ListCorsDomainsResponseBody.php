@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListCorsDomainsResponseBody extends Model
 {
     /**
-     * @var domains[]
-     */
-    public $domains;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var domains[]
+     */
+    public $domains;
     protected $_name = [
-        'domains'   => 'Domains',
         'requestId' => 'RequestId',
+        'domains'   => 'Domains',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class ListCorsDomainsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->domains) {
             $res['Domains'] = [];
             if (null !== $this->domains && \is_array($this->domains)) {
@@ -38,9 +41,6 @@ class ListCorsDomainsResponseBody extends Model
                     $res['Domains'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class ListCorsDomainsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
                 $model->domains = [];
@@ -62,9 +65,6 @@ class ListCorsDomainsResponseBody extends Model
                     $model->domains[$n++] = null !== $item ? domains::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

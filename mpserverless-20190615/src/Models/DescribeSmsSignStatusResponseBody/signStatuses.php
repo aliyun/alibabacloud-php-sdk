@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class signStatuses extends Model
 {
     /**
-     * @var int
-     */
-    public $signStatus;
-
-    /**
      * @var string
      */
     public $signId;
+
+    /**
+     * @var int
+     */
+    public $signStatus;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class signStatuses extends Model
      */
     public $signName;
     protected $_name = [
-        'signStatus' => 'SignStatus',
         'signId'     => 'SignId',
+        'signStatus' => 'SignStatus',
         'reason'     => 'Reason',
         'signName'   => 'SignName',
     ];
@@ -41,11 +41,11 @@ class signStatuses extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->signStatus) {
-            $res['SignStatus'] = $this->signStatus;
-        }
         if (null !== $this->signId) {
             $res['SignId'] = $this->signId;
+        }
+        if (null !== $this->signStatus) {
+            $res['SignStatus'] = $this->signStatus;
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
@@ -65,11 +65,11 @@ class signStatuses extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SignStatus'])) {
-            $model->signStatus = $map['SignStatus'];
-        }
         if (isset($map['SignId'])) {
             $model->signId = $map['SignId'];
+        }
+        if (isset($map['SignStatus'])) {
+            $model->signStatus = $map['SignStatus'];
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];

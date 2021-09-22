@@ -26,18 +26,18 @@ class QueryDBExportTaskStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $detailMessage;
+    public $downloadUrl;
 
     /**
      * @var string
      */
-    public $downloadUrl;
+    public $detailMessage;
     protected $_name = [
         'exportedCount' => 'ExportedCount',
         'status'        => 'Status',
         'requestId'     => 'RequestId',
-        'detailMessage' => 'DetailMessage',
         'downloadUrl'   => 'DownloadUrl',
+        'detailMessage' => 'DetailMessage',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class QueryDBExportTaskStatusResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->detailMessage) {
-            $res['DetailMessage'] = $this->detailMessage;
-        }
         if (null !== $this->downloadUrl) {
             $res['DownloadUrl'] = $this->downloadUrl;
+        }
+        if (null !== $this->detailMessage) {
+            $res['DetailMessage'] = $this->detailMessage;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class QueryDBExportTaskStatusResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DetailMessage'])) {
-            $model->detailMessage = $map['DetailMessage'];
-        }
         if (isset($map['DownloadUrl'])) {
             $model->downloadUrl = $map['DownloadUrl'];
+        }
+        if (isset($map['DetailMessage'])) {
+            $model->detailMessage = $map['DetailMessage'];
         }
 
         return $model;

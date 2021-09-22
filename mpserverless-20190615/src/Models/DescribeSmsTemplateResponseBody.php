@@ -11,7 +11,7 @@ class DescribeSmsTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $updateTime;
 
     /**
      * @var string
@@ -21,29 +21,29 @@ class DescribeSmsTemplateResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
      * @var string
      */
-    public $updateTime;
+    public $templateType;
 
     /**
      * @var string
      */
     public $templateName;
-
-    /**
-     * @var string
-     */
-    public $templateType;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'templateContent' => 'TemplateContent',
-        'createTime'      => 'CreateTime',
         'updateTime'      => 'UpdateTime',
-        'templateName'    => 'TemplateName',
+        'templateContent' => 'TemplateContent',
+        'requestId'       => 'RequestId',
+        'createTime'      => 'CreateTime',
         'templateType'    => 'TemplateType',
+        'templateName'    => 'TemplateName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeSmsTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
         if (null !== $this->templateContent) {
             $res['TemplateContent'] = $this->templateContent;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->templateType) {
-            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeSmsTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
         if (isset($map['TemplateContent'])) {
             $model->templateContent = $map['TemplateContent'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['TemplateType'])) {
-            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

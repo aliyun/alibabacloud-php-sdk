@@ -15,11 +15,6 @@ class function_ extends Model
     public $timingTriggerConfig;
 
     /**
-     * @var spec
-     */
-    public $spec;
-
-    /**
      * @var string
      */
     public $httpTriggerPath;
@@ -43,14 +38,19 @@ class function_ extends Model
      * @var string
      */
     public $desc;
+
+    /**
+     * @var spec
+     */
+    public $spec;
     protected $_name = [
         'timingTriggerConfig' => 'TimingTriggerConfig',
-        'spec'                => 'Spec',
         'httpTriggerPath'     => 'HttpTriggerPath',
         'createdAt'           => 'CreatedAt',
         'name'                => 'Name',
         'modifiedAt'          => 'ModifiedAt',
         'desc'                => 'Desc',
+        'spec'                => 'Spec',
     ];
 
     public function validate()
@@ -62,9 +62,6 @@ class function_ extends Model
         $res = [];
         if (null !== $this->timingTriggerConfig) {
             $res['TimingTriggerConfig'] = $this->timingTriggerConfig;
-        }
-        if (null !== $this->spec) {
-            $res['Spec'] = null !== $this->spec ? $this->spec->toMap() : null;
         }
         if (null !== $this->httpTriggerPath) {
             $res['HttpTriggerPath'] = $this->httpTriggerPath;
@@ -81,6 +78,9 @@ class function_ extends Model
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
+        if (null !== $this->spec) {
+            $res['Spec'] = null !== $this->spec ? $this->spec->toMap() : null;
+        }
 
         return $res;
     }
@@ -88,16 +88,13 @@ class function_ extends Model
     /**
      * @param array $map
      *
-     * @return function
+     * @return function_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TimingTriggerConfig'])) {
             $model->timingTriggerConfig = $map['TimingTriggerConfig'];
-        }
-        if (isset($map['Spec'])) {
-            $model->spec = spec::fromMap($map['Spec']);
         }
         if (isset($map['HttpTriggerPath'])) {
             $model->httpTriggerPath = $map['HttpTriggerPath'];
@@ -113,6 +110,9 @@ class function_ extends Model
         }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['Spec'])) {
+            $model->spec = spec::fromMap($map['Spec']);
         }
 
         return $model;

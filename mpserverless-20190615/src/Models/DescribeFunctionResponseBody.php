@@ -11,22 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeFunctionResponseBody extends Model
 {
     /**
-     * @var function_
-     */
-    public $function;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var function_
+     */
+    public $function;
 
     /**
      * @var deployment
      */
     public $deployment;
     protected $_name = [
-        'function'   => 'Function',
         'requestId'  => 'RequestId',
+        'function'   => 'Function',
         'deployment' => 'Deployment',
     ];
 
@@ -37,11 +37,11 @@ class DescribeFunctionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->function) {
-            $res['Function'] = null !== $this->function ? $this->function->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->function) {
+            $res['Function'] = null !== $this->function ? $this->function->toMap() : null;
         }
         if (null !== $this->deployment) {
             $res['Deployment'] = null !== $this->deployment ? $this->deployment->toMap() : null;
@@ -58,11 +58,11 @@ class DescribeFunctionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Function'])) {
-            $model->function = function_::fromMap($map['Function']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Function'])) {
+            $model->function = function_::fromMap($map['Function']);
         }
         if (isset($map['Deployment'])) {
             $model->deployment = deployment::fromMap($map['Deployment']);

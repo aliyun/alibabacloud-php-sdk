@@ -21,11 +21,6 @@ class DescribeFileUploadSignedUrlRequest extends Model
     /**
      * @var string
      */
-    public $targetPath;
-
-    /**
-     * @var string
-     */
     public $spaceId;
 
     /**
@@ -35,7 +30,6 @@ class DescribeFileUploadSignedUrlRequest extends Model
     protected $_name = [
         'filename'    => 'Filename',
         'size'        => 'Size',
-        'targetPath'  => 'TargetPath',
         'spaceId'     => 'SpaceId',
         'contentType' => 'ContentType',
     ];
@@ -52,9 +46,6 @@ class DescribeFileUploadSignedUrlRequest extends Model
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
-        }
-        if (null !== $this->targetPath) {
-            $res['TargetPath'] = $this->targetPath;
         }
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
@@ -79,9 +70,6 @@ class DescribeFileUploadSignedUrlRequest extends Model
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
-        }
-        if (isset($map['TargetPath'])) {
-            $model->targetPath = $map['TargetPath'];
         }
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];

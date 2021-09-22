@@ -16,28 +16,28 @@ class smsSigns extends Model
     /**
      * @var string
      */
-    public $remark;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
     public $signId;
 
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $signName;
+
+    /**
+     * @var string
+     */
+    public $createTime;
     protected $_name = [
         'updateTime' => 'UpdateTime',
-        'remark'     => 'Remark',
-        'createTime' => 'CreateTime',
         'signId'     => 'SignId',
+        'remark'     => 'Remark',
         'signName'   => 'SignName',
+        'createTime' => 'CreateTime',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class smsSigns extends Model
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->signId) {
             $res['SignId'] = $this->signId;
         }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
         if (null !== $this->signName) {
             $res['SignName'] = $this->signName;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class smsSigns extends Model
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['SignId'])) {
             $model->signId = $map['SignId'];
         }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
         if (isset($map['SignName'])) {
             $model->signName = $map['SignName'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
 
         return $model;

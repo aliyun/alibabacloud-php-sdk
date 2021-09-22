@@ -11,15 +11,15 @@ class AddCorsDomainResponseBody extends Model
     /**
      * @var string
      */
-    public $domainId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $domainId;
     protected $_name = [
-        'domainId'  => 'DomainId',
         'requestId' => 'RequestId',
+        'domainId'  => 'DomainId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AddCorsDomainResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domainId) {
-            $res['DomainId'] = $this->domainId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->domainId) {
+            $res['DomainId'] = $this->domainId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class AddCorsDomainResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainId'])) {
-            $model->domainId = $map['DomainId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['DomainId'])) {
+            $model->domainId = $map['DomainId'];
         }
 
         return $model;

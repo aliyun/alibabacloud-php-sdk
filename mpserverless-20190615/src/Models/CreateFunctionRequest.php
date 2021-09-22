@@ -22,10 +22,16 @@ class CreateFunctionRequest extends Model
      * @var string
      */
     public $spaceId;
+
+    /**
+     * @var string
+     */
+    public $runtime;
     protected $_name = [
         'name'    => 'Name',
         'desc'    => 'Desc',
         'spaceId' => 'SpaceId',
+        'runtime' => 'Runtime',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class CreateFunctionRequest extends Model
         }
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
+        }
+        if (null !== $this->runtime) {
+            $res['Runtime'] = $this->runtime;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class CreateFunctionRequest extends Model
         }
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
+        }
+        if (isset($map['Runtime'])) {
+            $model->runtime = $map['Runtime'];
         }
 
         return $model;

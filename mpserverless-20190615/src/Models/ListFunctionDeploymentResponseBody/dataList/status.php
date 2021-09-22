@@ -16,16 +16,10 @@ class status extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
     public $label;
     protected $_name = [
-        'status'  => 'Status',
-        'message' => 'Message',
-        'label'   => 'Label',
+        'status' => 'Status',
+        'label'  => 'Label',
     ];
 
     public function validate()
@@ -37,9 +31,6 @@ class status extends Model
         $res = [];
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
@@ -58,9 +49,6 @@ class status extends Model
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];

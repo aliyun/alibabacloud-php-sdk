@@ -15,18 +15,18 @@ class RunFunctionResponseBody extends Model
     public $requestId;
 
     /**
-     * @var runtimeMeta
-     */
-    public $runtimeMeta;
-
-    /**
      * @var string
      */
     public $result;
+
+    /**
+     * @var runtimeMeta
+     */
+    public $runtimeMeta;
     protected $_name = [
         'requestId'   => 'RequestId',
-        'runtimeMeta' => 'RuntimeMeta',
         'result'      => 'Result',
+        'runtimeMeta' => 'RuntimeMeta',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class RunFunctionResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->runtimeMeta) {
-            $res['RuntimeMeta'] = null !== $this->runtimeMeta ? $this->runtimeMeta->toMap() : null;
-        }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
+        }
+        if (null !== $this->runtimeMeta) {
+            $res['RuntimeMeta'] = null !== $this->runtimeMeta ? $this->runtimeMeta->toMap() : null;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class RunFunctionResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['RuntimeMeta'])) {
-            $model->runtimeMeta = runtimeMeta::fromMap($map['RuntimeMeta']);
-        }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
+        }
+        if (isset($map['RuntimeMeta'])) {
+            $model->runtimeMeta = runtimeMeta::fromMap($map['RuntimeMeta']);
         }
 
         return $model;

@@ -10,19 +10,14 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
-     * @var status
+     * @var string
      */
-    public $status;
+    public $createdAt;
 
     /**
      * @var string
      */
     public $deploymentId;
-
-    /**
-     * @var string
-     */
-    public $createdAt;
 
     /**
      * @var string
@@ -38,13 +33,18 @@ class dataList extends Model
      * @var string
      */
     public $modifiedAt;
+
+    /**
+     * @var status
+     */
+    public $status;
     protected $_name = [
-        'status'            => 'Status',
-        'deploymentId'      => 'DeploymentId',
         'createdAt'         => 'CreatedAt',
+        'deploymentId'      => 'DeploymentId',
         'downloadSignedUrl' => 'DownloadSignedUrl',
         'versionNo'         => 'VersionNo',
         'modifiedAt'        => 'ModifiedAt',
+        'status'            => 'Status',
     ];
 
     public function validate()
@@ -54,14 +54,11 @@ class dataList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
+        if (null !== $this->createdAt) {
+            $res['CreatedAt'] = $this->createdAt;
         }
         if (null !== $this->deploymentId) {
             $res['DeploymentId'] = $this->deploymentId;
-        }
-        if (null !== $this->createdAt) {
-            $res['CreatedAt'] = $this->createdAt;
         }
         if (null !== $this->downloadSignedUrl) {
             $res['DownloadSignedUrl'] = $this->downloadSignedUrl;
@@ -71,6 +68,9 @@ class dataList extends Model
         }
         if (null !== $this->modifiedAt) {
             $res['ModifiedAt'] = $this->modifiedAt;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
         }
 
         return $res;
@@ -84,14 +84,11 @@ class dataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = status::fromMap($map['Status']);
+        if (isset($map['CreatedAt'])) {
+            $model->createdAt = $map['CreatedAt'];
         }
         if (isset($map['DeploymentId'])) {
             $model->deploymentId = $map['DeploymentId'];
-        }
-        if (isset($map['CreatedAt'])) {
-            $model->createdAt = $map['CreatedAt'];
         }
         if (isset($map['DownloadSignedUrl'])) {
             $model->downloadSignedUrl = $map['DownloadSignedUrl'];
@@ -101,6 +98,9 @@ class dataList extends Model
         }
         if (isset($map['ModifiedAt'])) {
             $model->modifiedAt = $map['ModifiedAt'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = status::fromMap($map['Status']);
         }
 
         return $model;

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var webHostingFiles[]
-     */
-    public $webHostingFiles;
-
-    /**
      * @var string
      */
     public $nextMarker;
@@ -23,10 +18,15 @@ class data extends Model
      * @var int
      */
     public $count;
+
+    /**
+     * @var webHostingFiles[]
+     */
+    public $webHostingFiles;
     protected $_name = [
-        'webHostingFiles' => 'WebHostingFiles',
         'nextMarker'      => 'NextMarker',
         'count'           => 'Count',
+        'webHostingFiles' => 'WebHostingFiles',
     ];
 
     public function validate()
@@ -36,6 +36,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextMarker) {
+            $res['NextMarker'] = $this->nextMarker;
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->webHostingFiles) {
             $res['WebHostingFiles'] = [];
             if (null !== $this->webHostingFiles && \is_array($this->webHostingFiles)) {
@@ -44,12 +50,6 @@ class data extends Model
                     $res['WebHostingFiles'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nextMarker) {
-            $res['NextMarker'] = $this->nextMarker;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -63,6 +63,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextMarker'])) {
+            $model->nextMarker = $map['NextMarker'];
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['WebHostingFiles'])) {
             if (!empty($map['WebHostingFiles'])) {
                 $model->webHostingFiles = [];
@@ -71,12 +77,6 @@ class data extends Model
                     $model->webHostingFiles[$n++] = null !== $item ? webHostingFiles::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['NextMarker'])) {
-            $model->nextMarker = $map['NextMarker'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

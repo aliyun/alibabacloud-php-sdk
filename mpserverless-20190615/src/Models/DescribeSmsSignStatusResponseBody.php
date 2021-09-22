@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSmsSignStatusResponseBody extends Model
 {
     /**
-     * @var signStatuses[]
-     */
-    public $signStatuses;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var signStatuses[]
+     */
+    public $signStatuses;
     protected $_name = [
-        'signStatuses' => 'SignStatuses',
         'requestId'    => 'RequestId',
+        'signStatuses' => 'SignStatuses',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class DescribeSmsSignStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->signStatuses) {
             $res['SignStatuses'] = [];
             if (null !== $this->signStatuses && \is_array($this->signStatuses)) {
@@ -38,9 +41,6 @@ class DescribeSmsSignStatusResponseBody extends Model
                     $res['SignStatuses'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class DescribeSmsSignStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['SignStatuses'])) {
             if (!empty($map['SignStatuses'])) {
                 $model->signStatuses = [];
@@ -62,9 +65,6 @@ class DescribeSmsSignStatusResponseBody extends Model
                     $model->signStatuses[$n++] = null !== $item ? signStatuses::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

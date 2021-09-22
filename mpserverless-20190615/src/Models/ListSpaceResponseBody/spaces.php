@@ -14,14 +14,14 @@ class spaces extends Model
     public $status;
 
     /**
-     * @var string
-     */
-    public $spaceId;
-
-    /**
      * @var int
      */
     public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $spaceId;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class spaces extends Model
     public $desc;
     protected $_name = [
         'status'    => 'Status',
-        'spaceId'   => 'SpaceId',
         'gmtCreate' => 'GmtCreate',
+        'spaceId'   => 'SpaceId',
         'name'      => 'Name',
         'desc'      => 'Desc',
     ];
@@ -50,11 +50,11 @@ class spaces extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -77,11 +77,11 @@ class spaces extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

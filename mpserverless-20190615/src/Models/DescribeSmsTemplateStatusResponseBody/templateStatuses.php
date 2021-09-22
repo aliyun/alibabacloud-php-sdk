@@ -16,16 +16,16 @@ class templateStatuses extends Model
     /**
      * @var string
      */
-    public $templateStatus;
+    public $reason;
 
     /**
      * @var string
      */
-    public $reason;
+    public $templateStatus;
     protected $_name = [
         'templateCode'   => 'TemplateCode',
-        'templateStatus' => 'TemplateStatus',
         'reason'         => 'Reason',
+        'templateStatus' => 'TemplateStatus',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class templateStatuses extends Model
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
-        if (null !== $this->templateStatus) {
-            $res['TemplateStatus'] = $this->templateStatus;
-        }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->templateStatus) {
+            $res['TemplateStatus'] = $this->templateStatus;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class templateStatuses extends Model
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
         }
-        if (isset($map['TemplateStatus'])) {
-            $model->templateStatus = $map['TemplateStatus'];
-        }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['TemplateStatus'])) {
+            $model->templateStatus = $map['TemplateStatus'];
         }
 
         return $model;

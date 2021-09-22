@@ -47,15 +47,27 @@ class data extends Model
      * @var string
      */
     public $cname;
+
+    /**
+     * @var bool
+     */
+    public $enableCors;
+
+    /**
+     * @var string
+     */
+    public $accessControlAllowOrigin;
     protected $_name = [
-        'status'            => 'Status',
-        'domain'            => 'Domain',
-        'updateTime'        => 'UpdateTime',
-        'sslProtocol'       => 'SslProtocol',
-        'forceRedirectType' => 'ForceRedirectType',
-        'description'       => 'Description',
-        'createTime'        => 'CreateTime',
-        'cname'             => 'Cname',
+        'status'                   => 'Status',
+        'domain'                   => 'Domain',
+        'updateTime'               => 'UpdateTime',
+        'sslProtocol'              => 'SslProtocol',
+        'forceRedirectType'        => 'ForceRedirectType',
+        'description'              => 'Description',
+        'createTime'               => 'CreateTime',
+        'cname'                    => 'Cname',
+        'enableCors'               => 'EnableCors',
+        'accessControlAllowOrigin' => 'AccessControlAllowOrigin',
     ];
 
     public function validate()
@@ -88,6 +100,12 @@ class data extends Model
         }
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
+        }
+        if (null !== $this->enableCors) {
+            $res['EnableCors'] = $this->enableCors;
+        }
+        if (null !== $this->accessControlAllowOrigin) {
+            $res['AccessControlAllowOrigin'] = $this->accessControlAllowOrigin;
         }
 
         return $res;
@@ -124,6 +142,12 @@ class data extends Model
         }
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
+        }
+        if (isset($map['EnableCors'])) {
+            $model->enableCors = $map['EnableCors'];
+        }
+        if (isset($map['AccessControlAllowOrigin'])) {
+            $model->accessControlAllowOrigin = $map['AccessControlAllowOrigin'];
         }
 
         return $model;

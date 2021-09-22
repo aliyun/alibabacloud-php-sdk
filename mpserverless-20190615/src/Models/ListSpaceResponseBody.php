@@ -12,27 +12,27 @@ class ListSpaceResponseBody extends Model
     /**
      * @var string
      */
-    public $gmtCreate;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var spaces[]
-     */
-    public $spaces;
+    public $gmtCreate;
 
     /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var spaces[]
+     */
+    public $spaces;
     protected $_name = [
-        'gmtCreate' => 'GmtCreate',
         'requestId' => 'RequestId',
-        'spaces'    => 'Spaces',
+        'gmtCreate' => 'GmtCreate',
         'count'     => 'Count',
+        'spaces'    => 'Spaces',
     ];
 
     public function validate()
@@ -42,11 +42,14 @@ class ListSpaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->spaces) {
             $res['Spaces'] = [];
@@ -56,9 +59,6 @@ class ListSpaceResponseBody extends Model
                     $res['Spaces'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -72,11 +72,14 @@ class ListSpaceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['Spaces'])) {
             if (!empty($map['Spaces'])) {
@@ -86,9 +89,6 @@ class ListSpaceResponseBody extends Model
                     $model->spaces[$n++] = null !== $item ? spaces::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;
