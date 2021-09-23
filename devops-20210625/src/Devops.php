@@ -21,12 +21,15 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteResourceMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\FrozenWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetHostGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetOrganizationMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListOrganizationMembersRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListOrganizationMembersResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRunsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRunsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelinesRequest;
@@ -119,7 +122,11 @@ class Devops extends OpenApiClient
      */
     public function retryPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
+        $jobId          = OpenApiUtilClient::getEncodeParam($jobId);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -152,7 +159,10 @@ class Devops extends OpenApiClient
      */
     public function listResourceMembersWithOptions($organizationId, $resourceType, $resourceId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $resourceType   = OpenApiUtilClient::getEncodeParam($resourceType);
+        $resourceId     = OpenApiUtilClient::getEncodeParam($resourceId);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -183,7 +193,9 @@ class Devops extends OpenApiClient
      */
     public function getHostGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $id             = OpenApiUtilClient::getEncodeParam($id);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -214,7 +226,9 @@ class Devops extends OpenApiClient
      */
     public function getVariableGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $id             = OpenApiUtilClient::getEncodeParam($id);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -246,7 +260,8 @@ class Devops extends OpenApiClient
     public function listPipelinesWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
         if (!Utils::isUnset($request->pipelineName)) {
             @$query['pipelineName'] = $request->pipelineName;
         }
@@ -316,7 +331,11 @@ class Devops extends OpenApiClient
     public function updateResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $resourceType   = OpenApiUtilClient::getEncodeParam($resourceType);
+        $resourceId     = OpenApiUtilClient::getEncodeParam($resourceId);
+        $accountId      = OpenApiUtilClient::getEncodeParam($accountId);
+        $body           = [];
         if (!Utils::isUnset($request->roleName)) {
             @$body['roleName'] = $request->roleName;
         }
@@ -355,7 +374,9 @@ class Devops extends OpenApiClient
     public function updateVariableGroupWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $id             = OpenApiUtilClient::getEncodeParam($id);
+        $body           = [];
         if (!Utils::isUnset($request->name)) {
             @$body['name'] = $request->name;
         }
@@ -401,7 +422,11 @@ class Devops extends OpenApiClient
      */
     public function deleteResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $resourceType   = OpenApiUtilClient::getEncodeParam($resourceType);
+        $resourceId     = OpenApiUtilClient::getEncodeParam($resourceId);
+        $accountId      = OpenApiUtilClient::getEncodeParam($accountId);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -433,7 +458,8 @@ class Devops extends OpenApiClient
     public function listHostGroupsWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
         if (!Utils::isUnset($request->ids)) {
             @$query['ids'] = $request->ids;
         }
@@ -491,7 +517,8 @@ class Devops extends OpenApiClient
      */
     public function resetSshKeyWithOptions($organizationId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -579,7 +606,8 @@ class Devops extends OpenApiClient
     public function listServiceConnectionsWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
         if (!Utils::isUnset($request->sericeConnectionType)) {
             @$query['sericeConnectionType'] = $request->sericeConnectionType;
         }
@@ -616,7 +644,8 @@ class Devops extends OpenApiClient
     public function createHostGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $body           = [];
         if (!Utils::isUnset($request->type)) {
             @$body['type'] = $request->type;
         }
@@ -681,7 +710,10 @@ class Devops extends OpenApiClient
      */
     public function stopPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -715,7 +747,9 @@ class Devops extends OpenApiClient
     public function updateHostGroupWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $id             = OpenApiUtilClient::getEncodeParam($id);
+        $body           = [];
         if (!Utils::isUnset($request->type)) {
             @$body['type'] = $request->type;
         }
@@ -783,7 +817,10 @@ class Devops extends OpenApiClient
     public function createResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $resourceType   = OpenApiUtilClient::getEncodeParam($resourceType);
+        $resourceId     = OpenApiUtilClient::getEncodeParam($resourceId);
+        $body           = [];
         if (!Utils::isUnset($request->accountId)) {
             @$body['accountId'] = $request->accountId;
         }
@@ -826,11 +863,48 @@ class Devops extends OpenApiClient
      */
     public function skipPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
+        $jobId          = OpenApiUtilClient::getEncodeParam($jobId);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
         return SkipPipelineJobRunResponse::fromMap($this->doROARequest('SkipPipelineJobRun', '2021-06-25', 'HTTPS', 'PUT', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/jobs/' . $jobId . '/skip', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $accountId
+     *
+     * @return GetOrganizationMemberResponse
+     */
+    public function getOrganizationMember($organizationId, $accountId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getOrganizationMemberWithOptions($organizationId, $accountId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $accountId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetOrganizationMemberResponse
+     */
+    public function getOrganizationMemberWithOptions($organizationId, $accountId, $headers, $runtime)
+    {
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $accountId      = OpenApiUtilClient::getEncodeParam($accountId);
+        $req            = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return GetOrganizationMemberResponse::fromMap($this->doROARequest('GetOrganizationMember', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/members/' . $accountId . '', 'json', $req, $runtime));
     }
 
     /**
@@ -861,7 +935,11 @@ class Devops extends OpenApiClient
      */
     public function stopPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
+        $jobId          = OpenApiUtilClient::getEncodeParam($jobId);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -895,7 +973,9 @@ class Devops extends OpenApiClient
     public function startPipelineRunWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $body           = [];
         if (!Utils::isUnset($request->params)) {
             @$body['params'] = $request->params;
         }
@@ -985,7 +1065,10 @@ class Devops extends OpenApiClient
      */
     public function getPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -1016,7 +1099,9 @@ class Devops extends OpenApiClient
      */
     public function getPipelineWithOptions($organizationId, $pipelineId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -1048,7 +1133,8 @@ class Devops extends OpenApiClient
     public function createVariableGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $body           = [];
         if (!Utils::isUnset($request->name)) {
             @$body['name'] = $request->name;
         }
@@ -1090,7 +1176,9 @@ class Devops extends OpenApiClient
      */
     public function deleteVariableGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $id             = OpenApiUtilClient::getEncodeParam($id);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -1119,7 +1207,8 @@ class Devops extends OpenApiClient
      */
     public function getWorkspaceWithOptions($workspaceId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $workspaceId = OpenApiUtilClient::getEncodeParam($workspaceId);
+        $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -1148,7 +1237,8 @@ class Devops extends OpenApiClient
      */
     public function createSshKeyWithOptions($organizationId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -1179,7 +1269,9 @@ class Devops extends OpenApiClient
      */
     public function deleteHostGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $id             = OpenApiUtilClient::getEncodeParam($id);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -1208,11 +1300,71 @@ class Devops extends OpenApiClient
      */
     public function releaseWorkspaceWithOptions($workspaceId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $workspaceId = OpenApiUtilClient::getEncodeParam($workspaceId);
+        $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
         return ReleaseWorkspaceResponse::fromMap($this->doROARequest('ReleaseWorkspace', '2021-06-25', 'HTTPS', 'DELETE', 'AK', '/api/workspaces/' . $workspaceId . '/release', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string                         $organizationId
+     * @param ListOrganizationMembersRequest $request
+     *
+     * @return ListOrganizationMembersResponse
+     */
+    public function listOrganizationMembers($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOrganizationMembersWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $organizationId
+     * @param ListOrganizationMembersRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListOrganizationMembersResponse
+     */
+    public function listOrganizationMembersWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
+        if (!Utils::isUnset($request->organizationMemberName)) {
+            @$query['organizationMemberName'] = $request->organizationMemberName;
+        }
+        if (!Utils::isUnset($request->provider)) {
+            @$query['provider'] = $request->provider;
+        }
+        if (!Utils::isUnset($request->externUid)) {
+            @$query['externUid'] = $request->externUid;
+        }
+        if (!Utils::isUnset($request->state)) {
+            @$query['state'] = $request->state;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->joinTimeFrom)) {
+            @$query['joinTimeFrom'] = $request->joinTimeFrom;
+        }
+        if (!Utils::isUnset($request->joinTimeTo)) {
+            @$query['joinTimeTo'] = $request->joinTimeTo;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+
+        return ListOrganizationMembersResponse::fromMap($this->doROARequest('ListOrganizationMembers', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/members', 'json', $req, $runtime));
     }
 
     /**
@@ -1240,7 +1392,8 @@ class Devops extends OpenApiClient
     public function listVariableGroupsWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
         if (!Utils::isUnset($request->pageSort)) {
             @$query['pageSort'] = $request->pageSort;
         }
@@ -1285,7 +1438,9 @@ class Devops extends OpenApiClient
      */
     public function deletePipelineWithOptions($organizationId, $pipelineId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -1314,7 +1469,8 @@ class Devops extends OpenApiClient
      */
     public function frozenWorkspaceWithOptions($workspaceId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $workspaceId = OpenApiUtilClient::getEncodeParam($workspaceId);
+        $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
 
@@ -1348,7 +1504,9 @@ class Devops extends OpenApiClient
     public function listPipelineRunsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $query          = [];
         if (!Utils::isUnset($request->startTime)) {
             @$query['startTime'] = $request->startTime;
         }
