@@ -17,12 +17,12 @@ class fileSystem extends Model
     /**
      * @var int
      */
-    public $capacity;
+    public $meteredIASize;
 
     /**
      * @var int
      */
-    public $meteredIASize;
+    public $capacity;
 
     /**
      * @var string
@@ -47,12 +47,12 @@ class fileSystem extends Model
     /**
      * @var string
      */
-    public $fileSystemType;
+    public $fileSystemId;
 
     /**
      * @var string
      */
-    public $fileSystemId;
+    public $fileSystemType;
 
     /**
      * @var int
@@ -75,30 +75,30 @@ class fileSystem extends Model
     public $zoneId;
 
     /**
-     * @var packages
-     */
-    public $packages;
-
-    /**
      * @var string
      */
     public $protocolType;
+
+    /**
+     * @var packages
+     */
+    public $packages;
     protected $_name = [
         'status'         => 'Status',
-        'capacity'       => 'Capacity',
         'meteredIASize'  => 'MeteredIASize',
+        'capacity'       => 'Capacity',
         'createTime'     => 'CreateTime',
         'chargeType'     => 'ChargeType',
         'storageType'    => 'StorageType',
         'regionId'       => 'RegionId',
-        'fileSystemType' => 'FileSystemType',
         'fileSystemId'   => 'FileSystemId',
+        'fileSystemType' => 'FileSystemType',
         'meteredSize'    => 'MeteredSize',
         'description'    => 'Description',
         'expiredTime'    => 'ExpiredTime',
         'zoneId'         => 'ZoneId',
-        'packages'       => 'Packages',
         'protocolType'   => 'ProtocolType',
+        'packages'       => 'Packages',
     ];
 
     public function validate()
@@ -111,11 +111,11 @@ class fileSystem extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->capacity) {
-            $res['Capacity'] = $this->capacity;
-        }
         if (null !== $this->meteredIASize) {
             $res['MeteredIASize'] = $this->meteredIASize;
+        }
+        if (null !== $this->capacity) {
+            $res['Capacity'] = $this->capacity;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -129,11 +129,11 @@ class fileSystem extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->fileSystemType) {
-            $res['FileSystemType'] = $this->fileSystemType;
-        }
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
+        }
+        if (null !== $this->fileSystemType) {
+            $res['FileSystemType'] = $this->fileSystemType;
         }
         if (null !== $this->meteredSize) {
             $res['MeteredSize'] = $this->meteredSize;
@@ -147,11 +147,11 @@ class fileSystem extends Model
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
-        if (null !== $this->packages) {
-            $res['Packages'] = null !== $this->packages ? $this->packages->toMap() : null;
-        }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
+        }
+        if (null !== $this->packages) {
+            $res['Packages'] = null !== $this->packages ? $this->packages->toMap() : null;
         }
 
         return $res;
@@ -168,11 +168,11 @@ class fileSystem extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['Capacity'])) {
-            $model->capacity = $map['Capacity'];
-        }
         if (isset($map['MeteredIASize'])) {
             $model->meteredIASize = $map['MeteredIASize'];
+        }
+        if (isset($map['Capacity'])) {
+            $model->capacity = $map['Capacity'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -186,11 +186,11 @@ class fileSystem extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['FileSystemType'])) {
-            $model->fileSystemType = $map['FileSystemType'];
-        }
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
+        }
+        if (isset($map['FileSystemType'])) {
+            $model->fileSystemType = $map['FileSystemType'];
         }
         if (isset($map['MeteredSize'])) {
             $model->meteredSize = $map['MeteredSize'];
@@ -204,11 +204,11 @@ class fileSystem extends Model
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
-        if (isset($map['Packages'])) {
-            $model->packages = packages::fromMap($map['Packages']);
-        }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
+        }
+        if (isset($map['Packages'])) {
+            $model->packages = packages::fromMap($map['Packages']);
         }
 
         return $model;

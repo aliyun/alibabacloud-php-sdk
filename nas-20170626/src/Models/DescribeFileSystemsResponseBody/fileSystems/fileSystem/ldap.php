@@ -11,21 +11,21 @@ class ldap extends Model
     /**
      * @var string
      */
-    public $bindDN;
-
-    /**
-     * @var string
-     */
     public $searchBase;
 
     /**
      * @var string
      */
     public $URI;
+
+    /**
+     * @var string
+     */
+    public $bindDN;
     protected $_name = [
-        'bindDN'     => 'BindDN',
         'searchBase' => 'SearchBase',
         'URI'        => 'URI',
+        'bindDN'     => 'BindDN',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ldap extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bindDN) {
-            $res['BindDN'] = $this->bindDN;
-        }
         if (null !== $this->searchBase) {
             $res['SearchBase'] = $this->searchBase;
         }
         if (null !== $this->URI) {
             $res['URI'] = $this->URI;
+        }
+        if (null !== $this->bindDN) {
+            $res['BindDN'] = $this->bindDN;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ldap extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BindDN'])) {
-            $model->bindDN = $map['BindDN'];
-        }
         if (isset($map['SearchBase'])) {
             $model->searchBase = $map['SearchBase'];
         }
         if (isset($map['URI'])) {
             $model->URI = $map['URI'];
+        }
+        if (isset($map['BindDN'])) {
+            $model->bindDN = $map['BindDN'];
         }
 
         return $model;

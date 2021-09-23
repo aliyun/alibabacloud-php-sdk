@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class fileSystemStatistic extends Model
 {
     /**
+     * @var int
+     */
+    public $expiringCount;
+
+    /**
      * @var string
      */
     public $fileSystemType;
@@ -21,11 +26,6 @@ class fileSystemStatistic extends Model
     /**
      * @var int
      */
-    public $expiringCount;
-
-    /**
-     * @var int
-     */
     public $totalCount;
 
     /**
@@ -33,9 +33,9 @@ class fileSystemStatistic extends Model
      */
     public $expiredCount;
     protected $_name = [
+        'expiringCount'  => 'ExpiringCount',
         'fileSystemType' => 'FileSystemType',
         'meteredSize'    => 'MeteredSize',
-        'expiringCount'  => 'ExpiringCount',
         'totalCount'     => 'TotalCount',
         'expiredCount'   => 'ExpiredCount',
     ];
@@ -47,14 +47,14 @@ class fileSystemStatistic extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->expiringCount) {
+            $res['ExpiringCount'] = $this->expiringCount;
+        }
         if (null !== $this->fileSystemType) {
             $res['FileSystemType'] = $this->fileSystemType;
         }
         if (null !== $this->meteredSize) {
             $res['MeteredSize'] = $this->meteredSize;
-        }
-        if (null !== $this->expiringCount) {
-            $res['ExpiringCount'] = $this->expiringCount;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -74,14 +74,14 @@ class fileSystemStatistic extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExpiringCount'])) {
+            $model->expiringCount = $map['ExpiringCount'];
+        }
         if (isset($map['FileSystemType'])) {
             $model->fileSystemType = $map['FileSystemType'];
         }
         if (isset($map['MeteredSize'])) {
             $model->meteredSize = $map['MeteredSize'];
-        }
-        if (isset($map['ExpiringCount'])) {
-            $model->expiringCount = $map['ExpiringCount'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

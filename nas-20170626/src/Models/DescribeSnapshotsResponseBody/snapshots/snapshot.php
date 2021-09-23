@@ -31,12 +31,12 @@ class snapshot extends Model
     /**
      * @var int
      */
-    public $retentionDays;
+    public $remainTime;
 
     /**
      * @var int
      */
-    public $remainTime;
+    public $retentionDays;
 
     /**
      * @var int
@@ -46,12 +46,12 @@ class snapshot extends Model
     /**
      * @var string
      */
-    public $sourceFileSystemVersion;
+    public $snapshotName;
 
     /**
      * @var string
      */
-    public $snapshotName;
+    public $sourceFileSystemVersion;
 
     /**
      * @var int
@@ -72,11 +72,11 @@ class snapshot extends Model
         'progress'                => 'Progress',
         'createTime'              => 'CreateTime',
         'sourceFileSystemId'      => 'SourceFileSystemId',
-        'retentionDays'           => 'RetentionDays',
         'remainTime'              => 'RemainTime',
+        'retentionDays'           => 'RetentionDays',
         'sourceFileSystemSize'    => 'SourceFileSystemSize',
-        'sourceFileSystemVersion' => 'SourceFileSystemVersion',
         'snapshotName'            => 'SnapshotName',
+        'sourceFileSystemVersion' => 'SourceFileSystemVersion',
         'encryptType'             => 'EncryptType',
         'description'             => 'Description',
         'snapshotId'              => 'SnapshotId',
@@ -101,20 +101,20 @@ class snapshot extends Model
         if (null !== $this->sourceFileSystemId) {
             $res['SourceFileSystemId'] = $this->sourceFileSystemId;
         }
-        if (null !== $this->retentionDays) {
-            $res['RetentionDays'] = $this->retentionDays;
-        }
         if (null !== $this->remainTime) {
             $res['RemainTime'] = $this->remainTime;
+        }
+        if (null !== $this->retentionDays) {
+            $res['RetentionDays'] = $this->retentionDays;
         }
         if (null !== $this->sourceFileSystemSize) {
             $res['SourceFileSystemSize'] = $this->sourceFileSystemSize;
         }
-        if (null !== $this->sourceFileSystemVersion) {
-            $res['SourceFileSystemVersion'] = $this->sourceFileSystemVersion;
-        }
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
+        }
+        if (null !== $this->sourceFileSystemVersion) {
+            $res['SourceFileSystemVersion'] = $this->sourceFileSystemVersion;
         }
         if (null !== $this->encryptType) {
             $res['EncryptType'] = $this->encryptType;
@@ -149,20 +149,20 @@ class snapshot extends Model
         if (isset($map['SourceFileSystemId'])) {
             $model->sourceFileSystemId = $map['SourceFileSystemId'];
         }
-        if (isset($map['RetentionDays'])) {
-            $model->retentionDays = $map['RetentionDays'];
-        }
         if (isset($map['RemainTime'])) {
             $model->remainTime = $map['RemainTime'];
+        }
+        if (isset($map['RetentionDays'])) {
+            $model->retentionDays = $map['RetentionDays'];
         }
         if (isset($map['SourceFileSystemSize'])) {
             $model->sourceFileSystemSize = $map['SourceFileSystemSize'];
         }
-        if (isset($map['SourceFileSystemVersion'])) {
-            $model->sourceFileSystemVersion = $map['SourceFileSystemVersion'];
-        }
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];
+        }
+        if (isset($map['SourceFileSystemVersion'])) {
+            $model->sourceFileSystemVersion = $map['SourceFileSystemVersion'];
         }
         if (isset($map['EncryptType'])) {
             $model->encryptType = $map['EncryptType'];

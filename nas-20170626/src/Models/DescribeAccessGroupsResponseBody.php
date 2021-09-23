@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessGroupsResponseBody extends Model
 {
     /**
-     * @var accessGroups
-     */
-    public $accessGroups;
-
-    /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var string
@@ -32,13 +27,18 @@ class DescribeAccessGroupsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalCount;
+
+    /**
+     * @var accessGroups
+     */
+    public $accessGroups;
     protected $_name = [
-        'accessGroups' => 'AccessGroups',
-        'totalCount'   => 'TotalCount',
+        'pageNumber'   => 'PageNumber',
         'requestId'    => 'RequestId',
         'pageSize'     => 'PageSize',
-        'pageNumber'   => 'PageNumber',
+        'totalCount'   => 'TotalCount',
+        'accessGroups' => 'AccessGroups',
     ];
 
     public function validate()
@@ -48,11 +48,8 @@ class DescribeAccessGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessGroups) {
-            $res['AccessGroups'] = null !== $this->accessGroups ? $this->accessGroups->toMap() : null;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -60,8 +57,11 @@ class DescribeAccessGroupsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->accessGroups) {
+            $res['AccessGroups'] = null !== $this->accessGroups ? $this->accessGroups->toMap() : null;
         }
 
         return $res;
@@ -75,11 +75,8 @@ class DescribeAccessGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessGroups'])) {
-            $model->accessGroups = accessGroups::fromMap($map['AccessGroups']);
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -87,8 +84,11 @@ class DescribeAccessGroupsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['AccessGroups'])) {
+            $model->accessGroups = accessGroups::fromMap($map['AccessGroups']);
         }
 
         return $model;

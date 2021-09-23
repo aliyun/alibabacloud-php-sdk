@@ -11,15 +11,15 @@ class DescribeBlackListClientsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $clients;
 
     /**
      * @var string
      */
-    public $clients;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'clients'   => 'Clients',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeBlackListClientsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clients) {
             $res['Clients'] = $this->clients;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeBlackListClientsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Clients'])) {
             $model->clients = $map['Clients'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

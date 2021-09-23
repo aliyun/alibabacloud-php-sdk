@@ -11,15 +11,15 @@ class CreateAccessGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $accessGroupName;
 
     /**
      * @var string
      */
-    public $accessGroupName;
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'accessGroupName' => 'AccessGroupName',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateAccessGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->accessGroupName) {
             $res['AccessGroupName'] = $this->accessGroupName;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateAccessGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AccessGroupName'])) {
             $model->accessGroupName = $map['AccessGroupName'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

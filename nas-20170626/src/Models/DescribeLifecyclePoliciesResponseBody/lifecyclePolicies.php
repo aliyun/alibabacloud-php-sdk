@@ -37,6 +37,11 @@ class lifecyclePolicies extends Model
      * @var string
      */
     public $lifecyclePolicyName;
+
+    /**
+     * @var string[]
+     */
+    public $paths;
     protected $_name = [
         'fileSystemId'        => 'FileSystemId',
         'lifecycleRuleName'   => 'LifecycleRuleName',
@@ -44,6 +49,7 @@ class lifecyclePolicies extends Model
         'path'                => 'Path',
         'storageType'         => 'StorageType',
         'lifecyclePolicyName' => 'LifecyclePolicyName',
+        'paths'               => 'Paths',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class lifecyclePolicies extends Model
         }
         if (null !== $this->lifecyclePolicyName) {
             $res['LifecyclePolicyName'] = $this->lifecyclePolicyName;
+        }
+        if (null !== $this->paths) {
+            $res['Paths'] = $this->paths;
         }
 
         return $res;
@@ -100,6 +109,11 @@ class lifecyclePolicies extends Model
         }
         if (isset($map['LifecyclePolicyName'])) {
             $model->lifecyclePolicyName = $map['LifecyclePolicyName'];
+        }
+        if (isset($map['Paths'])) {
+            if (!empty($map['Paths'])) {
+                $model->paths = $map['Paths'];
+            }
         }
 
         return $model;

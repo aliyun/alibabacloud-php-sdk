@@ -32,12 +32,18 @@ class CreateLifecyclePolicyRequest extends Model
      * @var string
      */
     public $storageType;
+
+    /**
+     * @var string[]
+     */
+    public $paths;
     protected $_name = [
         'fileSystemId'        => 'FileSystemId',
         'lifecyclePolicyName' => 'LifecyclePolicyName',
         'path'                => 'Path',
         'lifecycleRuleName'   => 'LifecycleRuleName',
         'storageType'         => 'StorageType',
+        'paths'               => 'Paths',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class CreateLifecyclePolicyRequest extends Model
         }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
+        }
+        if (null !== $this->paths) {
+            $res['Paths'] = $this->paths;
         }
 
         return $res;
@@ -88,6 +97,11 @@ class CreateLifecyclePolicyRequest extends Model
         }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
+        }
+        if (isset($map['Paths'])) {
+            if (!empty($map['Paths'])) {
+                $model->paths = $map['Paths'];
+            }
         }
 
         return $model;

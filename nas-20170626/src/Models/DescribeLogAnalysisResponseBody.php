@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogAnalysisResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -27,24 +32,19 @@ class DescribeLogAnalysisResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalCount;
 
     /**
      * @var analyses
      */
     public $analyses;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
-        'totalCount' => 'TotalCount',
+        'code'       => 'Code',
+        'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
         'analyses'   => 'Analyses',
-        'code'       => 'Code',
     ];
 
     public function validate()
@@ -54,8 +54,11 @@ class DescribeLogAnalysisResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -63,14 +66,11 @@ class DescribeLogAnalysisResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->analyses) {
             $res['Analyses'] = null !== $this->analyses ? $this->analyses->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -84,8 +84,11 @@ class DescribeLogAnalysisResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -93,14 +96,11 @@ class DescribeLogAnalysisResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['Analyses'])) {
             $model->analyses = analyses::fromMap($map['Analyses']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

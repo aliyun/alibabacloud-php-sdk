@@ -11,15 +11,15 @@ class autoSnapshotTask extends Model
     /**
      * @var string
      */
-    public $sourceFileSystemId;
+    public $autoSnapshotPolicyId;
 
     /**
      * @var string
      */
-    public $autoSnapshotPolicyId;
+    public $sourceFileSystemId;
     protected $_name = [
-        'sourceFileSystemId'   => 'SourceFileSystemId',
         'autoSnapshotPolicyId' => 'AutoSnapshotPolicyId',
+        'sourceFileSystemId'   => 'SourceFileSystemId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class autoSnapshotTask extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceFileSystemId) {
-            $res['SourceFileSystemId'] = $this->sourceFileSystemId;
-        }
         if (null !== $this->autoSnapshotPolicyId) {
             $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
+        }
+        if (null !== $this->sourceFileSystemId) {
+            $res['SourceFileSystemId'] = $this->sourceFileSystemId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class autoSnapshotTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceFileSystemId'])) {
-            $model->sourceFileSystemId = $map['SourceFileSystemId'];
-        }
         if (isset($map['AutoSnapshotPolicyId'])) {
             $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
+        }
+        if (isset($map['SourceFileSystemId'])) {
+            $model->sourceFileSystemId = $map['SourceFileSystemId'];
         }
 
         return $model;

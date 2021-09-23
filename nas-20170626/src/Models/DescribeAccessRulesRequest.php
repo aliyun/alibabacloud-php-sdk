@@ -19,11 +19,6 @@ class DescribeAccessRulesRequest extends Model
     public $accessRuleId;
 
     /**
-     * @var string
-     */
-    public $sourceCidrIp;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -37,19 +32,12 @@ class DescribeAccessRulesRequest extends Model
      * @var string
      */
     public $fileSystemType;
-
-    /**
-     * @var string
-     */
-    public $sourceCidrIpFilter;
     protected $_name = [
-        'accessGroupName'    => 'AccessGroupName',
-        'accessRuleId'       => 'AccessRuleId',
-        'sourceCidrIp'       => 'SourceCidrIp',
-        'pageSize'           => 'PageSize',
-        'pageNumber'         => 'PageNumber',
-        'fileSystemType'     => 'FileSystemType',
-        'sourceCidrIpFilter' => 'SourceCidrIpFilter',
+        'accessGroupName' => 'AccessGroupName',
+        'accessRuleId'    => 'AccessRuleId',
+        'pageSize'        => 'PageSize',
+        'pageNumber'      => 'PageNumber',
+        'fileSystemType'  => 'FileSystemType',
     ];
 
     public function validate()
@@ -65,9 +53,6 @@ class DescribeAccessRulesRequest extends Model
         if (null !== $this->accessRuleId) {
             $res['AccessRuleId'] = $this->accessRuleId;
         }
-        if (null !== $this->sourceCidrIp) {
-            $res['SourceCidrIp'] = $this->sourceCidrIp;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -76,9 +61,6 @@ class DescribeAccessRulesRequest extends Model
         }
         if (null !== $this->fileSystemType) {
             $res['FileSystemType'] = $this->fileSystemType;
-        }
-        if (null !== $this->sourceCidrIpFilter) {
-            $res['SourceCidrIpFilter'] = $this->sourceCidrIpFilter;
         }
 
         return $res;
@@ -98,9 +80,6 @@ class DescribeAccessRulesRequest extends Model
         if (isset($map['AccessRuleId'])) {
             $model->accessRuleId = $map['AccessRuleId'];
         }
-        if (isset($map['SourceCidrIp'])) {
-            $model->sourceCidrIp = $map['SourceCidrIp'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -109,9 +88,6 @@ class DescribeAccessRulesRequest extends Model
         }
         if (isset($map['FileSystemType'])) {
             $model->fileSystemType = $map['FileSystemType'];
-        }
-        if (isset($map['SourceCidrIpFilter'])) {
-            $model->sourceCidrIpFilter = $map['SourceCidrIpFilter'];
         }
 
         return $model;

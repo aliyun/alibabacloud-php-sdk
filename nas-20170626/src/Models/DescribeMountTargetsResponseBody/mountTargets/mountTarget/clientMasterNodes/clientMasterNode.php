@@ -11,21 +11,21 @@ class clientMasterNode extends Model
     /**
      * @var string
      */
+    public $ecsIp;
+
+    /**
+     * @var string
+     */
     public $ecsId;
 
     /**
      * @var string
      */
     public $defaultPasswd;
-
-    /**
-     * @var string
-     */
-    public $ecsIp;
     protected $_name = [
+        'ecsIp'         => 'EcsIp',
         'ecsId'         => 'EcsId',
         'defaultPasswd' => 'DefaultPasswd',
-        'ecsIp'         => 'EcsIp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class clientMasterNode extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ecsIp) {
+            $res['EcsIp'] = $this->ecsIp;
+        }
         if (null !== $this->ecsId) {
             $res['EcsId'] = $this->ecsId;
         }
         if (null !== $this->defaultPasswd) {
             $res['DefaultPasswd'] = $this->defaultPasswd;
-        }
-        if (null !== $this->ecsIp) {
-            $res['EcsIp'] = $this->ecsIp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class clientMasterNode extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EcsIp'])) {
+            $model->ecsIp = $map['EcsIp'];
+        }
         if (isset($map['EcsId'])) {
             $model->ecsId = $map['EcsId'];
         }
         if (isset($map['DefaultPasswd'])) {
             $model->defaultPasswd = $map['DefaultPasswd'];
-        }
-        if (isset($map['EcsIp'])) {
-            $model->ecsIp = $map['EcsIp'];
         }
 
         return $model;

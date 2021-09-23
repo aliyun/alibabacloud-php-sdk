@@ -16,6 +16,11 @@ class package extends Model
     /**
      * @var string
      */
+    public $packageId;
+
+    /**
+     * @var string
+     */
     public $expiredTime;
 
     /**
@@ -26,17 +31,12 @@ class package extends Model
     /**
      * @var string
      */
-    public $packageId;
-
-    /**
-     * @var string
-     */
     public $packageType;
     protected $_name = [
         'startTime'   => 'StartTime',
+        'packageId'   => 'PackageId',
         'expiredTime' => 'ExpiredTime',
         'size'        => 'Size',
-        'packageId'   => 'PackageId',
         'packageType' => 'PackageType',
     ];
 
@@ -50,14 +50,14 @@ class package extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+        if (null !== $this->packageId) {
+            $res['PackageId'] = $this->packageId;
+        }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
-        }
-        if (null !== $this->packageId) {
-            $res['PackageId'] = $this->packageId;
         }
         if (null !== $this->packageType) {
             $res['PackageType'] = $this->packageType;
@@ -77,14 +77,14 @@ class package extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+        if (isset($map['PackageId'])) {
+            $model->packageId = $map['PackageId'];
+        }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
-        }
-        if (isset($map['PackageId'])) {
-            $model->packageId = $map['PackageId'];
         }
         if (isset($map['PackageType'])) {
             $model->packageType = $map['PackageType'];

@@ -12,7 +12,7 @@ class DescribeMountedClientsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var string
@@ -27,17 +27,17 @@ class DescribeMountedClientsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalCount;
 
     /**
      * @var clients
      */
     public $clients;
     protected $_name = [
-        'totalCount' => 'TotalCount',
+        'pageNumber' => 'PageNumber',
         'requestId'  => 'RequestId',
         'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
         'clients'    => 'Clients',
     ];
 
@@ -48,8 +48,8 @@ class DescribeMountedClientsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -57,8 +57,8 @@ class DescribeMountedClientsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->clients) {
             $res['Clients'] = null !== $this->clients ? $this->clients->toMap() : null;
@@ -75,8 +75,8 @@ class DescribeMountedClientsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -84,8 +84,8 @@ class DescribeMountedClientsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['Clients'])) {
             $model->clients = clients::fromMap($map['Clients']);

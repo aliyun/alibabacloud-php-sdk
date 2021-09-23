@@ -17,11 +17,6 @@ class DescribeFileSystemsRequest extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $fileSystemType;
 
     /**
@@ -40,58 +35,15 @@ class DescribeFileSystemsRequest extends Model
     public $pageNumber;
 
     /**
-     * @var bool
-     */
-    public $useUTCDateTime;
-
-    /**
-     * @var string
-     */
-    public $storageType;
-
-    /**
-     * @var string
-     */
-    public $packageIds;
-
-    /**
-     * @var string
-     */
-    public $fileSystemIds;
-
-    /**
-     * @var string
-     */
-    public $orderByField;
-
-    /**
-     * @var string
-     */
-    public $sortOrder;
-
-    /**
-     * @var string
-     */
-    public $chargeType;
-
-    /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
         'fileSystemId'   => 'FileSystemId',
-        'description'    => 'Description',
         'fileSystemType' => 'FileSystemType',
         'vpcId'          => 'VpcId',
         'pageSize'       => 'PageSize',
         'pageNumber'     => 'PageNumber',
-        'useUTCDateTime' => 'UseUTCDateTime',
-        'storageType'    => 'StorageType',
-        'packageIds'     => 'PackageIds',
-        'fileSystemIds'  => 'FileSystemIds',
-        'orderByField'   => 'OrderByField',
-        'sortOrder'      => 'SortOrder',
-        'chargeType'     => 'ChargeType',
         'tag'            => 'Tag',
     ];
 
@@ -105,9 +57,6 @@ class DescribeFileSystemsRequest extends Model
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->fileSystemType) {
             $res['FileSystemType'] = $this->fileSystemType;
         }
@@ -119,27 +68,6 @@ class DescribeFileSystemsRequest extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->useUTCDateTime) {
-            $res['UseUTCDateTime'] = $this->useUTCDateTime;
-        }
-        if (null !== $this->storageType) {
-            $res['StorageType'] = $this->storageType;
-        }
-        if (null !== $this->packageIds) {
-            $res['PackageIds'] = $this->packageIds;
-        }
-        if (null !== $this->fileSystemIds) {
-            $res['FileSystemIds'] = $this->fileSystemIds;
-        }
-        if (null !== $this->orderByField) {
-            $res['OrderByField'] = $this->orderByField;
-        }
-        if (null !== $this->sortOrder) {
-            $res['SortOrder'] = $this->sortOrder;
-        }
-        if (null !== $this->chargeType) {
-            $res['ChargeType'] = $this->chargeType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -165,9 +93,6 @@ class DescribeFileSystemsRequest extends Model
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['FileSystemType'])) {
             $model->fileSystemType = $map['FileSystemType'];
         }
@@ -179,27 +104,6 @@ class DescribeFileSystemsRequest extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['UseUTCDateTime'])) {
-            $model->useUTCDateTime = $map['UseUTCDateTime'];
-        }
-        if (isset($map['StorageType'])) {
-            $model->storageType = $map['StorageType'];
-        }
-        if (isset($map['PackageIds'])) {
-            $model->packageIds = $map['PackageIds'];
-        }
-        if (isset($map['FileSystemIds'])) {
-            $model->fileSystemIds = $map['FileSystemIds'];
-        }
-        if (isset($map['OrderByField'])) {
-            $model->orderByField = $map['OrderByField'];
-        }
-        if (isset($map['SortOrder'])) {
-            $model->sortOrder = $map['SortOrder'];
-        }
-        if (isset($map['ChargeType'])) {
-            $model->chargeType = $map['ChargeType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

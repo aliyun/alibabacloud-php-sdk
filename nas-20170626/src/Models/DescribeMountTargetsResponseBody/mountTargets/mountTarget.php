@@ -20,11 +20,6 @@ class mountTarget extends Model
     public $status;
 
     /**
-     * @var clientMasterNodes
-     */
-    public $clientMasterNodes;
-
-    /**
      * @var string
      */
     public $mountTargetDomain;
@@ -48,15 +43,20 @@ class mountTarget extends Model
      * @var string
      */
     public $networkType;
+
+    /**
+     * @var clientMasterNodes
+     */
+    public $clientMasterNodes;
     protected $_name = [
         'vpcId'                      => 'VpcId',
         'status'                     => 'Status',
-        'clientMasterNodes'          => 'ClientMasterNodes',
         'mountTargetDomain'          => 'MountTargetDomain',
         'accessGroup'                => 'AccessGroup',
         'dualStackMountTargetDomain' => 'DualStackMountTargetDomain',
         'vswId'                      => 'VswId',
         'networkType'                => 'NetworkType',
+        'clientMasterNodes'          => 'ClientMasterNodes',
     ];
 
     public function validate()
@@ -72,9 +72,6 @@ class mountTarget extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->clientMasterNodes) {
-            $res['ClientMasterNodes'] = null !== $this->clientMasterNodes ? $this->clientMasterNodes->toMap() : null;
-        }
         if (null !== $this->mountTargetDomain) {
             $res['MountTargetDomain'] = $this->mountTargetDomain;
         }
@@ -89,6 +86,9 @@ class mountTarget extends Model
         }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
+        }
+        if (null !== $this->clientMasterNodes) {
+            $res['ClientMasterNodes'] = null !== $this->clientMasterNodes ? $this->clientMasterNodes->toMap() : null;
         }
 
         return $res;
@@ -108,9 +108,6 @@ class mountTarget extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['ClientMasterNodes'])) {
-            $model->clientMasterNodes = clientMasterNodes::fromMap($map['ClientMasterNodes']);
-        }
         if (isset($map['MountTargetDomain'])) {
             $model->mountTargetDomain = $map['MountTargetDomain'];
         }
@@ -125,6 +122,9 @@ class mountTarget extends Model
         }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
+        }
+        if (isset($map['ClientMasterNodes'])) {
+            $model->clientMasterNodes = clientMasterNodes::fromMap($map['ClientMasterNodes']);
         }
 
         return $model;

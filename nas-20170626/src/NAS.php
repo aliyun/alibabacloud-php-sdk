@@ -16,6 +16,10 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\CancelAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDirQuotaRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDirQuotaResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CancelLifecycleRetrieveJobRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CancelLifecycleRetrieveJobResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CancelRecycleBinJobRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CancelRecycleBinJobResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAccessGroupRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAccessGroupResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAccessRuleRequest;
@@ -28,8 +32,14 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\CreateLDAPConfigRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateLDAPConfigResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateLifecyclePolicyRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateLifecyclePolicyResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateLifecycleRetrieveJobRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateLifecycleRetrieveJobResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateMountTargetRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateMountTargetResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateRecycleBinDeleteJobRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateRecycleBinDeleteJobResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateRecycleBinRestoreJobRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateRecycleBinRestoreJobResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateSnapshotRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateSnapshotResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DeleteAccessGroupRequest;
@@ -84,6 +94,24 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeZonesResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DisableAndCleanRecycleBinRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DisableAndCleanRecycleBinResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\EnableRecycleBinRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\EnableRecycleBinResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\GetDirectoryOrFilePropertiesRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\GetDirectoryOrFilePropertiesResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\GetRecycleBinAttributeRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\GetRecycleBinAttributeResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListDirectoriesAndFilesRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListDirectoriesAndFilesResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListLifecycleRetrieveJobsRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListLifecycleRetrieveJobsResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListRecentlyRecycledDirectoriesRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListRecentlyRecycledDirectoriesResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListRecycleBinJobsRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListRecycleBinJobsResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListRecycledDirectoriesAndFilesRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListRecycledDirectoriesAndFilesResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyAccessGroupRequest;
@@ -107,12 +135,16 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\RemoveTagsRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\RemoveTagsResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ResetFileSystemRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ResetFileSystemResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\RetryLifecycleRetrieveJobRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\RetryLifecycleRetrieveJobResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\SetDirQuotaRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\SetDirQuotaResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\UpdateRecycleBinAttributeRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\UpdateRecycleBinAttributeResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UpgradeFileSystemRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UpgradeFileSystemResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -299,6 +331,63 @@ class NAS extends OpenApiClient
     }
 
     /**
+     * @param CancelLifecycleRetrieveJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CancelLifecycleRetrieveJobResponse
+     */
+    public function cancelLifecycleRetrieveJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelLifecycleRetrieveJobResponse::fromMap($this->doRPCRequest('CancelLifecycleRetrieveJob', '2017-06-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelLifecycleRetrieveJobRequest $request
+     *
+     * @return CancelLifecycleRetrieveJobResponse
+     */
+    public function cancelLifecycleRetrieveJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelLifecycleRetrieveJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelRecycleBinJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CancelRecycleBinJobResponse
+     */
+    public function cancelRecycleBinJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return CancelRecycleBinJobResponse::fromMap($this->doRPCRequest('CancelRecycleBinJob', '2017-06-26', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelRecycleBinJobRequest $request
+     *
+     * @return CancelRecycleBinJobResponse
+     */
+    public function cancelRecycleBinJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelRecycleBinJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateAccessGroupRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -467,6 +556,34 @@ class NAS extends OpenApiClient
     }
 
     /**
+     * @param CreateLifecycleRetrieveJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateLifecycleRetrieveJobResponse
+     */
+    public function createLifecycleRetrieveJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateLifecycleRetrieveJobResponse::fromMap($this->doRPCRequest('CreateLifecycleRetrieveJob', '2017-06-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateLifecycleRetrieveJobRequest $request
+     *
+     * @return CreateLifecycleRetrieveJobResponse
+     */
+    public function createLifecycleRetrieveJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLifecycleRetrieveJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateMountTargetRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -492,6 +609,64 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMountTargetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRecycleBinDeleteJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateRecycleBinDeleteJobResponse
+     */
+    public function createRecycleBinDeleteJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return CreateRecycleBinDeleteJobResponse::fromMap($this->doRPCRequest('CreateRecycleBinDeleteJob', '2017-06-26', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRecycleBinDeleteJobRequest $request
+     *
+     * @return CreateRecycleBinDeleteJobResponse
+     */
+    public function createRecycleBinDeleteJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRecycleBinDeleteJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRecycleBinRestoreJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateRecycleBinRestoreJobResponse
+     */
+    public function createRecycleBinRestoreJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return CreateRecycleBinRestoreJobResponse::fromMap($this->doRPCRequest('CreateRecycleBinRestoreJob', '2017-06-26', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRecycleBinRestoreJobRequest $request
+     *
+     * @return CreateRecycleBinRestoreJobResponse
+     */
+    public function createRecycleBinRestoreJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRecycleBinRestoreJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1252,6 +1427,263 @@ class NAS extends OpenApiClient
     }
 
     /**
+     * @param DisableAndCleanRecycleBinRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisableAndCleanRecycleBinResponse
+     */
+    public function disableAndCleanRecycleBinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return DisableAndCleanRecycleBinResponse::fromMap($this->doRPCRequest('DisableAndCleanRecycleBin', '2017-06-26', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DisableAndCleanRecycleBinRequest $request
+     *
+     * @return DisableAndCleanRecycleBinResponse
+     */
+    public function disableAndCleanRecycleBin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableAndCleanRecycleBinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableRecycleBinRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EnableRecycleBinResponse
+     */
+    public function enableRecycleBinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EnableRecycleBinResponse::fromMap($this->doRPCRequest('EnableRecycleBin', '2017-06-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EnableRecycleBinRequest $request
+     *
+     * @return EnableRecycleBinResponse
+     */
+    public function enableRecycleBin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableRecycleBinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDirectoryOrFilePropertiesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDirectoryOrFilePropertiesResponse
+     */
+    public function getDirectoryOrFilePropertiesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDirectoryOrFilePropertiesResponse::fromMap($this->doRPCRequest('GetDirectoryOrFileProperties', '2017-06-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDirectoryOrFilePropertiesRequest $request
+     *
+     * @return GetDirectoryOrFilePropertiesResponse
+     */
+    public function getDirectoryOrFileProperties($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDirectoryOrFilePropertiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRecycleBinAttributeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetRecycleBinAttributeResponse
+     */
+    public function getRecycleBinAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetRecycleBinAttributeResponse::fromMap($this->doRPCRequest('GetRecycleBinAttribute', '2017-06-26', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetRecycleBinAttributeRequest $request
+     *
+     * @return GetRecycleBinAttributeResponse
+     */
+    public function getRecycleBinAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRecycleBinAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDirectoriesAndFilesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListDirectoriesAndFilesResponse
+     */
+    public function listDirectoriesAndFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDirectoriesAndFilesResponse::fromMap($this->doRPCRequest('ListDirectoriesAndFiles', '2017-06-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDirectoriesAndFilesRequest $request
+     *
+     * @return ListDirectoriesAndFilesResponse
+     */
+    public function listDirectoriesAndFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDirectoriesAndFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListLifecycleRetrieveJobsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListLifecycleRetrieveJobsResponse
+     */
+    public function listLifecycleRetrieveJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListLifecycleRetrieveJobsResponse::fromMap($this->doRPCRequest('ListLifecycleRetrieveJobs', '2017-06-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListLifecycleRetrieveJobsRequest $request
+     *
+     * @return ListLifecycleRetrieveJobsResponse
+     */
+    public function listLifecycleRetrieveJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLifecycleRetrieveJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRecentlyRecycledDirectoriesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListRecentlyRecycledDirectoriesResponse
+     */
+    public function listRecentlyRecycledDirectoriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListRecentlyRecycledDirectoriesResponse::fromMap($this->doRPCRequest('ListRecentlyRecycledDirectories', '2017-06-26', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListRecentlyRecycledDirectoriesRequest $request
+     *
+     * @return ListRecentlyRecycledDirectoriesResponse
+     */
+    public function listRecentlyRecycledDirectories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRecentlyRecycledDirectoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRecycleBinJobsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListRecycleBinJobsResponse
+     */
+    public function listRecycleBinJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListRecycleBinJobsResponse::fromMap($this->doRPCRequest('ListRecycleBinJobs', '2017-06-26', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListRecycleBinJobsRequest $request
+     *
+     * @return ListRecycleBinJobsResponse
+     */
+    public function listRecycleBinJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRecycleBinJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRecycledDirectoriesAndFilesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListRecycledDirectoriesAndFilesResponse
+     */
+    public function listRecycledDirectoriesAndFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListRecycledDirectoriesAndFilesResponse::fromMap($this->doRPCRequest('ListRecycledDirectoriesAndFiles', '2017-06-26', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListRecycledDirectoriesAndFilesRequest $request
+     *
+     * @return ListRecycledDirectoriesAndFilesResponse
+     */
+    public function listRecycledDirectoriesAndFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRecycledDirectoriesAndFilesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1582,6 +2014,34 @@ class NAS extends OpenApiClient
     }
 
     /**
+     * @param RetryLifecycleRetrieveJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RetryLifecycleRetrieveJobResponse
+     */
+    public function retryLifecycleRetrieveJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RetryLifecycleRetrieveJobResponse::fromMap($this->doRPCRequest('RetryLifecycleRetrieveJob', '2017-06-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RetryLifecycleRetrieveJobRequest $request
+     *
+     * @return RetryLifecycleRetrieveJobResponse
+     */
+    public function retryLifecycleRetrieveJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryLifecycleRetrieveJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetDirQuotaRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1663,6 +2123,35 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRecycleBinAttributeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateRecycleBinAttributeResponse
+     */
+    public function updateRecycleBinAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return UpdateRecycleBinAttributeResponse::fromMap($this->doRPCRequest('UpdateRecycleBinAttribute', '2017-06-26', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRecycleBinAttributeRequest $request
+     *
+     * @return UpdateRecycleBinAttributeResponse
+     */
+    public function updateRecycleBinAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRecycleBinAttributeWithOptions($request, $runtime);
     }
 
     /**

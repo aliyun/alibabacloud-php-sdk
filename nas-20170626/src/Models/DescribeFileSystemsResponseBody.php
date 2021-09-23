@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeFileSystemsResponseBody extends Model
 {
     /**
-     * @var fileSystems
-     */
-    public $fileSystems;
-
-    /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var string
@@ -32,13 +27,18 @@ class DescribeFileSystemsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalCount;
+
+    /**
+     * @var fileSystems
+     */
+    public $fileSystems;
     protected $_name = [
-        'fileSystems' => 'FileSystems',
-        'totalCount'  => 'TotalCount',
+        'pageNumber'  => 'PageNumber',
         'requestId'   => 'RequestId',
         'pageSize'    => 'PageSize',
-        'pageNumber'  => 'PageNumber',
+        'totalCount'  => 'TotalCount',
+        'fileSystems' => 'FileSystems',
     ];
 
     public function validate()
@@ -48,11 +48,8 @@ class DescribeFileSystemsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileSystems) {
-            $res['FileSystems'] = null !== $this->fileSystems ? $this->fileSystems->toMap() : null;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -60,8 +57,11 @@ class DescribeFileSystemsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->fileSystems) {
+            $res['FileSystems'] = null !== $this->fileSystems ? $this->fileSystems->toMap() : null;
         }
 
         return $res;
@@ -75,11 +75,8 @@ class DescribeFileSystemsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileSystems'])) {
-            $model->fileSystems = fileSystems::fromMap($map['FileSystems']);
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -87,8 +84,11 @@ class DescribeFileSystemsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['FileSystems'])) {
+            $model->fileSystems = fileSystems::fromMap($map['FileSystems']);
         }
 
         return $model;

@@ -11,15 +11,15 @@ class CreateAccessRuleResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $accessRuleId;
 
     /**
      * @var string
      */
-    public $accessRuleId;
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'accessRuleId' => 'AccessRuleId',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateAccessRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->accessRuleId) {
             $res['AccessRuleId'] = $this->accessRuleId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateAccessRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AccessRuleId'])) {
             $model->accessRuleId = $map['AccessRuleId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,16 +11,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeFileSystemStatisticsResponseBody extends Model
 {
     /**
-     * @var fileSystems
-     */
-    public $fileSystems;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -36,16 +26,26 @@ class DescribeFileSystemStatisticsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var fileSystemStatistics
      */
     public $fileSystemStatistics;
+
+    /**
+     * @var fileSystems
+     */
+    public $fileSystems;
     protected $_name = [
-        'fileSystems'          => 'FileSystems',
-        'totalCount'           => 'TotalCount',
         'requestId'            => 'RequestId',
         'pageSize'             => 'PageSize',
         'pageNumber'           => 'PageNumber',
+        'totalCount'           => 'TotalCount',
         'fileSystemStatistics' => 'FileSystemStatistics',
+        'fileSystems'          => 'FileSystems',
     ];
 
     public function validate()
@@ -55,12 +55,6 @@ class DescribeFileSystemStatisticsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileSystems) {
-            $res['FileSystems'] = null !== $this->fileSystems ? $this->fileSystems->toMap() : null;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -70,8 +64,14 @@ class DescribeFileSystemStatisticsResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->fileSystemStatistics) {
             $res['FileSystemStatistics'] = null !== $this->fileSystemStatistics ? $this->fileSystemStatistics->toMap() : null;
+        }
+        if (null !== $this->fileSystems) {
+            $res['FileSystems'] = null !== $this->fileSystems ? $this->fileSystems->toMap() : null;
         }
 
         return $res;
@@ -85,12 +85,6 @@ class DescribeFileSystemStatisticsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileSystems'])) {
-            $model->fileSystems = fileSystems::fromMap($map['FileSystems']);
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -100,8 +94,14 @@ class DescribeFileSystemStatisticsResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['FileSystemStatistics'])) {
             $model->fileSystemStatistics = fileSystemStatistics::fromMap($map['FileSystemStatistics']);
+        }
+        if (isset($map['FileSystems'])) {
+            $model->fileSystems = fileSystems::fromMap($map['FileSystems']);
         }
 
         return $model;

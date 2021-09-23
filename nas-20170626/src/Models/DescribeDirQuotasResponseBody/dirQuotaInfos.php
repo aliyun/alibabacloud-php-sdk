@@ -12,12 +12,12 @@ class dirQuotaInfos extends Model
     /**
      * @var string
      */
-    public $status;
+    public $path;
 
     /**
      * @var string
      */
-    public $path;
+    public $status;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class dirQuotaInfos extends Model
      */
     public $userQuotaInfos;
     protected $_name = [
-        'status'         => 'Status',
         'path'           => 'Path',
+        'status'         => 'Status',
         'dirInode'       => 'DirInode',
         'userQuotaInfos' => 'UserQuotaInfos',
     ];
@@ -42,11 +42,11 @@ class dirQuotaInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->dirInode) {
             $res['DirInode'] = $this->dirInode;
@@ -72,11 +72,11 @@ class dirQuotaInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['DirInode'])) {
             $model->dirInode = $map['DirInode'];

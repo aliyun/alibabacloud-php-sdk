@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeZonesResponseBody\zones;
 
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeZonesResponseBody\zones\zone\capacity;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeZonesResponseBody\zones\zone\instanceTypes;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeZonesResponseBody\zones\zone\performance;
 use AlibabaCloud\Tea\Model;
 
@@ -24,10 +25,16 @@ class zone extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var instanceTypes
+     */
+    public $instanceTypes;
     protected $_name = [
-        'performance' => 'Performance',
-        'capacity'    => 'Capacity',
-        'zoneId'      => 'ZoneId',
+        'performance'   => 'Performance',
+        'capacity'      => 'Capacity',
+        'zoneId'        => 'ZoneId',
+        'instanceTypes' => 'InstanceTypes',
     ];
 
     public function validate()
@@ -45,6 +52,9 @@ class zone extends Model
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->instanceTypes) {
+            $res['InstanceTypes'] = null !== $this->instanceTypes ? $this->instanceTypes->toMap() : null;
         }
 
         return $res;
@@ -66,6 +76,9 @@ class zone extends Model
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['InstanceTypes'])) {
+            $model->instanceTypes = instanceTypes::fromMap($map['InstanceTypes']);
         }
 
         return $model;
