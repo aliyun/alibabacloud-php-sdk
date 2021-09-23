@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsResponseBody\datasets;
 use AlibabaCloud\Tea\Model;
 
 class ListDatasetsResponseBody extends Model
@@ -22,9 +21,9 @@ class ListDatasetsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Responses
+     * @description Datasets
      *
-     * @var datasets[]
+     * @var Dataset[]
      */
     public $datasets;
     protected $_name = [
@@ -78,7 +77,7 @@ class ListDatasetsResponseBody extends Model
                 $model->datasets = [];
                 $n               = 0;
                 foreach ($map['Datasets'] as $item) {
-                    $model->datasets[$n++] = null !== $item ? datasets::fromMap($item) : $item;
+                    $model->datasets[$n++] = null !== $item ? Dataset::fromMap($item) : $item;
                 }
             }
         }

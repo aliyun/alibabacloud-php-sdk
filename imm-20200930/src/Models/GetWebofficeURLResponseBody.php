@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetWebofficeUrlResponseBody extends Model
+class GetWebofficeURLResponseBody extends Model
 {
     /**
      * @description 请求 id
@@ -20,7 +20,7 @@ class GetWebofficeUrlResponseBody extends Model
      *
      * @var string
      */
-    public $webofficeUrl;
+    public $webofficeURL;
 
     /**
      * @description access token
@@ -51,7 +51,7 @@ class GetWebofficeUrlResponseBody extends Model
     public $refreshTokenExpiredTime;
     protected $_name = [
         'requestId'               => 'RequestId',
-        'webofficeUrl'            => 'WebofficeUrl',
+        'webofficeURL'            => 'WebofficeURL',
         'accessToken'             => 'AccessToken',
         'refreshToken'            => 'RefreshToken',
         'accessTokenExpiredTime'  => 'AccessTokenExpiredTime',
@@ -68,8 +68,8 @@ class GetWebofficeUrlResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->webofficeUrl) {
-            $res['WebofficeUrl'] = $this->webofficeUrl;
+        if (null !== $this->webofficeURL) {
+            $res['WebofficeURL'] = $this->webofficeURL;
         }
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
@@ -90,7 +90,7 @@ class GetWebofficeUrlResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetWebofficeUrlResponseBody
+     * @return GetWebofficeURLResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -98,8 +98,8 @@ class GetWebofficeUrlResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['WebofficeUrl'])) {
-            $model->webofficeUrl = $map['WebofficeUrl'];
+        if (isset($map['WebofficeURL'])) {
+            $model->webofficeURL = $map['WebofficeURL'];
         }
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];

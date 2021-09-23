@@ -6,20 +6,24 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetDatasetResponseBody extends Model
+class CreateOfficeConversionTaskResponseBody extends Model
 {
     /**
+     * @description 请求 id
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var Dataset
+     * @description 任务 id
+     *
+     * @var string
      */
-    public $dataset;
+    public $taskId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'dataset'   => 'Dataset',
+        'taskId'    => 'TaskId',
     ];
 
     public function validate()
@@ -32,8 +36,8 @@ class GetDatasetResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->dataset) {
-            $res['Dataset'] = null !== $this->dataset ? $this->dataset->toMap() : null;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -42,7 +46,7 @@ class GetDatasetResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetDatasetResponseBody
+     * @return CreateOfficeConversionTaskResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -50,8 +54,8 @@ class GetDatasetResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Dataset'])) {
-            $model->dataset = Dataset::fromMap($map['Dataset']);
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

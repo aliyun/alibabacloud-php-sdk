@@ -16,15 +16,11 @@ class CreateProjectRequest extends Model
     public $projectName;
 
     /**
-     * @description 项目描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 服务角色
-     *
      * @var string
      */
     public $serviceRole;
@@ -37,12 +33,12 @@ class CreateProjectRequest extends Model
     /**
      * @var int
      */
-    public $projectQPS;
+    public $projectQueriesPerSecond;
 
     /**
      * @var int
      */
-    public $projectTPS;
+    public $engineConcurrency;
 
     /**
      * @var int
@@ -52,7 +48,7 @@ class CreateProjectRequest extends Model
     /**
      * @var int
      */
-    public $datasetMaxOSSBindCount;
+    public $datasetMaxBindCount;
 
     /**
      * @var int
@@ -78,10 +74,10 @@ class CreateProjectRequest extends Model
         'description'             => 'Description',
         'serviceRole'             => 'ServiceRole',
         'templateId'              => 'TemplateId',
-        'projectQPS'              => 'ProjectQPS',
-        'projectTPS'              => 'ProjectTPS',
+        'projectQueriesPerSecond' => 'ProjectQueriesPerSecond',
+        'engineConcurrency'       => 'EngineConcurrency',
         'projectMaxDatasetCount'  => 'ProjectMaxDatasetCount',
-        'datasetMaxOSSBindCount'  => 'DatasetMaxOSSBindCount',
+        'datasetMaxBindCount'     => 'DatasetMaxBindCount',
         'datasetMaxFileCount'     => 'DatasetMaxFileCount',
         'datasetMaxEntityCount'   => 'DatasetMaxEntityCount',
         'datasetMaxRelationCount' => 'DatasetMaxRelationCount',
@@ -107,17 +103,17 @@ class CreateProjectRequest extends Model
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->projectQPS) {
-            $res['ProjectQPS'] = $this->projectQPS;
+        if (null !== $this->projectQueriesPerSecond) {
+            $res['ProjectQueriesPerSecond'] = $this->projectQueriesPerSecond;
         }
-        if (null !== $this->projectTPS) {
-            $res['ProjectTPS'] = $this->projectTPS;
+        if (null !== $this->engineConcurrency) {
+            $res['EngineConcurrency'] = $this->engineConcurrency;
         }
         if (null !== $this->projectMaxDatasetCount) {
             $res['ProjectMaxDatasetCount'] = $this->projectMaxDatasetCount;
         }
-        if (null !== $this->datasetMaxOSSBindCount) {
-            $res['DatasetMaxOSSBindCount'] = $this->datasetMaxOSSBindCount;
+        if (null !== $this->datasetMaxBindCount) {
+            $res['DatasetMaxBindCount'] = $this->datasetMaxBindCount;
         }
         if (null !== $this->datasetMaxFileCount) {
             $res['DatasetMaxFileCount'] = $this->datasetMaxFileCount;
@@ -155,17 +151,17 @@ class CreateProjectRequest extends Model
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['ProjectQPS'])) {
-            $model->projectQPS = $map['ProjectQPS'];
+        if (isset($map['ProjectQueriesPerSecond'])) {
+            $model->projectQueriesPerSecond = $map['ProjectQueriesPerSecond'];
         }
-        if (isset($map['ProjectTPS'])) {
-            $model->projectTPS = $map['ProjectTPS'];
+        if (isset($map['EngineConcurrency'])) {
+            $model->engineConcurrency = $map['EngineConcurrency'];
         }
         if (isset($map['ProjectMaxDatasetCount'])) {
             $model->projectMaxDatasetCount = $map['ProjectMaxDatasetCount'];
         }
-        if (isset($map['DatasetMaxOSSBindCount'])) {
-            $model->datasetMaxOSSBindCount = $map['DatasetMaxOSSBindCount'];
+        if (isset($map['DatasetMaxBindCount'])) {
+            $model->datasetMaxBindCount = $map['DatasetMaxBindCount'];
         }
         if (isset($map['DatasetMaxFileCount'])) {
             $model->datasetMaxFileCount = $map['DatasetMaxFileCount'];

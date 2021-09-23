@@ -21,9 +21,17 @@ class ListProjectsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @description 列出包含某前缀的project
+     *
+     * @var string
+     */
+    public $prefix;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
+        'prefix'     => 'Prefix',
     ];
 
     public function validate()
@@ -38,6 +46,9 @@ class ListProjectsRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->prefix) {
+            $res['Prefix'] = $this->prefix;
         }
 
         return $res;
@@ -56,6 +67,9 @@ class ListProjectsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['Prefix'])) {
+            $model->prefix = $map['Prefix'];
         }
 
         return $model;

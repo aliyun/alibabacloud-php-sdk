@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetWebofficeUrlResponse extends Model
+class GetOfficeConversionTaskResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class GetWebofficeUrlResponse extends Model
     public $headers;
 
     /**
-     * @var GetWebofficeUrlResponseBody
+     * @var GetOfficeConversionTaskResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class GetWebofficeUrlResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetWebofficeUrlResponse
+     * @return GetOfficeConversionTaskResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class GetWebofficeUrlResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetWebofficeUrlResponseBody::fromMap($map['body']);
+            $model->body = GetOfficeConversionTaskResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -2,19 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaRequest;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class files extends Model
+class Row extends Model
 {
     /**
+     * @description URI
+     *
      * @var string
      */
     public $URI;
 
     /**
-     * @var mixed[]
+     * @description CustomLabels
+     *
+     * @var KeyValuePair[]
      */
     public $customLabels;
     protected $_name = [
@@ -33,7 +37,13 @@ class files extends Model
             $res['URI'] = $this->URI;
         }
         if (null !== $this->customLabels) {
-            $res['CustomLabels'] = $this->customLabels;
+            $res['CustomLabels'] = [];
+            if (null !== $this->customLabels && \is_array($this->customLabels)) {
+                $n = 0;
+                foreach ($this->customLabels as $item) {
+                    $res['CustomLabels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -42,7 +52,7 @@ class files extends Model
     /**
      * @param array $map
      *
-     * @return files
+     * @return Row
      */
     public static function fromMap($map = [])
     {
@@ -51,7 +61,13 @@ class files extends Model
             $model->URI = $map['URI'];
         }
         if (isset($map['CustomLabels'])) {
-            $model->customLabels = $map['CustomLabels'];
+            if (!empty($map['CustomLabels'])) {
+                $model->customLabels = [];
+                $n                   = 0;
+                foreach ($map['CustomLabels'] as $item) {
+                    $model->customLabels[$n++] = null !== $item ? KeyValuePair::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

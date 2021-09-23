@@ -30,62 +30,80 @@ class UpdateProjectRequest extends Model
     public $description;
 
     /**
+     * @description 模板Id
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description 项目QPS
+     *
      * @var int
      */
-    public $projectQPS;
+    public $projectQueriesPerSecond;
 
     /**
+     * @description 项目并发数
+     *
      * @var int
      */
-    public $projectTPS;
+    public $engineConcurrency;
 
     /**
+     * @description 项目最多媒体集数
+     *
      * @var int
      */
     public $projectMaxDatasetCount;
 
     /**
+     * @description 媒体集最多绑定数
+     *
      * @var int
      */
-    public $datasetMaxOSSBindCount;
+    public $datasetMaxBindCount;
 
     /**
+     * @description 媒体集最多文件数
+     *
      * @var int
      */
     public $datasetMaxFileCount;
 
     /**
+     * @description 媒体集最多实体数
+     *
      * @var int
      */
     public $datasetMaxEntityCount;
 
     /**
+     * @description 媒体集最多关系数
+     *
      * @var int
      */
     public $datasetMaxRelationCount;
 
     /**
-     * @var string[]
+     * @description 媒体集最大文件总大小
+     *
+     * @var int
      */
-    public $resetItems;
+    public $datasetMaxTotalFileSize;
     protected $_name = [
         'projectName'             => 'ProjectName',
         'serviceRole'             => 'ServiceRole',
         'description'             => 'Description',
         'templateId'              => 'TemplateId',
-        'projectQPS'              => 'ProjectQPS',
-        'projectTPS'              => 'ProjectTPS',
+        'projectQueriesPerSecond' => 'ProjectQueriesPerSecond',
+        'engineConcurrency'       => 'EngineConcurrency',
         'projectMaxDatasetCount'  => 'ProjectMaxDatasetCount',
-        'datasetMaxOSSBindCount'  => 'DatasetMaxOSSBindCount',
+        'datasetMaxBindCount'     => 'DatasetMaxBindCount',
         'datasetMaxFileCount'     => 'DatasetMaxFileCount',
         'datasetMaxEntityCount'   => 'DatasetMaxEntityCount',
         'datasetMaxRelationCount' => 'DatasetMaxRelationCount',
-        'resetItems'              => 'ResetItems',
+        'datasetMaxTotalFileSize' => 'DatasetMaxTotalFileSize',
     ];
 
     public function validate()
@@ -107,17 +125,17 @@ class UpdateProjectRequest extends Model
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->projectQPS) {
-            $res['ProjectQPS'] = $this->projectQPS;
+        if (null !== $this->projectQueriesPerSecond) {
+            $res['ProjectQueriesPerSecond'] = $this->projectQueriesPerSecond;
         }
-        if (null !== $this->projectTPS) {
-            $res['ProjectTPS'] = $this->projectTPS;
+        if (null !== $this->engineConcurrency) {
+            $res['EngineConcurrency'] = $this->engineConcurrency;
         }
         if (null !== $this->projectMaxDatasetCount) {
             $res['ProjectMaxDatasetCount'] = $this->projectMaxDatasetCount;
         }
-        if (null !== $this->datasetMaxOSSBindCount) {
-            $res['DatasetMaxOSSBindCount'] = $this->datasetMaxOSSBindCount;
+        if (null !== $this->datasetMaxBindCount) {
+            $res['DatasetMaxBindCount'] = $this->datasetMaxBindCount;
         }
         if (null !== $this->datasetMaxFileCount) {
             $res['DatasetMaxFileCount'] = $this->datasetMaxFileCount;
@@ -128,8 +146,8 @@ class UpdateProjectRequest extends Model
         if (null !== $this->datasetMaxRelationCount) {
             $res['DatasetMaxRelationCount'] = $this->datasetMaxRelationCount;
         }
-        if (null !== $this->resetItems) {
-            $res['ResetItems'] = $this->resetItems;
+        if (null !== $this->datasetMaxTotalFileSize) {
+            $res['DatasetMaxTotalFileSize'] = $this->datasetMaxTotalFileSize;
         }
 
         return $res;
@@ -155,17 +173,17 @@ class UpdateProjectRequest extends Model
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['ProjectQPS'])) {
-            $model->projectQPS = $map['ProjectQPS'];
+        if (isset($map['ProjectQueriesPerSecond'])) {
+            $model->projectQueriesPerSecond = $map['ProjectQueriesPerSecond'];
         }
-        if (isset($map['ProjectTPS'])) {
-            $model->projectTPS = $map['ProjectTPS'];
+        if (isset($map['EngineConcurrency'])) {
+            $model->engineConcurrency = $map['EngineConcurrency'];
         }
         if (isset($map['ProjectMaxDatasetCount'])) {
             $model->projectMaxDatasetCount = $map['ProjectMaxDatasetCount'];
         }
-        if (isset($map['DatasetMaxOSSBindCount'])) {
-            $model->datasetMaxOSSBindCount = $map['DatasetMaxOSSBindCount'];
+        if (isset($map['DatasetMaxBindCount'])) {
+            $model->datasetMaxBindCount = $map['DatasetMaxBindCount'];
         }
         if (isset($map['DatasetMaxFileCount'])) {
             $model->datasetMaxFileCount = $map['DatasetMaxFileCount'];
@@ -176,10 +194,8 @@ class UpdateProjectRequest extends Model
         if (isset($map['DatasetMaxRelationCount'])) {
             $model->datasetMaxRelationCount = $map['DatasetMaxRelationCount'];
         }
-        if (isset($map['ResetItems'])) {
-            if (!empty($map['ResetItems'])) {
-                $model->resetItems = $map['ResetItems'];
-            }
+        if (isset($map['DatasetMaxTotalFileSize'])) {
+            $model->datasetMaxTotalFileSize = $map['DatasetMaxTotalFileSize'];
         }
 
         return $model;

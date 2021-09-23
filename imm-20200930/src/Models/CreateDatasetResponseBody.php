@@ -16,36 +16,12 @@ class CreateDatasetResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 项目名称
-     *
-     * @var string
+     * @var Dataset
      */
-    public $projectName;
-
-    /**
-     * @description 数据集名称
-     *
-     * @var string
-     */
-    public $datasetName;
-
-    /**
-     * @description 数据集创建时间
-     *
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $dataset;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'projectName' => 'ProjectName',
-        'datasetName' => 'DatasetName',
-        'createTime'  => 'CreateTime',
-        'description' => 'Description',
+        'requestId' => 'RequestId',
+        'dataset'   => 'Dataset',
     ];
 
     public function validate()
@@ -58,17 +34,8 @@ class CreateDatasetResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->datasetName) {
-            $res['DatasetName'] = $this->datasetName;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->dataset) {
+            $res['Dataset'] = null !== $this->dataset ? $this->dataset->toMap() : null;
         }
 
         return $res;
@@ -85,17 +52,8 @@ class CreateDatasetResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['DatasetName'])) {
-            $model->datasetName = $map['DatasetName'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Dataset'])) {
+            $model->dataset = Dataset::fromMap($map['Dataset']);
         }
 
         return $model;

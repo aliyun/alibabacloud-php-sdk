@@ -6,26 +6,24 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateFileMetaRequest extends Model
+class GetOfficeConversionTaskRequest extends Model
 {
     /**
+     * @description 项目名称
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description 任务 id
+     *
      * @var string
      */
-    public $datasetName;
-
-    /**
-     * @var FileForReq
-     */
-    public $file;
+    public $taskId;
     protected $_name = [
         'projectName' => 'ProjectName',
-        'datasetName' => 'DatasetName',
-        'file'        => 'File',
+        'taskId'      => 'TaskId',
     ];
 
     public function validate()
@@ -38,11 +36,8 @@ class UpdateFileMetaRequest extends Model
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
-        if (null !== $this->datasetName) {
-            $res['DatasetName'] = $this->datasetName;
-        }
-        if (null !== $this->file) {
-            $res['File'] = null !== $this->file ? $this->file->toMap() : null;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -51,7 +46,7 @@ class UpdateFileMetaRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateFileMetaRequest
+     * @return GetOfficeConversionTaskRequest
      */
     public static function fromMap($map = [])
     {
@@ -59,11 +54,8 @@ class UpdateFileMetaRequest extends Model
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
-        if (isset($map['DatasetName'])) {
-            $model->datasetName = $map['DatasetName'];
-        }
-        if (isset($map['File'])) {
-            $model->file = FileForReq::fromMap($map['File']);
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

@@ -6,68 +6,112 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateDatasetShrinkRequest extends Model
+class Dataset extends Model
 {
     /**
+     * @description 项目名称
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description 媒体集名称
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description 创建时间
+     *
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @description 更新时间
+     *
+     * @var string
+     */
+    public $updateTime;
+
+    /**
+     * @description 描述
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @var string
-     */
-    public $templateId;
-
-    /**
+     * @description 媒体集最大绑定数
+     *
      * @var int
      */
-    public $datasetMaxOSSBindCount;
+    public $datasetMaxBindCount;
 
     /**
+     * @description 媒体集最多文件数量
+     *
      * @var int
      */
     public $datasetMaxFileCount;
 
     /**
+     * @description 媒体集最多实体数量
+     *
      * @var int
      */
     public $datasetMaxEntityCount;
 
     /**
+     * @description 媒体集最多关系数量
+     *
      * @var int
      */
     public $datasetMaxRelationCount;
 
     /**
+     * @description 媒体集最大文件总大小
+     *
      * @var int
      */
     public $datasetMaxTotalFileSize;
 
     /**
-     * @var string
+     * @description 媒体集当前绑定数
+     *
+     * @var int
      */
-    public $resetItemsShrink;
+    public $bindCount;
+
+    /**
+     * @description 媒体集当前文件数
+     *
+     * @var int
+     */
+    public $fileCount;
+
+    /**
+     * @description 媒体集当前文件总大小
+     *
+     * @var int
+     */
+    public $totalFileSize;
     protected $_name = [
         'projectName'             => 'ProjectName',
         'datasetName'             => 'DatasetName',
+        'createTime'              => 'CreateTime',
+        'updateTime'              => 'UpdateTime',
         'description'             => 'Description',
-        'templateId'              => 'TemplateId',
-        'datasetMaxOSSBindCount'  => 'DatasetMaxOSSBindCount',
+        'datasetMaxBindCount'     => 'DatasetMaxBindCount',
         'datasetMaxFileCount'     => 'DatasetMaxFileCount',
         'datasetMaxEntityCount'   => 'DatasetMaxEntityCount',
         'datasetMaxRelationCount' => 'DatasetMaxRelationCount',
         'datasetMaxTotalFileSize' => 'DatasetMaxTotalFileSize',
-        'resetItemsShrink'        => 'ResetItems',
+        'bindCount'               => 'BindCount',
+        'fileCount'               => 'FileCount',
+        'totalFileSize'           => 'TotalFileSize',
     ];
 
     public function validate()
@@ -83,14 +127,17 @@ class UpdateDatasetShrinkRequest extends Model
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->datasetMaxOSSBindCount) {
-            $res['DatasetMaxOSSBindCount'] = $this->datasetMaxOSSBindCount;
+        if (null !== $this->datasetMaxBindCount) {
+            $res['DatasetMaxBindCount'] = $this->datasetMaxBindCount;
         }
         if (null !== $this->datasetMaxFileCount) {
             $res['DatasetMaxFileCount'] = $this->datasetMaxFileCount;
@@ -104,8 +151,14 @@ class UpdateDatasetShrinkRequest extends Model
         if (null !== $this->datasetMaxTotalFileSize) {
             $res['DatasetMaxTotalFileSize'] = $this->datasetMaxTotalFileSize;
         }
-        if (null !== $this->resetItemsShrink) {
-            $res['ResetItems'] = $this->resetItemsShrink;
+        if (null !== $this->bindCount) {
+            $res['BindCount'] = $this->bindCount;
+        }
+        if (null !== $this->fileCount) {
+            $res['FileCount'] = $this->fileCount;
+        }
+        if (null !== $this->totalFileSize) {
+            $res['TotalFileSize'] = $this->totalFileSize;
         }
 
         return $res;
@@ -114,7 +167,7 @@ class UpdateDatasetShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateDatasetShrinkRequest
+     * @return Dataset
      */
     public static function fromMap($map = [])
     {
@@ -125,14 +178,17 @@ class UpdateDatasetShrinkRequest extends Model
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['DatasetMaxOSSBindCount'])) {
-            $model->datasetMaxOSSBindCount = $map['DatasetMaxOSSBindCount'];
+        if (isset($map['DatasetMaxBindCount'])) {
+            $model->datasetMaxBindCount = $map['DatasetMaxBindCount'];
         }
         if (isset($map['DatasetMaxFileCount'])) {
             $model->datasetMaxFileCount = $map['DatasetMaxFileCount'];
@@ -146,8 +202,14 @@ class UpdateDatasetShrinkRequest extends Model
         if (isset($map['DatasetMaxTotalFileSize'])) {
             $model->datasetMaxTotalFileSize = $map['DatasetMaxTotalFileSize'];
         }
-        if (isset($map['ResetItems'])) {
-            $model->resetItemsShrink = $map['ResetItems'];
+        if (isset($map['BindCount'])) {
+            $model->bindCount = $map['BindCount'];
+        }
+        if (isset($map['FileCount'])) {
+            $model->fileCount = $map['FileCount'];
+        }
+        if (isset($map['TotalFileSize'])) {
+            $model->totalFileSize = $map['TotalFileSize'];
         }
 
         return $model;

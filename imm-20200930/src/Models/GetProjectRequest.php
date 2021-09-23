@@ -14,8 +14,16 @@ class GetProjectRequest extends Model
      * @var string
      */
     public $projectName;
+
+    /**
+     * @description 是否获取详细信息
+     *
+     * @var bool
+     */
+    public $withStatistics;
     protected $_name = [
-        'projectName' => 'ProjectName',
+        'projectName'    => 'ProjectName',
+        'withStatistics' => 'WithStatistics',
     ];
 
     public function validate()
@@ -27,6 +35,9 @@ class GetProjectRequest extends Model
         $res = [];
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->withStatistics) {
+            $res['WithStatistics'] = $this->withStatistics;
         }
 
         return $res;
@@ -42,6 +53,9 @@ class GetProjectRequest extends Model
         $model = new self();
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['WithStatistics'])) {
+            $model->withStatistics = $map['WithStatistics'];
         }
 
         return $model;

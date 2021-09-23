@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\SDK\Imm\V20200930\Models\ListBindingsResponseBody\bindings;
 use AlibabaCloud\Tea\Model;
 
 class ListBindingsResponseBody extends Model
@@ -22,7 +21,7 @@ class ListBindingsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @var bindings[]
+     * @var Binding[]
      */
     public $bindings;
     protected $_name = [
@@ -76,7 +75,7 @@ class ListBindingsResponseBody extends Model
                 $model->bindings = [];
                 $n               = 0;
                 foreach ($map['Bindings'] as $item) {
-                    $model->bindings[$n++] = null !== $item ? bindings::fromMap($item) : $item;
+                    $model->bindings[$n++] = null !== $item ? Binding::fromMap($item) : $item;
                 }
             }
         }

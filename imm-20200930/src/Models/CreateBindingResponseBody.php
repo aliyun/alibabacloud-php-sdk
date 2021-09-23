@@ -14,8 +14,14 @@ class CreateBindingResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var Binding
+     */
+    public $binding;
     protected $_name = [
         'requestId' => 'RequestId',
+        'binding'   => 'Binding',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class CreateBindingResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->binding) {
+            $res['Binding'] = null !== $this->binding ? $this->binding->toMap() : null;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class CreateBindingResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Binding'])) {
+            $model->binding = Binding::fromMap($map['Binding']);
         }
 
         return $model;

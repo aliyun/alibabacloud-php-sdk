@@ -19,19 +19,13 @@ class IndexFileMetaRequest extends Model
     public $datasetName;
 
     /**
-     * @var string
+     * @var FileForReq
      */
-    public $URI;
-
-    /**
-     * @var mixed[]
-     */
-    public $customLabels;
+    public $file;
     protected $_name = [
-        'projectName'  => 'ProjectName',
-        'datasetName'  => 'DatasetName',
-        'URI'          => 'URI',
-        'customLabels' => 'CustomLabels',
+        'projectName' => 'ProjectName',
+        'datasetName' => 'DatasetName',
+        'file'        => 'File',
     ];
 
     public function validate()
@@ -47,11 +41,8 @@ class IndexFileMetaRequest extends Model
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-        if (null !== $this->URI) {
-            $res['URI'] = $this->URI;
-        }
-        if (null !== $this->customLabels) {
-            $res['CustomLabels'] = $this->customLabels;
+        if (null !== $this->file) {
+            $res['File'] = null !== $this->file ? $this->file->toMap() : null;
         }
 
         return $res;
@@ -71,11 +62,8 @@ class IndexFileMetaRequest extends Model
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
-        if (isset($map['URI'])) {
-            $model->URI = $map['URI'];
-        }
-        if (isset($map['CustomLabels'])) {
-            $model->customLabels = $map['CustomLabels'];
+        if (isset($map['File'])) {
+            $model->file = FileForReq::fromMap($map['File']);
         }
 
         return $model;

@@ -9,20 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectResponseBody extends Model
 {
     /**
-     * @description 项目名称
-     *
-     * @var string
-     */
-    public $projectName;
-
-    /**
-     * @description 项目创建时间
-     *
-     * @var int
-     */
-    public $createTime;
-
-    /**
      * @description 本次请求的唯一 ID
      *
      * @var string
@@ -30,14 +16,12 @@ class CreateProjectResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var Project
      */
-    public $description;
+    public $project;
     protected $_name = [
-        'projectName' => 'ProjectName',
-        'createTime'  => 'CreateTime',
-        'requestId'   => 'RequestId',
-        'description' => 'Description',
+        'requestId' => 'RequestId',
+        'project'   => 'Project',
     ];
 
     public function validate()
@@ -47,17 +31,11 @@ class CreateProjectResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->project) {
+            $res['Project'] = null !== $this->project ? $this->project->toMap() : null;
         }
 
         return $res;
@@ -71,17 +49,11 @@ class CreateProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Project'])) {
+            $model->project = Project::fromMap($map['Project']);
         }
 
         return $model;

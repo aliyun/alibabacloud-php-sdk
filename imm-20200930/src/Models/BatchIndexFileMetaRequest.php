@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\SDK\Imm\V20200930\Models\BatchIndexFileMetaRequest\files;
 use AlibabaCloud\Tea\Model;
 
 class BatchIndexFileMetaRequest extends Model
@@ -20,7 +19,7 @@ class BatchIndexFileMetaRequest extends Model
     public $datasetName;
 
     /**
-     * @var files[]
+     * @var FileForReq[]
      */
     public $files;
     protected $_name = [
@@ -74,7 +73,7 @@ class BatchIndexFileMetaRequest extends Model
                 $model->files = [];
                 $n            = 0;
                 foreach ($map['Files'] as $item) {
-                    $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
+                    $model->files[$n++] = null !== $item ? FileForReq::fromMap($item) : $item;
                 }
             }
         }

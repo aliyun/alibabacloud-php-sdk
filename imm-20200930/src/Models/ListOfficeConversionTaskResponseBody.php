@@ -6,32 +6,26 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListProjectsResponseBody extends Model
+class ListOfficeConversionTaskResponseBody extends Model
 {
     /**
-     * @description 当总结果个数大于MaxResults时，用于翻页的token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 由ProjectItem组成的数组
-     *
-     * @var Project[]
+     * @var OfficeConversionTask[]
      */
-    public $projects;
+    public $officeConversionTasks;
 
     /**
-     * @description 本次请求的唯一 ID
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nextToken' => 'NextToken',
-        'projects'  => 'Projects',
-        'requestId' => 'RequestId',
+        'nextToken'             => 'NextToken',
+        'officeConversionTasks' => 'OfficeConversionTasks',
+        'requestId'             => 'RequestId',
     ];
 
     public function validate()
@@ -44,12 +38,12 @@ class ListProjectsResponseBody extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->projects) {
-            $res['Projects'] = [];
-            if (null !== $this->projects && \is_array($this->projects)) {
+        if (null !== $this->officeConversionTasks) {
+            $res['OfficeConversionTasks'] = [];
+            if (null !== $this->officeConversionTasks && \is_array($this->officeConversionTasks)) {
                 $n = 0;
-                foreach ($this->projects as $item) {
-                    $res['Projects'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->officeConversionTasks as $item) {
+                    $res['OfficeConversionTasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -63,7 +57,7 @@ class ListProjectsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListProjectsResponseBody
+     * @return ListOfficeConversionTaskResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -71,12 +65,12 @@ class ListProjectsResponseBody extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['Projects'])) {
-            if (!empty($map['Projects'])) {
-                $model->projects = [];
-                $n               = 0;
-                foreach ($map['Projects'] as $item) {
-                    $model->projects[$n++] = null !== $item ? Project::fromMap($item) : $item;
+        if (isset($map['OfficeConversionTasks'])) {
+            if (!empty($map['OfficeConversionTasks'])) {
+                $model->officeConversionTasks = [];
+                $n                            = 0;
+                foreach ($map['OfficeConversionTasks'] as $item) {
+                    $model->officeConversionTasks[$n++] = null !== $item ? OfficeConversionTask::fromMap($item) : $item;
                 }
             }
         }

@@ -30,31 +30,43 @@ class CreateDatasetRequest extends Model
     public $description;
 
     /**
+     * @description 模板Id
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description 媒体集最多帮定数
+     *
      * @var int
      */
-    public $datasetMaxOSSBindCount;
+    public $datasetMaxBindCount;
 
     /**
+     * @description 媒体集最多文件数
+     *
      * @var int
      */
     public $datasetMaxFileCount;
 
     /**
+     * @description 媒体集最多实体数
+     *
      * @var int
      */
     public $datasetMaxEntityCount;
 
     /**
+     * @description 媒体集最多关系数
+     *
      * @var int
      */
     public $datasetMaxRelationCount;
 
     /**
+     * @description 媒体集最大文件总大小
+     *
      * @var int
      */
     public $datasetMaxTotalFileSize;
@@ -63,7 +75,7 @@ class CreateDatasetRequest extends Model
         'datasetName'             => 'DatasetName',
         'description'             => 'Description',
         'templateId'              => 'TemplateId',
-        'datasetMaxOSSBindCount'  => 'DatasetMaxOSSBindCount',
+        'datasetMaxBindCount'     => 'DatasetMaxBindCount',
         'datasetMaxFileCount'     => 'DatasetMaxFileCount',
         'datasetMaxEntityCount'   => 'DatasetMaxEntityCount',
         'datasetMaxRelationCount' => 'DatasetMaxRelationCount',
@@ -89,8 +101,8 @@ class CreateDatasetRequest extends Model
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->datasetMaxOSSBindCount) {
-            $res['DatasetMaxOSSBindCount'] = $this->datasetMaxOSSBindCount;
+        if (null !== $this->datasetMaxBindCount) {
+            $res['DatasetMaxBindCount'] = $this->datasetMaxBindCount;
         }
         if (null !== $this->datasetMaxFileCount) {
             $res['DatasetMaxFileCount'] = $this->datasetMaxFileCount;
@@ -128,8 +140,8 @@ class CreateDatasetRequest extends Model
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['DatasetMaxOSSBindCount'])) {
-            $model->datasetMaxOSSBindCount = $map['DatasetMaxOSSBindCount'];
+        if (isset($map['DatasetMaxBindCount'])) {
+            $model->datasetMaxBindCount = $map['DatasetMaxBindCount'];
         }
         if (isset($map['DatasetMaxFileCount'])) {
             $model->datasetMaxFileCount = $map['DatasetMaxFileCount'];

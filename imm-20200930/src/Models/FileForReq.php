@@ -2,23 +2,35 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models\BatchIndexFileMetaRequest;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class files extends Model
+class FileForReq extends Model
 {
     /**
+     * @description URI
+     *
      * @var string
      */
     public $URI;
 
     /**
+     * @description CustomId
+     *
+     * @var string
+     */
+    public $customId;
+
+    /**
+     * @description CustomLabels
+     *
      * @var mixed[]
      */
     public $customLabels;
     protected $_name = [
         'URI'          => 'URI',
+        'customId'     => 'CustomId',
         'customLabels' => 'CustomLabels',
     ];
 
@@ -32,6 +44,9 @@ class files extends Model
         if (null !== $this->URI) {
             $res['URI'] = $this->URI;
         }
+        if (null !== $this->customId) {
+            $res['CustomId'] = $this->customId;
+        }
         if (null !== $this->customLabels) {
             $res['CustomLabels'] = $this->customLabels;
         }
@@ -42,13 +57,16 @@ class files extends Model
     /**
      * @param array $map
      *
-     * @return files
+     * @return FileForReq
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['URI'])) {
             $model->URI = $map['URI'];
+        }
+        if (isset($map['CustomId'])) {
+            $model->customId = $map['CustomId'];
         }
         if (isset($map['CustomLabels'])) {
             $model->customLabels = $map['CustomLabels'];

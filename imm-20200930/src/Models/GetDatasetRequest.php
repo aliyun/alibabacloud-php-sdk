@@ -17,9 +17,15 @@ class GetDatasetRequest extends Model
      * @var string
      */
     public $datasetName;
+
+    /**
+     * @var bool
+     */
+    public $withStatistics;
     protected $_name = [
-        'projectName' => 'ProjectName',
-        'datasetName' => 'DatasetName',
+        'projectName'    => 'ProjectName',
+        'datasetName'    => 'DatasetName',
+        'withStatistics' => 'WithStatistics',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class GetDatasetRequest extends Model
         }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
+        }
+        if (null !== $this->withStatistics) {
+            $res['WithStatistics'] = $this->withStatistics;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class GetDatasetRequest extends Model
         }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
+        }
+        if (isset($map['WithStatistics'])) {
+            $model->withStatistics = $map['WithStatistics'];
         }
 
         return $model;

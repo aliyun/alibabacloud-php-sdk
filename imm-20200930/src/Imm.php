@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBindingRequest;
@@ -32,6 +34,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageLabelsRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageLabelsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingRequest;
@@ -42,11 +46,13 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileSignedURIRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileSignedURIResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetOfficeConversionTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetOfficeConversionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeUrlRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeUrlResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeUrlShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeURLRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeURLResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeURLShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaShrinkRequest;
@@ -54,6 +60,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\ListBindingsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListBindingsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListOfficeConversionTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListOfficeConversionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenRequest;
@@ -68,13 +76,11 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\StopBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\StopBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFileMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectShrinkRequest;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -115,6 +121,547 @@ class Imm extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ListBindingsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListBindingsResponse
+     */
+    public function listBindingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBindingsResponse::fromMap($this->doRPCRequest('ListBindings', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBindingsRequest $request
+     *
+     * @return ListBindingsResponse
+     */
+    public function listBindings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBindingsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteFileMetaRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteFileMetaResponse
+     */
+    public function deleteFileMetaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteFileMetaResponse::fromMap($this->doRPCRequest('DeleteFileMeta', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteFileMetaRequest $request
+     *
+     * @return DeleteFileMetaResponse
+     */
+    public function deleteFileMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFileMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchIndexFileMetaRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BatchIndexFileMetaResponse
+     */
+    public function batchIndexFileMetaWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BatchIndexFileMetaShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->files)) {
+            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BatchIndexFileMetaResponse::fromMap($this->doRPCRequest('BatchIndexFileMeta', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BatchIndexFileMetaRequest $request
+     *
+     * @return BatchIndexFileMetaResponse
+     */
+    public function batchIndexFileMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchIndexFileMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SimpleQueryRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SimpleQueryResponse
+     */
+    public function simpleQueryWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SimpleQueryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->query)) {
+            $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->query), 'Query', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->aggregations)) {
+            $request->aggregationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregations, 'Aggregations', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SimpleQueryResponse::fromMap($this->doRPCRequest('SimpleQuery', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SimpleQueryRequest $request
+     *
+     * @return SimpleQueryResponse
+     */
+    public function simpleQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->simpleQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBindingRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetBindingResponse
+     */
+    public function getBindingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetBindingResponse::fromMap($this->doRPCRequest('GetBinding', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetBindingRequest $request
+     *
+     * @return GetBindingResponse
+     */
+    public function getBinding($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBindingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProjectsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjectsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListProjectsResponse::fromMap($this->doRPCRequest('ListProjects', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDatasetRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetDatasetResponse
+     */
+    public function getDatasetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDatasetResponse::fromMap($this->doRPCRequest('GetDataset', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDatasetRequest $request
+     *
+     * @return GetDatasetResponse
+     */
+    public function getDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchUpdateFileMetaRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchUpdateFileMetaResponse
+     */
+    public function batchUpdateFileMetaWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BatchUpdateFileMetaShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->files)) {
+            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BatchUpdateFileMetaResponse::fromMap($this->doRPCRequest('BatchUpdateFileMeta', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BatchUpdateFileMetaRequest $request
+     *
+     * @return BatchUpdateFileMetaResponse
+     */
+    public function batchUpdateFileMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchUpdateFileMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateOfficeConversionTaskRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateOfficeConversionTaskResponse
+     */
+    public function createOfficeConversionTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateOfficeConversionTaskResponse::fromMap($this->doRPCRequest('CreateOfficeConversionTask', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateOfficeConversionTaskRequest $request
+     *
+     * @return CreateOfficeConversionTaskResponse
+     */
+    public function createOfficeConversionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOfficeConversionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetWebofficeURLRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetWebofficeURLResponse
+     */
+    public function getWebofficeURLWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetWebofficeURLShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->permission)) {
+            $request->permissionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->permission), 'Permission', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->user)) {
+            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->user), 'User', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->watermark)) {
+            $request->watermarkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->watermark), 'Watermark', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->assumeRoleChain)) {
+            $request->assumeRoleChainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->assumeRoleChain), 'AssumeRoleChain', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetWebofficeURLResponse::fromMap($this->doRPCRequest('GetWebofficeURL', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetWebofficeURLRequest $request
+     *
+     * @return GetWebofficeURLResponse
+     */
+    public function getWebofficeURL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWebofficeURLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateProjectResponse::fromMap($this->doRPCRequest('CreateProject', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDatasetsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDatasetsResponse
+     */
+    public function listDatasetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDatasetsResponse::fromMap($this->doRPCRequest('ListDatasets', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDatasetsRequest $request
+     *
+     * @return ListDatasetsResponse
+     */
+    public function listDatasets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatasetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBindingRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteBindingResponse
+     */
+    public function deleteBindingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteBindingResponse::fromMap($this->doRPCRequest('DeleteBinding', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBindingRequest $request
+     *
+     * @return DeleteBindingResponse
+     */
+    public function deleteBinding($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBindingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RefreshWebofficeTokenRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RefreshWebofficeTokenResponse
+     */
+    public function refreshWebofficeTokenWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RefreshWebofficeTokenShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->assumeRoleChain)) {
+            $request->assumeRoleChainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->assumeRoleChain), 'AssumeRoleChain', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RefreshWebofficeTokenResponse::fromMap($this->doRPCRequest('RefreshWebofficeToken', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RefreshWebofficeTokenRequest $request
+     *
+     * @return RefreshWebofficeTokenResponse
+     */
+    public function refreshWebofficeToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshWebofficeTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBindingRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateBindingResponse
+     */
+    public function createBindingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateBindingResponse::fromMap($this->doRPCRequest('CreateBinding', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateBindingRequest $request
+     *
+     * @return CreateBindingResponse
+     */
+    public function createBinding($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBindingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteDatasetResponse
+     */
+    public function deleteDatasetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDatasetResponse::fromMap($this->doRPCRequest('DeleteDataset', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDatasetRequest $request
+     *
+     * @return DeleteDatasetResponse
+     */
+    public function deleteDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOfficeConversionTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetOfficeConversionTaskResponse
+     */
+    public function getOfficeConversionTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetOfficeConversionTaskResponse::fromMap($this->doRPCRequest('GetOfficeConversionTask', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetOfficeConversionTaskRequest $request
+     *
+     * @return GetOfficeConversionTaskResponse
+     */
+    public function getOfficeConversionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOfficeConversionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetFileMetaRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetFileMetaResponse
+     */
+    public function getFileMetaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetFileMetaResponse::fromMap($this->doRPCRequest('GetFileMeta', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetFileMetaRequest $request
+     *
+     * @return GetFileMetaResponse
+     */
+    public function getFileMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileMetaWithOptions($request, $runtime);
     }
 
     /**
@@ -184,625 +731,31 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param BatchIndexFileMetaRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return BatchIndexFileMetaResponse
-     */
-    public function batchIndexFileMetaWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new BatchIndexFileMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->files)) {
-            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BatchIndexFileMetaResponse::fromMap($this->doRPCRequest('BatchIndexFileMeta', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BatchIndexFileMetaRequest $request
-     *
-     * @return BatchIndexFileMetaResponse
-     */
-    public function batchIndexFileMeta($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchIndexFileMetaWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BatchUpdateFileMetaRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return BatchUpdateFileMetaResponse
-     */
-    public function batchUpdateFileMetaWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new BatchUpdateFileMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->files)) {
-            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BatchUpdateFileMetaResponse::fromMap($this->doRPCRequest('BatchUpdateFileMeta', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BatchUpdateFileMetaRequest $request
-     *
-     * @return BatchUpdateFileMetaResponse
-     */
-    public function batchUpdateFileMeta($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchUpdateFileMetaWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateBindingRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateBindingResponse
-     */
-    public function createBindingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateBindingResponse::fromMap($this->doRPCRequest('CreateBinding', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateBindingRequest $request
-     *
-     * @return CreateBindingResponse
-     */
-    public function createBinding($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createBindingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDatasetRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateDatasetResponse
-     */
-    public function createDatasetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateDatasetResponse::fromMap($this->doRPCRequest('CreateDataset', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateDatasetRequest $request
-     *
-     * @return CreateDatasetResponse
-     */
-    public function createDataset($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDatasetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateProjectRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateProjectResponse
-     */
-    public function createProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateProjectResponse::fromMap($this->doRPCRequest('CreateProject', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateProjectRequest $request
-     *
-     * @return CreateProjectResponse
-     */
-    public function createProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteBindingRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteBindingResponse
-     */
-    public function deleteBindingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteBindingResponse::fromMap($this->doRPCRequest('DeleteBinding', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteBindingRequest $request
-     *
-     * @return DeleteBindingResponse
-     */
-    public function deleteBinding($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteBindingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteDatasetRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteDatasetResponse
-     */
-    public function deleteDatasetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteDatasetResponse::fromMap($this->doRPCRequest('DeleteDataset', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteDatasetRequest $request
-     *
-     * @return DeleteDatasetResponse
-     */
-    public function deleteDataset($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteDatasetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteFileMetaRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteFileMetaResponse
-     */
-    public function deleteFileMetaWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteFileMetaResponse::fromMap($this->doRPCRequest('DeleteFileMeta', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteFileMetaRequest $request
-     *
-     * @return DeleteFileMetaResponse
-     */
-    public function deleteFileMeta($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteFileMetaWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteProjectRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteProjectResponse
-     */
-    public function deleteProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteProjectResponse::fromMap($this->doRPCRequest('DeleteProject', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteProjectRequest $request
-     *
-     * @return DeleteProjectResponse
-     */
-    public function deleteProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FuzzyQueryRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return FuzzyQueryResponse
-     */
-    public function fuzzyQueryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return FuzzyQueryResponse::fromMap($this->doRPCRequest('FuzzyQuery', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param FuzzyQueryRequest $request
-     *
-     * @return FuzzyQueryResponse
-     */
-    public function fuzzyQuery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->fuzzyQueryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetBindingRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetBindingResponse
-     */
-    public function getBindingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetBindingResponse::fromMap($this->doRPCRequest('GetBinding', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetBindingRequest $request
-     *
-     * @return GetBindingResponse
-     */
-    public function getBinding($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getBindingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDatasetRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetDatasetResponse
-     */
-    public function getDatasetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDatasetResponse::fromMap($this->doRPCRequest('GetDataset', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDatasetRequest $request
-     *
-     * @return GetDatasetResponse
-     */
-    public function getDataset($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDatasetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetFileMetaRequest $request
+     * @param StopBindingRequest $request
      * @param RuntimeOptions     $runtime
      *
-     * @return GetFileMetaResponse
+     * @return StopBindingResponse
      */
-    public function getFileMetaWithOptions($request, $runtime)
+    public function stopBindingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetFileMetaResponse::fromMap($this->doRPCRequest('GetFileMeta', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopBindingResponse::fromMap($this->doRPCRequest('StopBinding', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetFileMetaRequest $request
+     * @param StopBindingRequest $request
      *
-     * @return GetFileMetaResponse
+     * @return StopBindingResponse
      */
-    public function getFileMeta($request)
+    public function stopBinding($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getFileMetaWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetFileSignedURIRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetFileSignedURIResponse
-     */
-    public function getFileSignedURIWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetFileSignedURIResponse::fromMap($this->doRPCRequest('GetFileSignedURI', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetFileSignedURIRequest $request
-     *
-     * @return GetFileSignedURIResponse
-     */
-    public function getFileSignedURI($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getFileSignedURIWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetProjectRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetProjectResponse
-     */
-    public function getProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetProjectResponse::fromMap($this->doRPCRequest('GetProject', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetProjectRequest $request
-     *
-     * @return GetProjectResponse
-     */
-    public function getProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetWebofficeUrlRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetWebofficeUrlResponse
-     */
-    public function getWebofficeUrlWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GetWebofficeUrlShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->permission)) {
-            $request->permissionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->permission), 'Permission', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->user)) {
-            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->user), 'User', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->watermark)) {
-            $request->watermarkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->watermark), 'Watermark', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->assumeRoleChain)) {
-            $request->assumeRoleChainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->assumeRoleChain), 'AssumeRoleChain', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetWebofficeUrlResponse::fromMap($this->doRPCRequest('GetWebofficeUrl', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetWebofficeUrlRequest $request
-     *
-     * @return GetWebofficeUrlResponse
-     */
-    public function getWebofficeUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getWebofficeUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param IndexFileMetaRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return IndexFileMetaResponse
-     */
-    public function indexFileMetaWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new IndexFileMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customLabels)) {
-            $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return IndexFileMetaResponse::fromMap($this->doRPCRequest('IndexFileMeta', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param IndexFileMetaRequest $request
-     *
-     * @return IndexFileMetaResponse
-     */
-    public function indexFileMeta($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->indexFileMetaWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListBindingsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListBindingsResponse
-     */
-    public function listBindingsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListBindingsResponse::fromMap($this->doRPCRequest('ListBindings', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListBindingsRequest $request
-     *
-     * @return ListBindingsResponse
-     */
-    public function listBindings($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listBindingsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDatasetsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListDatasetsResponse
-     */
-    public function listDatasetsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListDatasetsResponse::fromMap($this->doRPCRequest('ListDatasets', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDatasetsRequest $request
-     *
-     * @return ListDatasetsResponse
-     */
-    public function listDatasets($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDatasetsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListProjectsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListProjectsResponse
-     */
-    public function listProjectsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListProjectsResponse::fromMap($this->doRPCRequest('ListProjects', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListProjectsRequest $request
-     *
-     * @return ListProjectsResponse
-     */
-    public function listProjects($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listProjectsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RefreshWebofficeTokenRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RefreshWebofficeTokenResponse
-     */
-    public function refreshWebofficeTokenWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RefreshWebofficeTokenShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->assumeRoleChain)) {
-            $request->assumeRoleChainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->assumeRoleChain), 'AssumeRoleChain', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RefreshWebofficeTokenResponse::fromMap($this->doRPCRequest('RefreshWebofficeToken', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RefreshWebofficeTokenRequest $request
-     *
-     * @return RefreshWebofficeTokenResponse
-     */
-    public function refreshWebofficeToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->refreshWebofficeTokenWithOptions($request, $runtime);
+        return $this->stopBindingWithOptions($request, $runtime);
     }
 
     /**
@@ -834,103 +787,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SimpleQueryRequest $tmpReq
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SimpleQueryResponse
-     */
-    public function simpleQueryWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new SimpleQueryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->query)) {
-            $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->query), 'Query', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->aggregations)) {
-            $request->aggregationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregations, 'Aggregations', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SimpleQueryResponse::fromMap($this->doRPCRequest('SimpleQuery', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SimpleQueryRequest $request
-     *
-     * @return SimpleQueryResponse
-     */
-    public function simpleQuery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->simpleQueryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StopBindingRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return StopBindingResponse
-     */
-    public function stopBindingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StopBindingResponse::fromMap($this->doRPCRequest('StopBinding', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StopBindingRequest $request
-     *
-     * @return StopBindingResponse
-     */
-    public function stopBinding($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->stopBindingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateDatasetRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return UpdateDatasetResponse
-     */
-    public function updateDatasetWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateDatasetShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resetItems)) {
-            $request->resetItemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resetItems, 'ResetItems', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateDatasetResponse::fromMap($this->doRPCRequest('UpdateDataset', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateDatasetRequest $request
-     *
-     * @return UpdateDatasetResponse
-     */
-    public function updateDataset($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDatasetWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateFileMetaRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
@@ -941,8 +797,8 @@ class Imm extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new UpdateFileMetaShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customLabels)) {
-            $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
+        if (!Utils::isUnset($tmpReq->file)) {
+            $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->file), 'File', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -964,19 +820,187 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateProjectRequest $tmpReq
+     * @param IndexFileMetaRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return IndexFileMetaResponse
+     */
+    public function indexFileMetaWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new IndexFileMetaShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->file)) {
+            $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->file), 'File', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return IndexFileMetaResponse::fromMap($this->doRPCRequest('IndexFileMeta', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param IndexFileMetaRequest $request
+     *
+     * @return IndexFileMetaResponse
+     */
+    public function indexFileMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->indexFileMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectImageLabelsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DetectImageLabelsResponse
+     */
+    public function detectImageLabelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetectImageLabelsResponse::fromMap($this->doRPCRequest('DetectImageLabels', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetectImageLabelsRequest $request
+     *
+     * @return DetectImageLabelsResponse
+     */
+    public function detectImageLabels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectImageLabelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetProjectRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetProjectResponse
+     */
+    public function getProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetProjectResponse::fromMap($this->doRPCRequest('GetProject', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetProjectRequest $request
+     *
+     * @return GetProjectResponse
+     */
+    public function getProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDatasetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDatasetResponse::fromMap($this->doRPCRequest('CreateDataset', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDatasetRequest $request
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteProjectResponse::fromMap($this->doRPCRequest('DeleteProject', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetFileSignedURIRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetFileSignedURIResponse
+     */
+    public function getFileSignedURIWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetFileSignedURIResponse::fromMap($this->doRPCRequest('GetFileSignedURI', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetFileSignedURIRequest $request
+     *
+     * @return GetFileSignedURIResponse
+     */
+    public function getFileSignedURI($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileSignedURIWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
      * @return UpdateProjectResponse
      */
-    public function updateProjectWithOptions($tmpReq, $runtime)
+    public function updateProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateProjectShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resetItems)) {
-            $request->resetItemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resetItems, 'ResetItems', 'json');
-        }
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
@@ -994,5 +1018,89 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateDatasetResponse
+     */
+    public function updateDatasetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDatasetResponse::fromMap($this->doRPCRequest('UpdateDataset', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDatasetRequest $request
+     *
+     * @return UpdateDatasetResponse
+     */
+    public function updateDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FuzzyQueryRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return FuzzyQueryResponse
+     */
+    public function fuzzyQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return FuzzyQueryResponse::fromMap($this->doRPCRequest('FuzzyQuery', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param FuzzyQueryRequest $request
+     *
+     * @return FuzzyQueryResponse
+     */
+    public function fuzzyQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->fuzzyQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListOfficeConversionTaskRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListOfficeConversionTaskResponse
+     */
+    public function listOfficeConversionTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListOfficeConversionTaskResponse::fromMap($this->doRPCRequest('ListOfficeConversionTask', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListOfficeConversionTaskRequest $request
+     *
+     * @return ListOfficeConversionTaskResponse
+     */
+    public function listOfficeConversionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOfficeConversionTaskWithOptions($request, $runtime);
     }
 }

@@ -2,49 +2,65 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingResponseBody;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class binding extends Model
+class Binding extends Model
 {
     /**
+     * @description ProjectName
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description DatasetName
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description URI
+     *
      * @var string
      */
     public $URI;
 
     /**
+     * @description State
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description Phase
+     *
      * @var string
      */
     public $phase;
 
     /**
+     * @description Detail
+     *
      * @var string
      */
-    public $reason;
+    public $detail;
 
     /**
-     * @var int
+     * @description CreateTime
+     *
+     * @var string
      */
     public $createTime;
 
     /**
-     * @var int
+     * @description UpdateTime
+     *
+     * @var string
      */
     public $updateTime;
     protected $_name = [
@@ -53,7 +69,7 @@ class binding extends Model
         'URI'         => 'URI',
         'state'       => 'State',
         'phase'       => 'Phase',
-        'reason'      => 'Reason',
+        'detail'      => 'Detail',
         'createTime'  => 'CreateTime',
         'updateTime'  => 'UpdateTime',
     ];
@@ -80,8 +96,8 @@ class binding extends Model
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
-        if (null !== $this->reason) {
-            $res['Reason'] = $this->reason;
+        if (null !== $this->detail) {
+            $res['Detail'] = $this->detail;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -96,7 +112,7 @@ class binding extends Model
     /**
      * @param array $map
      *
-     * @return binding
+     * @return Binding
      */
     public static function fromMap($map = [])
     {
@@ -116,8 +132,8 @@ class binding extends Model
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }
-        if (isset($map['Reason'])) {
-            $model->reason = $map['Reason'];
+        if (isset($map['Detail'])) {
+            $model->detail = $map['Detail'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];

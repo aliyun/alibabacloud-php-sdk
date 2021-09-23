@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsResponseBody;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class projects extends Model
+class Project extends Model
 {
     /**
      * @description 项目名称
@@ -23,111 +23,119 @@ class projects extends Model
     public $serviceRole;
 
     /**
-     * @description 工作流
+     * @description 创建时间
      *
      * @var string
      */
-    public $workflow;
+    public $createTime;
 
     /**
-     * @description 项目描述
+     * @description 更新时间
+     *
+     * @var string
+     */
+    public $updateTime;
+
+    /**
+     * @description 描述
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 项目创建时间
-     *
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @description 项目上次修改时间
-     *
-     * @var int
-     */
-    public $updateTime;
-
-    /**
      * @description 项目QPS
      *
      * @var int
      */
-    public $projectQPS;
+    public $projectQueriesPerSecond;
 
     /**
-     * @description 项目TPS
+     * @description 项目最大并发数
      *
      * @var int
      */
-    public $projectTPS;
+    public $engineConcurrency;
 
     /**
-     * @description 最大媒体集数
+     * @description 项目最多媒体集数量
      *
      * @var int
      */
     public $projectMaxDatasetCount;
 
     /**
-     * @description 项目下每个媒体集最多绑定数
+     * @description 项目最多绑定数
      *
      * @var int
      */
-    public $datasetMaxOSSBindCount;
+    public $datasetMaxBindCount;
 
     /**
-     * @description 项目下每个媒体集最大文件数量
+     * @description 项目最多文件数
      *
      * @var int
      */
     public $datasetMaxFileCount;
 
     /**
-     * @description 项目下每个媒体集最大实体数
+     * @description 项目最多实体数
      *
      * @var int
      */
     public $datasetMaxEntityCount;
 
     /**
-     * @description 项目下每个媒体集最大关系数
+     * @description 项目最多关系数
      *
      * @var int
      */
     public $datasetMaxRelationCount;
 
     /**
-     * @description 项目下每个媒体集最大文件总大小
+     * @description 项目最大文件总大小
      *
      * @var int
      */
     public $datasetMaxTotalFileSize;
 
     /**
-     * @description 媒体集数量
+     * @description 项目当前媒体集数
      *
      * @var int
      */
     public $datasetCount;
+
+    /**
+     * @description 项目当前文件数
+     *
+     * @var int
+     */
+    public $fileCount;
+
+    /**
+     * @description 项目当前文件总大小
+     *
+     * @var int
+     */
+    public $totalFileSize;
     protected $_name = [
         'projectName'             => 'ProjectName',
         'serviceRole'             => 'ServiceRole',
-        'workflow'                => 'Workflow',
-        'description'             => 'Description',
         'createTime'              => 'CreateTime',
         'updateTime'              => 'UpdateTime',
-        'projectQPS'              => 'ProjectQPS',
-        'projectTPS'              => 'ProjectTPS',
+        'description'             => 'Description',
+        'projectQueriesPerSecond' => 'ProjectQueriesPerSecond',
+        'engineConcurrency'       => 'EngineConcurrency',
         'projectMaxDatasetCount'  => 'ProjectMaxDatasetCount',
-        'datasetMaxOSSBindCount'  => 'DatasetMaxOSSBindCount',
+        'datasetMaxBindCount'     => 'DatasetMaxBindCount',
         'datasetMaxFileCount'     => 'DatasetMaxFileCount',
         'datasetMaxEntityCount'   => 'DatasetMaxEntityCount',
         'datasetMaxRelationCount' => 'DatasetMaxRelationCount',
         'datasetMaxTotalFileSize' => 'DatasetMaxTotalFileSize',
         'datasetCount'            => 'DatasetCount',
+        'fileCount'               => 'FileCount',
+        'totalFileSize'           => 'TotalFileSize',
     ];
 
     public function validate()
@@ -143,29 +151,26 @@ class projects extends Model
         if (null !== $this->serviceRole) {
             $res['ServiceRole'] = $this->serviceRole;
         }
-        if (null !== $this->workflow) {
-            $res['Workflow'] = $this->workflow;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
-        if (null !== $this->projectQPS) {
-            $res['ProjectQPS'] = $this->projectQPS;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
-        if (null !== $this->projectTPS) {
-            $res['ProjectTPS'] = $this->projectTPS;
+        if (null !== $this->projectQueriesPerSecond) {
+            $res['ProjectQueriesPerSecond'] = $this->projectQueriesPerSecond;
+        }
+        if (null !== $this->engineConcurrency) {
+            $res['EngineConcurrency'] = $this->engineConcurrency;
         }
         if (null !== $this->projectMaxDatasetCount) {
             $res['ProjectMaxDatasetCount'] = $this->projectMaxDatasetCount;
         }
-        if (null !== $this->datasetMaxOSSBindCount) {
-            $res['DatasetMaxOSSBindCount'] = $this->datasetMaxOSSBindCount;
+        if (null !== $this->datasetMaxBindCount) {
+            $res['DatasetMaxBindCount'] = $this->datasetMaxBindCount;
         }
         if (null !== $this->datasetMaxFileCount) {
             $res['DatasetMaxFileCount'] = $this->datasetMaxFileCount;
@@ -182,6 +187,12 @@ class projects extends Model
         if (null !== $this->datasetCount) {
             $res['DatasetCount'] = $this->datasetCount;
         }
+        if (null !== $this->fileCount) {
+            $res['FileCount'] = $this->fileCount;
+        }
+        if (null !== $this->totalFileSize) {
+            $res['TotalFileSize'] = $this->totalFileSize;
+        }
 
         return $res;
     }
@@ -189,7 +200,7 @@ class projects extends Model
     /**
      * @param array $map
      *
-     * @return projects
+     * @return Project
      */
     public static function fromMap($map = [])
     {
@@ -200,29 +211,26 @@ class projects extends Model
         if (isset($map['ServiceRole'])) {
             $model->serviceRole = $map['ServiceRole'];
         }
-        if (isset($map['Workflow'])) {
-            $model->workflow = $map['Workflow'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
-        if (isset($map['ProjectQPS'])) {
-            $model->projectQPS = $map['ProjectQPS'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
-        if (isset($map['ProjectTPS'])) {
-            $model->projectTPS = $map['ProjectTPS'];
+        if (isset($map['ProjectQueriesPerSecond'])) {
+            $model->projectQueriesPerSecond = $map['ProjectQueriesPerSecond'];
+        }
+        if (isset($map['EngineConcurrency'])) {
+            $model->engineConcurrency = $map['EngineConcurrency'];
         }
         if (isset($map['ProjectMaxDatasetCount'])) {
             $model->projectMaxDatasetCount = $map['ProjectMaxDatasetCount'];
         }
-        if (isset($map['DatasetMaxOSSBindCount'])) {
-            $model->datasetMaxOSSBindCount = $map['DatasetMaxOSSBindCount'];
+        if (isset($map['DatasetMaxBindCount'])) {
+            $model->datasetMaxBindCount = $map['DatasetMaxBindCount'];
         }
         if (isset($map['DatasetMaxFileCount'])) {
             $model->datasetMaxFileCount = $map['DatasetMaxFileCount'];
@@ -238,6 +246,12 @@ class projects extends Model
         }
         if (isset($map['DatasetCount'])) {
             $model->datasetCount = $map['DatasetCount'];
+        }
+        if (isset($map['FileCount'])) {
+            $model->fileCount = $map['FileCount'];
+        }
+        if (isset($map['TotalFileSize'])) {
+            $model->totalFileSize = $map['TotalFileSize'];
         }
 
         return $model;

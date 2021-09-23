@@ -14,8 +14,14 @@ class UpdateProjectResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var Project
+     */
+    public $project;
     protected $_name = [
         'requestId' => 'RequestId',
+        'project'   => 'Project',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class UpdateProjectResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = null !== $this->project ? $this->project->toMap() : null;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class UpdateProjectResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = Project::fromMap($map['Project']);
         }
 
         return $model;

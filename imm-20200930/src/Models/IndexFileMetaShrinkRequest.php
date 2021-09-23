@@ -21,17 +21,11 @@ class IndexFileMetaShrinkRequest extends Model
     /**
      * @var string
      */
-    public $URI;
-
-    /**
-     * @var string
-     */
-    public $customLabelsShrink;
+    public $fileShrink;
     protected $_name = [
-        'projectName'        => 'ProjectName',
-        'datasetName'        => 'DatasetName',
-        'URI'                => 'URI',
-        'customLabelsShrink' => 'CustomLabels',
+        'projectName' => 'ProjectName',
+        'datasetName' => 'DatasetName',
+        'fileShrink'  => 'File',
     ];
 
     public function validate()
@@ -47,11 +41,8 @@ class IndexFileMetaShrinkRequest extends Model
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-        if (null !== $this->URI) {
-            $res['URI'] = $this->URI;
-        }
-        if (null !== $this->customLabelsShrink) {
-            $res['CustomLabels'] = $this->customLabelsShrink;
+        if (null !== $this->fileShrink) {
+            $res['File'] = $this->fileShrink;
         }
 
         return $res;
@@ -71,11 +62,8 @@ class IndexFileMetaShrinkRequest extends Model
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
-        if (isset($map['URI'])) {
-            $model->URI = $map['URI'];
-        }
-        if (isset($map['CustomLabels'])) {
-            $model->customLabelsShrink = $map['CustomLabels'];
+        if (isset($map['File'])) {
+            $model->fileShrink = $map['File'];
         }
 
         return $model;

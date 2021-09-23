@@ -6,26 +6,32 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateFileMetaRequest extends Model
+class ListOfficeConversionTaskRequest extends Model
 {
     /**
+     * @description 项目名称
+     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @var string
+     * @description 最大结果数
+     *
+     * @var int
      */
-    public $datasetName;
+    public $maxResults;
 
     /**
-     * @var FileForReq
+     * @description 下一条记录开始标记
+     *
+     * @var string
      */
-    public $file;
+    public $nextToken;
     protected $_name = [
         'projectName' => 'ProjectName',
-        'datasetName' => 'DatasetName',
-        'file'        => 'File',
+        'maxResults'  => 'MaxResults',
+        'nextToken'   => 'NextToken',
     ];
 
     public function validate()
@@ -38,11 +44,11 @@ class UpdateFileMetaRequest extends Model
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
-        if (null !== $this->datasetName) {
-            $res['DatasetName'] = $this->datasetName;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
-        if (null !== $this->file) {
-            $res['File'] = null !== $this->file ? $this->file->toMap() : null;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -51,7 +57,7 @@ class UpdateFileMetaRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateFileMetaRequest
+     * @return ListOfficeConversionTaskRequest
      */
     public static function fromMap($map = [])
     {
@@ -59,11 +65,11 @@ class UpdateFileMetaRequest extends Model
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
-        if (isset($map['DatasetName'])) {
-            $model->datasetName = $map['DatasetName'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
-        if (isset($map['File'])) {
-            $model->file = FileForReq::fromMap($map['File']);
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

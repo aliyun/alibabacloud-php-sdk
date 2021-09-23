@@ -9,65 +9,77 @@ use AlibabaCloud\Tea\Model;
 class UpdateDatasetRequest extends Model
 {
     /**
+     * @description 项目名称
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description 媒体集名称
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description 描述
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 模板Id
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description 媒体集最多绑定数
+     *
      * @var int
      */
-    public $datasetMaxOSSBindCount;
+    public $datasetMaxBindCount;
 
     /**
+     * @description 媒体集最多文件数
+     *
      * @var int
      */
     public $datasetMaxFileCount;
 
     /**
+     * @description 媒体集最多实体数
+     *
      * @var int
      */
     public $datasetMaxEntityCount;
 
     /**
+     * @description 媒体集最多关系数
+     *
      * @var int
      */
     public $datasetMaxRelationCount;
 
     /**
+     * @description 媒体集最大文件总大小
+     *
      * @var int
      */
     public $datasetMaxTotalFileSize;
-
-    /**
-     * @var string[]
-     */
-    public $resetItems;
     protected $_name = [
         'projectName'             => 'ProjectName',
         'datasetName'             => 'DatasetName',
         'description'             => 'Description',
         'templateId'              => 'TemplateId',
-        'datasetMaxOSSBindCount'  => 'DatasetMaxOSSBindCount',
+        'datasetMaxBindCount'     => 'DatasetMaxBindCount',
         'datasetMaxFileCount'     => 'DatasetMaxFileCount',
         'datasetMaxEntityCount'   => 'DatasetMaxEntityCount',
         'datasetMaxRelationCount' => 'DatasetMaxRelationCount',
         'datasetMaxTotalFileSize' => 'DatasetMaxTotalFileSize',
-        'resetItems'              => 'ResetItems',
     ];
 
     public function validate()
@@ -89,8 +101,8 @@ class UpdateDatasetRequest extends Model
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->datasetMaxOSSBindCount) {
-            $res['DatasetMaxOSSBindCount'] = $this->datasetMaxOSSBindCount;
+        if (null !== $this->datasetMaxBindCount) {
+            $res['DatasetMaxBindCount'] = $this->datasetMaxBindCount;
         }
         if (null !== $this->datasetMaxFileCount) {
             $res['DatasetMaxFileCount'] = $this->datasetMaxFileCount;
@@ -103,9 +115,6 @@ class UpdateDatasetRequest extends Model
         }
         if (null !== $this->datasetMaxTotalFileSize) {
             $res['DatasetMaxTotalFileSize'] = $this->datasetMaxTotalFileSize;
-        }
-        if (null !== $this->resetItems) {
-            $res['ResetItems'] = $this->resetItems;
         }
 
         return $res;
@@ -131,8 +140,8 @@ class UpdateDatasetRequest extends Model
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['DatasetMaxOSSBindCount'])) {
-            $model->datasetMaxOSSBindCount = $map['DatasetMaxOSSBindCount'];
+        if (isset($map['DatasetMaxBindCount'])) {
+            $model->datasetMaxBindCount = $map['DatasetMaxBindCount'];
         }
         if (isset($map['DatasetMaxFileCount'])) {
             $model->datasetMaxFileCount = $map['DatasetMaxFileCount'];
@@ -145,11 +154,6 @@ class UpdateDatasetRequest extends Model
         }
         if (isset($map['DatasetMaxTotalFileSize'])) {
             $model->datasetMaxTotalFileSize = $map['DatasetMaxTotalFileSize'];
-        }
-        if (isset($map['ResetItems'])) {
-            if (!empty($map['ResetItems'])) {
-                $model->resetItems = $map['ResetItems'];
-            }
         }
 
         return $model;

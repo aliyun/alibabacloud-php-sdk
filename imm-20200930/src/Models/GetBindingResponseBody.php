@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingResponseBody\binding;
 use AlibabaCloud\Tea\Model;
 
 class GetBindingResponseBody extends Model
@@ -17,7 +16,7 @@ class GetBindingResponseBody extends Model
     public $requestId;
 
     /**
-     * @var binding
+     * @var Binding
      */
     public $binding;
     protected $_name = [
@@ -54,7 +53,7 @@ class GetBindingResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Binding'])) {
-            $model->binding = binding::fromMap($map['Binding']);
+            $model->binding = Binding::fromMap($map['Binding']);
         }
 
         return $model;

@@ -14,8 +14,14 @@ class UpdateDatasetResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var Dataset
+     */
+    public $dataset;
     protected $_name = [
         'requestId' => 'RequestId',
+        'dataset'   => 'Dataset',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class UpdateDatasetResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->dataset) {
+            $res['Dataset'] = null !== $this->dataset ? $this->dataset->toMap() : null;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class UpdateDatasetResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Dataset'])) {
+            $model->dataset = Dataset::fromMap($map['Dataset']);
         }
 
         return $model;

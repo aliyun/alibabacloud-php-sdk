@@ -28,10 +28,16 @@ class ListDatasetsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $prefix;
     protected $_name = [
         'projectName' => 'ProjectName',
         'maxResults'  => 'MaxResults',
         'nextToken'   => 'NextToken',
+        'prefix'      => 'Prefix',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class ListDatasetsRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->prefix) {
+            $res['Prefix'] = $this->prefix;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class ListDatasetsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['Prefix'])) {
+            $model->prefix = $map['Prefix'];
         }
 
         return $model;

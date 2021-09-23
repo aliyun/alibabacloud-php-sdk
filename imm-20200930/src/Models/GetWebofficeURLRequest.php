@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetWebofficeUrlShrinkRequest extends Model
+class GetWebofficeURLRequest extends Model
 {
     /**
      * @description 项目名称
@@ -20,7 +20,7 @@ class GetWebofficeUrlShrinkRequest extends Model
      *
      * @var string
      */
-    public $sourceUri;
+    public $sourceURI;
 
     /**
      * @description 文件名，必须带文件名后缀，默认是 SourceUri 的最后一级
@@ -81,45 +81,45 @@ class GetWebofficeUrlShrinkRequest extends Model
     /**
      * @description 权限
      *
-     * @var string
+     * @var WebofficePermission
      */
-    public $permissionShrink;
+    public $permission;
 
     /**
      * @description 用户
      *
-     * @var string
+     * @var WebofficeUser
      */
-    public $userShrink;
+    public $user;
 
     /**
      * @description 水印
      *
-     * @var string
+     * @var WebofficeWatermark
      */
-    public $watermarkShrink;
+    public $watermark;
 
     /**
      * @description 链式授权
      *
-     * @var string
+     * @var AssumeRoleChain
      */
-    public $assumeRoleChainShrink;
+    public $assumeRoleChain;
     protected $_name = [
-        'projectName'           => 'ProjectName',
-        'sourceUri'             => 'SourceUri',
-        'filename'              => 'Filename',
-        'userData'              => 'UserData',
-        'previewPages'          => 'PreviewPages',
-        'password'              => 'Password',
-        'externalUploaded'      => 'ExternalUploaded',
-        'notifyEndpoint'        => 'NotifyEndpoint',
-        'notifyTopicName'       => 'NotifyTopicName',
-        'hidecmb'               => 'Hidecmb',
-        'permissionShrink'      => 'Permission',
-        'userShrink'            => 'User',
-        'watermarkShrink'       => 'Watermark',
-        'assumeRoleChainShrink' => 'AssumeRoleChain',
+        'projectName'      => 'ProjectName',
+        'sourceURI'        => 'SourceURI',
+        'filename'         => 'Filename',
+        'userData'         => 'UserData',
+        'previewPages'     => 'PreviewPages',
+        'password'         => 'Password',
+        'externalUploaded' => 'ExternalUploaded',
+        'notifyEndpoint'   => 'NotifyEndpoint',
+        'notifyTopicName'  => 'NotifyTopicName',
+        'hidecmb'          => 'Hidecmb',
+        'permission'       => 'Permission',
+        'user'             => 'User',
+        'watermark'        => 'Watermark',
+        'assumeRoleChain'  => 'AssumeRoleChain',
     ];
 
     public function validate()
@@ -132,8 +132,8 @@ class GetWebofficeUrlShrinkRequest extends Model
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
-        if (null !== $this->sourceUri) {
-            $res['SourceUri'] = $this->sourceUri;
+        if (null !== $this->sourceURI) {
+            $res['SourceURI'] = $this->sourceURI;
         }
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
@@ -159,17 +159,17 @@ class GetWebofficeUrlShrinkRequest extends Model
         if (null !== $this->hidecmb) {
             $res['Hidecmb'] = $this->hidecmb;
         }
-        if (null !== $this->permissionShrink) {
-            $res['Permission'] = $this->permissionShrink;
+        if (null !== $this->permission) {
+            $res['Permission'] = null !== $this->permission ? $this->permission->toMap() : null;
         }
-        if (null !== $this->userShrink) {
-            $res['User'] = $this->userShrink;
+        if (null !== $this->user) {
+            $res['User'] = null !== $this->user ? $this->user->toMap() : null;
         }
-        if (null !== $this->watermarkShrink) {
-            $res['Watermark'] = $this->watermarkShrink;
+        if (null !== $this->watermark) {
+            $res['Watermark'] = null !== $this->watermark ? $this->watermark->toMap() : null;
         }
-        if (null !== $this->assumeRoleChainShrink) {
-            $res['AssumeRoleChain'] = $this->assumeRoleChainShrink;
+        if (null !== $this->assumeRoleChain) {
+            $res['AssumeRoleChain'] = null !== $this->assumeRoleChain ? $this->assumeRoleChain->toMap() : null;
         }
 
         return $res;
@@ -178,7 +178,7 @@ class GetWebofficeUrlShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetWebofficeUrlShrinkRequest
+     * @return GetWebofficeURLRequest
      */
     public static function fromMap($map = [])
     {
@@ -186,8 +186,8 @@ class GetWebofficeUrlShrinkRequest extends Model
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
-        if (isset($map['SourceUri'])) {
-            $model->sourceUri = $map['SourceUri'];
+        if (isset($map['SourceURI'])) {
+            $model->sourceURI = $map['SourceURI'];
         }
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
@@ -214,16 +214,16 @@ class GetWebofficeUrlShrinkRequest extends Model
             $model->hidecmb = $map['Hidecmb'];
         }
         if (isset($map['Permission'])) {
-            $model->permissionShrink = $map['Permission'];
+            $model->permission = WebofficePermission::fromMap($map['Permission']);
         }
         if (isset($map['User'])) {
-            $model->userShrink = $map['User'];
+            $model->user = WebofficeUser::fromMap($map['User']);
         }
         if (isset($map['Watermark'])) {
-            $model->watermarkShrink = $map['Watermark'];
+            $model->watermark = WebofficeWatermark::fromMap($map['Watermark']);
         }
         if (isset($map['AssumeRoleChain'])) {
-            $model->assumeRoleChainShrink = $map['AssumeRoleChain'];
+            $model->assumeRoleChain = AssumeRoleChain::fromMap($map['AssumeRoleChain']);
         }
 
         return $model;
