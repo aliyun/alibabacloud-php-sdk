@@ -11,17 +11,7 @@ class ConfigInstanceSecurityGroupsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $lang;
-
-    /**
-     * @var string[]
-     */
-    public $authorizedSecurityGroups;
 
     /**
      * @var string
@@ -32,12 +22,16 @@ class ConfigInstanceSecurityGroupsRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string[]
+     */
+    public $authorizedSecurityGroups;
     protected $_name = [
-        'sourceIp'                 => 'SourceIp',
         'lang'                     => 'Lang',
-        'authorizedSecurityGroups' => 'AuthorizedSecurityGroups',
         'instanceId'               => 'InstanceId',
         'regionId'                 => 'RegionId',
+        'authorizedSecurityGroups' => 'AuthorizedSecurityGroups',
     ];
 
     public function validate()
@@ -47,20 +41,17 @@ class ConfigInstanceSecurityGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->authorizedSecurityGroups) {
-            $res['AuthorizedSecurityGroups'] = $this->authorizedSecurityGroups;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->authorizedSecurityGroups) {
+            $res['AuthorizedSecurityGroups'] = $this->authorizedSecurityGroups;
         }
 
         return $res;
@@ -74,22 +65,19 @@ class ConfigInstanceSecurityGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['AuthorizedSecurityGroups'])) {
-            if (!empty($map['AuthorizedSecurityGroups'])) {
-                $model->authorizedSecurityGroups = $map['AuthorizedSecurityGroups'];
-            }
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['AuthorizedSecurityGroups'])) {
+            if (!empty($map['AuthorizedSecurityGroups'])) {
+                $model->authorizedSecurityGroups = $map['AuthorizedSecurityGroups'];
+            }
         }
 
         return $model;

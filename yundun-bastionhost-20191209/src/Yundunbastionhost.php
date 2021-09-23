@@ -65,6 +65,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceUpgradeInfoRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceUpgradeInfoResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserRequest;
@@ -113,6 +115,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostsPortRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostsPortResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceAttributeRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceAttributeResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceUpgradePeriodRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceUpgradePeriodResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserRequest;
@@ -133,6 +137,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UnlockUsersRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UnlockUsersResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UpgradeInstanceImageVersionRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UpgradeInstanceImageVersionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1012,6 +1018,34 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param GetInstanceUpgradeInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetInstanceUpgradeInfoResponse
+     */
+    public function getInstanceUpgradeInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetInstanceUpgradeInfoResponse::fromMap($this->doRPCRequest('GetInstanceUpgradeInfo', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetInstanceUpgradeInfoRequest $request
+     *
+     * @return GetInstanceUpgradeInfoResponse
+     */
+    public function getInstanceUpgradeInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceUpgradeInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetUserRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -1684,6 +1718,34 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param ModifyInstanceUpgradePeriodRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyInstanceUpgradePeriodResponse
+     */
+    public function modifyInstanceUpgradePeriodWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyInstanceUpgradePeriodResponse::fromMap($this->doRPCRequest('ModifyInstanceUpgradePeriod', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceUpgradePeriodRequest $request
+     *
+     * @return ModifyInstanceUpgradePeriodResponse
+     */
+    public function modifyInstanceUpgradePeriod($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceUpgradePeriodWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyUserRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1961,5 +2023,33 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeInstanceImageVersionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpgradeInstanceImageVersionResponse
+     */
+    public function upgradeInstanceImageVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpgradeInstanceImageVersionResponse::fromMap($this->doRPCRequest('UpgradeInstanceImageVersion', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeInstanceImageVersionRequest $request
+     *
+     * @return UpgradeInstanceImageVersionResponse
+     */
+    public function upgradeInstanceImageVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeInstanceImageVersionWithOptions($request, $runtime);
     }
 }

@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
-     * @var hostAccountNames[]
-     */
-    public $hostAccountNames;
-
-    /**
-     * @var string
-     */
-    public $userGroupId;
-
-    /**
      * @var string
      */
     public $code;
@@ -33,12 +23,22 @@ class results extends Model
      * @var string
      */
     public $hostGroupId;
+
+    /**
+     * @var string
+     */
+    public $userGroupId;
+
+    /**
+     * @var hostAccountNames[]
+     */
+    public $hostAccountNames;
     protected $_name = [
-        'hostAccountNames' => 'HostAccountNames',
-        'userGroupId'      => 'UserGroupId',
         'code'             => 'Code',
         'message'          => 'Message',
         'hostGroupId'      => 'HostGroupId',
+        'userGroupId'      => 'UserGroupId',
+        'hostAccountNames' => 'HostAccountNames',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class results extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hostAccountNames) {
-            $res['HostAccountNames'] = [];
-            if (null !== $this->hostAccountNames && \is_array($this->hostAccountNames)) {
-                $n = 0;
-                foreach ($this->hostAccountNames as $item) {
-                    $res['HostAccountNames'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->userGroupId) {
-            $res['UserGroupId'] = $this->userGroupId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -68,6 +56,18 @@ class results extends Model
         }
         if (null !== $this->hostGroupId) {
             $res['HostGroupId'] = $this->hostGroupId;
+        }
+        if (null !== $this->userGroupId) {
+            $res['UserGroupId'] = $this->userGroupId;
+        }
+        if (null !== $this->hostAccountNames) {
+            $res['HostAccountNames'] = [];
+            if (null !== $this->hostAccountNames && \is_array($this->hostAccountNames)) {
+                $n = 0;
+                foreach ($this->hostAccountNames as $item) {
+                    $res['HostAccountNames'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -81,18 +81,6 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HostAccountNames'])) {
-            if (!empty($map['HostAccountNames'])) {
-                $model->hostAccountNames = [];
-                $n                       = 0;
-                foreach ($map['HostAccountNames'] as $item) {
-                    $model->hostAccountNames[$n++] = null !== $item ? hostAccountNames::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['UserGroupId'])) {
-            $model->userGroupId = $map['UserGroupId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -101,6 +89,18 @@ class results extends Model
         }
         if (isset($map['HostGroupId'])) {
             $model->hostGroupId = $map['HostGroupId'];
+        }
+        if (isset($map['UserGroupId'])) {
+            $model->userGroupId = $map['UserGroupId'];
+        }
+        if (isset($map['HostAccountNames'])) {
+            if (!empty($map['HostAccountNames'])) {
+                $model->hostAccountNames = [];
+                $n                       = 0;
+                foreach ($map['HostAccountNames'] as $item) {
+                    $model->hostAccountNames[$n++] = null !== $item ? hostAccountNames::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

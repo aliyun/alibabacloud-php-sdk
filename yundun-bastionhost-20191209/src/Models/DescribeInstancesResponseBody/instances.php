@@ -46,12 +46,12 @@ class instances extends Model
     /**
      * @var string
      */
-    public $internetEndpoint;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $internetEndpoint;
 
     /**
      * @var string
@@ -67,6 +67,11 @@ class instances extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -90,11 +95,12 @@ class instances extends Model
         'description'         => 'Description',
         'expireTime'          => 'ExpireTime',
         'legacy'              => 'Legacy',
-        'internetEndpoint'    => 'InternetEndpoint',
         'instanceId'          => 'InstanceId',
+        'internetEndpoint'    => 'InternetEndpoint',
         'regionId'            => 'RegionId',
         'intranetEndpoint'    => 'IntranetEndpoint',
         'startTime'           => 'StartTime',
+        'resourceGroupId'     => 'ResourceGroupId',
         'instanceStatus'      => 'InstanceStatus',
         'licenseCode'         => 'LicenseCode',
         'publicNetworkAccess' => 'PublicNetworkAccess',
@@ -128,11 +134,11 @@ class instances extends Model
         if (null !== $this->legacy) {
             $res['Legacy'] = $this->legacy;
         }
-        if (null !== $this->internetEndpoint) {
-            $res['InternetEndpoint'] = $this->internetEndpoint;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->internetEndpoint) {
+            $res['InternetEndpoint'] = $this->internetEndpoint;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -142,6 +148,9 @@ class instances extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
@@ -185,11 +194,11 @@ class instances extends Model
         if (isset($map['Legacy'])) {
             $model->legacy = $map['Legacy'];
         }
-        if (isset($map['InternetEndpoint'])) {
-            $model->internetEndpoint = $map['InternetEndpoint'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InternetEndpoint'])) {
+            $model->internetEndpoint = $map['InternetEndpoint'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -199,6 +208,9 @@ class instances extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];

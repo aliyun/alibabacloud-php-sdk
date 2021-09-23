@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -54,8 +44,6 @@ class DescribeInstancesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'lang'            => 'Lang',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'regionId'        => 'RegionId',
@@ -72,12 +60,6 @@ class DescribeInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -117,12 +99,6 @@ class DescribeInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

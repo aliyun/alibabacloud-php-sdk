@@ -16,12 +16,12 @@ class hostGroups extends Model
     /**
      * @var string
      */
-    public $comment;
+    public $hostGroupId;
 
     /**
      * @var string
      */
-    public $hostGroupId;
+    public $comment;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class hostGroups extends Model
     public $hostGroupName;
     protected $_name = [
         'memberCount'   => 'MemberCount',
-        'comment'       => 'Comment',
         'hostGroupId'   => 'HostGroupId',
+        'comment'       => 'Comment',
         'hostGroupName' => 'HostGroupName',
     ];
 
@@ -44,11 +44,11 @@ class hostGroups extends Model
         if (null !== $this->memberCount) {
             $res['MemberCount'] = $this->memberCount;
         }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
-        }
         if (null !== $this->hostGroupId) {
             $res['HostGroupId'] = $this->hostGroupId;
+        }
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
         if (null !== $this->hostGroupName) {
             $res['HostGroupName'] = $this->hostGroupName;
@@ -68,11 +68,11 @@ class hostGroups extends Model
         if (isset($map['MemberCount'])) {
             $model->memberCount = $map['MemberCount'];
         }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
-        }
         if (isset($map['HostGroupId'])) {
             $model->hostGroupId = $map['HostGroupId'];
+        }
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
         if (isset($map['HostGroupName'])) {
             $model->hostGroupName = $map['HostGroupName'];

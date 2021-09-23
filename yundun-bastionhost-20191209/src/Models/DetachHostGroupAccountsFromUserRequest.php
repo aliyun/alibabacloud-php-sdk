@@ -11,11 +11,6 @@ class DetachHostGroupAccountsFromUserRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -33,7 +28,6 @@ class DetachHostGroupAccountsFromUserRequest extends Model
      */
     public $hostGroups;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
         'instanceId' => 'InstanceId',
         'regionId'   => 'RegionId',
         'userId'     => 'UserId',
@@ -47,9 +41,6 @@ class DetachHostGroupAccountsFromUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -74,9 +65,6 @@ class DetachHostGroupAccountsFromUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

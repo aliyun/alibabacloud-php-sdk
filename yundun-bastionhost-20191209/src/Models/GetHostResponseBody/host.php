@@ -25,11 +25,6 @@ class host extends Model
     public $hostPublicAddress;
 
     /**
-     * @var protocols[]
-     */
-    public $protocols;
-
-    /**
      * @var string
      */
     public $hostName;
@@ -63,11 +58,15 @@ class host extends Model
      * @var string
      */
     public $sourceInstanceId;
+
+    /**
+     * @var protocols[]
+     */
+    public $protocols;
     protected $_name = [
         'comment'             => 'Comment',
         'activeAddressType'   => 'ActiveAddressType',
         'hostPublicAddress'   => 'HostPublicAddress',
-        'protocols'           => 'Protocols',
         'hostName'            => 'HostName',
         'source'              => 'Source',
         'hostPrivateAddress'  => 'HostPrivateAddress',
@@ -75,6 +74,7 @@ class host extends Model
         'hostId'              => 'HostId',
         'sourceInstanceState' => 'SourceInstanceState',
         'sourceInstanceId'    => 'SourceInstanceId',
+        'protocols'           => 'Protocols',
     ];
 
     public function validate()
@@ -92,15 +92,6 @@ class host extends Model
         }
         if (null !== $this->hostPublicAddress) {
             $res['HostPublicAddress'] = $this->hostPublicAddress;
-        }
-        if (null !== $this->protocols) {
-            $res['Protocols'] = [];
-            if (null !== $this->protocols && \is_array($this->protocols)) {
-                $n = 0;
-                foreach ($this->protocols as $item) {
-                    $res['Protocols'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
@@ -123,6 +114,15 @@ class host extends Model
         if (null !== $this->sourceInstanceId) {
             $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
+        if (null !== $this->protocols) {
+            $res['Protocols'] = [];
+            if (null !== $this->protocols && \is_array($this->protocols)) {
+                $n = 0;
+                foreach ($this->protocols as $item) {
+                    $res['Protocols'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -144,15 +144,6 @@ class host extends Model
         if (isset($map['HostPublicAddress'])) {
             $model->hostPublicAddress = $map['HostPublicAddress'];
         }
-        if (isset($map['Protocols'])) {
-            if (!empty($map['Protocols'])) {
-                $model->protocols = [];
-                $n                = 0;
-                foreach ($map['Protocols'] as $item) {
-                    $model->protocols[$n++] = null !== $item ? protocols::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
@@ -173,6 +164,15 @@ class host extends Model
         }
         if (isset($map['SourceInstanceId'])) {
             $model->sourceInstanceId = $map['SourceInstanceId'];
+        }
+        if (isset($map['Protocols'])) {
+            if (!empty($map['Protocols'])) {
+                $model->protocols = [];
+                $n                = 0;
+                foreach ($map['Protocols'] as $item) {
+                    $model->protocols[$n++] = null !== $item ? protocols::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -11,12 +11,12 @@ class tagResources extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $tagValue;
 
     /**
      * @var string
      */
-    public $tagValue;
+    public $resourceType;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class tagResources extends Model
      */
     public $tagKey;
     protected $_name = [
-        'resourceType' => 'ResourceType',
         'tagValue'     => 'TagValue',
+        'resourceType' => 'ResourceType',
         'resourceId'   => 'ResourceId',
         'tagKey'       => 'TagKey',
     ];
@@ -41,11 +41,11 @@ class tagResources extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -65,11 +65,11 @@ class tagResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

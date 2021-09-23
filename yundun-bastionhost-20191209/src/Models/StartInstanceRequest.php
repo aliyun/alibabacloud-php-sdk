@@ -11,16 +11,6 @@ class StartInstanceRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -36,20 +26,12 @@ class StartInstanceRequest extends Model
     /**
      * @var string[]
      */
-    public $instanceSecurityGroups;
-
-    /**
-     * @var string[]
-     */
     public $securityGroupIds;
     protected $_name = [
-        'sourceIp'               => 'SourceIp',
-        'lang'                   => 'Lang',
-        'instanceId'             => 'InstanceId',
-        'vswitchId'              => 'VswitchId',
-        'regionId'               => 'RegionId',
-        'instanceSecurityGroups' => 'InstanceSecurityGroups',
-        'securityGroupIds'       => 'SecurityGroupIds',
+        'instanceId'       => 'InstanceId',
+        'vswitchId'        => 'VswitchId',
+        'regionId'         => 'RegionId',
+        'securityGroupIds' => 'SecurityGroupIds',
     ];
 
     public function validate()
@@ -59,12 +41,6 @@ class StartInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -73,9 +49,6 @@ class StartInstanceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->instanceSecurityGroups) {
-            $res['InstanceSecurityGroups'] = $this->instanceSecurityGroups;
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
@@ -92,12 +65,6 @@ class StartInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -106,11 +73,6 @@ class StartInstanceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InstanceSecurityGroups'])) {
-            if (!empty($map['InstanceSecurityGroups'])) {
-                $model->instanceSecurityGroups = $map['InstanceSecurityGroups'];
-            }
         }
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {

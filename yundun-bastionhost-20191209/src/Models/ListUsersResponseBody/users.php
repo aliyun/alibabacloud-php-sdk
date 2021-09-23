@@ -49,14 +49,14 @@ class users extends Model
     public $userName;
 
     /**
-     * @var string[]
-     */
-    public $userState;
-
-    /**
      * @var string
      */
     public $sourceUserId;
+
+    /**
+     * @var string[]
+     */
+    public $userState;
     protected $_name = [
         'displayName'       => 'DisplayName',
         'email'             => 'Email',
@@ -66,8 +66,8 @@ class users extends Model
         'userId'            => 'UserId',
         'source'            => 'Source',
         'userName'          => 'UserName',
-        'userState'         => 'UserState',
         'sourceUserId'      => 'SourceUserId',
+        'userState'         => 'UserState',
     ];
 
     public function validate()
@@ -101,11 +101,11 @@ class users extends Model
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
-        if (null !== $this->userState) {
-            $res['UserState'] = $this->userState;
-        }
         if (null !== $this->sourceUserId) {
             $res['SourceUserId'] = $this->sourceUserId;
+        }
+        if (null !== $this->userState) {
+            $res['UserState'] = $this->userState;
         }
 
         return $res;
@@ -143,13 +143,13 @@ class users extends Model
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
+        if (isset($map['SourceUserId'])) {
+            $model->sourceUserId = $map['SourceUserId'];
+        }
         if (isset($map['UserState'])) {
             if (!empty($map['UserState'])) {
                 $model->userState = $map['UserState'];
             }
-        }
-        if (isset($map['SourceUserId'])) {
-            $model->sourceUserId = $map['SourceUserId'];
         }
 
         return $model;

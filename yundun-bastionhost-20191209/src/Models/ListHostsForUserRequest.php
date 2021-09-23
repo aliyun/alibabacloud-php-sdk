@@ -11,11 +11,6 @@ class ListHostsForUserRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -58,7 +53,6 @@ class ListHostsForUserRequest extends Model
      */
     public $OSType;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
         'instanceId'  => 'InstanceId',
         'regionId'    => 'RegionId',
         'mode'        => 'Mode',
@@ -77,9 +71,6 @@ class ListHostsForUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -119,9 +110,6 @@ class ListHostsForUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

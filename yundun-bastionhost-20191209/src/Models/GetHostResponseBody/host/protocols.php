@@ -11,21 +11,21 @@ class protocols extends Model
     /**
      * @var string
      */
-    public $protocolName;
-
-    /**
-     * @var string
-     */
     public $hostFingerPrint;
 
     /**
      * @var int
      */
     public $port;
+
+    /**
+     * @var string
+     */
+    public $protocolName;
     protected $_name = [
-        'protocolName'    => 'ProtocolName',
         'hostFingerPrint' => 'HostFingerPrint',
         'port'            => 'Port',
+        'protocolName'    => 'ProtocolName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class protocols extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->protocolName) {
-            $res['ProtocolName'] = $this->protocolName;
-        }
         if (null !== $this->hostFingerPrint) {
             $res['HostFingerPrint'] = $this->hostFingerPrint;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->protocolName) {
+            $res['ProtocolName'] = $this->protocolName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class protocols extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProtocolName'])) {
-            $model->protocolName = $map['ProtocolName'];
-        }
         if (isset($map['HostFingerPrint'])) {
             $model->hostFingerPrint = $map['HostFingerPrint'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['ProtocolName'])) {
+            $model->protocolName = $map['ProtocolName'];
         }
 
         return $model;

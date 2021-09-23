@@ -11,16 +11,6 @@ class DescribeInstanceAttributeRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
@@ -28,8 +18,6 @@ class DescribeInstanceAttributeRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
-        'lang'       => 'Lang',
         'regionId'   => 'RegionId',
         'instanceId' => 'InstanceId',
     ];
@@ -41,12 +29,6 @@ class DescribeInstanceAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -65,12 +47,6 @@ class DescribeInstanceAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

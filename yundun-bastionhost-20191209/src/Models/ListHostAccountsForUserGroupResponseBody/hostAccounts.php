@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class hostAccounts extends Model
 {
     /**
+     * @var string
+     */
+    public $hostAccountName;
+
+    /**
+     * @var string
+     */
+    public $hostAccountId;
+
+    /**
      * @var bool
      */
     public $isAuthorized;
@@ -21,22 +31,12 @@ class hostAccounts extends Model
     /**
      * @var string
      */
-    public $hostAccountName;
-
-    /**
-     * @var string
-     */
-    public $hostAccountId;
-
-    /**
-     * @var string
-     */
     public $hostId;
     protected $_name = [
-        'isAuthorized'    => 'IsAuthorized',
-        'protocolName'    => 'ProtocolName',
         'hostAccountName' => 'HostAccountName',
         'hostAccountId'   => 'HostAccountId',
+        'isAuthorized'    => 'IsAuthorized',
+        'protocolName'    => 'ProtocolName',
         'hostId'          => 'HostId',
     ];
 
@@ -47,17 +47,17 @@ class hostAccounts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isAuthorized) {
-            $res['IsAuthorized'] = $this->isAuthorized;
-        }
-        if (null !== $this->protocolName) {
-            $res['ProtocolName'] = $this->protocolName;
-        }
         if (null !== $this->hostAccountName) {
             $res['HostAccountName'] = $this->hostAccountName;
         }
         if (null !== $this->hostAccountId) {
             $res['HostAccountId'] = $this->hostAccountId;
+        }
+        if (null !== $this->isAuthorized) {
+            $res['IsAuthorized'] = $this->isAuthorized;
+        }
+        if (null !== $this->protocolName) {
+            $res['ProtocolName'] = $this->protocolName;
         }
         if (null !== $this->hostId) {
             $res['HostId'] = $this->hostId;
@@ -74,17 +74,17 @@ class hostAccounts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsAuthorized'])) {
-            $model->isAuthorized = $map['IsAuthorized'];
-        }
-        if (isset($map['ProtocolName'])) {
-            $model->protocolName = $map['ProtocolName'];
-        }
         if (isset($map['HostAccountName'])) {
             $model->hostAccountName = $map['HostAccountName'];
         }
         if (isset($map['HostAccountId'])) {
             $model->hostAccountId = $map['HostAccountId'];
+        }
+        if (isset($map['IsAuthorized'])) {
+            $model->isAuthorized = $map['IsAuthorized'];
+        }
+        if (isset($map['ProtocolName'])) {
+            $model->protocolName = $map['ProtocolName'];
         }
         if (isset($map['HostId'])) {
             $model->hostId = $map['HostId'];
