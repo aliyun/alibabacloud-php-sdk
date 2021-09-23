@@ -28,11 +28,17 @@ class configRules extends Model
      * @var configRuleParameters[]
      */
     public $configRuleParameters;
+
+    /**
+     * @var int
+     */
+    public $riskLevel;
     protected $_name = [
         'description'           => 'Description',
         'managedRuleIdentifier' => 'ManagedRuleIdentifier',
         'managedRuleName'       => 'ManagedRuleName',
         'configRuleParameters'  => 'ConfigRuleParameters',
+        'riskLevel'             => 'RiskLevel',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class configRules extends Model
                     $res['ConfigRuleParameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         return $res;
@@ -89,6 +98,9 @@ class configRules extends Model
                     $model->configRuleParameters[$n++] = null !== $item ? configRuleParameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         return $model;
