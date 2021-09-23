@@ -99,6 +99,11 @@ class UpdateStackRequest extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var int
+     */
+    public $parallelism;
     protected $_name = [
         'stackId'                     => 'StackId',
         'clientToken'                 => 'ClientToken',
@@ -118,6 +123,7 @@ class UpdateStackRequest extends Model
         'templateVersion'             => 'TemplateVersion',
         'parameters'                  => 'Parameters',
         'tags'                        => 'Tags',
+        'parallelism'                 => 'Parallelism',
     ];
 
     public function validate()
@@ -192,6 +198,9 @@ class UpdateStackRequest extends Model
                     $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->parallelism) {
+            $res['Parallelism'] = $this->parallelism;
         }
 
         return $res;
@@ -270,6 +279,9 @@ class UpdateStackRequest extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Parallelism'])) {
+            $model->parallelism = $map['Parallelism'];
         }
 
         return $model;

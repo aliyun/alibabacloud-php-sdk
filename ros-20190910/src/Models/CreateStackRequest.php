@@ -99,6 +99,11 @@ class CreateStackRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $parallelism;
     protected $_name = [
         'disableRollback'    => 'DisableRollback',
         'templateBody'       => 'TemplateBody',
@@ -118,6 +123,7 @@ class CreateStackRequest extends Model
         'notificationURLs'   => 'NotificationURLs',
         'tags'               => 'Tags',
         'resourceGroupId'    => 'ResourceGroupId',
+        'parallelism'        => 'Parallelism',
     ];
 
     public function validate()
@@ -192,6 +198,9 @@ class CreateStackRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->parallelism) {
+            $res['Parallelism'] = $this->parallelism;
         }
 
         return $res;
@@ -272,6 +281,9 @@ class CreateStackRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Parallelism'])) {
+            $model->parallelism = $map['Parallelism'];
         }
 
         return $model;

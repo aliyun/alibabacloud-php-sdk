@@ -63,6 +63,11 @@ class ContinueCreateStackRequest extends Model
      * @var parameters[]
      */
     public $parameters;
+
+    /**
+     * @var int
+     */
+    public $parallelism;
     protected $_name = [
         'stackId'             => 'StackId',
         'regionId'            => 'RegionId',
@@ -75,6 +80,7 @@ class ContinueCreateStackRequest extends Model
         'templateVersion'     => 'TemplateVersion',
         'recreatingResources' => 'RecreatingResources',
         'parameters'          => 'Parameters',
+        'parallelism'         => 'Parallelism',
     ];
 
     public function validate()
@@ -122,6 +128,9 @@ class ContinueCreateStackRequest extends Model
                     $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->parallelism) {
+            $res['Parallelism'] = $this->parallelism;
         }
 
         return $res;
@@ -175,6 +184,9 @@ class ContinueCreateStackRequest extends Model
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Parallelism'])) {
+            $model->parallelism = $map['Parallelism'];
         }
 
         return $model;
