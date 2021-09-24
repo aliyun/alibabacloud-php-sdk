@@ -56,6 +56,27 @@ class data extends Model
      * @var int
      */
     public $accountType;
+
+    /**
+     * @description 移动应用账户
+     *
+     * @var string
+     */
+    public $appAccount;
+
+    /**
+     * @description 移动应用协同渠道
+     *
+     * @var string
+     */
+    public $synergyChannel;
+
+    /**
+     * @description 是否关联
+     *
+     * @var string
+     */
+    public $isRelated;
     protected $_name = [
         'userId'         => 'userId',
         'ramId'          => 'ramId',
@@ -64,6 +85,9 @@ class data extends Model
         'email'          => 'email',
         'isEditableUser' => 'isEditableUser',
         'accountType'    => 'accountType',
+        'appAccount'     => 'appAccount',
+        'synergyChannel' => 'synergyChannel',
+        'isRelated'      => 'isRelated',
     ];
 
     public function validate()
@@ -93,6 +117,15 @@ class data extends Model
         }
         if (null !== $this->accountType) {
             $res['accountType'] = $this->accountType;
+        }
+        if (null !== $this->appAccount) {
+            $res['appAccount'] = $this->appAccount;
+        }
+        if (null !== $this->synergyChannel) {
+            $res['synergyChannel'] = $this->synergyChannel;
+        }
+        if (null !== $this->isRelated) {
+            $res['isRelated'] = $this->isRelated;
         }
 
         return $res;
@@ -126,6 +159,15 @@ class data extends Model
         }
         if (isset($map['accountType'])) {
             $model->accountType = $map['accountType'];
+        }
+        if (isset($map['appAccount'])) {
+            $model->appAccount = $map['appAccount'];
+        }
+        if (isset($map['synergyChannel'])) {
+            $model->synergyChannel = $map['synergyChannel'];
+        }
+        if (isset($map['isRelated'])) {
+            $model->isRelated = $map['isRelated'];
         }
 
         return $model;

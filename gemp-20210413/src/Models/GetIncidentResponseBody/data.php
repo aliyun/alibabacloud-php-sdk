@@ -147,6 +147,13 @@ class data extends Model
      * @var string
      */
     public $problemNumber;
+
+    /**
+     * @description 持续时间
+     *
+     * @var int
+     */
+    public $durationTime;
     protected $_name = [
         'incidentId'                => 'incidentId',
         'routeRuleId'               => 'routeRuleId',
@@ -168,6 +175,7 @@ class data extends Model
         'incidentDescription'       => 'incidentDescription',
         'problemId'                 => 'problemId',
         'problemNumber'             => 'problemNumber',
+        'durationTime'              => 'durationTime',
     ];
 
     public function validate()
@@ -236,6 +244,9 @@ class data extends Model
         }
         if (null !== $this->problemNumber) {
             $res['problemNumber'] = $this->problemNumber;
+        }
+        if (null !== $this->durationTime) {
+            $res['durationTime'] = $this->durationTime;
         }
 
         return $res;
@@ -308,6 +319,9 @@ class data extends Model
         }
         if (isset($map['problemNumber'])) {
             $model->problemNumber = $map['problemNumber'];
+        }
+        if (isset($map['durationTime'])) {
+            $model->durationTime = $map['durationTime'];
         }
 
         return $model;

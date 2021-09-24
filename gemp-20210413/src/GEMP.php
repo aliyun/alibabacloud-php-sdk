@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateSubscriptionRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateSubscriptionResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateTenantApplicationRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateTenantApplicationResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateUserRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateUserResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\DeleteEscalationPlanRequest;
@@ -108,6 +110,8 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIncidentRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIncidentResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIncidentStatisticsRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIncidentStatisticsResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIncidentSubtotalCountRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIncidentSubtotalCountResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIntegrationConfigRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIntegrationConfigResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetProblemEffectionServiceRequest;
@@ -132,8 +136,12 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\GetServiceGroupSpecialPersonSchedulin
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetServiceGroupSpecialPersonSchedulingResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetServiceRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetServiceResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetSimilarIncidentStatisticsRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetSimilarIncidentStatisticsResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetSubscriptionRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetSubscriptionResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetTenantApplicationRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetTenantApplicationResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetUserGuideStatusRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetUserGuideStatusResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetUserRequest;
@@ -359,6 +367,9 @@ class GEMP extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             @$body['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->synergyChannel)) {
+            @$body['synergyChannel'] = $request->synergyChannel;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -765,6 +776,41 @@ class GEMP extends OpenApiClient
         ]);
 
         return DisableRouteRuleResponse::fromMap($this->doROARequest('DisableRouteRule', '2021-04-13', 'HTTPS', 'POST', 'AK', '/routeRule/disable', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetTenantApplicationRequest $request
+     *
+     * @return GetTenantApplicationResponse
+     */
+    public function getTenantApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTenantApplicationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetTenantApplicationRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetTenantApplicationResponse
+     */
+    public function getTenantApplicationWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return GetTenantApplicationResponse::fromMap($this->doROARequest('GetTenantApplication', '2021-04-13', 'HTTPS', 'POST', 'AK', '/mobileApp/detail', 'json', $req, $runtime));
     }
 
     /**
@@ -3376,6 +3422,56 @@ class GEMP extends OpenApiClient
     }
 
     /**
+     * @param GetSimilarIncidentStatisticsRequest $request
+     *
+     * @return GetSimilarIncidentStatisticsResponse
+     */
+    public function getSimilarIncidentStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSimilarIncidentStatisticsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetSimilarIncidentStatisticsRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetSimilarIncidentStatisticsResponse
+     */
+    public function getSimilarIncidentStatisticsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->incidentId)) {
+            @$body['incidentId'] = $request->incidentId;
+        }
+        if (!Utils::isUnset($request->incidentTitle)) {
+            @$body['incidentTitle'] = $request->incidentTitle;
+        }
+        if (!Utils::isUnset($request->createTime)) {
+            @$body['createTime'] = $request->createTime;
+        }
+        if (!Utils::isUnset($request->relatedServiceId)) {
+            @$body['relatedServiceId'] = $request->relatedServiceId;
+        }
+        if (!Utils::isUnset($request->events)) {
+            @$body['events'] = $request->events;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return GetSimilarIncidentStatisticsResponse::fromMap($this->doROARequest('GetSimilarIncidentStatistics', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/similarIncident/statistics', 'json', $req, $runtime));
+    }
+
+    /**
      * @param CreateProblemTimelineRequest $request
      *
      * @return CreateProblemTimelineResponse
@@ -4824,6 +4920,44 @@ class GEMP extends OpenApiClient
     }
 
     /**
+     * @param CreateTenantApplicationRequest $request
+     *
+     * @return CreateTenantApplicationResponse
+     */
+    public function createTenantApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTenantApplicationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateTenantApplicationRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateTenantApplicationResponse
+     */
+    public function createTenantApplicationWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->channel)) {
+            @$body['channel'] = $request->channel;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return CreateTenantApplicationResponse::fromMap($this->doROARequest('CreateTenantApplication', '2021-04-13', 'HTTPS', 'POST', 'AK', '/mobileApp/create', 'json', $req, $runtime));
+    }
+
+    /**
      * @param GetIntegrationConfigRequest $request
      *
      * @return GetIntegrationConfigResponse
@@ -4900,6 +5034,44 @@ class GEMP extends OpenApiClient
         ]);
 
         return RevokeProblemRecoveryResponse::fromMap($this->doROARequest('RevokeProblemRecovery', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/revoke', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetIncidentSubtotalCountRequest $request
+     *
+     * @return GetIncidentSubtotalCountResponse
+     */
+    public function getIncidentSubtotalCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIncidentSubtotalCountWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetIncidentSubtotalCountRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetIncidentSubtotalCountResponse
+     */
+    public function getIncidentSubtotalCountWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->incidentIds)) {
+            @$body['incidentIds'] = $request->incidentIds;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return GetIncidentSubtotalCountResponse::fromMap($this->doROARequest('GetIncidentSubtotalCount', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/subtotal/count', 'json', $req, $runtime));
     }
 
     /**

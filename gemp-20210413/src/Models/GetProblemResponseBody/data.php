@@ -157,6 +157,13 @@ class data extends Model
     public $cancelReason;
 
     /**
+     * @description 持续时间
+     *
+     * @var int
+     */
+    public $durationTime;
+
+    /**
      * @description 处理中故障操作日志
      *
      * @var handingProblemOperateLogs[]
@@ -232,6 +239,7 @@ class data extends Model
         'feedback'                    => 'feedback',
         'cancelReasonDescription'     => 'cancelReasonDescription',
         'cancelReason'                => 'cancelReason',
+        'durationTime'                => 'durationTime',
         'handingProblemOperateLogs'   => 'handingProblemOperateLogs',
         'restoredProblemOperateLogs'  => 'restoredProblemOperateLogs',
         'replayingProblemOperateLogs' => 'replayingProblemOperateLogs',
@@ -308,6 +316,9 @@ class data extends Model
         }
         if (null !== $this->cancelReason) {
             $res['cancelReason'] = $this->cancelReason;
+        }
+        if (null !== $this->durationTime) {
+            $res['durationTime'] = $this->durationTime;
         }
         if (null !== $this->handingProblemOperateLogs) {
             $res['handingProblemOperateLogs'] = [];
@@ -452,6 +463,9 @@ class data extends Model
         }
         if (isset($map['cancelReason'])) {
             $model->cancelReason = $map['cancelReason'];
+        }
+        if (isset($map['durationTime'])) {
+            $model->durationTime = $map['durationTime'];
         }
         if (isset($map['handingProblemOperateLogs'])) {
             if (!empty($map['handingProblemOperateLogs'])) {

@@ -56,14 +56,22 @@ class ListUsersRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description 移动应用协同渠道
+     *
+     * @var string
+     */
+    public $synergyChannel;
     protected $_name = [
-        'username'    => 'username',
-        'phone'       => 'phone',
-        'ramId'       => 'ramId',
-        'scene'       => 'scene',
-        'clientToken' => 'clientToken',
-        'pageNumber'  => 'pageNumber',
-        'pageSize'    => 'pageSize',
+        'username'       => 'username',
+        'phone'          => 'phone',
+        'ramId'          => 'ramId',
+        'scene'          => 'scene',
+        'clientToken'    => 'clientToken',
+        'pageNumber'     => 'pageNumber',
+        'pageSize'       => 'pageSize',
+        'synergyChannel' => 'synergyChannel',
     ];
 
     public function validate()
@@ -93,6 +101,9 @@ class ListUsersRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->synergyChannel) {
+            $res['synergyChannel'] = $this->synergyChannel;
         }
 
         return $res;
@@ -126,6 +137,9 @@ class ListUsersRequest extends Model
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['synergyChannel'])) {
+            $model->synergyChannel = $map['synergyChannel'];
         }
 
         return $model;
