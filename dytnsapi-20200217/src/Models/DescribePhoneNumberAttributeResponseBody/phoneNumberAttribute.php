@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPhoneNumberAttributeResponseBody;
+namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeResponseBody;
 
 use AlibabaCloud\Tea\Model;
 

@@ -6,19 +6,26 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PvrCallbackFCUResponse extends Model
+class DescribePhoneNumberAttributeResponse extends Model
 {
     /**
      * @var string[]
      */
     public $headers;
+
+    /**
+     * @var DescribePhoneNumberAttributeResponseBody
+     */
+    public $body;
     protected $_name = [
         'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
         Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -27,6 +34,9 @@ class PvrCallbackFCUResponse extends Model
         if (null !== $this->headers) {
             $res['headers'] = $this->headers;
         }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        }
 
         return $res;
     }
@@ -34,13 +44,16 @@ class PvrCallbackFCUResponse extends Model
     /**
      * @param array $map
      *
-     * @return PvrCallbackFCUResponse
+     * @return DescribePhoneNumberAttributeResponse
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['headers'])) {
             $model->headers = $map['headers'];
+        }
+        if (isset($map['body'])) {
+            $model->body = DescribePhoneNumberAttributeResponseBody::fromMap($map['body']);
         }
 
         return $model;

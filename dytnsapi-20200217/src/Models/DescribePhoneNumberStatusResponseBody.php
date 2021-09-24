@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePhoneNumberStatusResponseBody extends Model
 {
     /**
-     * @var phoneStatus
+     * @var string
      */
-    public $phoneStatus;
+    public $code;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class DescribePhoneNumberStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var phoneStatus
      */
-    public $code;
+    public $phoneStatus;
     protected $_name = [
-        'phoneStatus' => 'PhoneStatus',
+        'code'        => 'Code',
         'message'     => 'Message',
         'requestId'   => 'RequestId',
-        'code'        => 'Code',
+        'phoneStatus' => 'PhoneStatus',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class DescribePhoneNumberStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->phoneStatus) {
-            $res['PhoneStatus'] = null !== $this->phoneStatus ? $this->phoneStatus->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -51,8 +51,8 @@ class DescribePhoneNumberStatusResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->phoneStatus) {
+            $res['PhoneStatus'] = null !== $this->phoneStatus ? $this->phoneStatus->toMap() : null;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class DescribePhoneNumberStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PhoneStatus'])) {
-            $model->phoneStatus = phoneStatus::fromMap($map['PhoneStatus']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -75,8 +75,8 @@ class DescribePhoneNumberStatusResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['PhoneStatus'])) {
+            $model->phoneStatus = phoneStatus::fromMap($map['PhoneStatus']);
         }
 
         return $model;

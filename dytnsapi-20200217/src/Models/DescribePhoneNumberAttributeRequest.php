@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryPhoneNumberAttributeRequest extends Model
+class DescribePhoneNumberAttributeRequest extends Model
 {
     /**
      * @var int
@@ -60,7 +60,7 @@ class QueryPhoneNumberAttributeRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryPhoneNumberAttributeRequest
+     * @return DescribePhoneNumberAttributeRequest
      */
     public static function fromMap($map = [])
     {

@@ -5,13 +5,12 @@
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusResponse;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PvrCallbackFCUResponse;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPhoneNumberAttributeRequest;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPhoneNumberAttributeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -51,34 +50,6 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberResaleRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribePhoneNumberResaleResponse
-     */
-    public function describePhoneNumberResaleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribePhoneNumberResaleResponse::fromMap($this->doRPCRequest('DescribePhoneNumberResale', '2020-02-17', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribePhoneNumberResaleRequest $request
-     *
-     * @return DescribePhoneNumberResaleResponse
-     */
-    public function describePhoneNumberResale($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePhoneNumberResaleWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribePhoneNumberStatusRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -107,52 +78,58 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribePhoneNumberAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return PvrCallbackFCUResponse
+     * @return DescribePhoneNumberAttributeResponse
      */
-    public function pvrCallbackFCUWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return PvrCallbackFCUResponse::fromMap($this->doRPCRequest('PvrCallbackFCU', '2020-02-17', 'HTTPS', 'POST', 'AK', 'none', $req, $runtime));
-    }
-
-    /**
-     * @return PvrCallbackFCUResponse
-     */
-    public function pvrCallbackFCU()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->pvrCallbackFCUWithOptions($runtime);
-    }
-
-    /**
-     * @param QueryPhoneNumberAttributeRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return QueryPhoneNumberAttributeResponse
-     */
-    public function queryPhoneNumberAttributeWithOptions($request, $runtime)
+    public function describePhoneNumberAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return QueryPhoneNumberAttributeResponse::fromMap($this->doRPCRequest('QueryPhoneNumberAttribute', '2020-02-17', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePhoneNumberAttributeResponse::fromMap($this->doRPCRequest('DescribePhoneNumberAttribute', '2020-02-17', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param QueryPhoneNumberAttributeRequest $request
+     * @param DescribePhoneNumberAttributeRequest $request
      *
-     * @return QueryPhoneNumberAttributeResponse
+     * @return DescribePhoneNumberAttributeResponse
      */
-    public function queryPhoneNumberAttribute($request)
+    public function describePhoneNumberAttribute($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->queryPhoneNumberAttributeWithOptions($request, $runtime);
+        return $this->describePhoneNumberAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePhoneNumberResaleRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePhoneNumberResaleResponse
+     */
+    public function describePhoneNumberResaleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePhoneNumberResaleResponse::fromMap($this->doRPCRequest('DescribePhoneNumberResale', '2020-02-17', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePhoneNumberResaleRequest $request
+     *
+     * @return DescribePhoneNumberResaleResponse
+     */
+    public function describePhoneNumberResale($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePhoneNumberResaleWithOptions($request, $runtime);
     }
 }

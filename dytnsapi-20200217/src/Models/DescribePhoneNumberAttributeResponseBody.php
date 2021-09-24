@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPhoneNumberAttributeResponseBody\phoneNumberAttribute;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeResponseBody\phoneNumberAttribute;
 use AlibabaCloud\Tea\Model;
 
-class QueryPhoneNumberAttributeResponseBody extends Model
+class DescribePhoneNumberAttributeResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $code;
+
     /**
      * @var string
      */
@@ -23,16 +28,11 @@ class QueryPhoneNumberAttributeResponseBody extends Model
      * @var phoneNumberAttribute
      */
     public $phoneNumberAttribute;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'                 => 'Code',
         'message'              => 'Message',
         'requestId'            => 'RequestId',
         'phoneNumberAttribute' => 'PhoneNumberAttribute',
-        'code'                 => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class QueryPhoneNumberAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -51,9 +54,6 @@ class QueryPhoneNumberAttributeResponseBody extends Model
         if (null !== $this->phoneNumberAttribute) {
             $res['PhoneNumberAttribute'] = null !== $this->phoneNumberAttribute ? $this->phoneNumberAttribute->toMap() : null;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
 
         return $res;
     }
@@ -61,11 +61,14 @@ class QueryPhoneNumberAttributeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return QueryPhoneNumberAttributeResponseBody
+     * @return DescribePhoneNumberAttributeResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -74,9 +77,6 @@ class QueryPhoneNumberAttributeResponseBody extends Model
         }
         if (isset($map['PhoneNumberAttribute'])) {
             $model->phoneNumberAttribute = phoneNumberAttribute::fromMap($map['PhoneNumberAttribute']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

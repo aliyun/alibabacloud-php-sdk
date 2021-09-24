@@ -12,6 +12,11 @@ class DescribePhoneNumberResaleResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -23,16 +28,11 @@ class DescribePhoneNumberResaleResponseBody extends Model
      * @var twiceTelVerify
      */
     public $twiceTelVerify;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'           => 'Code',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
         'twiceTelVerify' => 'TwiceTelVerify',
-        'code'           => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class DescribePhoneNumberResaleResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -50,9 +53,6 @@ class DescribePhoneNumberResaleResponseBody extends Model
         }
         if (null !== $this->twiceTelVerify) {
             $res['TwiceTelVerify'] = null !== $this->twiceTelVerify ? $this->twiceTelVerify->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class DescribePhoneNumberResaleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -74,9 +77,6 @@ class DescribePhoneNumberResaleResponseBody extends Model
         }
         if (isset($map['TwiceTelVerify'])) {
             $model->twiceTelVerify = twiceTelVerify::fromMap($map['TwiceTelVerify']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;
