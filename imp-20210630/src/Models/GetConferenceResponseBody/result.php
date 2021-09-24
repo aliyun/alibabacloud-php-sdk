@@ -56,6 +56,13 @@ class result extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @description 录制回放地址，m3u8格式，会议结束后10秒才会生成。
+     *
+     * @var string
+     */
+    public $playbackUrl;
     protected $_name = [
         'conferenceId' => 'ConferenceId',
         'title'        => 'Title',
@@ -64,6 +71,7 @@ class result extends Model
         'userId'       => 'UserId',
         'appId'        => 'AppId',
         'createTime'   => 'CreateTime',
+        'playbackUrl'  => 'PlaybackUrl',
     ];
 
     public function validate()
@@ -93,6 +101,9 @@ class result extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->playbackUrl) {
+            $res['PlaybackUrl'] = $this->playbackUrl;
         }
 
         return $res;
@@ -126,6 +137,9 @@ class result extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['PlaybackUrl'])) {
+            $model->playbackUrl = $map['PlaybackUrl'];
         }
 
         return $model;
