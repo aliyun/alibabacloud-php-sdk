@@ -24,6 +24,8 @@ class QueryPublicModelEngineRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('text', $this->text, true);
+        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

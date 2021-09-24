@@ -30,6 +30,8 @@ class UpdateTableThemeRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('themeId', $this->themeId, true);
     }
 
     public function toMap()

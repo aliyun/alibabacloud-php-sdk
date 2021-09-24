@@ -36,6 +36,7 @@ class DeleteTableRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('tableName', $this->tableName, true);
     }
 
     public function toMap()

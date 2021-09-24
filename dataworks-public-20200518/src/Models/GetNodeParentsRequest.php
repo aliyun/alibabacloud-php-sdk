@@ -24,6 +24,8 @@ class GetNodeParentsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectEnv', $this->projectEnv, true);
+        Model::validateRequired('nodeId', $this->nodeId, true);
     }
 
     public function toMap()

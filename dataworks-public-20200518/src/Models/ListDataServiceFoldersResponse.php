@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceFoldersResponse\folderPagingResult;
 use AlibabaCloud\Tea\Model;
 
 class ListDataServiceFoldersResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var ListDataServiceFoldersResponseBody
+     * @var folderPagingResult
      */
-    public $body;
+    public $folderPagingResult;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'          => 'RequestId',
+        'folderPagingResult' => 'FolderPagingResult',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('folderPagingResult', $this->folderPagingResult, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->folderPagingResult) {
+            $res['FolderPagingResult'] = null !== $this->folderPagingResult ? $this->folderPagingResult->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class ListDataServiceFoldersResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = ListDataServiceFoldersResponseBody::fromMap($map['body']);
+        if (isset($map['FolderPagingResult'])) {
+            $model->folderPagingResult = folderPagingResult::fromMap($map['FolderPagingResult']);
         }
 
         return $model;

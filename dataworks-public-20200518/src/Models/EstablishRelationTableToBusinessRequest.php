@@ -42,6 +42,8 @@ class EstablishRelationTableToBusinessRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('businessId', $this->businessId, true);
+        Model::validateRequired('tableGuid', $this->tableGuid, true);
     }
 
     public function toMap()

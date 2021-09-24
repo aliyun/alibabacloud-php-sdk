@@ -66,6 +66,10 @@ class ListTopicsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('beginTime', $this->beginTime, true);
+        Model::validateRequired('endTime', $this->endTime, true);
+        Model::validateRequired('pageNumber', $this->pageNumber, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

@@ -36,6 +36,10 @@ class UpdateQualityFollowerRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectName', $this->projectName, true);
+        Model::validateRequired('followerId', $this->followerId, true);
+        Model::validateRequired('follower', $this->follower, true);
+        Model::validateRequired('alarmMode', $this->alarmMode, true);
     }
 
     public function toMap()

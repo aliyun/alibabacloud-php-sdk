@@ -30,6 +30,9 @@ class ApprovePermissionApplyOrderRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('flowId', $this->flowId, true);
+        Model::validateRequired('approveComment', $this->approveComment, true);
+        Model::validateRequired('approveAction', $this->approveAction, true);
     }
 
     public function toMap()

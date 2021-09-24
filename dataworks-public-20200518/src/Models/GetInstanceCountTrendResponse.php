@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceCountTrendResponse\instanceCounts;
 use AlibabaCloud\Tea\Model;
 
 class GetInstanceCountTrendResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var GetInstanceCountTrendResponseBody
+     * @var instanceCounts[]
      */
-    public $body;
+    public $instanceCounts;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'      => 'RequestId',
+        'instanceCounts' => 'InstanceCounts',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('instanceCounts', $this->instanceCounts, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->instanceCounts) {
+            $res['InstanceCounts'] = [];
+            if (null !== $this->instanceCounts && \is_array($this->instanceCounts)) {
+                $n = 0;
+                foreach ($this->instanceCounts as $item) {
+                    $res['InstanceCounts'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class GetInstanceCountTrendResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = GetInstanceCountTrendResponseBody::fromMap($map['body']);
+        if (isset($map['InstanceCounts'])) {
+            if (!empty($map['InstanceCounts'])) {
+                $model->instanceCounts = [];
+                $n                     = 0;
+                foreach ($map['InstanceCounts'] as $item) {
+                    $model->instanceCounts[$n++] = null !== $item ? instanceCounts::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

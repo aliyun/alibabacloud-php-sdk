@@ -24,6 +24,8 @@ class DeleteTableLevelRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('levelId', $this->levelId, true);
+        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileTypeStatisticResponse\programTypeAndCounts;
 use AlibabaCloud\Tea\Model;
 
 class GetFileTypeStatisticResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var GetFileTypeStatisticResponseBody
+     * @var programTypeAndCounts[]
      */
-    public $body;
+    public $programTypeAndCounts;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'            => 'RequestId',
+        'programTypeAndCounts' => 'ProgramTypeAndCounts',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('programTypeAndCounts', $this->programTypeAndCounts, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->programTypeAndCounts) {
+            $res['ProgramTypeAndCounts'] = [];
+            if (null !== $this->programTypeAndCounts && \is_array($this->programTypeAndCounts)) {
+                $n = 0;
+                foreach ($this->programTypeAndCounts as $item) {
+                    $res['ProgramTypeAndCounts'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class GetFileTypeStatisticResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = GetFileTypeStatisticResponseBody::fromMap($map['body']);
+        if (isset($map['ProgramTypeAndCounts'])) {
+            if (!empty($map['ProgramTypeAndCounts'])) {
+                $model->programTypeAndCounts = [];
+                $n                           = 0;
+                foreach ($map['ProgramTypeAndCounts'] as $item) {
+                    $model->programTypeAndCounts[$n++] = null !== $item ? programTypeAndCounts::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

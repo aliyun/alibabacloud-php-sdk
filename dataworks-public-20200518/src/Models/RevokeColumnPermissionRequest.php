@@ -48,6 +48,10 @@ class RevokeColumnPermissionRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('workspaceId', $this->workspaceId, true);
+        Model::validateRequired('maxComputeProjectName', $this->maxComputeProjectName, true);
+        Model::validateRequired('tableName', $this->tableName, true);
+        Model::validateRequired('columns', $this->columns, true);
     }
 
     public function toMap()

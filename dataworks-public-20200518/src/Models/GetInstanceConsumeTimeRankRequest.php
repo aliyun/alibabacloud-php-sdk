@@ -24,6 +24,8 @@ class GetInstanceConsumeTimeRankRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('bizdate', $this->bizdate, true);
     }
 
     public function toMap()

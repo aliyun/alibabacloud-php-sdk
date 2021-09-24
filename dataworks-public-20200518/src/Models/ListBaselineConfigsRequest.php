@@ -60,6 +60,9 @@ class ListBaselineConfigsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('pageNumber', $this->pageNumber, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

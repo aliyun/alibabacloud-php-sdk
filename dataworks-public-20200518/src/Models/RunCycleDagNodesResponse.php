@@ -9,33 +9,73 @@ use AlibabaCloud\Tea\Model;
 class RunCycleDagNodesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var int
      */
-    public $headers;
+    public $httpStatusCode;
 
     /**
-     * @var RunCycleDagNodesResponseBody
+     * @var string
      */
-    public $body;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var int[]
+     */
+    public $data;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId'      => 'RequestId',
+        'errorMessage'   => 'ErrorMessage',
+        'success'        => 'Success',
+        'errorCode'      => 'ErrorCode',
+        'data'           => 'Data',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('httpStatusCode', $this->httpStatusCode, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('errorMessage', $this->errorMessage, true);
+        Model::validateRequired('success', $this->success, true);
+        Model::validateRequired('errorCode', $this->errorCode, true);
+        Model::validateRequired('data', $this->data, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
 
         return $res;
@@ -49,11 +89,25 @@ class RunCycleDagNodesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
-        if (isset($map['body'])) {
-            $model->body = RunCycleDagNodesResponseBody::fromMap($map['body']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['Data'])) {
+            if (!empty($map['Data'])) {
+                $model->data = $map['Data'];
+            }
         }
 
         return $model;

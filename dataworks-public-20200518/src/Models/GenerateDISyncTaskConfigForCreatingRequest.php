@@ -36,6 +36,9 @@ class GenerateDISyncTaskConfigForCreatingRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('taskType', $this->taskType, true);
+        Model::validateRequired('taskParam', $this->taskParam, true);
     }
 
     public function toMap()

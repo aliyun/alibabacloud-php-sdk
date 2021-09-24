@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceStatusStatisticResponse\statusCount;
 use AlibabaCloud\Tea\Model;
 
 class GetInstanceStatusStatisticResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var GetInstanceStatusStatisticResponseBody
+     * @var statusCount
      */
-    public $body;
+    public $statusCount;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'   => 'RequestId',
+        'statusCount' => 'StatusCount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('statusCount', $this->statusCount, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->statusCount) {
+            $res['StatusCount'] = null !== $this->statusCount ? $this->statusCount->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class GetInstanceStatusStatisticResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = GetInstanceStatusStatisticResponseBody::fromMap($map['body']);
+        if (isset($map['StatusCount'])) {
+            $model->statusCount = statusCount::fromMap($map['StatusCount']);
         }
 
         return $model;

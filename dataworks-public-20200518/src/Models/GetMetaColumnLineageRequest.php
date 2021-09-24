@@ -66,6 +66,7 @@ class GetMetaColumnLineageRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('direction', $this->direction, true);
     }
 
     public function toMap()

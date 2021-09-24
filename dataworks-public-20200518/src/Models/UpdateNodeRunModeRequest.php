@@ -30,6 +30,9 @@ class UpdateNodeRunModeRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectEnv', $this->projectEnv, true);
+        Model::validateRequired('nodeId', $this->nodeId, true);
+        Model::validateRequired('schedulerType', $this->schedulerType, true);
     }
 
     public function toMap()

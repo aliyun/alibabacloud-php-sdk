@@ -24,6 +24,8 @@ class DeleteProjectMemberRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('userId', $this->userId, true);
     }
 
     public function toMap()

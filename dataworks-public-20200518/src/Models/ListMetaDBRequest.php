@@ -36,6 +36,8 @@ class ListMetaDBRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('dataSourceType', $this->dataSourceType, true);
     }
 
     public function toMap()

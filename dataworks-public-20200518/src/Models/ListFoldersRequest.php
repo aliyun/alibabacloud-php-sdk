@@ -42,6 +42,9 @@ class ListFoldersRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('parentFolderPath', $this->parentFolderPath, true);
+        Model::validateRequired('pageNumber', $this->pageNumber, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

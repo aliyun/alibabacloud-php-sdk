@@ -162,6 +162,7 @@ class UpdateFileRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('fileId', $this->fileId, true);
     }
 
     public function toMap()
