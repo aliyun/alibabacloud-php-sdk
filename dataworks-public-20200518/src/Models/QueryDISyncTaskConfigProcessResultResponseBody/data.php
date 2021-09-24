@@ -2,18 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskResponseBody;
+namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryDISyncTaskConfigProcessResultResponseBody;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskResponseBody\data\solutionDetail;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
-    /**
-     * @var string
-     */
-    public $code;
-
     /**
      * @var string
      */
@@ -25,14 +19,13 @@ class data extends Model
     public $message;
 
     /**
-     * @var solutionDetail
+     * @var string
      */
-    public $solutionDetail;
+    public $taskContent;
     protected $_name = [
-        'code'           => 'Code',
-        'status'         => 'Status',
-        'message'        => 'Message',
-        'solutionDetail' => 'SolutionDetail',
+        'status'      => 'Status',
+        'message'     => 'Message',
+        'taskContent' => 'TaskContent',
     ];
 
     public function validate()
@@ -42,17 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->solutionDetail) {
-            $res['SolutionDetail'] = null !== $this->solutionDetail ? $this->solutionDetail->toMap() : null;
+        if (null !== $this->taskContent) {
+            $res['TaskContent'] = $this->taskContent;
         }
 
         return $res;
@@ -66,17 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['SolutionDetail'])) {
-            $model->solutionDetail = solutionDetail::fromMap($map['SolutionDetail']);
+        if (isset($map['TaskContent'])) {
+            $model->taskContent = $map['TaskContent'];
         }
 
         return $model;

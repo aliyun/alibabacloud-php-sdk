@@ -134,6 +134,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDataSourcesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDataSourcesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDISyncTasksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDISyncTasksResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForCreatingRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForCreatingResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForUpdatingRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForUpdatingResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineConfigRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineConfigResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineKeyPathRequest;
@@ -356,6 +360,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTopicsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTopicsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\PublishDataServiceApiRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\PublishDataServiceApiResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryDISyncTaskConfigProcessResultRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryDISyncTaskConfigProcessResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryPublicModelEngineRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryPublicModelEngineResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RemoveProjectMemberFromRoleRequest;
@@ -2390,6 +2396,62 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->exportDISyncTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateDISyncTaskConfigForCreatingRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GenerateDISyncTaskConfigForCreatingResponse
+     */
+    public function generateDISyncTaskConfigForCreatingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenerateDISyncTaskConfigForCreatingResponse::fromMap($this->doRPCRequest('GenerateDISyncTaskConfigForCreating', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenerateDISyncTaskConfigForCreatingRequest $request
+     *
+     * @return GenerateDISyncTaskConfigForCreatingResponse
+     */
+    public function generateDISyncTaskConfigForCreating($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateDISyncTaskConfigForCreatingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateDISyncTaskConfigForUpdatingRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GenerateDISyncTaskConfigForUpdatingResponse
+     */
+    public function generateDISyncTaskConfigForUpdatingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenerateDISyncTaskConfigForUpdatingResponse::fromMap($this->doRPCRequest('GenerateDISyncTaskConfigForUpdating', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenerateDISyncTaskConfigForUpdatingRequest $request
+     *
+     * @return GenerateDISyncTaskConfigForUpdatingResponse
+     */
+    public function generateDISyncTaskConfigForUpdating($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateDISyncTaskConfigForUpdatingWithOptions($request, $runtime);
     }
 
     /**
@@ -5513,6 +5575,34 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->publishDataServiceApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDISyncTaskConfigProcessResultRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return QueryDISyncTaskConfigProcessResultResponse
+     */
+    public function queryDISyncTaskConfigProcessResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryDISyncTaskConfigProcessResultResponse::fromMap($this->doRPCRequest('QueryDISyncTaskConfigProcessResult', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryDISyncTaskConfigProcessResultRequest $request
+     *
+     * @return QueryDISyncTaskConfigProcessResultResponse
+     */
+    public function queryDISyncTaskConfigProcessResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDISyncTaskConfigProcessResultWithOptions($request, $runtime);
     }
 
     /**

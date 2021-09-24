@@ -2,9 +2,8 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncInstanceInfoResponseBody;
+namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForCreatingResponseBody;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncInstanceInfoResponseBody\data\solutionInfo;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -15,24 +14,18 @@ class data extends Model
     public $status;
 
     /**
+     * @var int
+     */
+    public $processId;
+
+    /**
      * @var string
      */
     public $message;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var solutionInfo
-     */
-    public $solutionInfo;
     protected $_name = [
-        'status'       => 'Status',
-        'message'      => 'Message',
-        'name'         => 'Name',
-        'solutionInfo' => 'SolutionInfo',
+        'status'    => 'Status',
+        'processId' => 'ProcessId',
+        'message'   => 'Message',
     ];
 
     public function validate()
@@ -45,14 +38,11 @@ class data extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->processId) {
+            $res['ProcessId'] = $this->processId;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->solutionInfo) {
-            $res['SolutionInfo'] = null !== $this->solutionInfo ? $this->solutionInfo->toMap() : null;
         }
 
         return $res;
@@ -69,14 +59,11 @@ class data extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['ProcessId'])) {
+            $model->processId = $map['ProcessId'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['SolutionInfo'])) {
-            $model->solutionInfo = solutionInfo::fromMap($map['SolutionInfo']);
         }
 
         return $model;
