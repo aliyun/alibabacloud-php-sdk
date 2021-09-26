@@ -1,0 +1,275 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowResponseBody\flow;
+
+use AlibabaCloud\Tea\Model;
+
+class flow extends Model
+{
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $alertUserGroupBizId;
+
+    /**
+     * @var bool
+     */
+    public $periodic;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $hostName;
+
+    /**
+     * @var int
+     */
+    public $gmtModified;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var bool
+     */
+    public $createCluster;
+
+    /**
+     * @var int
+     */
+    public $startSchedule;
+
+    /**
+     * @var int
+     */
+    public $endSchedule;
+
+    /**
+     * @var string
+     */
+    public $graph;
+
+    /**
+     * @var string
+     */
+    public $alertDingDingGroupBizId;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $categoryId;
+
+    /**
+     * @var string
+     */
+    public $cronExpr;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $alertConf;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
+    protected $_name = [
+        'status'                  => 'Status',
+        'type'                    => 'Type',
+        'alertUserGroupBizId'     => 'AlertUserGroupBizId',
+        'periodic'                => 'Periodic',
+        'projectId'               => 'ProjectId',
+        'hostName'                => 'HostName',
+        'gmtModified'             => 'GmtModified',
+        'description'             => 'Description',
+        'createCluster'           => 'CreateCluster',
+        'startSchedule'           => 'StartSchedule',
+        'endSchedule'             => 'EndSchedule',
+        'graph'                   => 'Graph',
+        'alertDingDingGroupBizId' => 'AlertDingDingGroupBizId',
+        'gmtCreate'               => 'GmtCreate',
+        'categoryId'              => 'CategoryId',
+        'cronExpr'                => 'CronExpr',
+        'name'                    => 'Name',
+        'id'                      => 'Id',
+        'alertConf'               => 'AlertConf',
+        'clusterId'               => 'ClusterId',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->alertUserGroupBizId) {
+            $res['AlertUserGroupBizId'] = $this->alertUserGroupBizId;
+        }
+        if (null !== $this->periodic) {
+            $res['Periodic'] = $this->periodic;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->createCluster) {
+            $res['CreateCluster'] = $this->createCluster;
+        }
+        if (null !== $this->startSchedule) {
+            $res['StartSchedule'] = $this->startSchedule;
+        }
+        if (null !== $this->endSchedule) {
+            $res['EndSchedule'] = $this->endSchedule;
+        }
+        if (null !== $this->graph) {
+            $res['Graph'] = $this->graph;
+        }
+        if (null !== $this->alertDingDingGroupBizId) {
+            $res['AlertDingDingGroupBizId'] = $this->alertDingDingGroupBizId;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
+        }
+        if (null !== $this->cronExpr) {
+            $res['CronExpr'] = $this->cronExpr;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->alertConf) {
+            $res['AlertConf'] = $this->alertConf;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return flow
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['AlertUserGroupBizId'])) {
+            $model->alertUserGroupBizId = $map['AlertUserGroupBizId'];
+        }
+        if (isset($map['Periodic'])) {
+            $model->periodic = $map['Periodic'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['CreateCluster'])) {
+            $model->createCluster = $map['CreateCluster'];
+        }
+        if (isset($map['StartSchedule'])) {
+            $model->startSchedule = $map['StartSchedule'];
+        }
+        if (isset($map['EndSchedule'])) {
+            $model->endSchedule = $map['EndSchedule'];
+        }
+        if (isset($map['Graph'])) {
+            $model->graph = $map['Graph'];
+        }
+        if (isset($map['AlertDingDingGroupBizId'])) {
+            $model->alertDingDingGroupBizId = $map['AlertDingDingGroupBizId'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
+        }
+        if (isset($map['CronExpr'])) {
+            $model->cronExpr = $map['CronExpr'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['AlertConf'])) {
+            $model->alertConf = $map['AlertConf'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+
+        return $model;
+    }
+}
