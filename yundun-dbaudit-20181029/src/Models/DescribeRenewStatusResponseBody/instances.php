@@ -1,0 +1,59 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Yundundbaudit\V20181029\Models\DescribeRenewStatusResponseBody;
+
+use AlibabaCloud\Tea\Model;
+
+class instances extends Model
+{
+    /**
+     * @var string
+     */
+    public $renewStatus;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+    protected $_name = [
+        'renewStatus' => 'RenewStatus',
+        'instanceId'  => 'InstanceId',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->renewStatus) {
+            $res['RenewStatus'] = $this->renewStatus;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return instances
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['RenewStatus'])) {
+            $model->renewStatus = $map['RenewStatus'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
+        return $model;
+    }
+}
