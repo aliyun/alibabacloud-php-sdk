@@ -36,11 +36,6 @@ class RecolorHDImageAdvanceRequest extends Model
     public $degree;
 
     /**
-     * @var bool
-     */
-    public $async;
-
-    /**
      * @var colorTemplate[]
      */
     public $colorTemplate;
@@ -50,7 +45,6 @@ class RecolorHDImageAdvanceRequest extends Model
         'refUrl'        => 'RefUrl',
         'colorCount'    => 'ColorCount',
         'degree'        => 'Degree',
-        'async'         => 'Async',
         'colorTemplate' => 'ColorTemplate',
     ];
 
@@ -76,9 +70,6 @@ class RecolorHDImageAdvanceRequest extends Model
         }
         if (null !== $this->degree) {
             $res['Degree'] = $this->degree;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->colorTemplate) {
             $res['ColorTemplate'] = [];
@@ -115,9 +106,6 @@ class RecolorHDImageAdvanceRequest extends Model
         }
         if (isset($map['Degree'])) {
             $model->degree = $map['Degree'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['ColorTemplate'])) {
             if (!empty($map['ColorTemplate'])) {
