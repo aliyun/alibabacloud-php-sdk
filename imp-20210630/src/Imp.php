@@ -33,6 +33,9 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\CreateIceProjectRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateIceProjectResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRoomRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRoomResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRoomShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateRoomResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateRoomShrinkRequest;
@@ -62,6 +65,12 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomStatisticsRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomStatisticsResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomUserStatisticsRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomUserStatisticsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomJumpUrlRequest;
@@ -76,6 +85,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\ListComponentsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListComponentsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveRoomsRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveRoomsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomLivesRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomLivesResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomLivesShrinkRequest;
@@ -98,6 +109,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToUsersRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToUsersResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\StopLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\StopLiveResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\StopLiveRoomRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\StopLiveRoomResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateConfigRequest;
@@ -262,6 +275,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLiveRoomUserStatisticsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetLiveRoomUserStatisticsResponse
+     */
+    public function getLiveRoomUserStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetLiveRoomUserStatisticsResponse::fromMap($this->doRPCRequest('GetLiveRoomUserStatistics', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetLiveRoomUserStatisticsRequest $request
+     *
+     * @return GetLiveRoomUserStatisticsResponse
+     */
+    public function getLiveRoomUserStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLiveRoomUserStatisticsWithOptions($request, $runtime);
     }
 
     /**
@@ -1353,6 +1394,39 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param CreateLiveRoomRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateLiveRoomResponse
+     */
+    public function createLiveRoomWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateLiveRoomShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extension)) {
+            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateLiveRoomResponse::fromMap($this->doRPCRequest('CreateLiveRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateLiveRoomRequest $request
+     *
+     * @return CreateLiveRoomResponse
+     */
+    public function createLiveRoom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLiveRoomWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ApplyLinkMicRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1434,6 +1508,90 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListLiveRoomsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListLiveRoomsResponse
+     */
+    public function listLiveRoomsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListLiveRoomsResponse::fromMap($this->doRPCRequest('ListLiveRooms', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListLiveRoomsRequest $request
+     *
+     * @return ListLiveRoomsResponse
+     */
+    public function listLiveRooms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLiveRoomsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopLiveRoomRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopLiveRoomResponse
+     */
+    public function stopLiveRoomWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StopLiveRoomResponse::fromMap($this->doRPCRequest('StopLiveRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StopLiveRoomRequest $request
+     *
+     * @return StopLiveRoomResponse
+     */
+    public function stopLiveRoom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopLiveRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLiveRoomStatisticsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetLiveRoomStatisticsResponse
+     */
+    public function getLiveRoomStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetLiveRoomStatisticsResponse::fromMap($this->doRPCRequest('GetLiveRoomStatistics', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetLiveRoomStatisticsRequest $request
+     *
+     * @return GetLiveRoomStatisticsResponse
+     */
+    public function getLiveRoomStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLiveRoomStatisticsWithOptions($request, $runtime);
     }
 
     /**
@@ -1607,5 +1765,33 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateConferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLiveRoomRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetLiveRoomResponse
+     */
+    public function getLiveRoomWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetLiveRoomResponse::fromMap($this->doRPCRequest('GetLiveRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetLiveRoomRequest $request
+     *
+     * @return GetLiveRoomResponse
+     */
+    public function getLiveRoom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLiveRoomWithOptions($request, $runtime);
     }
 }
