@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ApprovePermissionApplyOrderResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bool
+     * @var ApprovePermissionApplyOrderResponseBody
      */
-    public $approveSuccess;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'approveSuccess' => 'ApproveSuccess',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('approveSuccess', $this->approveSuccess, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->approveSuccess) {
-            $res['ApproveSuccess'] = $this->approveSuccess;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class ApprovePermissionApplyOrderResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ApproveSuccess'])) {
-            $model->approveSuccess = $map['ApproveSuccess'];
+        if (isset($map['body'])) {
+            $model->body = ApprovePermissionApplyOrderResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -42,10 +42,6 @@ class CreateDataServiceGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('tenantId', $this->tenantId, true);
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('apiGatewayGroupId', $this->apiGatewayGroupId, true);
-        Model::validateRequired('groupName', $this->groupName, true);
     }
 
     public function toMap()

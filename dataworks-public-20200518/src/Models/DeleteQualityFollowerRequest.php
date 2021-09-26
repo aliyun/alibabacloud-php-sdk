@@ -24,8 +24,6 @@ class DeleteQualityFollowerRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectName', $this->projectName, true);
-        Model::validateRequired('followerId', $this->followerId, true);
     }
 
     public function toMap()

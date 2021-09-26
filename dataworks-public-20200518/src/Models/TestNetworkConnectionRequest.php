@@ -36,10 +36,6 @@ class TestNetworkConnectionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('datasourceName', $this->datasourceName, true);
-        Model::validateRequired('envType', $this->envType, true);
-        Model::validateRequired('resourceGroup', $this->resourceGroup, true);
     }
 
     public function toMap()

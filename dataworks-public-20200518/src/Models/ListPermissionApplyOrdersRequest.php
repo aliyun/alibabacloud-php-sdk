@@ -78,9 +78,6 @@ class ListPermissionApplyOrdersRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('orderType', $this->orderType, true);
-        Model::validateRequired('engineType', $this->engineType, true);
-        Model::validateRequired('queryType', $this->queryType, true);
     }
 
     public function toMap()

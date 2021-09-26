@@ -120,12 +120,6 @@ class CreateQualityRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('blockType', $this->blockType, true);
-        Model::validateRequired('entityId', $this->entityId, true);
-        Model::validateRequired('projectName', $this->projectName, true);
-        Model::validateRequired('ruleType', $this->ruleType, true);
-        Model::validateRequired('ruleName', $this->ruleName, true);
-        Model::validateRequired('predictType', $this->predictType, true);
     }
 
     public function toMap()

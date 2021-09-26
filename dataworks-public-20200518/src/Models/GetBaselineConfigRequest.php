@@ -18,7 +18,6 @@ class GetBaselineConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('baselineId', $this->baselineId, true);
     }
 
     public function toMap()

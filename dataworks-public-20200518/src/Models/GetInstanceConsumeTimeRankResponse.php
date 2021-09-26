@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceConsumeTimeRankResponse\instanceConsumeTimeRank;
 use AlibabaCloud\Tea\Model;
 
 class GetInstanceConsumeTimeRankResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var instanceConsumeTimeRank
+     * @var GetInstanceConsumeTimeRankResponseBody
      */
-    public $instanceConsumeTimeRank;
+    public $body;
     protected $_name = [
-        'requestId'               => 'RequestId',
-        'instanceConsumeTimeRank' => 'InstanceConsumeTimeRank',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('instanceConsumeTimeRank', $this->instanceConsumeTimeRank, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->instanceConsumeTimeRank) {
-            $res['InstanceConsumeTimeRank'] = null !== $this->instanceConsumeTimeRank ? $this->instanceConsumeTimeRank->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class GetInstanceConsumeTimeRankResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['InstanceConsumeTimeRank'])) {
-            $model->instanceConsumeTimeRank = instanceConsumeTimeRank::fromMap($map['InstanceConsumeTimeRank']);
+        if (isset($map['body'])) {
+            $model->body = GetInstanceConsumeTimeRankResponseBody::fromMap($map['body']);
         }
 
         return $model;

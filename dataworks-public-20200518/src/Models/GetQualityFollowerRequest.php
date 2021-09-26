@@ -24,8 +24,6 @@ class GetQualityFollowerRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectName', $this->projectName, true);
-        Model::validateRequired('entityId', $this->entityId, true);
     }
 
     public function toMap()

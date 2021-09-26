@@ -30,9 +30,6 @@ class QueryDISyncTaskConfigProcessResultRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('taskType', $this->taskType, true);
-        Model::validateRequired('asyncProcessId', $this->asyncProcessId, true);
     }
 
     public function toMap()

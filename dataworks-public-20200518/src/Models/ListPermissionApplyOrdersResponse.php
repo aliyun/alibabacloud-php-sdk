@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListPermissionApplyOrdersResponse\applyOrders;
 use AlibabaCloud\Tea\Model;
 
 class ListPermissionApplyOrdersResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var applyOrders
+     * @var ListPermissionApplyOrdersResponseBody
      */
-    public $applyOrders;
+    public $body;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'applyOrders' => 'ApplyOrders',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('applyOrders', $this->applyOrders, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->applyOrders) {
-            $res['ApplyOrders'] = null !== $this->applyOrders ? $this->applyOrders->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class ListPermissionApplyOrdersResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ApplyOrders'])) {
-            $model->applyOrders = applyOrders::fromMap($map['ApplyOrders']);
+        if (isset($map['body'])) {
+            $model->body = ListPermissionApplyOrdersResponseBody::fromMap($map['body']);
         }
 
         return $model;

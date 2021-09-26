@@ -84,10 +84,6 @@ class UpdateUdfFileRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('functionType', $this->functionType, true);
-        Model::validateRequired('className', $this->className, true);
-        Model::validateRequired('resources', $this->resources, true);
-        Model::validateRequired('fileId', $this->fileId, true);
     }
 
     public function toMap()

@@ -24,8 +24,6 @@ class DesensitizeDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('data', $this->data, true);
-        Model::validateRequired('sceneCode', $this->sceneCode, true);
     }
 
     public function toMap()

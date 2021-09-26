@@ -60,8 +60,6 @@ class ListNodesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('projectEnv', $this->projectEnv, true);
     }
 
     public function toMap()

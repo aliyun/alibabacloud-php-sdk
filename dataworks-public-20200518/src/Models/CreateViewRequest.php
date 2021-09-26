@@ -45,14 +45,14 @@ class CreateViewRequest extends Model
     public $comment;
 
     /**
-     * @var viewColumn[]
-     */
-    public $viewColumn;
-
-    /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var viewColumn[]
+     */
+    public $viewColumn;
     protected $_name = [
         'viewName'        => 'ViewName',
         'selectColumn'    => 'SelectColumn',
@@ -61,15 +61,12 @@ class CreateViewRequest extends Model
         'selectSQL'       => 'SelectSQL',
         'appGuid'         => 'AppGuid',
         'comment'         => 'Comment',
-        'viewColumn'      => 'ViewColumn',
         'clientToken'     => 'ClientToken',
+        'viewColumn'      => 'ViewColumn',
     ];
 
     public function validate()
     {
-        Model::validateRequired('viewName', $this->viewName, true);
-        Model::validateRequired('appGuid', $this->appGuid, true);
-        Model::validateRequired('viewColumn', $this->viewColumn, true);
     }
 
     public function toMap()
@@ -96,6 +93,9 @@ class CreateViewRequest extends Model
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->viewColumn) {
             $res['ViewColumn'] = [];
             if (null !== $this->viewColumn && \is_array($this->viewColumn)) {
@@ -104,9 +104,6 @@ class CreateViewRequest extends Model
                     $res['ViewColumn'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -141,6 +138,9 @@ class CreateViewRequest extends Model
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['ViewColumn'])) {
             if (!empty($map['ViewColumn'])) {
                 $model->viewColumn = [];
@@ -149,9 +149,6 @@ class CreateViewRequest extends Model
                     $model->viewColumn[$n++] = null !== $item ? viewColumn::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;
