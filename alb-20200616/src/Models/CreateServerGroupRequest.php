@@ -11,11 +11,18 @@ use AlibabaCloud\Tea\Model;
 class CreateServerGroupRequest extends Model
 {
     /**
-     * @description Acl名称
+     * @description 服务器组名称
      *
      * @var string
      */
     public $serverGroupName;
+
+    /**
+     * @description 服务器组类型
+     *
+     * @var string
+     */
+    public $serverGroupType;
 
     /**
      * @description VpcId
@@ -74,6 +81,7 @@ class CreateServerGroupRequest extends Model
     public $dryRun;
     protected $_name = [
         'serverGroupName'     => 'ServerGroupName',
+        'serverGroupType'     => 'ServerGroupType',
         'vpcId'               => 'VpcId',
         'scheduler'           => 'Scheduler',
         'protocol'            => 'Protocol',
@@ -93,6 +101,9 @@ class CreateServerGroupRequest extends Model
         $res = [];
         if (null !== $this->serverGroupName) {
             $res['ServerGroupName'] = $this->serverGroupName;
+        }
+        if (null !== $this->serverGroupType) {
+            $res['ServerGroupType'] = $this->serverGroupType;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -132,6 +143,9 @@ class CreateServerGroupRequest extends Model
         $model = new self();
         if (isset($map['ServerGroupName'])) {
             $model->serverGroupName = $map['ServerGroupName'];
+        }
+        if (isset($map['ServerGroupType'])) {
+            $model->serverGroupType = $map['ServerGroupType'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

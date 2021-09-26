@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\AddEntriesToAclRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AddEntriesToAclResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AddServersToServerGroupRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AddServersToServerGroupResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ApplyHealthCheckTemplateToServerGroupRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ApplyHealthCheckTemplateToServerGroupResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AssociateAclsWithListenerRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AssociateAclsWithListenerResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AssociateAdditionalCertificatesWithListenerRequest;
@@ -176,613 +178,31 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param ListAclsRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param AddEntriesToAclRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return ListAclsResponse
+     * @return AddEntriesToAclResponse
      */
-    public function listAclsWithOptions($request, $runtime)
+    public function addEntriesToAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListAclsResponse::fromMap($this->doRPCRequest('ListAcls', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddEntriesToAclResponse::fromMap($this->doRPCRequest('AddEntriesToAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListAclsRequest $request
+     * @param AddEntriesToAclRequest $request
      *
-     * @return ListAclsResponse
+     * @return AddEntriesToAclResponse
      */
-    public function listAcls($request)
+    public function addEntriesToAcl($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listAclsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateHealthCheckTemplateRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateHealthCheckTemplateResponse
-     */
-    public function createHealthCheckTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateHealthCheckTemplateResponse::fromMap($this->doRPCRequest('CreateHealthCheckTemplate', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateHealthCheckTemplateRequest $request
-     *
-     * @return CreateHealthCheckTemplateResponse
-     */
-    public function createHealthCheckTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createHealthCheckTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
-     */
-    public function listTagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
-     */
-    public function listTagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetListenerAttributeRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetListenerAttributeResponse
-     */
-    public function getListenerAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetListenerAttributeResponse::fromMap($this->doRPCRequest('GetListenerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetListenerAttributeRequest $request
-     *
-     * @return GetListenerAttributeResponse
-     */
-    public function getListenerAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getListenerAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateHealthCheckTemplateAttributeRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return UpdateHealthCheckTemplateAttributeResponse
-     */
-    public function updateHealthCheckTemplateAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateHealthCheckTemplateAttributeResponse::fromMap($this->doRPCRequest('UpdateHealthCheckTemplateAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateHealthCheckTemplateAttributeRequest $request
-     *
-     * @return UpdateHealthCheckTemplateAttributeResponse
-     */
-    public function updateHealthCheckTemplateAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateHealthCheckTemplateAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListServerGroupServersRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListServerGroupServersResponse
-     */
-    public function listServerGroupServersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListServerGroupServersResponse::fromMap($this->doRPCRequest('ListServerGroupServers', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListServerGroupServersRequest $request
-     *
-     * @return ListServerGroupServersResponse
-     */
-    public function listServerGroupServers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listServerGroupServersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveEntriesFromAclRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RemoveEntriesFromAclResponse
-     */
-    public function removeEntriesFromAclWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveEntriesFromAclResponse::fromMap($this->doRPCRequest('RemoveEntriesFromAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveEntriesFromAclRequest $request
-     *
-     * @return RemoveEntriesFromAclResponse
-     */
-    public function removeEntriesFromAcl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeEntriesFromAclWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteSecurityPolicyRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteSecurityPolicyResponse
-     */
-    public function deleteSecurityPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteSecurityPolicyResponse::fromMap($this->doRPCRequest('DeleteSecurityPolicy', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSecurityPolicyRequest $request
-     *
-     * @return DeleteSecurityPolicyResponse
-     */
-    public function deleteSecurityPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSecurityPolicyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DisableLoadBalancerAccessLogRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DisableLoadBalancerAccessLogResponse
-     */
-    public function disableLoadBalancerAccessLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DisableLoadBalancerAccessLogResponse::fromMap($this->doRPCRequest('DisableLoadBalancerAccessLog', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DisableLoadBalancerAccessLogRequest $request
-     *
-     * @return DisableLoadBalancerAccessLogResponse
-     */
-    public function disableLoadBalancerAccessLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->disableLoadBalancerAccessLogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListServerGroupsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListServerGroupsResponse
-     */
-    public function listServerGroupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListServerGroupsResponse::fromMap($this->doRPCRequest('ListServerGroups', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListServerGroupsRequest $request
-     *
-     * @return ListServerGroupsResponse
-     */
-    public function listServerGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listServerGroupsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param MoveResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return MoveResourceGroupResponse
-     */
-    public function moveResourceGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return MoveResourceGroupResponse::fromMap($this->doRPCRequest('MoveResourceGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param MoveResourceGroupRequest $request
-     *
-     * @return MoveResourceGroupResponse
-     */
-    public function moveResourceGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->moveResourceGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EnableDeletionProtectionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return EnableDeletionProtectionResponse
-     */
-    public function enableDeletionProtectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return EnableDeletionProtectionResponse::fromMap($this->doRPCRequest('EnableDeletionProtection', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param EnableDeletionProtectionRequest $request
-     *
-     * @return EnableDeletionProtectionResponse
-     */
-    public function enableDeletionProtection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->enableDeletionProtectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateListenerAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateListenerAttributeResponse
-     */
-    public function updateListenerAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateListenerAttributeResponse::fromMap($this->doRPCRequest('UpdateListenerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateListenerAttributeRequest $request
-     *
-     * @return UpdateListenerAttributeResponse
-     */
-    public function updateListenerAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateListenerAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateLoadBalancerRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateLoadBalancerResponse
-     */
-    public function createLoadBalancerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateLoadBalancerResponse::fromMap($this->doRPCRequest('CreateLoadBalancer', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateLoadBalancerRequest $request
-     *
-     * @return CreateLoadBalancerResponse
-     */
-    public function createLoadBalancer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createLoadBalancerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteHealthCheckTemplatesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DeleteHealthCheckTemplatesResponse
-     */
-    public function deleteHealthCheckTemplatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteHealthCheckTemplatesResponse::fromMap($this->doRPCRequest('DeleteHealthCheckTemplates', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteHealthCheckTemplatesRequest $request
-     *
-     * @return DeleteHealthCheckTemplatesResponse
-     */
-    public function deleteHealthCheckTemplates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteHealthCheckTemplatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateServerGroupAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return UpdateServerGroupAttributeResponse
-     */
-    public function updateServerGroupAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateServerGroupAttributeResponse::fromMap($this->doRPCRequest('UpdateServerGroupAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateServerGroupAttributeRequest $request
-     *
-     * @return UpdateServerGroupAttributeResponse
-     */
-    public function updateServerGroupAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateServerGroupAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateServerGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateServerGroupResponse
-     */
-    public function createServerGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateServerGroupResponse::fromMap($this->doRPCRequest('CreateServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateServerGroupRequest $request
-     *
-     * @return CreateServerGroupResponse
-     */
-    public function createServerGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createServerGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssociateAclsWithListenerRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return AssociateAclsWithListenerResponse
-     */
-    public function associateAclsWithListenerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AssociateAclsWithListenerResponse::fromMap($this->doRPCRequest('AssociateAclsWithListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AssociateAclsWithListenerRequest $request
-     *
-     * @return AssociateAclsWithListenerResponse
-     */
-    public function associateAclsWithListener($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->associateAclsWithListenerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteRuleRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteRuleResponse
-     */
-    public function deleteRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteRuleResponse::fromMap($this->doRPCRequest('DeleteRule', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteRuleRequest $request
-     *
-     * @return DeleteRuleResponse
-     */
-    public function deleteRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListRulesRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListRulesResponse
-     */
-    public function listRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListRulesResponse::fromMap($this->doRPCRequest('ListRules', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListRulesRequest $request
-     *
-     * @return ListRulesResponse
-     */
-    public function listRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRulesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeZonesResponse
-     */
-    public function describeZonesWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return DescribeZonesResponse::fromMap($this->doRPCRequest('DescribeZones', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return DescribeZonesResponse
-     */
-    public function describeZones()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeZonesWithOptions($runtime);
-    }
-
-    /**
-     * @param DeleteServerGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteServerGroupResponse
-     */
-    public function deleteServerGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteServerGroupResponse::fromMap($this->doRPCRequest('DeleteServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteServerGroupRequest $request
-     *
-     * @return DeleteServerGroupResponse
-     */
-    public function deleteServerGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteServerGroupWithOptions($request, $runtime);
+        return $this->addEntriesToAclWithOptions($request, $runtime);
     }
 
     /**
@@ -814,389 +234,59 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoadBalancerRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ApplyHealthCheckTemplateToServerGroupRequest $request
+     * @param RuntimeOptions                               $runtime
      *
-     * @return DeleteLoadBalancerResponse
+     * @return ApplyHealthCheckTemplateToServerGroupResponse
      */
-    public function deleteLoadBalancerWithOptions($request, $runtime)
+    public function applyHealthCheckTemplateToServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DeleteLoadBalancerResponse::fromMap($this->doRPCRequest('DeleteLoadBalancer', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ApplyHealthCheckTemplateToServerGroupResponse::fromMap($this->doRPCRequest('ApplyHealthCheckTemplateToServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteLoadBalancerRequest $request
+     * @param ApplyHealthCheckTemplateToServerGroupRequest $request
      *
-     * @return DeleteLoadBalancerResponse
+     * @return ApplyHealthCheckTemplateToServerGroupResponse
      */
-    public function deleteLoadBalancer($request)
+    public function applyHealthCheckTemplateToServerGroup($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteLoadBalancerWithOptions($request, $runtime);
+        return $this->applyHealthCheckTemplateToServerGroupWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateListenerLogConfigRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateListenerLogConfigResponse
-     */
-    public function updateListenerLogConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateListenerLogConfigResponse::fromMap($this->doRPCRequest('UpdateListenerLogConfig', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateListenerLogConfigRequest $request
-     *
-     * @return UpdateListenerLogConfigResponse
-     */
-    public function updateListenerLogConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateListenerLogConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnTagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UnTagResourcesResponse
-     */
-    public function unTagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UnTagResourcesResponse::fromMap($this->doRPCRequest('UnTagResources', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UnTagResourcesRequest $request
-     *
-     * @return UnTagResourcesResponse
-     */
-    public function unTagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unTagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListSystemSecurityPoliciesResponse
-     */
-    public function listSystemSecurityPoliciesWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return ListSystemSecurityPoliciesResponse::fromMap($this->doRPCRequest('ListSystemSecurityPolicies', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return ListSystemSecurityPoliciesResponse
-     */
-    public function listSystemSecurityPolicies()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSystemSecurityPoliciesWithOptions($runtime);
-    }
-
-    /**
-     * @param AddEntriesToAclRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return AddEntriesToAclResponse
-     */
-    public function addEntriesToAclWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddEntriesToAclResponse::fromMap($this->doRPCRequest('AddEntriesToAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddEntriesToAclRequest $request
-     *
-     * @return AddEntriesToAclResponse
-     */
-    public function addEntriesToAcl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addEntriesToAclWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteAclRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return DeleteAclResponse
-     */
-    public function deleteAclWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteAclResponse::fromMap($this->doRPCRequest('DeleteAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAclRequest $request
-     *
-     * @return DeleteAclResponse
-     */
-    public function deleteAcl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAclWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DissociateAdditionalCertificatesFromListenerRequest $request
-     * @param RuntimeOptions                                      $runtime
-     *
-     * @return DissociateAdditionalCertificatesFromListenerResponse
-     */
-    public function dissociateAdditionalCertificatesFromListenerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DissociateAdditionalCertificatesFromListenerResponse::fromMap($this->doRPCRequest('DissociateAdditionalCertificatesFromListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DissociateAdditionalCertificatesFromListenerRequest $request
-     *
-     * @return DissociateAdditionalCertificatesFromListenerResponse
-     */
-    public function dissociateAdditionalCertificatesFromListener($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->dissociateAdditionalCertificatesFromListenerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateLoadBalancerEditionRequest $request
+     * @param AssociateAclsWithListenerRequest $request
      * @param RuntimeOptions                   $runtime
      *
-     * @return UpdateLoadBalancerEditionResponse
+     * @return AssociateAclsWithListenerResponse
      */
-    public function updateLoadBalancerEditionWithOptions($request, $runtime)
+    public function associateAclsWithListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateLoadBalancerEditionResponse::fromMap($this->doRPCRequest('UpdateLoadBalancerEdition', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssociateAclsWithListenerResponse::fromMap($this->doRPCRequest('AssociateAclsWithListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateLoadBalancerEditionRequest $request
+     * @param AssociateAclsWithListenerRequest $request
      *
-     * @return UpdateLoadBalancerEditionResponse
+     * @return AssociateAclsWithListenerResponse
      */
-    public function updateLoadBalancerEdition($request)
+    public function associateAclsWithListener($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateLoadBalancerEditionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateRulesAttributeRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateRulesAttributeResponse
-     */
-    public function updateRulesAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateRulesAttributeResponse::fromMap($this->doRPCRequest('UpdateRulesAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateRulesAttributeRequest $request
-     *
-     * @return UpdateRulesAttributeResponse
-     */
-    public function updateRulesAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateRulesAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListListenersRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListListenersResponse
-     */
-    public function listListenersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListListenersResponse::fromMap($this->doRPCRequest('ListListeners', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListListenersRequest $request
-     *
-     * @return ListListenersResponse
-     */
-    public function listListeners($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listListenersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAclRelationsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListAclRelationsResponse
-     */
-    public function listAclRelationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListAclRelationsResponse::fromMap($this->doRPCRequest('ListAclRelations', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAclRelationsRequest $request
-     *
-     * @return ListAclRelationsResponse
-     */
-    public function listAclRelations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAclRelationsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteRulesRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteRulesResponse
-     */
-    public function deleteRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteRulesResponse::fromMap($this->doRPCRequest('DeleteRules', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteRulesRequest $request
-     *
-     * @return DeleteRulesResponse
-     */
-    public function deleteRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteRulesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteListenerRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteListenerResponse
-     */
-    public function deleteListenerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteListenerResponse::fromMap($this->doRPCRequest('DeleteListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteListenerRequest $request
-     *
-     * @return DeleteListenerResponse
-     */
-    public function deleteListener($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteListenerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListTagKeysResponse
-     */
-    public function listTagKeysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListTagKeysResponse::fromMap($this->doRPCRequest('ListTagKeys', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListTagKeysRequest $request
-     *
-     * @return ListTagKeysResponse
-     */
-    public function listTagKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTagKeysWithOptions($request, $runtime);
+        return $this->associateAclsWithListenerWithOptions($request, $runtime);
     }
 
     /**
@@ -1228,143 +318,557 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param ListHealthCheckTemplatesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param CreateAclRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return ListHealthCheckTemplatesResponse
+     * @return CreateAclResponse
      */
-    public function listHealthCheckTemplatesWithOptions($request, $runtime)
+    public function createAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListHealthCheckTemplatesResponse::fromMap($this->doRPCRequest('ListHealthCheckTemplates', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAclResponse::fromMap($this->doRPCRequest('CreateAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListHealthCheckTemplatesRequest $request
+     * @param CreateAclRequest $request
      *
-     * @return ListHealthCheckTemplatesResponse
+     * @return CreateAclResponse
      */
-    public function listHealthCheckTemplates($request)
+    public function createAcl($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listHealthCheckTemplatesWithOptions($request, $runtime);
+        return $this->createAclWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetLoadBalancerAttributeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param CreateHealthCheckTemplateRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return GetLoadBalancerAttributeResponse
+     * @return CreateHealthCheckTemplateResponse
      */
-    public function getLoadBalancerAttributeWithOptions($request, $runtime)
+    public function createHealthCheckTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetLoadBalancerAttributeResponse::fromMap($this->doRPCRequest('GetLoadBalancerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateHealthCheckTemplateResponse::fromMap($this->doRPCRequest('CreateHealthCheckTemplate', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetLoadBalancerAttributeRequest $request
+     * @param CreateHealthCheckTemplateRequest $request
      *
-     * @return GetLoadBalancerAttributeResponse
+     * @return CreateHealthCheckTemplateResponse
      */
-    public function getLoadBalancerAttribute($request)
+    public function createHealthCheckTemplate($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getLoadBalancerAttributeWithOptions($request, $runtime);
+        return $this->createHealthCheckTemplateWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListTagValuesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param CreateListenerRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return ListTagValuesResponse
+     * @return CreateListenerResponse
      */
-    public function listTagValuesWithOptions($request, $runtime)
+    public function createListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListTagValuesResponse::fromMap($this->doRPCRequest('ListTagValues', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateListenerResponse::fromMap($this->doRPCRequest('CreateListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListTagValuesRequest $request
+     * @param CreateListenerRequest $request
      *
-     * @return ListTagValuesResponse
+     * @return CreateListenerResponse
      */
-    public function listTagValues($request)
+    public function createListener($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listTagValuesWithOptions($request, $runtime);
+        return $this->createListenerWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListLoadBalancersRequest $request
+     * @param CreateLoadBalancerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateLoadBalancerResponse
+     */
+    public function createLoadBalancerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateLoadBalancerResponse::fromMap($this->doRPCRequest('CreateLoadBalancer', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateLoadBalancerRequest $request
+     *
+     * @return CreateLoadBalancerResponse
+     */
+    public function createLoadBalancer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLoadBalancerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateRuleResponse
+     */
+    public function createRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateRuleResponse::fromMap($this->doRPCRequest('CreateRule', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRuleRequest $request
+     *
+     * @return CreateRuleResponse
+     */
+    public function createRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRulesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateRulesResponse
+     */
+    public function createRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateRulesResponse::fromMap($this->doRPCRequest('CreateRules', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRulesRequest $request
+     *
+     * @return CreateRulesResponse
+     */
+    public function createRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSecurityPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateSecurityPolicyResponse
+     */
+    public function createSecurityPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateSecurityPolicyResponse::fromMap($this->doRPCRequest('CreateSecurityPolicy', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateSecurityPolicyRequest $request
+     *
+     * @return CreateSecurityPolicyResponse
+     */
+    public function createSecurityPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSecurityPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateServerGroupRequest $request
      * @param RuntimeOptions           $runtime
      *
-     * @return ListLoadBalancersResponse
+     * @return CreateServerGroupResponse
      */
-    public function listLoadBalancersWithOptions($request, $runtime)
+    public function createServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListLoadBalancersResponse::fromMap($this->doRPCRequest('ListLoadBalancers', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateServerGroupResponse::fromMap($this->doRPCRequest('CreateServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListLoadBalancersRequest $request
+     * @param CreateServerGroupRequest $request
      *
-     * @return ListLoadBalancersResponse
+     * @return CreateServerGroupResponse
      */
-    public function listLoadBalancers($request)
+    public function createServerGroup($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listLoadBalancersWithOptions($request, $runtime);
+        return $this->createServerGroupWithOptions($request, $runtime);
     }
 
     /**
-     * @param EnableLoadBalancerAccessLogRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DeleteAclRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return EnableLoadBalancerAccessLogResponse
+     * @return DeleteAclResponse
      */
-    public function enableLoadBalancerAccessLogWithOptions($request, $runtime)
+    public function deleteAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return EnableLoadBalancerAccessLogResponse::fromMap($this->doRPCRequest('EnableLoadBalancerAccessLog', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAclResponse::fromMap($this->doRPCRequest('DeleteAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param EnableLoadBalancerAccessLogRequest $request
+     * @param DeleteAclRequest $request
      *
-     * @return EnableLoadBalancerAccessLogResponse
+     * @return DeleteAclResponse
      */
-    public function enableLoadBalancerAccessLog($request)
+    public function deleteAcl($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->enableLoadBalancerAccessLogWithOptions($request, $runtime);
+        return $this->deleteAclWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteHealthCheckTemplatesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteHealthCheckTemplatesResponse
+     */
+    public function deleteHealthCheckTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteHealthCheckTemplatesResponse::fromMap($this->doRPCRequest('DeleteHealthCheckTemplates', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteHealthCheckTemplatesRequest $request
+     *
+     * @return DeleteHealthCheckTemplatesResponse
+     */
+    public function deleteHealthCheckTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHealthCheckTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteListenerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteListenerResponse
+     */
+    public function deleteListenerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteListenerResponse::fromMap($this->doRPCRequest('DeleteListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteListenerRequest $request
+     *
+     * @return DeleteListenerResponse
+     */
+    public function deleteListener($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteListenerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteLoadBalancerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteLoadBalancerResponse
+     */
+    public function deleteLoadBalancerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteLoadBalancerResponse::fromMap($this->doRPCRequest('DeleteLoadBalancer', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteLoadBalancerRequest $request
+     *
+     * @return DeleteLoadBalancerResponse
+     */
+    public function deleteLoadBalancer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLoadBalancerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteRuleResponse
+     */
+    public function deleteRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteRuleResponse::fromMap($this->doRPCRequest('DeleteRule', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRuleRequest $request
+     *
+     * @return DeleteRuleResponse
+     */
+    public function deleteRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRulesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteRulesResponse
+     */
+    public function deleteRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteRulesResponse::fromMap($this->doRPCRequest('DeleteRules', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRulesRequest $request
+     *
+     * @return DeleteRulesResponse
+     */
+    public function deleteRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSecurityPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteSecurityPolicyResponse
+     */
+    public function deleteSecurityPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteSecurityPolicyResponse::fromMap($this->doRPCRequest('DeleteSecurityPolicy', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSecurityPolicyRequest $request
+     *
+     * @return DeleteSecurityPolicyResponse
+     */
+    public function deleteSecurityPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecurityPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteServerGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteServerGroupResponse
+     */
+    public function deleteServerGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteServerGroupResponse::fromMap($this->doRPCRequest('DeleteServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteServerGroupRequest $request
+     *
+     * @return DeleteServerGroupResponse
+     */
+    public function deleteServerGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteServerGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeZonesResponse
+     */
+    public function describeZonesWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return DescribeZonesResponse::fromMap($this->doRPCRequest('DescribeZones', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return DescribeZonesResponse
+     */
+    public function describeZones()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeZonesWithOptions($runtime);
+    }
+
+    /**
+     * @param DisableDeletionProtectionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisableDeletionProtectionResponse
+     */
+    public function disableDeletionProtectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DisableDeletionProtectionResponse::fromMap($this->doRPCRequest('DisableDeletionProtection', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DisableDeletionProtectionRequest $request
+     *
+     * @return DisableDeletionProtectionResponse
+     */
+    public function disableDeletionProtection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDeletionProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DisableLoadBalancerAccessLogRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DisableLoadBalancerAccessLogResponse
+     */
+    public function disableLoadBalancerAccessLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DisableLoadBalancerAccessLogResponse::fromMap($this->doRPCRequest('DisableLoadBalancerAccessLog', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DisableLoadBalancerAccessLogRequest $request
+     *
+     * @return DisableLoadBalancerAccessLogResponse
+     */
+    public function disableLoadBalancerAccessLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableLoadBalancerAccessLogWithOptions($request, $runtime);
     }
 
     /**
@@ -1396,59 +900,87 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param ListListenerCertificatesRequest $request
+     * @param DissociateAdditionalCertificatesFromListenerRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return DissociateAdditionalCertificatesFromListenerResponse
+     */
+    public function dissociateAdditionalCertificatesFromListenerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DissociateAdditionalCertificatesFromListenerResponse::fromMap($this->doRPCRequest('DissociateAdditionalCertificatesFromListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DissociateAdditionalCertificatesFromListenerRequest $request
+     *
+     * @return DissociateAdditionalCertificatesFromListenerResponse
+     */
+    public function dissociateAdditionalCertificatesFromListener($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dissociateAdditionalCertificatesFromListenerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableDeletionProtectionRequest $request
      * @param RuntimeOptions                  $runtime
      *
-     * @return ListListenerCertificatesResponse
+     * @return EnableDeletionProtectionResponse
      */
-    public function listListenerCertificatesWithOptions($request, $runtime)
+    public function enableDeletionProtectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListListenerCertificatesResponse::fromMap($this->doRPCRequest('ListListenerCertificates', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableDeletionProtectionResponse::fromMap($this->doRPCRequest('EnableDeletionProtection', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListListenerCertificatesRequest $request
+     * @param EnableDeletionProtectionRequest $request
      *
-     * @return ListListenerCertificatesResponse
+     * @return EnableDeletionProtectionResponse
      */
-    public function listListenerCertificates($request)
+    public function enableDeletionProtection($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listListenerCertificatesWithOptions($request, $runtime);
+        return $this->enableDeletionProtectionWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateAclRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param EnableLoadBalancerAccessLogRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return CreateAclResponse
+     * @return EnableLoadBalancerAccessLogResponse
      */
-    public function createAclWithOptions($request, $runtime)
+    public function enableLoadBalancerAccessLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return CreateAclResponse::fromMap($this->doRPCRequest('CreateAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableLoadBalancerAccessLogResponse::fromMap($this->doRPCRequest('EnableLoadBalancerAccessLog', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateAclRequest $request
+     * @param EnableLoadBalancerAccessLogRequest $request
      *
-     * @return CreateAclResponse
+     * @return EnableLoadBalancerAccessLogResponse
      */
-    public function createAcl($request)
+    public function enableLoadBalancerAccessLog($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createAclWithOptions($request, $runtime);
+        return $this->enableLoadBalancerAccessLogWithOptions($request, $runtime);
     }
 
     /**
@@ -1480,87 +1012,143 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateSecurityPolicyAttributeRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param GetListenerAttributeRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return UpdateSecurityPolicyAttributeResponse
+     * @return GetListenerAttributeResponse
      */
-    public function updateSecurityPolicyAttributeWithOptions($request, $runtime)
+    public function getListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateSecurityPolicyAttributeResponse::fromMap($this->doRPCRequest('UpdateSecurityPolicyAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetListenerAttributeResponse::fromMap($this->doRPCRequest('GetListenerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateSecurityPolicyAttributeRequest $request
+     * @param GetListenerAttributeRequest $request
      *
-     * @return UpdateSecurityPolicyAttributeResponse
+     * @return GetListenerAttributeResponse
      */
-    public function updateSecurityPolicyAttribute($request)
+    public function getListenerAttribute($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateSecurityPolicyAttributeWithOptions($request, $runtime);
+        return $this->getListenerAttributeWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListSecurityPolicyRelationsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param GetLoadBalancerAttributeRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return ListSecurityPolicyRelationsResponse
+     * @return GetLoadBalancerAttributeResponse
      */
-    public function listSecurityPolicyRelationsWithOptions($request, $runtime)
+    public function getLoadBalancerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListSecurityPolicyRelationsResponse::fromMap($this->doRPCRequest('ListSecurityPolicyRelations', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLoadBalancerAttributeResponse::fromMap($this->doRPCRequest('GetLoadBalancerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListSecurityPolicyRelationsRequest $request
+     * @param GetLoadBalancerAttributeRequest $request
      *
-     * @return ListSecurityPolicyRelationsResponse
+     * @return GetLoadBalancerAttributeResponse
      */
-    public function listSecurityPolicyRelations($request)
+    public function getLoadBalancerAttribute($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listSecurityPolicyRelationsWithOptions($request, $runtime);
+        return $this->getLoadBalancerAttributeWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateLoadBalancerAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ListAclEntriesRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return UpdateLoadBalancerAttributeResponse
+     * @return ListAclEntriesResponse
      */
-    public function updateLoadBalancerAttributeWithOptions($request, $runtime)
+    public function listAclEntriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateLoadBalancerAttributeResponse::fromMap($this->doRPCRequest('UpdateLoadBalancerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAclEntriesResponse::fromMap($this->doRPCRequest('ListAclEntries', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateLoadBalancerAttributeRequest $request
+     * @param ListAclEntriesRequest $request
      *
-     * @return UpdateLoadBalancerAttributeResponse
+     * @return ListAclEntriesResponse
      */
-    public function updateLoadBalancerAttribute($request)
+    public function listAclEntries($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateLoadBalancerAttributeWithOptions($request, $runtime);
+        return $this->listAclEntriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAclRelationsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAclRelationsResponse
+     */
+    public function listAclRelationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListAclRelationsResponse::fromMap($this->doRPCRequest('ListAclRelations', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAclRelationsRequest $request
+     *
+     * @return ListAclRelationsResponse
+     */
+    public function listAclRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAclRelationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAclsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListAclsResponse
+     */
+    public function listAclsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListAclsResponse::fromMap($this->doRPCRequest('ListAcls', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAclsRequest $request
+     *
+     * @return ListAclsResponse
+     */
+    public function listAcls($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAclsWithOptions($request, $runtime);
     }
 
     /**
@@ -1592,31 +1180,417 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param ListHealthCheckTemplatesRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return CreateRuleResponse
+     * @return ListHealthCheckTemplatesResponse
      */
-    public function createRuleWithOptions($request, $runtime)
+    public function listHealthCheckTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return CreateRuleResponse::fromMap($this->doRPCRequest('CreateRule', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListHealthCheckTemplatesResponse::fromMap($this->doRPCRequest('ListHealthCheckTemplates', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateRuleRequest $request
+     * @param ListHealthCheckTemplatesRequest $request
      *
-     * @return CreateRuleResponse
+     * @return ListHealthCheckTemplatesResponse
      */
-    public function createRule($request)
+    public function listHealthCheckTemplates($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createRuleWithOptions($request, $runtime);
+        return $this->listHealthCheckTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListListenerCertificatesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListListenerCertificatesResponse
+     */
+    public function listListenerCertificatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListListenerCertificatesResponse::fromMap($this->doRPCRequest('ListListenerCertificates', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListListenerCertificatesRequest $request
+     *
+     * @return ListListenerCertificatesResponse
+     */
+    public function listListenerCertificates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listListenerCertificatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListListenersRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListListenersResponse
+     */
+    public function listListenersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListListenersResponse::fromMap($this->doRPCRequest('ListListeners', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListListenersRequest $request
+     *
+     * @return ListListenersResponse
+     */
+    public function listListeners($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listListenersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListLoadBalancersRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListLoadBalancersResponse
+     */
+    public function listLoadBalancersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListLoadBalancersResponse::fromMap($this->doRPCRequest('ListLoadBalancers', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListLoadBalancersRequest $request
+     *
+     * @return ListLoadBalancersResponse
+     */
+    public function listLoadBalancers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLoadBalancersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRulesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListRulesResponse
+     */
+    public function listRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListRulesResponse::fromMap($this->doRPCRequest('ListRules', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListRulesRequest $request
+     *
+     * @return ListRulesResponse
+     */
+    public function listRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSecurityPoliciesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSecurityPoliciesResponse
+     */
+    public function listSecurityPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListSecurityPoliciesResponse::fromMap($this->doRPCRequest('ListSecurityPolicies', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListSecurityPoliciesRequest $request
+     *
+     * @return ListSecurityPoliciesResponse
+     */
+    public function listSecurityPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSecurityPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSecurityPolicyRelationsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListSecurityPolicyRelationsResponse
+     */
+    public function listSecurityPolicyRelationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListSecurityPolicyRelationsResponse::fromMap($this->doRPCRequest('ListSecurityPolicyRelations', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListSecurityPolicyRelationsRequest $request
+     *
+     * @return ListSecurityPolicyRelationsResponse
+     */
+    public function listSecurityPolicyRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSecurityPolicyRelationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListServerGroupsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListServerGroupsResponse
+     */
+    public function listServerGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListServerGroupsResponse::fromMap($this->doRPCRequest('ListServerGroups', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListServerGroupsRequest $request
+     *
+     * @return ListServerGroupsResponse
+     */
+    public function listServerGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServerGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListServerGroupServersRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListServerGroupServersResponse
+     */
+    public function listServerGroupServersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListServerGroupServersResponse::fromMap($this->doRPCRequest('ListServerGroupServers', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListServerGroupServersRequest $request
+     *
+     * @return ListServerGroupServersResponse
+     */
+    public function listServerGroupServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServerGroupServersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListSystemSecurityPoliciesResponse
+     */
+    public function listSystemSecurityPoliciesWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return ListSystemSecurityPoliciesResponse::fromMap($this->doRPCRequest('ListSystemSecurityPolicies', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return ListSystemSecurityPoliciesResponse
+     */
+    public function listSystemSecurityPolicies()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSystemSecurityPoliciesWithOptions($runtime);
+    }
+
+    /**
+     * @param ListTagKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTagKeysResponse
+     */
+    public function listTagKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListTagKeysResponse::fromMap($this->doRPCRequest('ListTagKeys', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListTagKeysRequest $request
+     *
+     * @return ListTagKeysResponse
+     */
+    public function listTagKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagValuesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTagValuesResponse
+     */
+    public function listTagValuesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListTagValuesResponse::fromMap($this->doRPCRequest('ListTagValues', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListTagValuesRequest $request
+     *
+     * @return ListTagValuesResponse
+     */
+    public function listTagValues($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagValuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return MoveResourceGroupResponse::fromMap($this->doRPCRequest('MoveResourceGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveEntriesFromAclRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RemoveEntriesFromAclResponse
+     */
+    public function removeEntriesFromAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveEntriesFromAclResponse::fromMap($this->doRPCRequest('RemoveEntriesFromAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveEntriesFromAclRequest $request
+     *
+     * @return RemoveEntriesFromAclResponse
+     */
+    public function removeEntriesFromAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeEntriesFromAclWithOptions($request, $runtime);
     }
 
     /**
@@ -1676,171 +1650,31 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param StartListenerRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return DescribeRegionsResponse
+     * @return StartListenerResponse
      */
-    public function describeRegionsWithOptions($request, $runtime)
+    public function startListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartListenerResponse::fromMap($this->doRPCRequest('StartListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @param StartListenerRequest $request
      *
-     * @return DescribeRegionsResponse
+     * @return StartListenerResponse
      */
-    public function describeRegions($request)
+    public function startListener($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRegionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSecurityPolicyRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateSecurityPolicyResponse
-     */
-    public function createSecurityPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateSecurityPolicyResponse::fromMap($this->doRPCRequest('CreateSecurityPolicy', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateSecurityPolicyRequest $request
-     *
-     * @return CreateSecurityPolicyResponse
-     */
-    public function createSecurityPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSecurityPolicyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateRuleAttributeRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UpdateRuleAttributeResponse
-     */
-    public function updateRuleAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateRuleAttributeResponse::fromMap($this->doRPCRequest('UpdateRuleAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateRuleAttributeRequest $request
-     *
-     * @return UpdateRuleAttributeResponse
-     */
-    public function updateRuleAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateRuleAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListSecurityPoliciesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListSecurityPoliciesResponse
-     */
-    public function listSecurityPoliciesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListSecurityPoliciesResponse::fromMap($this->doRPCRequest('ListSecurityPolicies', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSecurityPoliciesRequest $request
-     *
-     * @return ListSecurityPoliciesResponse
-     */
-    public function listSecurityPolicies($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSecurityPoliciesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateAclAttributeRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateAclAttributeResponse
-     */
-    public function updateAclAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateAclAttributeResponse::fromMap($this->doRPCRequest('UpdateAclAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateAclAttributeRequest $request
-     *
-     * @return UpdateAclAttributeResponse
-     */
-    public function updateAclAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateAclAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DisableDeletionProtectionRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DisableDeletionProtectionResponse
-     */
-    public function disableDeletionProtectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DisableDeletionProtectionResponse::fromMap($this->doRPCRequest('DisableDeletionProtection', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DisableDeletionProtectionRequest $request
-     *
-     * @return DisableDeletionProtectionResponse
-     */
-    public function disableDeletionProtection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->disableDeletionProtectionWithOptions($request, $runtime);
+        return $this->startListenerWithOptions($request, $runtime);
     }
 
     /**
@@ -1872,34 +1706,6 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateListenerRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateListenerResponse
-     */
-    public function createListenerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateListenerResponse::fromMap($this->doRPCRequest('CreateListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateListenerRequest $request
-     *
-     * @return CreateListenerResponse
-     */
-    public function createListener($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createListenerWithOptions($request, $runtime);
-    }
-
-    /**
      * @param TagResourcesRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1928,6 +1734,314 @@ class Alb extends OpenApiClient
     }
 
     /**
+     * @param UnTagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnTagResourcesResponse
+     */
+    public function unTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UnTagResourcesResponse::fromMap($this->doRPCRequest('UnTagResources', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UnTagResourcesRequest $request
+     *
+     * @return UnTagResourcesResponse
+     */
+    public function unTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAclAttributeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateAclAttributeResponse
+     */
+    public function updateAclAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateAclAttributeResponse::fromMap($this->doRPCRequest('UpdateAclAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAclAttributeRequest $request
+     *
+     * @return UpdateAclAttributeResponse
+     */
+    public function updateAclAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAclAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateHealthCheckTemplateAttributeRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateHealthCheckTemplateAttributeResponse
+     */
+    public function updateHealthCheckTemplateAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateHealthCheckTemplateAttributeResponse::fromMap($this->doRPCRequest('UpdateHealthCheckTemplateAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateHealthCheckTemplateAttributeRequest $request
+     *
+     * @return UpdateHealthCheckTemplateAttributeResponse
+     */
+    public function updateHealthCheckTemplateAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateHealthCheckTemplateAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateListenerAttributeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateListenerAttributeResponse
+     */
+    public function updateListenerAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateListenerAttributeResponse::fromMap($this->doRPCRequest('UpdateListenerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateListenerAttributeRequest $request
+     *
+     * @return UpdateListenerAttributeResponse
+     */
+    public function updateListenerAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateListenerAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateListenerLogConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateListenerLogConfigResponse
+     */
+    public function updateListenerLogConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateListenerLogConfigResponse::fromMap($this->doRPCRequest('UpdateListenerLogConfig', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateListenerLogConfigRequest $request
+     *
+     * @return UpdateListenerLogConfigResponse
+     */
+    public function updateListenerLogConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateListenerLogConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateLoadBalancerAttributeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateLoadBalancerAttributeResponse
+     */
+    public function updateLoadBalancerAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateLoadBalancerAttributeResponse::fromMap($this->doRPCRequest('UpdateLoadBalancerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateLoadBalancerAttributeRequest $request
+     *
+     * @return UpdateLoadBalancerAttributeResponse
+     */
+    public function updateLoadBalancerAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLoadBalancerAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateLoadBalancerEditionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateLoadBalancerEditionResponse
+     */
+    public function updateLoadBalancerEditionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateLoadBalancerEditionResponse::fromMap($this->doRPCRequest('UpdateLoadBalancerEdition', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateLoadBalancerEditionRequest $request
+     *
+     * @return UpdateLoadBalancerEditionResponse
+     */
+    public function updateLoadBalancerEdition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLoadBalancerEditionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRuleAttributeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateRuleAttributeResponse
+     */
+    public function updateRuleAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateRuleAttributeResponse::fromMap($this->doRPCRequest('UpdateRuleAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRuleAttributeRequest $request
+     *
+     * @return UpdateRuleAttributeResponse
+     */
+    public function updateRuleAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRuleAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRulesAttributeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateRulesAttributeResponse
+     */
+    public function updateRulesAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateRulesAttributeResponse::fromMap($this->doRPCRequest('UpdateRulesAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRulesAttributeRequest $request
+     *
+     * @return UpdateRulesAttributeResponse
+     */
+    public function updateRulesAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRulesAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSecurityPolicyAttributeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateSecurityPolicyAttributeResponse
+     */
+    public function updateSecurityPolicyAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateSecurityPolicyAttributeResponse::fromMap($this->doRPCRequest('UpdateSecurityPolicyAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSecurityPolicyAttributeRequest $request
+     *
+     * @return UpdateSecurityPolicyAttributeResponse
+     */
+    public function updateSecurityPolicyAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSecurityPolicyAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateServerGroupAttributeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateServerGroupAttributeResponse
+     */
+    public function updateServerGroupAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateServerGroupAttributeResponse::fromMap($this->doRPCRequest('UpdateServerGroupAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateServerGroupAttributeRequest $request
+     *
+     * @return UpdateServerGroupAttributeResponse
+     */
+    public function updateServerGroupAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateServerGroupAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateServerGroupServersAttributeRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -1953,89 +2067,5 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateServerGroupServersAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StartListenerRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return StartListenerResponse
-     */
-    public function startListenerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartListenerResponse::fromMap($this->doRPCRequest('StartListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartListenerRequest $request
-     *
-     * @return StartListenerResponse
-     */
-    public function startListener($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startListenerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateRulesRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateRulesResponse
-     */
-    public function createRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateRulesResponse::fromMap($this->doRPCRequest('CreateRules', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateRulesRequest $request
-     *
-     * @return CreateRulesResponse
-     */
-    public function createRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRulesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAclEntriesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListAclEntriesResponse
-     */
-    public function listAclEntriesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListAclEntriesResponse::fromMap($this->doRPCRequest('ListAclEntries', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAclEntriesRequest $request
-     *
-     * @return ListAclEntriesResponse
-     */
-    public function listAclEntries($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAclEntriesWithOptions($request, $runtime);
     }
 }
