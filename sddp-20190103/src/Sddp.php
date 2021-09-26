@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Sddp\V20190103;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\BatchDeleteDataLimitResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateConfigRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateConfigResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateDataLimitRequest;
@@ -18,10 +17,6 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteDataLimitRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteDataLimitResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteRuleRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteRuleResponse;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeAccountDetailRequest;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeAccountDetailResponse;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeAccountsRequest;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeColumnsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeColumnsResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeConfigsRequest;
@@ -32,28 +27,18 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitDetailRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitDetailResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitSetRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitSetResponse;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitsInstanceDimRequest;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitsInstanceDimResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitsResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataMaskingRunHistoryRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataMaskingRunHistoryResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataMaskingTasksRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataMaskingTasksResponse;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataTotalCountRequest;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataTotalCountResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventDetailRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventDetailResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventsResponse;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventTopRequest;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventTopResponse;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventTypesDetailRequest;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventTypesDetailResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventTypesRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventTypesResponse;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstancePortraitRequest;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstancePortraitResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstanceSourcesRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstanceSourcesResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstancesRequest;
@@ -66,14 +51,10 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribePackagesRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribePackagesResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRiskLevelsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRiskLevelsResponse;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRuleCategoryRequest;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRuleCategoryResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRulesRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRulesResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeTablesRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeTablesResponse;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeUserCountRequest;
-use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeUserCountResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeUserStatusRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeUserStatusResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DisableUserConfigRequest;
@@ -135,28 +116,6 @@ class Sddp extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return BatchDeleteDataLimitResponse
-     */
-    public function batchDeleteDataLimitWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return BatchDeleteDataLimitResponse::fromMap($this->doRPCRequest('BatchDeleteDataLimit', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return BatchDeleteDataLimitResponse
-     */
-    public function batchDeleteDataLimit()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchDeleteDataLimitWithOptions($runtime);
     }
 
     /**
@@ -328,62 +287,6 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountDetailRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeAccountDetailResponse
-     */
-    public function describeAccountDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeAccountDetailResponse::fromMap($this->doRPCRequest('DescribeAccountDetail', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAccountDetailRequest $request
-     *
-     * @return DescribeAccountDetailResponse
-     */
-    public function describeAccountDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAccountDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeAccountsResponse
-     */
-    public function describeAccountsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeAccountsResponse::fromMap($this->doRPCRequest('DescribeAccounts', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAccountsRequest $request
-     *
-     * @return DescribeAccountsResponse
-     */
-    public function describeAccounts($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAccountsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeColumnsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -552,34 +455,6 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataLimitsInstanceDimRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeDataLimitsInstanceDimResponse
-     */
-    public function describeDataLimitsInstanceDimWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDataLimitsInstanceDimResponse::fromMap($this->doRPCRequest('DescribeDataLimitsInstanceDim', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDataLimitsInstanceDimRequest $request
-     *
-     * @return DescribeDataLimitsInstanceDimResponse
-     */
-    public function describeDataLimitsInstanceDim($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDataLimitsInstanceDimWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDataMaskingRunHistoryRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -633,34 +508,6 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDataMaskingTasksWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDataTotalCountRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeDataTotalCountResponse
-     */
-    public function describeDataTotalCountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDataTotalCountResponse::fromMap($this->doRPCRequest('DescribeDataTotalCount', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDataTotalCountRequest $request
-     *
-     * @return DescribeDataTotalCountResponse
-     */
-    public function describeDataTotalCount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDataTotalCountWithOptions($request, $runtime);
     }
 
     /**
@@ -720,34 +567,6 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventTopRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeEventTopResponse
-     */
-    public function describeEventTopWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeEventTopResponse::fromMap($this->doRPCRequest('DescribeEventTop', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeEventTopRequest $request
-     *
-     * @return DescribeEventTopResponse
-     */
-    public function describeEventTop($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeEventTopWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeEventTypesRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -773,62 +592,6 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEventTypesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeEventTypesDetailRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeEventTypesDetailResponse
-     */
-    public function describeEventTypesDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeEventTypesDetailResponse::fromMap($this->doRPCRequest('DescribeEventTypesDetail', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeEventTypesDetailRequest $request
-     *
-     * @return DescribeEventTypesDetailResponse
-     */
-    public function describeEventTypesDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeEventTypesDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeInstancePortraitRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeInstancePortraitResponse
-     */
-    public function describeInstancePortraitWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeInstancePortraitResponse::fromMap($this->doRPCRequest('DescribeInstancePortrait', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeInstancePortraitRequest $request
-     *
-     * @return DescribeInstancePortraitResponse
-     */
-    public function describeInstancePortrait($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInstancePortraitWithOptions($request, $runtime);
     }
 
     /**
@@ -1000,34 +763,6 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleCategoryRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeRuleCategoryResponse
-     */
-    public function describeRuleCategoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRuleCategoryResponse::fromMap($this->doRPCRequest('DescribeRuleCategory', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRuleCategoryRequest $request
-     *
-     * @return DescribeRuleCategoryResponse
-     */
-    public function describeRuleCategory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRuleCategoryWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeRulesRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1081,34 +816,6 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTablesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeUserCountRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeUserCountResponse
-     */
-    public function describeUserCountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeUserCountResponse::fromMap($this->doRPCRequest('DescribeUserCount', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeUserCountRequest $request
-     *
-     * @return DescribeUserCountResponse
-     */
-    public function describeUserCount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUserCountWithOptions($request, $runtime);
     }
 
     /**
