@@ -80,11 +80,18 @@ class member extends Model
     public $organizationMemberName;
 
     /**
-     * @description 企业角色
+     * @description 企业角色名字
      *
      * @var string
      */
-    public $organizationRole;
+    public $organizationRoleName;
+
+    /**
+     * @description 企业角色Id
+     *
+     * @var string
+     */
+    public $organizationRoleId;
 
     /**
      * @description 用户状态
@@ -103,7 +110,8 @@ class member extends Model
         'lastVisitTime'          => 'lastVisitTime',
         'mobile'                 => 'mobile',
         'organizationMemberName' => 'organizationMemberName',
-        'organizationRole'       => 'organizationRole',
+        'organizationRoleName'   => 'organizationRoleName',
+        'organizationRoleId'     => 'organizationRoleId',
         'state'                  => 'state',
     ];
 
@@ -144,8 +152,11 @@ class member extends Model
         if (null !== $this->organizationMemberName) {
             $res['organizationMemberName'] = $this->organizationMemberName;
         }
-        if (null !== $this->organizationRole) {
-            $res['organizationRole'] = $this->organizationRole;
+        if (null !== $this->organizationRoleName) {
+            $res['organizationRoleName'] = $this->organizationRoleName;
+        }
+        if (null !== $this->organizationRoleId) {
+            $res['organizationRoleId'] = $this->organizationRoleId;
         }
         if (null !== $this->state) {
             $res['state'] = $this->state;
@@ -194,8 +205,11 @@ class member extends Model
         if (isset($map['organizationMemberName'])) {
             $model->organizationMemberName = $map['organizationMemberName'];
         }
-        if (isset($map['organizationRole'])) {
-            $model->organizationRole = $map['organizationRole'];
+        if (isset($map['organizationRoleName'])) {
+            $model->organizationRoleName = $map['organizationRoleName'];
+        }
+        if (isset($map['organizationRoleId'])) {
+            $model->organizationRoleId = $map['organizationRoleId'];
         }
         if (isset($map['state'])) {
             $model->state = $map['state'];
