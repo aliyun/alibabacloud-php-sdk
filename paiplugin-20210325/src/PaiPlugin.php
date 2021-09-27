@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\PaiPlugin\V20210325\Models\ListSignaturesRequest;
 use AlibabaCloud\SDK\PaiPlugin\V20210325\Models\ListSignaturesResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20210325\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\PaiPlugin\V20210325\Models\ListTemplatesResponse;
+use AlibabaCloud\SDK\PaiPlugin\V20210325\Models\UploadMediaByURLRequest;
+use AlibabaCloud\SDK\PaiPlugin\V20210325\Models\UploadMediaByURLResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -130,6 +132,7 @@ class PaiPlugin extends OpenApiClient
      */
     public function deleteTemplateWithOptions($ID, $headers, $runtime)
     {
+        $ID  = OpenApiUtilClient::getEncodeParam($ID);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -253,6 +256,7 @@ class PaiPlugin extends OpenApiClient
      */
     public function deleteScheduleWithOptions($ID, $headers, $runtime)
     {
+        $ID  = OpenApiUtilClient::getEncodeParam($ID);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -282,6 +286,7 @@ class PaiPlugin extends OpenApiClient
      */
     public function getTemplateWithOptions($ID, $headers, $runtime)
     {
+        $ID  = OpenApiUtilClient::getEncodeParam($ID);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -355,6 +360,7 @@ class PaiPlugin extends OpenApiClient
      */
     public function getSignatureWithOptions($ID, $headers, $runtime)
     {
+        $ID  = OpenApiUtilClient::getEncodeParam($ID);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -472,6 +478,47 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * @param UploadMediaByURLRequest $request
+     *
+     * @return UploadMediaByURLResponse
+     */
+    public function uploadMediaByURL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->uploadMediaByURLWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UploadMediaByURLRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UploadMediaByURLResponse
+     */
+    public function uploadMediaByURLWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->uploadMetadatas)) {
+            @$body['UploadMetadatas'] = $request->uploadMetadatas;
+        }
+        if (!Utils::isUnset($request->uploadURLs)) {
+            @$body['UploadURLs'] = $request->uploadURLs;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            @$body['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return UploadMediaByURLResponse::fromMap($this->doROARequest('UploadMediaByURL', '2021-03-25', 'HTTPS', 'POST', 'AK', '/api/v1/media/api/v1/video/upload', 'json', $req, $runtime));
+    }
+
+    /**
      * @param string $ID
      *
      * @return DeleteSignatureResponse
@@ -493,6 +540,7 @@ class PaiPlugin extends OpenApiClient
      */
     public function deleteSignatureWithOptions($ID, $headers, $runtime)
     {
+        $ID  = OpenApiUtilClient::getEncodeParam($ID);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
