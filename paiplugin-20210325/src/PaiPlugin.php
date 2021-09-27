@@ -515,7 +515,7 @@ class PaiPlugin extends OpenApiClient
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
-        return UploadMediaByURLResponse::fromMap($this->doROARequest('UploadMediaByURL', '2021-03-25', 'HTTPS', 'POST', 'AK', '/api/v1/media/api/v1/video/upload', 'json', $req, $runtime));
+        return UploadMediaByURLResponse::fromMap($this->doROARequest('UploadMediaByURL', '2021-03-25', 'HTTPS', 'POST', 'AK', '/media/api/v1/video/upload', 'json', $req, $runtime));
     }
 
     /**
