@@ -37,13 +37,19 @@ class resourceDirectory extends Model
      * @var string
      */
     public $controlPolicyStatus;
+
+    /**
+     * @var string
+     */
+    public $memberDeletionStatus;
     protected $_name = [
-        'rootFolderId'        => 'RootFolderId',
-        'resourceDirectoryId' => 'ResourceDirectoryId',
-        'createTime'          => 'CreateTime',
-        'masterAccountId'     => 'MasterAccountId',
-        'masterAccountName'   => 'MasterAccountName',
-        'controlPolicyStatus' => 'ControlPolicyStatus',
+        'rootFolderId'         => 'RootFolderId',
+        'resourceDirectoryId'  => 'ResourceDirectoryId',
+        'createTime'           => 'CreateTime',
+        'masterAccountId'      => 'MasterAccountId',
+        'masterAccountName'    => 'MasterAccountName',
+        'controlPolicyStatus'  => 'ControlPolicyStatus',
+        'memberDeletionStatus' => 'MemberDeletionStatus',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class resourceDirectory extends Model
         }
         if (null !== $this->controlPolicyStatus) {
             $res['ControlPolicyStatus'] = $this->controlPolicyStatus;
+        }
+        if (null !== $this->memberDeletionStatus) {
+            $res['MemberDeletionStatus'] = $this->memberDeletionStatus;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class resourceDirectory extends Model
         }
         if (isset($map['ControlPolicyStatus'])) {
             $model->controlPolicyStatus = $map['ControlPolicyStatus'];
+        }
+        if (isset($map['MemberDeletionStatus'])) {
+            $model->memberDeletionStatus = $map['MemberDeletionStatus'];
         }
 
         return $model;

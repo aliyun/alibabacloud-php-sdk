@@ -21,17 +21,23 @@ class folder extends Model
     /**
      * @var string
      */
+    public $parentFolderId;
+
+    /**
+     * @var string
+     */
     public $folderName;
 
     /**
      * @var string
      */
-    public $parentFolderId;
+    public $resourceDirectoryPath;
     protected $_name = [
-        'folderId'       => 'FolderId',
-        'createTime'     => 'CreateTime',
-        'folderName'     => 'FolderName',
-        'parentFolderId' => 'ParentFolderId',
+        'folderId'              => 'FolderId',
+        'createTime'            => 'CreateTime',
+        'parentFolderId'        => 'ParentFolderId',
+        'folderName'            => 'FolderName',
+        'resourceDirectoryPath' => 'ResourceDirectoryPath',
     ];
 
     public function validate()
@@ -47,11 +53,14 @@ class folder extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->parentFolderId) {
+            $res['ParentFolderId'] = $this->parentFolderId;
+        }
         if (null !== $this->folderName) {
             $res['FolderName'] = $this->folderName;
         }
-        if (null !== $this->parentFolderId) {
-            $res['ParentFolderId'] = $this->parentFolderId;
+        if (null !== $this->resourceDirectoryPath) {
+            $res['ResourceDirectoryPath'] = $this->resourceDirectoryPath;
         }
 
         return $res;
@@ -71,11 +80,14 @@ class folder extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['ParentFolderId'])) {
+            $model->parentFolderId = $map['ParentFolderId'];
+        }
         if (isset($map['FolderName'])) {
             $model->folderName = $map['FolderName'];
         }
-        if (isset($map['ParentFolderId'])) {
-            $model->parentFolderId = $map['ParentFolderId'];
+        if (isset($map['ResourceDirectoryPath'])) {
+            $model->resourceDirectoryPath = $map['ResourceDirectoryPath'];
         }
 
         return $model;

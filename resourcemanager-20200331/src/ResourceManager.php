@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateServiceLinkedRoleReq
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeclineHandshakeRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeclineHandshakeResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAccountRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteControlPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteFolderRequest;
@@ -123,6 +125,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTrustedServiceStatusRe
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTrustedServiceStatusResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\MoveAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\MoveAccountResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\MoveResourcesRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\MoveResourcesResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\PromoteResourceAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\PromoteResourceAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\RegisterDelegatedAdministratorRequest;
@@ -629,6 +633,34 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->declineHandshakeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAccountResponse
+     */
+    public function deleteAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteAccountResponse::fromMap($this->doRPCRequest('DeleteAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAccountRequest $request
+     *
+     * @return DeleteAccountResponse
+     */
+    public function deleteAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -1881,6 +1913,34 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->moveAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MoveResourcesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return MoveResourcesResponse
+     */
+    public function moveResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return MoveResourcesResponse::fromMap($this->doRPCRequest('MoveResources', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param MoveResourcesRequest $request
+     *
+     * @return MoveResourcesResponse
+     */
+    public function moveResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveResourcesWithOptions($request, $runtime);
     }
 
     /**

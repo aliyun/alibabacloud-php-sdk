@@ -62,18 +62,24 @@ class account extends Model
      * @var string
      */
     public $accountName;
+
+    /**
+     * @var string
+     */
+    public $resourceDirectoryPath;
     protected $_name = [
-        'status'              => 'Status',
-        'type'                => 'Type',
-        'displayName'         => 'DisplayName',
-        'folderId'            => 'FolderId',
-        'resourceDirectoryId' => 'ResourceDirectoryId',
-        'identityInformation' => 'IdentityInformation',
-        'joinTime'            => 'JoinTime',
-        'accountId'           => 'AccountId',
-        'joinMethod'          => 'JoinMethod',
-        'modifyTime'          => 'ModifyTime',
-        'accountName'         => 'AccountName',
+        'status'                => 'Status',
+        'type'                  => 'Type',
+        'displayName'           => 'DisplayName',
+        'folderId'              => 'FolderId',
+        'resourceDirectoryId'   => 'ResourceDirectoryId',
+        'identityInformation'   => 'IdentityInformation',
+        'joinTime'              => 'JoinTime',
+        'accountId'             => 'AccountId',
+        'joinMethod'            => 'JoinMethod',
+        'modifyTime'            => 'ModifyTime',
+        'accountName'           => 'AccountName',
+        'resourceDirectoryPath' => 'ResourceDirectoryPath',
     ];
 
     public function validate()
@@ -115,6 +121,9 @@ class account extends Model
         }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->resourceDirectoryPath) {
+            $res['ResourceDirectoryPath'] = $this->resourceDirectoryPath;
         }
 
         return $res;
@@ -160,6 +169,9 @@ class account extends Model
         }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['ResourceDirectoryPath'])) {
+            $model->resourceDirectoryPath = $map['ResourceDirectoryPath'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ResendCreateCloudAccountEmailResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var account
      */
     public $account;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'account'   => 'Account',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ResendCreateCloudAccountEmailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->account) {
             $res['Account'] = null !== $this->account ? $this->account->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ResendCreateCloudAccountEmailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Account'])) {
             $model->account = account::fromMap($map['Account']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
