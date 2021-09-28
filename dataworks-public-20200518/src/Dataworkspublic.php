@@ -469,6 +469,7 @@ use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Dataworkspublic extends OpenApiClient
@@ -542,8 +543,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'AbolishDataServiceApi',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return AbolishDataServiceApiResponse::fromMap($this->doRPCRequest('AbolishDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AbolishDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -567,11 +579,28 @@ class Dataworkspublic extends OpenApiClient
     public function addProjectMemberToRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProjectId']   = $request->projectId;
+        $query['UserId']      = $request->userId;
+        $query['RoleCode']    = $request->roleCode;
+        $query['ClientToken'] = $request->clientToken;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddProjectMemberToRole',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddProjectMemberToRoleResponse::fromMap($this->doRPCRequest('AddProjectMemberToRole', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddProjectMemberToRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -595,11 +624,26 @@ class Dataworkspublic extends OpenApiClient
     public function addToMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['CategoryId'] = $request->categoryId;
+        $query['TableGuid']  = $request->tableGuid;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddToMetaCategory',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddToMetaCategoryResponse::fromMap($this->doRPCRequest('AddToMetaCategory', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddToMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -623,11 +667,27 @@ class Dataworkspublic extends OpenApiClient
     public function approvePermissionApplyOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['FlowId']         = $request->flowId;
+        $query['ApproveComment'] = $request->approveComment;
+        $query['ApproveAction']  = $request->approveAction;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ApprovePermissionApplyOrder',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ApprovePermissionApplyOrderResponse::fromMap($this->doRPCRequest('ApprovePermissionApplyOrder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ApprovePermissionApplyOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -651,11 +711,27 @@ class Dataworkspublic extends OpenApiClient
     public function checkEngineMetaPartitionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['TableGuid']      = $request->tableGuid;
+        $query['Partition']      = $request->partition;
+        $query['DataSourceType'] = $request->dataSourceType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckEngineMetaPartition',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckEngineMetaPartitionResponse::fromMap($this->doRPCRequest('CheckEngineMetaPartition', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckEngineMetaPartitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -679,11 +755,26 @@ class Dataworkspublic extends OpenApiClient
     public function checkEngineMetaTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['TableGuid']      = $request->tableGuid;
+        $query['DataSourceType'] = $request->dataSourceType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckEngineMetaTable',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckEngineMetaTableResponse::fromMap($this->doRPCRequest('CheckEngineMetaTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckEngineMetaTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -710,8 +801,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CheckFileDeployment',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CheckFileDeploymentResponse::fromMap($this->doRPCRequest('CheckFileDeployment', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckFileDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -735,11 +837,30 @@ class Dataworkspublic extends OpenApiClient
     public function checkMetaPartitionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['TableGuid']      = $request->tableGuid;
+        $query['Partition']      = $request->partition;
+        $query['ClusterId']      = $request->clusterId;
+        $query['DatabaseName']   = $request->databaseName;
+        $query['TableName']      = $request->tableName;
+        $query['DataSourceType'] = $request->dataSourceType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckMetaPartition',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckMetaPartitionResponse::fromMap($this->doRPCRequest('CheckMetaPartition', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckMetaPartitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -763,11 +884,29 @@ class Dataworkspublic extends OpenApiClient
     public function checkMetaTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['TableGuid']      = $request->tableGuid;
+        $query['ClusterId']      = $request->clusterId;
+        $query['DatabaseName']   = $request->databaseName;
+        $query['TableName']      = $request->tableName;
+        $query['DataSourceType'] = $request->dataSourceType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckMetaTable',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckMetaTableResponse::fromMap($this->doRPCRequest('CheckMetaTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckMetaTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -789,9 +928,20 @@ class Dataworkspublic extends OpenApiClient
      */
     public function checkMetaTableTaskWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'CheckMetaTableTask',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CheckMetaTableTaskResponse::fromMap($this->doRPCRequest('CheckMetaTableTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckMetaTableTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -816,8 +966,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateBusiness',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateBusinessResponse::fromMap($this->doRPCRequest('CreateBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -841,11 +1002,31 @@ class Dataworkspublic extends OpenApiClient
     public function createConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ProjectId']      = $request->projectId;
+        $query['Name']           = $request->name;
+        $query['Description']    = $request->description;
+        $query['ConnectionType'] = $request->connectionType;
+        $query['SubType']        = $request->subType;
+        $query['EnvType']        = $request->envType;
+        $query['Content']        = $request->content;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConnection',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateConnectionResponse::fromMap($this->doRPCRequest('CreateConnection', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -872,8 +1053,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateDagComplement',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateDagComplementResponse::fromMap($this->doRPCRequest('CreateDagComplement', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDagComplementResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -900,8 +1092,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateDagTest',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateDagTestResponse::fromMap($this->doRPCRequest('CreateDagTest', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDagTestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -928,8 +1131,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateDataServiceApi',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateDataServiceApiResponse::fromMap($this->doRPCRequest('CreateDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -956,8 +1170,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateDataServiceApiAuthority',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateDataServiceApiAuthorityResponse::fromMap($this->doRPCRequest('CreateDataServiceApiAuthority', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDataServiceApiAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -984,8 +1209,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateDataServiceFolder',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateDataServiceFolderResponse::fromMap($this->doRPCRequest('CreateDataServiceFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDataServiceFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1012,8 +1248,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateDataServiceGroup',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateDataServiceGroupResponse::fromMap($this->doRPCRequest('CreateDataServiceGroup', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDataServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1037,11 +1284,31 @@ class Dataworkspublic extends OpenApiClient
     public function createDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ProjectId']      = $request->projectId;
+        $query['Name']           = $request->name;
+        $query['Description']    = $request->description;
+        $query['DataSourceType'] = $request->dataSourceType;
+        $query['SubType']        = $request->subType;
+        $query['EnvType']        = $request->envType;
+        $query['Content']        = $request->content;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataSource',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDataSourceResponse::fromMap($this->doRPCRequest('CreateDataSource', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1065,11 +1332,30 @@ class Dataworkspublic extends OpenApiClient
     public function createDISyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProjectId']   = $request->projectId;
+        $query['TaskType']    = $request->taskType;
+        $query['TaskContent'] = $request->taskContent;
+        $query['TaskParam']   = $request->taskParam;
+        $query['TaskName']    = $request->taskName;
+        $query['ClientToken'] = $request->clientToken;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDISyncTask',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDISyncTaskResponse::fromMap($this->doRPCRequest('CreateDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDISyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1096,8 +1382,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateFile',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateFileResponse::fromMap($this->doRPCRequest('CreateFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1124,8 +1421,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateFolder',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateFolderResponse::fromMap($this->doRPCRequest('CreateFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1152,8 +1460,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateImportMigration',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateImportMigrationResponse::fromMap($this->doRPCRequest('CreateImportMigration', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateImportMigrationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1258,8 +1577,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateManualDag',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateManualDagResponse::fromMap($this->doRPCRequest('CreateManualDag', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateManualDagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1286,8 +1616,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateMetaCategory',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateMetaCategoryResponse::fromMap($this->doRPCRequest('CreateMetaCategory', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1311,11 +1652,32 @@ class Dataworkspublic extends OpenApiClient
     public function createPermissionApplyOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['ApplyUserIds']          = $request->applyUserIds;
+        $query['Deadline']              = $request->deadline;
+        $query['ApplyReason']           = $request->applyReason;
+        $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
+        $query['WorkspaceId']           = $request->workspaceId;
+        $query['OrderType']             = $request->orderType;
+        $query['EngineType']            = $request->engineType;
+        $query['ApplyObject']           = $request->applyObject;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePermissionApplyOrder',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePermissionApplyOrderResponse::fromMap($this->doRPCRequest('CreatePermissionApplyOrder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePermissionApplyOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1339,11 +1701,28 @@ class Dataworkspublic extends OpenApiClient
     public function createProjectMemberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProjectId']   = $request->projectId;
+        $query['UserId']      = $request->userId;
+        $query['ClientToken'] = $request->clientToken;
+        $query['RoleCode']    = $request->roleCode;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProjectMember',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateProjectMemberResponse::fromMap($this->doRPCRequest('CreateProjectMember', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1370,8 +1749,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateQualityEntity',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateQualityEntityResponse::fromMap($this->doRPCRequest('CreateQualityEntity', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateQualityEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1398,8 +1788,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateQualityFollower',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateQualityFollowerResponse::fromMap($this->doRPCRequest('CreateQualityFollower', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1426,8 +1827,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateQualityRelativeNode',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateQualityRelativeNodeResponse::fromMap($this->doRPCRequest('CreateQualityRelativeNode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateQualityRelativeNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1454,8 +1866,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateQualityRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateQualityRuleResponse::fromMap($this->doRPCRequest('CreateQualityRule', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1482,8 +1905,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateRemind',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateRemindResponse::fromMap($this->doRPCRequest('CreateRemind', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRemindResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1507,11 +1941,39 @@ class Dataworkspublic extends OpenApiClient
     public function createTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['IsView']            = $request->isView;
+        $query['Visibility']        = $request->visibility;
+        $query['LifeCycle']         = $request->lifeCycle;
+        $query['CategoryId']        = $request->categoryId;
+        $query['LogicalLevelId']    = $request->logicalLevelId;
+        $query['PhysicsLevelId']    = $request->physicsLevelId;
+        $query['ExternalTableType'] = $request->externalTableType;
+        $query['Location']          = $request->location;
+        $query['ProjectId']         = $request->projectId;
+        $query['TableName']         = $request->tableName;
+        $query['AppGuid']           = $request->appGuid;
+        $query['Comment']           = $request->comment;
+        $query['OwnerId']           = $request->ownerId;
+        $query['HasPart']           = $request->hasPart;
+        $query['ClientToken']       = $request->clientToken;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTable',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTableResponse::fromMap($this->doRPCRequest('CreateTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1535,11 +1997,28 @@ class Dataworkspublic extends OpenApiClient
     public function createTableLevelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProjectId']   = $request->projectId;
+        $query['LevelType']   = $request->levelType;
+        $query['Name']        = $request->name;
+        $query['Description'] = $request->description;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTableLevel',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTableLevelResponse::fromMap($this->doRPCRequest('CreateTableLevel', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTableLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1563,11 +2042,28 @@ class Dataworkspublic extends OpenApiClient
     public function createTableThemeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['Level']     = $request->level;
+        $query['Name']      = $request->name;
+        $query['ParentId']  = $request->parentId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTableTheme',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTableThemeResponse::fromMap($this->doRPCRequest('CreateTableTheme', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTableThemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1594,8 +2090,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateUdfFile',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateUdfFileResponse::fromMap($this->doRPCRequest('CreateUdfFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUdfFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1622,8 +2129,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateView',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateViewResponse::fromMap($this->doRPCRequest('CreateView', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateViewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1650,8 +2168,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteBusiness',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteBusinessResponse::fromMap($this->doRPCRequest('DeleteBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1675,11 +2204,25 @@ class Dataworkspublic extends OpenApiClient
     public function deleteConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ConnectionId'] = $request->connectionId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteConnection',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteConnectionResponse::fromMap($this->doRPCRequest('DeleteConnection', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1706,8 +2249,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteDataServiceApi',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteDataServiceApiResponse::fromMap($this->doRPCRequest('DeleteDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1734,8 +2288,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteDataServiceApiAuthority',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteDataServiceApiAuthorityResponse::fromMap($this->doRPCRequest('DeleteDataServiceApiAuthority', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDataServiceApiAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1759,11 +2324,25 @@ class Dataworkspublic extends OpenApiClient
     public function deleteDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['DataSourceId'] = $request->dataSourceId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataSource',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDataSourceResponse::fromMap($this->doRPCRequest('DeleteDataSource', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1787,11 +2366,27 @@ class Dataworkspublic extends OpenApiClient
     public function deleteDISyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['TaskType']  = $request->taskType;
+        $query['FileId']    = $request->fileId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDISyncTask',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDISyncTaskResponse::fromMap($this->doRPCRequest('DeleteDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDISyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1818,8 +2413,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteFile',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteFileResponse::fromMap($this->doRPCRequest('DeleteFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1846,8 +2452,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteFolder',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteFolderResponse::fromMap($this->doRPCRequest('DeleteFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1871,11 +2488,26 @@ class Dataworkspublic extends OpenApiClient
     public function deleteFromMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['CategoryId'] = $request->categoryId;
+        $query['TableGuid']  = $request->tableGuid;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFromMetaCategory',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFromMetaCategoryResponse::fromMap($this->doRPCRequest('DeleteFromMetaCategory', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFromMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1901,10 +2533,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMetaCategory',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMetaCategoryResponse::fromMap($this->doRPCRequest('DeleteMetaCategory', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1928,11 +2571,26 @@ class Dataworkspublic extends OpenApiClient
     public function deleteProjectMemberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['UserId']    = $request->userId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProjectMember',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteProjectMemberResponse::fromMap($this->doRPCRequest('DeleteProjectMember', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1959,8 +2617,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteQualityEntity',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteQualityEntityResponse::fromMap($this->doRPCRequest('DeleteQualityEntity', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteQualityEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1987,8 +2656,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteQualityFollower',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteQualityFollowerResponse::fromMap($this->doRPCRequest('DeleteQualityFollower', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2015,8 +2695,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteQualityRelativeNode',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteQualityRelativeNodeResponse::fromMap($this->doRPCRequest('DeleteQualityRelativeNode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteQualityRelativeNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2043,8 +2734,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteQualityRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteQualityRuleResponse::fromMap($this->doRPCRequest('DeleteQualityRule', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2071,8 +2773,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteRemind',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteRemindResponse::fromMap($this->doRPCRequest('DeleteRemind', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRemindResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2096,11 +2809,28 @@ class Dataworkspublic extends OpenApiClient
     public function deleteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['TableName'] = $request->tableName;
+        $query['EnvType']   = $request->envType;
+        $query['AppGuid']   = $request->appGuid;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTable',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTableResponse::fromMap($this->doRPCRequest('DeleteTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2124,11 +2854,26 @@ class Dataworkspublic extends OpenApiClient
     public function deleteTableLevelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['LevelId']   = $request->levelId;
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTableLevel',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTableLevelResponse::fromMap($this->doRPCRequest('DeleteTableLevel', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTableLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2152,11 +2897,26 @@ class Dataworkspublic extends OpenApiClient
     public function deleteTableThemeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ThemeId']   = $request->themeId;
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTableTheme',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTableThemeResponse::fromMap($this->doRPCRequest('DeleteTableTheme', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTableThemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2180,11 +2940,26 @@ class Dataworkspublic extends OpenApiClient
     public function deleteViewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['ViewName'] = $request->viewName;
+        $query['AppGuid']  = $request->appGuid;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteView',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteViewResponse::fromMap($this->doRPCRequest('DeleteView', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteViewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2208,11 +2983,27 @@ class Dataworkspublic extends OpenApiClient
     public function deployDISyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['TaskType']  = $request->taskType;
+        $query['FileId']    = $request->fileId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeployDISyncTask',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeployDISyncTaskResponse::fromMap($this->doRPCRequest('DeployDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeployDISyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2239,8 +3030,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeployFile',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeployFileResponse::fromMap($this->doRPCRequest('DeployFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeployFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2266,10 +3068,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DesensitizeData',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DesensitizeDataResponse::fromMap($this->doRPCRequest('DesensitizeData', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DesensitizeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2296,8 +3109,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'EstablishRelationTableToBusiness',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return EstablishRelationTableToBusinessResponse::fromMap($this->doRPCRequest('EstablishRelationTableToBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EstablishRelationTableToBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2323,10 +3147,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportConnections',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ExportConnectionsResponse::fromMap($this->doRPCRequest('ExportConnections', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ExportConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2352,10 +3187,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportDataSources',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ExportDataSourcesResponse::fromMap($this->doRPCRequest('ExportDataSources', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ExportDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2379,11 +3225,27 @@ class Dataworkspublic extends OpenApiClient
     public function exportDISyncTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['TaskType']  = $request->taskType;
+        $query['TaskParam'] = $request->taskParam;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportDISyncTasks',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ExportDISyncTasksResponse::fromMap($this->doRPCRequest('ExportDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExportDISyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2407,11 +3269,28 @@ class Dataworkspublic extends OpenApiClient
     public function generateDISyncTaskConfigForCreatingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProjectId']   = $request->projectId;
+        $query['TaskType']    = $request->taskType;
+        $query['TaskParam']   = $request->taskParam;
+        $query['ClientToken'] = $request->clientToken;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateDISyncTaskConfigForCreating',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GenerateDISyncTaskConfigForCreatingResponse::fromMap($this->doRPCRequest('GenerateDISyncTaskConfigForCreating', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateDISyncTaskConfigForCreatingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2435,11 +3314,29 @@ class Dataworkspublic extends OpenApiClient
     public function generateDISyncTaskConfigForUpdatingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProjectId']   = $request->projectId;
+        $query['TaskType']    = $request->taskType;
+        $query['TaskParam']   = $request->taskParam;
+        $query['ClientToken'] = $request->clientToken;
+        $query['TaskId']      = $request->taskId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateDISyncTaskConfigForUpdating',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GenerateDISyncTaskConfigForUpdatingResponse::fromMap($this->doRPCRequest('GenerateDISyncTaskConfigForUpdating', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateDISyncTaskConfigForUpdatingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2466,8 +3363,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetBaselineConfig',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetBaselineConfigResponse::fromMap($this->doRPCRequest('GetBaselineConfig', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBaselineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2494,8 +3402,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetBaselineKeyPath',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetBaselineKeyPathResponse::fromMap($this->doRPCRequest('GetBaselineKeyPath', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBaselineKeyPathResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2522,8 +3441,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetBaselineStatus',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetBaselineStatusResponse::fromMap($this->doRPCRequest('GetBaselineStatus', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBaselineStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2550,8 +3480,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetBusiness',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetBusinessResponse::fromMap($this->doRPCRequest('GetBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2575,11 +3516,29 @@ class Dataworkspublic extends OpenApiClient
     public function getConnectionMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ProjectId']      = $request->projectId;
+        $query['DatasourceName'] = $request->datasourceName;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['EnvType']        = $request->envType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConnectionMeta',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetConnectionMetaResponse::fromMap($this->doRPCRequest('GetConnectionMeta', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConnectionMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2606,8 +3565,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetDag',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetDagResponse::fromMap($this->doRPCRequest('GetDag', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2634,8 +3604,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetDataServiceApi',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetDataServiceApiResponse::fromMap($this->doRPCRequest('GetDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2662,8 +3643,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetDataServiceApplication',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetDataServiceApplicationResponse::fromMap($this->doRPCRequest('GetDataServiceApplication', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDataServiceApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2690,8 +3682,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetDataServiceFolder',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetDataServiceFolderResponse::fromMap($this->doRPCRequest('GetDataServiceFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDataServiceFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2718,8 +3721,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetDataServiceGroup',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetDataServiceGroupResponse::fromMap($this->doRPCRequest('GetDataServiceGroup', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDataServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2746,8 +3760,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetDataServicePublishedApi',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetDataServicePublishedApiResponse::fromMap($this->doRPCRequest('GetDataServicePublishedApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDataServicePublishedApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2771,11 +3796,29 @@ class Dataworkspublic extends OpenApiClient
     public function getDataSourceMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ProjectId']      = $request->projectId;
+        $query['DatasourceName'] = $request->datasourceName;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['EnvType']        = $request->envType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataSourceMeta',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDataSourceMetaResponse::fromMap($this->doRPCRequest('GetDataSourceMeta', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDataSourceMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2801,10 +3844,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDDLJobStatus',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDDLJobStatusResponse::fromMap($this->doRPCRequest('GetDDLJobStatus', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetDDLJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2831,8 +3885,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetDeployment',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetDeploymentResponse::fromMap($this->doRPCRequest('GetDeployment', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2856,11 +3921,27 @@ class Dataworkspublic extends OpenApiClient
     public function getDISyncInstanceInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['TaskType']  = $request->taskType;
+        $query['FileId']    = $request->fileId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDISyncInstanceInfo',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDISyncInstanceInfoResponse::fromMap($this->doRPCRequest('GetDISyncInstanceInfo', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDISyncInstanceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2884,11 +3965,27 @@ class Dataworkspublic extends OpenApiClient
     public function getDISyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['TaskType']  = $request->taskType;
+        $query['FileId']    = $request->fileId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDISyncTask',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDISyncTaskResponse::fromMap($this->doRPCRequest('GetDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDISyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2915,8 +4012,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetFile',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFileResponse::fromMap($this->doRPCRequest('GetFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2943,8 +4051,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetFileTypeStatistic',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFileTypeStatisticResponse::fromMap($this->doRPCRequest('GetFileTypeStatistic', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetFileTypeStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2971,8 +4090,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetFileVersion',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFileVersionResponse::fromMap($this->doRPCRequest('GetFileVersion', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetFileVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2999,8 +4129,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetFolder',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFolderResponse::fromMap($this->doRPCRequest('GetFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3027,8 +4168,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetInstance',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetInstanceResponse::fromMap($this->doRPCRequest('GetInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3055,8 +4207,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetInstanceConsumeTimeRank',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetInstanceConsumeTimeRankResponse::fromMap($this->doRPCRequest('GetInstanceConsumeTimeRank', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceConsumeTimeRankResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3083,8 +4246,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetInstanceCountTrend',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetInstanceCountTrendResponse::fromMap($this->doRPCRequest('GetInstanceCountTrend', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceCountTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3111,8 +4285,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetInstanceErrorRank',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetInstanceErrorRankResponse::fromMap($this->doRPCRequest('GetInstanceErrorRank', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceErrorRankResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3139,8 +4324,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetInstanceLog',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetInstanceLogResponse::fromMap($this->doRPCRequest('GetInstanceLog', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3167,8 +4363,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetInstanceStatusCount',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetInstanceStatusCountResponse::fromMap($this->doRPCRequest('GetInstanceStatusCount', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceStatusCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3195,8 +4402,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetInstanceStatusStatistic',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetInstanceStatusStatisticResponse::fromMap($this->doRPCRequest('GetInstanceStatusStatistic', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceStatusStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3223,8 +4441,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetManualDagInstances',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetManualDagInstancesResponse::fromMap($this->doRPCRequest('GetManualDagInstances', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetManualDagInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3248,11 +4477,27 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ParentCategoryId'] = $request->parentCategoryId;
+        $query['PageNum']          = $request->pageNum;
+        $query['PageSize']         = $request->pageSize;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaCategory',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaCategoryResponse::fromMap($this->doRPCRequest('GetMetaCategory', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3276,11 +4521,33 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaColumnLineageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ColumnGuid']     = $request->columnGuid;
+        $query['Direction']      = $request->direction;
+        $query['PageNum']        = $request->pageNum;
+        $query['PageSize']       = $request->pageSize;
+        $query['ClusterId']      = $request->clusterId;
+        $query['DatabaseName']   = $request->databaseName;
+        $query['TableName']      = $request->tableName;
+        $query['ColumnName']     = $request->columnName;
+        $query['DataSourceType'] = $request->dataSourceType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaColumnLineage',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaColumnLineageResponse::fromMap($this->doRPCRequest('GetMetaColumnLineage', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMetaColumnLineageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3306,10 +4573,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaDBInfo',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaDBInfoResponse::fromMap($this->doRPCRequest('GetMetaDBInfo', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetMetaDBInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3333,11 +4611,30 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaDBTableListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['AppGuid']        = $request->appGuid;
+        $query['ClusterId']      = $request->clusterId;
+        $query['DatabaseName']   = $request->databaseName;
+        $query['DataSourceType'] = $request->dataSourceType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaDBTableList',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaDBTableListResponse::fromMap($this->doRPCRequest('GetMetaDBTableList', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMetaDBTableListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3363,10 +4660,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaTableBasicInfo',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaTableBasicInfoResponse::fromMap($this->doRPCRequest('GetMetaTableBasicInfo', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetMetaTableBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3393,8 +4701,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetMetaTableChangeLog',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetMetaTableChangeLogResponse::fromMap($this->doRPCRequest('GetMetaTableChangeLog', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMetaTableChangeLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3420,10 +4739,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaTableColumn',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaTableColumnResponse::fromMap($this->doRPCRequest('GetMetaTableColumn', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetMetaTableColumnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3449,10 +4779,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaTableFullInfo',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaTableFullInfoResponse::fromMap($this->doRPCRequest('GetMetaTableFullInfo', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetMetaTableFullInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3476,11 +4817,26 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaTableIntroWikiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['TableGuid']   = $request->tableGuid;
+        $query['WikiVersion'] = $request->wikiVersion;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaTableIntroWiki',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaTableIntroWikiResponse::fromMap($this->doRPCRequest('GetMetaTableIntroWiki', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMetaTableIntroWikiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3504,11 +4860,32 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaTableLineageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['TableGuid']      = $request->tableGuid;
+        $query['Direction']      = $request->direction;
+        $query['NextPrimaryKey'] = $request->nextPrimaryKey;
+        $query['PageSize']       = $request->pageSize;
+        $query['ClusterId']      = $request->clusterId;
+        $query['DatabaseName']   = $request->databaseName;
+        $query['TableName']      = $request->tableName;
+        $query['DataSourceType'] = $request->dataSourceType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaTableLineage',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaTableLineageResponse::fromMap($this->doRPCRequest('GetMetaTableLineage', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMetaTableLineageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3534,10 +4911,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaTableListByCategory',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaTableListByCategoryResponse::fromMap($this->doRPCRequest('GetMetaTableListByCategory', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetMetaTableListByCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3561,11 +4949,29 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaTableOutputWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['TableGuid']  = $request->tableGuid;
+        $query['StartDate']  = $request->startDate;
+        $query['EndDate']    = $request->endDate;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaTableOutput',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaTableOutputResponse::fromMap($this->doRPCRequest('GetMetaTableOutput', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMetaTableOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3589,11 +4995,31 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaTablePartitionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['TableGuid']      = $request->tableGuid;
+        $query['ClusterId']      = $request->clusterId;
+        $query['DatabaseName']   = $request->databaseName;
+        $query['TableName']      = $request->tableName;
+        $query['DataSourceType'] = $request->dataSourceType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaTablePartition',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaTablePartitionResponse::fromMap($this->doRPCRequest('GetMetaTablePartition', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMetaTablePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3619,10 +5045,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaTableThemeLevel',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetaTableThemeLevelResponse::fromMap($this->doRPCRequest('GetMetaTableThemeLevel', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetMetaTableThemeLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3649,8 +5086,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetMigrationProcess',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetMigrationProcessResponse::fromMap($this->doRPCRequest('GetMigrationProcess', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMigrationProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3677,8 +5125,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetNode',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetNodeResponse::fromMap($this->doRPCRequest('GetNode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3705,8 +5164,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetNodeChildren',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetNodeChildrenResponse::fromMap($this->doRPCRequest('GetNodeChildren', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetNodeChildrenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3733,8 +5203,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetNodeCode',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetNodeCodeResponse::fromMap($this->doRPCRequest('GetNodeCode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetNodeCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3761,8 +5242,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetNodeOnBaseline',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetNodeOnBaselineResponse::fromMap($this->doRPCRequest('GetNodeOnBaseline', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetNodeOnBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3789,8 +5281,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetNodeParents',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetNodeParentsResponse::fromMap($this->doRPCRequest('GetNodeParents', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetNodeParentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3817,8 +5320,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetNodeTypeListInfo',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetNodeTypeListInfoResponse::fromMap($this->doRPCRequest('GetNodeTypeListInfo', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetNodeTypeListInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3844,10 +5358,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOpRiskData',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetOpRiskDataResponse::fromMap($this->doRPCRequest('GetOpRiskData', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetOpRiskDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3873,10 +5398,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOpSensitiveData',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetOpSensitiveDataResponse::fromMap($this->doRPCRequest('GetOpSensitiveData', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetOpSensitiveDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3900,11 +5436,25 @@ class Dataworkspublic extends OpenApiClient
     public function getPermissionApplyOrderDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['FlowId'] = $request->flowId;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPermissionApplyOrderDetail',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPermissionApplyOrderDetailResponse::fromMap($this->doRPCRequest('GetPermissionApplyOrderDetail', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPermissionApplyOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3928,11 +5478,25 @@ class Dataworkspublic extends OpenApiClient
     public function getProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetProject',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetProjectResponse::fromMap($this->doRPCRequest('GetProject', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3956,11 +5520,25 @@ class Dataworkspublic extends OpenApiClient
     public function getProjectDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetProjectDetail',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetProjectDetailResponse::fromMap($this->doRPCRequest('GetProjectDetail', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetProjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3987,8 +5565,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetQualityEntity',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetQualityEntityResponse::fromMap($this->doRPCRequest('GetQualityEntity', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetQualityEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4015,8 +5604,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetQualityFollower',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetQualityFollowerResponse::fromMap($this->doRPCRequest('GetQualityFollower', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4043,8 +5643,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetQualityRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetQualityRuleResponse::fromMap($this->doRPCRequest('GetQualityRule', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4071,8 +5682,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetRemind',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetRemindResponse::fromMap($this->doRPCRequest('GetRemind', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRemindResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4098,10 +5720,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSensitiveData',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSensitiveDataResponse::fromMap($this->doRPCRequest('GetSensitiveData', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetSensitiveDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4128,8 +5761,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetSuccessInstanceTrend',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetSuccessInstanceTrendResponse::fromMap($this->doRPCRequest('GetSuccessInstanceTrend', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSuccessInstanceTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4156,8 +5800,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetTopic',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetTopicResponse::fromMap($this->doRPCRequest('GetTopic', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4184,8 +5839,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetTopicInfluence',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetTopicInfluenceResponse::fromMap($this->doRPCRequest('GetTopicInfluence', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTopicInfluenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4209,11 +5875,26 @@ class Dataworkspublic extends OpenApiClient
     public function importConnectionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProjectId']   = $request->projectId;
+        $query['Connections'] = $request->connections;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportConnections',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ImportConnectionsResponse::fromMap($this->doRPCRequest('ImportConnections', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ImportConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4237,11 +5918,26 @@ class Dataworkspublic extends OpenApiClient
     public function importDataSourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProjectId']   = $request->projectId;
+        $query['DataSources'] = $request->dataSources;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportDataSources',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ImportDataSourcesResponse::fromMap($this->doRPCRequest('ImportDataSources', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ImportDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4265,11 +5961,28 @@ class Dataworkspublic extends OpenApiClient
     public function importDISyncTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProjectId']   = $request->projectId;
+        $query['TaskType']    = $request->taskType;
+        $query['TaskContent'] = $request->taskContent;
+        $query['TaskParam']   = $request->taskParam;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportDISyncTasks',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ImportDISyncTasksResponse::fromMap($this->doRPCRequest('ImportDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ImportDISyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4296,8 +6009,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListAlertMessages',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAlertMessagesResponse::fromMap($this->doRPCRequest('ListAlertMessages', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAlertMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4324,8 +6048,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListBaselineConfigs',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListBaselineConfigsResponse::fromMap($this->doRPCRequest('ListBaselineConfigs', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBaselineConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4352,8 +6087,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListBaselineStatuses',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListBaselineStatusesResponse::fromMap($this->doRPCRequest('ListBaselineStatuses', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBaselineStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4380,8 +6126,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListBusiness',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListBusinessResponse::fromMap($this->doRPCRequest('ListBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4405,11 +6162,30 @@ class Dataworkspublic extends OpenApiClient
     public function listCalcEnginesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ProjectId']      = $request->projectId;
+        $query['Name']           = $request->name;
+        $query['CalcEngineType'] = $request->calcEngineType;
+        $query['EnvType']        = $request->envType;
+        $query['PageSize']       = $request->pageSize;
+        $query['PageNumber']     = $request->pageNumber;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCalcEngines',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCalcEnginesResponse::fromMap($this->doRPCRequest('ListCalcEngines', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCalcEnginesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4435,10 +6211,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListConnections',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListConnectionsResponse::fromMap($this->doRPCRequest('ListConnections', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4462,11 +6249,26 @@ class Dataworkspublic extends OpenApiClient
     public function listDataServiceApiAuthoritiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataServiceApiAuthorities',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDataServiceApiAuthoritiesResponse::fromMap($this->doRPCRequest('ListDataServiceApiAuthorities', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDataServiceApiAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4493,8 +6295,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListDataServiceApis',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDataServiceApisResponse::fromMap($this->doRPCRequest('ListDataServiceApis', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDataServiceApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4521,8 +6334,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListDataServiceApplications',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDataServiceApplicationsResponse::fromMap($this->doRPCRequest('ListDataServiceApplications', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDataServiceApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4546,11 +6370,26 @@ class Dataworkspublic extends OpenApiClient
     public function listDataServiceAuthorizedApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataServiceAuthorizedApis',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDataServiceAuthorizedApisResponse::fromMap($this->doRPCRequest('ListDataServiceAuthorizedApis', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDataServiceAuthorizedApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4577,8 +6416,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListDataServiceFolders',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDataServiceFoldersResponse::fromMap($this->doRPCRequest('ListDataServiceFolders', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDataServiceFoldersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4605,8 +6455,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListDataServiceGroups',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDataServiceGroupsResponse::fromMap($this->doRPCRequest('ListDataServiceGroups', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDataServiceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4633,8 +6494,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListDataServicePublishedApis',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDataServicePublishedApisResponse::fromMap($this->doRPCRequest('ListDataServicePublishedApis', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDataServicePublishedApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4660,10 +6532,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataSources',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDataSourcesResponse::fromMap($this->doRPCRequest('ListDataSources', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4687,11 +6570,27 @@ class Dataworkspublic extends OpenApiClient
     public function listDIProjectConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ProjectId']       = $request->projectId;
+        $query['DestinationType'] = $request->destinationType;
+        $query['SourceType']      = $request->sourceType;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDIProjectConfig',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDIProjectConfigResponse::fromMap($this->doRPCRequest('ListDIProjectConfig', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDIProjectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4715,11 +6614,28 @@ class Dataworkspublic extends OpenApiClient
     public function listDISyncTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ProjectId']  = $request->projectId;
+        $query['TaskType']   = $request->taskType;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDISyncTasks',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDISyncTasksResponse::fromMap($this->doRPCRequest('ListDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDISyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4746,8 +6662,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListFiles',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListFilesResponse::fromMap($this->doRPCRequest('ListFiles', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4774,8 +6701,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListFileType',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListFileTypeResponse::fromMap($this->doRPCRequest('ListFileType', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFileTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4802,8 +6740,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListFileVersions',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListFileVersionsResponse::fromMap($this->doRPCRequest('ListFileVersions', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFileVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4830,8 +6779,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListFolders',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListFoldersResponse::fromMap($this->doRPCRequest('ListFolders', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFoldersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4858,8 +6818,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListInstanceAmount',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListInstanceAmountResponse::fromMap($this->doRPCRequest('ListInstanceAmount', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListInstanceAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4886,8 +6857,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListInstances',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListInstancesResponse::fromMap($this->doRPCRequest('ListInstances', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4914,8 +6896,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListManualDagInstances',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListManualDagInstancesResponse::fromMap($this->doRPCRequest('ListManualDagInstances', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListManualDagInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4941,10 +6934,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMetaDB',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListMetaDBResponse::fromMap($this->doRPCRequest('ListMetaDB', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListMetaDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4971,8 +6975,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListNodeInputOrOutput',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListNodeInputOrOutputResponse::fromMap($this->doRPCRequest('ListNodeInputOrOutput', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListNodeInputOrOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4999,8 +7014,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListNodeIO',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListNodeIOResponse::fromMap($this->doRPCRequest('ListNodeIO', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListNodeIOResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5027,8 +7053,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListNodes',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListNodesResponse::fromMap($this->doRPCRequest('ListNodes', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5055,8 +7092,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListNodesByBaseline',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListNodesByBaselineResponse::fromMap($this->doRPCRequest('ListNodesByBaseline', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListNodesByBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5083,8 +7131,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListNodesByOutput',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListNodesByOutputResponse::fromMap($this->doRPCRequest('ListNodesByOutput', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListNodesByOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5108,11 +7167,35 @@ class Dataworkspublic extends OpenApiClient
     public function listPermissionApplyOrdersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['FlowStatus']            = $request->flowStatus;
+        $query['WorkspaceId']           = $request->workspaceId;
+        $query['OrderType']             = $request->orderType;
+        $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
+        $query['TableName']             = $request->tableName;
+        $query['StartTime']             = $request->startTime;
+        $query['EndTime']               = $request->endTime;
+        $query['EngineType']            = $request->engineType;
+        $query['PageNum']               = $request->pageNum;
+        $query['PageSize']              = $request->pageSize;
+        $query['QueryType']             = $request->queryType;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPermissionApplyOrders',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPermissionApplyOrdersResponse::fromMap($this->doRPCRequest('ListPermissionApplyOrders', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPermissionApplyOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5139,8 +7222,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListProgramTypeCount',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListProgramTypeCountResponse::fromMap($this->doRPCRequest('ListProgramTypeCount', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListProgramTypeCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5164,11 +7258,25 @@ class Dataworkspublic extends OpenApiClient
     public function listProjectIdsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['UserId'] = $request->userId;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjectIds',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListProjectIdsResponse::fromMap($this->doRPCRequest('ListProjectIds', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListProjectIdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5192,11 +7300,27 @@ class Dataworkspublic extends OpenApiClient
     public function listProjectMembersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ProjectId']  = $request->projectId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjectMembers',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListProjectMembersResponse::fromMap($this->doRPCRequest('ListProjectMembers', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListProjectMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5220,11 +7344,25 @@ class Dataworkspublic extends OpenApiClient
     public function listProjectRolesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjectRoles',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListProjectRolesResponse::fromMap($this->doRPCRequest('ListProjectRoles', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5248,11 +7386,26 @@ class Dataworkspublic extends OpenApiClient
     public function listProjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjects',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListProjectsResponse::fromMap($this->doRPCRequest('ListProjects', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5279,8 +7432,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListQualityResultsByEntity',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListQualityResultsByEntityResponse::fromMap($this->doRPCRequest('ListQualityResultsByEntity', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListQualityResultsByEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5307,8 +7471,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListQualityResultsByRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListQualityResultsByRuleResponse::fromMap($this->doRPCRequest('ListQualityResultsByRule', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListQualityResultsByRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5335,8 +7510,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListQualityRules',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListQualityRulesResponse::fromMap($this->doRPCRequest('ListQualityRules', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListQualityRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5360,11 +7546,30 @@ class Dataworkspublic extends OpenApiClient
     public function listRefDISyncTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ProjectId']      = $request->projectId;
+        $query['DatasourceName'] = $request->datasourceName;
+        $query['TaskType']       = $request->taskType;
+        $query['RefType']        = $request->refType;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRefDISyncTasks',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRefDISyncTasksResponse::fromMap($this->doRPCRequest('ListRefDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRefDISyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5391,8 +7596,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListReminds',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListRemindsResponse::fromMap($this->doRPCRequest('ListReminds', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRemindsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5416,11 +7632,27 @@ class Dataworkspublic extends OpenApiClient
     public function listResourceGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['ResourceGroupType'] = $request->resourceGroupType;
+        $query['Keyword']           = $request->keyword;
+        $query['BizExtKey']         = $request->bizExtKey;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceGroups',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListResourceGroupsResponse::fromMap($this->doRPCRequest('ListResourceGroups', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5447,8 +7679,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListSuccessInstanceAmount',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListSuccessInstanceAmountResponse::fromMap($this->doRPCRequest('ListSuccessInstanceAmount', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSuccessInstanceAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5474,10 +7717,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTableLevel',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTableLevelResponse::fromMap($this->doRPCRequest('ListTableLevel', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListTableLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5503,10 +7757,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTableTheme',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTableThemeResponse::fromMap($this->doRPCRequest('ListTableTheme', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListTableThemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5533,8 +7798,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListTopics',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListTopicsResponse::fromMap($this->doRPCRequest('ListTopics', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTopicsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5561,8 +7837,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'PublishDataServiceApi',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return PublishDataServiceApiResponse::fromMap($this->doRPCRequest('PublishDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5586,11 +7873,27 @@ class Dataworkspublic extends OpenApiClient
     public function queryDISyncTaskConfigProcessResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ProjectId']      = $request->projectId;
+        $query['TaskType']       = $request->taskType;
+        $query['AsyncProcessId'] = $request->asyncProcessId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDISyncTaskConfigProcessResult',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDISyncTaskConfigProcessResultResponse::fromMap($this->doRPCRequest('QueryDISyncTaskConfigProcessResult', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDISyncTaskConfigProcessResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5617,8 +7920,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'QueryPublicModelEngine',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryPublicModelEngineResponse::fromMap($this->doRPCRequest('QueryPublicModelEngine', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryPublicModelEngineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5642,11 +7956,27 @@ class Dataworkspublic extends OpenApiClient
     public function removeProjectMemberFromRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['UserId']    = $request->userId;
+        $query['RoleCode']  = $request->roleCode;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveProjectMemberFromRole',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveProjectMemberFromRoleResponse::fromMap($this->doRPCRequest('RemoveProjectMemberFromRole', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveProjectMemberFromRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5673,8 +8003,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'RestartInstance',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return RestartInstanceResponse::fromMap($this->doRPCRequest('RestartInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5701,8 +8042,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ResumeInstance',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ResumeInstanceResponse::fromMap($this->doRPCRequest('ResumeInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResumeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5726,11 +8078,30 @@ class Dataworkspublic extends OpenApiClient
     public function revokeColumnPermissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['WorkspaceId']           = $request->workspaceId;
+        $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
+        $query['TableName']             = $request->tableName;
+        $query['Columns']               = $request->columns;
+        $query['RevokeUserName']        = $request->revokeUserName;
+        $query['RevokeUserId']          = $request->revokeUserId;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeColumnPermission',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RevokeColumnPermissionResponse::fromMap($this->doRPCRequest('RevokeColumnPermission', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RevokeColumnPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5754,11 +8125,30 @@ class Dataworkspublic extends OpenApiClient
     public function revokeTablePermissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['WorkspaceId']           = $request->workspaceId;
+        $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
+        $query['TableName']             = $request->tableName;
+        $query['Actions']               = $request->actions;
+        $query['RevokeUserName']        = $request->revokeUserName;
+        $query['RevokeUserId']          = $request->revokeUserId;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeTablePermission',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RevokeTablePermissionResponse::fromMap($this->doRPCRequest('RevokeTablePermission', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RevokeTablePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5785,8 +8175,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'RunCycleDagNodes',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return RunCycleDagNodesResponse::fromMap($this->doRPCRequest('RunCycleDagNodes', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RunCycleDagNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5813,8 +8214,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'RunManualDagNodes',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return RunManualDagNodesResponse::fromMap($this->doRPCRequest('RunManualDagNodes', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RunManualDagNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5841,8 +8253,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'RunSmokeTest',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return RunSmokeTestResponse::fromMap($this->doRPCRequest('RunSmokeTest', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RunSmokeTestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5869,8 +8292,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'RunTriggerNode',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return RunTriggerNodeResponse::fromMap($this->doRPCRequest('RunTriggerNode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RunTriggerNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5896,10 +8330,21 @@ class Dataworkspublic extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ScanSensitiveData',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ScanSensitiveDataResponse::fromMap($this->doRPCRequest('ScanSensitiveData', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ScanSensitiveDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5923,11 +8368,31 @@ class Dataworkspublic extends OpenApiClient
     public function searchMetaTablesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['AppGuid']        = $request->appGuid;
+        $query['Keyword']        = $request->keyword;
+        $query['EntityType']     = $request->entityType;
+        $query['ClusterId']      = $request->clusterId;
+        $query['DataSourceType'] = $request->dataSourceType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchMetaTables',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchMetaTablesResponse::fromMap($this->doRPCRequest('SearchMetaTables', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchMetaTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5954,8 +8419,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'SearchNodesByOutput',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return SearchNodesByOutputResponse::fromMap($this->doRPCRequest('SearchNodesByOutput', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchNodesByOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5979,11 +8455,29 @@ class Dataworkspublic extends OpenApiClient
     public function setConnectionShareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['ProjectId']          = $request->projectId;
+        $query['DatasourceName']     = $request->datasourceName;
+        $query['EnvType']            = $request->envType;
+        $query['ProjectPermissions'] = $request->projectPermissions;
+        $query['UserPermissions']    = $request->userPermissions;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetConnectionShare',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetConnectionShareResponse::fromMap($this->doRPCRequest('SetConnectionShare', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetConnectionShareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6007,11 +8501,29 @@ class Dataworkspublic extends OpenApiClient
     public function setDataSourceShareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['ProjectId']          = $request->projectId;
+        $query['DatasourceName']     = $request->datasourceName;
+        $query['EnvType']            = $request->envType;
+        $query['ProjectPermissions'] = $request->projectPermissions;
+        $query['UserPermissions']    = $request->userPermissions;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDataSourceShare',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDataSourceShareResponse::fromMap($this->doRPCRequest('SetDataSourceShare', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDataSourceShareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6038,8 +8550,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'SetSuccessInstance',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return SetSuccessInstanceResponse::fromMap($this->doRPCRequest('SetSuccessInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetSuccessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6063,11 +8586,28 @@ class Dataworkspublic extends OpenApiClient
     public function startDISyncInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ProjectId']  = $request->projectId;
+        $query['TaskType']   = $request->taskType;
+        $query['FileId']     = $request->fileId;
+        $query['StartParam'] = $request->startParam;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StartDISyncInstance',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartDISyncInstanceResponse::fromMap($this->doRPCRequest('StartDISyncInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartDISyncInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6094,8 +8634,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'StartMigration',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return StartMigrationResponse::fromMap($this->doRPCRequest('StartMigration', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartMigrationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6119,11 +8670,27 @@ class Dataworkspublic extends OpenApiClient
     public function stopDISyncInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['TaskType']  = $request->taskType;
+        $query['FileId']    = $request->fileId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StopDISyncInstance',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopDISyncInstanceResponse::fromMap($this->doRPCRequest('StopDISyncInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopDISyncInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6150,8 +8717,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'StopInstance',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopInstanceResponse::fromMap($this->doRPCRequest('StopInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6178,8 +8756,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'SubmitFile',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return SubmitFileResponse::fromMap($this->doRPCRequest('SubmitFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6206,8 +8795,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'SuspendInstance',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return SuspendInstanceResponse::fromMap($this->doRPCRequest('SuspendInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SuspendInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6231,11 +8831,27 @@ class Dataworkspublic extends OpenApiClient
     public function terminateDISyncInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['TaskType']  = $request->taskType;
+        $query['FileId']    = $request->fileId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TerminateDISyncInstance',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TerminateDISyncInstanceResponse::fromMap($this->doRPCRequest('TerminateDISyncInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TerminateDISyncInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6259,11 +8875,28 @@ class Dataworkspublic extends OpenApiClient
     public function testNetworkConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ProjectId']      = $request->projectId;
+        $query['DatasourceName'] = $request->datasourceName;
+        $query['EnvType']        = $request->envType;
+        $query['ResourceGroup']  = $request->resourceGroup;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TestNetworkConnection',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TestNetworkConnectionResponse::fromMap($this->doRPCRequest('TestNetworkConnection', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TestNetworkConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6290,8 +8923,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'TopTenElapsedTimeInstance',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return TopTenElapsedTimeInstanceResponse::fromMap($this->doRPCRequest('TopTenElapsedTimeInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TopTenElapsedTimeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6318,8 +8962,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'TopTenErrorTimesInstance',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return TopTenErrorTimesInstanceResponse::fromMap($this->doRPCRequest('TopTenErrorTimesInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TopTenErrorTimesInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6346,8 +9001,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateBusiness',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateBusinessResponse::fromMap($this->doRPCRequest('UpdateBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6371,11 +9037,29 @@ class Dataworkspublic extends OpenApiClient
     public function updateConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Description']  = $request->description;
+        $query['EnvType']      = $request->envType;
+        $query['Content']      = $request->content;
+        $query['Status']       = $request->status;
+        $query['ConnectionId'] = $request->connectionId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateConnection',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateConnectionResponse::fromMap($this->doRPCRequest('UpdateConnection', '2020-05-18', 'HTTPS', 'PUT', 'AK', 'json', $req, $runtime));
+        return UpdateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6402,8 +9086,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateDataServiceApi',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateDataServiceApiResponse::fromMap($this->doRPCRequest('UpdateDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6427,11 +9122,29 @@ class Dataworkspublic extends OpenApiClient
     public function updateDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Description']  = $request->description;
+        $query['EnvType']      = $request->envType;
+        $query['Content']      = $request->content;
+        $query['Status']       = $request->status;
+        $query['DataSourceId'] = $request->dataSourceId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDataSource',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDataSourceResponse::fromMap($this->doRPCRequest('UpdateDataSource', '2020-05-18', 'HTTPS', 'PUT', 'AK', 'json', $req, $runtime));
+        return UpdateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6455,11 +9168,28 @@ class Dataworkspublic extends OpenApiClient
     public function updateDIProjectConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ProjectId']       = $request->projectId;
+        $query['DestinationType'] = $request->destinationType;
+        $query['SourceType']      = $request->sourceType;
+        $query['ProjectConfig']   = $request->projectConfig;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDIProjectConfig',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDIProjectConfigResponse::fromMap($this->doRPCRequest('UpdateDIProjectConfig', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDIProjectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6483,11 +9213,29 @@ class Dataworkspublic extends OpenApiClient
     public function updateDISyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProjectId']   = $request->projectId;
+        $query['TaskType']    = $request->taskType;
+        $query['TaskContent'] = $request->taskContent;
+        $query['TaskParam']   = $request->taskParam;
+        $query['FileId']      = $request->fileId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDISyncTask',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDISyncTaskResponse::fromMap($this->doRPCRequest('UpdateDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDISyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6514,8 +9262,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateFile',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateFileResponse::fromMap($this->doRPCRequest('UpdateFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6542,8 +9301,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateFolder',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateFolderResponse::fromMap($this->doRPCRequest('UpdateFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6570,8 +9340,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateMetaCategory',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateMetaCategoryResponse::fromMap($this->doRPCRequest('UpdateMetaCategory', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6595,11 +9376,32 @@ class Dataworkspublic extends OpenApiClient
     public function updateMetaTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ProjectId']  = $request->projectId;
+        $query['TableName']  = $request->tableName;
+        $query['EnvType']    = $request->envType;
+        $query['TableGuid']  = $request->tableGuid;
+        $query['NewOwnerId'] = $request->newOwnerId;
+        $query['CategoryId'] = $request->categoryId;
+        $query['Visibility'] = $request->visibility;
+        $query['Caption']    = $request->caption;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMetaTable',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMetaTableResponse::fromMap($this->doRPCRequest('UpdateMetaTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMetaTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6623,11 +9425,25 @@ class Dataworkspublic extends OpenApiClient
     public function updateMetaTableIntroWikiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['TableGuid'] = $request->tableGuid;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMetaTableIntroWiki',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMetaTableIntroWikiResponse::fromMap($this->doRPCRequest('UpdateMetaTableIntroWiki', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMetaTableIntroWikiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6654,8 +9470,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateNodeOwner',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateNodeOwnerResponse::fromMap($this->doRPCRequest('UpdateNodeOwner', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateNodeOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6682,8 +9509,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateNodeRunMode',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateNodeRunModeResponse::fromMap($this->doRPCRequest('UpdateNodeRunMode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateNodeRunModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6710,8 +9548,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateQualityFollower',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateQualityFollowerResponse::fromMap($this->doRPCRequest('UpdateQualityFollower', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6738,8 +9587,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateQualityRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateQualityRuleResponse::fromMap($this->doRPCRequest('UpdateQualityRule', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6766,8 +9626,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateRemind',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateRemindResponse::fromMap($this->doRPCRequest('UpdateRemind', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateRemindResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6791,11 +9662,39 @@ class Dataworkspublic extends OpenApiClient
     public function updateTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['IsView']            = $request->isView;
+        $query['Visibility']        = $request->visibility;
+        $query['LifeCycle']         = $request->lifeCycle;
+        $query['CategoryId']        = $request->categoryId;
+        $query['LogicalLevelId']    = $request->logicalLevelId;
+        $query['PhysicsLevelId']    = $request->physicsLevelId;
+        $query['ExternalTableType'] = $request->externalTableType;
+        $query['Location']          = $request->location;
+        $query['ProjectId']         = $request->projectId;
+        $query['TableName']         = $request->tableName;
+        $query['AppGuid']           = $request->appGuid;
+        $query['CreateIfNotExists'] = $request->createIfNotExists;
+        $query['OwnerId']           = $request->ownerId;
+        $query['HasPart']           = $request->hasPart;
+        $query['Comment']           = $request->comment;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTable',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTableResponse::fromMap($this->doRPCRequest('UpdateTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6819,11 +9718,25 @@ class Dataworkspublic extends OpenApiClient
     public function updateTableAddColumnWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['TableGuid'] = $request->tableGuid;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTableAddColumn',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTableAddColumnResponse::fromMap($this->doRPCRequest('UpdateTableAddColumn', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTableAddColumnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6847,11 +9760,29 @@ class Dataworkspublic extends OpenApiClient
     public function updateTableLevelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProjectId']   = $request->projectId;
+        $query['LevelType']   = $request->levelType;
+        $query['Name']        = $request->name;
+        $query['Description'] = $request->description;
+        $query['LevelId']     = $request->levelId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTableLevel',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTableLevelResponse::fromMap($this->doRPCRequest('UpdateTableLevel', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTableLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6875,11 +9806,29 @@ class Dataworkspublic extends OpenApiClient
     public function updateTableModelInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['FirstLevelThemeId']  = $request->firstLevelThemeId;
+        $query['SecondLevelThemeId'] = $request->secondLevelThemeId;
+        $query['LevelId']            = $request->levelId;
+        $query['TableGuid']          = $request->tableGuid;
+        $query['LevelType']          = $request->levelType;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTableModelInfo',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTableModelInfoResponse::fromMap($this->doRPCRequest('UpdateTableModelInfo', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTableModelInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6903,11 +9852,27 @@ class Dataworkspublic extends OpenApiClient
     public function updateTableThemeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['Name']      = $request->name;
+        $query['ThemeId']   = $request->themeId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTableTheme',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTableThemeResponse::fromMap($this->doRPCRequest('UpdateTableTheme', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTableThemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6934,8 +9899,19 @@ class Dataworkspublic extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateUdfFile',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateUdfFileResponse::fromMap($this->doRPCRequest('UpdateUdfFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateUdfFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
