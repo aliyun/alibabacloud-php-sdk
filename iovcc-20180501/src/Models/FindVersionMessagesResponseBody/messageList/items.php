@@ -11,22 +11,12 @@ class items extends Model
     /**
      * @var int
      */
-    public $id;
+    public $gmtModifyTimestamp;
 
     /**
-     * @var string
+     * @var int
      */
-    public $messageId;
-
-    /**
-     * @var string
-     */
-    public $versionId;
-
-    /**
-     * @var string
-     */
-    public $testId;
+    public $gmtCreateTimestamp;
 
     /**
      * @var string
@@ -36,7 +26,12 @@ class items extends Model
     /**
      * @var string
      */
-    public $statusDesc;
+    public $gmtModify;
+
+    /**
+     * @var string
+     */
+    public $messageId;
 
     /**
      * @var string
@@ -51,29 +46,34 @@ class items extends Model
     /**
      * @var string
      */
-    public $gmtModify;
+    public $versionId;
+
+    /**
+     * @var string
+     */
+    public $statusDesc;
+
+    /**
+     * @var string
+     */
+    public $testId;
 
     /**
      * @var int
      */
-    public $gmtCreateTimestamp;
-
-    /**
-     * @var int
-     */
-    public $gmtModifyTimestamp;
+    public $id;
     protected $_name = [
-        'id'                 => 'Id',
-        'messageId'          => 'MessageId',
-        'versionId'          => 'VersionId',
-        'testId'             => 'TestId',
+        'gmtModifyTimestamp' => 'GmtModifyTimestamp',
+        'gmtCreateTimestamp' => 'GmtCreateTimestamp',
         'status'             => 'Status',
-        'statusDesc'         => 'StatusDesc',
+        'gmtModify'          => 'GmtModify',
+        'messageId'          => 'MessageId',
         'deviceId'           => 'DeviceId',
         'gmtCreate'          => 'GmtCreate',
-        'gmtModify'          => 'GmtModify',
-        'gmtCreateTimestamp' => 'GmtCreateTimestamp',
-        'gmtModifyTimestamp' => 'GmtModifyTimestamp',
+        'versionId'          => 'VersionId',
+        'statusDesc'         => 'StatusDesc',
+        'testId'             => 'TestId',
+        'id'                 => 'Id',
     ];
 
     public function validate()
@@ -83,23 +83,20 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->gmtModifyTimestamp) {
+            $res['GmtModifyTimestamp'] = $this->gmtModifyTimestamp;
         }
-        if (null !== $this->messageId) {
-            $res['MessageId'] = $this->messageId;
-        }
-        if (null !== $this->versionId) {
-            $res['VersionId'] = $this->versionId;
-        }
-        if (null !== $this->testId) {
-            $res['TestId'] = $this->testId;
+        if (null !== $this->gmtCreateTimestamp) {
+            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->statusDesc) {
-            $res['StatusDesc'] = $this->statusDesc;
+        if (null !== $this->gmtModify) {
+            $res['GmtModify'] = $this->gmtModify;
+        }
+        if (null !== $this->messageId) {
+            $res['MessageId'] = $this->messageId;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
@@ -107,14 +104,17 @@ class items extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->gmtModify) {
-            $res['GmtModify'] = $this->gmtModify;
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
-        if (null !== $this->gmtCreateTimestamp) {
-            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
+        if (null !== $this->statusDesc) {
+            $res['StatusDesc'] = $this->statusDesc;
         }
-        if (null !== $this->gmtModifyTimestamp) {
-            $res['GmtModifyTimestamp'] = $this->gmtModifyTimestamp;
+        if (null !== $this->testId) {
+            $res['TestId'] = $this->testId;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -128,23 +128,20 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['GmtModifyTimestamp'])) {
+            $model->gmtModifyTimestamp = $map['GmtModifyTimestamp'];
         }
-        if (isset($map['MessageId'])) {
-            $model->messageId = $map['MessageId'];
-        }
-        if (isset($map['VersionId'])) {
-            $model->versionId = $map['VersionId'];
-        }
-        if (isset($map['TestId'])) {
-            $model->testId = $map['TestId'];
+        if (isset($map['GmtCreateTimestamp'])) {
+            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['StatusDesc'])) {
-            $model->statusDesc = $map['StatusDesc'];
+        if (isset($map['GmtModify'])) {
+            $model->gmtModify = $map['GmtModify'];
+        }
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
@@ -152,14 +149,17 @@ class items extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['GmtModify'])) {
-            $model->gmtModify = $map['GmtModify'];
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
-        if (isset($map['GmtCreateTimestamp'])) {
-            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
+        if (isset($map['StatusDesc'])) {
+            $model->statusDesc = $map['StatusDesc'];
         }
-        if (isset($map['GmtModifyTimestamp'])) {
-            $model->gmtModifyTimestamp = $map['GmtModifyTimestamp'];
+        if (isset($map['TestId'])) {
+            $model->testId = $map['TestId'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

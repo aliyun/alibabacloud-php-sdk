@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @var int
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $PAppKey;
-
-    /**
      * @var string
      */
     public $projectId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $name;
+    public $gmtCreate;
 
     /**
      * @var string
@@ -34,9 +24,14 @@ class list_ extends Model
     public $tags;
 
     /**
-     * @var int
+     * @var string
      */
-    public $gmtCreate;
+    public $queueNameList;
+
+    /**
+     * @var string
+     */
+    public $PAppKey;
 
     /**
      * @var int
@@ -46,16 +41,21 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $queueNameList;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $id;
     protected $_name = [
-        'id'            => 'Id',
-        'PAppKey'       => 'PAppKey',
         'projectId'     => 'ProjectId',
-        'name'          => 'Name',
-        'tags'          => 'Tags',
         'gmtCreate'     => 'GmtCreate',
-        'gmtModified'   => 'GmtModified',
+        'tags'          => 'Tags',
         'queueNameList' => 'QueueNameList',
+        'PAppKey'       => 'PAppKey',
+        'gmtModified'   => 'GmtModified',
+        'name'          => 'Name',
+        'id'            => 'Id',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->PAppKey) {
-            $res['PAppKey'] = $this->PAppKey;
-        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->queueNameList) {
             $res['QueueNameList'] = $this->queueNameList;
+        }
+        if (null !== $this->PAppKey) {
+            $res['PAppKey'] = $this->PAppKey;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['PAppKey'])) {
-            $model->PAppKey = $map['PAppKey'];
-        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['QueueNameList'])) {
             $model->queueNameList = $map['QueueNameList'];
+        }
+        if (isset($map['PAppKey'])) {
+            $model->PAppKey = $map['PAppKey'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

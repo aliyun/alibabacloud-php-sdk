@@ -11,15 +11,15 @@ class CreateCustomizedFilterResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $customizedFilterId;
 
     /**
      * @var string
      */
-    public $customizedFilterId;
+    public $requestId;
     protected $_name = [
-        'requestId'          => 'RequestId',
         'customizedFilterId' => 'CustomizedFilterId',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateCustomizedFilterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->customizedFilterId) {
             $res['CustomizedFilterId'] = $this->customizedFilterId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateCustomizedFilterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CustomizedFilterId'])) {
             $model->customizedFilterId = $map['CustomizedFilterId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

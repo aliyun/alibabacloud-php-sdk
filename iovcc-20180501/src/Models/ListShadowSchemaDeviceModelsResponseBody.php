@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListShadowSchemaDeviceModelsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var modelList[]
      */
     public $modelList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'modelList' => 'ModelList',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListShadowSchemaDeviceModelsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->modelList) {
             $res['ModelList'] = [];
             if (null !== $this->modelList && \is_array($this->modelList)) {
@@ -41,6 +38,9 @@ class ListShadowSchemaDeviceModelsResponseBody extends Model
                     $res['ModelList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListShadowSchemaDeviceModelsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ModelList'])) {
             if (!empty($map['ModelList'])) {
                 $model->modelList = [];
@@ -65,6 +62,9 @@ class ListShadowSchemaDeviceModelsResponseBody extends Model
                     $model->modelList[$n++] = null !== $item ? modelList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

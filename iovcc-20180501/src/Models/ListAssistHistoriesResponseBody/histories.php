@@ -11,17 +11,7 @@ class histories extends Model
     /**
      * @var string
      */
-    public $ID;
-
-    /**
-     * @var string
-     */
-    public $deviceName;
-
-    /**
-     * @var int
-     */
-    public $startTime;
+    public $serialNumber;
 
     /**
      * @var int
@@ -29,14 +19,14 @@ class histories extends Model
     public $endTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $deviceId;
+    public $startTime;
 
     /**
      * @var string
      */
-    public $serialNumber;
+    public $UNAME;
 
     /**
      * @var string
@@ -46,7 +36,17 @@ class histories extends Model
     /**
      * @var string
      */
+    public $deviceName;
+
+    /**
+     * @var string
+     */
     public $UUID;
+
+    /**
+     * @var string
+     */
+    public $deviceId;
 
     /**
      * @var string
@@ -61,19 +61,19 @@ class histories extends Model
     /**
      * @var string
      */
-    public $UNAME;
+    public $ID;
     protected $_name = [
-        'ID'           => 'ID',
-        'deviceName'   => 'DeviceName',
-        'startTime'    => 'StartTime',
-        'endTime'      => 'EndTime',
-        'deviceId'     => 'DeviceId',
         'serialNumber' => 'SerialNumber',
+        'endTime'      => 'EndTime',
+        'startTime'    => 'StartTime',
+        'UNAME'        => 'UNAME',
         'hardwareId'   => 'HardwareId',
+        'deviceName'   => 'DeviceName',
         'UUID'         => 'UUID',
+        'deviceId'     => 'DeviceId',
         'VIN'          => 'VIN',
         'UID'          => 'UID',
-        'UNAME'        => 'UNAME',
+        'ID'           => 'ID',
     ];
 
     public function validate()
@@ -83,29 +83,29 @@ class histories extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ID) {
-            $res['ID'] = $this->ID;
-        }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->serialNumber) {
+            $res['SerialNumber'] = $this->serialNumber;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->serialNumber) {
-            $res['SerialNumber'] = $this->serialNumber;
+        if (null !== $this->UNAME) {
+            $res['UNAME'] = $this->UNAME;
         }
         if (null !== $this->hardwareId) {
             $res['HardwareId'] = $this->hardwareId;
         }
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
+        }
         if (null !== $this->UUID) {
             $res['UUID'] = $this->UUID;
+        }
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
         }
         if (null !== $this->VIN) {
             $res['VIN'] = $this->VIN;
@@ -113,8 +113,8 @@ class histories extends Model
         if (null !== $this->UID) {
             $res['UID'] = $this->UID;
         }
-        if (null !== $this->UNAME) {
-            $res['UNAME'] = $this->UNAME;
+        if (null !== $this->ID) {
+            $res['ID'] = $this->ID;
         }
 
         return $res;
@@ -128,29 +128,29 @@ class histories extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ID'])) {
-            $model->ID = $map['ID'];
-        }
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['SerialNumber'])) {
+            $model->serialNumber = $map['SerialNumber'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
-        if (isset($map['SerialNumber'])) {
-            $model->serialNumber = $map['SerialNumber'];
+        if (isset($map['UNAME'])) {
+            $model->UNAME = $map['UNAME'];
         }
         if (isset($map['HardwareId'])) {
             $model->hardwareId = $map['HardwareId'];
         }
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
+        }
         if (isset($map['UUID'])) {
             $model->UUID = $map['UUID'];
+        }
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
         }
         if (isset($map['VIN'])) {
             $model->VIN = $map['VIN'];
@@ -158,8 +158,8 @@ class histories extends Model
         if (isset($map['UID'])) {
             $model->UID = $map['UID'];
         }
-        if (isset($map['UNAME'])) {
-            $model->UNAME = $map['UNAME'];
+        if (isset($map['ID'])) {
+            $model->ID = $map['ID'];
         }
 
         return $model;

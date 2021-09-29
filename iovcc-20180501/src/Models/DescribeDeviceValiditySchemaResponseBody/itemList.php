@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class itemList extends Model
 {
     /**
-     * @var string
+     * @var float
      */
-    public $path;
+    public $minimum;
 
     /**
      * @var string
      */
     public $type;
+
+    /**
+     * @var float
+     */
+    public $maximum;
 
     /**
      * @var string
@@ -26,27 +31,7 @@ class itemList extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $required;
-
-    /**
-     * @var float
-     */
-    public $maximum;
-
-    /**
-     * @var float
-     */
-    public $minimum;
-
-    /**
-     * @var bool
-     */
-    public $exclusiveMaximum;
+    public $enumListStr;
 
     /**
      * @var bool
@@ -54,31 +39,46 @@ class itemList extends Model
     public $exclusiveMinimum;
 
     /**
-     * @var string
-     */
-    public $enumListStr;
-
-    /**
      * @var int
      */
     public $maxLength;
+
+    /**
+     * @var string
+     */
+    public $required;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var bool
+     */
+    public $exclusiveMaximum;
+
+    /**
+     * @var string
+     */
+    public $path;
 
     /**
      * @var int
      */
     public $minLength;
     protected $_name = [
-        'path'             => 'Path',
-        'type'             => 'Type',
-        'itemType'         => 'ItemType',
-        'description'      => 'Description',
-        'required'         => 'Required',
-        'maximum'          => 'Maximum',
         'minimum'          => 'Minimum',
-        'exclusiveMaximum' => 'ExclusiveMaximum',
-        'exclusiveMinimum' => 'ExclusiveMinimum',
+        'type'             => 'Type',
+        'maximum'          => 'Maximum',
+        'itemType'         => 'ItemType',
         'enumListStr'      => 'EnumListStr',
+        'exclusiveMinimum' => 'ExclusiveMinimum',
         'maxLength'        => 'MaxLength',
+        'required'         => 'Required',
+        'description'      => 'Description',
+        'exclusiveMaximum' => 'ExclusiveMaximum',
+        'path'             => 'Path',
         'minLength'        => 'MinLength',
     ];
 
@@ -89,38 +89,38 @@ class itemList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
+        if (null !== $this->minimum) {
+            $res['Minimum'] = $this->minimum;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->itemType) {
-            $res['ItemType'] = $this->itemType;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->required) {
-            $res['Required'] = $this->required;
-        }
         if (null !== $this->maximum) {
             $res['Maximum'] = $this->maximum;
         }
-        if (null !== $this->minimum) {
-            $res['Minimum'] = $this->minimum;
-        }
-        if (null !== $this->exclusiveMaximum) {
-            $res['ExclusiveMaximum'] = $this->exclusiveMaximum;
-        }
-        if (null !== $this->exclusiveMinimum) {
-            $res['ExclusiveMinimum'] = $this->exclusiveMinimum;
+        if (null !== $this->itemType) {
+            $res['ItemType'] = $this->itemType;
         }
         if (null !== $this->enumListStr) {
             $res['EnumListStr'] = $this->enumListStr;
         }
+        if (null !== $this->exclusiveMinimum) {
+            $res['ExclusiveMinimum'] = $this->exclusiveMinimum;
+        }
         if (null !== $this->maxLength) {
             $res['MaxLength'] = $this->maxLength;
+        }
+        if (null !== $this->required) {
+            $res['Required'] = $this->required;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->exclusiveMaximum) {
+            $res['ExclusiveMaximum'] = $this->exclusiveMaximum;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
         if (null !== $this->minLength) {
             $res['MinLength'] = $this->minLength;
@@ -137,38 +137,38 @@ class itemList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
+        if (isset($map['Minimum'])) {
+            $model->minimum = $map['Minimum'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['ItemType'])) {
-            $model->itemType = $map['ItemType'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Required'])) {
-            $model->required = $map['Required'];
-        }
         if (isset($map['Maximum'])) {
             $model->maximum = $map['Maximum'];
         }
-        if (isset($map['Minimum'])) {
-            $model->minimum = $map['Minimum'];
-        }
-        if (isset($map['ExclusiveMaximum'])) {
-            $model->exclusiveMaximum = $map['ExclusiveMaximum'];
-        }
-        if (isset($map['ExclusiveMinimum'])) {
-            $model->exclusiveMinimum = $map['ExclusiveMinimum'];
+        if (isset($map['ItemType'])) {
+            $model->itemType = $map['ItemType'];
         }
         if (isset($map['EnumListStr'])) {
             $model->enumListStr = $map['EnumListStr'];
         }
+        if (isset($map['ExclusiveMinimum'])) {
+            $model->exclusiveMinimum = $map['ExclusiveMinimum'];
+        }
         if (isset($map['MaxLength'])) {
             $model->maxLength = $map['MaxLength'];
+        }
+        if (isset($map['Required'])) {
+            $model->required = $map['Required'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ExclusiveMaximum'])) {
+            $model->exclusiveMaximum = $map['ExclusiveMaximum'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
         if (isset($map['MinLength'])) {
             $model->minLength = $map['MinLength'];

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class message extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $mid;
+    public $time;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class message extends Model
     /**
      * @var string
      */
-    public $topic;
+    public $mid;
 
     /**
-     * @var int
+     * @var string
      */
-    public $qoS;
+    public $topic;
 
     /**
      * @var string
@@ -36,14 +36,14 @@ class message extends Model
     /**
      * @var int
      */
-    public $time;
+    public $qoS;
     protected $_name = [
-        'mid'     => 'Mid',
-        'appKey'  => 'AppKey',
-        'topic'   => 'Topic',
-        'qoS'     => 'QoS',
-        'payload' => 'Payload',
         'time'    => 'Time',
+        'appKey'  => 'AppKey',
+        'mid'     => 'Mid',
+        'topic'   => 'Topic',
+        'payload' => 'Payload',
+        'qoS'     => 'QoS',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class message extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mid) {
-            $res['Mid'] = $this->mid;
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+        if (null !== $this->mid) {
+            $res['Mid'] = $this->mid;
+        }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
-        }
-        if (null !== $this->qoS) {
-            $res['QoS'] = $this->qoS;
         }
         if (null !== $this->payload) {
             $res['Payload'] = $this->payload;
         }
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
+        if (null !== $this->qoS) {
+            $res['QoS'] = $this->qoS;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class message extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Mid'])) {
-            $model->mid = $map['Mid'];
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+        if (isset($map['Mid'])) {
+            $model->mid = $map['Mid'];
+        }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
-        }
-        if (isset($map['QoS'])) {
-            $model->qoS = $map['QoS'];
         }
         if (isset($map['Payload'])) {
             $model->payload = $map['Payload'];
         }
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
+        if (isset($map['QoS'])) {
+            $model->qoS = $map['QoS'];
         }
 
         return $model;

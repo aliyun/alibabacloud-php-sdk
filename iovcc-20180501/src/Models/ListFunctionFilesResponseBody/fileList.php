@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class fileList extends Model
 {
     /**
-     * @var files[]
-     */
-    public $files;
-
-    /**
      * @var pagination
      */
     public $pagination;
+
+    /**
+     * @var files[]
+     */
+    public $files;
     protected $_name = [
-        'files'      => 'Files',
         'pagination' => 'Pagination',
+        'files'      => 'Files',
     ];
 
     public function validate()
@@ -31,6 +31,9 @@ class fileList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pagination) {
+            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
+        }
         if (null !== $this->files) {
             $res['Files'] = [];
             if (null !== $this->files && \is_array($this->files)) {
@@ -39,9 +42,6 @@ class fileList extends Model
                     $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pagination) {
-            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
         }
 
         return $res;
@@ -55,6 +55,9 @@ class fileList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Pagination'])) {
+            $model->pagination = pagination::fromMap($map['Pagination']);
+        }
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
                 $model->files = [];
@@ -63,9 +66,6 @@ class fileList extends Model
                     $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Pagination'])) {
-            $model->pagination = pagination::fromMap($map['Pagination']);
         }
 
         return $model;

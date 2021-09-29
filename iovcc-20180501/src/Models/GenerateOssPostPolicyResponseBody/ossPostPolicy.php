@@ -11,16 +11,6 @@ class ossPostPolicy extends Model
     /**
      * @var string
      */
-    public $accessId;
-
-    /**
-     * @var string
-     */
-    public $policy;
-
-    /**
-     * @var string
-     */
     public $signature;
 
     /**
@@ -31,13 +21,23 @@ class ossPostPolicy extends Model
     /**
      * @var string
      */
+    public $policy;
+
+    /**
+     * @var string
+     */
     public $expire;
+
+    /**
+     * @var string
+     */
+    public $accessId;
     protected $_name = [
-        'accessId'  => 'AccessId',
-        'policy'    => 'Policy',
         'signature' => 'Signature',
         'host'      => 'Host',
+        'policy'    => 'Policy',
         'expire'    => 'Expire',
+        'accessId'  => 'AccessId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ossPostPolicy extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessId) {
-            $res['AccessId'] = $this->accessId;
-        }
-        if (null !== $this->policy) {
-            $res['Policy'] = $this->policy;
-        }
         if (null !== $this->signature) {
             $res['Signature'] = $this->signature;
         }
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
+        }
         if (null !== $this->expire) {
             $res['Expire'] = $this->expire;
+        }
+        if (null !== $this->accessId) {
+            $res['AccessId'] = $this->accessId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ossPostPolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessId'])) {
-            $model->accessId = $map['AccessId'];
-        }
-        if (isset($map['Policy'])) {
-            $model->policy = $map['Policy'];
-        }
         if (isset($map['Signature'])) {
             $model->signature = $map['Signature'];
         }
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
+        }
         if (isset($map['Expire'])) {
             $model->expire = $map['Expire'];
+        }
+        if (isset($map['AccessId'])) {
+            $model->accessId = $map['AccessId'];
         }
 
         return $model;

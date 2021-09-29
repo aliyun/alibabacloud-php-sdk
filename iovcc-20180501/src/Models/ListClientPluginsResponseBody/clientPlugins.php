@@ -11,15 +11,15 @@ class clientPlugins extends Model
     /**
      * @var string
      */
-    public $name;
+    public $pkgName;
 
     /**
      * @var string
      */
-    public $pkgName;
+    public $name;
     protected $_name = [
-        'name'    => 'Name',
         'pkgName' => 'PkgName',
+        'name'    => 'Name',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class clientPlugins extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->pkgName) {
             $res['PkgName'] = $this->pkgName;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class clientPlugins extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['PkgName'])) {
             $model->pkgName = $map['PkgName'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

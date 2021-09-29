@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $appName;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $PAppKey;
+    public $appPackage;
 
     /**
      * @var string
@@ -36,20 +36,20 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $appName;
+    public $PAppKey;
 
     /**
-     * @var string
+     * @var int
      */
-    public $appPackage;
+    public $id;
     protected $_name = [
-        'id'         => 'Id',
+        'appName'    => 'AppName',
         'appKey'     => 'AppKey',
-        'PAppKey'    => 'PAppKey',
+        'appPackage' => 'AppPackage',
         'projectId'  => 'ProjectId',
         'gmtCreate'  => 'GmtCreate',
-        'appName'    => 'AppName',
-        'appPackage' => 'AppPackage',
+        'PAppKey'    => 'PAppKey',
+        'id'         => 'Id',
     ];
 
     public function validate()
@@ -59,14 +59,14 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
-        if (null !== $this->PAppKey) {
-            $res['PAppKey'] = $this->PAppKey;
+        if (null !== $this->appPackage) {
+            $res['AppPackage'] = $this->appPackage;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -74,11 +74,11 @@ class list_ extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->PAppKey) {
+            $res['PAppKey'] = $this->PAppKey;
         }
-        if (null !== $this->appPackage) {
-            $res['AppPackage'] = $this->appPackage;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -92,14 +92,14 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
-        if (isset($map['PAppKey'])) {
-            $model->PAppKey = $map['PAppKey'];
+        if (isset($map['AppPackage'])) {
+            $model->appPackage = $map['AppPackage'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
@@ -107,11 +107,11 @@ class list_ extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['PAppKey'])) {
+            $model->PAppKey = $map['PAppKey'];
         }
-        if (isset($map['AppPackage'])) {
-            $model->appPackage = $map['AppPackage'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class FindVersionMessageSendRecordsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var messageSendRecordList
      */
     public $messageSendRecordList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'             => 'RequestId',
         'messageSendRecordList' => 'MessageSendRecordList',
+        'requestId'             => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class FindVersionMessageSendRecordsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->messageSendRecordList) {
             $res['MessageSendRecordList'] = null !== $this->messageSendRecordList ? $this->messageSendRecordList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class FindVersionMessageSendRecordsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MessageSendRecordList'])) {
             $model->messageSendRecordList = messageSendRecordList::fromMap($map['MessageSendRecordList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,27 +11,27 @@ class apps extends Model
     /**
      * @var string
      */
-    public $appKey;
-
-    /**
-     * @var string
-     */
     public $appName;
 
     /**
      * @var string
      */
-    public $appPackage;
+    public $appKey;
 
     /**
      * @var int
      */
     public $osType;
+
+    /**
+     * @var string
+     */
+    public $appPackage;
     protected $_name = [
-        'appKey'     => 'AppKey',
         'appName'    => 'AppName',
-        'appPackage' => 'AppPackage',
+        'appKey'     => 'AppKey',
         'osType'     => 'OsType',
+        'appPackage' => 'AppPackage',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class apps extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appKey) {
-            $res['AppKey'] = $this->appKey;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->appPackage) {
-            $res['AppPackage'] = $this->appPackage;
+        if (null !== $this->appKey) {
+            $res['AppKey'] = $this->appKey;
         }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
+        }
+        if (null !== $this->appPackage) {
+            $res['AppPackage'] = $this->appPackage;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class apps extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppKey'])) {
-            $model->appKey = $map['AppKey'];
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['AppPackage'])) {
-            $model->appPackage = $map['AppPackage'];
+        if (isset($map['AppKey'])) {
+            $model->appKey = $map['AppKey'];
         }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
+        }
+        if (isset($map['AppPackage'])) {
+            $model->appPackage = $map['AppPackage'];
         }
 
         return $model;

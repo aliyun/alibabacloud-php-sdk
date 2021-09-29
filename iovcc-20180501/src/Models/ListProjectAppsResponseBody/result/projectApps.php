@@ -11,17 +11,7 @@ class projectApps extends Model
     /**
      * @var int
      */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $appId;
-
-    /**
-     * @var string
-     */
-    public $userId;
+    public $status;
 
     /**
      * @var string
@@ -31,27 +21,7 @@ class projectApps extends Model
     /**
      * @var string
      */
-    public $appName;
-
-    /**
-     * @var string
-     */
-    public $appKey;
-
-    /**
-     * @var string
-     */
-    public $appSecret;
-
-    /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $gmtCreate;
+    public $userId;
 
     /**
      * @var int
@@ -64,22 +34,52 @@ class projectApps extends Model
     public $appPkgName;
 
     /**
+     * @var string
+     */
+    public $appName;
+
+    /**
+     * @var string
+     */
+    public $appSecret;
+
+    /**
+     * @var string
+     */
+    public $appKey;
+
+    /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @var int
      */
     public $osType;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $id;
     protected $_name = [
-        'id'          => 'Id',
-        'appId'       => 'AppId',
-        'userId'      => 'UserId',
-        'projectId'   => 'ProjectId',
-        'appName'     => 'AppName',
-        'appKey'      => 'AppKey',
-        'appSecret'   => 'AppSecret',
         'status'      => 'Status',
-        'gmtCreate'   => 'GmtCreate',
+        'projectId'   => 'ProjectId',
+        'userId'      => 'UserId',
         'gmtModified' => 'GmtModified',
         'appPkgName'  => 'AppPkgName',
+        'appName'     => 'AppName',
+        'appSecret'   => 'AppSecret',
+        'appKey'      => 'AppKey',
+        'appId'       => 'AppId',
         'osType'      => 'OsType',
+        'gmtCreate'   => 'GmtCreate',
+        'id'          => 'Id',
     ];
 
     public function validate()
@@ -89,32 +89,14 @@ class projectApps extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->appKey) {
-            $res['AppKey'] = $this->appKey;
-        }
-        if (null !== $this->appSecret) {
-            $res['AppSecret'] = $this->appSecret;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
@@ -122,8 +104,26 @@ class projectApps extends Model
         if (null !== $this->appPkgName) {
             $res['AppPkgName'] = $this->appPkgName;
         }
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->appSecret) {
+            $res['AppSecret'] = $this->appSecret;
+        }
+        if (null !== $this->appKey) {
+            $res['AppKey'] = $this->appKey;
+        }
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -137,32 +137,14 @@ class projectApps extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
-        if (isset($map['AppKey'])) {
-            $model->appKey = $map['AppKey'];
-        }
-        if (isset($map['AppSecret'])) {
-            $model->appSecret = $map['AppSecret'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
@@ -170,8 +152,26 @@ class projectApps extends Model
         if (isset($map['AppPkgName'])) {
             $model->appPkgName = $map['AppPkgName'];
         }
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
+        if (isset($map['AppSecret'])) {
+            $model->appSecret = $map['AppSecret'];
+        }
+        if (isset($map['AppKey'])) {
+            $model->appKey = $map['AppKey'];
+        }
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

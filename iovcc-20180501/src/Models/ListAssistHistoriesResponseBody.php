@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListAssistHistoriesResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -17,28 +22,23 @@ class ListAssistHistoriesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageIndex;
-
-    /**
-     * @var int
-     */
     public $perPage;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
 
     /**
      * @var histories[]
      */
     public $histories;
+
+    /**
+     * @var int
+     */
+    public $pageIndex;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'pageIndex'  => 'PageIndex',
-        'perPage'    => 'PerPage',
         'totalCount' => 'TotalCount',
+        'requestId'  => 'RequestId',
+        'perPage'    => 'PerPage',
         'histories'  => 'Histories',
+        'pageIndex'  => 'PageIndex',
     ];
 
     public function validate()
@@ -48,17 +48,14 @@ class ListAssistHistoriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageIndex) {
-            $res['PageIndex'] = $this->pageIndex;
-        }
         if (null !== $this->perPage) {
             $res['PerPage'] = $this->perPage;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->histories) {
             $res['Histories'] = [];
@@ -68,6 +65,9 @@ class ListAssistHistoriesResponseBody extends Model
                     $res['Histories'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageIndex) {
+            $res['PageIndex'] = $this->pageIndex;
         }
 
         return $res;
@@ -81,17 +81,14 @@ class ListAssistHistoriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageIndex'])) {
-            $model->pageIndex = $map['PageIndex'];
-        }
         if (isset($map['PerPage'])) {
             $model->perPage = $map['PerPage'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['Histories'])) {
             if (!empty($map['Histories'])) {
@@ -101,6 +98,9 @@ class ListAssistHistoriesResponseBody extends Model
                     $model->histories[$n++] = null !== $item ? histories::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageIndex'])) {
+            $model->pageIndex = $map['PageIndex'];
         }
 
         return $model;

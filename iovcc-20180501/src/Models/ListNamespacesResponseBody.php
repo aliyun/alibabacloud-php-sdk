@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListNamespacesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var namespaces[]
      */
     public $namespaces;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'namespaces' => 'Namespaces',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListNamespacesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->namespaces) {
             $res['Namespaces'] = [];
             if (null !== $this->namespaces && \is_array($this->namespaces)) {
@@ -41,6 +38,9 @@ class ListNamespacesResponseBody extends Model
                     $res['Namespaces'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListNamespacesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Namespaces'])) {
             if (!empty($map['Namespaces'])) {
                 $model->namespaces = [];
@@ -65,6 +62,9 @@ class ListNamespacesResponseBody extends Model
                     $model->namespaces[$n++] = null !== $item ? namespaces::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class items extends Model
     /**
      * @var int
      */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $gmtCreateTimestamp;
 
     /**
      * @var string
@@ -29,15 +24,20 @@ class items extends Model
     public $gmtCreate;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
-    public $gmtCreateTimestamp;
+    public $id;
     protected $_name = [
-        'id'                 => 'Id',
-        'name'               => 'Name',
+        'gmtCreateTimestamp' => 'GmtCreateTimestamp',
         'value'              => 'Value',
         'gmtCreate'          => 'GmtCreate',
-        'gmtCreateTimestamp' => 'GmtCreateTimestamp',
+        'name'               => 'Name',
+        'id'                 => 'Id',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->gmtCreateTimestamp) {
+            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
@@ -59,8 +56,11 @@ class items extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->gmtCreateTimestamp) {
-            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['GmtCreateTimestamp'])) {
+            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
@@ -86,8 +83,11 @@ class items extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['GmtCreateTimestamp'])) {
-            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

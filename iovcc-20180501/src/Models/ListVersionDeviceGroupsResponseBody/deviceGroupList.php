@@ -11,12 +11,7 @@ class deviceGroupList extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $gmtModify;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class deviceGroupList extends Model
     /**
      * @var string
      */
-    public $gmtModify;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $id;
     protected $_name = [
-        'id'          => 'Id',
-        'name'        => 'Name',
+        'gmtModify'   => 'GmtModify',
         'description' => 'Description',
         'gmtCreate'   => 'GmtCreate',
-        'gmtModify'   => 'GmtModify',
+        'name'        => 'Name',
+        'id'          => 'Id',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class deviceGroupList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->gmtModify) {
+            $res['GmtModify'] = $this->gmtModify;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -59,8 +56,11 @@ class deviceGroupList extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->gmtModify) {
-            $res['GmtModify'] = $this->gmtModify;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class deviceGroupList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['GmtModify'])) {
+            $model->gmtModify = $map['GmtModify'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -86,8 +83,11 @@ class deviceGroupList extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['GmtModify'])) {
-            $model->gmtModify = $map['GmtModify'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

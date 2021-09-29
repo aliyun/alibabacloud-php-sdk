@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @var int
+     */
+    public $gmtCreateTimestamp;
+
+    /**
      * @var string
      */
-    public $id;
+    public $originalId;
 
     /**
      * @var string
@@ -26,24 +31,19 @@ class items extends Model
     /**
      * @var string
      */
-    public $originalId;
+    public $gmtCreate;
 
     /**
      * @var string
      */
-    public $gmtCreate;
-
-    /**
-     * @var int
-     */
-    public $gmtCreateTimestamp;
+    public $id;
     protected $_name = [
-        'id'                 => 'Id',
+        'gmtCreateTimestamp' => 'GmtCreateTimestamp',
+        'originalId'         => 'OriginalId',
         'deviceId'           => 'DeviceId',
         'idType'             => 'IdType',
-        'originalId'         => 'OriginalId',
         'gmtCreate'          => 'GmtCreate',
-        'gmtCreateTimestamp' => 'GmtCreateTimestamp',
+        'id'                 => 'Id',
     ];
 
     public function validate()
@@ -53,8 +53,11 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->gmtCreateTimestamp) {
+            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
+        }
+        if (null !== $this->originalId) {
+            $res['OriginalId'] = $this->originalId;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
@@ -62,14 +65,11 @@ class items extends Model
         if (null !== $this->idType) {
             $res['IdType'] = $this->idType;
         }
-        if (null !== $this->originalId) {
-            $res['OriginalId'] = $this->originalId;
-        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->gmtCreateTimestamp) {
-            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -83,8 +83,11 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['GmtCreateTimestamp'])) {
+            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
+        }
+        if (isset($map['OriginalId'])) {
+            $model->originalId = $map['OriginalId'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
@@ -92,14 +95,11 @@ class items extends Model
         if (isset($map['IdType'])) {
             $model->idType = $map['IdType'];
         }
-        if (isset($map['OriginalId'])) {
-            $model->originalId = $map['OriginalId'];
-        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['GmtCreateTimestamp'])) {
-            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

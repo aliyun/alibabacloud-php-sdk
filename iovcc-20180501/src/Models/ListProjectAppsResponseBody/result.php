@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var int
+     * @var projectApps[]
      */
-    public $totalCount;
+    public $projectApps;
 
     /**
      * @var int
@@ -20,13 +20,13 @@ class result extends Model
     public $totalPage;
 
     /**
-     * @var projectApps[]
+     * @var int
      */
-    public $projectApps;
+    public $totalCount;
     protected $_name = [
-        'totalCount'  => 'TotalCount',
-        'totalPage'   => 'TotalPage',
         'projectApps' => 'ProjectApps',
+        'totalPage'   => 'TotalPage',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->totalPage) {
-            $res['TotalPage'] = $this->totalPage;
-        }
         if (null !== $this->projectApps) {
             $res['ProjectApps'] = [];
             if (null !== $this->projectApps && \is_array($this->projectApps)) {
@@ -50,6 +44,12 @@ class result extends Model
                     $res['ProjectApps'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['TotalPage'])) {
-            $model->totalPage = $map['TotalPage'];
-        }
         if (isset($map['ProjectApps'])) {
             if (!empty($map['ProjectApps'])) {
                 $model->projectApps = [];
@@ -77,6 +71,12 @@ class result extends Model
                     $model->projectApps[$n++] = null !== $item ? projectApps::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

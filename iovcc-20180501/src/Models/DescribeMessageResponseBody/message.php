@@ -11,12 +11,37 @@ class message extends Model
     /**
      * @var int
      */
-    public $id;
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $action;
 
     /**
      * @var string
      */
     public $projectId;
+
+    /**
+     * @var int
+     */
+    public $predictSendCnt;
+
+    /**
+     * @var string
+     */
+    public $uri;
+
+    /**
+     * @var string
+     */
+    public $desc;
+
+    /**
+     * @var string
+     */
+    public $auditMsg;
 
     /**
      * @var string
@@ -31,51 +56,6 @@ class message extends Model
     /**
      * @var int
      */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $sendStatus;
-
-    /**
-     * @var string
-     */
-    public $title;
-
-    /**
-     * @var string
-     */
-    public $desc;
-
-    /**
-     * @var string
-     */
-    public $action;
-
-    /**
-     * @var string
-     */
-    public $uri;
-
-    /**
-     * @var string
-     */
-    public $parameter;
-
-    /**
-     * @var int
-     */
-    public $predictSendCnt;
-
-    /**
-     * @var int
-     */
-    public $ackCnt;
-
-    /**
-     * @var int
-     */
     public $gmtCreateTime;
 
     /**
@@ -86,30 +66,50 @@ class message extends Model
     /**
      * @var int
      */
-    public $audit;
+    public $ackCnt;
 
     /**
      * @var string
      */
-    public $auditMsg;
+    public $title;
+
+    /**
+     * @var string
+     */
+    public $parameter;
+
+    /**
+     * @var int
+     */
+    public $audit;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $sendStatus;
     protected $_name = [
-        'id'             => 'Id',
+        'type'           => 'Type',
+        'action'         => 'Action',
         'projectId'      => 'ProjectId',
+        'predictSendCnt' => 'PredictSendCnt',
+        'uri'            => 'Uri',
+        'desc'           => 'Desc',
+        'auditMsg'       => 'AuditMsg',
         'appName'        => 'AppName',
         'appKey'         => 'AppKey',
-        'type'           => 'Type',
-        'sendStatus'     => 'SendStatus',
-        'title'          => 'Title',
-        'desc'           => 'Desc',
-        'action'         => 'Action',
-        'uri'            => 'Uri',
-        'parameter'      => 'Parameter',
-        'predictSendCnt' => 'PredictSendCnt',
-        'ackCnt'         => 'AckCnt',
         'gmtCreateTime'  => 'GmtCreateTime',
         'exipiredTime'   => 'ExipiredTime',
+        'ackCnt'         => 'AckCnt',
+        'title'          => 'Title',
+        'parameter'      => 'Parameter',
         'audit'          => 'Audit',
-        'auditMsg'       => 'AuditMsg',
+        'id'             => 'Id',
+        'sendStatus'     => 'SendStatus',
     ];
 
     public function validate()
@@ -119,11 +119,26 @@ class message extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->action) {
+            $res['Action'] = $this->action;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->predictSendCnt) {
+            $res['PredictSendCnt'] = $this->predictSendCnt;
+        }
+        if (null !== $this->uri) {
+            $res['Uri'] = $this->uri;
+        }
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->auditMsg) {
+            $res['AuditMsg'] = $this->auditMsg;
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
@@ -131,44 +146,29 @@ class message extends Model
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->sendStatus) {
-            $res['SendStatus'] = $this->sendStatus;
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
-        }
-        if (null !== $this->action) {
-            $res['Action'] = $this->action;
-        }
-        if (null !== $this->uri) {
-            $res['Uri'] = $this->uri;
-        }
-        if (null !== $this->parameter) {
-            $res['Parameter'] = $this->parameter;
-        }
-        if (null !== $this->predictSendCnt) {
-            $res['PredictSendCnt'] = $this->predictSendCnt;
-        }
-        if (null !== $this->ackCnt) {
-            $res['AckCnt'] = $this->ackCnt;
-        }
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
         if (null !== $this->exipiredTime) {
             $res['ExipiredTime'] = $this->exipiredTime;
         }
+        if (null !== $this->ackCnt) {
+            $res['AckCnt'] = $this->ackCnt;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
+        if (null !== $this->parameter) {
+            $res['Parameter'] = $this->parameter;
+        }
         if (null !== $this->audit) {
             $res['Audit'] = $this->audit;
         }
-        if (null !== $this->auditMsg) {
-            $res['AuditMsg'] = $this->auditMsg;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->sendStatus) {
+            $res['SendStatus'] = $this->sendStatus;
         }
 
         return $res;
@@ -182,11 +182,26 @@ class message extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Action'])) {
+            $model->action = $map['Action'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['PredictSendCnt'])) {
+            $model->predictSendCnt = $map['PredictSendCnt'];
+        }
+        if (isset($map['Uri'])) {
+            $model->uri = $map['Uri'];
+        }
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
+        }
+        if (isset($map['AuditMsg'])) {
+            $model->auditMsg = $map['AuditMsg'];
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
@@ -194,44 +209,29 @@ class message extends Model
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['SendStatus'])) {
-            $model->sendStatus = $map['SendStatus'];
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
-        }
-        if (isset($map['Action'])) {
-            $model->action = $map['Action'];
-        }
-        if (isset($map['Uri'])) {
-            $model->uri = $map['Uri'];
-        }
-        if (isset($map['Parameter'])) {
-            $model->parameter = $map['Parameter'];
-        }
-        if (isset($map['PredictSendCnt'])) {
-            $model->predictSendCnt = $map['PredictSendCnt'];
-        }
-        if (isset($map['AckCnt'])) {
-            $model->ackCnt = $map['AckCnt'];
-        }
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
         if (isset($map['ExipiredTime'])) {
             $model->exipiredTime = $map['ExipiredTime'];
         }
+        if (isset($map['AckCnt'])) {
+            $model->ackCnt = $map['AckCnt'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
+        if (isset($map['Parameter'])) {
+            $model->parameter = $map['Parameter'];
+        }
         if (isset($map['Audit'])) {
             $model->audit = $map['Audit'];
         }
-        if (isset($map['AuditMsg'])) {
-            $model->auditMsg = $map['AuditMsg'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['SendStatus'])) {
+            $model->sendStatus = $map['SendStatus'];
         }
 
         return $model;

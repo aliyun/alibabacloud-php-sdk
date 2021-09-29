@@ -11,22 +11,7 @@ class files extends Model
     /**
      * @var int
      */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var int
-     */
     public $type;
-
-    /**
-     * @var int
-     */
-    public $contentId;
 
     /**
      * @var int
@@ -42,14 +27,29 @@ class files extends Model
      * @var int
      */
     public $gmtModified;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $contentId;
     protected $_name = [
-        'id'          => 'Id',
-        'name'        => 'Name',
         'type'        => 'Type',
-        'contentId'   => 'ContentId',
         'status'      => 'Status',
         'gmtCreate'   => 'GmtCreate',
         'gmtModified' => 'GmtModified',
+        'name'        => 'Name',
+        'id'          => 'Id',
+        'contentId'   => 'ContentId',
     ];
 
     public function validate()
@@ -59,17 +59,8 @@ class files extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->contentId) {
-            $res['ContentId'] = $this->contentId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -79,6 +70,15 @@ class files extends Model
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->contentId) {
+            $res['ContentId'] = $this->contentId;
         }
 
         return $res;
@@ -92,17 +92,8 @@ class files extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['ContentId'])) {
-            $model->contentId = $map['ContentId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
@@ -112,6 +103,15 @@ class files extends Model
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['ContentId'])) {
+            $model->contentId = $map['ContentId'];
         }
 
         return $model;

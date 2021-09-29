@@ -14,18 +14,18 @@ class clientStatus extends Model
     public $status;
 
     /**
-     * @var int
-     */
-    public $lastUpdate;
-
-    /**
      * @var string
      */
     public $cleanSession;
+
+    /**
+     * @var int
+     */
+    public $lastUpdate;
     protected $_name = [
         'status'       => 'Status',
-        'lastUpdate'   => 'LastUpdate',
         'cleanSession' => 'CleanSession',
+        'lastUpdate'   => 'LastUpdate',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class clientStatus extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->lastUpdate) {
-            $res['LastUpdate'] = $this->lastUpdate;
-        }
         if (null !== $this->cleanSession) {
             $res['CleanSession'] = $this->cleanSession;
+        }
+        if (null !== $this->lastUpdate) {
+            $res['LastUpdate'] = $this->lastUpdate;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class clientStatus extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['LastUpdate'])) {
-            $model->lastUpdate = $map['LastUpdate'];
-        }
         if (isset($map['CleanSession'])) {
             $model->cleanSession = $map['CleanSession'];
+        }
+        if (isset($map['LastUpdate'])) {
+            $model->lastUpdate = $map['LastUpdate'];
         }
 
         return $model;

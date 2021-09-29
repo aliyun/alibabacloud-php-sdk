@@ -16,16 +16,16 @@ class yunIdInfo extends Model
     /**
      * @var int
      */
-    public $totalDeviceModelCount;
+    public $totalDeviceCount;
 
     /**
      * @var int
      */
-    public $totalDeviceCount;
+    public $totalDeviceModelCount;
     protected $_name = [
         'totalBrandCount'       => 'TotalBrandCount',
-        'totalDeviceModelCount' => 'TotalDeviceModelCount',
         'totalDeviceCount'      => 'TotalDeviceCount',
+        'totalDeviceModelCount' => 'TotalDeviceModelCount',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class yunIdInfo extends Model
         if (null !== $this->totalBrandCount) {
             $res['TotalBrandCount'] = $this->totalBrandCount;
         }
-        if (null !== $this->totalDeviceModelCount) {
-            $res['TotalDeviceModelCount'] = $this->totalDeviceModelCount;
-        }
         if (null !== $this->totalDeviceCount) {
             $res['TotalDeviceCount'] = $this->totalDeviceCount;
+        }
+        if (null !== $this->totalDeviceModelCount) {
+            $res['TotalDeviceModelCount'] = $this->totalDeviceModelCount;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class yunIdInfo extends Model
         if (isset($map['TotalBrandCount'])) {
             $model->totalBrandCount = $map['TotalBrandCount'];
         }
-        if (isset($map['TotalDeviceModelCount'])) {
-            $model->totalDeviceModelCount = $map['TotalDeviceModelCount'];
-        }
         if (isset($map['TotalDeviceCount'])) {
             $model->totalDeviceCount = $map['TotalDeviceCount'];
+        }
+        if (isset($map['TotalDeviceModelCount'])) {
+            $model->totalDeviceModelCount = $map['TotalDeviceModelCount'];
         }
 
         return $model;

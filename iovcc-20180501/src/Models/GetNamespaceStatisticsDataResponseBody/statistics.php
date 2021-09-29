@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class statistics extends Model
 {
     /**
-     * @var string[]
+     * @var int[]
      */
     public $categories;
 

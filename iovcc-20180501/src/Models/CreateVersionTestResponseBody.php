@@ -11,15 +11,15 @@ class CreateVersionTestResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $testId;
 
     /**
      * @var string
      */
-    public $testId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'testId'    => 'TestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateVersionTestResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->testId) {
             $res['TestId'] = $this->testId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateVersionTestResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['TestId'])) {
             $model->testId = $map['TestId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class actions extends Model
     /**
      * @var string
      */
-    public $assistId;
+    public $action;
 
     /**
-     * @var string
+     * @var int
      */
-    public $action;
+    public $createdAt;
 
     /**
      * @var string
@@ -26,23 +26,23 @@ class actions extends Model
     /**
      * @var int
      */
-    public $createdAt;
+    public $updatedAt;
 
     /**
-     * @var int
+     * @var string
      */
-    public $updatedAt;
+    public $assistId;
 
     /**
      * @var string
      */
     public $ID;
     protected $_name = [
-        'assistId'  => 'AssistId',
         'action'    => 'Action',
-        'timestamp' => 'Timestamp',
         'createdAt' => 'CreatedAt',
+        'timestamp' => 'Timestamp',
         'updatedAt' => 'UpdatedAt',
+        'assistId'  => 'AssistId',
         'ID'        => 'ID',
     ];
 
@@ -53,20 +53,20 @@ class actions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->assistId) {
-            $res['AssistId'] = $this->assistId;
-        }
         if (null !== $this->action) {
             $res['Action'] = $this->action;
-        }
-        if (null !== $this->timestamp) {
-            $res['Timestamp'] = $this->timestamp;
         }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
+        }
         if (null !== $this->updatedAt) {
             $res['UpdatedAt'] = $this->updatedAt;
+        }
+        if (null !== $this->assistId) {
+            $res['AssistId'] = $this->assistId;
         }
         if (null !== $this->ID) {
             $res['ID'] = $this->ID;
@@ -83,20 +83,20 @@ class actions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AssistId'])) {
-            $model->assistId = $map['AssistId'];
-        }
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
-        }
-        if (isset($map['Timestamp'])) {
-            $model->timestamp = $map['Timestamp'];
         }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
+        }
         if (isset($map['UpdatedAt'])) {
             $model->updatedAt = $map['UpdatedAt'];
+        }
+        if (isset($map['AssistId'])) {
+            $model->assistId = $map['AssistId'];
         }
         if (isset($map['ID'])) {
             $model->ID = $map['ID'];

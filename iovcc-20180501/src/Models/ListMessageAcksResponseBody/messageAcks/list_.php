@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @var int
-     */
-    public $mid;
-
-    /**
      * @var string
      */
     public $deviceId;
@@ -22,10 +17,15 @@ class list_ extends Model
      * @var int
      */
     public $ackTime;
+
+    /**
+     * @var int
+     */
+    public $mid;
     protected $_name = [
-        'mid'      => 'Mid',
         'deviceId' => 'DeviceId',
         'ackTime'  => 'AckTime',
+        'mid'      => 'Mid',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mid) {
-            $res['Mid'] = $this->mid;
-        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
         if (null !== $this->ackTime) {
             $res['AckTime'] = $this->ackTime;
+        }
+        if (null !== $this->mid) {
+            $res['Mid'] = $this->mid;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Mid'])) {
-            $model->mid = $map['Mid'];
-        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
         if (isset($map['AckTime'])) {
             $model->ackTime = $map['AckTime'];
+        }
+        if (isset($map['Mid'])) {
+            $model->mid = $map['Mid'];
         }
 
         return $model;

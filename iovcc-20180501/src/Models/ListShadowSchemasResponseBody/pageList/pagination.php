@@ -11,7 +11,7 @@ class pagination extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageIndex;
 
     /**
      * @var int
@@ -21,12 +21,12 @@ class pagination extends Model
     /**
      * @var int
      */
-    public $pageIndex;
+    public $pageSize;
 
     /**
      * @var int
      */
-    public $pageSize;
+    public $totalCount;
 
     /**
      * @var bool
@@ -38,10 +38,10 @@ class pagination extends Model
      */
     public $hasNextPage;
     protected $_name = [
-        'totalCount'     => 'TotalCount',
-        'totalPageCount' => 'TotalPageCount',
         'pageIndex'      => 'PageIndex',
+        'totalPageCount' => 'TotalPageCount',
         'pageSize'       => 'PageSize',
+        'totalCount'     => 'TotalCount',
         'simpleSign'     => 'SimpleSign',
         'hasNextPage'    => 'HasNextPage',
     ];
@@ -53,17 +53,17 @@ class pagination extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageIndex) {
+            $res['PageIndex'] = $this->pageIndex;
         }
         if (null !== $this->totalPageCount) {
             $res['TotalPageCount'] = $this->totalPageCount;
         }
-        if (null !== $this->pageIndex) {
-            $res['PageIndex'] = $this->pageIndex;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->simpleSign) {
             $res['SimpleSign'] = $this->simpleSign;
@@ -83,17 +83,17 @@ class pagination extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageIndex'])) {
+            $model->pageIndex = $map['PageIndex'];
         }
         if (isset($map['TotalPageCount'])) {
             $model->totalPageCount = $map['TotalPageCount'];
         }
-        if (isset($map['PageIndex'])) {
-            $model->pageIndex = $map['PageIndex'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['SimpleSign'])) {
             $model->simpleSign = $map['SimpleSign'];

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class functions extends Model
 {
     /**
-     * @var int
-     */
-    public $id;
-
-    /**
      * @var string
      */
     public $projectId;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
 
     /**
      * @var string
@@ -26,24 +26,24 @@ class functions extends Model
     /**
      * @var int
      */
-    public $fileId;
-
-    /**
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
-     * @var int
-     */
     public $gmtModified;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $fileId;
     protected $_name = [
-        'id'          => 'Id',
         'projectId'   => 'ProjectId',
-        'name'        => 'Name',
-        'fileId'      => 'FileId',
         'gmtCreate'   => 'GmtCreate',
+        'name'        => 'Name',
         'gmtModified' => 'GmtModified',
+        'id'          => 'Id',
+        'fileId'      => 'FileId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class functions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->fileId) {
-            $res['FileId'] = $this->fileId;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class functions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['FileId'])) {
-            $model->fileId = $map['FileId'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class clientSdks extends Model
     /**
      * @var int
      */
-    public $id;
+    public $osType;
 
     /**
      * @var int
@@ -41,15 +41,15 @@ class clientSdks extends Model
     /**
      * @var int
      */
-    public $osType;
+    public $id;
     protected $_name = [
-        'id'          => 'Id',
+        'osType'      => 'OsType',
         'gmtCreate'   => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'name'        => 'Name',
         'pkgName'     => 'PkgName',
         'pkgType'     => 'PkgType',
-        'osType'      => 'OsType',
+        'id'          => 'Id',
     ];
 
     public function validate()
@@ -59,8 +59,8 @@ class clientSdks extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->osType) {
+            $res['OsType'] = $this->osType;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -77,8 +77,8 @@ class clientSdks extends Model
         if (null !== $this->pkgType) {
             $res['PkgType'] = $this->pkgType;
         }
-        if (null !== $this->osType) {
-            $res['OsType'] = $this->osType;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -92,8 +92,8 @@ class clientSdks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['OsType'])) {
+            $model->osType = $map['OsType'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
@@ -110,8 +110,8 @@ class clientSdks extends Model
         if (isset($map['PkgType'])) {
             $model->pkgType = $map['PkgType'];
         }
-        if (isset($map['OsType'])) {
-            $model->osType = $map['OsType'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

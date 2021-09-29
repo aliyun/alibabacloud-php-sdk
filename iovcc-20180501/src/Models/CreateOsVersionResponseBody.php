@@ -11,15 +11,15 @@ class CreateOsVersionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $versionId;
 
     /**
      * @var string
      */
-    public $versionId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'versionId' => 'VersionId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateOsVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateOsVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class devices extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $projectId;
+    public $loginTime;
 
     /**
      * @var string
      */
-    public $terminal;
+    public $deviceId;
+
+    /**
+     * @var int
+     */
+    public $online;
+
+    /**
+     * @var string
+     */
+    public $projectId;
 
     /**
      * @var string
@@ -26,36 +36,26 @@ class devices extends Model
     /**
      * @var string
      */
-    public $deviceId;
+    public $systemVersion;
+
+    /**
+     * @var string
+     */
+    public $terminal;
 
     /**
      * @var string
      */
     public $clientVersion;
-
-    /**
-     * @var string
-     */
-    public $systemVersion;
-
-    /**
-     * @var int
-     */
-    public $online;
-
-    /**
-     * @var int
-     */
-    public $loginTime;
     protected $_name = [
-        'projectId'     => 'ProjectId',
-        'terminal'      => 'Terminal',
-        'iasId'         => 'IasId',
-        'deviceId'      => 'DeviceId',
-        'clientVersion' => 'ClientVersion',
-        'systemVersion' => 'SystemVersion',
-        'online'        => 'Online',
         'loginTime'     => 'LoginTime',
+        'deviceId'      => 'DeviceId',
+        'online'        => 'Online',
+        'projectId'     => 'ProjectId',
+        'iasId'         => 'IasId',
+        'systemVersion' => 'SystemVersion',
+        'terminal'      => 'Terminal',
+        'clientVersion' => 'ClientVersion',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class devices extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->terminal) {
-            $res['Terminal'] = $this->terminal;
-        }
-        if (null !== $this->iasId) {
-            $res['IasId'] = $this->iasId;
+        if (null !== $this->loginTime) {
+            $res['LoginTime'] = $this->loginTime;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-        if (null !== $this->clientVersion) {
-            $res['ClientVersion'] = $this->clientVersion;
+        if (null !== $this->online) {
+            $res['Online'] = $this->online;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->iasId) {
+            $res['IasId'] = $this->iasId;
         }
         if (null !== $this->systemVersion) {
             $res['SystemVersion'] = $this->systemVersion;
         }
-        if (null !== $this->online) {
-            $res['Online'] = $this->online;
+        if (null !== $this->terminal) {
+            $res['Terminal'] = $this->terminal;
         }
-        if (null !== $this->loginTime) {
-            $res['LoginTime'] = $this->loginTime;
+        if (null !== $this->clientVersion) {
+            $res['ClientVersion'] = $this->clientVersion;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class devices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Terminal'])) {
-            $model->terminal = $map['Terminal'];
-        }
-        if (isset($map['IasId'])) {
-            $model->iasId = $map['IasId'];
+        if (isset($map['LoginTime'])) {
+            $model->loginTime = $map['LoginTime'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-        if (isset($map['ClientVersion'])) {
-            $model->clientVersion = $map['ClientVersion'];
+        if (isset($map['Online'])) {
+            $model->online = $map['Online'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['IasId'])) {
+            $model->iasId = $map['IasId'];
         }
         if (isset($map['SystemVersion'])) {
             $model->systemVersion = $map['SystemVersion'];
         }
-        if (isset($map['Online'])) {
-            $model->online = $map['Online'];
+        if (isset($map['Terminal'])) {
+            $model->terminal = $map['Terminal'];
         }
-        if (isset($map['LoginTime'])) {
-            $model->loginTime = $map['LoginTime'];
+        if (isset($map['ClientVersion'])) {
+            $model->clientVersion = $map['ClientVersion'];
         }
 
         return $model;

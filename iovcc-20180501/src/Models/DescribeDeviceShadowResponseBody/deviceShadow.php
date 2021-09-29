@@ -11,15 +11,15 @@ class deviceShadow extends Model
     /**
      * @var string
      */
-    public $deviceInfo;
+    public $deviceShadow;
 
     /**
      * @var string
      */
-    public $deviceShadow;
+    public $deviceInfo;
     protected $_name = [
-        'deviceInfo'   => 'DeviceInfo',
         'deviceShadow' => 'DeviceShadow',
+        'deviceInfo'   => 'DeviceInfo',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class deviceShadow extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deviceInfo) {
-            $res['DeviceInfo'] = $this->deviceInfo;
-        }
         if (null !== $this->deviceShadow) {
             $res['DeviceShadow'] = $this->deviceShadow;
+        }
+        if (null !== $this->deviceInfo) {
+            $res['DeviceInfo'] = $this->deviceInfo;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class deviceShadow extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeviceInfo'])) {
-            $model->deviceInfo = $map['DeviceInfo'];
-        }
         if (isset($map['DeviceShadow'])) {
             $model->deviceShadow = $map['DeviceShadow'];
+        }
+        if (isset($map['DeviceInfo'])) {
+            $model->deviceInfo = $map['DeviceInfo'];
         }
 
         return $model;

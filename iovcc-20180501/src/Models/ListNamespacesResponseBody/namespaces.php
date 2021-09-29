@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class namespaces extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $namespace;
+    public $authType;
 
     /**
      * @var string
      */
-    public $name;
+    public $description;
 
     /**
      * @var string
@@ -29,14 +29,14 @@ class namespaces extends Model
     public $projectId;
 
     /**
-     * @var string
-     */
-    public $description;
-
-    /**
      * @var int
      */
     public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $namespace;
 
     /**
      * @var int
@@ -44,18 +44,18 @@ class namespaces extends Model
     public $gmtModified;
 
     /**
-     * @var int
+     * @var string
      */
-    public $authType;
+    public $name;
     protected $_name = [
-        'namespace'   => 'Namespace',
-        'name'        => 'Name',
+        'authType'    => 'AuthType',
+        'description' => 'Description',
         'userId'      => 'UserId',
         'projectId'   => 'ProjectId',
-        'description' => 'Description',
         'gmtCreate'   => 'GmtCreate',
+        'namespace'   => 'Namespace',
         'gmtModified' => 'GmtModified',
-        'authType'    => 'AuthType',
+        'name'        => 'Name',
     ];
 
     public function validate()
@@ -65,11 +65,11 @@ class namespaces extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -77,17 +77,17 @@ class namespaces extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-        if (null !== $this->authType) {
-            $res['AuthType'] = $this->authType;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -101,11 +101,11 @@ class namespaces extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
@@ -113,17 +113,17 @@ class namespaces extends Model
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-        if (isset($map['AuthType'])) {
-            $model->authType = $map['AuthType'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

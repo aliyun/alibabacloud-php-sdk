@@ -9,19 +9,24 @@ use AlibabaCloud\Tea\Model;
 class prepublishList extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $id;
+    public $gmtCreateTimestamp;
 
     /**
      * @var string
      */
-    public $name;
+    public $deviceModelId;
 
     /**
      * @var string
      */
-    public $versionType;
+    public $gmtModify;
+
+    /**
+     * @var string
+     */
+    public $isActive;
 
     /**
      * @var string
@@ -36,7 +41,17 @@ class prepublishList extends Model
     /**
      * @var string
      */
-    public $deviceModelId;
+    public $deviceModelName;
+
+    /**
+     * @var string
+     */
+    public $isTotalPrepublish;
+
+    /**
+     * @var int
+     */
+    public $gmtModifyTimestamp;
 
     /**
      * @var string
@@ -46,58 +61,43 @@ class prepublishList extends Model
     /**
      * @var string
      */
-    public $isActive;
-
-    /**
-     * @var string
-     */
-    public $isTotalPrepublish;
-
-    /**
-     * @var string
-     */
     public $gmtCreate;
 
     /**
      * @var string
      */
-    public $gmtModify;
+    public $name;
 
     /**
      * @var string
      */
-    public $deviceModelName;
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $versionType;
 
     /**
      * @var string
      */
     public $passedCount;
-
-    /**
-     * @var int
-     */
-    public $gmtCreateTimestamp;
-
-    /**
-     * @var int
-     */
-    public $gmtModifyTimestamp;
     protected $_name = [
-        'id'                 => 'Id',
-        'name'               => 'Name',
-        'versionType'        => 'VersionType',
+        'gmtCreateTimestamp' => 'GmtCreateTimestamp',
+        'deviceModelId'      => 'DeviceModelId',
+        'gmtModify'          => 'GmtModify',
+        'isActive'           => 'IsActive',
         'versionId'          => 'VersionId',
         'barrierCount'       => 'BarrierCount',
-        'deviceModelId'      => 'DeviceModelId',
-        'parentId'           => 'ParentId',
-        'isActive'           => 'IsActive',
-        'isTotalPrepublish'  => 'IsTotalPrepublish',
-        'gmtCreate'          => 'GmtCreate',
-        'gmtModify'          => 'GmtModify',
         'deviceModelName'    => 'DeviceModelName',
-        'passedCount'        => 'PassedCount',
-        'gmtCreateTimestamp' => 'GmtCreateTimestamp',
+        'isTotalPrepublish'  => 'IsTotalPrepublish',
         'gmtModifyTimestamp' => 'GmtModifyTimestamp',
+        'parentId'           => 'ParentId',
+        'gmtCreate'          => 'GmtCreate',
+        'name'               => 'Name',
+        'id'                 => 'Id',
+        'versionType'        => 'VersionType',
+        'passedCount'        => 'PassedCount',
     ];
 
     public function validate()
@@ -107,14 +107,17 @@ class prepublishList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->gmtCreateTimestamp) {
+            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->deviceModelId) {
+            $res['DeviceModelId'] = $this->deviceModelId;
         }
-        if (null !== $this->versionType) {
-            $res['VersionType'] = $this->versionType;
+        if (null !== $this->gmtModify) {
+            $res['GmtModify'] = $this->gmtModify;
+        }
+        if (null !== $this->isActive) {
+            $res['IsActive'] = $this->isActive;
         }
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
@@ -122,35 +125,32 @@ class prepublishList extends Model
         if (null !== $this->barrierCount) {
             $res['BarrierCount'] = $this->barrierCount;
         }
-        if (null !== $this->deviceModelId) {
-            $res['DeviceModelId'] = $this->deviceModelId;
-        }
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
-        if (null !== $this->isActive) {
-            $res['IsActive'] = $this->isActive;
+        if (null !== $this->deviceModelName) {
+            $res['DeviceModelName'] = $this->deviceModelName;
         }
         if (null !== $this->isTotalPrepublish) {
             $res['IsTotalPrepublish'] = $this->isTotalPrepublish;
         }
+        if (null !== $this->gmtModifyTimestamp) {
+            $res['GmtModifyTimestamp'] = $this->gmtModifyTimestamp;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
+        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->gmtModify) {
-            $res['GmtModify'] = $this->gmtModify;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
-        if (null !== $this->deviceModelName) {
-            $res['DeviceModelName'] = $this->deviceModelName;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->versionType) {
+            $res['VersionType'] = $this->versionType;
         }
         if (null !== $this->passedCount) {
             $res['PassedCount'] = $this->passedCount;
-        }
-        if (null !== $this->gmtCreateTimestamp) {
-            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
-        }
-        if (null !== $this->gmtModifyTimestamp) {
-            $res['GmtModifyTimestamp'] = $this->gmtModifyTimestamp;
         }
 
         return $res;
@@ -164,14 +164,17 @@ class prepublishList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['GmtCreateTimestamp'])) {
+            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['DeviceModelId'])) {
+            $model->deviceModelId = $map['DeviceModelId'];
         }
-        if (isset($map['VersionType'])) {
-            $model->versionType = $map['VersionType'];
+        if (isset($map['GmtModify'])) {
+            $model->gmtModify = $map['GmtModify'];
+        }
+        if (isset($map['IsActive'])) {
+            $model->isActive = $map['IsActive'];
         }
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
@@ -179,35 +182,32 @@ class prepublishList extends Model
         if (isset($map['BarrierCount'])) {
             $model->barrierCount = $map['BarrierCount'];
         }
-        if (isset($map['DeviceModelId'])) {
-            $model->deviceModelId = $map['DeviceModelId'];
-        }
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
-        if (isset($map['IsActive'])) {
-            $model->isActive = $map['IsActive'];
+        if (isset($map['DeviceModelName'])) {
+            $model->deviceModelName = $map['DeviceModelName'];
         }
         if (isset($map['IsTotalPrepublish'])) {
             $model->isTotalPrepublish = $map['IsTotalPrepublish'];
         }
+        if (isset($map['GmtModifyTimestamp'])) {
+            $model->gmtModifyTimestamp = $map['GmtModifyTimestamp'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
+        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['GmtModify'])) {
-            $model->gmtModify = $map['GmtModify'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
-        if (isset($map['DeviceModelName'])) {
-            $model->deviceModelName = $map['DeviceModelName'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['VersionType'])) {
+            $model->versionType = $map['VersionType'];
         }
         if (isset($map['PassedCount'])) {
             $model->passedCount = $map['PassedCount'];
-        }
-        if (isset($map['GmtCreateTimestamp'])) {
-            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
-        }
-        if (isset($map['GmtModifyTimestamp'])) {
-            $model->gmtModifyTimestamp = $map['GmtModifyTimestamp'];
         }
 
         return $model;
