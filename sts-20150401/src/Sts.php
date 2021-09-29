@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Sts\V20150401;
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\SDK\Sts\V20150401\Models\AssumeRoleRequest;
 use AlibabaCloud\SDK\Sts\V20150401\Models\AssumeRoleResponse;
+use AlibabaCloud\SDK\Sts\V20150401\Models\AssumeRoleWithOIDCRequest;
+use AlibabaCloud\SDK\Sts\V20150401\Models\AssumeRoleWithOIDCResponse;
 use AlibabaCloud\SDK\Sts\V20150401\Models\AssumeRoleWithSAMLRequest;
 use AlibabaCloud\SDK\Sts\V20150401\Models\AssumeRoleWithSAMLResponse;
 use AlibabaCloud\SDK\Sts\V20150401\Models\GetCallerIdentityResponse;
@@ -45,12 +47,13 @@ class Sts extends OpenApiClient
             'cn-shanghai-et2-b01'         => 'sts.aliyuncs.com',
             'cn-shanghai-inner'           => 'sts.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'sts.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'sts.aliyuncs.com',
+            'cn-shenzhen-finance-1'       => 'sts-vpc.cn-shenzhen-finance-1.aliyuncs.com',
             'cn-shenzhen-inner'           => 'sts.aliyuncs.com',
             'cn-shenzhen-st4-d01'         => 'sts.aliyuncs.com',
             'cn-shenzhen-su18-b01'        => 'sts.aliyuncs.com',
             'cn-wuhan'                    => 'sts.aliyuncs.com',
             'cn-yushanfang'               => 'sts.aliyuncs.com',
+            'cn-zhangbei'                 => 'sts.aliyuncs.com',
             'cn-zhangbei-na61-b01'        => 'sts.aliyuncs.com',
             'cn-zhangjiakou-na62-a01'     => 'sts.aliyuncs.com',
             'cn-zhengzhou-nebula-1'       => 'sts.aliyuncs.com',
@@ -110,6 +113,34 @@ class Sts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->assumeRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AssumeRoleWithOIDCRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AssumeRoleWithOIDCResponse
+     */
+    public function assumeRoleWithOIDCWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AssumeRoleWithOIDCResponse::fromMap($this->doRPCRequest('AssumeRoleWithOIDC', '2015-04-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AssumeRoleWithOIDCRequest $request
+     *
+     * @return AssumeRoleWithOIDCResponse
+     */
+    public function assumeRoleWithOIDC($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->assumeRoleWithOIDCWithOptions($request, $runtime);
     }
 
     /**
