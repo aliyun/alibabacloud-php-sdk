@@ -1614,12 +1614,11 @@ class Config extends OpenApiClient
     public function getConfigRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return GetConfigRuleResponse::fromMap($this->doRPCRequest('GetConfigRule', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetConfigRuleResponse::fromMap($this->doRPCRequest('GetConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2040,12 +2039,11 @@ class Config extends OpenApiClient
     public function getAggregateConfigRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return GetAggregateConfigRuleResponse::fromMap($this->doRPCRequest('GetAggregateConfigRule', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateConfigRuleResponse::fromMap($this->doRPCRequest('GetAggregateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
