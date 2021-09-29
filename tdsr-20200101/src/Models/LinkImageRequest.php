@@ -28,10 +28,18 @@ class LinkImageRequest extends Model
      * @var int
      */
     public $cameraHeight;
+
+    /**
+     * @description 平台标识，默认PC
+     *
+     * @var string
+     */
+    public $platform;
     protected $_name = [
         'subSceneId'   => 'SubSceneId',
         'fileName'     => 'FileName',
         'cameraHeight' => 'CameraHeight',
+        'platform'     => 'Platform',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class LinkImageRequest extends Model
         }
         if (null !== $this->cameraHeight) {
             $res['CameraHeight'] = $this->cameraHeight;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
 
         return $res;
@@ -70,6 +81,9 @@ class LinkImageRequest extends Model
         }
         if (isset($map['CameraHeight'])) {
             $model->cameraHeight = $map['CameraHeight'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
 
         return $model;

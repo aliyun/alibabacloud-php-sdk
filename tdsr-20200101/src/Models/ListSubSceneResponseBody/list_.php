@@ -77,6 +77,20 @@ class list_ extends Model
      * @var string
      */
     public $cubemapPath;
+
+    /**
+     * @description 是否删除
+     *
+     * @var bool
+     */
+    public $deleted;
+
+    /**
+     * @description 原图地址
+     *
+     * @var string
+     */
+    public $originUrl;
     protected $_name = [
         'id'           => 'Id',
         'name'         => 'Name',
@@ -88,6 +102,8 @@ class list_ extends Model
         'gmtModified'  => 'GmtModified',
         'resourceName' => 'ResourceName',
         'cubemapPath'  => 'CubemapPath',
+        'deleted'      => 'Deleted',
+        'originUrl'    => 'OriginUrl',
     ];
 
     public function validate()
@@ -126,6 +142,12 @@ class list_ extends Model
         }
         if (null !== $this->cubemapPath) {
             $res['CubemapPath'] = $this->cubemapPath;
+        }
+        if (null !== $this->deleted) {
+            $res['Deleted'] = $this->deleted;
+        }
+        if (null !== $this->originUrl) {
+            $res['OriginUrl'] = $this->originUrl;
         }
 
         return $res;
@@ -168,6 +190,12 @@ class list_ extends Model
         }
         if (isset($map['CubemapPath'])) {
             $model->cubemapPath = $map['CubemapPath'];
+        }
+        if (isset($map['Deleted'])) {
+            $model->deleted = $map['Deleted'];
+        }
+        if (isset($map['OriginUrl'])) {
+            $model->originUrl = $map['OriginUrl'];
         }
 
         return $model;

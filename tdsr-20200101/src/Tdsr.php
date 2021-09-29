@@ -87,6 +87,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredImageResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishSceneRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectifyImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectifyImageResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectVerticalRequest;
@@ -1158,6 +1160,34 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tempPreviewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublishSceneRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PublishSceneResponse
+     */
+    public function publishSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PublishSceneResponse::fromMap($this->doRPCRequest('PublishScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PublishSceneRequest $request
+     *
+     * @return PublishSceneResponse
+     */
+    public function publishScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishSceneWithOptions($request, $runtime);
     }
 
     /**
