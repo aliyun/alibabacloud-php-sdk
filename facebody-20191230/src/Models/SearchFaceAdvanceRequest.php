@@ -33,12 +33,18 @@ class SearchFaceAdvanceRequest extends Model
      * @var float
      */
     public $qualityScoreThreshold;
+
+    /**
+     * @var int
+     */
+    public $maxFaceNum;
     protected $_name = [
         'imageUrlObject'        => 'ImageUrlObject',
         'dbName'                => 'DbName',
         'limit'                 => 'Limit',
         'dbNames'               => 'DbNames',
         'qualityScoreThreshold' => 'QualityScoreThreshold',
+        'maxFaceNum'            => 'MaxFaceNum',
     ];
 
     public function validate()
@@ -63,6 +69,9 @@ class SearchFaceAdvanceRequest extends Model
         }
         if (null !== $this->qualityScoreThreshold) {
             $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
+        }
+        if (null !== $this->maxFaceNum) {
+            $res['MaxFaceNum'] = $this->maxFaceNum;
         }
 
         return $res;
@@ -90,6 +99,9 @@ class SearchFaceAdvanceRequest extends Model
         }
         if (isset($map['QualityScoreThreshold'])) {
             $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
+        }
+        if (isset($map['MaxFaceNum'])) {
+            $model->maxFaceNum = $map['MaxFaceNum'];
         }
 
         return $model;

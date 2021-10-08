@@ -17,6 +17,9 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\AddFaceImageTemplateRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\AddFaceImageTemplateResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\AddFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\AddFaceResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\BatchAddFacesRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\BatchAddFacesResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\BatchAddFacesShrinkRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\BeautifyBodyAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\BeautifyBodyRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\BeautifyBodyResponse;
@@ -4766,5 +4769,38 @@ class Facebody extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBodyDbWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchAddFacesRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return BatchAddFacesResponse
+     */
+    public function batchAddFacesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BatchAddFacesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->faces)) {
+            $request->facesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->faces, 'Faces', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BatchAddFacesResponse::fromMap($this->doRPCRequest('BatchAddFaces', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BatchAddFacesRequest $request
+     *
+     * @return BatchAddFacesResponse
+     */
+    public function batchAddFaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchAddFacesWithOptions($request, $runtime);
     }
 }
