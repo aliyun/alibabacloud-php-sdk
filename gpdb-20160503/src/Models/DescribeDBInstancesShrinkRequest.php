@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesRequest\tag;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBInstancesRequest extends Model
+class DescribeDBInstancesShrinkRequest extends Model
 {
     /**
      * @var int
@@ -50,31 +50,31 @@ class DescribeDBInstancesRequest extends Model
     public $tag;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $instanceDeployTypes;
+    public $instanceDeployTypesShrink;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $DBInstanceStatuses;
+    public $DBInstanceStatusesShrink;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $DBInstanceCategories;
+    public $DBInstanceCategoriesShrink;
     protected $_name = [
-        'ownerId'               => 'OwnerId',
-        'regionId'              => 'RegionId',
-        'DBInstanceDescription' => 'DBInstanceDescription',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'DBInstanceIds'         => 'DBInstanceIds',
-        'pageSize'              => 'PageSize',
-        'pageNumber'            => 'PageNumber',
-        'tag'                   => 'Tag',
-        'instanceDeployTypes'   => 'InstanceDeployTypes',
-        'DBInstanceStatuses'    => 'DBInstanceStatuses',
-        'DBInstanceCategories'  => 'DBInstanceCategories',
+        'ownerId'                    => 'OwnerId',
+        'regionId'                   => 'RegionId',
+        'DBInstanceDescription'      => 'DBInstanceDescription',
+        'instanceNetworkType'        => 'InstanceNetworkType',
+        'DBInstanceIds'              => 'DBInstanceIds',
+        'pageSize'                   => 'PageSize',
+        'pageNumber'                 => 'PageNumber',
+        'tag'                        => 'Tag',
+        'instanceDeployTypesShrink'  => 'InstanceDeployTypes',
+        'DBInstanceStatusesShrink'   => 'DBInstanceStatuses',
+        'DBInstanceCategoriesShrink' => 'DBInstanceCategories',
     ];
 
     public function validate()
@@ -114,14 +114,14 @@ class DescribeDBInstancesRequest extends Model
                 }
             }
         }
-        if (null !== $this->instanceDeployTypes) {
-            $res['InstanceDeployTypes'] = $this->instanceDeployTypes;
+        if (null !== $this->instanceDeployTypesShrink) {
+            $res['InstanceDeployTypes'] = $this->instanceDeployTypesShrink;
         }
-        if (null !== $this->DBInstanceStatuses) {
-            $res['DBInstanceStatuses'] = $this->DBInstanceStatuses;
+        if (null !== $this->DBInstanceStatusesShrink) {
+            $res['DBInstanceStatuses'] = $this->DBInstanceStatusesShrink;
         }
-        if (null !== $this->DBInstanceCategories) {
-            $res['DBInstanceCategories'] = $this->DBInstanceCategories;
+        if (null !== $this->DBInstanceCategoriesShrink) {
+            $res['DBInstanceCategories'] = $this->DBInstanceCategoriesShrink;
         }
 
         return $res;
@@ -130,7 +130,7 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBInstancesRequest
+     * @return DescribeDBInstancesShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -166,19 +166,13 @@ class DescribeDBInstancesRequest extends Model
             }
         }
         if (isset($map['InstanceDeployTypes'])) {
-            if (!empty($map['InstanceDeployTypes'])) {
-                $model->instanceDeployTypes = $map['InstanceDeployTypes'];
-            }
+            $model->instanceDeployTypesShrink = $map['InstanceDeployTypes'];
         }
         if (isset($map['DBInstanceStatuses'])) {
-            if (!empty($map['DBInstanceStatuses'])) {
-                $model->DBInstanceStatuses = $map['DBInstanceStatuses'];
-            }
+            $model->DBInstanceStatusesShrink = $map['DBInstanceStatuses'];
         }
         if (isset($map['DBInstanceCategories'])) {
-            if (!empty($map['DBInstanceCategories'])) {
-                $model->DBInstanceCategories = $map['DBInstanceCategories'];
-            }
+            $model->DBInstanceCategoriesShrink = $map['DBInstanceCategories'];
         }
 
         return $model;

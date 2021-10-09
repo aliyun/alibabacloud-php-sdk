@@ -50,14 +50,14 @@ class DBInstanceAttribute extends Model
     public $payType;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $storageType;
-
-    /**
-     * @var int
-     */
-    public $cpuCoresPerNode;
 
     /**
      * @var string
@@ -70,14 +70,19 @@ class DBInstanceAttribute extends Model
     public $readDelayTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $connectionMode;
+    public $cpuCoresPerNode;
 
     /**
      * @var string
      */
     public $port;
+
+    /**
+     * @var string
+     */
+    public $connectionMode;
 
     /**
      * @var string
@@ -205,9 +210,9 @@ class DBInstanceAttribute extends Model
     public $engine;
 
     /**
-     * @var tags
+     * @var string
      */
-    public $tags;
+    public $DBInstanceCategory;
     protected $_name = [
         'vpcId'                 => 'VpcId',
         'creationTime'          => 'CreationTime',
@@ -217,12 +222,13 @@ class DBInstanceAttribute extends Model
         'DBInstanceMemory'      => 'DBInstanceMemory',
         'hostType'              => 'HostType',
         'payType'               => 'PayType',
+        'tags'                  => 'Tags',
         'storageType'           => 'StorageType',
-        'cpuCoresPerNode'       => 'CpuCoresPerNode',
         'availabilityValue'     => 'AvailabilityValue',
         'readDelayTime'         => 'ReadDelayTime',
-        'connectionMode'        => 'ConnectionMode',
+        'cpuCoresPerNode'       => 'CpuCoresPerNode',
         'port'                  => 'Port',
+        'connectionMode'        => 'ConnectionMode',
         'lockMode'              => 'LockMode',
         'engineVersion'         => 'EngineVersion',
         'storageUnit'           => 'StorageUnit',
@@ -248,7 +254,7 @@ class DBInstanceAttribute extends Model
         'DBInstanceId'          => 'DBInstanceId',
         'DBInstanceClass'       => 'DBInstanceClass',
         'engine'                => 'Engine',
-        'tags'                  => 'Tags',
+        'DBInstanceCategory'    => 'DBInstanceCategory',
     ];
 
     public function validate()
@@ -282,11 +288,11 @@ class DBInstanceAttribute extends Model
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
-        }
-        if (null !== $this->cpuCoresPerNode) {
-            $res['CpuCoresPerNode'] = $this->cpuCoresPerNode;
         }
         if (null !== $this->availabilityValue) {
             $res['AvailabilityValue'] = $this->availabilityValue;
@@ -294,11 +300,14 @@ class DBInstanceAttribute extends Model
         if (null !== $this->readDelayTime) {
             $res['ReadDelayTime'] = $this->readDelayTime;
         }
-        if (null !== $this->connectionMode) {
-            $res['ConnectionMode'] = $this->connectionMode;
+        if (null !== $this->cpuCoresPerNode) {
+            $res['CpuCoresPerNode'] = $this->cpuCoresPerNode;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->connectionMode) {
+            $res['ConnectionMode'] = $this->connectionMode;
         }
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
@@ -375,8 +384,8 @@ class DBInstanceAttribute extends Model
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        if (null !== $this->DBInstanceCategory) {
+            $res['DBInstanceCategory'] = $this->DBInstanceCategory;
         }
 
         return $res;
@@ -414,11 +423,11 @@ class DBInstanceAttribute extends Model
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
+        }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
-        }
-        if (isset($map['CpuCoresPerNode'])) {
-            $model->cpuCoresPerNode = $map['CpuCoresPerNode'];
         }
         if (isset($map['AvailabilityValue'])) {
             $model->availabilityValue = $map['AvailabilityValue'];
@@ -426,11 +435,14 @@ class DBInstanceAttribute extends Model
         if (isset($map['ReadDelayTime'])) {
             $model->readDelayTime = $map['ReadDelayTime'];
         }
-        if (isset($map['ConnectionMode'])) {
-            $model->connectionMode = $map['ConnectionMode'];
+        if (isset($map['CpuCoresPerNode'])) {
+            $model->cpuCoresPerNode = $map['CpuCoresPerNode'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['ConnectionMode'])) {
+            $model->connectionMode = $map['ConnectionMode'];
         }
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
@@ -507,8 +519,8 @@ class DBInstanceAttribute extends Model
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
+        if (isset($map['DBInstanceCategory'])) {
+            $model->DBInstanceCategory = $map['DBInstanceCategory'];
         }
 
         return $model;

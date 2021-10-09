@@ -158,6 +158,11 @@ class DBInstanceAttribute extends Model
      * @var int
      */
     public $masterNodeNum;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceCategory;
     protected $_name = [
         'creationTime'          => 'CreationTime',
         'vpcId'                 => 'VpcId',
@@ -189,6 +194,7 @@ class DBInstanceAttribute extends Model
         'supportRestore'        => 'SupportRestore',
         'minorVersion'          => 'MinorVersion',
         'masterNodeNum'         => 'MasterNodeNum',
+        'DBInstanceCategory'    => 'DBInstanceCategory',
     ];
 
     public function validate()
@@ -287,6 +293,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->masterNodeNum) {
             $res['MasterNodeNum'] = $this->masterNodeNum;
+        }
+        if (null !== $this->DBInstanceCategory) {
+            $res['DBInstanceCategory'] = $this->DBInstanceCategory;
         }
 
         return $res;
@@ -389,6 +398,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['MasterNodeNum'])) {
             $model->masterNodeNum = $map['MasterNodeNum'];
+        }
+        if (isset($map['DBInstanceCategory'])) {
+            $model->DBInstanceCategory = $map['DBInstanceCategory'];
         }
 
         return $model;

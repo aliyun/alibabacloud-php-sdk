@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Gpdb\V20160503;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AddBuDBInstanceRelationRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AddBuDBInstanceRelationResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionRequest;
@@ -47,6 +48,7 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSQLPatternsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSQLPatternsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsRequest;
@@ -713,14 +715,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancesRequest $request
+     * @param DescribeDBInstancesRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return DescribeDBInstancesResponse
      */
-    public function describeDBInstancesWithOptions($request, $runtime)
+    public function describeDBInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DescribeDBInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceDeployTypes)) {
+            $request->instanceDeployTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceDeployTypes, 'InstanceDeployTypes', 'simple');
+        }
+        if (!Utils::isUnset($tmpReq->DBInstanceStatuses)) {
+            $request->DBInstanceStatusesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBInstanceStatuses, 'DBInstanceStatuses', 'simple');
+        }
+        if (!Utils::isUnset($tmpReq->DBInstanceCategories)) {
+            $request->DBInstanceCategoriesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBInstanceCategories, 'DBInstanceCategories', 'simple');
+        }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);

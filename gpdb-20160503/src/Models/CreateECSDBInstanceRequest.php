@@ -127,6 +127,11 @@ class CreateECSDBInstanceRequest extends Model
      * @var string
      */
     public $backupId;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceCategory;
     protected $_name = [
         'ownerId'               => 'OwnerId',
         'regionId'              => 'RegionId',
@@ -152,6 +157,7 @@ class CreateECSDBInstanceRequest extends Model
         'masterNodeNum'         => 'MasterNodeNum',
         'srcDbInstanceName'     => 'SrcDbInstanceName',
         'backupId'              => 'BackupId',
+        'DBInstanceCategory'    => 'DBInstanceCategory',
     ];
 
     public function validate()
@@ -232,6 +238,9 @@ class CreateECSDBInstanceRequest extends Model
         }
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->DBInstanceCategory) {
+            $res['DBInstanceCategory'] = $this->DBInstanceCategory;
         }
 
         return $res;
@@ -316,6 +325,9 @@ class CreateECSDBInstanceRequest extends Model
         }
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
+        }
+        if (isset($map['DBInstanceCategory'])) {
+            $model->DBInstanceCategory = $map['DBInstanceCategory'];
         }
 
         return $model;

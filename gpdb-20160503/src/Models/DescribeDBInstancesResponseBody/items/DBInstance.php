@@ -123,6 +123,11 @@ class DBInstance extends Model
      * @var int
      */
     public $masterNodeNum;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceCategory;
     protected $_name = [
         'vpcId'                 => 'VpcId',
         'expireTime'            => 'ExpireTime',
@@ -147,6 +152,7 @@ class DBInstance extends Model
         'segNodeNum'            => 'SegNodeNum',
         'storageSize'           => 'StorageSize',
         'masterNodeNum'         => 'MasterNodeNum',
+        'DBInstanceCategory'    => 'DBInstanceCategory',
     ];
 
     public function validate()
@@ -224,6 +230,9 @@ class DBInstance extends Model
         }
         if (null !== $this->masterNodeNum) {
             $res['MasterNodeNum'] = $this->masterNodeNum;
+        }
+        if (null !== $this->DBInstanceCategory) {
+            $res['DBInstanceCategory'] = $this->DBInstanceCategory;
         }
 
         return $res;
@@ -305,6 +314,9 @@ class DBInstance extends Model
         }
         if (isset($map['MasterNodeNum'])) {
             $model->masterNodeNum = $map['MasterNodeNum'];
+        }
+        if (isset($map['DBInstanceCategory'])) {
+            $model->DBInstanceCategory = $map['DBInstanceCategory'];
         }
 
         return $model;
