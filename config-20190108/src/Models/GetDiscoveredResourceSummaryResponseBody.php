@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetDiscoveredResourceSummaryResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var discoveredResourceSummary
      */
     public $discoveredResourceSummary;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                 => 'RequestId',
         'discoveredResourceSummary' => 'DiscoveredResourceSummary',
+        'requestId'                 => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetDiscoveredResourceSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->discoveredResourceSummary) {
             $res['DiscoveredResourceSummary'] = null !== $this->discoveredResourceSummary ? $this->discoveredResourceSummary->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetDiscoveredResourceSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DiscoveredResourceSummary'])) {
             $model->discoveredResourceSummary = discoveredResourceSummary::fromMap($map['DiscoveredResourceSummary']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

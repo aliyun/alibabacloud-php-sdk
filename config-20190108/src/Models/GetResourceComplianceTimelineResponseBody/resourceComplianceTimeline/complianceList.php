@@ -11,12 +11,12 @@ class complianceList extends Model
     /**
      * @var string
      */
-    public $accountId;
+    public $tags;
 
     /**
      * @var string
      */
-    public $tags;
+    public $accountId;
 
     /**
      * @var string
@@ -36,12 +36,12 @@ class complianceList extends Model
     /**
      * @var string
      */
-    public $configuration;
+    public $region;
 
     /**
      * @var string
      */
-    public $region;
+    public $configuration;
 
     /**
      * @var int
@@ -68,13 +68,13 @@ class complianceList extends Model
      */
     public $resourceStatus;
     protected $_name = [
-        'accountId'          => 'AccountId',
         'tags'               => 'Tags',
+        'accountId'          => 'AccountId',
         'availabilityZone'   => 'AvailabilityZone',
         'resourceType'       => 'ResourceType',
         'resourceCreateTime' => 'ResourceCreateTime',
-        'configuration'      => 'Configuration',
         'region'             => 'Region',
+        'configuration'      => 'Configuration',
         'captureTime'        => 'CaptureTime',
         'configurationDiff'  => 'ConfigurationDiff',
         'resourceId'         => 'ResourceId',
@@ -89,11 +89,11 @@ class complianceList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
-        }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
         }
         if (null !== $this->availabilityZone) {
             $res['AvailabilityZone'] = $this->availabilityZone;
@@ -104,11 +104,11 @@ class complianceList extends Model
         if (null !== $this->resourceCreateTime) {
             $res['ResourceCreateTime'] = $this->resourceCreateTime;
         }
-        if (null !== $this->configuration) {
-            $res['Configuration'] = $this->configuration;
-        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->configuration) {
+            $res['Configuration'] = $this->configuration;
         }
         if (null !== $this->captureTime) {
             $res['CaptureTime'] = $this->captureTime;
@@ -137,11 +137,11 @@ class complianceList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
-        }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
+        }
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
         }
         if (isset($map['AvailabilityZone'])) {
             $model->availabilityZone = $map['AvailabilityZone'];
@@ -152,11 +152,11 @@ class complianceList extends Model
         if (isset($map['ResourceCreateTime'])) {
             $model->resourceCreateTime = $map['ResourceCreateTime'];
         }
-        if (isset($map['Configuration'])) {
-            $model->configuration = $map['Configuration'];
-        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['Configuration'])) {
+            $model->configuration = $map['Configuration'];
         }
         if (isset($map['CaptureTime'])) {
             $model->captureTime = $map['CaptureTime'];

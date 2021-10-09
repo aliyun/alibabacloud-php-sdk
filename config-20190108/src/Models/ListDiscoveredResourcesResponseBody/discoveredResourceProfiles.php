@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceProfiles extends Model
 {
     /**
+     * @var discoveredResourceProfileList[]
+     */
+    public $discoveredResourceProfileList;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -23,16 +28,11 @@ class discoveredResourceProfiles extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var discoveredResourceProfileList[]
-     */
-    public $discoveredResourceProfileList;
     protected $_name = [
+        'discoveredResourceProfileList' => 'DiscoveredResourceProfileList',
         'pageNumber'                    => 'PageNumber',
         'pageSize'                      => 'PageSize',
         'totalCount'                    => 'TotalCount',
-        'discoveredResourceProfileList' => 'DiscoveredResourceProfileList',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class discoveredResourceProfiles extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->discoveredResourceProfileList) {
             $res['DiscoveredResourceProfileList'] = [];
             if (null !== $this->discoveredResourceProfileList && \is_array($this->discoveredResourceProfileList)) {
@@ -59,6 +50,15 @@ class discoveredResourceProfiles extends Model
                     $res['DiscoveredResourceProfileList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class discoveredResourceProfiles extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['DiscoveredResourceProfileList'])) {
             if (!empty($map['DiscoveredResourceProfileList'])) {
                 $model->discoveredResourceProfileList = [];
@@ -89,6 +80,15 @@ class discoveredResourceProfiles extends Model
                     $model->discoveredResourceProfileList[$n++] = null !== $item ? discoveredResourceProfileList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

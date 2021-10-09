@@ -11,21 +11,21 @@ class operateRuleItemList extends Model
     /**
      * @var string
      */
-    public $configRuleId;
-
-    /**
-     * @var string
-     */
     public $errorCode;
 
     /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $configRuleId;
     protected $_name = [
-        'configRuleId' => 'ConfigRuleId',
         'errorCode'    => 'ErrorCode',
         'success'      => 'Success',
+        'configRuleId' => 'ConfigRuleId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class operateRuleItemList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->configRuleId) {
-            $res['ConfigRuleId'] = $this->configRuleId;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->configRuleId) {
+            $res['ConfigRuleId'] = $this->configRuleId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class operateRuleItemList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConfigRuleId'])) {
-            $model->configRuleId = $map['ConfigRuleId'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['ConfigRuleId'])) {
+            $model->configRuleId = $map['ConfigRuleId'];
         }
 
         return $model;

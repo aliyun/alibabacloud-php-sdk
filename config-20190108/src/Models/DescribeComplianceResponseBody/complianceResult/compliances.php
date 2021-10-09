@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class compliances extends Model
 {
     /**
-     * @var int
-     */
-    public $count;
-
-    /**
      * @var string
      */
     public $complianceType;
+
+    /**
+     * @var int
+     */
+    public $count;
     protected $_name = [
-        'count'          => 'Count',
         'complianceType' => 'ComplianceType',
+        'count'          => 'Count',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class compliances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
-        }
         if (null !== $this->complianceType) {
             $res['ComplianceType'] = $this->complianceType;
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class compliances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
-        }
         if (isset($map['ComplianceType'])) {
             $model->complianceType = $map['ComplianceType'];
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
 
         return $model;

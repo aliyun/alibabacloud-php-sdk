@@ -11,7 +11,7 @@ class configurationList extends Model
     /**
      * @var string
      */
-    public $resourceEventType;
+    public $tags;
 
     /**
      * @var int
@@ -21,7 +21,7 @@ class configurationList extends Model
     /**
      * @var string
      */
-    public $tags;
+    public $resourceEventType;
 
     /**
      * @var string
@@ -63,9 +63,9 @@ class configurationList extends Model
      */
     public $resourceName;
     protected $_name = [
-        'resourceEventType'  => 'ResourceEventType',
-        'accountId'          => 'AccountId',
         'tags'               => 'Tags',
+        'accountId'          => 'AccountId',
+        'resourceEventType'  => 'ResourceEventType',
         'availabilityZone'   => 'AvailabilityZone',
         'resourceType'       => 'ResourceType',
         'resourceCreateTime' => 'ResourceCreateTime',
@@ -83,14 +83,14 @@ class configurationList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceEventType) {
-            $res['ResourceEventType'] = $this->resourceEventType;
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+        if (null !== $this->resourceEventType) {
+            $res['ResourceEventType'] = $this->resourceEventType;
         }
         if (null !== $this->availabilityZone) {
             $res['AvailabilityZone'] = $this->availabilityZone;
@@ -128,14 +128,14 @@ class configurationList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceEventType'])) {
-            $model->resourceEventType = $map['ResourceEventType'];
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+        if (isset($map['ResourceEventType'])) {
+            $model->resourceEventType = $map['ResourceEventType'];
         }
         if (isset($map['AvailabilityZone'])) {
             $model->availabilityZone = $map['AvailabilityZone'];

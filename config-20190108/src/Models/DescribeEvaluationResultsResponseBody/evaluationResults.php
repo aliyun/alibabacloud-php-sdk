@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class evaluationResults extends Model
 {
     /**
+     * @var evaluationResultList[]
+     */
+    public $evaluationResultList;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -23,16 +28,11 @@ class evaluationResults extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var evaluationResultList[]
-     */
-    public $evaluationResultList;
     protected $_name = [
+        'evaluationResultList' => 'EvaluationResultList',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'totalCount'           => 'TotalCount',
-        'evaluationResultList' => 'EvaluationResultList',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class evaluationResults extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->evaluationResultList) {
             $res['EvaluationResultList'] = [];
             if (null !== $this->evaluationResultList && \is_array($this->evaluationResultList)) {
@@ -59,6 +50,15 @@ class evaluationResults extends Model
                     $res['EvaluationResultList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class evaluationResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['EvaluationResultList'])) {
             if (!empty($map['EvaluationResultList'])) {
                 $model->evaluationResultList = [];
@@ -89,6 +80,15 @@ class evaluationResults extends Model
                     $model->evaluationResultList[$n++] = null !== $item ? evaluationResultList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

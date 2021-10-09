@@ -40,14 +40,14 @@ class evaluationResultList extends Model
     public $invokingEventMessageType;
 
     /**
-     * @var bool
-     */
-    public $remediationEnabled;
-
-    /**
      * @var evaluationResultIdentifier
      */
     public $evaluationResultIdentifier;
+
+    /**
+     * @var bool
+     */
+    public $remediationEnabled;
     protected $_name = [
         'riskLevel'                  => 'RiskLevel',
         'complianceType'             => 'ComplianceType',
@@ -55,8 +55,8 @@ class evaluationResultList extends Model
         'annotation'                 => 'Annotation',
         'configRuleInvokedTimestamp' => 'ConfigRuleInvokedTimestamp',
         'invokingEventMessageType'   => 'InvokingEventMessageType',
-        'remediationEnabled'         => 'RemediationEnabled',
         'evaluationResultIdentifier' => 'EvaluationResultIdentifier',
+        'remediationEnabled'         => 'RemediationEnabled',
     ];
 
     public function validate()
@@ -84,11 +84,11 @@ class evaluationResultList extends Model
         if (null !== $this->invokingEventMessageType) {
             $res['InvokingEventMessageType'] = $this->invokingEventMessageType;
         }
-        if (null !== $this->remediationEnabled) {
-            $res['RemediationEnabled'] = $this->remediationEnabled;
-        }
         if (null !== $this->evaluationResultIdentifier) {
             $res['EvaluationResultIdentifier'] = null !== $this->evaluationResultIdentifier ? $this->evaluationResultIdentifier->toMap() : null;
+        }
+        if (null !== $this->remediationEnabled) {
+            $res['RemediationEnabled'] = $this->remediationEnabled;
         }
 
         return $res;
@@ -120,11 +120,11 @@ class evaluationResultList extends Model
         if (isset($map['InvokingEventMessageType'])) {
             $model->invokingEventMessageType = $map['InvokingEventMessageType'];
         }
-        if (isset($map['RemediationEnabled'])) {
-            $model->remediationEnabled = $map['RemediationEnabled'];
-        }
         if (isset($map['EvaluationResultIdentifier'])) {
             $model->evaluationResultIdentifier = evaluationResultIdentifier::fromMap($map['EvaluationResultIdentifier']);
+        }
+        if (isset($map['RemediationEnabled'])) {
+            $model->remediationEnabled = $map['RemediationEnabled'];
         }
 
         return $model;

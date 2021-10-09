@@ -17,22 +17,22 @@ class resourceConfigurationTimeline extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $limit;
 
     /**
      * @var configurationList[]
      */
     public $configurationList;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'nextToken'         => 'NextToken',
-        'totalCount'        => 'TotalCount',
         'limit'             => 'Limit',
         'configurationList' => 'ConfigurationList',
+        'totalCount'        => 'TotalCount',
     ];
 
     public function validate()
@@ -45,9 +45,6 @@ class resourceConfigurationTimeline extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
@@ -59,6 +56,9 @@ class resourceConfigurationTimeline extends Model
                     $res['ConfigurationList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,9 +75,6 @@ class resourceConfigurationTimeline extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
@@ -89,6 +86,9 @@ class resourceConfigurationTimeline extends Model
                     $model->configurationList[$n++] = null !== $item ? configurationList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

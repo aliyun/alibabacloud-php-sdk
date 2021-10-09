@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class complianceSummary extends Model
 {
     /**
-     * @var complianceSummaryByConfigRule
-     */
-    public $complianceSummaryByConfigRule;
-
-    /**
      * @var complianceSummaryByResource
      */
     public $complianceSummaryByResource;
+
+    /**
+     * @var complianceSummaryByConfigRule
+     */
+    public $complianceSummaryByConfigRule;
     protected $_name = [
-        'complianceSummaryByConfigRule' => 'ComplianceSummaryByConfigRule',
         'complianceSummaryByResource'   => 'ComplianceSummaryByResource',
+        'complianceSummaryByConfigRule' => 'ComplianceSummaryByConfigRule',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class complianceSummary extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->complianceSummaryByConfigRule) {
-            $res['ComplianceSummaryByConfigRule'] = null !== $this->complianceSummaryByConfigRule ? $this->complianceSummaryByConfigRule->toMap() : null;
-        }
         if (null !== $this->complianceSummaryByResource) {
             $res['ComplianceSummaryByResource'] = null !== $this->complianceSummaryByResource ? $this->complianceSummaryByResource->toMap() : null;
+        }
+        if (null !== $this->complianceSummaryByConfigRule) {
+            $res['ComplianceSummaryByConfigRule'] = null !== $this->complianceSummaryByConfigRule ? $this->complianceSummaryByConfigRule->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class complianceSummary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ComplianceSummaryByConfigRule'])) {
-            $model->complianceSummaryByConfigRule = complianceSummaryByConfigRule::fromMap($map['ComplianceSummaryByConfigRule']);
-        }
         if (isset($map['ComplianceSummaryByResource'])) {
             $model->complianceSummaryByResource = complianceSummaryByResource::fromMap($map['ComplianceSummaryByResource']);
+        }
+        if (isset($map['ComplianceSummaryByConfigRule'])) {
+            $model->complianceSummaryByConfigRule = complianceSummaryByConfigRule::fromMap($map['ComplianceSummaryByConfigRule']);
         }
 
         return $model;

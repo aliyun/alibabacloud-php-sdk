@@ -11,27 +11,27 @@ class complianceSummaryByConfigRule extends Model
     /**
      * @var int
      */
-    public $complianceSummaryTimestamp;
-
-    /**
-     * @var int
-     */
     public $compliantCount;
 
     /**
      * @var int
      */
-    public $totalCount;
+    public $nonCompliantCount;
 
     /**
      * @var int
      */
-    public $nonCompliantCount;
+    public $complianceSummaryTimestamp;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'complianceSummaryTimestamp' => 'ComplianceSummaryTimestamp',
         'compliantCount'             => 'CompliantCount',
-        'totalCount'                 => 'TotalCount',
         'nonCompliantCount'          => 'NonCompliantCount',
+        'complianceSummaryTimestamp' => 'ComplianceSummaryTimestamp',
+        'totalCount'                 => 'TotalCount',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class complianceSummaryByConfigRule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->complianceSummaryTimestamp) {
-            $res['ComplianceSummaryTimestamp'] = $this->complianceSummaryTimestamp;
-        }
         if (null !== $this->compliantCount) {
             $res['CompliantCount'] = $this->compliantCount;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->nonCompliantCount) {
             $res['NonCompliantCount'] = $this->nonCompliantCount;
+        }
+        if (null !== $this->complianceSummaryTimestamp) {
+            $res['ComplianceSummaryTimestamp'] = $this->complianceSummaryTimestamp;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class complianceSummaryByConfigRule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ComplianceSummaryTimestamp'])) {
-            $model->complianceSummaryTimestamp = $map['ComplianceSummaryTimestamp'];
-        }
         if (isset($map['CompliantCount'])) {
             $model->compliantCount = $map['CompliantCount'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['NonCompliantCount'])) {
             $model->nonCompliantCount = $map['NonCompliantCount'];
+        }
+        if (isset($map['ComplianceSummaryTimestamp'])) {
+            $model->complianceSummaryTimestamp = $map['ComplianceSummaryTimestamp'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
