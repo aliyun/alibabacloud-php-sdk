@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberDetectRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberDetectResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleRequest;
@@ -131,5 +133,33 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePhoneNumberResaleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEmptyNumberDetectRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeEmptyNumberDetectResponse
+     */
+    public function describeEmptyNumberDetectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeEmptyNumberDetectResponse::fromMap($this->doRPCRequest('DescribeEmptyNumberDetect', '2020-02-17', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEmptyNumberDetectRequest $request
+     *
+     * @return DescribeEmptyNumberDetectResponse
+     */
+    public function describeEmptyNumberDetect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEmptyNumberDetectWithOptions($request, $runtime);
     }
 }
