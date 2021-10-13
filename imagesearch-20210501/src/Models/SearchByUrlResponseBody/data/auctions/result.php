@@ -17,17 +17,17 @@ class result extends Model
     /**
      * @var string
      */
-    public $itemName;
-
-    /**
-     * @var string
-     */
     public $title;
 
     /**
      * @var string
      */
-    public $pic;
+    public $shortTitle;
+
+    /**
+     * @var string
+     */
+    public $subTitle;
 
     /**
      * @var string
@@ -37,17 +37,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $price;
-
-    /**
-     * @var string
-     */
     public $reservePrice;
-
-    /**
-     * @var string
-     */
-    public $promotionPrice;
 
     /**
      * @var string
@@ -72,22 +62,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $sellerNickName;
-
-    /**
-     * @var string
-     */
     public $nick;
 
     /**
      * @var string
      */
     public $sellerId;
-
-    /**
-     * @var int
-     */
-    public $monthSellCount;
 
     /**
      * @var int
@@ -107,17 +87,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $couponActivityId;
-
-    /**
-     * @var string
-     */
     public $couponTotalCount;
-
-    /**
-     * @var string
-     */
-    public $couponSendCount;
 
     /**
      * @var int
@@ -147,22 +117,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $couponSaleTextInfo;
-
-    /**
-     * @var string
-     */
     public $couponInfo;
-
-    /**
-     * @var int
-     */
-    public $tkMktRate;
-
-    /**
-     * @var int
-     */
-    public $tkRate;
 
     /**
      * @var string
@@ -177,7 +132,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $clickUrl;
+    public $deeplinkCouponShareUrl;
 
     /**
      * @var string
@@ -187,12 +142,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $shortUrl;
-
-    /**
-     * @var string
-     */
-    public $key;
+    public $deeplinkUrl;
 
     /**
      * @var string
@@ -204,45 +154,35 @@ class result extends Model
      */
     public $maxCommission;
     protected $_name = [
-        'itemId'               => 'ItemId',
-        'itemName'             => 'ItemName',
-        'title'                => 'Title',
-        'pic'                  => 'Pic',
-        'picUrl'               => 'PicUrl',
-        'price'                => 'Price',
-        'reservePrice'         => 'ReservePrice',
-        'promotionPrice'       => 'PromotionPrice',
-        'zkFinalPrice'         => 'ZkFinalPrice',
-        'priceAfterCoupon'     => 'PriceAfterCoupon',
-        'userType'             => 'UserType',
-        'provcity'             => 'Provcity',
-        'sellerNickName'       => 'SellerNickName',
-        'nick'                 => 'Nick',
-        'sellerId'             => 'SellerId',
-        'monthSellCount'       => 'MonthSellCount',
-        'volume'               => 'Volume',
-        'levelOneCategoryName' => 'LevelOneCategoryName',
-        'categoryName'         => 'CategoryName',
-        'couponActivityId'     => 'CouponActivityId',
-        'couponTotalCount'     => 'CouponTotalCount',
-        'couponSendCount'      => 'CouponSendCount',
-        'couponRemainCount'    => 'CouponRemainCount',
-        'couponStartTime'      => 'CouponStartTime',
-        'couponEndTime'        => 'CouponEndTime',
-        'couponStartFee'       => 'CouponStartFee',
-        'couponAmount'         => 'CouponAmount',
-        'couponSaleTextInfo'   => 'CouponSaleTextInfo',
-        'couponInfo'           => 'CouponInfo',
-        'tkMktRate'            => 'TkMktRate',
-        'tkRate'               => 'TkRate',
-        'commissionRate'       => 'CommissionRate',
-        'couponShareUrl'       => 'CouponShareUrl',
-        'clickUrl'             => 'ClickUrl',
-        'url'                  => 'Url',
-        'shortUrl'             => 'ShortUrl',
-        'key'                  => 'Key',
-        'shopTitle'            => 'ShopTitle',
-        'maxCommission'        => 'MaxCommission',
+        'itemId'                 => 'ItemId',
+        'title'                  => 'Title',
+        'shortTitle'             => 'ShortTitle',
+        'subTitle'               => 'SubTitle',
+        'picUrl'                 => 'PicUrl',
+        'reservePrice'           => 'ReservePrice',
+        'zkFinalPrice'           => 'ZkFinalPrice',
+        'priceAfterCoupon'       => 'PriceAfterCoupon',
+        'userType'               => 'UserType',
+        'provcity'               => 'Provcity',
+        'nick'                   => 'Nick',
+        'sellerId'               => 'SellerId',
+        'volume'                 => 'Volume',
+        'levelOneCategoryName'   => 'LevelOneCategoryName',
+        'categoryName'           => 'CategoryName',
+        'couponTotalCount'       => 'CouponTotalCount',
+        'couponRemainCount'      => 'CouponRemainCount',
+        'couponStartTime'        => 'CouponStartTime',
+        'couponEndTime'          => 'CouponEndTime',
+        'couponStartFee'         => 'CouponStartFee',
+        'couponAmount'           => 'CouponAmount',
+        'couponInfo'             => 'CouponInfo',
+        'commissionRate'         => 'CommissionRate',
+        'couponShareUrl'         => 'CouponShareUrl',
+        'deeplinkCouponShareUrl' => 'DeeplinkCouponShareUrl',
+        'url'                    => 'Url',
+        'deeplinkUrl'            => 'DeeplinkUrl',
+        'shopTitle'              => 'ShopTitle',
+        'maxCommission'          => 'MaxCommission',
     ];
 
     public function validate()
@@ -255,26 +195,20 @@ class result extends Model
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
         }
-        if (null !== $this->itemName) {
-            $res['ItemName'] = $this->itemName;
-        }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-        if (null !== $this->pic) {
-            $res['Pic'] = $this->pic;
+        if (null !== $this->shortTitle) {
+            $res['ShortTitle'] = $this->shortTitle;
+        }
+        if (null !== $this->subTitle) {
+            $res['SubTitle'] = $this->subTitle;
         }
         if (null !== $this->picUrl) {
             $res['PicUrl'] = $this->picUrl;
         }
-        if (null !== $this->price) {
-            $res['Price'] = $this->price;
-        }
         if (null !== $this->reservePrice) {
             $res['ReservePrice'] = $this->reservePrice;
-        }
-        if (null !== $this->promotionPrice) {
-            $res['PromotionPrice'] = $this->promotionPrice;
         }
         if (null !== $this->zkFinalPrice) {
             $res['ZkFinalPrice'] = $this->zkFinalPrice;
@@ -288,17 +222,11 @@ class result extends Model
         if (null !== $this->provcity) {
             $res['Provcity'] = $this->provcity;
         }
-        if (null !== $this->sellerNickName) {
-            $res['SellerNickName'] = $this->sellerNickName;
-        }
         if (null !== $this->nick) {
             $res['Nick'] = $this->nick;
         }
         if (null !== $this->sellerId) {
             $res['SellerId'] = $this->sellerId;
-        }
-        if (null !== $this->monthSellCount) {
-            $res['MonthSellCount'] = $this->monthSellCount;
         }
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
@@ -309,14 +237,8 @@ class result extends Model
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
-        if (null !== $this->couponActivityId) {
-            $res['CouponActivityId'] = $this->couponActivityId;
-        }
         if (null !== $this->couponTotalCount) {
             $res['CouponTotalCount'] = $this->couponTotalCount;
-        }
-        if (null !== $this->couponSendCount) {
-            $res['CouponSendCount'] = $this->couponSendCount;
         }
         if (null !== $this->couponRemainCount) {
             $res['CouponRemainCount'] = $this->couponRemainCount;
@@ -333,17 +255,8 @@ class result extends Model
         if (null !== $this->couponAmount) {
             $res['CouponAmount'] = $this->couponAmount;
         }
-        if (null !== $this->couponSaleTextInfo) {
-            $res['CouponSaleTextInfo'] = $this->couponSaleTextInfo;
-        }
         if (null !== $this->couponInfo) {
             $res['CouponInfo'] = $this->couponInfo;
-        }
-        if (null !== $this->tkMktRate) {
-            $res['TkMktRate'] = $this->tkMktRate;
-        }
-        if (null !== $this->tkRate) {
-            $res['TkRate'] = $this->tkRate;
         }
         if (null !== $this->commissionRate) {
             $res['CommissionRate'] = $this->commissionRate;
@@ -351,17 +264,14 @@ class result extends Model
         if (null !== $this->couponShareUrl) {
             $res['CouponShareUrl'] = $this->couponShareUrl;
         }
-        if (null !== $this->clickUrl) {
-            $res['ClickUrl'] = $this->clickUrl;
+        if (null !== $this->deeplinkCouponShareUrl) {
+            $res['DeeplinkCouponShareUrl'] = $this->deeplinkCouponShareUrl;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
-        if (null !== $this->shortUrl) {
-            $res['ShortUrl'] = $this->shortUrl;
-        }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
+        if (null !== $this->deeplinkUrl) {
+            $res['DeeplinkUrl'] = $this->deeplinkUrl;
         }
         if (null !== $this->shopTitle) {
             $res['ShopTitle'] = $this->shopTitle;
@@ -384,26 +294,20 @@ class result extends Model
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
         }
-        if (isset($map['ItemName'])) {
-            $model->itemName = $map['ItemName'];
-        }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-        if (isset($map['Pic'])) {
-            $model->pic = $map['Pic'];
+        if (isset($map['ShortTitle'])) {
+            $model->shortTitle = $map['ShortTitle'];
+        }
+        if (isset($map['SubTitle'])) {
+            $model->subTitle = $map['SubTitle'];
         }
         if (isset($map['PicUrl'])) {
             $model->picUrl = $map['PicUrl'];
         }
-        if (isset($map['Price'])) {
-            $model->price = $map['Price'];
-        }
         if (isset($map['ReservePrice'])) {
             $model->reservePrice = $map['ReservePrice'];
-        }
-        if (isset($map['PromotionPrice'])) {
-            $model->promotionPrice = $map['PromotionPrice'];
         }
         if (isset($map['ZkFinalPrice'])) {
             $model->zkFinalPrice = $map['ZkFinalPrice'];
@@ -417,17 +321,11 @@ class result extends Model
         if (isset($map['Provcity'])) {
             $model->provcity = $map['Provcity'];
         }
-        if (isset($map['SellerNickName'])) {
-            $model->sellerNickName = $map['SellerNickName'];
-        }
         if (isset($map['Nick'])) {
             $model->nick = $map['Nick'];
         }
         if (isset($map['SellerId'])) {
             $model->sellerId = $map['SellerId'];
-        }
-        if (isset($map['MonthSellCount'])) {
-            $model->monthSellCount = $map['MonthSellCount'];
         }
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];
@@ -438,14 +336,8 @@ class result extends Model
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }
-        if (isset($map['CouponActivityId'])) {
-            $model->couponActivityId = $map['CouponActivityId'];
-        }
         if (isset($map['CouponTotalCount'])) {
             $model->couponTotalCount = $map['CouponTotalCount'];
-        }
-        if (isset($map['CouponSendCount'])) {
-            $model->couponSendCount = $map['CouponSendCount'];
         }
         if (isset($map['CouponRemainCount'])) {
             $model->couponRemainCount = $map['CouponRemainCount'];
@@ -462,17 +354,8 @@ class result extends Model
         if (isset($map['CouponAmount'])) {
             $model->couponAmount = $map['CouponAmount'];
         }
-        if (isset($map['CouponSaleTextInfo'])) {
-            $model->couponSaleTextInfo = $map['CouponSaleTextInfo'];
-        }
         if (isset($map['CouponInfo'])) {
             $model->couponInfo = $map['CouponInfo'];
-        }
-        if (isset($map['TkMktRate'])) {
-            $model->tkMktRate = $map['TkMktRate'];
-        }
-        if (isset($map['TkRate'])) {
-            $model->tkRate = $map['TkRate'];
         }
         if (isset($map['CommissionRate'])) {
             $model->commissionRate = $map['CommissionRate'];
@@ -480,17 +363,14 @@ class result extends Model
         if (isset($map['CouponShareUrl'])) {
             $model->couponShareUrl = $map['CouponShareUrl'];
         }
-        if (isset($map['ClickUrl'])) {
-            $model->clickUrl = $map['ClickUrl'];
+        if (isset($map['DeeplinkCouponShareUrl'])) {
+            $model->deeplinkCouponShareUrl = $map['DeeplinkCouponShareUrl'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
-        if (isset($map['ShortUrl'])) {
-            $model->shortUrl = $map['ShortUrl'];
-        }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
+        if (isset($map['DeeplinkUrl'])) {
+            $model->deeplinkUrl = $map['DeeplinkUrl'];
         }
         if (isset($map['ShopTitle'])) {
             $model->shopTitle = $map['ShopTitle'];

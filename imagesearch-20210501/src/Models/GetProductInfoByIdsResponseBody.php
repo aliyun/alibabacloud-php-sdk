@@ -4,11 +4,10 @@
 
 namespace AlibabaCloud\SDK\ImageSearch\V20210501\Models;
 
-use AlibabaCloud\SDK\ImageSearch\V20210501\Models\SearchByUrlResponseBody\data;
-use AlibabaCloud\SDK\ImageSearch\V20210501\Models\SearchByUrlResponseBody\picInfo;
+use AlibabaCloud\SDK\ImageSearch\V20210501\Models\GetProductInfoByIdsResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class SearchByUrlResponseBody extends Model
+class GetProductInfoByIdsResponseBody extends Model
 {
     /**
      * @var int
@@ -26,11 +25,6 @@ class SearchByUrlResponseBody extends Model
     public $message;
 
     /**
-     * @var picInfo
-     */
-    public $picInfo;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -43,7 +37,6 @@ class SearchByUrlResponseBody extends Model
         'code'      => 'Code',
         'data'      => 'Data',
         'message'   => 'Message',
-        'picInfo'   => 'PicInfo',
         'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
@@ -64,9 +57,6 @@ class SearchByUrlResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->picInfo) {
-            $res['PicInfo'] = null !== $this->picInfo ? $this->picInfo->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -80,7 +70,7 @@ class SearchByUrlResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SearchByUrlResponseBody
+     * @return GetProductInfoByIdsResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -93,9 +83,6 @@ class SearchByUrlResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['PicInfo'])) {
-            $model->picInfo = picInfo::fromMap($map['PicInfo']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

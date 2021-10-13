@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class mainRegion extends Model
 {
     /**
-     * @var string
-     */
-    public $region;
-
-    /**
      * @var multiCategoryId[]
      */
     public $multiCategoryId;
+
+    /**
+     * @var string
+     */
+    public $region;
     protected $_name = [
-        'region'          => 'Region',
         'multiCategoryId' => 'MultiCategoryId',
+        'region'          => 'Region',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class mainRegion extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
         if (null !== $this->multiCategoryId) {
             $res['MultiCategoryId'] = [];
             if (null !== $this->multiCategoryId && \is_array($this->multiCategoryId)) {
@@ -41,6 +38,9 @@ class mainRegion extends Model
                     $res['MultiCategoryId'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class mainRegion extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
         if (isset($map['MultiCategoryId'])) {
             if (!empty($map['MultiCategoryId'])) {
                 $model->multiCategoryId = [];
@@ -65,6 +62,9 @@ class mainRegion extends Model
                     $model->multiCategoryId[$n++] = null !== $item ? multiCategoryId::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;

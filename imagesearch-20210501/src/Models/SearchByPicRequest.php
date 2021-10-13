@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SearchByPicRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $picContent;
-
-    /**
      * @var int
      */
     public $categoryId;
@@ -26,12 +21,7 @@ class SearchByPicRequest extends Model
     /**
      * @var string
      */
-    public $region;
-
-    /**
-     * @var int
-     */
-    public $start;
+    public $fields;
 
     /**
      * @var int
@@ -41,7 +31,17 @@ class SearchByPicRequest extends Model
     /**
      * @var string
      */
-    public $fields;
+    public $picContent;
+
+    /**
+     * @var string
+     */
+    public $pid;
+
+    /**
+     * @var string
+     */
+    public $region;
 
     /**
      * @var int
@@ -49,19 +49,25 @@ class SearchByPicRequest extends Model
     public $relationId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $pid;
+    public $start;
+
+    /**
+     * @var int
+     */
+    public $userType;
     protected $_name = [
-        'picContent' => 'PicContent',
         'categoryId' => 'CategoryId',
         'crop'       => 'Crop',
-        'region'     => 'Region',
-        'start'      => 'Start',
-        'num'        => 'Num',
         'fields'     => 'Fields',
-        'relationId' => 'RelationId',
+        'num'        => 'Num',
+        'picContent' => 'PicContent',
         'pid'        => 'Pid',
+        'region'     => 'Region',
+        'relationId' => 'RelationId',
+        'start'      => 'Start',
+        'userType'   => 'UserType',
     ];
 
     public function validate()
@@ -71,32 +77,35 @@ class SearchByPicRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->picContent) {
-            $res['PicContent'] = $this->picContent;
-        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->crop) {
             $res['Crop'] = $this->crop;
         }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->start) {
-            $res['Start'] = $this->start;
+        if (null !== $this->fields) {
+            $res['Fields'] = $this->fields;
         }
         if (null !== $this->num) {
             $res['Num'] = $this->num;
         }
-        if (null !== $this->fields) {
-            $res['Fields'] = $this->fields;
+        if (null !== $this->picContent) {
+            $res['PicContent'] = $this->picContent;
+        }
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
         if (null !== $this->relationId) {
             $res['RelationId'] = $this->relationId;
         }
-        if (null !== $this->pid) {
-            $res['Pid'] = $this->pid;
+        if (null !== $this->start) {
+            $res['Start'] = $this->start;
+        }
+        if (null !== $this->userType) {
+            $res['UserType'] = $this->userType;
         }
 
         return $res;
@@ -110,32 +119,35 @@ class SearchByPicRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PicContent'])) {
-            $model->picContent = $map['PicContent'];
-        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['Crop'])) {
             $model->crop = $map['Crop'];
         }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['Start'])) {
-            $model->start = $map['Start'];
+        if (isset($map['Fields'])) {
+            $model->fields = $map['Fields'];
         }
         if (isset($map['Num'])) {
             $model->num = $map['Num'];
         }
-        if (isset($map['Fields'])) {
-            $model->fields = $map['Fields'];
+        if (isset($map['PicContent'])) {
+            $model->picContent = $map['PicContent'];
+        }
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
         if (isset($map['RelationId'])) {
             $model->relationId = $map['RelationId'];
         }
-        if (isset($map['Pid'])) {
-            $model->pid = $map['Pid'];
+        if (isset($map['Start'])) {
+            $model->start = $map['Start'];
+        }
+        if (isset($map['UserType'])) {
+            $model->userType = $map['UserType'];
         }
 
         return $model;

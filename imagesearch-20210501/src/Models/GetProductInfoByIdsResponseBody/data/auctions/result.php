@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20210501\Models\SearchByPicResponseBody\data\auctions;
+namespace AlibabaCloud\SDK\ImageSearch\V20210501\Models\GetProductInfoByIdsResponseBody\data\auctions;
 
-use AlibabaCloud\SDK\ImageSearch\V20210501\Models\SearchByPicResponseBody\data\auctions\result\maxCommission;
+use AlibabaCloud\SDK\ImageSearch\V20210501\Models\GetProductInfoByIdsResponseBody\data\auctions\result\maxCommission;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model

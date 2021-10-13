@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\ImageSearch\V20210501;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\ImageSearch\V20210501\Models\GetProductInfoByIdsRequest;
+use AlibabaCloud\SDK\ImageSearch\V20210501\Models\GetProductInfoByIdsResponse;
 use AlibabaCloud\SDK\ImageSearch\V20210501\Models\SearchByPicAdvanceRequest;
 use AlibabaCloud\SDK\ImageSearch\V20210501\Models\SearchByPicRequest;
 use AlibabaCloud\SDK\ImageSearch\V20210501\Models\SearchByPicResponse;
@@ -22,6 +24,7 @@ use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class ImageSearch extends OpenApiClient
@@ -58,6 +61,45 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
+     * @param GetProductInfoByIdsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetProductInfoByIdsResponse
+     */
+    public function getProductInfoByIdsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetProductInfoByIds',
+            'version'     => '2021-05-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetProductInfoByIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetProductInfoByIdsRequest $request
+     *
+     * @return GetProductInfoByIdsResponse
+     */
+    public function getProductInfoByIds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProductInfoByIdsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SearchByPicRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -66,11 +108,25 @@ class ImageSearch extends OpenApiClient
     public function searchByPicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['UserType'] = $request->userType;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchByPic',
+            'version'     => '2021-05-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchByPicResponse::fromMap($this->doRPCRequest('SearchByPic', '2021-05-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchByPicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -172,11 +228,25 @@ class ImageSearch extends OpenApiClient
     public function searchByUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['UserType'] = $request->userType;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchByUrl',
+            'version'     => '2021-05-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchByUrlResponse::fromMap($this->doRPCRequest('SearchByUrl', '2021-05-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchByUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
