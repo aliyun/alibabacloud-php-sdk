@@ -9,23 +9,17 @@ use AlibabaCloud\Tea\Model;
 class StopMaskingProcessRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $lang;
-
-    /**
      * @var int
      */
     public $id;
 
     /**
-     * @var int
+     * @var string
      */
-    public $featureType;
+    public $lang;
     protected $_name = [
-        'lang'        => 'Lang',
-        'id'          => 'Id',
-        'featureType' => 'FeatureType',
+        'id'   => 'Id',
+        'lang' => 'Lang',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class StopMaskingProcessRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->featureType) {
-            $res['FeatureType'] = $this->featureType;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -56,14 +47,11 @@ class StopMaskingProcessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['FeatureType'])) {
-            $model->featureType = $map['FeatureType'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

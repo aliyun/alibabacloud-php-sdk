@@ -19,11 +19,6 @@ class riskLevelList extends Model
     public $description;
 
     /**
-     * @var string
-     */
-    public $alias;
-
-    /**
      * @var int
      */
     public $id;
@@ -35,7 +30,6 @@ class riskLevelList extends Model
     protected $_name = [
         'name'         => 'Name',
         'description'  => 'Description',
-        'alias'        => 'Alias',
         'id'           => 'Id',
         'referenceNum' => 'ReferenceNum',
     ];
@@ -52,9 +46,6 @@ class riskLevelList extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->alias) {
-            $res['Alias'] = $this->alias;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -79,9 +70,6 @@ class riskLevelList extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['Alias'])) {
-            $model->alias = $map['Alias'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

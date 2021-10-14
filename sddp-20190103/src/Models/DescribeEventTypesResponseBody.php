@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventTypesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var eventTypeList[]
      */
     public $eventTypeList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'eventTypeList' => 'EventTypeList',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeEventTypesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->eventTypeList) {
             $res['EventTypeList'] = [];
             if (null !== $this->eventTypeList && \is_array($this->eventTypeList)) {
@@ -41,6 +38,9 @@ class DescribeEventTypesResponseBody extends Model
                     $res['EventTypeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeEventTypesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['EventTypeList'])) {
             if (!empty($map['EventTypeList'])) {
                 $model->eventTypeList = [];
@@ -65,6 +62,9 @@ class DescribeEventTypesResponseBody extends Model
                     $model->eventTypeList[$n++] = null !== $item ? eventTypeList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

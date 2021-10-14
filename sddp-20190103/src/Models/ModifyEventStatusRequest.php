@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyEventStatusRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var int
-     */
-    public $id;
-
-    /**
      * @var bool
      */
     public $backed;
@@ -31,12 +21,22 @@ class ModifyEventStatusRequest extends Model
     /**
      * @var int
      */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var int
+     */
     public $status;
     protected $_name = [
-        'lang'       => 'Lang',
-        'id'         => 'Id',
         'backed'     => 'Backed',
         'dealReason' => 'DealReason',
+        'id'         => 'Id',
+        'lang'       => 'Lang',
         'status'     => 'Status',
     ];
 
@@ -47,17 +47,17 @@ class ModifyEventStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->backed) {
             $res['Backed'] = $this->backed;
         }
         if (null !== $this->dealReason) {
             $res['DealReason'] = $this->dealReason;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -74,17 +74,17 @@ class ModifyEventStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['Backed'])) {
             $model->backed = $map['Backed'];
         }
         if (isset($map['DealReason'])) {
             $model->dealReason = $map['DealReason'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

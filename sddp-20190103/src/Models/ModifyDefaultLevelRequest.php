@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyDefaultLevelRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $lang;
-
-    /**
      * @var int
      */
     public $defaultId;
@@ -21,10 +16,15 @@ class ModifyDefaultLevelRequest extends Model
     /**
      * @var string
      */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $sensitiveIds;
     protected $_name = [
-        'lang'         => 'Lang',
         'defaultId'    => 'DefaultId',
+        'lang'         => 'Lang',
         'sensitiveIds' => 'SensitiveIds',
     ];
 
@@ -35,11 +35,11 @@ class ModifyDefaultLevelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->defaultId) {
             $res['DefaultId'] = $this->defaultId;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->sensitiveIds) {
             $res['SensitiveIds'] = $this->sensitiveIds;
@@ -56,11 +56,11 @@ class ModifyDefaultLevelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['DefaultId'])) {
             $model->defaultId = $map['DefaultId'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['SensitiveIds'])) {
             $model->sensitiveIds = $map['SensitiveIds'];

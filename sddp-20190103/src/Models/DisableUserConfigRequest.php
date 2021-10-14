@@ -11,15 +11,15 @@ class DisableUserConfigRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $code;
 
     /**
      * @var string
      */
-    public $code;
+    public $lang;
     protected $_name = [
-        'lang' => 'Lang',
         'code' => 'Code',
+        'lang' => 'Lang',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DisableUserConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DisableUserConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

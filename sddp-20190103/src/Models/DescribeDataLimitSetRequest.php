@@ -14,18 +14,18 @@ class DescribeDataLimitSetRequest extends Model
     public $lang;
 
     /**
-     * @var int
-     */
-    public $resourceType;
-
-    /**
      * @var string
      */
     public $parentId;
+
+    /**
+     * @var int
+     */
+    public $resourceType;
     protected $_name = [
         'lang'         => 'Lang',
-        'resourceType' => 'ResourceType',
         'parentId'     => 'ParentId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeDataLimitSetRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeDataLimitSetRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

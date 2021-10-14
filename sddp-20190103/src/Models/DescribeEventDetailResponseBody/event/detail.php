@@ -12,22 +12,22 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
-     * @var content[]
-     */
-    public $content;
-
-    /**
      * @var chart[]
      */
     public $chart;
+
+    /**
+     * @var content[]
+     */
+    public $content;
 
     /**
      * @var resourceInfo[]
      */
     public $resourceInfo;
     protected $_name = [
-        'content'      => 'Content',
         'chart'        => 'Chart',
+        'content'      => 'Content',
         'resourceInfo' => 'ResourceInfo',
     ];
 
@@ -38,21 +38,21 @@ class detail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->content) {
-            $res['Content'] = [];
-            if (null !== $this->content && \is_array($this->content)) {
-                $n = 0;
-                foreach ($this->content as $item) {
-                    $res['Content'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->chart) {
             $res['Chart'] = [];
             if (null !== $this->chart && \is_array($this->chart)) {
                 $n = 0;
                 foreach ($this->chart as $item) {
                     $res['Chart'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->content) {
+            $res['Content'] = [];
+            if (null !== $this->content && \is_array($this->content)) {
+                $n = 0;
+                foreach ($this->content as $item) {
+                    $res['Content'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -77,21 +77,21 @@ class detail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Content'])) {
-            if (!empty($map['Content'])) {
-                $model->content = [];
-                $n              = 0;
-                foreach ($map['Content'] as $item) {
-                    $model->content[$n++] = null !== $item ? content::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Chart'])) {
             if (!empty($map['Chart'])) {
                 $model->chart = [];
                 $n            = 0;
                 foreach ($map['Chart'] as $item) {
                     $model->chart[$n++] = null !== $item ? chart::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Content'])) {
+            if (!empty($map['Content'])) {
+                $model->content = [];
+                $n              = 0;
+                foreach ($map['Content'] as $item) {
+                    $model->content[$n++] = null !== $item ? content::fromMap($item) : $item;
                 }
             }
         }

@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyDataLimitRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $auditStatus;
+
+    /**
+     * @var int
+     */
+    public $autoScan;
+
+    /**
+     * @var string
+     */
+    public $engineType;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $lang;
@@ -16,7 +36,22 @@ class ModifyDataLimitRequest extends Model
     /**
      * @var int
      */
-    public $id;
+    public $logStoreDay;
+
+    /**
+     * @var bool
+     */
+    public $modifyPassword;
+
+    /**
+     * @var string
+     */
+    public $password;
+
+    /**
+     * @var int
+     */
+    public $port;
 
     /**
      * @var int
@@ -32,54 +67,19 @@ class ModifyDataLimitRequest extends Model
      * @var string
      */
     public $userName;
-
-    /**
-     * @var string
-     */
-    public $password;
-
-    /**
-     * @var bool
-     */
-    public $modifyPassword;
-
-    /**
-     * @var int
-     */
-    public $auditStatus;
-
-    /**
-     * @var int
-     */
-    public $logStoreDay;
-
-    /**
-     * @var string
-     */
-    public $engineType;
-
-    /**
-     * @var int
-     */
-    public $port;
-
-    /**
-     * @var int
-     */
-    public $autoScan;
     protected $_name = [
-        'lang'            => 'Lang',
+        'auditStatus'     => 'AuditStatus',
+        'autoScan'        => 'AutoScan',
+        'engineType'      => 'EngineType',
         'id'              => 'Id',
+        'lang'            => 'Lang',
+        'logStoreDay'     => 'LogStoreDay',
+        'modifyPassword'  => 'ModifyPassword',
+        'password'        => 'Password',
+        'port'            => 'Port',
         'resourceType'    => 'ResourceType',
         'serviceRegionId' => 'ServiceRegionId',
         'userName'        => 'UserName',
-        'password'        => 'Password',
-        'modifyPassword'  => 'ModifyPassword',
-        'auditStatus'     => 'AuditStatus',
-        'logStoreDay'     => 'LogStoreDay',
-        'engineType'      => 'EngineType',
-        'port'            => 'Port',
-        'autoScan'        => 'AutoScan',
     ];
 
     public function validate()
@@ -89,11 +89,32 @@ class ModifyDataLimitRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->auditStatus) {
+            $res['AuditStatus'] = $this->auditStatus;
+        }
+        if (null !== $this->autoScan) {
+            $res['AutoScan'] = $this->autoScan;
+        }
+        if (null !== $this->engineType) {
+            $res['EngineType'] = $this->engineType;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->logStoreDay) {
+            $res['LogStoreDay'] = $this->logStoreDay;
+        }
+        if (null !== $this->modifyPassword) {
+            $res['ModifyPassword'] = $this->modifyPassword;
+        }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -103,27 +124,6 @@ class ModifyDataLimitRequest extends Model
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
-        }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
-        }
-        if (null !== $this->modifyPassword) {
-            $res['ModifyPassword'] = $this->modifyPassword;
-        }
-        if (null !== $this->auditStatus) {
-            $res['AuditStatus'] = $this->auditStatus;
-        }
-        if (null !== $this->logStoreDay) {
-            $res['LogStoreDay'] = $this->logStoreDay;
-        }
-        if (null !== $this->engineType) {
-            $res['EngineType'] = $this->engineType;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
-        if (null !== $this->autoScan) {
-            $res['AutoScan'] = $this->autoScan;
         }
 
         return $res;
@@ -137,11 +137,32 @@ class ModifyDataLimitRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['AuditStatus'])) {
+            $model->auditStatus = $map['AuditStatus'];
+        }
+        if (isset($map['AutoScan'])) {
+            $model->autoScan = $map['AutoScan'];
+        }
+        if (isset($map['EngineType'])) {
+            $model->engineType = $map['EngineType'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['LogStoreDay'])) {
+            $model->logStoreDay = $map['LogStoreDay'];
+        }
+        if (isset($map['ModifyPassword'])) {
+            $model->modifyPassword = $map['ModifyPassword'];
+        }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
@@ -151,27 +172,6 @@ class ModifyDataLimitRequest extends Model
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
-        }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
-        }
-        if (isset($map['ModifyPassword'])) {
-            $model->modifyPassword = $map['ModifyPassword'];
-        }
-        if (isset($map['AuditStatus'])) {
-            $model->auditStatus = $map['AuditStatus'];
-        }
-        if (isset($map['LogStoreDay'])) {
-            $model->logStoreDay = $map['LogStoreDay'];
-        }
-        if (isset($map['EngineType'])) {
-            $model->engineType = $map['EngineType'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
-        if (isset($map['AutoScan'])) {
-            $model->autoScan = $map['AutoScan'];
         }
 
         return $model;

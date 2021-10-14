@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeOssObjectDetailResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var ossObjectDetail
      */
     public $ossObjectDetail;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'ossObjectDetail' => 'OssObjectDetail',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeOssObjectDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->ossObjectDetail) {
             $res['OssObjectDetail'] = null !== $this->ossObjectDetail ? $this->ossObjectDetail->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeOssObjectDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OssObjectDetail'])) {
             $model->ossObjectDetail = ossObjectDetail::fromMap($map['OssObjectDetail']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

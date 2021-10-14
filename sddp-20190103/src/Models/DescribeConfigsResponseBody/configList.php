@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class configList extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 
     /**
-     * @var int
+     * @var string
      */
     public $value;
 

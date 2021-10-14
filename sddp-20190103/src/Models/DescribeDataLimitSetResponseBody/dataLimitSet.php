@@ -12,21 +12,6 @@ use AlibabaCloud\Tea\Model;
 class dataLimitSet extends Model
 {
     /**
-     * @var string
-     */
-    public $resourceTypeCode;
-
-    /**
-     * @var int
-     */
-    public $resourceType;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var dataLimitList[]
      */
     public $dataLimitList;
@@ -40,13 +25,28 @@ class dataLimitSet extends Model
      * @var regionList[]
      */
     public $regionList;
+
+    /**
+     * @var int
+     */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $resourceTypeCode;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'resourceTypeCode' => 'ResourceTypeCode',
-        'resourceType'     => 'ResourceType',
-        'totalCount'       => 'TotalCount',
         'dataLimitList'    => 'DataLimitList',
         'ossBucketList'    => 'OssBucketList',
         'regionList'       => 'RegionList',
+        'resourceType'     => 'ResourceType',
+        'resourceTypeCode' => 'ResourceTypeCode',
+        'totalCount'       => 'TotalCount',
     ];
 
     public function validate()
@@ -56,15 +56,6 @@ class dataLimitSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceTypeCode) {
-            $res['ResourceTypeCode'] = $this->resourceTypeCode;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->dataLimitList) {
             $res['DataLimitList'] = [];
             if (null !== $this->dataLimitList && \is_array($this->dataLimitList)) {
@@ -92,6 +83,15 @@ class dataLimitSet extends Model
                 }
             }
         }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->resourceTypeCode) {
+            $res['ResourceTypeCode'] = $this->resourceTypeCode;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
 
         return $res;
     }
@@ -104,15 +104,6 @@ class dataLimitSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceTypeCode'])) {
-            $model->resourceTypeCode = $map['ResourceTypeCode'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['DataLimitList'])) {
             if (!empty($map['DataLimitList'])) {
                 $model->dataLimitList = [];
@@ -139,6 +130,15 @@ class dataLimitSet extends Model
                     $model->regionList[$n++] = null !== $item ? regionList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['ResourceTypeCode'])) {
+            $model->resourceTypeCode = $map['ResourceTypeCode'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

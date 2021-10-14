@@ -11,11 +11,6 @@ class CreateConfigRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
@@ -26,11 +21,16 @@ class CreateConfigRequest extends Model
     /**
      * @var string
      */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $value;
     protected $_name = [
-        'lang'        => 'Lang',
         'code'        => 'Code',
         'description' => 'Description',
+        'lang'        => 'Lang',
         'value'       => 'Value',
     ];
 
@@ -41,14 +41,14 @@ class CreateConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
@@ -65,14 +65,14 @@ class CreateConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];

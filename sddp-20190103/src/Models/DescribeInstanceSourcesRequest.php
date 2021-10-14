@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSourcesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var int
      */
     public $currentPage;
-
-    /**
-     * @var string
-     */
-    public $serviceRegionId;
 
     /**
      * @var string
@@ -41,7 +26,12 @@ class DescribeInstanceSourcesRequest extends Model
     /**
      * @var string
      */
-    public $dbName;
+    public $lang;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var int
@@ -49,19 +39,17 @@ class DescribeInstanceSourcesRequest extends Model
     public $productId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $authed;
+    public $serviceRegionId;
     protected $_name = [
-        'lang'            => 'Lang',
-        'pageSize'        => 'PageSize',
         'currentPage'     => 'CurrentPage',
-        'serviceRegionId' => 'ServiceRegionId',
         'engineType'      => 'EngineType',
         'instanceId'      => 'InstanceId',
-        'dbName'          => 'DbName',
+        'lang'            => 'Lang',
+        'pageSize'        => 'PageSize',
         'productId'       => 'ProductId',
-        'authed'          => 'Authed',
+        'serviceRegionId' => 'ServiceRegionId',
     ];
 
     public function validate()
@@ -71,17 +59,8 @@ class DescribeInstanceSourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->serviceRegionId) {
-            $res['ServiceRegionId'] = $this->serviceRegionId;
         }
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
@@ -89,14 +68,17 @@ class DescribeInstanceSourcesRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->dbName) {
-            $res['DbName'] = $this->dbName;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
         }
-        if (null !== $this->authed) {
-            $res['Authed'] = $this->authed;
+        if (null !== $this->serviceRegionId) {
+            $res['ServiceRegionId'] = $this->serviceRegionId;
         }
 
         return $res;
@@ -110,17 +92,8 @@ class DescribeInstanceSourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['ServiceRegionId'])) {
-            $model->serviceRegionId = $map['ServiceRegionId'];
         }
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
@@ -128,14 +101,17 @@ class DescribeInstanceSourcesRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['DbName'])) {
-            $model->dbName = $map['DbName'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
         }
-        if (isset($map['Authed'])) {
-            $model->authed = $map['Authed'];
+        if (isset($map['ServiceRegionId'])) {
+            $model->serviceRegionId = $map['ServiceRegionId'];
         }
 
         return $model;

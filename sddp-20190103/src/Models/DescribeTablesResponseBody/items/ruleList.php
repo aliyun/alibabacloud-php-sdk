@@ -11,11 +11,6 @@ class ruleList extends Model
     /**
      * @var string
      */
-    public $displayName;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -28,7 +23,6 @@ class ruleList extends Model
      */
     public $count;
     protected $_name = [
-        'displayName' => 'DisplayName',
         'name'        => 'Name',
         'riskLevelId' => 'RiskLevelId',
         'count'       => 'Count',
@@ -41,9 +35,6 @@ class ruleList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -65,9 +56,6 @@ class ruleList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

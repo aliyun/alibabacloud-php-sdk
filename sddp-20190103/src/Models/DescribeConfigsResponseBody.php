@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var configList[]
      */
     public $configList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'configList' => 'ConfigList',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeConfigsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->configList) {
             $res['ConfigList'] = [];
             if (null !== $this->configList && \is_array($this->configList)) {
@@ -41,6 +38,9 @@ class DescribeConfigsResponseBody extends Model
                     $res['ConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeConfigsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
@@ -65,6 +62,9 @@ class DescribeConfigsResponseBody extends Model
                     $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

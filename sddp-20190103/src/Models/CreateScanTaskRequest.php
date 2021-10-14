@@ -19,6 +19,16 @@ class CreateScanTaskRequest extends Model
     public $intervalDay;
 
     /**
+     * @var string
+     */
+    public $ossScanPath;
+
+    /**
+     * @var int
+     */
+    public $resourceType;
+
+    /**
      * @var int
      */
     public $runHour;
@@ -27,21 +37,6 @@ class CreateScanTaskRequest extends Model
      * @var int
      */
     public $runMinute;
-
-    /**
-     * @var string
-     */
-    public $taskName;
-
-    /**
-     * @var string
-     */
-    public $taskUserName;
-
-    /**
-     * @var string
-     */
-    public $ossScanPath;
 
     /**
      * @var int
@@ -54,20 +49,25 @@ class CreateScanTaskRequest extends Model
     public $scanRangeContent;
 
     /**
-     * @var int
+     * @var string
      */
-    public $resourceType;
+    public $taskName;
+
+    /**
+     * @var string
+     */
+    public $taskUserName;
     protected $_name = [
         'dataLimitId'      => 'DataLimitId',
         'intervalDay'      => 'IntervalDay',
+        'ossScanPath'      => 'OssScanPath',
+        'resourceType'     => 'ResourceType',
         'runHour'          => 'RunHour',
         'runMinute'        => 'RunMinute',
-        'taskName'         => 'TaskName',
-        'taskUserName'     => 'TaskUserName',
-        'ossScanPath'      => 'OssScanPath',
         'scanRange'        => 'ScanRange',
         'scanRangeContent' => 'ScanRangeContent',
-        'resourceType'     => 'ResourceType',
+        'taskName'         => 'TaskName',
+        'taskUserName'     => 'TaskUserName',
     ];
 
     public function validate()
@@ -83,20 +83,17 @@ class CreateScanTaskRequest extends Model
         if (null !== $this->intervalDay) {
             $res['IntervalDay'] = $this->intervalDay;
         }
+        if (null !== $this->ossScanPath) {
+            $res['OssScanPath'] = $this->ossScanPath;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
         if (null !== $this->runHour) {
             $res['RunHour'] = $this->runHour;
         }
         if (null !== $this->runMinute) {
             $res['RunMinute'] = $this->runMinute;
-        }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
-        }
-        if (null !== $this->taskUserName) {
-            $res['TaskUserName'] = $this->taskUserName;
-        }
-        if (null !== $this->ossScanPath) {
-            $res['OssScanPath'] = $this->ossScanPath;
         }
         if (null !== $this->scanRange) {
             $res['ScanRange'] = $this->scanRange;
@@ -104,8 +101,11 @@ class CreateScanTaskRequest extends Model
         if (null !== $this->scanRangeContent) {
             $res['ScanRangeContent'] = $this->scanRangeContent;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->taskUserName) {
+            $res['TaskUserName'] = $this->taskUserName;
         }
 
         return $res;
@@ -125,20 +125,17 @@ class CreateScanTaskRequest extends Model
         if (isset($map['IntervalDay'])) {
             $model->intervalDay = $map['IntervalDay'];
         }
+        if (isset($map['OssScanPath'])) {
+            $model->ossScanPath = $map['OssScanPath'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
         if (isset($map['RunHour'])) {
             $model->runHour = $map['RunHour'];
         }
         if (isset($map['RunMinute'])) {
             $model->runMinute = $map['RunMinute'];
-        }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
-        }
-        if (isset($map['TaskUserName'])) {
-            $model->taskUserName = $map['TaskUserName'];
-        }
-        if (isset($map['OssScanPath'])) {
-            $model->ossScanPath = $map['OssScanPath'];
         }
         if (isset($map['ScanRange'])) {
             $model->scanRange = $map['ScanRange'];
@@ -146,8 +143,11 @@ class CreateScanTaskRequest extends Model
         if (isset($map['ScanRangeContent'])) {
             $model->scanRangeContent = $map['ScanRangeContent'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['TaskUserName'])) {
+            $model->taskUserName = $map['TaskUserName'];
         }
 
         return $model;

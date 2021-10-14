@@ -12,6 +12,11 @@ class ossObjectDetail extends Model
     /**
      * @var string
      */
+    public $bucketName;
+
+    /**
+     * @var string
+     */
     public $categoryName;
 
     /**
@@ -22,7 +27,7 @@ class ossObjectDetail extends Model
     /**
      * @var string
      */
-    public $bucketName;
+    public $regionId;
 
     /**
      * @var string
@@ -30,20 +35,15 @@ class ossObjectDetail extends Model
     public $riskLevelName;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var ruleList[]
      */
     public $ruleList;
     protected $_name = [
+        'bucketName'    => 'BucketName',
         'categoryName'  => 'CategoryName',
         'name'          => 'Name',
-        'bucketName'    => 'BucketName',
-        'riskLevelName' => 'RiskLevelName',
         'regionId'      => 'RegionId',
+        'riskLevelName' => 'RiskLevelName',
         'ruleList'      => 'RuleList',
     ];
 
@@ -54,20 +54,20 @@ class ossObjectDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bucketName) {
+            $res['BucketName'] = $this->bucketName;
+        }
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->bucketName) {
-            $res['BucketName'] = $this->bucketName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->riskLevelName) {
             $res['RiskLevelName'] = $this->riskLevelName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->ruleList) {
             $res['RuleList'] = [];
@@ -90,20 +90,20 @@ class ossObjectDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BucketName'])) {
+            $model->bucketName = $map['BucketName'];
+        }
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['BucketName'])) {
-            $model->bucketName = $map['BucketName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RiskLevelName'])) {
             $model->riskLevelName = $map['RiskLevelName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {

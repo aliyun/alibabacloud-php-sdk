@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataLimitDetailRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $lang;
@@ -16,15 +21,10 @@ class DescribeDataLimitDetailRequest extends Model
     /**
      * @var int
      */
-    public $id;
-
-    /**
-     * @var int
-     */
     public $networkType;
     protected $_name = [
-        'lang'        => 'Lang',
         'id'          => 'Id',
+        'lang'        => 'Lang',
         'networkType' => 'NetworkType',
     ];
 
@@ -35,11 +35,11 @@ class DescribeDataLimitDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
@@ -56,11 +56,11 @@ class DescribeDataLimitDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];

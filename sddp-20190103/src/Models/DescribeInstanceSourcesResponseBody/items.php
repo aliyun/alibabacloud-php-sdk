@@ -39,11 +39,6 @@ class items extends Model
     public $instanceDescription;
 
     /**
-     * @var int
-     */
-    public $dataLimitId;
-
-    /**
      * @var string
      */
     public $regionId;
@@ -124,7 +119,6 @@ class items extends Model
         'tenantName'          => 'TenantName',
         'instanceId'          => 'InstanceId',
         'instanceDescription' => 'InstanceDescription',
-        'dataLimitId'         => 'DataLimitId',
         'regionId'            => 'RegionId',
         'dbName'              => 'DbName',
         'lastModifyTime'      => 'LastModifyTime',
@@ -166,9 +160,6 @@ class items extends Model
         }
         if (null !== $this->instanceDescription) {
             $res['InstanceDescription'] = $this->instanceDescription;
-        }
-        if (null !== $this->dataLimitId) {
-            $res['DataLimitId'] = $this->dataLimitId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -244,9 +235,6 @@ class items extends Model
         }
         if (isset($map['InstanceDescription'])) {
             $model->instanceDescription = $map['InstanceDescription'];
-        }
-        if (isset($map['DataLimitId'])) {
-            $model->dataLimitId = $map['DataLimitId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

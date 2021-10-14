@@ -11,44 +11,9 @@ use AlibabaCloud\Tea\Model;
 class event extends Model
 {
     /**
-     * @var string
-     */
-    public $displayName;
-
-    /**
      * @var int
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $dealReason;
-
-    /**
-     * @var int
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $statusName;
-
-    /**
-     * @var int
-     */
-    public $dealTime;
-
-    /**
-     * @var string
-     */
-    public $dealLoginName;
-
-    /**
-     * @var string
-     */
-    public $subTypeName;
+    public $alertTime;
 
     /**
      * @var bool
@@ -61,34 +26,24 @@ class event extends Model
     public $dataInstance;
 
     /**
-     * @var int
+     * @var string
      */
-    public $eventTime;
+    public $dealDisplayName;
 
     /**
      * @var string
      */
-    public $loginName;
+    public $dealLoginName;
 
     /**
      * @var string
      */
-    public $subTypeCode;
-
-    /**
-     * @var string
-     */
-    public $logDetail;
-
-    /**
-     * @var string
-     */
-    public $typeCode;
+    public $dealReason;
 
     /**
      * @var int
      */
-    public $alertTime;
+    public $dealTime;
 
     /**
      * @var int
@@ -96,14 +51,24 @@ class event extends Model
     public $dealUserId;
 
     /**
-     * @var string
+     * @var detail
      */
-    public $typeName;
+    public $detail;
 
     /**
      * @var string
      */
-    public $dealDisplayName;
+    public $displayName;
+
+    /**
+     * @var int
+     */
+    public $eventTime;
+
+    /**
+     * @var handleInfoList[]
+     */
+    public $handleInfoList;
 
     /**
      * @var int
@@ -113,41 +78,76 @@ class event extends Model
     /**
      * @var string
      */
+    public $logDetail;
+
+    /**
+     * @var string
+     */
+    public $loginName;
+
+    /**
+     * @var string
+     */
     public $productCode;
 
     /**
-     * @var handleInfoList[]
+     * @var int
      */
-    public $handleInfoList;
+    public $status;
 
     /**
-     * @var detail
+     * @var string
      */
-    public $detail;
+    public $statusName;
+
+    /**
+     * @var string
+     */
+    public $subTypeCode;
+
+    /**
+     * @var string
+     */
+    public $subTypeName;
+
+    /**
+     * @var string
+     */
+    public $typeCode;
+
+    /**
+     * @var string
+     */
+    public $typeName;
+
+    /**
+     * @var int
+     */
+    public $userId;
     protected $_name = [
-        'displayName'     => 'DisplayName',
-        'status'          => 'Status',
-        'dealReason'      => 'DealReason',
-        'userId'          => 'UserId',
-        'statusName'      => 'StatusName',
-        'dealTime'        => 'DealTime',
-        'dealLoginName'   => 'DealLoginName',
-        'subTypeName'     => 'SubTypeName',
+        'alertTime'       => 'AlertTime',
         'backed'          => 'Backed',
         'dataInstance'    => 'DataInstance',
-        'eventTime'       => 'EventTime',
-        'loginName'       => 'LoginName',
-        'subTypeCode'     => 'SubTypeCode',
-        'logDetail'       => 'LogDetail',
-        'typeCode'        => 'TypeCode',
-        'alertTime'       => 'AlertTime',
-        'dealUserId'      => 'DealUserId',
-        'typeName'        => 'TypeName',
         'dealDisplayName' => 'DealDisplayName',
-        'id'              => 'Id',
-        'productCode'     => 'ProductCode',
-        'handleInfoList'  => 'HandleInfoList',
+        'dealLoginName'   => 'DealLoginName',
+        'dealReason'      => 'DealReason',
+        'dealTime'        => 'DealTime',
+        'dealUserId'      => 'DealUserId',
         'detail'          => 'Detail',
+        'displayName'     => 'DisplayName',
+        'eventTime'       => 'EventTime',
+        'handleInfoList'  => 'HandleInfoList',
+        'id'              => 'Id',
+        'logDetail'       => 'LogDetail',
+        'loginName'       => 'LoginName',
+        'productCode'     => 'ProductCode',
+        'status'          => 'Status',
+        'statusName'      => 'StatusName',
+        'subTypeCode'     => 'SubTypeCode',
+        'subTypeName'     => 'SubTypeName',
+        'typeCode'        => 'TypeCode',
+        'typeName'        => 'TypeName',
+        'userId'          => 'UserId',
     ];
 
     public function validate()
@@ -157,29 +157,8 @@ class event extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->dealReason) {
-            $res['DealReason'] = $this->dealReason;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->statusName) {
-            $res['StatusName'] = $this->statusName;
-        }
-        if (null !== $this->dealTime) {
-            $res['DealTime'] = $this->dealTime;
-        }
-        if (null !== $this->dealLoginName) {
-            $res['DealLoginName'] = $this->dealLoginName;
-        }
-        if (null !== $this->subTypeName) {
-            $res['SubTypeName'] = $this->subTypeName;
+        if (null !== $this->alertTime) {
+            $res['AlertTime'] = $this->alertTime;
         }
         if (null !== $this->backed) {
             $res['Backed'] = $this->backed;
@@ -187,38 +166,29 @@ class event extends Model
         if (null !== $this->dataInstance) {
             $res['DataInstance'] = $this->dataInstance;
         }
-        if (null !== $this->eventTime) {
-            $res['EventTime'] = $this->eventTime;
+        if (null !== $this->dealDisplayName) {
+            $res['DealDisplayName'] = $this->dealDisplayName;
         }
-        if (null !== $this->loginName) {
-            $res['LoginName'] = $this->loginName;
+        if (null !== $this->dealLoginName) {
+            $res['DealLoginName'] = $this->dealLoginName;
         }
-        if (null !== $this->subTypeCode) {
-            $res['SubTypeCode'] = $this->subTypeCode;
+        if (null !== $this->dealReason) {
+            $res['DealReason'] = $this->dealReason;
         }
-        if (null !== $this->logDetail) {
-            $res['LogDetail'] = $this->logDetail;
-        }
-        if (null !== $this->typeCode) {
-            $res['TypeCode'] = $this->typeCode;
-        }
-        if (null !== $this->alertTime) {
-            $res['AlertTime'] = $this->alertTime;
+        if (null !== $this->dealTime) {
+            $res['DealTime'] = $this->dealTime;
         }
         if (null !== $this->dealUserId) {
             $res['DealUserId'] = $this->dealUserId;
         }
-        if (null !== $this->typeName) {
-            $res['TypeName'] = $this->typeName;
+        if (null !== $this->detail) {
+            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
         }
-        if (null !== $this->dealDisplayName) {
-            $res['DealDisplayName'] = $this->dealDisplayName;
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
+        if (null !== $this->eventTime) {
+            $res['EventTime'] = $this->eventTime;
         }
         if (null !== $this->handleInfoList) {
             $res['HandleInfoList'] = [];
@@ -229,8 +199,38 @@ class event extends Model
                 }
             }
         }
-        if (null !== $this->detail) {
-            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->logDetail) {
+            $res['LogDetail'] = $this->logDetail;
+        }
+        if (null !== $this->loginName) {
+            $res['LoginName'] = $this->loginName;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->statusName) {
+            $res['StatusName'] = $this->statusName;
+        }
+        if (null !== $this->subTypeCode) {
+            $res['SubTypeCode'] = $this->subTypeCode;
+        }
+        if (null !== $this->subTypeName) {
+            $res['SubTypeName'] = $this->subTypeName;
+        }
+        if (null !== $this->typeCode) {
+            $res['TypeCode'] = $this->typeCode;
+        }
+        if (null !== $this->typeName) {
+            $res['TypeName'] = $this->typeName;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -244,29 +244,8 @@ class event extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['DealReason'])) {
-            $model->dealReason = $map['DealReason'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['StatusName'])) {
-            $model->statusName = $map['StatusName'];
-        }
-        if (isset($map['DealTime'])) {
-            $model->dealTime = $map['DealTime'];
-        }
-        if (isset($map['DealLoginName'])) {
-            $model->dealLoginName = $map['DealLoginName'];
-        }
-        if (isset($map['SubTypeName'])) {
-            $model->subTypeName = $map['SubTypeName'];
+        if (isset($map['AlertTime'])) {
+            $model->alertTime = $map['AlertTime'];
         }
         if (isset($map['Backed'])) {
             $model->backed = $map['Backed'];
@@ -274,38 +253,29 @@ class event extends Model
         if (isset($map['DataInstance'])) {
             $model->dataInstance = $map['DataInstance'];
         }
-        if (isset($map['EventTime'])) {
-            $model->eventTime = $map['EventTime'];
+        if (isset($map['DealDisplayName'])) {
+            $model->dealDisplayName = $map['DealDisplayName'];
         }
-        if (isset($map['LoginName'])) {
-            $model->loginName = $map['LoginName'];
+        if (isset($map['DealLoginName'])) {
+            $model->dealLoginName = $map['DealLoginName'];
         }
-        if (isset($map['SubTypeCode'])) {
-            $model->subTypeCode = $map['SubTypeCode'];
+        if (isset($map['DealReason'])) {
+            $model->dealReason = $map['DealReason'];
         }
-        if (isset($map['LogDetail'])) {
-            $model->logDetail = $map['LogDetail'];
-        }
-        if (isset($map['TypeCode'])) {
-            $model->typeCode = $map['TypeCode'];
-        }
-        if (isset($map['AlertTime'])) {
-            $model->alertTime = $map['AlertTime'];
+        if (isset($map['DealTime'])) {
+            $model->dealTime = $map['DealTime'];
         }
         if (isset($map['DealUserId'])) {
             $model->dealUserId = $map['DealUserId'];
         }
-        if (isset($map['TypeName'])) {
-            $model->typeName = $map['TypeName'];
+        if (isset($map['Detail'])) {
+            $model->detail = detail::fromMap($map['Detail']);
         }
-        if (isset($map['DealDisplayName'])) {
-            $model->dealDisplayName = $map['DealDisplayName'];
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
+        if (isset($map['EventTime'])) {
+            $model->eventTime = $map['EventTime'];
         }
         if (isset($map['HandleInfoList'])) {
             if (!empty($map['HandleInfoList'])) {
@@ -316,8 +286,38 @@ class event extends Model
                 }
             }
         }
-        if (isset($map['Detail'])) {
-            $model->detail = detail::fromMap($map['Detail']);
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['LogDetail'])) {
+            $model->logDetail = $map['LogDetail'];
+        }
+        if (isset($map['LoginName'])) {
+            $model->loginName = $map['LoginName'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['StatusName'])) {
+            $model->statusName = $map['StatusName'];
+        }
+        if (isset($map['SubTypeCode'])) {
+            $model->subTypeCode = $map['SubTypeCode'];
+        }
+        if (isset($map['SubTypeName'])) {
+            $model->subTypeName = $map['SubTypeName'];
+        }
+        if (isset($map['TypeCode'])) {
+            $model->typeCode = $map['TypeCode'];
+        }
+        if (isset($map['TypeName'])) {
+            $model->typeName = $map['TypeName'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

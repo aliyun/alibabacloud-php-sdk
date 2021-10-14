@@ -15,9 +15,9 @@ class DescribeEventsResponseBody extends Model
     public $currentPage;
 
     /**
-     * @var string
+     * @var items[]
      */
-    public $requestId;
+    public $items;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeEventsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var items[]
-     */
-    public $items;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'requestId'   => 'RequestId',
-        'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
         'items'       => 'Items',
+        'pageSize'    => 'PageSize',
+        'requestId'   => 'RequestId',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -51,15 +51,6 @@ class DescribeEventsResponseBody extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->items) {
             $res['Items'] = [];
             if (null !== $this->items && \is_array($this->items)) {
@@ -68,6 +59,15 @@ class DescribeEventsResponseBody extends Model
                     $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -84,15 +84,6 @@ class DescribeEventsResponseBody extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
@@ -101,6 +92,15 @@ class DescribeEventsResponseBody extends Model
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

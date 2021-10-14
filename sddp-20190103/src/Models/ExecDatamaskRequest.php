@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ExecDatamaskRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $templateId;
-
-    /**
      * @var string
      */
     public $data;
+
+    /**
+     * @var int
+     */
+    public $templateId;
     protected $_name = [
-        'templateId' => 'TemplateId',
         'data'       => 'Data',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ExecDatamaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ExecDatamaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;
