@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $all;
+
+    /**
      * @var string
      */
     public $resourceIds;
@@ -22,16 +27,11 @@ class UntagResourcesRequest extends Model
      * @var string
      */
     public $tagKeys;
-
-    /**
-     * @var bool
-     */
-    public $all;
     protected $_name = [
+        'all'          => 'All',
         'resourceIds'  => 'ResourceIds',
         'resourceType' => 'ResourceType',
         'tagKeys'      => 'TagKeys',
-        'all'          => 'All',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class UntagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->all) {
+            $res['All'] = $this->all;
+        }
         if (null !== $this->resourceIds) {
             $res['ResourceIds'] = $this->resourceIds;
         }
@@ -49,9 +52,6 @@ class UntagResourcesRequest extends Model
         }
         if (null !== $this->tagKeys) {
             $res['TagKeys'] = $this->tagKeys;
-        }
-        if (null !== $this->all) {
-            $res['All'] = $this->all;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class UntagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['All'])) {
+            $model->all = $map['All'];
+        }
         if (isset($map['ResourceIds'])) {
             $model->resourceIds = $map['ResourceIds'];
         }
@@ -73,9 +76,6 @@ class UntagResourcesRequest extends Model
         }
         if (isset($map['TagKeys'])) {
             $model->tagKeys = $map['TagKeys'];
-        }
-        if (isset($map['All'])) {
-            $model->all = $map['All'];
         }
 
         return $model;

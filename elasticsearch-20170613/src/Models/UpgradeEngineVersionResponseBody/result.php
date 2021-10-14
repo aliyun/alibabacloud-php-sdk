@@ -12,21 +12,21 @@ class result extends Model
     /**
      * @var string
      */
-    public $validateType;
-
-    /**
-     * @var string
-     */
     public $status;
 
     /**
      * @var validateResult
      */
     public $validateResult;
+
+    /**
+     * @var string
+     */
+    public $validateType;
     protected $_name = [
-        'validateType'   => 'validateType',
         'status'         => 'status',
         'validateResult' => 'validateResult',
+        'validateType'   => 'validateType',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->validateType) {
-            $res['validateType'] = $this->validateType;
-        }
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
         if (null !== $this->validateResult) {
             $res['validateResult'] = null !== $this->validateResult ? $this->validateResult->toMap() : null;
+        }
+        if (null !== $this->validateType) {
+            $res['validateType'] = $this->validateType;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['validateType'])) {
-            $model->validateType = $map['validateType'];
-        }
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
         if (isset($map['validateResult'])) {
             $model->validateResult = validateResult::fromMap($map['validateResult']);
+        }
+        if (isset($map['validateType'])) {
+            $model->validateType = $map['validateType'];
         }
 
         return $model;

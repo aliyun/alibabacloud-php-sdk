@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ValidateShrinkNodesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $nodeType;
-
-    /**
      * @var bool
      */
     public $ignoreStatus;
+
+    /**
+     * @var string
+     */
+    public $nodeType;
     protected $_name = [
-        'nodeType'     => 'nodeType',
         'ignoreStatus' => 'ignoreStatus',
+        'nodeType'     => 'nodeType',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ValidateShrinkNodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nodeType) {
-            $res['nodeType'] = $this->nodeType;
-        }
         if (null !== $this->ignoreStatus) {
             $res['ignoreStatus'] = $this->ignoreStatus;
+        }
+        if (null !== $this->nodeType) {
+            $res['nodeType'] = $this->nodeType;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ValidateShrinkNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['nodeType'])) {
-            $model->nodeType = $map['nodeType'];
-        }
         if (isset($map['ignoreStatus'])) {
             $model->ignoreStatus = $map['ignoreStatus'];
+        }
+        if (isset($map['nodeType'])) {
+            $model->nodeType = $map['nodeType'];
         }
 
         return $model;

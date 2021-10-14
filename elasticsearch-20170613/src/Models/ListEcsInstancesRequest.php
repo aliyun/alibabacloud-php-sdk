@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListEcsInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $ecsInstanceIds;
+
+    /**
+     * @var string
+     */
+    public $ecsInstanceName;
+
+    /**
      * @var int
      */
     public $page;
@@ -21,16 +31,6 @@ class ListEcsInstancesRequest extends Model
     /**
      * @var string
      */
-    public $ecsInstanceIds;
-
-    /**
-     * @var string
-     */
-    public $ecsInstanceName;
-
-    /**
-     * @var string
-     */
     public $tags;
 
     /**
@@ -38,10 +38,10 @@ class ListEcsInstancesRequest extends Model
      */
     public $vpcId;
     protected $_name = [
-        'page'            => 'page',
-        'size'            => 'size',
         'ecsInstanceIds'  => 'ecsInstanceIds',
         'ecsInstanceName' => 'ecsInstanceName',
+        'page'            => 'page',
+        'size'            => 'size',
         'tags'            => 'tags',
         'vpcId'           => 'vpcId',
     ];
@@ -53,17 +53,17 @@ class ListEcsInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->page) {
-            $res['page'] = $this->page;
-        }
-        if (null !== $this->size) {
-            $res['size'] = $this->size;
-        }
         if (null !== $this->ecsInstanceIds) {
             $res['ecsInstanceIds'] = $this->ecsInstanceIds;
         }
         if (null !== $this->ecsInstanceName) {
             $res['ecsInstanceName'] = $this->ecsInstanceName;
+        }
+        if (null !== $this->page) {
+            $res['page'] = $this->page;
+        }
+        if (null !== $this->size) {
+            $res['size'] = $this->size;
         }
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
@@ -83,17 +83,17 @@ class ListEcsInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['page'])) {
-            $model->page = $map['page'];
-        }
-        if (isset($map['size'])) {
-            $model->size = $map['size'];
-        }
         if (isset($map['ecsInstanceIds'])) {
             $model->ecsInstanceIds = $map['ecsInstanceIds'];
         }
         if (isset($map['ecsInstanceName'])) {
             $model->ecsInstanceName = $map['ecsInstanceName'];
+        }
+        if (isset($map['page'])) {
+            $model->page = $map['page'];
+        }
+        if (isset($map['size'])) {
+            $model->size = $map['size'];
         }
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];

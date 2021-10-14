@@ -15,14 +15,14 @@ class UpdateWhiteIpsRequest extends Model
     public $clientToken;
 
     /**
-     * @var string
-     */
-    public $modifyMode;
-
-    /**
      * @var string[]
      */
     public $esIPWhitelist;
+
+    /**
+     * @var string
+     */
+    public $modifyMode;
 
     /**
      * @var whiteIpGroup
@@ -30,8 +30,8 @@ class UpdateWhiteIpsRequest extends Model
     public $whiteIpGroup;
     protected $_name = [
         'clientToken'   => 'clientToken',
-        'modifyMode'    => 'modifyMode',
         'esIPWhitelist' => 'esIPWhitelist',
+        'modifyMode'    => 'modifyMode',
         'whiteIpGroup'  => 'whiteIpGroup',
     ];
 
@@ -45,11 +45,11 @@ class UpdateWhiteIpsRequest extends Model
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
-        if (null !== $this->modifyMode) {
-            $res['modifyMode'] = $this->modifyMode;
-        }
         if (null !== $this->esIPWhitelist) {
             $res['esIPWhitelist'] = $this->esIPWhitelist;
+        }
+        if (null !== $this->modifyMode) {
+            $res['modifyMode'] = $this->modifyMode;
         }
         if (null !== $this->whiteIpGroup) {
             $res['whiteIpGroup'] = null !== $this->whiteIpGroup ? $this->whiteIpGroup->toMap() : null;
@@ -69,13 +69,13 @@ class UpdateWhiteIpsRequest extends Model
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
-        if (isset($map['modifyMode'])) {
-            $model->modifyMode = $map['modifyMode'];
-        }
         if (isset($map['esIPWhitelist'])) {
             if (!empty($map['esIPWhitelist'])) {
                 $model->esIPWhitelist = $map['esIPWhitelist'];
             }
+        }
+        if (isset($map['modifyMode'])) {
+            $model->modifyMode = $map['modifyMode'];
         }
         if (isset($map['whiteIpGroup'])) {
             $model->whiteIpGroup = whiteIpGroup::fromMap($map['whiteIpGroup']);

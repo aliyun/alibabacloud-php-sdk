@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseReportIdsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @var int
@@ -34,15 +29,20 @@ class ListDiagnoseReportIdsRequest extends Model
     public $size;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @var string
      */
     public $trigger;
     protected $_name = [
-        'lang'      => 'lang',
-        'startTime' => 'startTime',
         'endTime'   => 'endTime',
+        'lang'      => 'lang',
         'page'      => 'page',
         'size'      => 'size',
+        'startTime' => 'startTime',
         'trigger'   => 'trigger',
     ];
 
@@ -53,20 +53,20 @@ class ListDiagnoseReportIdsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['lang'] = $this->lang;
-        }
-        if (null !== $this->startTime) {
-            $res['startTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+        if (null !== $this->lang) {
+            $res['lang'] = $this->lang;
         }
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
         if (null !== $this->size) {
             $res['size'] = $this->size;
+        }
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
         }
         if (null !== $this->trigger) {
             $res['trigger'] = $this->trigger;
@@ -83,20 +83,20 @@ class ListDiagnoseReportIdsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['lang'])) {
-            $model->lang = $map['lang'];
-        }
-        if (isset($map['startTime'])) {
-            $model->startTime = $map['startTime'];
-        }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+        if (isset($map['lang'])) {
+            $model->lang = $map['lang'];
         }
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
         if (isset($map['size'])) {
             $model->size = $map['size'];
+        }
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
         }
         if (isset($map['trigger'])) {
             $model->trigger = $map['trigger'];

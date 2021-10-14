@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class elasticNodeProperties extends Model
 {
     /**
+     * @var amountRange
+     */
+    public $amountRange;
+
+    /**
      * @var diskList[]
      */
     public $diskList;
@@ -19,15 +24,10 @@ class elasticNodeProperties extends Model
      * @var string[]
      */
     public $spec;
-
-    /**
-     * @var amountRange
-     */
-    public $amountRange;
     protected $_name = [
+        'amountRange' => 'amountRange',
         'diskList'    => 'diskList',
         'spec'        => 'spec',
-        'amountRange' => 'amountRange',
     ];
 
     public function validate()
@@ -37,6 +37,9 @@ class elasticNodeProperties extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->amountRange) {
+            $res['amountRange'] = null !== $this->amountRange ? $this->amountRange->toMap() : null;
+        }
         if (null !== $this->diskList) {
             $res['diskList'] = [];
             if (null !== $this->diskList && \is_array($this->diskList)) {
@@ -48,9 +51,6 @@ class elasticNodeProperties extends Model
         }
         if (null !== $this->spec) {
             $res['spec'] = $this->spec;
-        }
-        if (null !== $this->amountRange) {
-            $res['amountRange'] = null !== $this->amountRange ? $this->amountRange->toMap() : null;
         }
 
         return $res;
@@ -64,6 +64,9 @@ class elasticNodeProperties extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['amountRange'])) {
+            $model->amountRange = amountRange::fromMap($map['amountRange']);
+        }
         if (isset($map['diskList'])) {
             if (!empty($map['diskList'])) {
                 $model->diskList = [];
@@ -77,9 +80,6 @@ class elasticNodeProperties extends Model
             if (!empty($map['spec'])) {
                 $model->spec = $map['spec'];
             }
-        }
-        if (isset($map['amountRange'])) {
-            $model->amountRange = amountRange::fromMap($map['amountRange']);
         }
 
         return $model;

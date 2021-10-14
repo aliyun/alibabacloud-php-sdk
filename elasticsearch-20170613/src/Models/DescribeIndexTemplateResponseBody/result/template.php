@@ -11,7 +11,7 @@ class template extends Model
     /**
      * @var string
      */
-    public $settings;
+    public $aliases;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class template extends Model
     /**
      * @var string
      */
-    public $aliases;
+    public $settings;
     protected $_name = [
-        'settings' => 'settings',
-        'mappings' => 'mappings',
         'aliases'  => 'aliases',
+        'mappings' => 'mappings',
+        'settings' => 'settings',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class template extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->settings) {
-            $res['settings'] = $this->settings;
+        if (null !== $this->aliases) {
+            $res['aliases'] = $this->aliases;
         }
         if (null !== $this->mappings) {
             $res['mappings'] = $this->mappings;
         }
-        if (null !== $this->aliases) {
-            $res['aliases'] = $this->aliases;
+        if (null !== $this->settings) {
+            $res['settings'] = $this->settings;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class template extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['settings'])) {
-            $model->settings = $map['settings'];
+        if (isset($map['aliases'])) {
+            $model->aliases = $map['aliases'];
         }
         if (isset($map['mappings'])) {
             $model->mappings = $map['mappings'];
         }
-        if (isset($map['aliases'])) {
-            $model->aliases = $map['aliases'];
+        if (isset($map['settings'])) {
+            $model->settings = $map['settings'];
         }
 
         return $model;

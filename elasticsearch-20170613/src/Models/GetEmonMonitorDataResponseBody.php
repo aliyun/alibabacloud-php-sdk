@@ -25,20 +25,20 @@ class GetEmonMonitorDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var result[]
      */
     public $result;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
         'result'    => 'Result',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -57,9 +57,6 @@ class GetEmonMonitorDataResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->result) {
             $res['Result'] = [];
             if (null !== $this->result && \is_array($this->result)) {
@@ -68,6 +65,9 @@ class GetEmonMonitorDataResponseBody extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -90,9 +90,6 @@ class GetEmonMonitorDataResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
@@ -101,6 +98,9 @@ class GetEmonMonitorDataResponseBody extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

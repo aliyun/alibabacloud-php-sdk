@@ -21,17 +21,17 @@ class UpgradeEngineVersionRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $type;
 
     /**
      * @var string
      */
-    public $type;
+    public $version;
     protected $_name = [
         'clientToken' => 'clientToken',
         'dryRun'      => 'dryRun',
-        'version'     => 'version',
         'type'        => 'type',
+        'version'     => 'version',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class UpgradeEngineVersionRequest extends Model
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
-        if (null !== $this->version) {
-            $res['version'] = $this->version;
-        }
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class UpgradeEngineVersionRequest extends Model
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }
-        if (isset($map['version'])) {
-            $model->version = $map['version'];
-        }
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

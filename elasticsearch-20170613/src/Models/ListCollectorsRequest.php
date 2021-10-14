@@ -11,7 +11,7 @@ class ListCollectorsRequest extends Model
     /**
      * @var string
      */
-    public $resId;
+    public $instanceId;
 
     /**
      * @var string
@@ -19,14 +19,14 @@ class ListCollectorsRequest extends Model
     public $name;
 
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var int
      */
     public $page;
+
+    /**
+     * @var string
+     */
+    public $resId;
 
     /**
      * @var int
@@ -38,10 +38,10 @@ class ListCollectorsRequest extends Model
      */
     public $sourceType;
     protected $_name = [
-        'resId'      => 'resId',
-        'name'       => 'name',
         'instanceId' => 'instanceId',
+        'name'       => 'name',
         'page'       => 'page',
+        'resId'      => 'resId',
         'size'       => 'size',
         'sourceType' => 'sourceType',
     ];
@@ -53,17 +53,17 @@ class ListCollectorsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resId) {
-            $res['resId'] = $this->resId;
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-        if (null !== $this->instanceId) {
-            $res['instanceId'] = $this->instanceId;
-        }
         if (null !== $this->page) {
             $res['page'] = $this->page;
+        }
+        if (null !== $this->resId) {
+            $res['resId'] = $this->resId;
         }
         if (null !== $this->size) {
             $res['size'] = $this->size;
@@ -83,17 +83,17 @@ class ListCollectorsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['resId'])) {
-            $model->resId = $map['resId'];
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-        if (isset($map['instanceId'])) {
-            $model->instanceId = $map['instanceId'];
-        }
         if (isset($map['page'])) {
             $model->page = $map['page'];
+        }
+        if (isset($map['resId'])) {
+            $model->resId = $map['resId'];
         }
         if (isset($map['size'])) {
             $model->size = $map['size'];

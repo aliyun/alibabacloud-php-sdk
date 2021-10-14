@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
      * @var int
      */
     public $fileSize;
@@ -23,10 +18,15 @@ class result extends Model
      * @var ossObject
      */
     public $ossObject;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'      => 'type',
         'fileSize'  => 'fileSize',
         'ossObject' => 'ossObject',
+        'type'      => 'type',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
-        }
         if (null !== $this->fileSize) {
             $res['fileSize'] = $this->fileSize;
         }
         if (null !== $this->ossObject) {
             $res['ossObject'] = null !== $this->ossObject ? $this->ossObject->toMap() : null;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
-        }
         if (isset($map['fileSize'])) {
             $model->fileSize = $map['fileSize'];
         }
         if (isset($map['ossObject'])) {
             $model->ossObject = ossObject::fromMap($map['ossObject']);
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

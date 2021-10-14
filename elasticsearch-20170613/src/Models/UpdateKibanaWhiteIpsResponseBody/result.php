@@ -11,15 +11,15 @@ class result extends Model
     /**
      * @var string[]
      */
-    public $kibanaPrivateIPWhitelist;
+    public $kibanaIPWhitelist;
 
     /**
      * @var string[]
      */
-    public $kibanaIPWhitelist;
+    public $kibanaPrivateIPWhitelist;
     protected $_name = [
-        'kibanaPrivateIPWhitelist' => 'kibanaPrivateIPWhitelist',
         'kibanaIPWhitelist'        => 'kibanaIPWhitelist',
+        'kibanaPrivateIPWhitelist' => 'kibanaPrivateIPWhitelist',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->kibanaPrivateIPWhitelist) {
-            $res['kibanaPrivateIPWhitelist'] = $this->kibanaPrivateIPWhitelist;
-        }
         if (null !== $this->kibanaIPWhitelist) {
             $res['kibanaIPWhitelist'] = $this->kibanaIPWhitelist;
+        }
+        if (null !== $this->kibanaPrivateIPWhitelist) {
+            $res['kibanaPrivateIPWhitelist'] = $this->kibanaPrivateIPWhitelist;
         }
 
         return $res;
@@ -47,14 +47,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['kibanaPrivateIPWhitelist'])) {
-            if (!empty($map['kibanaPrivateIPWhitelist'])) {
-                $model->kibanaPrivateIPWhitelist = $map['kibanaPrivateIPWhitelist'];
-            }
-        }
         if (isset($map['kibanaIPWhitelist'])) {
             if (!empty($map['kibanaIPWhitelist'])) {
                 $model->kibanaIPWhitelist = $map['kibanaIPWhitelist'];
+            }
+        }
+        if (isset($map['kibanaPrivateIPWhitelist'])) {
+            if (!empty($map['kibanaPrivateIPWhitelist'])) {
+                $model->kibanaPrivateIPWhitelist = $map['kibanaPrivateIPWhitelist'];
             }
         }
 

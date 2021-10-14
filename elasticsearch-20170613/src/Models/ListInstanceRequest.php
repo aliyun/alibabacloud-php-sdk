@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $page;
-
-    /**
-     * @var int
-     */
-    public $size;
-
-    /**
      * @var string
      */
     public $description;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
 
     /**
      * @var string
@@ -36,7 +21,32 @@ class ListInstanceRequest extends Model
     /**
      * @var string
      */
+    public $instanceCategory;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $page;
+
+    /**
+     * @var string
+     */
+    public $paymentType;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $size;
 
     /**
      * @var string
@@ -52,28 +62,18 @@ class ListInstanceRequest extends Model
      * @var string
      */
     public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $paymentType;
-
-    /**
-     * @var string
-     */
-    public $instanceCategory;
     protected $_name = [
-        'page'             => 'page',
-        'size'             => 'size',
         'description'      => 'description',
-        'instanceId'       => 'instanceId',
         'esVersion'        => 'esVersion',
+        'instanceCategory' => 'instanceCategory',
+        'instanceId'       => 'instanceId',
+        'page'             => 'page',
+        'paymentType'      => 'paymentType',
         'resourceGroupId'  => 'resourceGroupId',
+        'size'             => 'size',
         'tags'             => 'tags',
         'vpcId'            => 'vpcId',
         'zoneId'           => 'zoneId',
-        'paymentType'      => 'paymentType',
-        'instanceCategory' => 'instanceCategory',
     ];
 
     public function validate()
@@ -83,23 +83,29 @@ class ListInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->page) {
-            $res['page'] = $this->page;
-        }
-        if (null !== $this->size) {
-            $res['size'] = $this->size;
-        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
-        }
-        if (null !== $this->instanceId) {
-            $res['instanceId'] = $this->instanceId;
         }
         if (null !== $this->esVersion) {
             $res['esVersion'] = $this->esVersion;
         }
+        if (null !== $this->instanceCategory) {
+            $res['instanceCategory'] = $this->instanceCategory;
+        }
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
+        }
+        if (null !== $this->page) {
+            $res['page'] = $this->page;
+        }
+        if (null !== $this->paymentType) {
+            $res['paymentType'] = $this->paymentType;
+        }
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->size) {
+            $res['size'] = $this->size;
         }
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
@@ -109,12 +115,6 @@ class ListInstanceRequest extends Model
         }
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
-        }
-        if (null !== $this->paymentType) {
-            $res['paymentType'] = $this->paymentType;
-        }
-        if (null !== $this->instanceCategory) {
-            $res['instanceCategory'] = $this->instanceCategory;
         }
 
         return $res;
@@ -128,23 +128,29 @@ class ListInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['page'])) {
-            $model->page = $map['page'];
-        }
-        if (isset($map['size'])) {
-            $model->size = $map['size'];
-        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
-        }
-        if (isset($map['instanceId'])) {
-            $model->instanceId = $map['instanceId'];
         }
         if (isset($map['esVersion'])) {
             $model->esVersion = $map['esVersion'];
         }
+        if (isset($map['instanceCategory'])) {
+            $model->instanceCategory = $map['instanceCategory'];
+        }
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
+        }
+        if (isset($map['page'])) {
+            $model->page = $map['page'];
+        }
+        if (isset($map['paymentType'])) {
+            $model->paymentType = $map['paymentType'];
+        }
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+        if (isset($map['size'])) {
+            $model->size = $map['size'];
         }
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];
@@ -154,12 +160,6 @@ class ListInstanceRequest extends Model
         }
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
-        }
-        if (isset($map['paymentType'])) {
-            $model->paymentType = $map['paymentType'];
-        }
-        if (isset($map['instanceCategory'])) {
-            $model->instanceCategory = $map['instanceCategory'];
         }
 
         return $model;

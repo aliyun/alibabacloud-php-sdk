@@ -11,15 +11,15 @@ class UpdateDescriptionRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $clientToken;
     protected $_name = [
-        'clientToken' => 'clientToken',
         'description' => 'description',
+        'clientToken' => 'clientToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateDescriptionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
-        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateDescriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
-        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

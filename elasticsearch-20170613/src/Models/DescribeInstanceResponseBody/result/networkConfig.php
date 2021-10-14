@@ -12,17 +12,17 @@ class networkConfig extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $vpcId;
 
     /**
      * @var string
      */
     public $vsArea;
-
-    /**
-     * @var string
-     */
-    public $type;
 
     /**
      * @var string
@@ -34,9 +34,9 @@ class networkConfig extends Model
      */
     public $whiteIpGroupList;
     protected $_name = [
+        'type'             => 'type',
         'vpcId'            => 'vpcId',
         'vsArea'           => 'vsArea',
-        'type'             => 'type',
         'vswitchId'        => 'vswitchId',
         'whiteIpGroupList' => 'whiteIpGroupList',
     ];
@@ -48,14 +48,14 @@ class networkConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
         if (null !== $this->vpcId) {
             $res['vpcId'] = $this->vpcId;
         }
         if (null !== $this->vsArea) {
             $res['vsArea'] = $this->vsArea;
-        }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
         }
         if (null !== $this->vswitchId) {
             $res['vswitchId'] = $this->vswitchId;
@@ -81,14 +81,14 @@ class networkConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
+        }
         if (isset($map['vpcId'])) {
             $model->vpcId = $map['vpcId'];
         }
         if (isset($map['vsArea'])) {
             $model->vsArea = $map['vsArea'];
-        }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
         }
         if (isset($map['vswitchId'])) {
             $model->vswitchId = $map['vswitchId'];

@@ -11,15 +11,15 @@ class ListVpcEndpointsRequest extends Model
     /**
      * @var int
      */
-    public $size;
+    public $page;
 
     /**
      * @var int
      */
-    public $page;
+    public $size;
     protected $_name = [
-        'size' => 'size',
         'page' => 'page',
+        'size' => 'size',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListVpcEndpointsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->size) {
-            $res['size'] = $this->size;
-        }
         if (null !== $this->page) {
             $res['page'] = $this->page;
+        }
+        if (null !== $this->size) {
+            $res['size'] = $this->size;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListVpcEndpointsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['size'])) {
-            $model->size = $map['size'];
-        }
         if (isset($map['page'])) {
             $model->page = $map['page'];
+        }
+        if (isset($map['size'])) {
+            $model->size = $map['size'];
         }
 
         return $model;

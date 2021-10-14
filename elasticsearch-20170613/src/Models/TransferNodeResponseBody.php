@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class TransferNodeResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $result;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $result;
     protected $_name = [
-        'result'    => 'Result',
         'requestId' => 'RequestId',
+        'result'    => 'Result',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class TransferNodeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class TransferNodeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
         }
 
         return $model;
