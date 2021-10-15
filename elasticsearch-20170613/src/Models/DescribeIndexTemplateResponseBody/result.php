@@ -17,17 +17,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $ilmPolicy;
-
-    /**
-     * @var string[]
-     */
-    public $indexPatterns;
+    public $indexTemplate;
 
     /**
      * @var string
      */
-    public $indexTemplate;
+    public $ilmPolicy;
 
     /**
      * @var int
@@ -35,15 +30,20 @@ class result extends Model
     public $priority;
 
     /**
+     * @var string[]
+     */
+    public $indexPatterns;
+
+    /**
      * @var template
      */
     public $template;
     protected $_name = [
         'dataStream'    => 'dataStream',
-        'ilmPolicy'     => 'ilmPolicy',
-        'indexPatterns' => 'indexPatterns',
         'indexTemplate' => 'indexTemplate',
+        'ilmPolicy'     => 'ilmPolicy',
         'priority'      => 'priority',
+        'indexPatterns' => 'indexPatterns',
         'template'      => 'template',
     ];
 
@@ -57,17 +57,17 @@ class result extends Model
         if (null !== $this->dataStream) {
             $res['dataStream'] = $this->dataStream;
         }
-        if (null !== $this->ilmPolicy) {
-            $res['ilmPolicy'] = $this->ilmPolicy;
-        }
-        if (null !== $this->indexPatterns) {
-            $res['indexPatterns'] = $this->indexPatterns;
-        }
         if (null !== $this->indexTemplate) {
             $res['indexTemplate'] = $this->indexTemplate;
         }
+        if (null !== $this->ilmPolicy) {
+            $res['ilmPolicy'] = $this->ilmPolicy;
+        }
         if (null !== $this->priority) {
             $res['priority'] = $this->priority;
+        }
+        if (null !== $this->indexPatterns) {
+            $res['indexPatterns'] = $this->indexPatterns;
         }
         if (null !== $this->template) {
             $res['template'] = null !== $this->template ? $this->template->toMap() : null;
@@ -87,19 +87,19 @@ class result extends Model
         if (isset($map['dataStream'])) {
             $model->dataStream = $map['dataStream'];
         }
+        if (isset($map['indexTemplate'])) {
+            $model->indexTemplate = $map['indexTemplate'];
+        }
         if (isset($map['ilmPolicy'])) {
             $model->ilmPolicy = $map['ilmPolicy'];
+        }
+        if (isset($map['priority'])) {
+            $model->priority = $map['priority'];
         }
         if (isset($map['indexPatterns'])) {
             if (!empty($map['indexPatterns'])) {
                 $model->indexPatterns = $map['indexPatterns'];
             }
-        }
-        if (isset($map['indexTemplate'])) {
-            $model->indexTemplate = $map['indexTemplate'];
-        }
-        if (isset($map['priority'])) {
-            $model->priority = $map['priority'];
         }
         if (isset($map['template'])) {
             $model->template = template::fromMap($map['template']);

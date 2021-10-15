@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseReportIdsResponseBody extends Model
 {
     /**
-     * @var headers
-     */
-    public $headers;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -23,10 +18,15 @@ class ListDiagnoseReportIdsResponseBody extends Model
      * @var string[]
      */
     public $result;
+
+    /**
+     * @var headers
+     */
+    public $headers;
     protected $_name = [
-        'headers'   => 'Headers',
         'requestId' => 'RequestId',
         'result'    => 'Result',
+        'headers'   => 'Headers',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class ListDiagnoseReportIdsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['Headers'] = null !== $this->headers ? $this->headers->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
+        }
+        if (null !== $this->headers) {
+            $res['Headers'] = null !== $this->headers ? $this->headers->toMap() : null;
         }
 
         return $res;
@@ -57,9 +57,6 @@ class ListDiagnoseReportIdsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Headers'])) {
-            $model->headers = headers::fromMap($map['Headers']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -67,6 +64,9 @@ class ListDiagnoseReportIdsResponseBody extends Model
             if (!empty($map['Result'])) {
                 $model->result = $map['Result'];
             }
+        }
+        if (isset($map['Headers'])) {
+            $model->headers = headers::fromMap($map['Headers']);
         }
 
         return $model;

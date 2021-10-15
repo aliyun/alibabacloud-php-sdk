@@ -11,21 +11,21 @@ class ListDictInformationRequest extends Model
     /**
      * @var string
      */
-    public $analyzerType;
-
-    /**
-     * @var string
-     */
     public $bucketName;
 
     /**
      * @var string
      */
     public $key;
+
+    /**
+     * @var string
+     */
+    public $analyzerType;
     protected $_name = [
-        'analyzerType' => 'analyzerType',
         'bucketName'   => 'bucketName',
         'key'          => 'key',
+        'analyzerType' => 'analyzerType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListDictInformationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->analyzerType) {
-            $res['analyzerType'] = $this->analyzerType;
-        }
         if (null !== $this->bucketName) {
             $res['bucketName'] = $this->bucketName;
         }
         if (null !== $this->key) {
             $res['key'] = $this->key;
+        }
+        if (null !== $this->analyzerType) {
+            $res['analyzerType'] = $this->analyzerType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListDictInformationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['analyzerType'])) {
-            $model->analyzerType = $map['analyzerType'];
-        }
         if (isset($map['bucketName'])) {
             $model->bucketName = $map['bucketName'];
         }
         if (isset($map['key'])) {
             $model->key = $map['key'];
+        }
+        if (isset($map['analyzerType'])) {
+            $model->analyzerType = $map['analyzerType'];
         }
 
         return $model;

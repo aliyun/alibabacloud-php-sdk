@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashLogRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $query;
+
+    /**
      * @var int
      */
     public $beginTime;
@@ -24,26 +34,16 @@ class ListLogstashLogRequest extends Model
     public $page;
 
     /**
-     * @var string
-     */
-    public $query;
-
-    /**
      * @var int
      */
     public $size;
-
-    /**
-     * @var string
-     */
-    public $type;
     protected $_name = [
+        'type'      => 'type',
+        'query'     => 'query',
         'beginTime' => 'beginTime',
         'endTime'   => 'endTime',
         'page'      => 'page',
-        'query'     => 'query',
         'size'      => 'size',
-        'type'      => 'type',
     ];
 
     public function validate()
@@ -53,6 +53,12 @@ class ListLogstashLogRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
+        if (null !== $this->query) {
+            $res['query'] = $this->query;
+        }
         if (null !== $this->beginTime) {
             $res['beginTime'] = $this->beginTime;
         }
@@ -62,14 +68,8 @@ class ListLogstashLogRequest extends Model
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
-        if (null !== $this->query) {
-            $res['query'] = $this->query;
-        }
         if (null !== $this->size) {
             $res['size'] = $this->size;
-        }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
         }
 
         return $res;
@@ -83,6 +83,12 @@ class ListLogstashLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
+        }
+        if (isset($map['query'])) {
+            $model->query = $map['query'];
+        }
         if (isset($map['beginTime'])) {
             $model->beginTime = $map['beginTime'];
         }
@@ -92,14 +98,8 @@ class ListLogstashLogRequest extends Model
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
-        if (isset($map['query'])) {
-            $model->query = $map['query'];
-        }
         if (isset($map['size'])) {
             $model->size = $map['size'];
-        }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
         }
 
         return $model;

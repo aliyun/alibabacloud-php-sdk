@@ -11,12 +11,12 @@ class TriggerNetworkRequest extends Model
     /**
      * @var string
      */
-    public $actionType;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $nodeType;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class TriggerNetworkRequest extends Model
     /**
      * @var string
      */
-    public $nodeType;
+    public $actionType;
     protected $_name = [
-        'actionType'  => 'actionType',
         'clientToken' => 'clientToken',
-        'networkType' => 'networkType',
         'nodeType'    => 'nodeType',
+        'networkType' => 'networkType',
+        'actionType'  => 'actionType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class TriggerNetworkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->actionType) {
-            $res['actionType'] = $this->actionType;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->nodeType) {
+            $res['nodeType'] = $this->nodeType;
         }
         if (null !== $this->networkType) {
             $res['networkType'] = $this->networkType;
         }
-        if (null !== $this->nodeType) {
-            $res['nodeType'] = $this->nodeType;
+        if (null !== $this->actionType) {
+            $res['actionType'] = $this->actionType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class TriggerNetworkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['actionType'])) {
-            $model->actionType = $map['actionType'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['nodeType'])) {
+            $model->nodeType = $map['nodeType'];
         }
         if (isset($map['networkType'])) {
             $model->networkType = $map['networkType'];
         }
-        if (isset($map['nodeType'])) {
-            $model->nodeType = $map['nodeType'];
+        if (isset($map['actionType'])) {
+            $model->actionType = $map['actionType'];
         }
 
         return $model;

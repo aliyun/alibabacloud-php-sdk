@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetSuggestShrinkableNodesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $nodeType;
+
+    /**
      * @var int
      */
     public $count;
@@ -17,15 +22,10 @@ class GetSuggestShrinkableNodesRequest extends Model
      * @var bool
      */
     public $ignoreStatus;
-
-    /**
-     * @var string
-     */
-    public $nodeType;
     protected $_name = [
+        'nodeType'     => 'nodeType',
         'count'        => 'count',
         'ignoreStatus' => 'ignoreStatus',
-        'nodeType'     => 'nodeType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetSuggestShrinkableNodesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nodeType) {
+            $res['nodeType'] = $this->nodeType;
+        }
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
         if (null !== $this->ignoreStatus) {
             $res['ignoreStatus'] = $this->ignoreStatus;
-        }
-        if (null !== $this->nodeType) {
-            $res['nodeType'] = $this->nodeType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetSuggestShrinkableNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['nodeType'])) {
+            $model->nodeType = $map['nodeType'];
+        }
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
         if (isset($map['ignoreStatus'])) {
             $model->ignoreStatus = $map['ignoreStatus'];
-        }
-        if (isset($map['nodeType'])) {
-            $model->nodeType = $map['nodeType'];
         }
 
         return $model;

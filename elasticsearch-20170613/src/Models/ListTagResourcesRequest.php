@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @var int
      */
     public $page;
-
-    /**
-     * @var string
-     */
-    public $resourceIds;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
 
     /**
      * @var int
@@ -36,13 +21,28 @@ class ListTagResourcesRequest extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $resourceIds;
+
+    /**
+     * @var string
+     */
     public $tags;
     protected $_name = [
-        'nextToken'    => 'NextToken',
         'page'         => 'Page',
-        'resourceIds'  => 'ResourceIds',
-        'resourceType' => 'ResourceType',
         'size'         => 'Size',
+        'resourceType' => 'ResourceType',
+        'nextToken'    => 'NextToken',
+        'resourceIds'  => 'ResourceIds',
         'tags'         => 'Tags',
     ];
 
@@ -53,20 +53,20 @@ class ListTagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
-        if (null !== $this->resourceIds) {
-            $res['ResourceIds'] = $this->resourceIds;
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = $this->resourceIds;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -83,20 +83,20 @@ class ListTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
-        if (isset($map['ResourceIds'])) {
-            $model->resourceIds = $map['ResourceIds'];
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ResourceIds'])) {
+            $model->resourceIds = $map['ResourceIds'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

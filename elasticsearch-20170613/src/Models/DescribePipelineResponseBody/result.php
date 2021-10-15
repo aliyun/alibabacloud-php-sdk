@@ -9,29 +9,9 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var int
-     */
-    public $batchDelay;
-
-    /**
-     * @var int
-     */
-    public $batchSize;
-
-    /**
      * @var string
      */
-    public $config;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $gmtCreatedTime;
+    public $pipelineId;
 
     /**
      * @var string
@@ -41,12 +21,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $pipelineId;
-
-    /**
-     * @var string
-     */
-    public $pipelineStatus;
+    public $queueType;
 
     /**
      * @var int
@@ -61,25 +36,50 @@ class result extends Model
     /**
      * @var string
      */
-    public $queueType;
+    public $config;
+
+    /**
+     * @var int
+     */
+    public $batchDelay;
 
     /**
      * @var int
      */
     public $workers;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $gmtCreatedTime;
+
+    /**
+     * @var int
+     */
+    public $batchSize;
+
+    /**
+     * @var string
+     */
+    public $pipelineStatus;
     protected $_name = [
-        'batchDelay'            => 'batchDelay',
-        'batchSize'             => 'batchSize',
-        'config'                => 'config',
-        'description'           => 'description',
-        'gmtCreatedTime'        => 'gmtCreatedTime',
-        'gmtUpdateTime'         => 'gmtUpdateTime',
         'pipelineId'            => 'pipelineId',
-        'pipelineStatus'        => 'pipelineStatus',
+        'gmtUpdateTime'         => 'gmtUpdateTime',
+        'queueType'             => 'queueType',
         'queueCheckPointWrites' => 'queueCheckPointWrites',
         'queueMaxBytes'         => 'queueMaxBytes',
-        'queueType'             => 'queueType',
+        'config'                => 'config',
+        'batchDelay'            => 'batchDelay',
         'workers'               => 'workers',
+        'description'           => 'description',
+        'gmtCreatedTime'        => 'gmtCreatedTime',
+        'batchSize'             => 'batchSize',
+        'pipelineStatus'        => 'pipelineStatus',
     ];
 
     public function validate()
@@ -89,29 +89,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->batchDelay) {
-            $res['batchDelay'] = $this->batchDelay;
-        }
-        if (null !== $this->batchSize) {
-            $res['batchSize'] = $this->batchSize;
-        }
-        if (null !== $this->config) {
-            $res['config'] = $this->config;
-        }
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
-        }
-        if (null !== $this->gmtCreatedTime) {
-            $res['gmtCreatedTime'] = $this->gmtCreatedTime;
+        if (null !== $this->pipelineId) {
+            $res['pipelineId'] = $this->pipelineId;
         }
         if (null !== $this->gmtUpdateTime) {
             $res['gmtUpdateTime'] = $this->gmtUpdateTime;
         }
-        if (null !== $this->pipelineId) {
-            $res['pipelineId'] = $this->pipelineId;
-        }
-        if (null !== $this->pipelineStatus) {
-            $res['pipelineStatus'] = $this->pipelineStatus;
+        if (null !== $this->queueType) {
+            $res['queueType'] = $this->queueType;
         }
         if (null !== $this->queueCheckPointWrites) {
             $res['queueCheckPointWrites'] = $this->queueCheckPointWrites;
@@ -119,11 +104,26 @@ class result extends Model
         if (null !== $this->queueMaxBytes) {
             $res['queueMaxBytes'] = $this->queueMaxBytes;
         }
-        if (null !== $this->queueType) {
-            $res['queueType'] = $this->queueType;
+        if (null !== $this->config) {
+            $res['config'] = $this->config;
+        }
+        if (null !== $this->batchDelay) {
+            $res['batchDelay'] = $this->batchDelay;
         }
         if (null !== $this->workers) {
             $res['workers'] = $this->workers;
+        }
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+        if (null !== $this->gmtCreatedTime) {
+            $res['gmtCreatedTime'] = $this->gmtCreatedTime;
+        }
+        if (null !== $this->batchSize) {
+            $res['batchSize'] = $this->batchSize;
+        }
+        if (null !== $this->pipelineStatus) {
+            $res['pipelineStatus'] = $this->pipelineStatus;
         }
 
         return $res;
@@ -137,29 +137,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['batchDelay'])) {
-            $model->batchDelay = $map['batchDelay'];
-        }
-        if (isset($map['batchSize'])) {
-            $model->batchSize = $map['batchSize'];
-        }
-        if (isset($map['config'])) {
-            $model->config = $map['config'];
-        }
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
-        }
-        if (isset($map['gmtCreatedTime'])) {
-            $model->gmtCreatedTime = $map['gmtCreatedTime'];
+        if (isset($map['pipelineId'])) {
+            $model->pipelineId = $map['pipelineId'];
         }
         if (isset($map['gmtUpdateTime'])) {
             $model->gmtUpdateTime = $map['gmtUpdateTime'];
         }
-        if (isset($map['pipelineId'])) {
-            $model->pipelineId = $map['pipelineId'];
-        }
-        if (isset($map['pipelineStatus'])) {
-            $model->pipelineStatus = $map['pipelineStatus'];
+        if (isset($map['queueType'])) {
+            $model->queueType = $map['queueType'];
         }
         if (isset($map['queueCheckPointWrites'])) {
             $model->queueCheckPointWrites = $map['queueCheckPointWrites'];
@@ -167,11 +152,26 @@ class result extends Model
         if (isset($map['queueMaxBytes'])) {
             $model->queueMaxBytes = $map['queueMaxBytes'];
         }
-        if (isset($map['queueType'])) {
-            $model->queueType = $map['queueType'];
+        if (isset($map['config'])) {
+            $model->config = $map['config'];
+        }
+        if (isset($map['batchDelay'])) {
+            $model->batchDelay = $map['batchDelay'];
         }
         if (isset($map['workers'])) {
             $model->workers = $map['workers'];
+        }
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+        if (isset($map['gmtCreatedTime'])) {
+            $model->gmtCreatedTime = $map['gmtCreatedTime'];
+        }
+        if (isset($map['batchSize'])) {
+            $model->batchSize = $map['batchSize'];
+        }
+        if (isset($map['pipelineStatus'])) {
+            $model->pipelineStatus = $map['pipelineStatus'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class elasticShrinkTask extends Model
     /**
      * @var string
      */
-    public $cronExpression;
-
-    /**
-     * @var int
-     */
-    public $elasticNodeCount;
+    public $triggerType;
 
     /**
      * @var int
@@ -24,20 +19,25 @@ class elasticShrinkTask extends Model
     public $replicaCount;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $targetIndices;
+    public $elasticNodeCount;
 
     /**
      * @var string
      */
-    public $triggerType;
+    public $cronExpression;
+
+    /**
+     * @var string[]
+     */
+    public $targetIndices;
     protected $_name = [
-        'cronExpression'   => 'cronExpression',
-        'elasticNodeCount' => 'elasticNodeCount',
-        'replicaCount'     => 'replicaCount',
-        'targetIndices'    => 'targetIndices',
         'triggerType'      => 'triggerType',
+        'replicaCount'     => 'replicaCount',
+        'elasticNodeCount' => 'elasticNodeCount',
+        'cronExpression'   => 'cronExpression',
+        'targetIndices'    => 'targetIndices',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class elasticShrinkTask extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cronExpression) {
-            $res['cronExpression'] = $this->cronExpression;
-        }
-        if (null !== $this->elasticNodeCount) {
-            $res['elasticNodeCount'] = $this->elasticNodeCount;
+        if (null !== $this->triggerType) {
+            $res['triggerType'] = $this->triggerType;
         }
         if (null !== $this->replicaCount) {
             $res['replicaCount'] = $this->replicaCount;
         }
+        if (null !== $this->elasticNodeCount) {
+            $res['elasticNodeCount'] = $this->elasticNodeCount;
+        }
+        if (null !== $this->cronExpression) {
+            $res['cronExpression'] = $this->cronExpression;
+        }
         if (null !== $this->targetIndices) {
             $res['targetIndices'] = $this->targetIndices;
-        }
-        if (null !== $this->triggerType) {
-            $res['triggerType'] = $this->triggerType;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class elasticShrinkTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['cronExpression'])) {
-            $model->cronExpression = $map['cronExpression'];
+        if (isset($map['triggerType'])) {
+            $model->triggerType = $map['triggerType'];
+        }
+        if (isset($map['replicaCount'])) {
+            $model->replicaCount = $map['replicaCount'];
         }
         if (isset($map['elasticNodeCount'])) {
             $model->elasticNodeCount = $map['elasticNodeCount'];
         }
-        if (isset($map['replicaCount'])) {
-            $model->replicaCount = $map['replicaCount'];
+        if (isset($map['cronExpression'])) {
+            $model->cronExpression = $map['cronExpression'];
         }
         if (isset($map['targetIndices'])) {
             if (!empty($map['targetIndices'])) {
                 $model->targetIndices = $map['targetIndices'];
             }
-        }
-        if (isset($map['triggerType'])) {
-            $model->triggerType = $map['triggerType'];
         }
 
         return $model;

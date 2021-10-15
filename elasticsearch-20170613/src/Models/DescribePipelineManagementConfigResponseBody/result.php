@@ -16,12 +16,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $esInstanceId;
-
-    /**
-     * @var string[]
-     */
-    public $pipelineIds;
+    public $userName;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class result extends Model
     /**
      * @var string
      */
-    public $userName;
+    public $esInstanceId;
+
+    /**
+     * @var string[]
+     */
+    public $pipelineIds;
     protected $_name = [
         'endpoints'              => 'endpoints',
+        'userName'               => 'userName',
+        'pipelineManagementType' => 'pipelineManagementType',
         'esInstanceId'           => 'esInstanceId',
         'pipelineIds'            => 'pipelineIds',
-        'pipelineManagementType' => 'pipelineManagementType',
-        'userName'               => 'userName',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class result extends Model
         if (null !== $this->endpoints) {
             $res['endpoints'] = $this->endpoints;
         }
+        if (null !== $this->userName) {
+            $res['userName'] = $this->userName;
+        }
+        if (null !== $this->pipelineManagementType) {
+            $res['pipelineManagementType'] = $this->pipelineManagementType;
+        }
         if (null !== $this->esInstanceId) {
             $res['esInstanceId'] = $this->esInstanceId;
         }
         if (null !== $this->pipelineIds) {
             $res['pipelineIds'] = $this->pipelineIds;
-        }
-        if (null !== $this->pipelineManagementType) {
-            $res['pipelineManagementType'] = $this->pipelineManagementType;
-        }
-        if (null !== $this->userName) {
-            $res['userName'] = $this->userName;
         }
 
         return $res;
@@ -77,6 +77,12 @@ class result extends Model
         if (isset($map['endpoints'])) {
             $model->endpoints = $map['endpoints'];
         }
+        if (isset($map['userName'])) {
+            $model->userName = $map['userName'];
+        }
+        if (isset($map['pipelineManagementType'])) {
+            $model->pipelineManagementType = $map['pipelineManagementType'];
+        }
         if (isset($map['esInstanceId'])) {
             $model->esInstanceId = $map['esInstanceId'];
         }
@@ -84,12 +90,6 @@ class result extends Model
             if (!empty($map['pipelineIds'])) {
                 $model->pipelineIds = $map['pipelineIds'];
             }
-        }
-        if (isset($map['pipelineManagementType'])) {
-            $model->pipelineManagementType = $map['pipelineManagementType'];
-        }
-        if (isset($map['userName'])) {
-            $model->userName = $map['userName'];
         }
 
         return $model;

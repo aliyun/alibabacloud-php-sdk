@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var bool
-     */
-    public $enable;
-
-    /**
      * @var string
      */
     public $quartzRegex;
+
+    /**
+     * @var bool
+     */
+    public $enable;
     protected $_name = [
-        'enable'      => 'enable',
         'quartzRegex' => 'quartzRegex',
+        'enable'      => 'enable',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enable) {
-            $res['enable'] = $this->enable;
-        }
         if (null !== $this->quartzRegex) {
             $res['quartzRegex'] = $this->quartzRegex;
+        }
+        if (null !== $this->enable) {
+            $res['enable'] = $this->enable;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['enable'])) {
-            $model->enable = $map['enable'];
-        }
         if (isset($map['quartzRegex'])) {
             $model->quartzRegex = $map['quartzRegex'];
+        }
+        if (isset($map['enable'])) {
+            $model->enable = $map['enable'];
         }
 
         return $model;

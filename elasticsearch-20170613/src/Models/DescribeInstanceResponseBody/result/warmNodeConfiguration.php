@@ -14,6 +14,11 @@ class warmNodeConfiguration extends Model
     public $amount;
 
     /**
+     * @var string
+     */
+    public $spec;
+
+    /**
      * @var int
      */
     public $disk;
@@ -27,17 +32,12 @@ class warmNodeConfiguration extends Model
      * @var string
      */
     public $diskType;
-
-    /**
-     * @var string
-     */
-    public $spec;
     protected $_name = [
         'amount'         => 'amount',
+        'spec'           => 'spec',
         'disk'           => 'disk',
         'diskEncryption' => 'diskEncryption',
         'diskType'       => 'diskType',
-        'spec'           => 'spec',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class warmNodeConfiguration extends Model
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
         }
+        if (null !== $this->spec) {
+            $res['spec'] = $this->spec;
+        }
         if (null !== $this->disk) {
             $res['disk'] = $this->disk;
         }
@@ -58,9 +61,6 @@ class warmNodeConfiguration extends Model
         }
         if (null !== $this->diskType) {
             $res['diskType'] = $this->diskType;
-        }
-        if (null !== $this->spec) {
-            $res['spec'] = $this->spec;
         }
 
         return $res;
@@ -77,6 +77,9 @@ class warmNodeConfiguration extends Model
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
         }
+        if (isset($map['spec'])) {
+            $model->spec = $map['spec'];
+        }
         if (isset($map['disk'])) {
             $model->disk = $map['disk'];
         }
@@ -85,9 +88,6 @@ class warmNodeConfiguration extends Model
         }
         if (isset($map['diskType'])) {
             $model->diskType = $map['diskType'];
-        }
-        if (isset($map['spec'])) {
-            $model->spec = $map['spec'];
         }
 
         return $model;

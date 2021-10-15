@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetTransferableNodesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $count;
-
-    /**
      * @var string
      */
     public $nodeType;
+
+    /**
+     * @var int
+     */
+    public $count;
     protected $_name = [
-        'count'    => 'count',
         'nodeType' => 'nodeType',
+        'count'    => 'count',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetTransferableNodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->count) {
-            $res['count'] = $this->count;
-        }
         if (null !== $this->nodeType) {
             $res['nodeType'] = $this->nodeType;
+        }
+        if (null !== $this->count) {
+            $res['count'] = $this->count;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetTransferableNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['count'])) {
-            $model->count = $map['count'];
-        }
         if (isset($map['nodeType'])) {
             $model->nodeType = $map['nodeType'];
+        }
+        if (isset($map['count'])) {
+            $model->count = $map['count'];
         }
 
         return $model;

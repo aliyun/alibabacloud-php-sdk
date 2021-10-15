@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @var headers
-     */
-    public $headers;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -26,13 +21,18 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @var headers
+     */
+    public $headers;
+
+    /**
      * @var tagResources
      */
     public $tagResources;
     protected $_name = [
-        'headers'      => 'Headers',
         'pageSize'     => 'PageSize',
         'requestId'    => 'RequestId',
+        'headers'      => 'Headers',
         'tagResources' => 'TagResources',
     ];
 
@@ -43,14 +43,14 @@ class ListTagResourcesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['Headers'] = null !== $this->headers ? $this->headers->toMap() : null;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->headers) {
+            $res['Headers'] = null !== $this->headers ? $this->headers->toMap() : null;
         }
         if (null !== $this->tagResources) {
             $res['TagResources'] = null !== $this->tagResources ? $this->tagResources->toMap() : null;
@@ -67,14 +67,14 @@ class ListTagResourcesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Headers'])) {
-            $model->headers = headers::fromMap($map['Headers']);
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Headers'])) {
+            $model->headers = headers::fromMap($map['Headers']);
         }
         if (isset($map['TagResources'])) {
             $model->tagResources = tagResources::fromMap($map['TagResources']);

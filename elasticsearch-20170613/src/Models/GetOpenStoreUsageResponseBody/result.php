@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 当前使用量
-     *
-     * @var int
-     */
-    public $currentUsage;
-
-    /**
      * @description 昨日使用容量
      *
      * @var int
      */
     public $lastDayUsage;
+
+    /**
+     * @description 当前使用量
+     *
+     * @var int
+     */
+    public $currentUsage;
     protected $_name = [
-        'currentUsage' => 'currentUsage',
         'lastDayUsage' => 'lastDayUsage',
+        'currentUsage' => 'currentUsage',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->currentUsage) {
-            $res['currentUsage'] = $this->currentUsage;
-        }
         if (null !== $this->lastDayUsage) {
             $res['lastDayUsage'] = $this->lastDayUsage;
+        }
+        if (null !== $this->currentUsage) {
+            $res['currentUsage'] = $this->currentUsage;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['currentUsage'])) {
-            $model->currentUsage = $map['currentUsage'];
-        }
         if (isset($map['lastDayUsage'])) {
             $model->lastDayUsage = $map['lastDayUsage'];
+        }
+        if (isset($map['currentUsage'])) {
+            $model->currentUsage = $map['currentUsage'];
         }
 
         return $model;

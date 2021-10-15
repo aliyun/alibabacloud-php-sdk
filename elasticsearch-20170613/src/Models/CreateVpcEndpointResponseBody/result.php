@@ -11,6 +11,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $serviceId;
+
+    /**
+     * @var string
+     */
     public $endpointDomain;
 
     /**
@@ -22,16 +27,11 @@ class result extends Model
      * @var string
      */
     public $endpointName;
-
-    /**
-     * @var string
-     */
-    public $serviceId;
     protected $_name = [
+        'serviceId'      => 'serviceId',
         'endpointDomain' => 'endpointDomain',
         'endpointId'     => 'endpointId',
         'endpointName'   => 'endpointName',
-        'serviceId'      => 'serviceId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->serviceId) {
+            $res['serviceId'] = $this->serviceId;
+        }
         if (null !== $this->endpointDomain) {
             $res['endpointDomain'] = $this->endpointDomain;
         }
@@ -49,9 +52,6 @@ class result extends Model
         }
         if (null !== $this->endpointName) {
             $res['endpointName'] = $this->endpointName;
-        }
-        if (null !== $this->serviceId) {
-            $res['serviceId'] = $this->serviceId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['serviceId'])) {
+            $model->serviceId = $map['serviceId'];
+        }
         if (isset($map['endpointDomain'])) {
             $model->endpointDomain = $map['endpointDomain'];
         }
@@ -73,9 +76,6 @@ class result extends Model
         }
         if (isset($map['endpointName'])) {
             $model->endpointName = $map['endpointName'];
-        }
-        if (isset($map['serviceId'])) {
-            $model->serviceId = $map['serviceId'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RestartLogstashRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
      * @var bool
      */
     public $force;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
     protected $_name = [
-        'clientToken' => 'clientToken',
         'force'       => 'force',
+        'clientToken' => 'clientToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RestartLogstashRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
-        }
         if (null !== $this->force) {
             $res['force'] = $this->force;
+        }
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RestartLogstashRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
-        }
         if (isset($map['force'])) {
             $model->force = $map['force'];
+        }
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

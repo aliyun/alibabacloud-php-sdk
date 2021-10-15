@@ -21,19 +21,14 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var clientNodeAmountRange
+     * @var string
      */
-    public $clientNodeAmountRange;
+    public $env;
 
     /**
-     * @var clientNodeDiskList[]
+     * @var string
      */
-    public $clientNodeDiskList;
-
-    /**
-     * @var string[]
-     */
-    public $clientNodeSpec;
+    public $regionId;
 
     /**
      * @var string
@@ -46,54 +41,9 @@ class result extends Model
     public $dataDiskList;
 
     /**
-     * @var elasticNodeProperties
-     */
-    public $elasticNodeProperties;
-
-    /**
-     * @var string
-     */
-    public $env;
-
-    /**
-     * @var string[]
-     */
-    public $esVersions;
-
-    /**
      * @var esVersionsLatestList[]
      */
     public $esVersionsLatestList;
-
-    /**
-     * @var string[]
-     */
-    public $instanceSupportNodes;
-
-    /**
-     * @var jvmConfine
-     */
-    public $jvmConfine;
-
-    /**
-     * @var kibanaNodeProperties
-     */
-    public $kibanaNodeProperties;
-
-    /**
-     * @var masterDiskList[]
-     */
-    public $masterDiskList;
-
-    /**
-     * @var string[]
-     */
-    public $masterSpec;
-
-    /**
-     * @var node
-     */
-    public $node;
 
     /**
      * @var nodeSpecList[]
@@ -101,9 +51,14 @@ class result extends Model
     public $nodeSpecList;
 
     /**
-     * @var string
+     * @var clientNodeDiskList[]
      */
-    public $regionId;
+    public $clientNodeDiskList;
+
+    /**
+     * @var masterDiskList[]
+     */
+    public $masterDiskList;
 
     /**
      * @var supportVersions[]
@@ -111,35 +66,80 @@ class result extends Model
     public $supportVersions;
 
     /**
-     * @var warmNodeProperties
+     * @var string[]
      */
-    public $warmNodeProperties;
+    public $masterSpec;
+
+    /**
+     * @var string[]
+     */
+    public $clientNodeSpec;
 
     /**
      * @var string[]
      */
     public $zones;
+
+    /**
+     * @var string[]
+     */
+    public $instanceSupportNodes;
+
+    /**
+     * @var string[]
+     */
+    public $esVersions;
+
+    /**
+     * @var node
+     */
+    public $node;
+
+    /**
+     * @var jvmConfine
+     */
+    public $jvmConfine;
+
+    /**
+     * @var clientNodeAmountRange
+     */
+    public $clientNodeAmountRange;
+
+    /**
+     * @var warmNodeProperties
+     */
+    public $warmNodeProperties;
+
+    /**
+     * @var kibanaNodeProperties
+     */
+    public $kibanaNodeProperties;
+
+    /**
+     * @var elasticNodeProperties
+     */
+    public $elasticNodeProperties;
     protected $_name = [
-        'clientNodeAmountRange' => 'clientNodeAmountRange',
-        'clientNodeDiskList'    => 'clientNodeDiskList',
-        'clientNodeSpec'        => 'clientNodeSpec',
+        'env'                   => 'env',
+        'regionId'              => 'regionId',
         'createUrl'             => 'createUrl',
         'dataDiskList'          => 'dataDiskList',
-        'elasticNodeProperties' => 'elasticNodeProperties',
-        'env'                   => 'env',
-        'esVersions'            => 'esVersions',
         'esVersionsLatestList'  => 'esVersionsLatestList',
-        'instanceSupportNodes'  => 'instanceSupportNodes',
-        'jvmConfine'            => 'jvmConfine',
-        'kibanaNodeProperties'  => 'kibanaNodeProperties',
-        'masterDiskList'        => 'masterDiskList',
-        'masterSpec'            => 'masterSpec',
-        'node'                  => 'node',
         'nodeSpecList'          => 'nodeSpecList',
-        'regionId'              => 'regionId',
+        'clientNodeDiskList'    => 'clientNodeDiskList',
+        'masterDiskList'        => 'masterDiskList',
         'supportVersions'       => 'supportVersions',
-        'warmNodeProperties'    => 'warmNodeProperties',
+        'masterSpec'            => 'masterSpec',
+        'clientNodeSpec'        => 'clientNodeSpec',
         'zones'                 => 'zones',
+        'instanceSupportNodes'  => 'instanceSupportNodes',
+        'esVersions'            => 'esVersions',
+        'node'                  => 'node',
+        'jvmConfine'            => 'jvmConfine',
+        'clientNodeAmountRange' => 'clientNodeAmountRange',
+        'warmNodeProperties'    => 'warmNodeProperties',
+        'kibanaNodeProperties'  => 'kibanaNodeProperties',
+        'elasticNodeProperties' => 'elasticNodeProperties',
     ];
 
     public function validate()
@@ -149,20 +149,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientNodeAmountRange) {
-            $res['clientNodeAmountRange'] = null !== $this->clientNodeAmountRange ? $this->clientNodeAmountRange->toMap() : null;
+        if (null !== $this->env) {
+            $res['env'] = $this->env;
         }
-        if (null !== $this->clientNodeDiskList) {
-            $res['clientNodeDiskList'] = [];
-            if (null !== $this->clientNodeDiskList && \is_array($this->clientNodeDiskList)) {
-                $n = 0;
-                foreach ($this->clientNodeDiskList as $item) {
-                    $res['clientNodeDiskList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->clientNodeSpec) {
-            $res['clientNodeSpec'] = $this->clientNodeSpec;
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
         }
         if (null !== $this->createUrl) {
             $res['createUrl'] = $this->createUrl;
@@ -176,15 +167,6 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->elasticNodeProperties) {
-            $res['elasticNodeProperties'] = null !== $this->elasticNodeProperties ? $this->elasticNodeProperties->toMap() : null;
-        }
-        if (null !== $this->env) {
-            $res['env'] = $this->env;
-        }
-        if (null !== $this->esVersions) {
-            $res['esVersions'] = $this->esVersions;
-        }
         if (null !== $this->esVersionsLatestList) {
             $res['esVersionsLatestList'] = [];
             if (null !== $this->esVersionsLatestList && \is_array($this->esVersionsLatestList)) {
@@ -193,30 +175,6 @@ class result extends Model
                     $res['esVersionsLatestList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->instanceSupportNodes) {
-            $res['instanceSupportNodes'] = $this->instanceSupportNodes;
-        }
-        if (null !== $this->jvmConfine) {
-            $res['jvmConfine'] = null !== $this->jvmConfine ? $this->jvmConfine->toMap() : null;
-        }
-        if (null !== $this->kibanaNodeProperties) {
-            $res['kibanaNodeProperties'] = null !== $this->kibanaNodeProperties ? $this->kibanaNodeProperties->toMap() : null;
-        }
-        if (null !== $this->masterDiskList) {
-            $res['masterDiskList'] = [];
-            if (null !== $this->masterDiskList && \is_array($this->masterDiskList)) {
-                $n = 0;
-                foreach ($this->masterDiskList as $item) {
-                    $res['masterDiskList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->masterSpec) {
-            $res['masterSpec'] = $this->masterSpec;
-        }
-        if (null !== $this->node) {
-            $res['node'] = null !== $this->node ? $this->node->toMap() : null;
         }
         if (null !== $this->nodeSpecList) {
             $res['nodeSpecList'] = [];
@@ -227,8 +185,23 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->regionId) {
-            $res['regionId'] = $this->regionId;
+        if (null !== $this->clientNodeDiskList) {
+            $res['clientNodeDiskList'] = [];
+            if (null !== $this->clientNodeDiskList && \is_array($this->clientNodeDiskList)) {
+                $n = 0;
+                foreach ($this->clientNodeDiskList as $item) {
+                    $res['clientNodeDiskList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->masterDiskList) {
+            $res['masterDiskList'] = [];
+            if (null !== $this->masterDiskList && \is_array($this->masterDiskList)) {
+                $n = 0;
+                foreach ($this->masterDiskList as $item) {
+                    $res['masterDiskList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->supportVersions) {
             $res['supportVersions'] = [];
@@ -239,11 +212,38 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->warmNodeProperties) {
-            $res['warmNodeProperties'] = null !== $this->warmNodeProperties ? $this->warmNodeProperties->toMap() : null;
+        if (null !== $this->masterSpec) {
+            $res['masterSpec'] = $this->masterSpec;
+        }
+        if (null !== $this->clientNodeSpec) {
+            $res['clientNodeSpec'] = $this->clientNodeSpec;
         }
         if (null !== $this->zones) {
             $res['zones'] = $this->zones;
+        }
+        if (null !== $this->instanceSupportNodes) {
+            $res['instanceSupportNodes'] = $this->instanceSupportNodes;
+        }
+        if (null !== $this->esVersions) {
+            $res['esVersions'] = $this->esVersions;
+        }
+        if (null !== $this->node) {
+            $res['node'] = null !== $this->node ? $this->node->toMap() : null;
+        }
+        if (null !== $this->jvmConfine) {
+            $res['jvmConfine'] = null !== $this->jvmConfine ? $this->jvmConfine->toMap() : null;
+        }
+        if (null !== $this->clientNodeAmountRange) {
+            $res['clientNodeAmountRange'] = null !== $this->clientNodeAmountRange ? $this->clientNodeAmountRange->toMap() : null;
+        }
+        if (null !== $this->warmNodeProperties) {
+            $res['warmNodeProperties'] = null !== $this->warmNodeProperties ? $this->warmNodeProperties->toMap() : null;
+        }
+        if (null !== $this->kibanaNodeProperties) {
+            $res['kibanaNodeProperties'] = null !== $this->kibanaNodeProperties ? $this->kibanaNodeProperties->toMap() : null;
+        }
+        if (null !== $this->elasticNodeProperties) {
+            $res['elasticNodeProperties'] = null !== $this->elasticNodeProperties ? $this->elasticNodeProperties->toMap() : null;
         }
 
         return $res;
@@ -257,22 +257,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['clientNodeAmountRange'])) {
-            $model->clientNodeAmountRange = clientNodeAmountRange::fromMap($map['clientNodeAmountRange']);
+        if (isset($map['env'])) {
+            $model->env = $map['env'];
         }
-        if (isset($map['clientNodeDiskList'])) {
-            if (!empty($map['clientNodeDiskList'])) {
-                $model->clientNodeDiskList = [];
-                $n                         = 0;
-                foreach ($map['clientNodeDiskList'] as $item) {
-                    $model->clientNodeDiskList[$n++] = null !== $item ? clientNodeDiskList::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['clientNodeSpec'])) {
-            if (!empty($map['clientNodeSpec'])) {
-                $model->clientNodeSpec = $map['clientNodeSpec'];
-            }
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
         }
         if (isset($map['createUrl'])) {
             $model->createUrl = $map['createUrl'];
@@ -286,17 +275,6 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['elasticNodeProperties'])) {
-            $model->elasticNodeProperties = elasticNodeProperties::fromMap($map['elasticNodeProperties']);
-        }
-        if (isset($map['env'])) {
-            $model->env = $map['env'];
-        }
-        if (isset($map['esVersions'])) {
-            if (!empty($map['esVersions'])) {
-                $model->esVersions = $map['esVersions'];
-            }
-        }
         if (isset($map['esVersionsLatestList'])) {
             if (!empty($map['esVersionsLatestList'])) {
                 $model->esVersionsLatestList = [];
@@ -305,34 +283,6 @@ class result extends Model
                     $model->esVersionsLatestList[$n++] = null !== $item ? esVersionsLatestList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['instanceSupportNodes'])) {
-            if (!empty($map['instanceSupportNodes'])) {
-                $model->instanceSupportNodes = $map['instanceSupportNodes'];
-            }
-        }
-        if (isset($map['jvmConfine'])) {
-            $model->jvmConfine = jvmConfine::fromMap($map['jvmConfine']);
-        }
-        if (isset($map['kibanaNodeProperties'])) {
-            $model->kibanaNodeProperties = kibanaNodeProperties::fromMap($map['kibanaNodeProperties']);
-        }
-        if (isset($map['masterDiskList'])) {
-            if (!empty($map['masterDiskList'])) {
-                $model->masterDiskList = [];
-                $n                     = 0;
-                foreach ($map['masterDiskList'] as $item) {
-                    $model->masterDiskList[$n++] = null !== $item ? masterDiskList::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['masterSpec'])) {
-            if (!empty($map['masterSpec'])) {
-                $model->masterSpec = $map['masterSpec'];
-            }
-        }
-        if (isset($map['node'])) {
-            $model->node = node::fromMap($map['node']);
         }
         if (isset($map['nodeSpecList'])) {
             if (!empty($map['nodeSpecList'])) {
@@ -343,8 +293,23 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['regionId'])) {
-            $model->regionId = $map['regionId'];
+        if (isset($map['clientNodeDiskList'])) {
+            if (!empty($map['clientNodeDiskList'])) {
+                $model->clientNodeDiskList = [];
+                $n                         = 0;
+                foreach ($map['clientNodeDiskList'] as $item) {
+                    $model->clientNodeDiskList[$n++] = null !== $item ? clientNodeDiskList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['masterDiskList'])) {
+            if (!empty($map['masterDiskList'])) {
+                $model->masterDiskList = [];
+                $n                     = 0;
+                foreach ($map['masterDiskList'] as $item) {
+                    $model->masterDiskList[$n++] = null !== $item ? masterDiskList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['supportVersions'])) {
             if (!empty($map['supportVersions'])) {
@@ -355,13 +320,48 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['warmNodeProperties'])) {
-            $model->warmNodeProperties = warmNodeProperties::fromMap($map['warmNodeProperties']);
+        if (isset($map['masterSpec'])) {
+            if (!empty($map['masterSpec'])) {
+                $model->masterSpec = $map['masterSpec'];
+            }
+        }
+        if (isset($map['clientNodeSpec'])) {
+            if (!empty($map['clientNodeSpec'])) {
+                $model->clientNodeSpec = $map['clientNodeSpec'];
+            }
         }
         if (isset($map['zones'])) {
             if (!empty($map['zones'])) {
                 $model->zones = $map['zones'];
             }
+        }
+        if (isset($map['instanceSupportNodes'])) {
+            if (!empty($map['instanceSupportNodes'])) {
+                $model->instanceSupportNodes = $map['instanceSupportNodes'];
+            }
+        }
+        if (isset($map['esVersions'])) {
+            if (!empty($map['esVersions'])) {
+                $model->esVersions = $map['esVersions'];
+            }
+        }
+        if (isset($map['node'])) {
+            $model->node = node::fromMap($map['node']);
+        }
+        if (isset($map['jvmConfine'])) {
+            $model->jvmConfine = jvmConfine::fromMap($map['jvmConfine']);
+        }
+        if (isset($map['clientNodeAmountRange'])) {
+            $model->clientNodeAmountRange = clientNodeAmountRange::fromMap($map['clientNodeAmountRange']);
+        }
+        if (isset($map['warmNodeProperties'])) {
+            $model->warmNodeProperties = warmNodeProperties::fromMap($map['warmNodeProperties']);
+        }
+        if (isset($map['kibanaNodeProperties'])) {
+            $model->kibanaNodeProperties = kibanaNodeProperties::fromMap($map['kibanaNodeProperties']);
+        }
+        if (isset($map['elasticNodeProperties'])) {
+            $model->elasticNodeProperties = elasticNodeProperties::fromMap($map['elasticNodeProperties']);
         }
 
         return $model;

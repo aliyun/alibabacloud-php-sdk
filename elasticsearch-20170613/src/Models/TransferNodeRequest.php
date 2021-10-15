@@ -11,15 +11,15 @@ class TransferNodeRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $nodeType;
 
     /**
      * @var string
      */
-    public $nodeType;
+    public $clientToken;
     protected $_name = [
-        'clientToken' => 'clientToken',
         'nodeType'    => 'nodeType',
+        'clientToken' => 'clientToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class TransferNodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
-        }
         if (null !== $this->nodeType) {
             $res['nodeType'] = $this->nodeType;
+        }
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class TransferNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
-        }
         if (isset($map['nodeType'])) {
             $model->nodeType = $map['nodeType'];
+        }
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

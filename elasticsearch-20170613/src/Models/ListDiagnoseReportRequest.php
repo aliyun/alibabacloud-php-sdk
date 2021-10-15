@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseReportRequest extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $detail;
+    public $lang;
+
+    /**
+     * @var int
+     */
+    public $startTime;
 
     /**
      * @var int
      */
     public $endTime;
-
-    /**
-     * @var string
-     */
-    public $lang;
 
     /**
      * @var int
@@ -34,21 +34,21 @@ class ListDiagnoseReportRequest extends Model
     public $size;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $startTime;
+    public $detail;
 
     /**
      * @var string
      */
     public $trigger;
     protected $_name = [
-        'detail'    => 'detail',
-        'endTime'   => 'endTime',
         'lang'      => 'lang',
+        'startTime' => 'startTime',
+        'endTime'   => 'endTime',
         'page'      => 'page',
         'size'      => 'size',
-        'startTime' => 'startTime',
+        'detail'    => 'detail',
         'trigger'   => 'trigger',
     ];
 
@@ -59,14 +59,14 @@ class ListDiagnoseReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->detail) {
-            $res['detail'] = $this->detail;
+        if (null !== $this->lang) {
+            $res['lang'] = $this->lang;
+        }
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
         }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
-        }
-        if (null !== $this->lang) {
-            $res['lang'] = $this->lang;
         }
         if (null !== $this->page) {
             $res['page'] = $this->page;
@@ -74,8 +74,8 @@ class ListDiagnoseReportRequest extends Model
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
-        if (null !== $this->startTime) {
-            $res['startTime'] = $this->startTime;
+        if (null !== $this->detail) {
+            $res['detail'] = $this->detail;
         }
         if (null !== $this->trigger) {
             $res['trigger'] = $this->trigger;
@@ -92,14 +92,14 @@ class ListDiagnoseReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['detail'])) {
-            $model->detail = $map['detail'];
+        if (isset($map['lang'])) {
+            $model->lang = $map['lang'];
+        }
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
         }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
-        }
-        if (isset($map['lang'])) {
-            $model->lang = $map['lang'];
         }
         if (isset($map['page'])) {
             $model->page = $map['page'];
@@ -107,8 +107,8 @@ class ListDiagnoseReportRequest extends Model
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }
-        if (isset($map['startTime'])) {
-            $model->startTime = $map['startTime'];
+        if (isset($map['detail'])) {
+            $model->detail = $map['detail'];
         }
         if (isset($map['trigger'])) {
             $model->trigger = $map['trigger'];

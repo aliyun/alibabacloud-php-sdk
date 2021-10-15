@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class clientNodeConfiguration extends Model
 {
     /**
+     * @var string
+     */
+    public $spec;
+
+    /**
      * @var int
      */
     public $amount;
@@ -22,16 +27,11 @@ class clientNodeConfiguration extends Model
      * @var string
      */
     public $diskType;
-
-    /**
-     * @var string
-     */
-    public $spec;
     protected $_name = [
+        'spec'     => 'spec',
         'amount'   => 'amount',
         'disk'     => 'disk',
         'diskType' => 'diskType',
-        'spec'     => 'spec',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class clientNodeConfiguration extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->spec) {
+            $res['spec'] = $this->spec;
+        }
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
         }
@@ -49,9 +52,6 @@ class clientNodeConfiguration extends Model
         }
         if (null !== $this->diskType) {
             $res['diskType'] = $this->diskType;
-        }
-        if (null !== $this->spec) {
-            $res['spec'] = $this->spec;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class clientNodeConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['spec'])) {
+            $model->spec = $map['spec'];
+        }
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
         }
@@ -73,9 +76,6 @@ class clientNodeConfiguration extends Model
         }
         if (isset($map['diskType'])) {
             $model->diskType = $map['diskType'];
-        }
-        if (isset($map['spec'])) {
-            $model->spec = $map['spec'];
         }
 
         return $model;

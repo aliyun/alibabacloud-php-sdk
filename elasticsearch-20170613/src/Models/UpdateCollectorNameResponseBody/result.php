@@ -11,29 +11,9 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var string[]
-     */
-    public $collectorPaths;
-
-    /**
-     * @var configs[]
-     */
-    public $configs;
-
-    /**
-     * @var bool
-     */
-    public $dryRun;
-
-    /**
-     * @var extendConfigs[]
-     */
-    public $extendConfigs;
-
-    /**
      * @var string
      */
-    public $gmtCreatedTime;
+    public $resId;
 
     /**
      * @var string
@@ -41,9 +21,9 @@ class result extends Model
     public $gmtUpdateTime;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $name;
+    public $dryRun;
 
     /**
      * @var string
@@ -53,7 +33,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $resId;
+    public $vpcId;
 
     /**
      * @var string
@@ -68,26 +48,46 @@ class result extends Model
     /**
      * @var string
      */
+    public $gmtCreatedTime;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
      * @var string
      */
-    public $vpcId;
+    public $name;
+
+    /**
+     * @var configs[]
+     */
+    public $configs;
+
+    /**
+     * @var extendConfigs[]
+     */
+    public $extendConfigs;
+
+    /**
+     * @var string[]
+     */
+    public $collectorPaths;
     protected $_name = [
-        'collectorPaths' => 'collectorPaths',
-        'configs'        => 'configs',
-        'dryRun'         => 'dryRun',
-        'extendConfigs'  => 'extendConfigs',
-        'gmtCreatedTime' => 'gmtCreatedTime',
-        'gmtUpdateTime'  => 'gmtUpdateTime',
-        'name'           => 'name',
-        'ownerId'        => 'ownerId',
         'resId'          => 'resId',
+        'gmtUpdateTime'  => 'gmtUpdateTime',
+        'dryRun'         => 'dryRun',
+        'ownerId'        => 'ownerId',
+        'vpcId'          => 'vpcId',
         'resType'        => 'resType',
         'resVersion'     => 'resVersion',
+        'gmtCreatedTime' => 'gmtCreatedTime',
         'status'         => 'status',
-        'vpcId'          => 'vpcId',
+        'name'           => 'name',
+        'configs'        => 'configs',
+        'extendConfigs'  => 'extendConfigs',
+        'collectorPaths' => 'collectorPaths',
     ];
 
     public function validate()
@@ -97,8 +97,35 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->collectorPaths) {
-            $res['collectorPaths'] = $this->collectorPaths;
+        if (null !== $this->resId) {
+            $res['resId'] = $this->resId;
+        }
+        if (null !== $this->gmtUpdateTime) {
+            $res['gmtUpdateTime'] = $this->gmtUpdateTime;
+        }
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
+        }
+        if (null !== $this->ownerId) {
+            $res['ownerId'] = $this->ownerId;
+        }
+        if (null !== $this->vpcId) {
+            $res['vpcId'] = $this->vpcId;
+        }
+        if (null !== $this->resType) {
+            $res['resType'] = $this->resType;
+        }
+        if (null !== $this->resVersion) {
+            $res['resVersion'] = $this->resVersion;
+        }
+        if (null !== $this->gmtCreatedTime) {
+            $res['gmtCreatedTime'] = $this->gmtCreatedTime;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
         if (null !== $this->configs) {
             $res['configs'] = [];
@@ -109,9 +136,6 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->dryRun) {
-            $res['dryRun'] = $this->dryRun;
-        }
         if (null !== $this->extendConfigs) {
             $res['extendConfigs'] = [];
             if (null !== $this->extendConfigs && \is_array($this->extendConfigs)) {
@@ -121,32 +145,8 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->gmtCreatedTime) {
-            $res['gmtCreatedTime'] = $this->gmtCreatedTime;
-        }
-        if (null !== $this->gmtUpdateTime) {
-            $res['gmtUpdateTime'] = $this->gmtUpdateTime;
-        }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
-        if (null !== $this->ownerId) {
-            $res['ownerId'] = $this->ownerId;
-        }
-        if (null !== $this->resId) {
-            $res['resId'] = $this->resId;
-        }
-        if (null !== $this->resType) {
-            $res['resType'] = $this->resType;
-        }
-        if (null !== $this->resVersion) {
-            $res['resVersion'] = $this->resVersion;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
-        if (null !== $this->vpcId) {
-            $res['vpcId'] = $this->vpcId;
+        if (null !== $this->collectorPaths) {
+            $res['collectorPaths'] = $this->collectorPaths;
         }
 
         return $res;
@@ -160,10 +160,35 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['collectorPaths'])) {
-            if (!empty($map['collectorPaths'])) {
-                $model->collectorPaths = $map['collectorPaths'];
-            }
+        if (isset($map['resId'])) {
+            $model->resId = $map['resId'];
+        }
+        if (isset($map['gmtUpdateTime'])) {
+            $model->gmtUpdateTime = $map['gmtUpdateTime'];
+        }
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
+        }
+        if (isset($map['ownerId'])) {
+            $model->ownerId = $map['ownerId'];
+        }
+        if (isset($map['vpcId'])) {
+            $model->vpcId = $map['vpcId'];
+        }
+        if (isset($map['resType'])) {
+            $model->resType = $map['resType'];
+        }
+        if (isset($map['resVersion'])) {
+            $model->resVersion = $map['resVersion'];
+        }
+        if (isset($map['gmtCreatedTime'])) {
+            $model->gmtCreatedTime = $map['gmtCreatedTime'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
         if (isset($map['configs'])) {
             if (!empty($map['configs'])) {
@@ -174,9 +199,6 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['dryRun'])) {
-            $model->dryRun = $map['dryRun'];
-        }
         if (isset($map['extendConfigs'])) {
             if (!empty($map['extendConfigs'])) {
                 $model->extendConfigs = [];
@@ -186,32 +208,10 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['gmtCreatedTime'])) {
-            $model->gmtCreatedTime = $map['gmtCreatedTime'];
-        }
-        if (isset($map['gmtUpdateTime'])) {
-            $model->gmtUpdateTime = $map['gmtUpdateTime'];
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
-        if (isset($map['ownerId'])) {
-            $model->ownerId = $map['ownerId'];
-        }
-        if (isset($map['resId'])) {
-            $model->resId = $map['resId'];
-        }
-        if (isset($map['resType'])) {
-            $model->resType = $map['resType'];
-        }
-        if (isset($map['resVersion'])) {
-            $model->resVersion = $map['resVersion'];
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
-        if (isset($map['vpcId'])) {
-            $model->vpcId = $map['vpcId'];
+        if (isset($map['collectorPaths'])) {
+            if (!empty($map['collectorPaths'])) {
+                $model->collectorPaths = $map['collectorPaths'];
+            }
         }
 
         return $model;
