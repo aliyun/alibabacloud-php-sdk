@@ -9,6 +9,9 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ExecuteRequest;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ExecuteResponse;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ExecuteShrinkRequest;
+use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeathermonitorProvinceHourRequest;
+use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeathermonitorProvinceHourResponse;
+use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeathermonitorProvinceHourShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -102,5 +105,61 @@ class Aliyunape extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param WeathermonitorProvinceHourRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return WeathermonitorProvinceHourResponse
+     */
+    public function weathermonitorProvinceHourWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new WeathermonitorProvinceHourShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extendParam)) {
+            $request->extendParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extendParam, 'ExtendParam', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->serviceParam)) {
+            $request->serviceParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serviceParam, 'ServiceParam', 'json');
+        }
+        $query                 = [];
+        $query['AppName']      = $request->appName;
+        $query['Channel']      = $request->channel;
+        $query['ExtendParam']  = $request->extendParamShrink;
+        $query['OrderId']      = $request->orderId;
+        $query['RequestId']    = $request->requestId;
+        $query['ServiceParam'] = $request->serviceParamShrink;
+        $query['UserId']       = $request->userId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'WeathermonitorProvinceHour',
+            'version'     => '2021-09-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return WeathermonitorProvinceHourResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param WeathermonitorProvinceHourRequest $request
+     *
+     * @return WeathermonitorProvinceHourResponse
+     */
+    public function weathermonitorProvinceHour($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->weathermonitorProvinceHourWithOptions($request, $runtime);
     }
 }
