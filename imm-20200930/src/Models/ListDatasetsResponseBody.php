@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListDatasetsResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description Datasets
      *
-     * @var string
+     * @var Dataset[]
      */
-    public $requestId;
+    public $datasets;
 
     /**
      * @var string
@@ -21,15 +21,15 @@ class ListDatasetsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Datasets
+     * @description Id of the request
      *
-     * @var Dataset[]
+     * @var string
      */
-    public $datasets;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'nextToken' => 'NextToken',
         'datasets'  => 'Datasets',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -39,12 +39,6 @@ class ListDatasetsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->datasets) {
             $res['Datasets'] = [];
             if (null !== $this->datasets && \is_array($this->datasets)) {
@@ -53,6 +47,12 @@ class ListDatasetsResponseBody extends Model
                     $res['Datasets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,12 +66,6 @@ class ListDatasetsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['Datasets'])) {
             if (!empty($map['Datasets'])) {
                 $model->datasets = [];
@@ -80,6 +74,12 @@ class ListDatasetsResponseBody extends Model
                     $model->datasets[$n++] = null !== $item ? Dataset::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

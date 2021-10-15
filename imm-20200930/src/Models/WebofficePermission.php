@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class WebofficePermission extends Model
 {
     /**
-     * @description 重命名
+     * @description 拷贝
      *
      * @var bool
      */
-    public $rename;
+    public $copy;
 
     /**
-     * @description 只读模式
+     * @description 导出
      *
      * @var bool
      */
-    public $readonly;
+    public $export;
 
     /**
      * @description 查看历史版本
@@ -37,25 +37,25 @@ class WebofficePermission extends Model
     public $print;
 
     /**
-     * @description 导出
+     * @description 只读模式
      *
      * @var bool
      */
-    public $export;
+    public $readonly;
 
     /**
-     * @description 拷贝
+     * @description 重命名
      *
      * @var bool
      */
-    public $copy;
+    public $rename;
     protected $_name = [
-        'rename'   => 'Rename',
-        'readonly' => 'Readonly',
+        'copy'     => 'Copy',
+        'export'   => 'Export',
         'history'  => 'History',
         'print'    => 'Print',
-        'export'   => 'Export',
-        'copy'     => 'Copy',
+        'readonly' => 'Readonly',
+        'rename'   => 'Rename',
     ];
 
     public function validate()
@@ -65,11 +65,11 @@ class WebofficePermission extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rename) {
-            $res['Rename'] = $this->rename;
+        if (null !== $this->copy) {
+            $res['Copy'] = $this->copy;
         }
-        if (null !== $this->readonly) {
-            $res['Readonly'] = $this->readonly;
+        if (null !== $this->export) {
+            $res['Export'] = $this->export;
         }
         if (null !== $this->history) {
             $res['History'] = $this->history;
@@ -77,11 +77,11 @@ class WebofficePermission extends Model
         if (null !== $this->print) {
             $res['Print'] = $this->print;
         }
-        if (null !== $this->export) {
-            $res['Export'] = $this->export;
+        if (null !== $this->readonly) {
+            $res['Readonly'] = $this->readonly;
         }
-        if (null !== $this->copy) {
-            $res['Copy'] = $this->copy;
+        if (null !== $this->rename) {
+            $res['Rename'] = $this->rename;
         }
 
         return $res;
@@ -95,11 +95,11 @@ class WebofficePermission extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Rename'])) {
-            $model->rename = $map['Rename'];
+        if (isset($map['Copy'])) {
+            $model->copy = $map['Copy'];
         }
-        if (isset($map['Readonly'])) {
-            $model->readonly = $map['Readonly'];
+        if (isset($map['Export'])) {
+            $model->export = $map['Export'];
         }
         if (isset($map['History'])) {
             $model->history = $map['History'];
@@ -107,11 +107,11 @@ class WebofficePermission extends Model
         if (isset($map['Print'])) {
             $model->print = $map['Print'];
         }
-        if (isset($map['Export'])) {
-            $model->export = $map['Export'];
+        if (isset($map['Readonly'])) {
+            $model->readonly = $map['Readonly'];
         }
-        if (isset($map['Copy'])) {
-            $model->copy = $map['Copy'];
+        if (isset($map['Rename'])) {
+            $model->rename = $map['Rename'];
         }
 
         return $model;

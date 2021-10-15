@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class Boundary extends Model
 {
     /**
-     * @description Width
-     *
-     * @var int
-     */
-    public $width;
-
-    /**
      * @description Height
      *
      * @var int
@@ -35,11 +28,18 @@ class Boundary extends Model
      * @var int
      */
     public $top;
+
+    /**
+     * @description Width
+     *
+     * @var int
+     */
+    public $width;
     protected $_name = [
-        'width'  => 'Width',
         'height' => 'Height',
         'left'   => 'Left',
         'top'    => 'Top',
+        'width'  => 'Width',
     ];
 
     public function validate()
@@ -49,9 +49,6 @@ class Boundary extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
@@ -60,6 +57,9 @@ class Boundary extends Model
         }
         if (null !== $this->top) {
             $res['Top'] = $this->top;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -73,9 +73,6 @@ class Boundary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
@@ -84,6 +81,9 @@ class Boundary extends Model
         }
         if (isset($map['Top'])) {
             $model->top = $map['Top'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetBindingResponseBody extends Model
 {
     /**
+     * @var Binding
+     */
+    public $binding;
+
+    /**
      * @description Id of the request
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var Binding
-     */
-    public $binding;
     protected $_name = [
-        'requestId' => 'RequestId',
         'binding'   => 'Binding',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class GetBindingResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->binding) {
             $res['Binding'] = null !== $this->binding ? $this->binding->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class GetBindingResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Binding'])) {
             $model->binding = Binding::fromMap($map['Binding']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

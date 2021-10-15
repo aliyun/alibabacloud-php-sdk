@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Image extends Model
 {
     /**
-     * @description ImageWidth
+     * @description CroppingSuggestions
      *
-     * @var int
+     * @var CroppingSuggestion[]
      */
-    public $imageWidth;
-
-    /**
-     * @description ImageHeight
-     *
-     * @var int
-     */
-    public $imageHeight;
+    public $croppingSuggestions;
 
     /**
      * @description EXIF
@@ -30,16 +23,23 @@ class Image extends Model
     public $EXIF;
 
     /**
+     * @description ImageHeight
+     *
+     * @var int
+     */
+    public $imageHeight;
+
+    /**
      * @var ImageScore
      */
     public $imageScore;
 
     /**
-     * @description CroppingSuggestions
+     * @description ImageWidth
      *
-     * @var CroppingSuggestion[]
+     * @var int
      */
-    public $croppingSuggestions;
+    public $imageWidth;
 
     /**
      * @description OCRContents
@@ -48,11 +48,11 @@ class Image extends Model
      */
     public $OCRContents;
     protected $_name = [
-        'imageWidth'          => 'ImageWidth',
-        'imageHeight'         => 'ImageHeight',
-        'EXIF'                => 'EXIF',
-        'imageScore'          => 'ImageScore',
         'croppingSuggestions' => 'CroppingSuggestions',
+        'EXIF'                => 'EXIF',
+        'imageHeight'         => 'ImageHeight',
+        'imageScore'          => 'ImageScore',
+        'imageWidth'          => 'ImageWidth',
         'OCRContents'         => 'OCRContents',
     ];
 
@@ -63,18 +63,6 @@ class Image extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageWidth) {
-            $res['ImageWidth'] = $this->imageWidth;
-        }
-        if (null !== $this->imageHeight) {
-            $res['ImageHeight'] = $this->imageHeight;
-        }
-        if (null !== $this->EXIF) {
-            $res['EXIF'] = $this->EXIF;
-        }
-        if (null !== $this->imageScore) {
-            $res['ImageScore'] = null !== $this->imageScore ? $this->imageScore->toMap() : null;
-        }
         if (null !== $this->croppingSuggestions) {
             $res['CroppingSuggestions'] = [];
             if (null !== $this->croppingSuggestions && \is_array($this->croppingSuggestions)) {
@@ -83,6 +71,18 @@ class Image extends Model
                     $res['CroppingSuggestions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->EXIF) {
+            $res['EXIF'] = $this->EXIF;
+        }
+        if (null !== $this->imageHeight) {
+            $res['ImageHeight'] = $this->imageHeight;
+        }
+        if (null !== $this->imageScore) {
+            $res['ImageScore'] = null !== $this->imageScore ? $this->imageScore->toMap() : null;
+        }
+        if (null !== $this->imageWidth) {
+            $res['ImageWidth'] = $this->imageWidth;
         }
         if (null !== $this->OCRContents) {
             $res['OCRContents'] = [];
@@ -105,18 +105,6 @@ class Image extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageWidth'])) {
-            $model->imageWidth = $map['ImageWidth'];
-        }
-        if (isset($map['ImageHeight'])) {
-            $model->imageHeight = $map['ImageHeight'];
-        }
-        if (isset($map['EXIF'])) {
-            $model->EXIF = $map['EXIF'];
-        }
-        if (isset($map['ImageScore'])) {
-            $model->imageScore = ImageScore::fromMap($map['ImageScore']);
-        }
         if (isset($map['CroppingSuggestions'])) {
             if (!empty($map['CroppingSuggestions'])) {
                 $model->croppingSuggestions = [];
@@ -125,6 +113,18 @@ class Image extends Model
                     $model->croppingSuggestions[$n++] = null !== $item ? CroppingSuggestion::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['EXIF'])) {
+            $model->EXIF = $map['EXIF'];
+        }
+        if (isset($map['ImageHeight'])) {
+            $model->imageHeight = $map['ImageHeight'];
+        }
+        if (isset($map['ImageScore'])) {
+            $model->imageScore = ImageScore::fromMap($map['ImageScore']);
+        }
+        if (isset($map['ImageWidth'])) {
+            $model->imageWidth = $map['ImageWidth'];
         }
         if (isset($map['OCRContents'])) {
             if (!empty($map['OCRContents'])) {

@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class FileForReq extends Model
 {
     /**
-     * @description URI
-     *
-     * @var string
-     */
-    public $URI;
-
-    /**
      * @description CustomId
      *
      * @var string
@@ -28,10 +21,33 @@ class FileForReq extends Model
      * @var mixed[]
      */
     public $customLabels;
+
+    /**
+     * @description FileHash
+     *
+     * @var string
+     */
+    public $fileHash;
+
+    /**
+     * @description OSSURI
+     *
+     * @var string
+     */
+    public $OSSURI;
+
+    /**
+     * @description URI
+     *
+     * @var string
+     */
+    public $URI;
     protected $_name = [
-        'URI'          => 'URI',
         'customId'     => 'CustomId',
         'customLabels' => 'CustomLabels',
+        'fileHash'     => 'FileHash',
+        'OSSURI'       => 'OSSURI',
+        'URI'          => 'URI',
     ];
 
     public function validate()
@@ -41,14 +57,20 @@ class FileForReq extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->URI) {
-            $res['URI'] = $this->URI;
-        }
         if (null !== $this->customId) {
             $res['CustomId'] = $this->customId;
         }
         if (null !== $this->customLabels) {
             $res['CustomLabels'] = $this->customLabels;
+        }
+        if (null !== $this->fileHash) {
+            $res['FileHash'] = $this->fileHash;
+        }
+        if (null !== $this->OSSURI) {
+            $res['OSSURI'] = $this->OSSURI;
+        }
+        if (null !== $this->URI) {
+            $res['URI'] = $this->URI;
         }
 
         return $res;
@@ -62,14 +84,20 @@ class FileForReq extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['URI'])) {
-            $model->URI = $map['URI'];
-        }
         if (isset($map['CustomId'])) {
             $model->customId = $map['CustomId'];
         }
         if (isset($map['CustomLabels'])) {
             $model->customLabels = $map['CustomLabels'];
+        }
+        if (isset($map['FileHash'])) {
+            $model->fileHash = $map['FileHash'];
+        }
+        if (isset($map['OSSURI'])) {
+            $model->OSSURI = $map['OSSURI'];
+        }
+        if (isset($map['URI'])) {
+            $model->URI = $map['URI'];
         }
 
         return $model;

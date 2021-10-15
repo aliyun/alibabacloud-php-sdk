@@ -11,20 +11,20 @@ class BatchGetFileMetaRequest extends Model
     /**
      * @var string
      */
-    public $projectName;
+    public $datasetName;
 
     /**
      * @var string
      */
-    public $datasetName;
+    public $projectName;
 
     /**
      * @var string[]
      */
     public $URIs;
     protected $_name = [
-        'projectName' => 'ProjectName',
         'datasetName' => 'DatasetName',
+        'projectName' => 'ProjectName',
         'URIs'        => 'URIs',
     ];
 
@@ -35,11 +35,11 @@ class BatchGetFileMetaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->URIs) {
             $res['URIs'] = $this->URIs;
@@ -56,11 +56,11 @@ class BatchGetFileMetaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
         if (isset($map['URIs'])) {
             if (!empty($map['URIs'])) {

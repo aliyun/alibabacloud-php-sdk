@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class Row extends Model
 {
     /**
-     * @description URI
-     *
-     * @var string
-     */
-    public $URI;
-
-    /**
      * @description CustomLabels
      *
      * @var KeyValuePair[]
      */
     public $customLabels;
+
+    /**
+     * @description URI
+     *
+     * @var string
+     */
+    public $URI;
     protected $_name = [
-        'URI'          => 'URI',
         'customLabels' => 'CustomLabels',
+        'URI'          => 'URI',
     ];
 
     public function validate()
@@ -33,9 +33,6 @@ class Row extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->URI) {
-            $res['URI'] = $this->URI;
-        }
         if (null !== $this->customLabels) {
             $res['CustomLabels'] = [];
             if (null !== $this->customLabels && \is_array($this->customLabels)) {
@@ -44,6 +41,9 @@ class Row extends Model
                     $res['CustomLabels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->URI) {
+            $res['URI'] = $this->URI;
         }
 
         return $res;
@@ -57,9 +57,6 @@ class Row extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['URI'])) {
-            $model->URI = $map['URI'];
-        }
         if (isset($map['CustomLabels'])) {
             if (!empty($map['CustomLabels'])) {
                 $model->customLabels = [];
@@ -68,6 +65,9 @@ class Row extends Model
                     $model->customLabels[$n++] = null !== $item ? KeyValuePair::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['URI'])) {
+            $model->URI = $map['URI'];
         }
 
         return $model;

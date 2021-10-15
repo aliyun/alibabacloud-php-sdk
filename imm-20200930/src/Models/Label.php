@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Label extends Model
 {
     /**
-     * @description Language
+     * @description LabelConfidence
      *
-     * @var string
+     * @var float
      */
-    public $language;
-
-    /**
-     * @description LabelName
-     *
-     * @var string
-     */
-    public $labelName;
+    public $labelConfidence;
 
     /**
      * @description LabelLevel
@@ -30,16 +23,23 @@ class Label extends Model
     public $labelLevel;
 
     /**
-     * @description LabelConfidence
+     * @description LabelName
      *
-     * @var float
+     * @var string
      */
-    public $labelConfidence;
+    public $labelName;
+
+    /**
+     * @description Language
+     *
+     * @var string
+     */
+    public $language;
     protected $_name = [
-        'language'        => 'Language',
-        'labelName'       => 'LabelName',
-        'labelLevel'      => 'LabelLevel',
         'labelConfidence' => 'LabelConfidence',
+        'labelLevel'      => 'LabelLevel',
+        'labelName'       => 'LabelName',
+        'language'        => 'Language',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class Label extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
-        }
-        if (null !== $this->labelName) {
-            $res['LabelName'] = $this->labelName;
+        if (null !== $this->labelConfidence) {
+            $res['LabelConfidence'] = $this->labelConfidence;
         }
         if (null !== $this->labelLevel) {
             $res['LabelLevel'] = $this->labelLevel;
         }
-        if (null !== $this->labelConfidence) {
-            $res['LabelConfidence'] = $this->labelConfidence;
+        if (null !== $this->labelName) {
+            $res['LabelName'] = $this->labelName;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class Label extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
-        }
-        if (isset($map['LabelName'])) {
-            $model->labelName = $map['LabelName'];
+        if (isset($map['LabelConfidence'])) {
+            $model->labelConfidence = $map['LabelConfidence'];
         }
         if (isset($map['LabelLevel'])) {
             $model->labelLevel = $map['LabelLevel'];
         }
-        if (isset($map['LabelConfidence'])) {
-            $model->labelConfidence = $map['LabelConfidence'];
+        if (isset($map['LabelName'])) {
+            $model->labelName = $map['LabelName'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         return $model;

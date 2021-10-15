@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListBindingsRequest extends Model
 {
     /**
-     * @description A short description of struct
-     *
-     * @var string
-     */
-    public $projectName;
-
-    /**
      * @var string
      */
     public $datasetName;
@@ -29,11 +22,18 @@ class ListBindingsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @description A short description of struct
+     *
+     * @var string
+     */
+    public $projectName;
     protected $_name = [
-        'projectName' => 'ProjectName',
         'datasetName' => 'DatasetName',
         'maxResults'  => 'MaxResults',
         'nextToken'   => 'NextToken',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -43,9 +43,6 @@ class ListBindingsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
@@ -54,6 +51,9 @@ class ListBindingsRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -67,9 +67,6 @@ class ListBindingsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
@@ -78,6 +75,9 @@ class ListBindingsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DeleteDatasetRequest extends Model
     /**
      * @var string
      */
-    public $projectName;
+    public $datasetName;
 
     /**
      * @var string
      */
-    public $datasetName;
+    public $projectName;
     protected $_name = [
-        'projectName' => 'ProjectName',
         'datasetName' => 'DatasetName',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteDatasetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteDatasetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

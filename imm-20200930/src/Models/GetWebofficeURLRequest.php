@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class GetWebofficeURLRequest extends Model
 {
     /**
-     * @description 项目名称
+     * @description 链式授权
      *
-     * @var string
+     * @var AssumeRoleChain
      */
-    public $projectName;
+    public $assumeRoleChain;
 
     /**
-     * @description 预览编辑地址
+     * @description 是否支持外部上传
      *
-     * @var string
+     * @var bool
      */
-    public $sourceURI;
+    public $externalUploaded;
 
     /**
      * @description 文件名，必须带文件名后缀，默认是 SourceUri 的最后一级
@@ -30,32 +30,11 @@ class GetWebofficeURLRequest extends Model
     public $filename;
 
     /**
-     * @description 用户自定义数据，在消息通知中返回
-     *
-     * @var string
-     */
-    public $userData;
-
-    /**
-     * @description 预览前几页
-     *
-     * @var int
-     */
-    public $previewPages;
-
-    /**
-     * @description 文件密码
-     *
-     * @var string
-     */
-    public $password;
-
-    /**
-     * @description 是否支持外部上传
+     * @description 隐藏工具栏，预览模式下使用
      *
      * @var bool
      */
-    public $externalUploaded;
+    public $hidecmb;
 
     /**
      * @description mns 消息通知地址
@@ -72,11 +51,11 @@ class GetWebofficeURLRequest extends Model
     public $notifyTopicName;
 
     /**
-     * @description 隐藏工具栏，预览模式下使用
+     * @description 文件密码
      *
-     * @var bool
+     * @var string
      */
-    public $hidecmb;
+    public $password;
 
     /**
      * @description 权限
@@ -86,6 +65,34 @@ class GetWebofficeURLRequest extends Model
     public $permission;
 
     /**
+     * @description 预览前几页
+     *
+     * @var int
+     */
+    public $previewPages;
+
+    /**
+     * @description 项目名称
+     *
+     * @var string
+     */
+    public $projectName;
+
+    /**
+     * @description oss 防盗链 referer
+     *
+     * @var string
+     */
+    public $referer;
+
+    /**
+     * @description 预览编辑地址
+     *
+     * @var string
+     */
+    public $sourceURI;
+
+    /**
      * @description 用户
      *
      * @var WebofficeUser
@@ -93,33 +100,34 @@ class GetWebofficeURLRequest extends Model
     public $user;
 
     /**
+     * @description 用户自定义数据，在消息通知中返回
+     *
+     * @var string
+     */
+    public $userData;
+
+    /**
      * @description 水印
      *
      * @var WebofficeWatermark
      */
     public $watermark;
-
-    /**
-     * @description 链式授权
-     *
-     * @var AssumeRoleChain
-     */
-    public $assumeRoleChain;
     protected $_name = [
-        'projectName'      => 'ProjectName',
-        'sourceURI'        => 'SourceURI',
-        'filename'         => 'Filename',
-        'userData'         => 'UserData',
-        'previewPages'     => 'PreviewPages',
-        'password'         => 'Password',
+        'assumeRoleChain'  => 'AssumeRoleChain',
         'externalUploaded' => 'ExternalUploaded',
+        'filename'         => 'Filename',
+        'hidecmb'          => 'Hidecmb',
         'notifyEndpoint'   => 'NotifyEndpoint',
         'notifyTopicName'  => 'NotifyTopicName',
-        'hidecmb'          => 'Hidecmb',
+        'password'         => 'Password',
         'permission'       => 'Permission',
+        'previewPages'     => 'PreviewPages',
+        'projectName'      => 'ProjectName',
+        'referer'          => 'Referer',
+        'sourceURI'        => 'SourceURI',
         'user'             => 'User',
+        'userData'         => 'UserData',
         'watermark'        => 'Watermark',
-        'assumeRoleChain'  => 'AssumeRoleChain',
     ];
 
     public function validate()
@@ -129,26 +137,17 @@ class GetWebofficeURLRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
+        if (null !== $this->assumeRoleChain) {
+            $res['AssumeRoleChain'] = null !== $this->assumeRoleChain ? $this->assumeRoleChain->toMap() : null;
         }
-        if (null !== $this->sourceURI) {
-            $res['SourceURI'] = $this->sourceURI;
+        if (null !== $this->externalUploaded) {
+            $res['ExternalUploaded'] = $this->externalUploaded;
         }
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->previewPages) {
-            $res['PreviewPages'] = $this->previewPages;
-        }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
-        }
-        if (null !== $this->externalUploaded) {
-            $res['ExternalUploaded'] = $this->externalUploaded;
+        if (null !== $this->hidecmb) {
+            $res['Hidecmb'] = $this->hidecmb;
         }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
@@ -156,20 +155,32 @@ class GetWebofficeURLRequest extends Model
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
         }
-        if (null !== $this->hidecmb) {
-            $res['Hidecmb'] = $this->hidecmb;
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
         }
         if (null !== $this->permission) {
             $res['Permission'] = null !== $this->permission ? $this->permission->toMap() : null;
         }
+        if (null !== $this->previewPages) {
+            $res['PreviewPages'] = $this->previewPages;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->referer) {
+            $res['Referer'] = $this->referer;
+        }
+        if (null !== $this->sourceURI) {
+            $res['SourceURI'] = $this->sourceURI;
+        }
         if (null !== $this->user) {
             $res['User'] = null !== $this->user ? $this->user->toMap() : null;
         }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
+        }
         if (null !== $this->watermark) {
             $res['Watermark'] = null !== $this->watermark ? $this->watermark->toMap() : null;
-        }
-        if (null !== $this->assumeRoleChain) {
-            $res['AssumeRoleChain'] = null !== $this->assumeRoleChain ? $this->assumeRoleChain->toMap() : null;
         }
 
         return $res;
@@ -183,26 +194,17 @@ class GetWebofficeURLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
+        if (isset($map['AssumeRoleChain'])) {
+            $model->assumeRoleChain = AssumeRoleChain::fromMap($map['AssumeRoleChain']);
         }
-        if (isset($map['SourceURI'])) {
-            $model->sourceURI = $map['SourceURI'];
+        if (isset($map['ExternalUploaded'])) {
+            $model->externalUploaded = $map['ExternalUploaded'];
         }
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
-        if (isset($map['PreviewPages'])) {
-            $model->previewPages = $map['PreviewPages'];
-        }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
-        }
-        if (isset($map['ExternalUploaded'])) {
-            $model->externalUploaded = $map['ExternalUploaded'];
+        if (isset($map['Hidecmb'])) {
+            $model->hidecmb = $map['Hidecmb'];
         }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];
@@ -210,20 +212,32 @@ class GetWebofficeURLRequest extends Model
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
         }
-        if (isset($map['Hidecmb'])) {
-            $model->hidecmb = $map['Hidecmb'];
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
         }
         if (isset($map['Permission'])) {
             $model->permission = WebofficePermission::fromMap($map['Permission']);
         }
+        if (isset($map['PreviewPages'])) {
+            $model->previewPages = $map['PreviewPages'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['Referer'])) {
+            $model->referer = $map['Referer'];
+        }
+        if (isset($map['SourceURI'])) {
+            $model->sourceURI = $map['SourceURI'];
+        }
         if (isset($map['User'])) {
             $model->user = WebofficeUser::fromMap($map['User']);
         }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
+        }
         if (isset($map['Watermark'])) {
             $model->watermark = WebofficeWatermark::fromMap($map['Watermark']);
-        }
-        if (isset($map['AssumeRoleChain'])) {
-            $model->assumeRoleChain = AssumeRoleChain::fromMap($map['AssumeRoleChain']);
         }
 
         return $model;

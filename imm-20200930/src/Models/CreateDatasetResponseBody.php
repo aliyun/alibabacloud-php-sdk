@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDatasetResponseBody extends Model
 {
     /**
+     * @var Dataset
+     */
+    public $dataset;
+
+    /**
      * @description 请求 ID
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var Dataset
-     */
-    public $dataset;
     protected $_name = [
-        'requestId' => 'RequestId',
         'dataset'   => 'Dataset',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class CreateDatasetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dataset) {
             $res['Dataset'] = null !== $this->dataset ? $this->dataset->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class CreateDatasetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Dataset'])) {
             $model->dataset = Dataset::fromMap($map['Dataset']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

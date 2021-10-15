@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class FuzzyQueryResponseBody extends Model
 {
     /**
+     * @var File[]
+     */
+    public $files;
+
+    /**
      * @description 表示当前调用返回读取到的位置，空代表数据已经读取完毕
      *
      * @var string
@@ -21,15 +26,10 @@ class FuzzyQueryResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var File[]
-     */
-    public $files;
     protected $_name = [
+        'files'     => 'Files',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'files'     => 'Files',
     ];
 
     public function validate()
@@ -39,12 +39,6 @@ class FuzzyQueryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->files) {
             $res['Files'] = [];
             if (null !== $this->files && \is_array($this->files)) {
@@ -53,6 +47,12 @@ class FuzzyQueryResponseBody extends Model
                     $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,12 +66,6 @@ class FuzzyQueryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
                 $model->files = [];
@@ -80,6 +74,12 @@ class FuzzyQueryResponseBody extends Model
                     $model->files[$n++] = null !== $item ? File::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

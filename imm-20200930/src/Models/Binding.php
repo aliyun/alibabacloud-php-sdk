@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Binding extends Model
 {
     /**
-     * @description ProjectName
+     * @description CreateTime
      *
      * @var string
      */
-    public $projectName;
+    public $createTime;
 
     /**
      * @description DatasetName
@@ -23,18 +23,11 @@ class Binding extends Model
     public $datasetName;
 
     /**
-     * @description URI
+     * @description Detail
      *
      * @var string
      */
-    public $URI;
-
-    /**
-     * @description State
-     *
-     * @var string
-     */
-    public $state;
+    public $detail;
 
     /**
      * @description Phase
@@ -44,18 +37,25 @@ class Binding extends Model
     public $phase;
 
     /**
-     * @description Detail
+     * @description ProjectName
      *
      * @var string
      */
-    public $detail;
+    public $projectName;
 
     /**
-     * @description CreateTime
+     * @description State
      *
      * @var string
      */
-    public $createTime;
+    public $state;
+
+    /**
+     * @description URI
+     *
+     * @var string
+     */
+    public $URI;
 
     /**
      * @description UpdateTime
@@ -64,13 +64,13 @@ class Binding extends Model
      */
     public $updateTime;
     protected $_name = [
-        'projectName' => 'ProjectName',
-        'datasetName' => 'DatasetName',
-        'URI'         => 'URI',
-        'state'       => 'State',
-        'phase'       => 'Phase',
-        'detail'      => 'Detail',
         'createTime'  => 'CreateTime',
+        'datasetName' => 'DatasetName',
+        'detail'      => 'Detail',
+        'phase'       => 'Phase',
+        'projectName' => 'ProjectName',
+        'state'       => 'State',
+        'URI'         => 'URI',
         'updateTime'  => 'UpdateTime',
     ];
 
@@ -81,26 +81,26 @@ class Binding extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-        if (null !== $this->URI) {
-            $res['URI'] = $this->URI;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->detail) {
+            $res['Detail'] = $this->detail;
         }
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
-        if (null !== $this->detail) {
-            $res['Detail'] = $this->detail;
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+        if (null !== $this->URI) {
+            $res['URI'] = $this->URI;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -117,26 +117,26 @@ class Binding extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
-        if (isset($map['URI'])) {
-            $model->URI = $map['URI'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['Detail'])) {
+            $model->detail = $map['Detail'];
         }
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }
-        if (isset($map['Detail'])) {
-            $model->detail = $map['Detail'];
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+        if (isset($map['URI'])) {
+            $model->URI = $map['URI'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

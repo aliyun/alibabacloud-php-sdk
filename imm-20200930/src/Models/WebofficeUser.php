@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class WebofficeUser extends Model
 {
     /**
+     * @description 头像
+     *
+     * @var string
+     */
+    public $avatar;
+
+    /**
      * @description Id
      *
      * @var string
@@ -21,17 +28,10 @@ class WebofficeUser extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @description 头像
-     *
-     * @var string
-     */
-    public $avatar;
     protected $_name = [
+        'avatar' => 'Avatar',
         'id'     => 'Id',
         'name'   => 'Name',
-        'avatar' => 'Avatar',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class WebofficeUser extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->avatar) {
+            $res['Avatar'] = $this->avatar;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->avatar) {
-            $res['Avatar'] = $this->avatar;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class WebofficeUser extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Avatar'])) {
+            $model->avatar = $map['Avatar'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['Avatar'])) {
-            $model->avatar = $map['Avatar'];
         }
 
         return $model;

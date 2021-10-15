@@ -16,13 +16,6 @@ class SimpleQuery extends Model
     public $field;
 
     /**
-     * @description 需要查询的字段值
-     *
-     * @var string
-     */
-    public $value;
-
-    /**
      * @description 运算符
      *
      * @var string
@@ -35,11 +28,18 @@ class SimpleQuery extends Model
      * @var \AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQuery[]
      */
     public $subQueries;
+
+    /**
+     * @description 需要查询的字段值
+     *
+     * @var string
+     */
+    public $value;
     protected $_name = [
         'field'      => 'Field',
-        'value'      => 'Value',
         'operation'  => 'Operation',
         'subQueries' => 'SubQueries',
+        'value'      => 'Value',
     ];
 
     public function validate()
@@ -52,9 +52,6 @@ class SimpleQuery extends Model
         if (null !== $this->field) {
             $res['Field'] = $this->field;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
@@ -66,6 +63,9 @@ class SimpleQuery extends Model
                     $res['SubQueries'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -82,9 +82,6 @@ class SimpleQuery extends Model
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
@@ -96,6 +93,9 @@ class SimpleQuery extends Model
                     $model->subQueries[$n++] = null !== $item ? self::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -16,22 +16,22 @@ class CroppingSuggestion extends Model
     public $aspectRatio;
 
     /**
-     * @description Confidence
-     *
-     * @var float
-     */
-    public $confidence;
-
-    /**
      * @description Boundary
      *
      * @var Boundary
      */
     public $boundary;
+
+    /**
+     * @description Confidence
+     *
+     * @var float
+     */
+    public $confidence;
     protected $_name = [
         'aspectRatio' => 'AspectRatio',
-        'confidence'  => 'Confidence',
         'boundary'    => 'Boundary',
+        'confidence'  => 'Confidence',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class CroppingSuggestion extends Model
         if (null !== $this->aspectRatio) {
             $res['AspectRatio'] = $this->aspectRatio;
         }
-        if (null !== $this->confidence) {
-            $res['Confidence'] = $this->confidence;
-        }
         if (null !== $this->boundary) {
             $res['Boundary'] = null !== $this->boundary ? $this->boundary->toMap() : null;
+        }
+        if (null !== $this->confidence) {
+            $res['Confidence'] = $this->confidence;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class CroppingSuggestion extends Model
         if (isset($map['AspectRatio'])) {
             $model->aspectRatio = $map['AspectRatio'];
         }
-        if (isset($map['Confidence'])) {
-            $model->confidence = $map['Confidence'];
-        }
         if (isset($map['Boundary'])) {
             $model->boundary = Boundary::fromMap($map['Boundary']);
+        }
+        if (isset($map['Confidence'])) {
+            $model->confidence = $map['Confidence'];
         }
 
         return $model;

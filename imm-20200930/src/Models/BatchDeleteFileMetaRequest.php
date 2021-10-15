@@ -11,21 +11,33 @@ class BatchDeleteFileMetaRequest extends Model
     /**
      * @var string
      */
-    public $projectName;
+    public $datasetName;
 
     /**
      * @var string
      */
-    public $datasetName;
+    public $notifyEndpoint;
+
+    /**
+     * @var string
+     */
+    public $notifyTopicName;
+
+    /**
+     * @var string
+     */
+    public $projectName;
 
     /**
      * @var string[]
      */
     public $URIs;
     protected $_name = [
-        'projectName' => 'ProjectName',
-        'datasetName' => 'DatasetName',
-        'URIs'        => 'URIs',
+        'datasetName'     => 'DatasetName',
+        'notifyEndpoint'  => 'NotifyEndpoint',
+        'notifyTopicName' => 'NotifyTopicName',
+        'projectName'     => 'ProjectName',
+        'URIs'            => 'URIs',
     ];
 
     public function validate()
@@ -35,11 +47,17 @@ class BatchDeleteFileMetaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
+        }
+        if (null !== $this->notifyEndpoint) {
+            $res['NotifyEndpoint'] = $this->notifyEndpoint;
+        }
+        if (null !== $this->notifyTopicName) {
+            $res['NotifyTopicName'] = $this->notifyTopicName;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->URIs) {
             $res['URIs'] = $this->URIs;
@@ -56,11 +74,17 @@ class BatchDeleteFileMetaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
+        }
+        if (isset($map['NotifyEndpoint'])) {
+            $model->notifyEndpoint = $map['NotifyEndpoint'];
+        }
+        if (isset($map['NotifyTopicName'])) {
+            $model->notifyTopicName = $map['NotifyTopicName'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
         if (isset($map['URIs'])) {
             if (!empty($map['URIs'])) {

@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListDatasetsRequest extends Model
 {
     /**
-     * @description 项目名称
-     *
-     * @var string
-     */
-    public $projectName;
-
-    /**
      * @description 返回最大个数
      *
      * @var int
@@ -33,11 +26,18 @@ class ListDatasetsRequest extends Model
      * @var string
      */
     public $prefix;
+
+    /**
+     * @description 项目名称
+     *
+     * @var string
+     */
+    public $projectName;
     protected $_name = [
-        'projectName' => 'ProjectName',
         'maxResults'  => 'MaxResults',
         'nextToken'   => 'NextToken',
         'prefix'      => 'Prefix',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -47,9 +47,6 @@ class ListDatasetsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -58,6 +55,9 @@ class ListDatasetsRequest extends Model
         }
         if (null !== $this->prefix) {
             $res['Prefix'] = $this->prefix;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -71,9 +71,6 @@ class ListDatasetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -82,6 +79,9 @@ class ListDatasetsRequest extends Model
         }
         if (isset($map['Prefix'])) {
             $model->prefix = $map['Prefix'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleChain extends Model
 {
     /**
-     * @description 当前用户 policy
-     *
-     * @var string
-     */
-    public $policy;
-
-    /**
      * @description 链式授权节点
      *
      * @var AssumeRoleChainNode[]
      */
     public $chain;
+
+    /**
+     * @description 当前用户 policy
+     *
+     * @var string
+     */
+    public $policy;
     protected $_name = [
-        'policy' => 'Policy',
         'chain'  => 'Chain',
+        'policy' => 'Policy',
     ];
 
     public function validate()
@@ -33,9 +33,6 @@ class AssumeRoleChain extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policy) {
-            $res['Policy'] = $this->policy;
-        }
         if (null !== $this->chain) {
             $res['Chain'] = [];
             if (null !== $this->chain && \is_array($this->chain)) {
@@ -44,6 +41,9 @@ class AssumeRoleChain extends Model
                     $res['Chain'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
         }
 
         return $res;
@@ -57,9 +57,6 @@ class AssumeRoleChain extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Policy'])) {
-            $model->policy = $map['Policy'];
-        }
         if (isset($map['Chain'])) {
             if (!empty($map['Chain'])) {
                 $model->chain = [];
@@ -68,6 +65,9 @@ class AssumeRoleChain extends Model
                     $model->chain[$n++] = null !== $item ? AssumeRoleChainNode::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
         }
 
         return $model;

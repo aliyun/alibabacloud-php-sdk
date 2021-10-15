@@ -10,6 +10,20 @@ use AlibabaCloud\Tea\Model;
 class SimpleQueryResponseBody extends Model
 {
     /**
+     * @description 聚合字段的字段名
+     *
+     * @var aggregations[]
+     */
+    public $aggregations;
+
+    /**
+     * @description 文件列表
+     *
+     * @var File[]
+     */
+    public $files;
+
+    /**
      * @description 表示当前调用返回读取到的位置，空代表数据已经读取完毕
      *
      * @var string
@@ -22,25 +36,11 @@ class SimpleQueryResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description 文件列表
-     *
-     * @var File[]
-     */
-    public $files;
-
-    /**
-     * @description 聚合字段的字段名
-     *
-     * @var aggregations[]
-     */
-    public $aggregations;
     protected $_name = [
+        'aggregations' => 'Aggregations',
+        'files'        => 'Files',
         'nextToken'    => 'NextToken',
         'requestId'    => 'RequestId',
-        'files'        => 'Files',
-        'aggregations' => 'Aggregations',
     ];
 
     public function validate()
@@ -50,11 +50,14 @@ class SimpleQueryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->aggregations) {
+            $res['Aggregations'] = [];
+            if (null !== $this->aggregations && \is_array($this->aggregations)) {
+                $n = 0;
+                foreach ($this->aggregations as $item) {
+                    $res['Aggregations'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->files) {
             $res['Files'] = [];
@@ -65,14 +68,11 @@ class SimpleQueryResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->aggregations) {
-            $res['Aggregations'] = [];
-            if (null !== $this->aggregations && \is_array($this->aggregations)) {
-                $n = 0;
-                foreach ($this->aggregations as $item) {
-                    $res['Aggregations'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -86,11 +86,14 @@ class SimpleQueryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Aggregations'])) {
+            if (!empty($map['Aggregations'])) {
+                $model->aggregations = [];
+                $n                   = 0;
+                foreach ($map['Aggregations'] as $item) {
+                    $model->aggregations[$n++] = null !== $item ? aggregations::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
@@ -101,14 +104,11 @@ class SimpleQueryResponseBody extends Model
                 }
             }
         }
-        if (isset($map['Aggregations'])) {
-            if (!empty($map['Aggregations'])) {
-                $model->aggregations = [];
-                $n                   = 0;
-                foreach ($map['Aggregations'] as $item) {
-                    $model->aggregations[$n++] = null !== $item ? aggregations::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

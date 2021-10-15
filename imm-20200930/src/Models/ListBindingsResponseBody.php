@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListBindingsResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
+     * @var Binding[]
      */
-    public $requestId;
+    public $bindings;
 
     /**
      * @var string
@@ -21,13 +19,15 @@ class ListBindingsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @var Binding[]
+     * @description Id of the request
+     *
+     * @var string
      */
-    public $bindings;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'nextToken' => 'NextToken',
         'bindings'  => 'Bindings',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class ListBindingsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->bindings) {
             $res['Bindings'] = [];
             if (null !== $this->bindings && \is_array($this->bindings)) {
@@ -51,6 +45,12 @@ class ListBindingsResponseBody extends Model
                     $res['Bindings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class ListBindingsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['Bindings'])) {
             if (!empty($map['Bindings'])) {
                 $model->bindings = [];
@@ -78,6 +72,12 @@ class ListBindingsResponseBody extends Model
                     $model->bindings[$n++] = null !== $item ? Binding::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

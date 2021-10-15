@@ -11,27 +11,27 @@ class StopBindingRequest extends Model
     /**
      * @var string
      */
-    public $projectName;
-
-    /**
-     * @var string
-     */
     public $datasetName;
 
     /**
      * @var string
      */
-    public $URI;
+    public $projectName;
 
     /**
      * @var string
      */
     public $reason;
+
+    /**
+     * @var string
+     */
+    public $URI;
     protected $_name = [
-        'projectName' => 'ProjectName',
         'datasetName' => 'DatasetName',
-        'URI'         => 'URI',
+        'projectName' => 'ProjectName',
         'reason'      => 'Reason',
+        'URI'         => 'URI',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class StopBindingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-        if (null !== $this->URI) {
-            $res['URI'] = $this->URI;
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->URI) {
+            $res['URI'] = $this->URI;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class StopBindingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
-        if (isset($map['URI'])) {
-            $model->URI = $map['URI'];
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['URI'])) {
+            $model->URI = $map['URI'];
         }
 
         return $model;

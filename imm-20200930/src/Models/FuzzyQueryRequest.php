@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class FuzzyQueryRequest extends Model
 {
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始
+     * @description Dataset 名称
      *
      * @var string
      */
-    public $nextToken;
+    public $datasetName;
 
     /**
      * @description 本次读取的最大数据记录数量
@@ -23,18 +23,18 @@ class FuzzyQueryRequest extends Model
     public $maxResults;
 
     /**
+     * @description 标记当前开始读取的位置，置空表示从头开始
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description 项目名称
      *
      * @var string
      */
     public $projectName;
-
-    /**
-     * @description Dataset 名称
-     *
-     * @var string
-     */
-    public $datasetName;
 
     /**
      * @description 用于搜索的字符串
@@ -43,10 +43,10 @@ class FuzzyQueryRequest extends Model
      */
     public $query;
     protected $_name = [
-        'nextToken'   => 'NextToken',
-        'maxResults'  => 'MaxResults',
-        'projectName' => 'ProjectName',
         'datasetName' => 'DatasetName',
+        'maxResults'  => 'MaxResults',
+        'nextToken'   => 'NextToken',
+        'projectName' => 'ProjectName',
         'query'       => 'Query',
     ];
 
@@ -57,17 +57,17 @@ class FuzzyQueryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->datasetName) {
+            $res['DatasetName'] = $this->datasetName;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->datasetName) {
-            $res['DatasetName'] = $this->datasetName;
         }
         if (null !== $this->query) {
             $res['Query'] = $this->query;
@@ -84,17 +84,17 @@ class FuzzyQueryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['DatasetName'])) {
+            $model->datasetName = $map['DatasetName'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['DatasetName'])) {
-            $model->datasetName = $map['DatasetName'];
         }
         if (isset($map['Query'])) {
             $model->query = $map['Query'];

@@ -11,20 +11,20 @@ class BatchGetFileMetaShrinkRequest extends Model
     /**
      * @var string
      */
-    public $projectName;
+    public $datasetName;
 
     /**
      * @var string
      */
-    public $datasetName;
+    public $projectName;
 
     /**
      * @var string
      */
     public $URIsShrink;
     protected $_name = [
-        'projectName' => 'ProjectName',
         'datasetName' => 'DatasetName',
+        'projectName' => 'ProjectName',
         'URIsShrink'  => 'URIs',
     ];
 
@@ -35,11 +35,11 @@ class BatchGetFileMetaShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->URIsShrink) {
             $res['URIs'] = $this->URIsShrink;
@@ -56,11 +56,11 @@ class BatchGetFileMetaShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
         if (isset($map['URIs'])) {
             $model->URIsShrink = $map['URIs'];

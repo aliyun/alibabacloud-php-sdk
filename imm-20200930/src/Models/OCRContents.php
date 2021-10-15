@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class OCRContents extends Model
 {
     /**
-     * @description Language
+     * @description Boundary
      *
-     * @var string
+     * @var Boundary
      */
-    public $language;
-
-    /**
-     * @description Contents
-     *
-     * @var string
-     */
-    public $contents;
+    public $boundary;
 
     /**
      * @description Confidence
@@ -30,16 +23,23 @@ class OCRContents extends Model
     public $confidence;
 
     /**
-     * @description Boundary
+     * @description Contents
      *
-     * @var Boundary
+     * @var string
      */
-    public $boundary;
+    public $contents;
+
+    /**
+     * @description Language
+     *
+     * @var string
+     */
+    public $language;
     protected $_name = [
-        'language'   => 'Language',
-        'contents'   => 'Contents',
-        'confidence' => 'Confidence',
         'boundary'   => 'Boundary',
+        'confidence' => 'Confidence',
+        'contents'   => 'Contents',
+        'language'   => 'Language',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class OCRContents extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
-        }
-        if (null !== $this->contents) {
-            $res['Contents'] = $this->contents;
+        if (null !== $this->boundary) {
+            $res['Boundary'] = null !== $this->boundary ? $this->boundary->toMap() : null;
         }
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
         }
-        if (null !== $this->boundary) {
-            $res['Boundary'] = null !== $this->boundary ? $this->boundary->toMap() : null;
+        if (null !== $this->contents) {
+            $res['Contents'] = $this->contents;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class OCRContents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
-        }
-        if (isset($map['Contents'])) {
-            $model->contents = $map['Contents'];
+        if (isset($map['Boundary'])) {
+            $model->boundary = Boundary::fromMap($map['Boundary']);
         }
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
         }
-        if (isset($map['Boundary'])) {
-            $model->boundary = Boundary::fromMap($map['Boundary']);
+        if (isset($map['Contents'])) {
+            $model->contents = $map['Contents'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         return $model;

@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class BatchGetFileMetaResponseBody extends Model
 {
     /**
+     * @var File[]
+     */
+    public $files;
+
+    /**
      * @description Id of the request
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var File[]
-     */
-    public $files;
     protected $_name = [
-        'requestId' => 'RequestId',
         'files'     => 'Files',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -31,9 +31,6 @@ class BatchGetFileMetaResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->files) {
             $res['Files'] = [];
             if (null !== $this->files && \is_array($this->files)) {
@@ -42,6 +39,9 @@ class BatchGetFileMetaResponseBody extends Model
                     $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -55,9 +55,6 @@ class BatchGetFileMetaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
                 $model->files = [];
@@ -66,6 +63,9 @@ class BatchGetFileMetaResponseBody extends Model
                     $model->files[$n++] = null !== $item ? File::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
