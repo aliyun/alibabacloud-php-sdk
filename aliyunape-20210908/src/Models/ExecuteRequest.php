@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ExecuteRequest extends Model
 {
     /**
-     * @description appName
+     * @description aliyunPk
      *
-     * @var string
+     * @var int
      */
-    public $appName;
+    public $userId;
 
     /**
-     * @description source
+     * @description serviceParam
      *
-     * @var string
+     * @var string[]
      */
-    public $channel;
+    public $serviceParam;
 
     /**
      * @description extendParam
@@ -37,6 +37,13 @@ class ExecuteRequest extends Model
     public $orderId;
 
     /**
+     * @description appName
+     *
+     * @var string
+     */
+    public $appName;
+
+    /**
      * @description requestId
      *
      * @var string
@@ -44,26 +51,19 @@ class ExecuteRequest extends Model
     public $requestId;
 
     /**
-     * @description serviceParam
+     * @description source
      *
-     * @var string[]
+     * @var string
      */
-    public $serviceParam;
-
-    /**
-     * @description aliyunPk
-     *
-     * @var int
-     */
-    public $userId;
+    public $channel;
     protected $_name = [
-        'appName'      => 'AppName',
-        'channel'      => 'Channel',
+        'userId'       => 'UserId',
+        'serviceParam' => 'ServiceParam',
         'extendParam'  => 'ExtendParam',
         'orderId'      => 'OrderId',
+        'appName'      => 'AppName',
         'requestId'    => 'RequestId',
-        'serviceParam' => 'ServiceParam',
-        'userId'       => 'UserId',
+        'channel'      => 'Channel',
     ];
 
     public function validate()
@@ -73,11 +73,11 @@ class ExecuteRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
-        if (null !== $this->channel) {
-            $res['Channel'] = $this->channel;
+        if (null !== $this->serviceParam) {
+            $res['ServiceParam'] = $this->serviceParam;
         }
         if (null !== $this->extendParam) {
             $res['ExtendParam'] = $this->extendParam;
@@ -85,14 +85,14 @@ class ExecuteRequest extends Model
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->serviceParam) {
-            $res['ServiceParam'] = $this->serviceParam;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
         }
 
         return $res;
@@ -106,11 +106,11 @@ class ExecuteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
-        if (isset($map['Channel'])) {
-            $model->channel = $map['Channel'];
+        if (isset($map['ServiceParam'])) {
+            $model->serviceParam = $map['ServiceParam'];
         }
         if (isset($map['ExtendParam'])) {
             $model->extendParam = $map['ExtendParam'];
@@ -118,14 +118,14 @@ class ExecuteRequest extends Model
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ServiceParam'])) {
-            $model->serviceParam = $map['ServiceParam'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
         }
 
         return $model;

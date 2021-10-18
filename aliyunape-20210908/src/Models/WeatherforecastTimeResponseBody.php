@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Aliyunape\V20210908\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ExecuteResponseBody extends Model
+class WeatherforecastTimeResponseBody extends Model
 {
     /**
      * @description rt
@@ -90,7 +90,7 @@ class ExecuteResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ExecuteResponseBody
+     * @return WeatherforecastTimeResponseBody
      */
     public static function fromMap($map = [])
     {

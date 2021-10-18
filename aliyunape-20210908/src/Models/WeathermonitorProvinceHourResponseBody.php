@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class WeathermonitorProvinceHourResponseBody extends Model
 {
     /**
-     * @description code
+     * @description rt
      *
-     * @var string
+     * @var int
      */
-    public $code;
-
-    /**
-     * @description data
-     *
-     * @var mixed[][]
-     */
-    public $data;
+    public $rt;
 
     /**
      * @description message
@@ -37,11 +30,18 @@ class WeathermonitorProvinceHourResponseBody extends Model
     public $requestId;
 
     /**
-     * @description rt
+     * @description data
      *
-     * @var int
+     * @var mixed[][]
      */
-    public $rt;
+    public $data;
+
+    /**
+     * @description code
+     *
+     * @var string
+     */
+    public $code;
 
     /**
      * @description success
@@ -50,11 +50,11 @@ class WeathermonitorProvinceHourResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
+        'rt'        => 'Rt',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'rt'        => 'Rt',
+        'data'      => 'Data',
+        'code'      => 'Code',
         'success'   => 'Success',
     ];
 
@@ -65,11 +65,8 @@ class WeathermonitorProvinceHourResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->rt) {
+            $res['Rt'] = $this->rt;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -77,8 +74,11 @@ class WeathermonitorProvinceHourResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->rt) {
-            $res['Rt'] = $this->rt;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -95,13 +95,8 @@ class WeathermonitorProvinceHourResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = $map['Data'];
-            }
+        if (isset($map['Rt'])) {
+            $model->rt = $map['Rt'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -109,8 +104,13 @@ class WeathermonitorProvinceHourResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Rt'])) {
-            $model->rt = $map['Rt'];
+        if (isset($map['Data'])) {
+            if (!empty($map['Data'])) {
+                $model->data = $map['Data'];
+            }
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ExecuteShrinkRequest extends Model
 {
     /**
-     * @description appName
+     * @description aliyunPk
      *
-     * @var string
+     * @var int
      */
-    public $appName;
+    public $userId;
 
     /**
-     * @description source
+     * @description serviceParam
      *
      * @var string
      */
-    public $channel;
+    public $serviceParamShrink;
 
     /**
      * @description extendParam
@@ -37,6 +37,13 @@ class ExecuteShrinkRequest extends Model
     public $orderId;
 
     /**
+     * @description appName
+     *
+     * @var string
+     */
+    public $appName;
+
+    /**
      * @description requestId
      *
      * @var string
@@ -44,26 +51,19 @@ class ExecuteShrinkRequest extends Model
     public $requestId;
 
     /**
-     * @description serviceParam
+     * @description source
      *
      * @var string
      */
-    public $serviceParamShrink;
-
-    /**
-     * @description aliyunPk
-     *
-     * @var int
-     */
-    public $userId;
+    public $channel;
     protected $_name = [
-        'appName'            => 'AppName',
-        'channel'            => 'Channel',
+        'userId'             => 'UserId',
+        'serviceParamShrink' => 'ServiceParam',
         'extendParamShrink'  => 'ExtendParam',
         'orderId'            => 'OrderId',
+        'appName'            => 'AppName',
         'requestId'          => 'RequestId',
-        'serviceParamShrink' => 'ServiceParam',
-        'userId'             => 'UserId',
+        'channel'            => 'Channel',
     ];
 
     public function validate()
@@ -73,11 +73,11 @@ class ExecuteShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
-        if (null !== $this->channel) {
-            $res['Channel'] = $this->channel;
+        if (null !== $this->serviceParamShrink) {
+            $res['ServiceParam'] = $this->serviceParamShrink;
         }
         if (null !== $this->extendParamShrink) {
             $res['ExtendParam'] = $this->extendParamShrink;
@@ -85,14 +85,14 @@ class ExecuteShrinkRequest extends Model
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->serviceParamShrink) {
-            $res['ServiceParam'] = $this->serviceParamShrink;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
         }
 
         return $res;
@@ -106,11 +106,11 @@ class ExecuteShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
-        if (isset($map['Channel'])) {
-            $model->channel = $map['Channel'];
+        if (isset($map['ServiceParam'])) {
+            $model->serviceParamShrink = $map['ServiceParam'];
         }
         if (isset($map['ExtendParam'])) {
             $model->extendParamShrink = $map['ExtendParam'];
@@ -118,14 +118,14 @@ class ExecuteShrinkRequest extends Model
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ServiceParam'])) {
-            $model->serviceParamShrink = $map['ServiceParam'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
         }
 
         return $model;
