@@ -2,20 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imp\V20210630\Models\CreateIceProjectResponseBody;
+namespace AlibabaCloud\SDK\Imp\V20210630\Models\AttachStandardRoomHttpsCertificateResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description 工程ID
+     * @description 证书Id
      *
      * @var string
      */
-    public $projectId;
+    public $certificateId;
     protected $_name = [
-        'projectId' => 'ProjectId',
+        'certificateId' => 'CertificateId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->certificateId) {
+            $res['CertificateId'] = $this->certificateId;
         }
 
         return $res;
@@ -40,8 +40,8 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['CertificateId'])) {
+            $model->certificateId = $map['CertificateId'];
         }
 
         return $model;

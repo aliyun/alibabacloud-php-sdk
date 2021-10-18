@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
-use AlibabaCloud\SDK\Imp\V20210630\Models\RegisterIceOssMediaResponseBody\result;
+use AlibabaCloud\SDK\Imp\V20210630\Models\AttachStandardRoomHttpsCertificateResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class RegisterIceOssMediaResponseBody extends Model
+class AttachStandardRoomHttpsCertificateResponseBody extends Model
 {
     /**
      * @description 请求ID
@@ -17,6 +17,8 @@ class RegisterIceOssMediaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 返回结果
+     *
      * @var result
      */
     public $result;
@@ -45,7 +47,7 @@ class RegisterIceOssMediaResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RegisterIceOssMediaResponseBody
+     * @return AttachStandardRoomHttpsCertificateResponseBody
      */
     public static function fromMap($map = [])
     {

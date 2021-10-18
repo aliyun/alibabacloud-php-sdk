@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RegisterIceOssMediaResponse extends Model
+class DeleteCommentResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class RegisterIceOssMediaResponse extends Model
     public $headers;
 
     /**
-     * @var RegisterIceOssMediaResponseBody
+     * @var DeleteCommentResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class RegisterIceOssMediaResponse extends Model
     /**
      * @param array $map
      *
-     * @return RegisterIceOssMediaResponse
+     * @return DeleteCommentResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class RegisterIceOssMediaResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = RegisterIceOssMediaResponseBody::fromMap($map['body']);
+            $model->body = DeleteCommentResponseBody::fromMap($map['body']);
         }
 
         return $model;

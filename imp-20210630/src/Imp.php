@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\AgreeLinkMicRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\AgreeLinkMicResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ApplyLinkMicRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ApplyLinkMicResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\AttachStandardRoomHttpsCertificateRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\AttachStandardRoomHttpsCertificateResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\BanAllCommentRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\BanAllCommentResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\BanCommentRequest;
@@ -31,8 +33,6 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\CreateClassRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateClassResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateConferenceRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateConferenceResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\CreateIceProjectRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\CreateIceProjectResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRoomRequest;
@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteAppTemplateRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteAppTemplateResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteClassRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteClassResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteCommentRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteCommentResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteConferenceRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteConferenceResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveRequest;
@@ -79,6 +81,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomUserStatisticsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomUserStatisticsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomHttpsCertificateRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomHttpsCertificateResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomJumpUrlRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomJumpUrlResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListApplyLinkMicUsersRequest;
@@ -103,8 +107,6 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\RegisterIceOssMediaRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\RegisterIceOssMediaResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\RejectLinkMicRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\RejectLinkMicResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\RemoveMemberRequest;
@@ -179,34 +181,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param CreateIceProjectRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateIceProjectResponse
-     */
-    public function createIceProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateIceProjectResponse::fromMap($this->doRPCRequest('CreateIceProject', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateIceProjectRequest $request
-     *
-     * @return CreateIceProjectResponse
-     */
-    public function createIceProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createIceProjectWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RemoveMemberRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -232,6 +206,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeMemberWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCommentRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteCommentResponse
+     */
+    public function deleteCommentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteCommentResponse::fromMap($this->doRPCRequest('DeleteComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCommentRequest $request
+     *
+     * @return DeleteCommentResponse
+     */
+    public function deleteComment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCommentWithOptions($request, $runtime);
     }
 
     /**
@@ -372,6 +374,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->banCommentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetStandardRoomHttpsCertificateRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetStandardRoomHttpsCertificateResponse
+     */
+    public function getStandardRoomHttpsCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetStandardRoomHttpsCertificateResponse::fromMap($this->doRPCRequest('GetStandardRoomHttpsCertificate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetStandardRoomHttpsCertificateRequest $request
+     *
+     * @return GetStandardRoomHttpsCertificateResponse
+     */
+    public function getStandardRoomHttpsCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStandardRoomHttpsCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -520,6 +550,34 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param AttachStandardRoomHttpsCertificateRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return AttachStandardRoomHttpsCertificateResponse
+     */
+    public function attachStandardRoomHttpsCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AttachStandardRoomHttpsCertificateResponse::fromMap($this->doRPCRequest('AttachStandardRoomHttpsCertificate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AttachStandardRoomHttpsCertificateRequest $request
+     *
+     * @return AttachStandardRoomHttpsCertificateResponse
+     */
+    public function attachStandardRoomHttpsCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachStandardRoomHttpsCertificateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateAppTemplateConfigRequest $tmpReq
      * @param RuntimeOptions                 $runtime
      *
@@ -606,34 +664,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateClassWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RegisterIceOssMediaRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RegisterIceOssMediaResponse
-     */
-    public function registerIceOssMediaWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RegisterIceOssMediaResponse::fromMap($this->doRPCRequest('RegisterIceOssMedia', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RegisterIceOssMediaRequest $request
-     *
-     * @return RegisterIceOssMediaResponse
-     */
-    public function registerIceOssMedia($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->registerIceOssMediaWithOptions($request, $runtime);
     }
 
     /**

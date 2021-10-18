@@ -2,20 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imp\V20210630\Models\RegisterIceOssMediaResponseBody;
+namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class result extends Model
+class GetStandardRoomHttpsCertificateRequest extends Model
 {
     /**
-     * @description 媒体Id
+     * @description 证书ID
      *
      * @var string
      */
-    public $mediaId;
+    public $certificateId;
     protected $_name = [
-        'mediaId' => 'MediaId',
+        'certificateId' => 'CertificateId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mediaId) {
-            $res['MediaId'] = $this->mediaId;
+        if (null !== $this->certificateId) {
+            $res['CertificateId'] = $this->certificateId;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class result extends Model
     /**
      * @param array $map
      *
-     * @return result
+     * @return GetStandardRoomHttpsCertificateRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MediaId'])) {
-            $model->mediaId = $map['MediaId'];
+        if (isset($map['CertificateId'])) {
+            $model->certificateId = $map['CertificateId'];
         }
 
         return $model;

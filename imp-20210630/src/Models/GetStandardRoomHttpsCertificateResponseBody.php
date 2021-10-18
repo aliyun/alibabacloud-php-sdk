@@ -4,20 +4,20 @@
 
 namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassDetailResponseBody\result;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomHttpsCertificateResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class GetClassDetailResponseBody extends Model
+class GetStandardRoomHttpsCertificateResponseBody extends Model
 {
     /**
-     * @description 请求ID。
+     * @description 请求ID
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description API请求的返回结果结构体。
+     * @description 返回结果
      *
      * @var result
      */
@@ -47,7 +47,7 @@ class GetClassDetailResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetClassDetailResponseBody
+     * @return GetStandardRoomHttpsCertificateResponseBody
      */
     public static function fromMap($map = [])
     {

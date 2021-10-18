@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateIceProjectResponse extends Model
+class GetStandardRoomHttpsCertificateResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class CreateIceProjectResponse extends Model
     public $headers;
 
     /**
-     * @var CreateIceProjectResponseBody
+     * @var GetStandardRoomHttpsCertificateResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class CreateIceProjectResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateIceProjectResponse
+     * @return GetStandardRoomHttpsCertificateResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class CreateIceProjectResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateIceProjectResponseBody::fromMap($map['body']);
+            $model->body = GetStandardRoomHttpsCertificateResponseBody::fromMap($map['body']);
         }
 
         return $model;

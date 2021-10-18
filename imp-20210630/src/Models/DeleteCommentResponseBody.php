@@ -4,19 +4,21 @@
 
 namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
-use AlibabaCloud\SDK\Imp\V20210630\Models\CreateIceProjectResponseBody\result;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteCommentResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class CreateIceProjectResponseBody extends Model
+class DeleteCommentResponseBody extends Model
 {
     /**
-     * @description 请求ID
+     * @description 请求ID。
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 调用删除直播间弹幕的返回结果。
+     *
      * @var result
      */
     public $result;
@@ -45,7 +47,7 @@ class CreateIceProjectResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateIceProjectResponseBody
+     * @return DeleteCommentResponseBody
      */
     public static function fromMap($map = [])
     {
