@@ -30,35 +30,35 @@ class HistoricalRequest extends Model
     public $requestId;
 
     /**
-     * @description station全国（入参单一站点）
+     * @description 全国（入参单一站点）
      *
      * @var string
      */
     public $station;
 
     /**
-     * @description pageSize是	页面条数
+     * @description pageSize
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description startTimeyyyymmddhh0000（当startTime为空时无数据产出，确认是否入参）
+     * @description startTime
      *
-     * @var int
+     * @var string
      */
     public $startTime;
 
     /**
-     * @description endTimeyyyymmddhh0000 （当endTime为空时无数据产出，确认是否入参）
+     * @description endTime
      *
-     * @var int
+     * @var string
      */
     public $endTime;
 
     /**
-     * @description pageNum页码数
+     * @description pageNum
      *
      * @var int
      */
