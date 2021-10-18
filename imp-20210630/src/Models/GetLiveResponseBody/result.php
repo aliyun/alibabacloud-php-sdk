@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveResponseBody;
 
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveResponseBody\result\artcInfo;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveResponseBody\result\playUrlInfoList;
 use AlibabaCloud\Tea\Model;
 
@@ -134,6 +135,20 @@ class result extends Model
      * @var string
      */
     public $userDefineField;
+
+    /**
+     * @description hls播放地址
+     *
+     * @var string
+     */
+    public $hlsUrl;
+
+    /**
+     * @description rts播流信息
+     *
+     * @var artcInfo
+     */
+    public $artcInfo;
     protected $_name = [
         'anchorId'        => 'AnchorId',
         'liveId'          => 'LiveId',
@@ -153,6 +168,8 @@ class result extends Model
         'playUrlInfoList' => 'PlayUrlInfoList',
         'coverUrl'        => 'CoverUrl',
         'userDefineField' => 'UserDefineField',
+        'hlsUrl'          => 'HlsUrl',
+        'artcInfo'        => 'ArtcInfo',
     ];
 
     public function validate()
@@ -221,6 +238,12 @@ class result extends Model
         }
         if (null !== $this->userDefineField) {
             $res['UserDefineField'] = $this->userDefineField;
+        }
+        if (null !== $this->hlsUrl) {
+            $res['HlsUrl'] = $this->hlsUrl;
+        }
+        if (null !== $this->artcInfo) {
+            $res['ArtcInfo'] = null !== $this->artcInfo ? $this->artcInfo->toMap() : null;
         }
 
         return $res;
@@ -293,6 +316,12 @@ class result extends Model
         }
         if (isset($map['UserDefineField'])) {
             $model->userDefineField = $map['UserDefineField'];
+        }
+        if (isset($map['HlsUrl'])) {
+            $model->hlsUrl = $map['HlsUrl'];
+        }
+        if (isset($map['ArtcInfo'])) {
+            $model->artcInfo = artcInfo::fromMap($map['ArtcInfo']);
         }
 
         return $model;
