@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeInstanceRdAccountsResponse extends Model
+class DescribeRiskEventGroupResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DescribeInstanceRdAccountsResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeInstanceRdAccountsResponseBody
+     * @var DescribeRiskEventGroupResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DescribeInstanceRdAccountsResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeInstanceRdAccountsResponse
+     * @return DescribeRiskEventGroupResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DescribeInstanceRdAccountsResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeInstanceRdAccountsResponseBody::fromMap($map['body']);
+            $model->body = DescribeRiskEventGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;

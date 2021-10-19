@@ -10,23 +10,11 @@ use AlibabaCloud\Tea\Model;
 class AddInstanceMembersRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
      * @var members[]
      */
     public $members;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'lang'     => 'Lang',
-        'members'  => 'Members',
+        'members' => 'Members',
     ];
 
     public function validate()
@@ -36,12 +24,6 @@ class AddInstanceMembersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->members) {
             $res['Members'] = [];
             if (null !== $this->members && \is_array($this->members)) {
@@ -63,12 +45,6 @@ class AddInstanceMembersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['Members'])) {
             if (!empty($map['Members'])) {
                 $model->members = [];

@@ -67,6 +67,11 @@ class DescribeAssetListRequest extends Model
      * @var int
      */
     public $memberUid;
+
+    /**
+     * @var string
+     */
+    public $userType;
     protected $_name = [
         'sourceIp'     => 'SourceIp',
         'lang'         => 'Lang',
@@ -80,6 +85,7 @@ class DescribeAssetListRequest extends Model
         'sgStatus'     => 'SgStatus',
         'ipVersion'    => 'IpVersion',
         'memberUid'    => 'MemberUid',
+        'userType'     => 'UserType',
     ];
 
     public function validate()
@@ -124,6 +130,9 @@ class DescribeAssetListRequest extends Model
         }
         if (null !== $this->memberUid) {
             $res['MemberUid'] = $this->memberUid;
+        }
+        if (null !== $this->userType) {
+            $res['UserType'] = $this->userType;
         }
 
         return $res;
@@ -172,6 +181,9 @@ class DescribeAssetListRequest extends Model
         }
         if (isset($map['MemberUid'])) {
             $model->memberUid = $map['MemberUid'];
+        }
+        if (isset($map['UserType'])) {
+            $model->userType = $map['UserType'];
         }
 
         return $model;

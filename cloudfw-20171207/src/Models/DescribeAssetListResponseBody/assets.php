@@ -11,6 +11,11 @@ class assets extends Model
     /**
      * @var string
      */
+    public $riskLevel;
+
+    /**
+     * @var string
+     */
     public $bindInstanceName;
 
     /**
@@ -98,6 +103,7 @@ class assets extends Model
      */
     public $name;
     protected $_name = [
+        'riskLevel'          => 'RiskLevel',
         'bindInstanceName'   => 'BindInstanceName',
         'type'               => 'Type',
         'sgStatusTime'       => 'SgStatusTime',
@@ -125,6 +131,9 @@ class assets extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
+        }
         if (null !== $this->bindInstanceName) {
             $res['BindInstanceName'] = $this->bindInstanceName;
         }
@@ -191,6 +200,9 @@ class assets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
+        }
         if (isset($map['BindInstanceName'])) {
             $model->bindInstanceName = $map['BindInstanceName'];
         }

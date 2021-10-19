@@ -9,22 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceMembersRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
      * @var int[]
      */
     public $memberUids;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
-        'lang'       => 'Lang',
         'memberUids' => 'MemberUids',
     ];
 
@@ -35,12 +23,6 @@ class DeleteInstanceMembersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->memberUids) {
             $res['MemberUids'] = $this->memberUids;
         }
@@ -56,12 +38,6 @@ class DeleteInstanceMembersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['MemberUids'])) {
             if (!empty($map['MemberUids'])) {
                 $model->memberUids = $map['MemberUids'];

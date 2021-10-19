@@ -31,12 +31,12 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersResponse;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRdAccountsRequest;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRdAccountsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAclGroupListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAclGroupListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallControlPolicyRequest;
@@ -47,8 +47,6 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionResponse;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPriorityRequest;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPriorityResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesRequest;
@@ -476,34 +474,6 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRdAccountsRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeInstanceRdAccountsResponse
-     */
-    public function describeInstanceRdAccountsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeInstanceRdAccountsResponse::fromMap($this->doRPCRequest('DescribeInstanceRdAccounts', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeInstanceRdAccountsRequest $request
-     *
-     * @return DescribeInstanceRdAccountsResponse
-     */
-    public function describeInstanceRdAccounts($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInstanceRdAccountsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribePolicyAdvancedConfigRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -557,6 +527,34 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolicyPriorUsedWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRiskEventGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeRiskEventGroupResponse
+     */
+    public function describeRiskEventGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRiskEventGroupResponse::fromMap($this->doRPCRequest('DescribeRiskEventGroup', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRiskEventGroupRequest $request
+     *
+     * @return DescribeRiskEventGroupResponse
+     */
+    public function describeRiskEventGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRiskEventGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -725,34 +723,6 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyControlPolicyPositionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyControlPolicyPriorityRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyControlPolicyPriorityResponse
-     */
-    public function modifyControlPolicyPriorityWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyControlPolicyPriorityResponse::fromMap($this->doRPCRequest('ModifyControlPolicyPriority', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyControlPolicyPriorityRequest $request
-     *
-     * @return ModifyControlPolicyPriorityResponse
-     */
-    public function modifyControlPolicyPriority($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyControlPolicyPriorityWithOptions($request, $runtime);
     }
 
     /**
