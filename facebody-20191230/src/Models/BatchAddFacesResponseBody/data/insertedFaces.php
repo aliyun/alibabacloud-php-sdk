@@ -17,9 +17,15 @@ class insertedFaces extends Model
      * @var string
      */
     public $faceId;
+
+    /**
+     * @var float
+     */
+    public $qualitieScore;
     protected $_name = [
-        'imageURL' => 'ImageURL',
-        'faceId'   => 'FaceId',
+        'imageURL'      => 'ImageURL',
+        'faceId'        => 'FaceId',
+        'qualitieScore' => 'QualitieScore',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class insertedFaces extends Model
         }
         if (null !== $this->faceId) {
             $res['FaceId'] = $this->faceId;
+        }
+        if (null !== $this->qualitieScore) {
+            $res['QualitieScore'] = $this->qualitieScore;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class insertedFaces extends Model
         }
         if (isset($map['FaceId'])) {
             $model->faceId = $map['FaceId'];
+        }
+        if (isset($map['QualitieScore'])) {
+            $model->qualitieScore = $map['QualitieScore'];
         }
 
         return $model;

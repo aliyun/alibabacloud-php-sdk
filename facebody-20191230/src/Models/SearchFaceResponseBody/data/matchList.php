@@ -19,9 +19,15 @@ class matchList extends Model
      * @var location
      */
     public $location;
+
+    /**
+     * @var float
+     */
+    public $qualitieScore;
     protected $_name = [
-        'faceItems' => 'FaceItems',
-        'location'  => 'Location',
+        'faceItems'     => 'FaceItems',
+        'location'      => 'Location',
+        'qualitieScore' => 'QualitieScore',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class matchList extends Model
         }
         if (null !== $this->location) {
             $res['Location'] = null !== $this->location ? $this->location->toMap() : null;
+        }
+        if (null !== $this->qualitieScore) {
+            $res['QualitieScore'] = $this->qualitieScore;
         }
 
         return $res;
@@ -66,6 +75,9 @@ class matchList extends Model
         }
         if (isset($map['Location'])) {
             $model->location = location::fromMap($map['Location']);
+        }
+        if (isset($map['QualitieScore'])) {
+            $model->qualitieScore = $map['QualitieScore'];
         }
 
         return $model;

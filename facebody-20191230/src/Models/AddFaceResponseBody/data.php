@@ -12,8 +12,14 @@ class data extends Model
      * @var string
      */
     public $faceId;
+
+    /**
+     * @var float
+     */
+    public $qualitieScore;
     protected $_name = [
-        'faceId' => 'FaceId',
+        'faceId'        => 'FaceId',
+        'qualitieScore' => 'QualitieScore',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class data extends Model
         $res = [];
         if (null !== $this->faceId) {
             $res['FaceId'] = $this->faceId;
+        }
+        if (null !== $this->qualitieScore) {
+            $res['QualitieScore'] = $this->qualitieScore;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class data extends Model
         $model = new self();
         if (isset($map['FaceId'])) {
             $model->faceId = $map['FaceId'];
+        }
+        if (isset($map['QualitieScore'])) {
+            $model->qualitieScore = $map['QualitieScore'];
         }
 
         return $model;
