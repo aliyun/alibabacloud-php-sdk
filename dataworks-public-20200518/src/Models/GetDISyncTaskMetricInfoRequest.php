@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ImportDISyncTasksRequest extends Model
+class GetDISyncTaskMetricInfoRequest extends Model
 {
     /**
      * @var int
@@ -14,24 +14,24 @@ class ImportDISyncTasksRequest extends Model
     public $projectId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $taskType;
+    public $fileId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $body;
+    public $startDate;
 
     /**
-     * @var string
+     * @var int
      */
-    public $taskParam;
+    public $endDate;
     protected $_name = [
         'projectId' => 'ProjectId',
-        'taskType'  => 'TaskType',
-        'body'      => 'body',
-        'taskParam' => 'TaskParam',
+        'fileId'    => 'FileId',
+        'startDate' => 'StartDate',
+        'endDate'   => 'EndDate',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ImportDISyncTasksRequest extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
         }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
-        if (null !== $this->taskParam) {
-            $res['TaskParam'] = $this->taskParam;
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
         }
 
         return $res;
@@ -60,7 +60,7 @@ class ImportDISyncTasksRequest extends Model
     /**
      * @param array $map
      *
-     * @return ImportDISyncTasksRequest
+     * @return GetDISyncTaskMetricInfoRequest
      */
     public static function fromMap($map = [])
     {
@@ -68,14 +68,14 @@ class ImportDISyncTasksRequest extends Model
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
         }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
-        if (isset($map['TaskParam'])) {
-            $model->taskParam = $map['TaskParam'];
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
         }
 
         return $model;

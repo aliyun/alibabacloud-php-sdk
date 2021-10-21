@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDISyncTasksRes
 
 use AlibabaCloud\Tea\Model;
 
-class taskDetail extends Model
+class data extends Model
 {
     /**
      * @var string
      */
     public $realTimeSolution;
     protected $_name = [
-        'realTimeSolution' => 'RealTimeSolution',
+        'realTimeSolution' => 'realTimeSolution',
     ];
 
     public function validate()
@@ -24,7 +24,7 @@ class taskDetail extends Model
     {
         $res = [];
         if (null !== $this->realTimeSolution) {
-            $res['RealTimeSolution'] = $this->realTimeSolution;
+            $res['realTimeSolution'] = $this->realTimeSolution;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class taskDetail extends Model
     /**
      * @param array $map
      *
-     * @return taskDetail
+     * @return data
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RealTimeSolution'])) {
-            $model->realTimeSolution = $map['RealTimeSolution'];
+        if (isset($map['realTimeSolution'])) {
+            $model->realTimeSolution = $map['realTimeSolution'];
         }
 
         return $model;

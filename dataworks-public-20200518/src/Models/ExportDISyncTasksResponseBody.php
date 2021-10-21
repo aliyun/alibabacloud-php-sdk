@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDISyncTasksResponseBody\taskDetail;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDISyncTasksResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class ExportDISyncTasksResponseBody extends Model
@@ -20,13 +20,13 @@ class ExportDISyncTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @var taskDetail
+     * @var data
      */
-    public $taskDetail;
+    public $data;
     protected $_name = [
-        'success'    => 'Success',
-        'requestId'  => 'RequestId',
-        'taskDetail' => 'TaskDetail',
+        'success'   => 'success',
+        'requestId' => 'requestId',
+        'data'      => 'data',
     ];
 
     public function validate()
@@ -37,13 +37,13 @@ class ExportDISyncTasksResponseBody extends Model
     {
         $res = [];
         if (null !== $this->success) {
-            $res['Success'] = $this->success;
+            $res['success'] = $this->success;
         }
         if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+            $res['requestId'] = $this->requestId;
         }
-        if (null !== $this->taskDetail) {
-            $res['TaskDetail'] = null !== $this->taskDetail ? $this->taskDetail->toMap() : null;
+        if (null !== $this->data) {
+            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class ExportDISyncTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['success'])) {
+            $model->success = $map['success'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
-        if (isset($map['TaskDetail'])) {
-            $model->taskDetail = taskDetail::fromMap($map['TaskDetail']);
+        if (isset($map['data'])) {
+            $model->data = data::fromMap($map['data']);
         }
 
         return $model;
