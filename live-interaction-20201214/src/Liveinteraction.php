@@ -15,6 +15,12 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\AddGroupSilenceBlacklistSh
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\AddGroupSilenceWhitelistRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\AddGroupSilenceWhitelistResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\AddGroupSilenceWhitelistShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\BindInterconnectionCidRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\BindInterconnectionCidResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\BindInterconnectionCidShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\BindInterconnectionUidRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\BindInterconnectionUidResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\BindInterconnectionUidShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\CancelSilenceAllGroupMembersRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\CancelSilenceAllGroupMembersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\CancelSilenceAllGroupMembersShrinkRequest;
@@ -94,6 +100,9 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListRoomUsersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\QueryInterconnectionCidMappingRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\QueryInterconnectionCidMappingResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\QueryInterconnectionCidMappingShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageShrinkRequest;
@@ -152,6 +161,9 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetUserConversationExtensi
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SilenceAllGroupMembersRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SilenceAllGroupMembersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SilenceAllGroupMembersShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UnbindInterconnectionUidRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UnbindInterconnectionUidResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UnbindInterconnectionUidShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateAppNameRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateAppNameResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateAppNameShrinkRequest;
@@ -311,6 +323,39 @@ class Liveinteraction extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnbindInterconnectionUidRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UnbindInterconnectionUidResponse
+     */
+    public function unbindInterconnectionUidWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UnbindInterconnectionUidShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UnbindInterconnectionUidResponse::fromMap($this->doRPCRequest('UnbindInterconnectionUid', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UnbindInterconnectionUidRequest $request
+     *
+     * @return UnbindInterconnectionUidResponse
+     */
+    public function unbindInterconnectionUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindInterconnectionUidWithOptions($request, $runtime);
     }
 
     /**
@@ -1429,6 +1474,39 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
+     * @param BindInterconnectionUidRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BindInterconnectionUidResponse
+     */
+    public function bindInterconnectionUidWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BindInterconnectionUidShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BindInterconnectionUidResponse::fromMap($this->doRPCRequest('BindInterconnectionUid', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BindInterconnectionUidRequest $request
+     *
+     * @return BindInterconnectionUidResponse
+     */
+    public function bindInterconnectionUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindInterconnectionUidWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetMediaUrlRequest $tmpReq
      * @param RuntimeOptions     $runtime
      *
@@ -1525,6 +1603,39 @@ class Liveinteraction extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCallbackConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BindInterconnectionCidRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BindInterconnectionCidResponse
+     */
+    public function bindInterconnectionCidWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BindInterconnectionCidShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BindInterconnectionCidResponse::fromMap($this->doRPCRequest('BindInterconnectionCid', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BindInterconnectionCidRequest $request
+     *
+     * @return BindInterconnectionCidResponse
+     */
+    public function bindInterconnectionCid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindInterconnectionCidWithOptions($request, $runtime);
     }
 
     /**
@@ -1994,6 +2105,39 @@ class Liveinteraction extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLoginTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryInterconnectionCidMappingRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryInterconnectionCidMappingResponse
+     */
+    public function queryInterconnectionCidMappingWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryInterconnectionCidMappingShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryInterconnectionCidMappingResponse::fromMap($this->doRPCRequest('QueryInterconnectionCidMapping', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryInterconnectionCidMappingRequest $request
+     *
+     * @return QueryInterconnectionCidMappingResponse
+     */
+    public function queryInterconnectionCidMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInterconnectionCidMappingWithOptions($request, $runtime);
     }
 
     /**
