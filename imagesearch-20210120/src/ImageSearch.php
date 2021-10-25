@@ -12,8 +12,12 @@ use AlibabaCloud\SDK\ImageSearch\V20210120\Models\CommodityTitleResponse;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\GeneralRecognitionAdvanceRequest;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\GeneralRecognitionRequest;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\GeneralRecognitionResponse;
+use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageCategoryRequest;
+use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageCategoryResponse;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageDuplicationRequest;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageDuplicationResponse;
+use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImagePropertyRequest;
+use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImagePropertyResponse;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageSegmentationAdvanceRequest;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageSegmentationRequest;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageSegmentationResponse;
@@ -61,6 +65,34 @@ class ImageSearch extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ImageCategoryRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ImageCategoryResponse
+     */
+    public function imageCategoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ImageCategoryResponse::fromMap($this->doRPCRequest('ImageCategory', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ImageCategoryRequest $request
+     *
+     * @return ImageCategoryResponse
+     */
+    public function imageCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->imageCategoryWithOptions($request, $runtime);
     }
 
     /**
@@ -167,6 +199,34 @@ class ImageSearch extends OpenApiClient
         }
 
         return $this->generalRecognitionWithOptions($generalRecognitionReq, $runtime);
+    }
+
+    /**
+     * @param ImagePropertyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ImagePropertyResponse
+     */
+    public function imagePropertyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ImagePropertyResponse::fromMap($this->doRPCRequest('ImageProperty', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ImagePropertyRequest $request
+     *
+     * @return ImagePropertyResponse
+     */
+    public function imageProperty($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->imagePropertyWithOptions($request, $runtime);
     }
 
     /**
