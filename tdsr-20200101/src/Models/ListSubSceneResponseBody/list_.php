@@ -91,6 +91,13 @@ class list_ extends Model
      * @var string
      */
     public $originUrl;
+
+    /**
+     * @description 2k基准图路径
+     *
+     * @var string
+     */
+    public $baseImageUrl;
     protected $_name = [
         'id'           => 'Id',
         'name'         => 'Name',
@@ -104,6 +111,7 @@ class list_ extends Model
         'cubemapPath'  => 'CubemapPath',
         'deleted'      => 'Deleted',
         'originUrl'    => 'OriginUrl',
+        'baseImageUrl' => 'BaseImageUrl',
     ];
 
     public function validate()
@@ -148,6 +156,9 @@ class list_ extends Model
         }
         if (null !== $this->originUrl) {
             $res['OriginUrl'] = $this->originUrl;
+        }
+        if (null !== $this->baseImageUrl) {
+            $res['BaseImageUrl'] = $this->baseImageUrl;
         }
 
         return $res;
@@ -196,6 +207,9 @@ class list_ extends Model
         }
         if (isset($map['OriginUrl'])) {
             $model->originUrl = $map['OriginUrl'];
+        }
+        if (isset($map['BaseImageUrl'])) {
+            $model->baseImageUrl = $map['BaseImageUrl'];
         }
 
         return $model;

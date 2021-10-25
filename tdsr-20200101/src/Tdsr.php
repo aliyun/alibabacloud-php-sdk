@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Tdsr\V20200101;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddMosaicsRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddMosaicsResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddProjectRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddProjectResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddRelativePositionRequest;
@@ -89,10 +91,14 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishSceneResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\RecoveryOriginImageRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\RecoveryOriginImageResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectifyImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectifyImageResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectVerticalRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectVerticalResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\RollbackSubSceneRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\RollbackSubSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotConfigRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotConfigResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotTagRequest;
@@ -687,6 +693,34 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param RecoveryOriginImageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecoveryOriginImageResponse
+     */
+    public function recoveryOriginImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecoveryOriginImageResponse::fromMap($this->doRPCRequest('RecoveryOriginImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecoveryOriginImageRequest $request
+     *
+     * @return RecoveryOriginImageResponse
+     */
+    public function recoveryOriginImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recoveryOriginImageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -824,6 +858,34 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getConnDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RollbackSubSceneRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RollbackSubSceneResponse
+     */
+    public function rollbackSubSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RollbackSubSceneResponse::fromMap($this->doRPCRequest('RollbackSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RollbackSubSceneRequest $request
+     *
+     * @return RollbackSubSceneResponse
+     */
+    public function rollbackSubScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackSubSceneWithOptions($request, $runtime);
     }
 
     /**
@@ -1412,6 +1474,34 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getHotspotSceneDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddMosaicsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AddMosaicsResponse
+     */
+    public function addMosaicsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddMosaicsResponse::fromMap($this->doRPCRequest('AddMosaics', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddMosaicsRequest $request
+     *
+     * @return AddMosaicsResponse
+     */
+    public function addMosaics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMosaicsWithOptions($request, $runtime);
     }
 
     /**
