@@ -87,6 +87,18 @@ class ModifyDBInstanceSpecRequest extends Model
      * @var string
      */
     public $switchTime;
+
+    /**
+     * @description 资源组名称
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $usedTime;
     protected $_name = [
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
@@ -104,6 +116,8 @@ class ModifyDBInstanceSpecRequest extends Model
         'dedicatedHostGroupId'  => 'DedicatedHostGroupId',
         'zoneId'                => 'ZoneId',
         'switchTime'            => 'SwitchTime',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'usedTime'              => 'UsedTime',
     ];
 
     public function validate()
@@ -160,6 +174,12 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->usedTime) {
+            $res['UsedTime'] = $this->usedTime;
         }
 
         return $res;
@@ -220,6 +240,12 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (isset($map['SwitchTime'])) {
             $model->switchTime = $map['SwitchTime'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['UsedTime'])) {
+            $model->usedTime = $map['UsedTime'];
         }
 
         return $model;

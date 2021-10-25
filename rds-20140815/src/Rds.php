@@ -58,6 +58,10 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDedicatedHostUserRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDedicatedHostUserResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDiagnosticReportRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDiagnosticReportResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGadInstanceMemberRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGadInstanceMemberResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGADInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGADInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskForSQLServerRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskForSQLServerResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskRequest;
@@ -86,6 +90,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDedicatedHostAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDedicatedHostAccountResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDedicatedHostGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDedicatedHostGroupResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteGadInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteGadInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteUserBackupFileRequest;
@@ -108,6 +114,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableMetricsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableMetricsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableRecoveryTimeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableRecoveryTimeResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableResourceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableResourceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeBackupDatabaseRequest;
@@ -190,14 +198,14 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDetachedBackupsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDetachedBackupsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDiagnosticReportListRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDiagnosticReportListResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDownloadLinkDetailsRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDownloadLinkDetailsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDTCSecurityIpHostsForSQLServerRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDTCSecurityIpHostsForSQLServerResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeErrorLogsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeErrorLogsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeGadInstancesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeGadInstancesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHADiagnoseConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHADiagnoseConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHASwitchConfigRequest;
@@ -240,8 +248,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRdsResourceSettingsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRdsResourceSettingsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionInfosRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionInfosResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceRequest;
@@ -270,10 +276,16 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTasksResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeUpgradeMajorVersionPrecheckTaskRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeUpgradeMajorVersionPrecheckTaskResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeUpgradeMajorVersionTasksRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeUpgradeMajorVersionTasksResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeVSwitchesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DestroyDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DestroyDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DetachGadInstanceMemberRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DetachGadInstanceMemberResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DropDedicatedHostUserRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DropDedicatedHostUserResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\EvaluateDedicatedHostInstanceResourceRequest;
@@ -450,6 +462,10 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceEngineVersionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceEngineVersionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceKernelVersionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceKernelVersionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceMajorVersionPrecheckRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceMajorVersionPrecheckResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceMajorVersionRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceMajorVersionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBProxyInstanceKernelVersionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBProxyInstanceKernelVersionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -1266,6 +1282,62 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param CreateGADInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateGADInstanceResponse
+     */
+    public function createGADInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateGADInstanceResponse::fromMap($this->doRPCRequest('CreateGADInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateGADInstanceRequest $request
+     *
+     * @return CreateGADInstanceResponse
+     */
+    public function createGADInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGADInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateGadInstanceMemberRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateGadInstanceMemberResponse
+     */
+    public function createGadInstanceMemberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateGadInstanceMemberResponse::fromMap($this->doRPCRequest('CreateGadInstanceMember', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateGadInstanceMemberRequest $request
+     *
+     * @return CreateGadInstanceMemberResponse
+     */
+    public function createGadInstanceMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGadInstanceMemberWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateMigrateTaskRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1658,6 +1730,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DeleteGadInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteGadInstanceResponse
+     */
+    public function deleteGadInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteGadInstanceResponse::fromMap($this->doRPCRequest('DeleteGadInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGadInstanceRequest $request
+     *
+     * @return DeleteGadInstanceResponse
+     */
+    public function deleteGadInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGadInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteParameterGroupRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1963,6 +2063,34 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAvailableRecoveryTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAvailableResourceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAvailableResourceResponse
+     */
+    public function describeAvailableResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAvailableResourceResponse::fromMap($this->doRPCRequest('DescribeAvailableResource', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAvailableResourceRequest $request
+     *
+     * @return DescribeAvailableResourceResponse
+     */
+    public function describeAvailableResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -3115,35 +3243,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDownloadLinkDetailsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDownloadLinkDetailsResponse
-     */
-    public function describeDownloadLinkDetailsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return DescribeDownloadLinkDetailsResponse::fromMap($this->doRPCRequest('DescribeDownloadLinkDetails', '2014-08-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDownloadLinkDetailsRequest $request
-     *
-     * @return DescribeDownloadLinkDetailsResponse
-     */
-    public function describeDownloadLinkDetails($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDownloadLinkDetailsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDTCSecurityIpHostsForSQLServerRequest $request
      * @param RuntimeOptions                                $runtime
      *
@@ -3225,6 +3324,34 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeGadInstancesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeGadInstancesResponse
+     */
+    public function describeGadInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeGadInstancesResponse::fromMap($this->doRPCRequest('DescribeGadInstances', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeGadInstancesRequest $request
+     *
+     * @return DescribeGadInstancesResponse
+     */
+    public function describeGadInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGadInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -3816,34 +3943,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionInfosRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeRegionInfosResponse
-     */
-    public function describeRegionInfosWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRegionInfosResponse::fromMap($this->doRPCRequest('DescribeRegionInfos', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRegionInfosRequest $request
-     *
-     * @return DescribeRegionInfosResponse
-     */
-    public function describeRegionInfos($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRegionInfosWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4236,6 +4335,62 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeUpgradeMajorVersionPrecheckTaskRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeUpgradeMajorVersionPrecheckTaskResponse
+     */
+    public function describeUpgradeMajorVersionPrecheckTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeUpgradeMajorVersionPrecheckTaskResponse::fromMap($this->doRPCRequest('DescribeUpgradeMajorVersionPrecheckTask', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUpgradeMajorVersionPrecheckTaskRequest $request
+     *
+     * @return DescribeUpgradeMajorVersionPrecheckTaskResponse
+     */
+    public function describeUpgradeMajorVersionPrecheckTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUpgradeMajorVersionPrecheckTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUpgradeMajorVersionTasksRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeUpgradeMajorVersionTasksResponse
+     */
+    public function describeUpgradeMajorVersionTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeUpgradeMajorVersionTasksResponse::fromMap($this->doRPCRequest('DescribeUpgradeMajorVersionTasks', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUpgradeMajorVersionTasksRequest $request
+     *
+     * @return DescribeUpgradeMajorVersionTasksResponse
+     */
+    public function describeUpgradeMajorVersionTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUpgradeMajorVersionTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVSwitchesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4289,6 +4444,34 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->destroyDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachGadInstanceMemberRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DetachGadInstanceMemberResponse
+     */
+    public function detachGadInstanceMemberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetachGadInstanceMemberResponse::fromMap($this->doRPCRequest('DetachGadInstanceMember', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetachGadInstanceMemberRequest $request
+     *
+     * @return DetachGadInstanceMemberResponse
+     */
+    public function detachGadInstanceMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachGadInstanceMemberWithOptions($request, $runtime);
     }
 
     /**
@@ -6753,6 +6936,62 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeDBInstanceKernelVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeDBInstanceMajorVersionRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpgradeDBInstanceMajorVersionResponse
+     */
+    public function upgradeDBInstanceMajorVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpgradeDBInstanceMajorVersionResponse::fromMap($this->doRPCRequest('UpgradeDBInstanceMajorVersion', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeDBInstanceMajorVersionRequest $request
+     *
+     * @return UpgradeDBInstanceMajorVersionResponse
+     */
+    public function upgradeDBInstanceMajorVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeDBInstanceMajorVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeDBInstanceMajorVersionPrecheckRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return UpgradeDBInstanceMajorVersionPrecheckResponse
+     */
+    public function upgradeDBInstanceMajorVersionPrecheckWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpgradeDBInstanceMajorVersionPrecheckResponse::fromMap($this->doRPCRequest('UpgradeDBInstanceMajorVersionPrecheck', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeDBInstanceMajorVersionPrecheckRequest $request
+     *
+     * @return UpgradeDBInstanceMajorVersionPrecheckResponse
+     */
+    public function upgradeDBInstanceMajorVersionPrecheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeDBInstanceMajorVersionPrecheckWithOptions($request, $runtime);
     }
 
     /**

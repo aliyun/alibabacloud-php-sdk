@@ -82,11 +82,6 @@ class DBInstance extends Model
     /**
      * @var string
      */
-    public $autoUpgradeMinorVersion;
-
-    /**
-     * @var string
-     */
     public $expireTime;
 
     /**
@@ -258,7 +253,6 @@ class DBInstance extends Model
         'connectionString'             => 'ConnectionString',
         'instanceNetworkType'          => 'InstanceNetworkType',
         'masterInstanceId'             => 'MasterInstanceId',
-        'autoUpgradeMinorVersion'      => 'AutoUpgradeMinorVersion',
         'expireTime'                   => 'ExpireTime',
         'destroyTime'                  => 'DestroyTime',
         'guardDBInstanceId'            => 'GuardDBInstanceId',
@@ -341,9 +335,6 @@ class DBInstance extends Model
         }
         if (null !== $this->masterInstanceId) {
             $res['MasterInstanceId'] = $this->masterInstanceId;
-        }
-        if (null !== $this->autoUpgradeMinorVersion) {
-            $res['AutoUpgradeMinorVersion'] = $this->autoUpgradeMinorVersion;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
@@ -494,9 +485,6 @@ class DBInstance extends Model
         }
         if (isset($map['MasterInstanceId'])) {
             $model->masterInstanceId = $map['MasterInstanceId'];
-        }
-        if (isset($map['AutoUpgradeMinorVersion'])) {
-            $model->autoUpgradeMinorVersion = $map['AutoUpgradeMinorVersion'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];

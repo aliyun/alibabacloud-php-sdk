@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesResponseBody\items;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeUpgradeMajorVersionTasksResponseBody\items;
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBInstancesResponseBody extends Model
+class DescribeUpgradeMajorVersionTasksResponseBody extends Model
 {
     /**
      * @var string
@@ -30,21 +30,15 @@ class DescribeDBInstancesResponseBody extends Model
     public $totalRecordCount;
 
     /**
-     * @var items
+     * @var items[]
      */
     public $items;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
     protected $_name = [
         'requestId'        => 'RequestId',
         'pageNumber'       => 'PageNumber',
         'pageRecordCount'  => 'PageRecordCount',
         'totalRecordCount' => 'TotalRecordCount',
         'items'            => 'Items',
-        'nextToken'        => 'NextToken',
     ];
 
     public function validate()
@@ -67,10 +61,13 @@ class DescribeDBInstancesResponseBody extends Model
             $res['TotalRecordCount'] = $this->totalRecordCount;
         }
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+            $res['Items'] = [];
+            if (null !== $this->items && \is_array($this->items)) {
+                $n = 0;
+                foreach ($this->items as $item) {
+                    $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -79,7 +76,7 @@ class DescribeDBInstancesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBInstancesResponseBody
+     * @return DescribeUpgradeMajorVersionTasksResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -97,10 +94,13 @@ class DescribeDBInstancesResponseBody extends Model
             $model->totalRecordCount = $map['TotalRecordCount'];
         }
         if (isset($map['Items'])) {
-            $model->items = items::fromMap($map['Items']);
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+            if (!empty($map['Items'])) {
+                $model->items = [];
+                $n            = 0;
+                foreach ($map['Items'] as $item) {
+                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

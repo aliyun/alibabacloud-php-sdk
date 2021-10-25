@@ -152,6 +152,16 @@ class DescribeDBInstancesRequest extends Model
      * @var string
      */
     public $connectionString;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -182,6 +192,8 @@ class DescribeDBInstancesRequest extends Model
         'dedicatedHostId'      => 'DedicatedHostId',
         'instanceLevel'        => 'InstanceLevel',
         'connectionString'     => 'ConnectionString',
+        'nextToken'            => 'NextToken',
+        'maxResults'           => 'MaxResults',
     ];
 
     public function validate()
@@ -277,6 +289,12 @@ class DescribeDBInstancesRequest extends Model
         }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
 
         return $res;
@@ -376,6 +394,12 @@ class DescribeDBInstancesRequest extends Model
         }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
 
         return $model;

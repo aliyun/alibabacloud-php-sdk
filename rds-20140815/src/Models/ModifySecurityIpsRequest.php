@@ -47,6 +47,11 @@ class ModifySecurityIpsRequest extends Model
      * @var string
      */
     public $modifyMode;
+
+    /**
+     * @var string
+     */
+    public $freshWhiteListReadins;
     protected $_name = [
         'resourceOwnerId'            => 'ResourceOwnerId',
         'DBInstanceId'               => 'DBInstanceId',
@@ -56,6 +61,7 @@ class ModifySecurityIpsRequest extends Model
         'securityIPType'             => 'SecurityIPType',
         'whitelistNetworkType'       => 'WhitelistNetworkType',
         'modifyMode'                 => 'ModifyMode',
+        'freshWhiteListReadins'      => 'FreshWhiteListReadins',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class ModifySecurityIpsRequest extends Model
         }
         if (null !== $this->modifyMode) {
             $res['ModifyMode'] = $this->modifyMode;
+        }
+        if (null !== $this->freshWhiteListReadins) {
+            $res['FreshWhiteListReadins'] = $this->freshWhiteListReadins;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class ModifySecurityIpsRequest extends Model
         }
         if (isset($map['ModifyMode'])) {
             $model->modifyMode = $map['ModifyMode'];
+        }
+        if (isset($map['FreshWhiteListReadins'])) {
+            $model->freshWhiteListReadins = $map['FreshWhiteListReadins'];
         }
 
         return $model;

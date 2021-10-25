@@ -110,6 +110,11 @@ class backup extends Model
     public $DBInstanceId;
 
     /**
+     * @var string
+     */
+    public $checksum;
+
+    /**
      * @var backupDownloadLinkByDB
      */
     public $backupDownloadLinkByDB;
@@ -134,6 +139,7 @@ class backup extends Model
         'backupSize'                => 'BackupSize',
         'backupMode'                => 'BackupMode',
         'DBInstanceId'              => 'DBInstanceId',
+        'checksum'                  => 'Checksum',
         'backupDownloadLinkByDB'    => 'BackupDownloadLinkByDB',
     ];
 
@@ -203,6 +209,9 @@ class backup extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->checksum) {
+            $res['Checksum'] = $this->checksum;
         }
         if (null !== $this->backupDownloadLinkByDB) {
             $res['BackupDownloadLinkByDB'] = null !== $this->backupDownloadLinkByDB ? $this->backupDownloadLinkByDB->toMap() : null;
@@ -278,6 +287,9 @@ class backup extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['Checksum'])) {
+            $model->checksum = $map['Checksum'];
         }
         if (isset($map['BackupDownloadLinkByDB'])) {
             $model->backupDownloadLinkByDB = backupDownloadLinkByDB::fromMap($map['BackupDownloadLinkByDB']);

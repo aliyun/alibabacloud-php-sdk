@@ -1,3 +1,6 @@
+2021-10-25 Version: 2.0.6
+- AMP version.
+
 2021-09-16 Version: 2.0.5
 - AMP Version Change.
 
