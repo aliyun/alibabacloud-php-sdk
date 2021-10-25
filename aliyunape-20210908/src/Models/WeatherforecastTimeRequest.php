@@ -37,14 +37,14 @@ class WeatherforecastTimeRequest extends Model
     public $lon;
 
     /**
-     * @description yyyymmddhh0000
+     * @description 20210809090000
      *
      * @var string
      */
     public $curHour;
 
     /**
-     * @description 纬度，范围为（15°N~59.95°N）
+     * @description 纬度，范围为（15°N~59.95°N
      *
      * @var string
      */

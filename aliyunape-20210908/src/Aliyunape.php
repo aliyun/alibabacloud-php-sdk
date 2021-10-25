@@ -5,10 +5,6 @@
 namespace AlibabaCloud\SDK\Aliyunape\V20210908;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ExecuteRequest;
-use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ExecuteResponse;
-use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ExecuteShrinkRequest;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\HistoricalRequest;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\HistoricalResponse;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\StationDayRequest;
@@ -17,9 +13,6 @@ use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeatherforecastRequest;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeatherforecastResponse;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeatherforecastTimeRequest;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeatherforecastTimeResponse;
-use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeathermonitorProvinceHourRequest;
-use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeathermonitorProvinceHourResponse;
-use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeathermonitorProvinceHourShrinkRequest;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeathermonitorRequest;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeathermonitorResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -58,78 +51,6 @@ class Aliyunape extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * @param ExecuteRequest $tmpReq
-     * @param RuntimeOptions $runtime
-     *
-     * @return ExecuteResponse
-     */
-    public function executeWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ExecuteShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->serviceParam)) {
-            $request->serviceParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serviceParam, 'ServiceParam', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->extendParam)) {
-            $request->extendParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extendParam, 'ExtendParam', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ExecuteResponse::fromMap($this->doRPCRequest('Execute', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ExecuteRequest $request
-     *
-     * @return ExecuteResponse
-     */
-    public function execute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->executeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param WeathermonitorProvinceHourRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return WeathermonitorProvinceHourResponse
-     */
-    public function weathermonitorProvinceHourWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new WeathermonitorProvinceHourShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->serviceParam)) {
-            $request->serviceParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serviceParam, 'ServiceParam', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->extendParam)) {
-            $request->extendParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extendParam, 'ExtendParam', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return WeathermonitorProvinceHourResponse::fromMap($this->doRPCRequest('WeathermonitorProvinceHour', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param WeathermonitorProvinceHourRequest $request
-     *
-     * @return WeathermonitorProvinceHourResponse
-     */
-    public function weathermonitorProvinceHour($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->weathermonitorProvinceHourWithOptions($request, $runtime);
     }
 
     /**
