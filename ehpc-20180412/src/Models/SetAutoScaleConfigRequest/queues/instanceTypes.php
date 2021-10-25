@@ -11,11 +11,6 @@ class instanceTypes extends Model
     /**
      * @var string
      */
-    public $hostNamePrefix;
-
-    /**
-     * @var string
-     */
     public $vSwitchId;
 
     /**
@@ -38,7 +33,6 @@ class instanceTypes extends Model
      */
     public $spotStrategy;
     protected $_name = [
-        'hostNamePrefix' => 'HostNamePrefix',
         'vSwitchId'      => 'VSwitchId',
         'zoneId'         => 'ZoneId',
         'spotPriceLimit' => 'SpotPriceLimit',
@@ -53,9 +47,6 @@ class instanceTypes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hostNamePrefix) {
-            $res['HostNamePrefix'] = $this->hostNamePrefix;
-        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -83,9 +74,6 @@ class instanceTypes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HostNamePrefix'])) {
-            $model->hostNamePrefix = $map['HostNamePrefix'];
-        }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

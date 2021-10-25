@@ -4,52 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSImagesResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSImagesResponseBody\images\imageInfo;
 use AlibabaCloud\Tea\Model;
 
 class images extends Model
 {
     /**
-     * @var string
+     * @var imageInfo[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $imageType;
-
-    /**
-     * @var string
-     */
-    public $progress;
-
-    /**
-     * @var int
-     */
-    public $size;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $imageId;
+    public $imageInfo;
     protected $_name = [
-        'status'     => 'Status',
-        'imageType'  => 'ImageType',
-        'progress'   => 'Progress',
-        'size'       => 'Size',
-        'createTime' => 'CreateTime',
-        'name'       => 'Name',
-        'imageId'    => 'ImageId',
+        'imageInfo' => 'ImageInfo',
     ];
 
     public function validate()
@@ -59,26 +24,14 @@ class images extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
-        }
-        if (null !== $this->progress) {
-            $res['Progress'] = $this->progress;
-        }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->imageInfo) {
+            $res['ImageInfo'] = [];
+            if (null !== $this->imageInfo && \is_array($this->imageInfo)) {
+                $n = 0;
+                foreach ($this->imageInfo as $item) {
+                    $res['ImageInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -92,26 +45,14 @@ class images extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
-        }
-        if (isset($map['Progress'])) {
-            $model->progress = $map['Progress'];
-        }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['ImageInfo'])) {
+            if (!empty($map['ImageInfo'])) {
+                $model->imageInfo = [];
+                $n                = 0;
+                foreach ($map['ImageInfo'] as $item) {
+                    $model->imageInfo[$n++] = null !== $item ? imageInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

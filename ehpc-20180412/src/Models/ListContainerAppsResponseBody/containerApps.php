@@ -9,47 +9,11 @@ use AlibabaCloud\Tea\Model;
 class containerApps extends Model
 {
     /**
-     * @var string
+     * @var \AlibabaCloud\SDK\EHPC\V20180412\Models\ListContainerAppsResponseBody\containerApps\containerApps[]
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $repository;
-
-    /**
-     * @var string
-     */
-    public $imageTag;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $id;
+    public $containerApps;
     protected $_name = [
-        'type'        => 'Type',
-        'description' => 'Description',
-        'createTime'  => 'CreateTime',
-        'repository'  => 'Repository',
-        'imageTag'    => 'ImageTag',
-        'name'        => 'Name',
-        'id'          => 'Id',
+        'containerApps' => 'ContainerApps',
     ];
 
     public function validate()
@@ -59,26 +23,14 @@ class containerApps extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->repository) {
-            $res['Repository'] = $this->repository;
-        }
-        if (null !== $this->imageTag) {
-            $res['ImageTag'] = $this->imageTag;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->containerApps) {
+            $res['ContainerApps'] = [];
+            if (null !== $this->containerApps && \is_array($this->containerApps)) {
+                $n = 0;
+                foreach ($this->containerApps as $item) {
+                    $res['ContainerApps'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -92,26 +44,14 @@ class containerApps extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['Repository'])) {
-            $model->repository = $map['Repository'];
-        }
-        if (isset($map['ImageTag'])) {
-            $model->imageTag = $map['ImageTag'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['ContainerApps'])) {
+            if (!empty($map['ContainerApps'])) {
+                $model->containerApps = [];
+                $n                    = 0;
+                foreach ($map['ContainerApps'] as $item) {
+                    $model->containerApps[$n++] = null !== $item ? \AlibabaCloud\SDK\EHPC\V20180412\Models\ListContainerAppsResponseBody\containerApps\containerApps::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

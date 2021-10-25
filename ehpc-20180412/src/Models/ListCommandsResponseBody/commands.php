@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommandsResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommandsResponseBody\commands\command;
 use AlibabaCloud\Tea\Model;
 
 class commands extends Model
 {
     /**
-     * @var string
+     * @var command[]
      */
-    public $timeout;
-
-    /**
-     * @var string
-     */
-    public $workingDir;
-
-    /**
-     * @var string
-     */
-    public $commandContent;
-
-    /**
-     * @var string
-     */
-    public $commandId;
+    public $command;
     protected $_name = [
-        'timeout'        => 'Timeout',
-        'workingDir'     => 'WorkingDir',
-        'commandContent' => 'CommandContent',
-        'commandId'      => 'CommandId',
+        'command' => 'Command',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class commands extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeout) {
-            $res['Timeout'] = $this->timeout;
-        }
-        if (null !== $this->workingDir) {
-            $res['WorkingDir'] = $this->workingDir;
-        }
-        if (null !== $this->commandContent) {
-            $res['CommandContent'] = $this->commandContent;
-        }
-        if (null !== $this->commandId) {
-            $res['CommandId'] = $this->commandId;
+        if (null !== $this->command) {
+            $res['Command'] = [];
+            if (null !== $this->command && \is_array($this->command)) {
+                $n = 0;
+                foreach ($this->command as $item) {
+                    $res['Command'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class commands extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Timeout'])) {
-            $model->timeout = $map['Timeout'];
-        }
-        if (isset($map['WorkingDir'])) {
-            $model->workingDir = $map['WorkingDir'];
-        }
-        if (isset($map['CommandContent'])) {
-            $model->commandContent = $map['CommandContent'];
-        }
-        if (isset($map['CommandId'])) {
-            $model->commandId = $map['CommandId'];
+        if (isset($map['Command'])) {
+            if (!empty($map['Command'])) {
+                $model->command = [];
+                $n              = 0;
+                foreach ($map['Command'] as $item) {
+                    $model->command[$n++] = null !== $item ? command::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

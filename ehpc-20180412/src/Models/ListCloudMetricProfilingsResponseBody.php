@@ -12,11 +12,6 @@ class ListCloudMetricProfilingsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class ListCloudMetricProfilingsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var profilings[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var profilings
      */
     public $profilings;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
         'profilings' => 'Profilings',
     ];
 
@@ -48,9 +48,6 @@ class ListCloudMetricProfilingsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class ListCloudMetricProfilingsResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->profilings) {
-            $res['Profilings'] = [];
-            if (null !== $this->profilings && \is_array($this->profilings)) {
-                $n = 0;
-                foreach ($this->profilings as $item) {
-                    $res['Profilings'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Profilings'] = null !== $this->profilings ? $this->profilings->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class ListCloudMetricProfilingsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class ListCloudMetricProfilingsResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['Profilings'])) {
-            if (!empty($map['Profilings'])) {
-                $model->profilings = [];
-                $n                 = 0;
-                foreach ($map['Profilings'] as $item) {
-                    $model->profilings[$n++] = null !== $item ? profilings::fromMap($item) : $item;
-                }
-            }
+            $model->profilings = profilings::fromMap($map['Profilings']);
         }
 
         return $model;

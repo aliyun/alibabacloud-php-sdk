@@ -15,7 +15,7 @@ class ListRegionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var regions[]
+     * @var regions
      */
     public $regions;
     protected $_name = [
@@ -34,13 +34,7 @@ class ListRegionsResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->regions) {
-            $res['Regions'] = [];
-            if (null !== $this->regions && \is_array($this->regions)) {
-                $n = 0;
-                foreach ($this->regions as $item) {
-                    $res['Regions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Regions'] = null !== $this->regions ? $this->regions->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class ListRegionsResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Regions'])) {
-            if (!empty($map['Regions'])) {
-                $model->regions = [];
-                $n              = 0;
-                foreach ($map['Regions'] as $item) {
-                    $model->regions[$n++] = null !== $item ? regions::fromMap($item) : $item;
-                }
-            }
+            $model->regions = regions::fromMap($map['Regions']);
         }
 
         return $model;

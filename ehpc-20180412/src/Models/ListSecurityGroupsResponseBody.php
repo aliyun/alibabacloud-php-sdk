@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListSecurityGroupsResponseBody\securityGroups;
 use AlibabaCloud\Tea\Model;
 
 class ListSecurityGroupsResponseBody extends Model
 {
-    /**
-     * @var string[]
-     */
-    public $securityGroups;
-
     /**
      * @var int
      */
@@ -22,10 +18,15 @@ class ListSecurityGroupsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var securityGroups
+     */
+    public $securityGroups;
     protected $_name = [
-        'securityGroups' => 'SecurityGroups',
         'totalCount'     => 'TotalCount',
         'requestId'      => 'RequestId',
+        'securityGroups' => 'SecurityGroups',
     ];
 
     public function validate()
@@ -35,14 +36,14 @@ class ListSecurityGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityGroups) {
-            $res['SecurityGroups'] = $this->securityGroups;
-        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->securityGroups) {
+            $res['SecurityGroups'] = null !== $this->securityGroups ? $this->securityGroups->toMap() : null;
         }
 
         return $res;
@@ -56,16 +57,14 @@ class ListSecurityGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityGroups'])) {
-            if (!empty($map['SecurityGroups'])) {
-                $model->securityGroups = $map['SecurityGroups'];
-            }
-        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SecurityGroups'])) {
+            $model->securityGroups = securityGroups::fromMap($map['SecurityGroups']);
         }
 
         return $model;

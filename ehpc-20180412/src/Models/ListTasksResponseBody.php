@@ -12,16 +12,6 @@ class ListTasksResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var tasks[]
-     */
-    public $tasks;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -33,12 +23,22 @@ class ListTasksResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var tasks[]
+     */
+    public $tasks;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'tasks'      => 'Tasks',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
+        'tasks'      => 'Tasks',
     ];
 
     public function validate()
@@ -48,6 +48,15 @@ class ListTasksResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -59,15 +68,6 @@ class ListTasksResponseBody extends Model
                     $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -81,6 +81,15 @@ class ListTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
@@ -92,15 +101,6 @@ class ListTasksResponseBody extends Model
                     $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
         }
 
         return $model;

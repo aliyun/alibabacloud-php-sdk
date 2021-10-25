@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\AddNodesResponseBody\instanceIds;
 use AlibabaCloud\Tea\Model;
 
 class AddNodesResponseBody extends Model
@@ -19,7 +20,7 @@ class AddNodesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
+     * @var instanceIds
      */
     public $instanceIds;
     protected $_name = [
@@ -42,7 +43,7 @@ class AddNodesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
         }
 
         return $res;
@@ -63,9 +64,7 @@ class AddNodesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
+            $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
         }
 
         return $model;

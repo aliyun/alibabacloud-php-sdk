@@ -12,11 +12,6 @@ class ListJobsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class ListJobsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var jobs[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var jobs
      */
     public $jobs;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
         'jobs'       => 'Jobs',
     ];
 
@@ -48,9 +48,6 @@ class ListJobsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class ListJobsResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->jobs) {
-            $res['Jobs'] = [];
-            if (null !== $this->jobs && \is_array($this->jobs)) {
-                $n = 0;
-                foreach ($this->jobs as $item) {
-                    $res['Jobs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Jobs'] = null !== $this->jobs ? $this->jobs->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class ListJobsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class ListJobsResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['Jobs'])) {
-            if (!empty($map['Jobs'])) {
-                $model->jobs = [];
-                $n           = 0;
-                foreach ($map['Jobs'] as $item) {
-                    $model->jobs[$n++] = null !== $item ? jobs::fromMap($item) : $item;
-                }
-            }
+            $model->jobs = jobs::fromMap($map['Jobs']);
         }
 
         return $model;

@@ -20,12 +20,18 @@ class DeleteNodesRequest extends Model
     public $releaseInstance;
 
     /**
+     * @var bool
+     */
+    public $sync;
+
+    /**
      * @var instance[]
      */
     public $instance;
     protected $_name = [
         'clusterId'       => 'ClusterId',
         'releaseInstance' => 'ReleaseInstance',
+        'sync'            => 'Sync',
         'instance'        => 'Instance',
     ];
 
@@ -41,6 +47,9 @@ class DeleteNodesRequest extends Model
         }
         if (null !== $this->releaseInstance) {
             $res['ReleaseInstance'] = $this->releaseInstance;
+        }
+        if (null !== $this->sync) {
+            $res['Sync'] = $this->sync;
         }
         if (null !== $this->instance) {
             $res['Instance'] = [];
@@ -68,6 +77,9 @@ class DeleteNodesRequest extends Model
         }
         if (isset($map['ReleaseInstance'])) {
             $model->releaseInstance = $map['ReleaseInstance'];
+        }
+        if (isset($map['Sync'])) {
+            $model->sync = $map['Sync'];
         }
         if (isset($map['Instance'])) {
             if (!empty($map['Instance'])) {

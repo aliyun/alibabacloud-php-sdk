@@ -4,52 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListCloudMetricProfilingsResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCloudMetricProfilingsResponseBody\profilings\profilingInfo;
 use AlibabaCloud\Tea\Model;
 
 class profilings extends Model
 {
     /**
-     * @var string
+     * @var profilingInfo[]
      */
-    public $profilingId;
-
-    /**
-     * @var string
-     */
-    public $triggerTime;
-
-    /**
-     * @var int
-     */
-    public $pid;
-
-    /**
-     * @var string
-     */
-    public $hostName;
-
-    /**
-     * @var int
-     */
-    public $duration;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $freq;
+    public $profilingInfo;
     protected $_name = [
-        'profilingId' => 'ProfilingId',
-        'triggerTime' => 'TriggerTime',
-        'pid'         => 'Pid',
-        'hostName'    => 'HostName',
-        'duration'    => 'Duration',
-        'instanceId'  => 'InstanceId',
-        'freq'        => 'Freq',
+        'profilingInfo' => 'ProfilingInfo',
     ];
 
     public function validate()
@@ -59,26 +24,14 @@ class profilings extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->profilingId) {
-            $res['ProfilingId'] = $this->profilingId;
-        }
-        if (null !== $this->triggerTime) {
-            $res['TriggerTime'] = $this->triggerTime;
-        }
-        if (null !== $this->pid) {
-            $res['Pid'] = $this->pid;
-        }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->freq) {
-            $res['Freq'] = $this->freq;
+        if (null !== $this->profilingInfo) {
+            $res['ProfilingInfo'] = [];
+            if (null !== $this->profilingInfo && \is_array($this->profilingInfo)) {
+                $n = 0;
+                foreach ($this->profilingInfo as $item) {
+                    $res['ProfilingInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -92,26 +45,14 @@ class profilings extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProfilingId'])) {
-            $model->profilingId = $map['ProfilingId'];
-        }
-        if (isset($map['TriggerTime'])) {
-            $model->triggerTime = $map['TriggerTime'];
-        }
-        if (isset($map['Pid'])) {
-            $model->pid = $map['Pid'];
-        }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Freq'])) {
-            $model->freq = $map['Freq'];
+        if (isset($map['ProfilingInfo'])) {
+            if (!empty($map['ProfilingInfo'])) {
+                $model->profilingInfo = [];
+                $n                    = 0;
+                foreach ($map['ProfilingInfo'] as $item) {
+                    $model->profilingInfo[$n++] = null !== $item ? profilingInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -12,16 +12,6 @@ class ListVolumesResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var volumes[]
-     */
-    public $volumes;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -33,12 +23,22 @@ class ListVolumesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var volumes
+     */
+    public $volumes;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'volumes'    => 'Volumes',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
+        'volumes'    => 'Volumes',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class ListVolumesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->volumes) {
-            $res['Volumes'] = [];
-            if (null !== $this->volumes && \is_array($this->volumes)) {
-                $n = 0;
-                foreach ($this->volumes as $item) {
-                    $res['Volumes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -68,6 +56,12 @@ class ListVolumesResponseBody extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->volumes) {
+            $res['Volumes'] = null !== $this->volumes ? $this->volumes->toMap() : null;
         }
 
         return $res;
@@ -81,18 +75,6 @@ class ListVolumesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Volumes'])) {
-            if (!empty($map['Volumes'])) {
-                $model->volumes = [];
-                $n              = 0;
-                foreach ($map['Volumes'] as $item) {
-                    $model->volumes[$n++] = null !== $item ? volumes::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -101,6 +83,12 @@ class ListVolumesResponseBody extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Volumes'])) {
+            $model->volumes = volumes::fromMap($map['Volumes']);
         }
 
         return $model;

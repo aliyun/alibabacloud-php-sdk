@@ -9,47 +9,11 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
-     * @var string
+     * @var \AlibabaCloud\SDK\EHPC\V20180412\Models\ListContainerImagesResponseBody\images\images[]
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $updateDateTime;
-
-    /**
-     * @var string
-     */
-    public $repository;
-
-    /**
-     * @var string
-     */
-    public $tag;
-
-    /**
-     * @var string
-     */
-    public $system;
-
-    /**
-     * @var string
-     */
-    public $imageId;
+    public $images;
     protected $_name = [
-        'type'           => 'Type',
-        'status'         => 'Status',
-        'updateDateTime' => 'UpdateDateTime',
-        'repository'     => 'Repository',
-        'tag'            => 'Tag',
-        'system'         => 'System',
-        'imageId'        => 'ImageId',
+        'images' => 'Images',
     ];
 
     public function validate()
@@ -59,26 +23,14 @@ class images extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->updateDateTime) {
-            $res['UpdateDateTime'] = $this->updateDateTime;
-        }
-        if (null !== $this->repository) {
-            $res['Repository'] = $this->repository;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->system) {
-            $res['System'] = $this->system;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->images) {
+            $res['Images'] = [];
+            if (null !== $this->images && \is_array($this->images)) {
+                $n = 0;
+                foreach ($this->images as $item) {
+                    $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -92,26 +44,14 @@ class images extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['UpdateDateTime'])) {
-            $model->updateDateTime = $map['UpdateDateTime'];
-        }
-        if (isset($map['Repository'])) {
-            $model->repository = $map['Repository'];
-        }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
-        if (isset($map['System'])) {
-            $model->system = $map['System'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['Images'])) {
+            if (!empty($map['Images'])) {
+                $model->images = [];
+                $n             = 0;
+                foreach ($map['Images'] as $item) {
+                    $model->images[$n++] = null !== $item ? \AlibabaCloud\SDK\EHPC\V20180412\Models\ListContainerImagesResponseBody\images\images::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

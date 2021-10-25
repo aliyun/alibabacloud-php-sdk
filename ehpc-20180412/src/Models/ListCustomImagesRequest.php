@@ -22,10 +22,16 @@ class ListCustomImagesRequest extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
     protected $_name = [
         'imageOwnerAlias' => 'ImageOwnerAlias',
         'baseOsTag'       => 'BaseOsTag',
         'instanceType'    => 'InstanceType',
+        'clusterId'       => 'ClusterId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ListCustomImagesRequest extends Model
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ListCustomImagesRequest extends Model
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
 
         return $model;

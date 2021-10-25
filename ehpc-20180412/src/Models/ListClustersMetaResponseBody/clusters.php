@@ -4,76 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListClustersMetaResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListClustersMetaResponseBody\clusters\clusterInfoSimple;
 use AlibabaCloud\Tea\Model;
 
 class clusters extends Model
 {
     /**
-     * @var string
+     * @var clusterInfoSimple[]
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $schedulerType;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $deployMode;
-
-    /**
-     * @var string
-     */
-    public $osTag;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $accountType;
-
-    /**
-     * @var string
-     */
-    public $location;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $clientVersion;
+    public $clusterInfoSimple;
     protected $_name = [
-        'vpcId'         => 'VpcId',
-        'status'        => 'Status',
-        'schedulerType' => 'SchedulerType',
-        'description'   => 'Description',
-        'deployMode'    => 'DeployMode',
-        'osTag'         => 'OsTag',
-        'name'          => 'Name',
-        'accountType'   => 'AccountType',
-        'location'      => 'Location',
-        'id'            => 'Id',
-        'clientVersion' => 'ClientVersion',
+        'clusterInfoSimple' => 'ClusterInfoSimple',
     ];
 
     public function validate()
@@ -83,38 +24,14 @@ class clusters extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->schedulerType) {
-            $res['SchedulerType'] = $this->schedulerType;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->deployMode) {
-            $res['DeployMode'] = $this->deployMode;
-        }
-        if (null !== $this->osTag) {
-            $res['OsTag'] = $this->osTag;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->clientVersion) {
-            $res['ClientVersion'] = $this->clientVersion;
+        if (null !== $this->clusterInfoSimple) {
+            $res['ClusterInfoSimple'] = [];
+            if (null !== $this->clusterInfoSimple && \is_array($this->clusterInfoSimple)) {
+                $n = 0;
+                foreach ($this->clusterInfoSimple as $item) {
+                    $res['ClusterInfoSimple'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -128,38 +45,14 @@ class clusters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['SchedulerType'])) {
-            $model->schedulerType = $map['SchedulerType'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['DeployMode'])) {
-            $model->deployMode = $map['DeployMode'];
-        }
-        if (isset($map['OsTag'])) {
-            $model->osTag = $map['OsTag'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['ClientVersion'])) {
-            $model->clientVersion = $map['ClientVersion'];
+        if (isset($map['ClusterInfoSimple'])) {
+            if (!empty($map['ClusterInfoSimple'])) {
+                $model->clusterInfoSimple = [];
+                $n                        = 0;
+                foreach ($map['ClusterInfoSimple'] as $item) {
+                    $model->clusterInfoSimple[$n++] = null !== $item ? clusterInfoSimple::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

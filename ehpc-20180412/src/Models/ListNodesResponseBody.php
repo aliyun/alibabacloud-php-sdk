@@ -12,11 +12,6 @@ class ListNodesResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class ListNodesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var nodes[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var nodes
      */
     public $nodes;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
         'nodes'      => 'Nodes',
     ];
 
@@ -48,9 +48,6 @@ class ListNodesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class ListNodesResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->nodes) {
-            $res['Nodes'] = [];
-            if (null !== $this->nodes && \is_array($this->nodes)) {
-                $n = 0;
-                foreach ($this->nodes as $item) {
-                    $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Nodes'] = null !== $this->nodes ? $this->nodes->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class ListNodesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class ListNodesResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['Nodes'])) {
-            if (!empty($map['Nodes'])) {
-                $model->nodes = [];
-                $n            = 0;
-                foreach ($map['Nodes'] as $item) {
-                    $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
-                }
-            }
+            $model->nodes = nodes::fromMap($map['Nodes']);
         }
 
         return $model;

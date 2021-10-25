@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePriceResponseBody extends Model
 {
     /**
-     * @var float
+     * @var int
      */
-    public $originalPrice;
+    public $amount;
 
     /**
      * @var string
@@ -19,31 +19,31 @@ class DescribeImagePriceResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $amount;
-
-    /**
      * @var float
      */
     public $discountPrice;
 
     /**
-     * @var string
+     * @var float
      */
-    public $imageId;
+    public $tradePrice;
 
     /**
      * @var float
      */
-    public $tradePrice;
+    public $originalPrice;
+
+    /**
+     * @var string
+     */
+    public $imageId;
     protected $_name = [
-        'originalPrice' => 'OriginalPrice',
-        'requestId'     => 'RequestId',
         'amount'        => 'Amount',
+        'requestId'     => 'RequestId',
         'discountPrice' => 'DiscountPrice',
-        'imageId'       => 'ImageId',
         'tradePrice'    => 'TradePrice',
+        'originalPrice' => 'OriginalPrice',
+        'imageId'       => 'ImageId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeImagePriceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->originalPrice) {
-            $res['OriginalPrice'] = $this->originalPrice;
+        if (null !== $this->amount) {
+            $res['Amount'] = $this->amount;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->amount) {
-            $res['Amount'] = $this->amount;
-        }
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
         }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
-        }
         if (null !== $this->tradePrice) {
             $res['TradePrice'] = $this->tradePrice;
+        }
+        if (null !== $this->originalPrice) {
+            $res['OriginalPrice'] = $this->originalPrice;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeImagePriceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OriginalPrice'])) {
-            $model->originalPrice = $map['OriginalPrice'];
+        if (isset($map['Amount'])) {
+            $model->amount = $map['Amount'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Amount'])) {
-            $model->amount = $map['Amount'];
-        }
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
         }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
-        }
         if (isset($map['TradePrice'])) {
             $model->tradePrice = $map['TradePrice'];
+        }
+        if (isset($map['OriginalPrice'])) {
+            $model->originalPrice = $map['OriginalPrice'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
 
         return $model;

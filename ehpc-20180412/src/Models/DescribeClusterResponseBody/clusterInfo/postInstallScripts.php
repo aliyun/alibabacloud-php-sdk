@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\postInstallScripts\postInstallScriptInfo;
 use AlibabaCloud\Tea\Model;
 
 class postInstallScripts extends Model
 {
     /**
-     * @var string
+     * @var postInstallScriptInfo[]
      */
-    public $args;
-
-    /**
-     * @var string
-     */
-    public $url;
+    public $postInstallScriptInfo;
     protected $_name = [
-        'args' => 'Args',
-        'url'  => 'Url',
+        'postInstallScriptInfo' => 'PostInstallScriptInfo',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class postInstallScripts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->args) {
-            $res['Args'] = $this->args;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->postInstallScriptInfo) {
+            $res['PostInstallScriptInfo'] = [];
+            if (null !== $this->postInstallScriptInfo && \is_array($this->postInstallScriptInfo)) {
+                $n = 0;
+                foreach ($this->postInstallScriptInfo as $item) {
+                    $res['PostInstallScriptInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class postInstallScripts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Args'])) {
-            $model->args = $map['Args'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['PostInstallScriptInfo'])) {
+            if (!empty($map['PostInstallScriptInfo'])) {
+                $model->postInstallScriptInfo = [];
+                $n                            = 0;
+                foreach ($map['PostInstallScriptInfo'] as $item) {
+                    $model->postInstallScriptInfo[$n++] = null !== $item ? postInstallScriptInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

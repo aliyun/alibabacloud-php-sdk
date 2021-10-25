@@ -21,6 +21,11 @@ class commodities extends Model
     /**
      * @var string
      */
+    public $systemDiskPerformanceLevel;
+
+    /**
+     * @var string
+     */
     public $nodeType;
 
     /**
@@ -53,15 +58,16 @@ class commodities extends Model
      */
     public $internetMaxBandWidthOut;
     protected $_name = [
-        'amount'                  => 'Amount',
-        'systemDiskSize'          => 'SystemDiskSize',
-        'nodeType'                => 'NodeType',
-        'systemDiskCategory'      => 'SystemDiskCategory',
-        'internetChargeType'      => 'InternetChargeType',
-        'networkType'             => 'NetworkType',
-        'instanceType'            => 'InstanceType',
-        'period'                  => 'Period',
-        'internetMaxBandWidthOut' => 'InternetMaxBandWidthOut',
+        'amount'                     => 'Amount',
+        'systemDiskSize'             => 'SystemDiskSize',
+        'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
+        'nodeType'                   => 'NodeType',
+        'systemDiskCategory'         => 'SystemDiskCategory',
+        'internetChargeType'         => 'InternetChargeType',
+        'networkType'                => 'NetworkType',
+        'instanceType'               => 'InstanceType',
+        'period'                     => 'Period',
+        'internetMaxBandWidthOut'    => 'InternetMaxBandWidthOut',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class commodities extends Model
         }
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
+        }
+        if (null !== $this->systemDiskPerformanceLevel) {
+            $res['SystemDiskPerformanceLevel'] = $this->systemDiskPerformanceLevel;
         }
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
@@ -115,6 +124,9 @@ class commodities extends Model
         }
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
+        }
+        if (isset($map['SystemDiskPerformanceLevel'])) {
+            $model->systemDiskPerformanceLevel = $map['SystemDiskPerformanceLevel'];
         }
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];

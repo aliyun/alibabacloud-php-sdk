@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListQueuesResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListQueuesResponseBody\queues\queueInfo;
 use AlibabaCloud\Tea\Model;
 
 class queues extends Model
 {
     /**
-     * @var string
+     * @var queueInfo[]
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $queueName;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $computeInstanceType;
+    public $queueInfo;
     protected $_name = [
-        'type'                => 'Type',
-        'queueName'           => 'QueueName',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'computeInstanceType' => 'ComputeInstanceType',
+        'queueInfo' => 'QueueInfo',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class queues extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->queueName) {
-            $res['QueueName'] = $this->queueName;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->computeInstanceType) {
-            $res['ComputeInstanceType'] = $this->computeInstanceType;
+        if (null !== $this->queueInfo) {
+            $res['QueueInfo'] = [];
+            if (null !== $this->queueInfo && \is_array($this->queueInfo)) {
+                $n = 0;
+                foreach ($this->queueInfo as $item) {
+                    $res['QueueInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class queues extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['QueueName'])) {
-            $model->queueName = $map['QueueName'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['ComputeInstanceType'])) {
-            $model->computeInstanceType = $map['ComputeInstanceType'];
+        if (isset($map['QueueInfo'])) {
+            if (!empty($map['QueueInfo'])) {
+                $model->queueInfo = [];
+                $n                = 0;
+                foreach ($map['QueueInfo'] as $item) {
+                    $model->queueInfo[$n++] = null !== $item ? queueInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

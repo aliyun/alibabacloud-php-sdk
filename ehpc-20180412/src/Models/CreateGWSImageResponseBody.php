@@ -11,15 +11,15 @@ class CreateGWSImageResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $imageId;
 
     /**
      * @var string
      */
-    public $imageId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'imageId'   => 'ImageId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateGWSImageResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateGWSImageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

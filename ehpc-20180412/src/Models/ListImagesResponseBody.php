@@ -15,7 +15,7 @@ class ListImagesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var osTags[]
+     * @var osTags
      */
     public $osTags;
     protected $_name = [
@@ -34,13 +34,7 @@ class ListImagesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->osTags) {
-            $res['OsTags'] = [];
-            if (null !== $this->osTags && \is_array($this->osTags)) {
-                $n = 0;
-                foreach ($this->osTags as $item) {
-                    $res['OsTags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['OsTags'] = null !== $this->osTags ? $this->osTags->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class ListImagesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['OsTags'])) {
-            if (!empty($map['OsTags'])) {
-                $model->osTags = [];
-                $n             = 0;
-                foreach ($map['OsTags'] as $item) {
-                    $model->osTags[$n++] = null !== $item ? osTags::fromMap($item) : $item;
-                }
-            }
+            $model->osTags = osTags::fromMap($map['OsTags']);
         }
 
         return $model;

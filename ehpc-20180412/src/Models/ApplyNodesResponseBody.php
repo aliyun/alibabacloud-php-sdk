@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ApplyNodesResponseBody\instanceIds;
 use AlibabaCloud\Tea\Model;
 
 class ApplyNodesResponseBody extends Model
 {
-    /**
-     * @var string
-     */
-    public $taskId;
-
     /**
      * @var string
      */
@@ -24,20 +20,25 @@ class ApplyNodesResponseBody extends Model
     public $satisfiedAmount;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $instanceIds;
+    public $taskId;
 
     /**
      * @var string
      */
     public $detail;
+
+    /**
+     * @var instanceIds
+     */
+    public $instanceIds;
     protected $_name = [
-        'taskId'          => 'TaskId',
         'requestId'       => 'RequestId',
         'satisfiedAmount' => 'SatisfiedAmount',
-        'instanceIds'     => 'InstanceIds',
+        'taskId'          => 'TaskId',
         'detail'          => 'Detail',
+        'instanceIds'     => 'InstanceIds',
     ];
 
     public function validate()
@@ -47,20 +48,20 @@ class ApplyNodesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->satisfiedAmount) {
             $res['SatisfiedAmount'] = $this->satisfiedAmount;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
+        }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
         }
 
         return $res;
@@ -74,22 +75,20 @@ class ApplyNodesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SatisfiedAmount'])) {
             $model->satisfiedAmount = $map['SatisfiedAmount'];
         }
-        if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
+        }
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
         }
 
         return $model;

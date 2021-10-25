@@ -9,29 +9,11 @@ use AlibabaCloud\Tea\Model;
 class softwareList extends Model
 {
     /**
-     * @var string
+     * @var \AlibabaCloud\SDK\EHPC\V20180412\Models\ListInstalledSoftwareResponseBody\softwareList\softwareList[]
      */
-    public $softwareVersion;
-
-    /**
-     * @var string
-     */
-    public $softwareName;
-
-    /**
-     * @var string
-     */
-    public $softwareId;
-
-    /**
-     * @var string
-     */
-    public $softwareStatus;
+    public $softwareList;
     protected $_name = [
-        'softwareVersion' => 'SoftwareVersion',
-        'softwareName'    => 'SoftwareName',
-        'softwareId'      => 'SoftwareId',
-        'softwareStatus'  => 'SoftwareStatus',
+        'softwareList' => 'SoftwareList',
     ];
 
     public function validate()
@@ -41,17 +23,14 @@ class softwareList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->softwareVersion) {
-            $res['SoftwareVersion'] = $this->softwareVersion;
-        }
-        if (null !== $this->softwareName) {
-            $res['SoftwareName'] = $this->softwareName;
-        }
-        if (null !== $this->softwareId) {
-            $res['SoftwareId'] = $this->softwareId;
-        }
-        if (null !== $this->softwareStatus) {
-            $res['SoftwareStatus'] = $this->softwareStatus;
+        if (null !== $this->softwareList) {
+            $res['SoftwareList'] = [];
+            if (null !== $this->softwareList && \is_array($this->softwareList)) {
+                $n = 0;
+                foreach ($this->softwareList as $item) {
+                    $res['SoftwareList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +44,14 @@ class softwareList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SoftwareVersion'])) {
-            $model->softwareVersion = $map['SoftwareVersion'];
-        }
-        if (isset($map['SoftwareName'])) {
-            $model->softwareName = $map['SoftwareName'];
-        }
-        if (isset($map['SoftwareId'])) {
-            $model->softwareId = $map['SoftwareId'];
-        }
-        if (isset($map['SoftwareStatus'])) {
-            $model->softwareStatus = $map['SoftwareStatus'];
+        if (isset($map['SoftwareList'])) {
+            if (!empty($map['SoftwareList'])) {
+                $model->softwareList = [];
+                $n                   = 0;
+                foreach ($map['SoftwareList'] as $item) {
+                    $model->softwareList[$n++] = null !== $item ? \AlibabaCloud\SDK\EHPC\V20180412\Models\ListInstalledSoftwareResponseBody\softwareList\softwareList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

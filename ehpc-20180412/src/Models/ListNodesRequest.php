@@ -47,15 +47,33 @@ class ListNodesRequest extends Model
      * @var string
      */
     public $filter;
+
+    /**
+     * @var string
+     */
+    public $privateIpAddress;
+
+    /**
+     * @var string
+     */
+    public $hostNamePrefix;
+
+    /**
+     * @var string
+     */
+    public $hostNameSuffix;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'role'       => 'Role',
-        'hostName'   => 'HostName',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'sequence'   => 'Sequence',
-        'sortBy'     => 'SortBy',
-        'filter'     => 'Filter',
+        'clusterId'        => 'ClusterId',
+        'role'             => 'Role',
+        'hostName'         => 'HostName',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'sequence'         => 'Sequence',
+        'sortBy'           => 'SortBy',
+        'filter'           => 'Filter',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'hostNamePrefix'   => 'HostNamePrefix',
+        'hostNameSuffix'   => 'HostNameSuffix',
     ];
 
     public function validate()
@@ -88,6 +106,15 @@ class ListNodesRequest extends Model
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->hostNamePrefix) {
+            $res['HostNamePrefix'] = $this->hostNamePrefix;
+        }
+        if (null !== $this->hostNameSuffix) {
+            $res['HostNameSuffix'] = $this->hostNameSuffix;
         }
 
         return $res;
@@ -124,6 +151,15 @@ class ListNodesRequest extends Model
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['HostNamePrefix'])) {
+            $model->hostNamePrefix = $map['HostNamePrefix'];
+        }
+        if (isset($map['HostNameSuffix'])) {
+            $model->hostNameSuffix = $map['HostNameSuffix'];
         }
 
         return $model;

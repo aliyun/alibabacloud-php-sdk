@@ -15,7 +15,7 @@ class ListInstalledSoftwareResponseBody extends Model
     public $requestId;
 
     /**
-     * @var softwareList[]
+     * @var softwareList
      */
     public $softwareList;
     protected $_name = [
@@ -34,13 +34,7 @@ class ListInstalledSoftwareResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->softwareList) {
-            $res['SoftwareList'] = [];
-            if (null !== $this->softwareList && \is_array($this->softwareList)) {
-                $n = 0;
-                foreach ($this->softwareList as $item) {
-                    $res['SoftwareList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['SoftwareList'] = null !== $this->softwareList ? $this->softwareList->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class ListInstalledSoftwareResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SoftwareList'])) {
-            if (!empty($map['SoftwareList'])) {
-                $model->softwareList = [];
-                $n                   = 0;
-                foreach ($map['SoftwareList'] as $item) {
-                    $model->softwareList[$n++] = null !== $item ? softwareList::fromMap($item) : $item;
-                }
-            }
+            $model->softwareList = softwareList::fromMap($map['SoftwareList']);
         }
 
         return $model;

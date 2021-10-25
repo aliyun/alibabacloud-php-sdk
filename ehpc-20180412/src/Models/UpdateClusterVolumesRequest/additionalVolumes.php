@@ -27,22 +27,22 @@ class additionalVolumes extends Model
     /**
      * @var string
      */
-    public $remoteDirectory;
-
-    /**
-     * @var string
-     */
     public $volumeMountpoint;
 
     /**
      * @var string
      */
-    public $localDirectory;
+    public $remoteDirectory;
 
     /**
      * @var string
      */
     public $volumeType;
+
+    /**
+     * @var string
+     */
+    public $localDirectory;
 
     /**
      * @var string
@@ -57,10 +57,10 @@ class additionalVolumes extends Model
         'jobQueue'         => 'JobQueue',
         'volumeId'         => 'VolumeId',
         'roles'            => 'Roles',
-        'remoteDirectory'  => 'RemoteDirectory',
         'volumeMountpoint' => 'VolumeMountpoint',
-        'localDirectory'   => 'LocalDirectory',
+        'remoteDirectory'  => 'RemoteDirectory',
         'volumeType'       => 'VolumeType',
+        'localDirectory'   => 'LocalDirectory',
         'volumeProtocol'   => 'VolumeProtocol',
         'location'         => 'Location',
     ];
@@ -87,17 +87,17 @@ class additionalVolumes extends Model
                 }
             }
         }
-        if (null !== $this->remoteDirectory) {
-            $res['RemoteDirectory'] = $this->remoteDirectory;
-        }
         if (null !== $this->volumeMountpoint) {
             $res['VolumeMountpoint'] = $this->volumeMountpoint;
         }
-        if (null !== $this->localDirectory) {
-            $res['LocalDirectory'] = $this->localDirectory;
+        if (null !== $this->remoteDirectory) {
+            $res['RemoteDirectory'] = $this->remoteDirectory;
         }
         if (null !== $this->volumeType) {
             $res['VolumeType'] = $this->volumeType;
+        }
+        if (null !== $this->localDirectory) {
+            $res['LocalDirectory'] = $this->localDirectory;
         }
         if (null !== $this->volumeProtocol) {
             $res['VolumeProtocol'] = $this->volumeProtocol;
@@ -132,17 +132,17 @@ class additionalVolumes extends Model
                 }
             }
         }
-        if (isset($map['RemoteDirectory'])) {
-            $model->remoteDirectory = $map['RemoteDirectory'];
-        }
         if (isset($map['VolumeMountpoint'])) {
             $model->volumeMountpoint = $map['VolumeMountpoint'];
         }
-        if (isset($map['LocalDirectory'])) {
-            $model->localDirectory = $map['LocalDirectory'];
+        if (isset($map['RemoteDirectory'])) {
+            $model->remoteDirectory = $map['RemoteDirectory'];
         }
         if (isset($map['VolumeType'])) {
             $model->volumeType = $map['VolumeType'];
+        }
+        if (isset($map['LocalDirectory'])) {
+            $model->localDirectory = $map['LocalDirectory'];
         }
         if (isset($map['VolumeProtocol'])) {
             $model->volumeProtocol = $map['VolumeProtocol'];

@@ -11,17 +11,7 @@ class DescribeGWSClusterPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $localDrive;
-
-    /**
-     * @var string
-     */
-    public $usbRedirect;
+    public $watermark;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class DescribeGWSClusterPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $watermark;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $usbRedirect;
+
+    /**
+     * @var string
+     */
+    public $localDrive;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'localDrive'  => 'LocalDrive',
-        'usbRedirect' => 'UsbRedirect',
-        'clipboard'   => 'Clipboard',
         'watermark'   => 'Watermark',
+        'clipboard'   => 'Clipboard',
+        'requestId'   => 'RequestId',
+        'usbRedirect' => 'UsbRedirect',
+        'localDrive'  => 'LocalDrive',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeGWSClusterPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->localDrive) {
-            $res['LocalDrive'] = $this->localDrive;
-        }
-        if (null !== $this->usbRedirect) {
-            $res['UsbRedirect'] = $this->usbRedirect;
+        if (null !== $this->watermark) {
+            $res['Watermark'] = $this->watermark;
         }
         if (null !== $this->clipboard) {
             $res['Clipboard'] = $this->clipboard;
         }
-        if (null !== $this->watermark) {
-            $res['Watermark'] = $this->watermark;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->usbRedirect) {
+            $res['UsbRedirect'] = $this->usbRedirect;
+        }
+        if (null !== $this->localDrive) {
+            $res['LocalDrive'] = $this->localDrive;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeGWSClusterPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LocalDrive'])) {
-            $model->localDrive = $map['LocalDrive'];
-        }
-        if (isset($map['UsbRedirect'])) {
-            $model->usbRedirect = $map['UsbRedirect'];
+        if (isset($map['Watermark'])) {
+            $model->watermark = $map['Watermark'];
         }
         if (isset($map['Clipboard'])) {
             $model->clipboard = $map['Clipboard'];
         }
-        if (isset($map['Watermark'])) {
-            $model->watermark = $map['Watermark'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UsbRedirect'])) {
+            $model->usbRedirect = $map['UsbRedirect'];
+        }
+        if (isset($map['LocalDrive'])) {
+            $model->localDrive = $map['LocalDrive'];
         }
 
         return $model;

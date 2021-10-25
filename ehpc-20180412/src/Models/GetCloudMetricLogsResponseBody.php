@@ -15,7 +15,7 @@ class GetCloudMetricLogsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var metricLogs[]
+     * @var metricLogs
      */
     public $metricLogs;
     protected $_name = [
@@ -34,13 +34,7 @@ class GetCloudMetricLogsResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->metricLogs) {
-            $res['MetricLogs'] = [];
-            if (null !== $this->metricLogs && \is_array($this->metricLogs)) {
-                $n = 0;
-                foreach ($this->metricLogs as $item) {
-                    $res['MetricLogs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['MetricLogs'] = null !== $this->metricLogs ? $this->metricLogs->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class GetCloudMetricLogsResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['MetricLogs'])) {
-            if (!empty($map['MetricLogs'])) {
-                $model->metricLogs = [];
-                $n                 = 0;
-                foreach ($map['MetricLogs'] as $item) {
-                    $model->metricLogs[$n++] = null !== $item ? metricLogs::fromMap($item) : $item;
-                }
-            }
+            $model->metricLogs = metricLogs::fromMap($map['MetricLogs']);
         }
 
         return $model;

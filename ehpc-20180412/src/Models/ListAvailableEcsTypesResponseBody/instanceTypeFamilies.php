@@ -4,29 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListAvailableEcsTypesResponseBody;
 
-use AlibabaCloud\SDK\EHPC\V20180412\Models\ListAvailableEcsTypesResponseBody\instanceTypeFamilies\types;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListAvailableEcsTypesResponseBody\instanceTypeFamilies\instanceTypeFamilyInfo;
 use AlibabaCloud\Tea\Model;
 
 class instanceTypeFamilies extends Model
 {
     /**
-     * @var string
+     * @var instanceTypeFamilyInfo[]
      */
-    public $instanceTypeFamilyId;
-
-    /**
-     * @var types[]
-     */
-    public $types;
-
-    /**
-     * @var string
-     */
-    public $generation;
+    public $instanceTypeFamilyInfo;
     protected $_name = [
-        'instanceTypeFamilyId' => 'InstanceTypeFamilyId',
-        'types'                => 'Types',
-        'generation'           => 'Generation',
+        'instanceTypeFamilyInfo' => 'InstanceTypeFamilyInfo',
     ];
 
     public function validate()
@@ -36,20 +24,14 @@ class instanceTypeFamilies extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceTypeFamilyId) {
-            $res['InstanceTypeFamilyId'] = $this->instanceTypeFamilyId;
-        }
-        if (null !== $this->types) {
-            $res['Types'] = [];
-            if (null !== $this->types && \is_array($this->types)) {
+        if (null !== $this->instanceTypeFamilyInfo) {
+            $res['InstanceTypeFamilyInfo'] = [];
+            if (null !== $this->instanceTypeFamilyInfo && \is_array($this->instanceTypeFamilyInfo)) {
                 $n = 0;
-                foreach ($this->types as $item) {
-                    $res['Types'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->instanceTypeFamilyInfo as $item) {
+                    $res['InstanceTypeFamilyInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->generation) {
-            $res['Generation'] = $this->generation;
         }
 
         return $res;
@@ -63,20 +45,14 @@ class instanceTypeFamilies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceTypeFamilyId'])) {
-            $model->instanceTypeFamilyId = $map['InstanceTypeFamilyId'];
-        }
-        if (isset($map['Types'])) {
-            if (!empty($map['Types'])) {
-                $model->types = [];
-                $n            = 0;
-                foreach ($map['Types'] as $item) {
-                    $model->types[$n++] = null !== $item ? types::fromMap($item) : $item;
+        if (isset($map['InstanceTypeFamilyInfo'])) {
+            if (!empty($map['InstanceTypeFamilyInfo'])) {
+                $model->instanceTypeFamilyInfo = [];
+                $n                             = 0;
+                foreach ($map['InstanceTypeFamilyInfo'] as $item) {
+                    $model->instanceTypeFamilyInfo[$n++] = null !== $item ? instanceTypeFamilyInfo::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Generation'])) {
-            $model->generation = $map['Generation'];
         }
 
         return $model;

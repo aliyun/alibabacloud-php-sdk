@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\QueryServicePackAndPriceResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\QueryServicePackAndPriceResponseBody\servicePack\servicePackInfo;
 use AlibabaCloud\Tea\Model;
 
 class servicePack extends Model
 {
     /**
-     * @var int
+     * @var servicePackInfo[]
      */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $capacity;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $instanceName;
+    public $servicePackInfo;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'capacity'     => 'Capacity',
-        'startTime'    => 'StartTime',
-        'instanceName' => 'InstanceName',
+        'servicePackInfo' => 'ServicePackInfo',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class servicePack extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->capacity) {
-            $res['Capacity'] = $this->capacity;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->servicePackInfo) {
+            $res['ServicePackInfo'] = [];
+            if (null !== $this->servicePackInfo && \is_array($this->servicePackInfo)) {
+                $n = 0;
+                foreach ($this->servicePackInfo as $item) {
+                    $res['ServicePackInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class servicePack extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Capacity'])) {
-            $model->capacity = $map['Capacity'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['ServicePackInfo'])) {
+            if (!empty($map['ServicePackInfo'])) {
+                $model->servicePackInfo = [];
+                $n                      = 0;
+                foreach ($map['ServicePackInfo'] as $item) {
+                    $model->servicePackInfo[$n++] = null !== $item ? servicePackInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

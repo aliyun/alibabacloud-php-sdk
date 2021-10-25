@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeImageGatewayConfigResponseBody\imagegw;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeImageGatewayConfigResponseBody\imagegw\locations\locationInfo;
 use AlibabaCloud\Tea\Model;
 
 class locations extends Model
 {
     /**
-     * @var string
+     * @var locationInfo[]
      */
-    public $remoteType;
-
-    /**
-     * @var string
-     */
-    public $URL;
-
-    /**
-     * @var string
-     */
-    public $location;
-
-    /**
-     * @var string
-     */
-    public $authentication;
+    public $locationInfo;
     protected $_name = [
-        'remoteType'     => 'RemoteType',
-        'URL'            => 'URL',
-        'location'       => 'Location',
-        'authentication' => 'Authentication',
+        'locationInfo' => 'LocationInfo',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class locations extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remoteType) {
-            $res['RemoteType'] = $this->remoteType;
-        }
-        if (null !== $this->URL) {
-            $res['URL'] = $this->URL;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
-        }
-        if (null !== $this->authentication) {
-            $res['Authentication'] = $this->authentication;
+        if (null !== $this->locationInfo) {
+            $res['LocationInfo'] = [];
+            if (null !== $this->locationInfo && \is_array($this->locationInfo)) {
+                $n = 0;
+                foreach ($this->locationInfo as $item) {
+                    $res['LocationInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class locations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RemoteType'])) {
-            $model->remoteType = $map['RemoteType'];
-        }
-        if (isset($map['URL'])) {
-            $model->URL = $map['URL'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
-        }
-        if (isset($map['Authentication'])) {
-            $model->authentication = $map['Authentication'];
+        if (isset($map['LocationInfo'])) {
+            if (!empty($map['LocationInfo'])) {
+                $model->locationInfo = [];
+                $n                   = 0;
+                foreach ($map['LocationInfo'] as $item) {
+                    $model->locationInfo[$n++] = null !== $item ? locationInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

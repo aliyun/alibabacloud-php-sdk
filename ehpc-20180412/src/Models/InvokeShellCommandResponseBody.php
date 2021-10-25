@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\InvokeShellCommandResponseBody\instanceIds;
 use AlibabaCloud\Tea\Model;
 
 class InvokeShellCommandResponseBody extends Model
@@ -11,20 +12,20 @@ class InvokeShellCommandResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $commandId;
 
     /**
      * @var string
      */
-    public $commandId;
+    public $requestId;
 
     /**
-     * @var string[]
+     * @var instanceIds
      */
     public $instanceIds;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'commandId'   => 'CommandId',
+        'requestId'   => 'RequestId',
         'instanceIds' => 'InstanceIds',
     ];
 
@@ -35,14 +36,14 @@ class InvokeShellCommandResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
         }
 
         return $res;
@@ -56,16 +57,14 @@ class InvokeShellCommandResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
+            $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
         }
 
         return $model;

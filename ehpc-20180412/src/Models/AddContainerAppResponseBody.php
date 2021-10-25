@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\AddContainerAppResponseBody\containerId;
 use AlibabaCloud\Tea\Model;
 
 class AddContainerAppResponseBody extends Model
@@ -14,7 +15,7 @@ class AddContainerAppResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
+     * @var containerId
      */
     public $containerId;
     protected $_name = [
@@ -33,7 +34,7 @@ class AddContainerAppResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->containerId) {
-            $res['ContainerId'] = $this->containerId;
+            $res['ContainerId'] = null !== $this->containerId ? $this->containerId->toMap() : null;
         }
 
         return $res;
@@ -51,9 +52,7 @@ class AddContainerAppResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['ContainerId'])) {
-            if (!empty($map['ContainerId'])) {
-                $model->containerId = $map['ContainerId'];
-            }
+            $model->containerId = containerId::fromMap($map['ContainerId']);
         }
 
         return $model;

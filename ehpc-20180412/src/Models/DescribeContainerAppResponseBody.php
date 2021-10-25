@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerAppResponseBody extends Model
 {
     /**
-     * @var containerAppInfo
-     */
-    public $containerAppInfo;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var containerAppInfo
+     */
+    public $containerAppInfo;
     protected $_name = [
-        'containerAppInfo' => 'ContainerAppInfo',
         'requestId'        => 'RequestId',
+        'containerAppInfo' => 'ContainerAppInfo',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeContainerAppResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->containerAppInfo) {
-            $res['ContainerAppInfo'] = null !== $this->containerAppInfo ? $this->containerAppInfo->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->containerAppInfo) {
+            $res['ContainerAppInfo'] = null !== $this->containerAppInfo ? $this->containerAppInfo->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeContainerAppResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ContainerAppInfo'])) {
-            $model->containerAppInfo = containerAppInfo::fromMap($map['ContainerAppInfo']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ContainerAppInfo'])) {
+            $model->containerAppInfo = containerAppInfo::fromMap($map['ContainerAppInfo']);
         }
 
         return $model;

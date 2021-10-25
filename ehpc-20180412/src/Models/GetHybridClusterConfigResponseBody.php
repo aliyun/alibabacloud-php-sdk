@@ -11,15 +11,15 @@ class GetHybridClusterConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $clusterConfig;
 
     /**
      * @var string
      */
-    public $clusterConfig;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'clusterConfig' => 'ClusterConfig',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetHybridClusterConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clusterConfig) {
             $res['ClusterConfig'] = $this->clusterConfig;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetHybridClusterConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ClusterConfig'])) {
             $model->clusterConfig = $map['ClusterConfig'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

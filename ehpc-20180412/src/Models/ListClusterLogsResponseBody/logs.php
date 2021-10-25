@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListClusterLogsResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListClusterLogsResponseBody\logs\logInfo;
 use AlibabaCloud\Tea\Model;
 
 class logs extends Model
 {
     /**
-     * @var string
+     * @var logInfo[]
      */
-    public $operation;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $level;
+    public $logInfo;
     protected $_name = [
-        'operation'  => 'Operation',
-        'createTime' => 'CreateTime',
-        'message'    => 'Message',
-        'level'      => 'Level',
+        'logInfo' => 'LogInfo',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class logs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->operation) {
-            $res['Operation'] = $this->operation;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
+        if (null !== $this->logInfo) {
+            $res['LogInfo'] = [];
+            if (null !== $this->logInfo && \is_array($this->logInfo)) {
+                $n = 0;
+                foreach ($this->logInfo as $item) {
+                    $res['LogInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class logs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Operation'])) {
-            $model->operation = $map['Operation'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
+        if (isset($map['LogInfo'])) {
+            if (!empty($map['LogInfo'])) {
+                $model->logInfo = [];
+                $n              = 0;
+                foreach ($map['LogInfo'] as $item) {
+                    $model->logInfo[$n++] = null !== $item ? logInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

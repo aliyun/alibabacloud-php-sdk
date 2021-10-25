@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\applications\applicationInfo;
 use AlibabaCloud\Tea\Model;
 
 class applications extends Model
 {
     /**
-     * @var string
+     * @var applicationInfo[]
      */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $tag;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $applicationInfo;
     protected $_name = [
-        'version' => 'Version',
-        'tag'     => 'Tag',
-        'name'    => 'Name',
+        'applicationInfo' => 'ApplicationInfo',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class applications extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->applicationInfo) {
+            $res['ApplicationInfo'] = [];
+            if (null !== $this->applicationInfo && \is_array($this->applicationInfo)) {
+                $n = 0;
+                foreach ($this->applicationInfo as $item) {
+                    $res['ApplicationInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class applications extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['ApplicationInfo'])) {
+            if (!empty($map['ApplicationInfo'])) {
+                $model->applicationInfo = [];
+                $n                      = 0;
+                foreach ($map['ApplicationInfo'] as $item) {
+                    $model->applicationInfo[$n++] = null !== $item ? applicationInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

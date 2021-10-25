@@ -20,7 +20,7 @@ class ListAvailableEcsTypesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var instanceTypeFamilies[]
+     * @var instanceTypeFamilies
      */
     public $instanceTypeFamilies;
     protected $_name = [
@@ -43,13 +43,7 @@ class ListAvailableEcsTypesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->instanceTypeFamilies) {
-            $res['InstanceTypeFamilies'] = [];
-            if (null !== $this->instanceTypeFamilies && \is_array($this->instanceTypeFamilies)) {
-                $n = 0;
-                foreach ($this->instanceTypeFamilies as $item) {
-                    $res['InstanceTypeFamilies'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InstanceTypeFamilies'] = null !== $this->instanceTypeFamilies ? $this->instanceTypeFamilies->toMap() : null;
         }
 
         return $res;
@@ -70,13 +64,7 @@ class ListAvailableEcsTypesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['InstanceTypeFamilies'])) {
-            if (!empty($map['InstanceTypeFamilies'])) {
-                $model->instanceTypeFamilies = [];
-                $n                           = 0;
-                foreach ($map['InstanceTypeFamilies'] as $item) {
-                    $model->instanceTypeFamilies[$n++] = null !== $item ? instanceTypeFamilies::fromMap($item) : $item;
-                }
-            }
+            $model->instanceTypeFamilies = instanceTypeFamilies::fromMap($map['InstanceTypeFamilies']);
         }
 
         return $model;

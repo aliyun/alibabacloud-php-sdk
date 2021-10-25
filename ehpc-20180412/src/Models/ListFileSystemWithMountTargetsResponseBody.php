@@ -12,11 +12,6 @@ class ListFileSystemWithMountTargetsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class ListFileSystemWithMountTargetsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var fileSystemList[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var fileSystemList
      */
     public $fileSystemList;
     protected $_name = [
-        'totalCount'     => 'TotalCount',
         'pageSize'       => 'PageSize',
         'requestId'      => 'RequestId',
         'pageNumber'     => 'PageNumber',
+        'totalCount'     => 'TotalCount',
         'fileSystemList' => 'FileSystemList',
     ];
 
@@ -48,9 +48,6 @@ class ListFileSystemWithMountTargetsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class ListFileSystemWithMountTargetsResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->fileSystemList) {
-            $res['FileSystemList'] = [];
-            if (null !== $this->fileSystemList && \is_array($this->fileSystemList)) {
-                $n = 0;
-                foreach ($this->fileSystemList as $item) {
-                    $res['FileSystemList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['FileSystemList'] = null !== $this->fileSystemList ? $this->fileSystemList->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class ListFileSystemWithMountTargetsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class ListFileSystemWithMountTargetsResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['FileSystemList'])) {
-            if (!empty($map['FileSystemList'])) {
-                $model->fileSystemList = [];
-                $n                     = 0;
-                foreach ($map['FileSystemList'] as $item) {
-                    $model->fileSystemList[$n++] = null !== $item ? fileSystemList::fromMap($item) : $item;
-                }
-            }
+            $model->fileSystemList = fileSystemList::fromMap($map['FileSystemList']);
         }
 
         return $model;

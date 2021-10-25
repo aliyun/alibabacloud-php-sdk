@@ -4,40 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClustersResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClustersResponseBody\clusters\clusterInfo;
 use AlibabaCloud\Tea\Model;
 
 class clusters extends Model
 {
     /**
-     * @var string
+     * @var clusterInfo[]
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $instanceCount;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
+    public $clusterInfo;
     protected $_name = [
-        'vpcId'         => 'VpcId',
-        'status'        => 'Status',
-        'instanceCount' => 'InstanceCount',
-        'createTime'    => 'CreateTime',
-        'clusterId'     => 'ClusterId',
+        'clusterInfo' => 'ClusterInfo',
     ];
 
     public function validate()
@@ -47,20 +24,14 @@ class clusters extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->instanceCount) {
-            $res['InstanceCount'] = $this->instanceCount;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->clusterInfo) {
+            $res['ClusterInfo'] = [];
+            if (null !== $this->clusterInfo && \is_array($this->clusterInfo)) {
+                $n = 0;
+                foreach ($this->clusterInfo as $item) {
+                    $res['ClusterInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -74,20 +45,14 @@ class clusters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['InstanceCount'])) {
-            $model->instanceCount = $map['InstanceCount'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['ClusterInfo'])) {
+            if (!empty($map['ClusterInfo'])) {
+                $model->clusterInfo = [];
+                $n                  = 0;
+                foreach ($map['ClusterInfo'] as $item) {
+                    $model->clusterInfo[$n++] = null !== $item ? clusterInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

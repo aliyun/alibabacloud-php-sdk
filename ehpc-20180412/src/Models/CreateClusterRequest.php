@@ -218,6 +218,21 @@ class CreateClusterRequest extends Model
     public $withoutElasticIp;
 
     /**
+     * @var string
+     */
+    public $systemDiskLevel;
+
+    /**
+     * @var bool
+     */
+    public $isComputeEss;
+
+    /**
+     * @var string
+     */
+    public $clusterVersion;
+
+    /**
      * @var application[]
      */
     public $application;
@@ -273,6 +288,9 @@ class CreateClusterRequest extends Model
         'resourceGroupId'       => 'ResourceGroupId',
         'clientToken'           => 'ClientToken',
         'withoutElasticIp'      => 'WithoutElasticIp',
+        'systemDiskLevel'       => 'SystemDiskLevel',
+        'isComputeEss'          => 'IsComputeEss',
+        'clusterVersion'        => 'ClusterVersion',
         'application'           => 'Application',
         'additionalVolumes'     => 'AdditionalVolumes',
         'postInstallScript'     => 'PostInstallScript',
@@ -407,6 +425,15 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->withoutElasticIp) {
             $res['WithoutElasticIp'] = $this->withoutElasticIp;
+        }
+        if (null !== $this->systemDiskLevel) {
+            $res['SystemDiskLevel'] = $this->systemDiskLevel;
+        }
+        if (null !== $this->isComputeEss) {
+            $res['IsComputeEss'] = $this->isComputeEss;
+        }
+        if (null !== $this->clusterVersion) {
+            $res['ClusterVersion'] = $this->clusterVersion;
         }
         if (null !== $this->application) {
             $res['Application'] = [];
@@ -569,6 +596,15 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['WithoutElasticIp'])) {
             $model->withoutElasticIp = $map['WithoutElasticIp'];
+        }
+        if (isset($map['SystemDiskLevel'])) {
+            $model->systemDiskLevel = $map['SystemDiskLevel'];
+        }
+        if (isset($map['IsComputeEss'])) {
+            $model->isComputeEss = $map['IsComputeEss'];
+        }
+        if (isset($map['ClusterVersion'])) {
+            $model->clusterVersion = $map['ClusterVersion'];
         }
         if (isset($map['Application'])) {
             if (!empty($map['Application'])) {

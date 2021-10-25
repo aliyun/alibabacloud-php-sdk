@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListInvocationResultsResponseBody extends Model
 {
     /**
-     * @var invocationResults[]
-     */
-    public $invocationResults;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -33,12 +23,22 @@ class ListInvocationResultsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var invocationResults
+     */
+    public $invocationResults;
     protected $_name = [
-        'invocationResults' => 'InvocationResults',
-        'totalCount'        => 'TotalCount',
         'pageSize'          => 'PageSize',
         'requestId'         => 'RequestId',
         'pageNumber'        => 'PageNumber',
+        'totalCount'        => 'TotalCount',
+        'invocationResults' => 'InvocationResults',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class ListInvocationResultsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->invocationResults) {
-            $res['InvocationResults'] = [];
-            if (null !== $this->invocationResults && \is_array($this->invocationResults)) {
-                $n = 0;
-                foreach ($this->invocationResults as $item) {
-                    $res['InvocationResults'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -68,6 +56,12 @@ class ListInvocationResultsResponseBody extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->invocationResults) {
+            $res['InvocationResults'] = null !== $this->invocationResults ? $this->invocationResults->toMap() : null;
         }
 
         return $res;
@@ -81,18 +75,6 @@ class ListInvocationResultsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InvocationResults'])) {
-            if (!empty($map['InvocationResults'])) {
-                $model->invocationResults = [];
-                $n                        = 0;
-                foreach ($map['InvocationResults'] as $item) {
-                    $model->invocationResults[$n++] = null !== $item ? invocationResults::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -101,6 +83,12 @@ class ListInvocationResultsResponseBody extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['InvocationResults'])) {
+            $model->invocationResults = invocationResults::fromMap($map['InvocationResults']);
         }
 
         return $model;

@@ -137,6 +137,21 @@ class AddNodesRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $systemDiskLevel;
+
+    /**
+     * @var int
+     */
+    public $minCount;
+
+    /**
+     * @var bool
+     */
+    public $sync;
     protected $_name = [
         'clusterId'               => 'ClusterId',
         'imageOwnerAlias'         => 'ImageOwnerAlias',
@@ -164,6 +179,9 @@ class AddNodesRequest extends Model
         'internetMaxBandWidthIn'  => 'InternetMaxBandWidthIn',
         'internetMaxBandWidthOut' => 'InternetMaxBandWidthOut',
         'clientToken'             => 'ClientToken',
+        'systemDiskLevel'         => 'SystemDiskLevel',
+        'minCount'                => 'MinCount',
+        'sync'                    => 'Sync',
     ];
 
     public function validate()
@@ -250,6 +268,15 @@ class AddNodesRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->systemDiskLevel) {
+            $res['SystemDiskLevel'] = $this->systemDiskLevel;
+        }
+        if (null !== $this->minCount) {
+            $res['MinCount'] = $this->minCount;
+        }
+        if (null !== $this->sync) {
+            $res['Sync'] = $this->sync;
         }
 
         return $res;
@@ -340,6 +367,15 @@ class AddNodesRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['SystemDiskLevel'])) {
+            $model->systemDiskLevel = $map['SystemDiskLevel'];
+        }
+        if (isset($map['MinCount'])) {
+            $model->minCount = $map['MinCount'];
+        }
+        if (isset($map['Sync'])) {
+            $model->sync = $map['Sync'];
         }
 
         return $model;

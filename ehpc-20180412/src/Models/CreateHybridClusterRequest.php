@@ -173,6 +173,11 @@ class CreateHybridClusterRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $multiOs;
+
+    /**
      * @var nodes[]
      */
     public $nodes;
@@ -219,6 +224,7 @@ class CreateHybridClusterRequest extends Model
         'imageOwnerAlias'           => 'ImageOwnerAlias',
         'imageId'                   => 'ImageId',
         'clientToken'               => 'ClientToken',
+        'multiOs'                   => 'MultiOs',
         'nodes'                     => 'Nodes',
         'application'               => 'Application',
         'postInstallScript'         => 'PostInstallScript',
@@ -326,6 +332,9 @@ class CreateHybridClusterRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->multiOs) {
+            $res['MultiOs'] = $this->multiOs;
         }
         if (null !== $this->nodes) {
             $res['Nodes'] = [];
@@ -461,6 +470,9 @@ class CreateHybridClusterRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['MultiOs'])) {
+            $model->multiOs = $map['MultiOs'];
         }
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {

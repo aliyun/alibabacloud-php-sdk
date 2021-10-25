@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
-     * @var prices[]
-     */
-    public $prices;
-
-    /**
      * @var float
      */
     public $totalTradePrice;
@@ -23,10 +18,15 @@ class DescribePriceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var prices
+     */
+    public $prices;
     protected $_name = [
-        'prices'          => 'Prices',
         'totalTradePrice' => 'TotalTradePrice',
         'requestId'       => 'RequestId',
+        'prices'          => 'Prices',
     ];
 
     public function validate()
@@ -36,20 +36,14 @@ class DescribePriceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->prices) {
-            $res['Prices'] = [];
-            if (null !== $this->prices && \is_array($this->prices)) {
-                $n = 0;
-                foreach ($this->prices as $item) {
-                    $res['Prices'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->totalTradePrice) {
             $res['TotalTradePrice'] = $this->totalTradePrice;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->prices) {
+            $res['Prices'] = null !== $this->prices ? $this->prices->toMap() : null;
         }
 
         return $res;
@@ -63,20 +57,14 @@ class DescribePriceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Prices'])) {
-            if (!empty($map['Prices'])) {
-                $model->prices = [];
-                $n             = 0;
-                foreach ($map['Prices'] as $item) {
-                    $model->prices[$n++] = null !== $item ? prices::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['TotalTradePrice'])) {
             $model->totalTradePrice = $map['TotalTradePrice'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Prices'])) {
+            $model->prices = prices::fromMap($map['Prices']);
         }
 
         return $model;

@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListRegionsResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListRegionsResponseBody\regions\regionInfo;
 use AlibabaCloud\Tea\Model;
 
 class regions extends Model
 {
     /**
-     * @var string
+     * @var regionInfo[]
      */
-    public $localName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $regionInfo;
     protected $_name = [
-        'localName' => 'LocalName',
-        'regionId'  => 'RegionId',
+        'regionInfo' => 'RegionInfo',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class regions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->localName) {
-            $res['LocalName'] = $this->localName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->regionInfo) {
+            $res['RegionInfo'] = [];
+            if (null !== $this->regionInfo && \is_array($this->regionInfo)) {
+                $n = 0;
+                foreach ($this->regionInfo as $item) {
+                    $res['RegionInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class regions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LocalName'])) {
-            $model->localName = $map['LocalName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['RegionInfo'])) {
+            if (!empty($map['RegionInfo'])) {
+                $model->regionInfo = [];
+                $n                 = 0;
+                foreach ($map['RegionInfo'] as $item) {
+                    $model->regionInfo[$n++] = null !== $item ? regionInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

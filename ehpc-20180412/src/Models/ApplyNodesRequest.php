@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ApplyNodesRequest\instanceTypeModel;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ApplyNodesRequest\tag;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ApplyNodesRequest\zoneInfos;
 use AlibabaCloud\Tea\Model;
 
@@ -106,6 +107,26 @@ class ApplyNodesRequest extends Model
     public $strictSatisfiedTargetCapacity;
 
     /**
+     * @var string
+     */
+    public $systemDiskLevel;
+
+    /**
+     * @var bool
+     */
+    public $strictResourceProvision;
+
+    /**
+     * @var int
+     */
+    public $round;
+
+    /**
+     * @var int
+     */
+    public $interval;
+
+    /**
      * @var zoneInfos[]
      */
     public $zoneInfos;
@@ -114,6 +135,11 @@ class ApplyNodesRequest extends Model
      * @var instanceTypeModel[]
      */
     public $instanceTypeModel;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'clusterId'                     => 'ClusterId',
         'imageId'                       => 'ImageId',
@@ -134,8 +160,13 @@ class ApplyNodesRequest extends Model
         'resourceAmountType'            => 'ResourceAmountType',
         'priorityStrategy'              => 'PriorityStrategy',
         'strictSatisfiedTargetCapacity' => 'StrictSatisfiedTargetCapacity',
+        'systemDiskLevel'               => 'SystemDiskLevel',
+        'strictResourceProvision'       => 'StrictResourceProvision',
+        'round'                         => 'Round',
+        'interval'                      => 'Interval',
         'zoneInfos'                     => 'ZoneInfos',
         'instanceTypeModel'             => 'InstanceTypeModel',
+        'tag'                           => 'Tag',
     ];
 
     public function validate()
@@ -202,6 +233,18 @@ class ApplyNodesRequest extends Model
         if (null !== $this->strictSatisfiedTargetCapacity) {
             $res['StrictSatisfiedTargetCapacity'] = $this->strictSatisfiedTargetCapacity;
         }
+        if (null !== $this->systemDiskLevel) {
+            $res['SystemDiskLevel'] = $this->systemDiskLevel;
+        }
+        if (null !== $this->strictResourceProvision) {
+            $res['StrictResourceProvision'] = $this->strictResourceProvision;
+        }
+        if (null !== $this->round) {
+            $res['Round'] = $this->round;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
+        }
         if (null !== $this->zoneInfos) {
             $res['ZoneInfos'] = [];
             if (null !== $this->zoneInfos && \is_array($this->zoneInfos)) {
@@ -217,6 +260,15 @@ class ApplyNodesRequest extends Model
                 $n = 0;
                 foreach ($this->instanceTypeModel as $item) {
                     $res['InstanceTypeModel'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -289,6 +341,18 @@ class ApplyNodesRequest extends Model
         if (isset($map['StrictSatisfiedTargetCapacity'])) {
             $model->strictSatisfiedTargetCapacity = $map['StrictSatisfiedTargetCapacity'];
         }
+        if (isset($map['SystemDiskLevel'])) {
+            $model->systemDiskLevel = $map['SystemDiskLevel'];
+        }
+        if (isset($map['StrictResourceProvision'])) {
+            $model->strictResourceProvision = $map['StrictResourceProvision'];
+        }
+        if (isset($map['Round'])) {
+            $model->round = $map['Round'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
         if (isset($map['ZoneInfos'])) {
             if (!empty($map['ZoneInfos'])) {
                 $model->zoneInfos = [];
@@ -304,6 +368,15 @@ class ApplyNodesRequest extends Model
                 $n                        = 0;
                 foreach ($map['InstanceTypeModel'] as $item) {
                     $model->instanceTypeModel[$n++] = null !== $item ? instanceTypeModel::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }

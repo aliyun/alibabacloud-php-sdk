@@ -12,17 +12,7 @@ class DescribeGWSClustersResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @var int
@@ -30,21 +20,31 @@ class DescribeGWSClustersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var clusters[]
+     * @var string
      */
-    public $clusters;
+    public $requestId;
 
     /**
      * @var string
      */
     public $callerType;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var clusters
+     */
+    public $clusters;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
-        'clusters'   => 'Clusters',
+        'requestId'  => 'RequestId',
         'callerType' => 'CallerType',
+        'totalCount' => 'TotalCount',
+        'clusters'   => 'Clusters',
     ];
 
     public function validate()
@@ -54,29 +54,23 @@ class DescribeGWSClustersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->clusters) {
-            $res['Clusters'] = [];
-            if (null !== $this->clusters && \is_array($this->clusters)) {
-                $n = 0;
-                foreach ($this->clusters as $item) {
-                    $res['Clusters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->callerType) {
             $res['CallerType'] = $this->callerType;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->clusters) {
+            $res['Clusters'] = null !== $this->clusters ? $this->clusters->toMap() : null;
         }
 
         return $res;
@@ -90,29 +84,23 @@ class DescribeGWSClustersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['Clusters'])) {
-            if (!empty($map['Clusters'])) {
-                $model->clusters = [];
-                $n               = 0;
-                foreach ($map['Clusters'] as $item) {
-                    $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['CallerType'])) {
             $model->callerType = $map['CallerType'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Clusters'])) {
+            $model->clusters = clusters::fromMap($map['Clusters']);
         }
 
         return $model;

@@ -15,7 +15,7 @@ class ListQueuesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var queues[]
+     * @var queues
      */
     public $queues;
     protected $_name = [
@@ -34,13 +34,7 @@ class ListQueuesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->queues) {
-            $res['Queues'] = [];
-            if (null !== $this->queues && \is_array($this->queues)) {
-                $n = 0;
-                foreach ($this->queues as $item) {
-                    $res['Queues'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Queues'] = null !== $this->queues ? $this->queues->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class ListQueuesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Queues'])) {
-            if (!empty($map['Queues'])) {
-                $model->queues = [];
-                $n             = 0;
-                foreach ($map['Queues'] as $item) {
-                    $model->queues[$n++] = null !== $item ? queues::fromMap($item) : $item;
-                }
-            }
+            $model->queues = queues::fromMap($map['Queues']);
         }
 
         return $model;

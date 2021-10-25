@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class QueryServicePackAndPriceResponseBody extends Model
 {
     /**
-     * @var float
+     * @var int
      */
-    public $originalPrice;
+    public $originalAmount;
 
     /**
      * @var string
@@ -25,14 +25,24 @@ class QueryServicePackAndPriceResponseBody extends Model
     public $discountPrice;
 
     /**
+     * @var float
+     */
+    public $tradePrice;
+
+    /**
+     * @var float
+     */
+    public $originalPrice;
+
+    /**
+     * @var int
+     */
+    public $chargeAmount;
+
+    /**
      * @var string
      */
     public $currency;
-
-    /**
-     * @var servicePack[]
-     */
-    public $servicePack;
 
     /**
      * @var string
@@ -40,29 +50,19 @@ class QueryServicePackAndPriceResponseBody extends Model
     public $regionId;
 
     /**
-     * @var float
+     * @var servicePack
      */
-    public $tradePrice;
-
-    /**
-     * @var int
-     */
-    public $originalAmount;
-
-    /**
-     * @var int
-     */
-    public $chargeAmount;
+    public $servicePack;
     protected $_name = [
-        'originalPrice'  => 'OriginalPrice',
+        'originalAmount' => 'OriginalAmount',
         'requestId'      => 'RequestId',
         'discountPrice'  => 'DiscountPrice',
-        'currency'       => 'Currency',
-        'servicePack'    => 'ServicePack',
-        'regionId'       => 'RegionId',
         'tradePrice'     => 'TradePrice',
-        'originalAmount' => 'OriginalAmount',
+        'originalPrice'  => 'OriginalPrice',
         'chargeAmount'   => 'ChargeAmount',
+        'currency'       => 'Currency',
+        'regionId'       => 'RegionId',
+        'servicePack'    => 'ServicePack',
     ];
 
     public function validate()
@@ -72,8 +72,8 @@ class QueryServicePackAndPriceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->originalPrice) {
-            $res['OriginalPrice'] = $this->originalPrice;
+        if (null !== $this->originalAmount) {
+            $res['OriginalAmount'] = $this->originalAmount;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -81,29 +81,23 @@ class QueryServicePackAndPriceResponseBody extends Model
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
         }
+        if (null !== $this->tradePrice) {
+            $res['TradePrice'] = $this->tradePrice;
+        }
+        if (null !== $this->originalPrice) {
+            $res['OriginalPrice'] = $this->originalPrice;
+        }
+        if (null !== $this->chargeAmount) {
+            $res['ChargeAmount'] = $this->chargeAmount;
+        }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
-        }
-        if (null !== $this->servicePack) {
-            $res['ServicePack'] = [];
-            if (null !== $this->servicePack && \is_array($this->servicePack)) {
-                $n = 0;
-                foreach ($this->servicePack as $item) {
-                    $res['ServicePack'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->tradePrice) {
-            $res['TradePrice'] = $this->tradePrice;
-        }
-        if (null !== $this->originalAmount) {
-            $res['OriginalAmount'] = $this->originalAmount;
-        }
-        if (null !== $this->chargeAmount) {
-            $res['ChargeAmount'] = $this->chargeAmount;
+        if (null !== $this->servicePack) {
+            $res['ServicePack'] = null !== $this->servicePack ? $this->servicePack->toMap() : null;
         }
 
         return $res;
@@ -117,8 +111,8 @@ class QueryServicePackAndPriceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OriginalPrice'])) {
-            $model->originalPrice = $map['OriginalPrice'];
+        if (isset($map['OriginalAmount'])) {
+            $model->originalAmount = $map['OriginalAmount'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -126,29 +120,23 @@ class QueryServicePackAndPriceResponseBody extends Model
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
         }
+        if (isset($map['TradePrice'])) {
+            $model->tradePrice = $map['TradePrice'];
+        }
+        if (isset($map['OriginalPrice'])) {
+            $model->originalPrice = $map['OriginalPrice'];
+        }
+        if (isset($map['ChargeAmount'])) {
+            $model->chargeAmount = $map['ChargeAmount'];
+        }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
-        }
-        if (isset($map['ServicePack'])) {
-            if (!empty($map['ServicePack'])) {
-                $model->servicePack = [];
-                $n                  = 0;
-                foreach ($map['ServicePack'] as $item) {
-                    $model->servicePack[$n++] = null !== $item ? servicePack::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['TradePrice'])) {
-            $model->tradePrice = $map['TradePrice'];
-        }
-        if (isset($map['OriginalAmount'])) {
-            $model->originalAmount = $map['OriginalAmount'];
-        }
-        if (isset($map['ChargeAmount'])) {
-            $model->chargeAmount = $map['ChargeAmount'];
+        if (isset($map['ServicePack'])) {
+            $model->servicePack = servicePack::fromMap($map['ServicePack']);
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetClusterVolumesResponseBody extends Model
 {
     /**
-     * @var volumes[]
+     * @var string
      */
-    public $volumes;
+    public $regionId;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class GetClusterVolumesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var volumes
      */
-    public $regionId;
+    public $volumes;
     protected $_name = [
-        'volumes'   => 'Volumes',
-        'requestId' => 'RequestId',
         'regionId'  => 'RegionId',
+        'requestId' => 'RequestId',
+        'volumes'   => 'Volumes',
     ];
 
     public function validate()
@@ -36,20 +36,14 @@ class GetClusterVolumesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->volumes) {
-            $res['Volumes'] = [];
-            if (null !== $this->volumes && \is_array($this->volumes)) {
-                $n = 0;
-                foreach ($this->volumes as $item) {
-                    $res['Volumes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->volumes) {
+            $res['Volumes'] = null !== $this->volumes ? $this->volumes->toMap() : null;
         }
 
         return $res;
@@ -63,20 +57,14 @@ class GetClusterVolumesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Volumes'])) {
-            if (!empty($map['Volumes'])) {
-                $model->volumes = [];
-                $n              = 0;
-                foreach ($map['Volumes'] as $item) {
-                    $model->volumes[$n++] = null !== $item ? volumes::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Volumes'])) {
+            $model->volumes = volumes::fromMap($map['Volumes']);
         }
 
         return $model;

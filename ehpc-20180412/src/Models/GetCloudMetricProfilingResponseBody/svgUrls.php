@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricProfilingResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricProfilingResponseBody\svgUrls\svgInfo;
 use AlibabaCloud\Tea\Model;
 
 class svgUrls extends Model
 {
     /**
-     * @var string
+     * @var svgInfo[]
      */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $size;
-
-    /**
-     * @var string
-     */
-    public $url;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $svgInfo;
     protected $_name = [
-        'type' => 'Type',
-        'size' => 'Size',
-        'url'  => 'Url',
-        'name' => 'Name',
+        'svgInfo' => 'SvgInfo',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class svgUrls extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->svgInfo) {
+            $res['SvgInfo'] = [];
+            if (null !== $this->svgInfo && \is_array($this->svgInfo)) {
+                $n = 0;
+                foreach ($this->svgInfo as $item) {
+                    $res['SvgInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class svgUrls extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['SvgInfo'])) {
+            if (!empty($map['SvgInfo'])) {
+                $model->svgInfo = [];
+                $n              = 0;
+                foreach ($map['SvgInfo'] as $item) {
+                    $model->svgInfo[$n++] = null !== $item ? svgInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

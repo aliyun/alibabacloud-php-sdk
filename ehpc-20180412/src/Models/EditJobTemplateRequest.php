@@ -62,6 +62,41 @@ class EditJobTemplateRequest extends Model
      * @var string
      */
     public $variables;
+
+    /**
+     * @var string
+     */
+    public $queue;
+
+    /**
+     * @var string
+     */
+    public $clockTime;
+
+    /**
+     * @var int
+     */
+    public $node;
+
+    /**
+     * @var int
+     */
+    public $task;
+
+    /**
+     * @var int
+     */
+    public $thread;
+
+    /**
+     * @var string
+     */
+    public $mem;
+
+    /**
+     * @var int
+     */
+    public $gpu;
     protected $_name = [
         'templateId'         => 'TemplateId',
         'commandLine'        => 'CommandLine',
@@ -74,6 +109,13 @@ class EditJobTemplateRequest extends Model
         'reRunable'          => 'ReRunable',
         'arrayRequest'       => 'ArrayRequest',
         'variables'          => 'Variables',
+        'queue'              => 'Queue',
+        'clockTime'          => 'ClockTime',
+        'node'               => 'Node',
+        'task'               => 'Task',
+        'thread'             => 'Thread',
+        'mem'                => 'Mem',
+        'gpu'                => 'Gpu',
     ];
 
     public function validate()
@@ -115,6 +157,27 @@ class EditJobTemplateRequest extends Model
         }
         if (null !== $this->variables) {
             $res['Variables'] = $this->variables;
+        }
+        if (null !== $this->queue) {
+            $res['Queue'] = $this->queue;
+        }
+        if (null !== $this->clockTime) {
+            $res['ClockTime'] = $this->clockTime;
+        }
+        if (null !== $this->node) {
+            $res['Node'] = $this->node;
+        }
+        if (null !== $this->task) {
+            $res['Task'] = $this->task;
+        }
+        if (null !== $this->thread) {
+            $res['Thread'] = $this->thread;
+        }
+        if (null !== $this->mem) {
+            $res['Mem'] = $this->mem;
+        }
+        if (null !== $this->gpu) {
+            $res['Gpu'] = $this->gpu;
         }
 
         return $res;
@@ -160,6 +223,27 @@ class EditJobTemplateRequest extends Model
         }
         if (isset($map['Variables'])) {
             $model->variables = $map['Variables'];
+        }
+        if (isset($map['Queue'])) {
+            $model->queue = $map['Queue'];
+        }
+        if (isset($map['ClockTime'])) {
+            $model->clockTime = $map['ClockTime'];
+        }
+        if (isset($map['Node'])) {
+            $model->node = $map['Node'];
+        }
+        if (isset($map['Task'])) {
+            $model->task = $map['Task'];
+        }
+        if (isset($map['Thread'])) {
+            $model->thread = $map['Thread'];
+        }
+        if (isset($map['Mem'])) {
+            $model->mem = $map['Mem'];
+        }
+        if (isset($map['Gpu'])) {
+            $model->gpu = $map['Gpu'];
         }
 
         return $model;

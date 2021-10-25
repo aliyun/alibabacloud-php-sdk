@@ -12,11 +12,6 @@ class ListUsersResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class ListUsersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var users[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var users
      */
     public $users;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
         'users'      => 'Users',
     ];
 
@@ -48,9 +48,6 @@ class ListUsersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class ListUsersResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->users) {
-            $res['Users'] = [];
-            if (null !== $this->users && \is_array($this->users)) {
-                $n = 0;
-                foreach ($this->users as $item) {
-                    $res['Users'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Users'] = null !== $this->users ? $this->users->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class ListUsersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class ListUsersResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['Users'])) {
-            if (!empty($map['Users'])) {
-                $model->users = [];
-                $n            = 0;
-                foreach ($map['Users'] as $item) {
-                    $model->users[$n++] = null !== $item ? users::fromMap($item) : $item;
-                }
-            }
+            $model->users = users::fromMap($map['Users']);
         }
 
         return $model;

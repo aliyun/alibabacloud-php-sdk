@@ -11,15 +11,15 @@ class ListCurrentClientVersionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $clientVersion;
 
     /**
      * @var string
      */
-    public $clientVersion;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'clientVersion' => 'ClientVersion',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListCurrentClientVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clientVersion) {
             $res['ClientVersion'] = $this->clientVersion;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListCurrentClientVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ClientVersion'])) {
             $model->clientVersion = $map['ClientVersion'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

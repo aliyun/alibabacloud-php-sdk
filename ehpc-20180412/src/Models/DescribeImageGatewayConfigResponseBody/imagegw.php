@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class imagegw extends Model
 {
     /**
-     * @var locations[]
-     */
-    public $locations;
-
-    /**
      * @var string
      */
     public $updateDateTime;
@@ -38,13 +33,18 @@ class imagegw extends Model
      * @var int
      */
     public $pullUpdateTimeout;
+
+    /**
+     * @var locations
+     */
+    public $locations;
     protected $_name = [
-        'locations'              => 'Locations',
         'updateDateTime'         => 'UpdateDateTime',
         'imageExpirationTimeout' => 'ImageExpirationTimeout',
         'mongoDBURI'             => 'MongoDBURI',
         'defaultImageLocation'   => 'DefaultImageLocation',
         'pullUpdateTimeout'      => 'PullUpdateTimeout',
+        'locations'              => 'Locations',
     ];
 
     public function validate()
@@ -54,15 +54,6 @@ class imagegw extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->locations) {
-            $res['Locations'] = [];
-            if (null !== $this->locations && \is_array($this->locations)) {
-                $n = 0;
-                foreach ($this->locations as $item) {
-                    $res['Locations'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->updateDateTime) {
             $res['UpdateDateTime'] = $this->updateDateTime;
         }
@@ -78,6 +69,9 @@ class imagegw extends Model
         if (null !== $this->pullUpdateTimeout) {
             $res['PullUpdateTimeout'] = $this->pullUpdateTimeout;
         }
+        if (null !== $this->locations) {
+            $res['Locations'] = null !== $this->locations ? $this->locations->toMap() : null;
+        }
 
         return $res;
     }
@@ -90,15 +84,6 @@ class imagegw extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Locations'])) {
-            if (!empty($map['Locations'])) {
-                $model->locations = [];
-                $n                = 0;
-                foreach ($map['Locations'] as $item) {
-                    $model->locations[$n++] = null !== $item ? locations::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['UpdateDateTime'])) {
             $model->updateDateTime = $map['UpdateDateTime'];
         }
@@ -113,6 +98,9 @@ class imagegw extends Model
         }
         if (isset($map['PullUpdateTimeout'])) {
             $model->pullUpdateTimeout = $map['PullUpdateTimeout'];
+        }
+        if (isset($map['Locations'])) {
+            $model->locations = locations::fromMap($map['Locations']);
         }
 
         return $model;

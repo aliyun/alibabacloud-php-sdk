@@ -12,14 +12,8 @@ class CreateJobFileResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $templateId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'templateId' => 'TemplateId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class CreateJobFileResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class CreateJobFileResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

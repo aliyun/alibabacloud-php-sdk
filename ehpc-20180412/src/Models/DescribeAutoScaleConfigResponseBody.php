@@ -11,32 +11,22 @@ class DescribeAutoScaleConfigResponseBody extends Model
     /**
      * @var int
      */
-    public $extraNodesGrowRatio;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $enableAutoGrow;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
-
-    /**
-     * @var int
-     */
     public $maxNodesInCluster;
 
     /**
      * @var int
      */
-    public $shrinkIdleTimes;
+    public $growTimeoutInMinutes;
+
+    /**
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var bool
@@ -49,24 +39,19 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $clusterType;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $growRatio;
+    public $enableAutoGrow;
+
+    /**
+     * @var string
+     */
+    public $excludeNodes;
 
     /**
      * @var int
      */
     public $growIntervalInMinutes;
-
-    /**
-     * @var string
-     */
-    public $uid;
-
-    /**
-     * @var int
-     */
-    public $growTimeoutInMinutes;
 
     /**
      * @var int
@@ -79,31 +64,46 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $spotPriceLimit;
 
     /**
-     * @var string
+     * @var int
      */
-    public $excludeNodes;
+    public $shrinkIdleTimes;
+
+    /**
+     * @var int
+     */
+    public $extraNodesGrowRatio;
+
+    /**
+     * @var int
+     */
+    public $growRatio;
 
     /**
      * @var string
      */
-    public $spotStrategy;
+    public $uid;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
     protected $_name = [
-        'extraNodesGrowRatio'     => 'ExtraNodesGrowRatio',
-        'requestId'               => 'RequestId',
-        'enableAutoGrow'          => 'EnableAutoGrow',
-        'clusterId'               => 'ClusterId',
         'maxNodesInCluster'       => 'MaxNodesInCluster',
-        'shrinkIdleTimes'         => 'ShrinkIdleTimes',
+        'growTimeoutInMinutes'    => 'GrowTimeoutInMinutes',
+        'spotStrategy'            => 'SpotStrategy',
+        'requestId'               => 'RequestId',
         'enableAutoShrink'        => 'EnableAutoShrink',
         'clusterType'             => 'ClusterType',
-        'growRatio'               => 'GrowRatio',
+        'enableAutoGrow'          => 'EnableAutoGrow',
+        'excludeNodes'            => 'ExcludeNodes',
         'growIntervalInMinutes'   => 'GrowIntervalInMinutes',
-        'uid'                     => 'Uid',
-        'growTimeoutInMinutes'    => 'GrowTimeoutInMinutes',
         'shrinkIntervalInMinutes' => 'ShrinkIntervalInMinutes',
         'spotPriceLimit'          => 'SpotPriceLimit',
-        'excludeNodes'            => 'ExcludeNodes',
-        'spotStrategy'            => 'SpotStrategy',
+        'shrinkIdleTimes'         => 'ShrinkIdleTimes',
+        'extraNodesGrowRatio'     => 'ExtraNodesGrowRatio',
+        'growRatio'               => 'GrowRatio',
+        'uid'                     => 'Uid',
+        'clusterId'               => 'ClusterId',
     ];
 
     public function validate()
@@ -113,23 +113,17 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->extraNodesGrowRatio) {
-            $res['ExtraNodesGrowRatio'] = $this->extraNodesGrowRatio;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->enableAutoGrow) {
-            $res['EnableAutoGrow'] = $this->enableAutoGrow;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->maxNodesInCluster) {
             $res['MaxNodesInCluster'] = $this->maxNodesInCluster;
         }
-        if (null !== $this->shrinkIdleTimes) {
-            $res['ShrinkIdleTimes'] = $this->shrinkIdleTimes;
+        if (null !== $this->growTimeoutInMinutes) {
+            $res['GrowTimeoutInMinutes'] = $this->growTimeoutInMinutes;
+        }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->enableAutoShrink) {
             $res['EnableAutoShrink'] = $this->enableAutoShrink;
@@ -137,17 +131,14 @@ class DescribeAutoScaleConfigResponseBody extends Model
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
-        if (null !== $this->growRatio) {
-            $res['GrowRatio'] = $this->growRatio;
+        if (null !== $this->enableAutoGrow) {
+            $res['EnableAutoGrow'] = $this->enableAutoGrow;
+        }
+        if (null !== $this->excludeNodes) {
+            $res['ExcludeNodes'] = $this->excludeNodes;
         }
         if (null !== $this->growIntervalInMinutes) {
             $res['GrowIntervalInMinutes'] = $this->growIntervalInMinutes;
-        }
-        if (null !== $this->uid) {
-            $res['Uid'] = $this->uid;
-        }
-        if (null !== $this->growTimeoutInMinutes) {
-            $res['GrowTimeoutInMinutes'] = $this->growTimeoutInMinutes;
         }
         if (null !== $this->shrinkIntervalInMinutes) {
             $res['ShrinkIntervalInMinutes'] = $this->shrinkIntervalInMinutes;
@@ -155,11 +146,20 @@ class DescribeAutoScaleConfigResponseBody extends Model
         if (null !== $this->spotPriceLimit) {
             $res['SpotPriceLimit'] = $this->spotPriceLimit;
         }
-        if (null !== $this->excludeNodes) {
-            $res['ExcludeNodes'] = $this->excludeNodes;
+        if (null !== $this->shrinkIdleTimes) {
+            $res['ShrinkIdleTimes'] = $this->shrinkIdleTimes;
         }
-        if (null !== $this->spotStrategy) {
-            $res['SpotStrategy'] = $this->spotStrategy;
+        if (null !== $this->extraNodesGrowRatio) {
+            $res['ExtraNodesGrowRatio'] = $this->extraNodesGrowRatio;
+        }
+        if (null !== $this->growRatio) {
+            $res['GrowRatio'] = $this->growRatio;
+        }
+        if (null !== $this->uid) {
+            $res['Uid'] = $this->uid;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -173,23 +173,17 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExtraNodesGrowRatio'])) {
-            $model->extraNodesGrowRatio = $map['ExtraNodesGrowRatio'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['EnableAutoGrow'])) {
-            $model->enableAutoGrow = $map['EnableAutoGrow'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['MaxNodesInCluster'])) {
             $model->maxNodesInCluster = $map['MaxNodesInCluster'];
         }
-        if (isset($map['ShrinkIdleTimes'])) {
-            $model->shrinkIdleTimes = $map['ShrinkIdleTimes'];
+        if (isset($map['GrowTimeoutInMinutes'])) {
+            $model->growTimeoutInMinutes = $map['GrowTimeoutInMinutes'];
+        }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['EnableAutoShrink'])) {
             $model->enableAutoShrink = $map['EnableAutoShrink'];
@@ -197,17 +191,14 @@ class DescribeAutoScaleConfigResponseBody extends Model
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }
-        if (isset($map['GrowRatio'])) {
-            $model->growRatio = $map['GrowRatio'];
+        if (isset($map['EnableAutoGrow'])) {
+            $model->enableAutoGrow = $map['EnableAutoGrow'];
+        }
+        if (isset($map['ExcludeNodes'])) {
+            $model->excludeNodes = $map['ExcludeNodes'];
         }
         if (isset($map['GrowIntervalInMinutes'])) {
             $model->growIntervalInMinutes = $map['GrowIntervalInMinutes'];
-        }
-        if (isset($map['Uid'])) {
-            $model->uid = $map['Uid'];
-        }
-        if (isset($map['GrowTimeoutInMinutes'])) {
-            $model->growTimeoutInMinutes = $map['GrowTimeoutInMinutes'];
         }
         if (isset($map['ShrinkIntervalInMinutes'])) {
             $model->shrinkIntervalInMinutes = $map['ShrinkIntervalInMinutes'];
@@ -215,11 +206,20 @@ class DescribeAutoScaleConfigResponseBody extends Model
         if (isset($map['SpotPriceLimit'])) {
             $model->spotPriceLimit = $map['SpotPriceLimit'];
         }
-        if (isset($map['ExcludeNodes'])) {
-            $model->excludeNodes = $map['ExcludeNodes'];
+        if (isset($map['ShrinkIdleTimes'])) {
+            $model->shrinkIdleTimes = $map['ShrinkIdleTimes'];
         }
-        if (isset($map['SpotStrategy'])) {
-            $model->spotStrategy = $map['SpotStrategy'];
+        if (isset($map['ExtraNodesGrowRatio'])) {
+            $model->extraNodesGrowRatio = $map['ExtraNodesGrowRatio'];
+        }
+        if (isset($map['GrowRatio'])) {
+            $model->growRatio = $map['GrowRatio'];
+        }
+        if (isset($map['Uid'])) {
+            $model->uid = $map['Uid'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
 
         return $model;

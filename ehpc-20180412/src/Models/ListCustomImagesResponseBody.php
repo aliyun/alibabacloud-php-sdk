@@ -15,7 +15,7 @@ class ListCustomImagesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var images[]
+     * @var images
      */
     public $images;
     protected $_name = [
@@ -34,13 +34,7 @@ class ListCustomImagesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->images) {
-            $res['Images'] = [];
-            if (null !== $this->images && \is_array($this->images)) {
-                $n = 0;
-                foreach ($this->images as $item) {
-                    $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Images'] = null !== $this->images ? $this->images->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class ListCustomImagesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Images'])) {
-            if (!empty($map['Images'])) {
-                $model->images = [];
-                $n             = 0;
-                foreach ($map['Images'] as $item) {
-                    $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
-                }
-            }
+            $model->images = images::fromMap($map['Images']);
         }
 
         return $model;

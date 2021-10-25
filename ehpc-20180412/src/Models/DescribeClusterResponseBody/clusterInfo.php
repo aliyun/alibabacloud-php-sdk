@@ -87,11 +87,6 @@ class clusterInfo extends Model
     public $imageId;
 
     /**
-     * @var postInstallScripts[]
-     */
-    public $postInstallScripts;
-
-    /**
      * @var string
      */
     public $schedulerType;
@@ -109,7 +104,7 @@ class clusterInfo extends Model
     /**
      * @var string
      */
-    public $remoteDirectory;
+    public $osTag;
 
     /**
      * @var string
@@ -119,7 +114,7 @@ class clusterInfo extends Model
     /**
      * @var string
      */
-    public $osTag;
+    public $remoteDirectory;
 
     /**
      * @var string
@@ -132,19 +127,9 @@ class clusterInfo extends Model
     public $vSwitchId;
 
     /**
-     * @var ecsInfo
-     */
-    public $ecsInfo;
-
-    /**
      * @var string
      */
     public $imageName;
-
-    /**
-     * @var applications[]
-     */
-    public $applications;
 
     /**
      * @var string
@@ -165,6 +150,21 @@ class clusterInfo extends Model
      * @var string
      */
     public $clientVersion;
+
+    /**
+     * @var applications
+     */
+    public $applications;
+
+    /**
+     * @var postInstallScripts
+     */
+    public $postInstallScripts;
+
+    /**
+     * @var ecsInfo
+     */
+    public $ecsInfo;
     protected $_name = [
         'status'             => 'Status',
         'vpcId'              => 'VpcId',
@@ -181,22 +181,22 @@ class clusterInfo extends Model
         'baseOsTag'          => 'BaseOsTag',
         'name'               => 'Name',
         'imageId'            => 'ImageId',
-        'postInstallScripts' => 'PostInstallScripts',
         'schedulerType'      => 'SchedulerType',
         'deployMode'         => 'DeployMode',
         'imageOwnerAlias'    => 'ImageOwnerAlias',
-        'remoteDirectory'    => 'RemoteDirectory',
-        'volumeMountpoint'   => 'VolumeMountpoint',
         'osTag'              => 'OsTag',
+        'volumeMountpoint'   => 'VolumeMountpoint',
+        'remoteDirectory'    => 'RemoteDirectory',
         'regionId'           => 'RegionId',
         'vSwitchId'          => 'VSwitchId',
-        'ecsInfo'            => 'EcsInfo',
         'imageName'          => 'ImageName',
-        'applications'       => 'Applications',
         'volumeType'         => 'VolumeType',
         'location'           => 'Location',
         'id'                 => 'Id',
         'clientVersion'      => 'ClientVersion',
+        'applications'       => 'Applications',
+        'postInstallScripts' => 'PostInstallScripts',
+        'ecsInfo'            => 'EcsInfo',
     ];
 
     public function validate()
@@ -251,15 +251,6 @@ class clusterInfo extends Model
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-        if (null !== $this->postInstallScripts) {
-            $res['PostInstallScripts'] = [];
-            if (null !== $this->postInstallScripts && \is_array($this->postInstallScripts)) {
-                $n = 0;
-                foreach ($this->postInstallScripts as $item) {
-                    $res['PostInstallScripts'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->schedulerType) {
             $res['SchedulerType'] = $this->schedulerType;
         }
@@ -269,14 +260,14 @@ class clusterInfo extends Model
         if (null !== $this->imageOwnerAlias) {
             $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
         }
-        if (null !== $this->remoteDirectory) {
-            $res['RemoteDirectory'] = $this->remoteDirectory;
+        if (null !== $this->osTag) {
+            $res['OsTag'] = $this->osTag;
         }
         if (null !== $this->volumeMountpoint) {
             $res['VolumeMountpoint'] = $this->volumeMountpoint;
         }
-        if (null !== $this->osTag) {
-            $res['OsTag'] = $this->osTag;
+        if (null !== $this->remoteDirectory) {
+            $res['RemoteDirectory'] = $this->remoteDirectory;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -284,20 +275,8 @@ class clusterInfo extends Model
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->ecsInfo) {
-            $res['EcsInfo'] = null !== $this->ecsInfo ? $this->ecsInfo->toMap() : null;
-        }
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
-        }
-        if (null !== $this->applications) {
-            $res['Applications'] = [];
-            if (null !== $this->applications && \is_array($this->applications)) {
-                $n = 0;
-                foreach ($this->applications as $item) {
-                    $res['Applications'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->volumeType) {
             $res['VolumeType'] = $this->volumeType;
@@ -310,6 +289,15 @@ class clusterInfo extends Model
         }
         if (null !== $this->clientVersion) {
             $res['ClientVersion'] = $this->clientVersion;
+        }
+        if (null !== $this->applications) {
+            $res['Applications'] = null !== $this->applications ? $this->applications->toMap() : null;
+        }
+        if (null !== $this->postInstallScripts) {
+            $res['PostInstallScripts'] = null !== $this->postInstallScripts ? $this->postInstallScripts->toMap() : null;
+        }
+        if (null !== $this->ecsInfo) {
+            $res['EcsInfo'] = null !== $this->ecsInfo ? $this->ecsInfo->toMap() : null;
         }
 
         return $res;
@@ -368,15 +356,6 @@ class clusterInfo extends Model
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-        if (isset($map['PostInstallScripts'])) {
-            if (!empty($map['PostInstallScripts'])) {
-                $model->postInstallScripts = [];
-                $n                         = 0;
-                foreach ($map['PostInstallScripts'] as $item) {
-                    $model->postInstallScripts[$n++] = null !== $item ? postInstallScripts::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['SchedulerType'])) {
             $model->schedulerType = $map['SchedulerType'];
         }
@@ -386,14 +365,14 @@ class clusterInfo extends Model
         if (isset($map['ImageOwnerAlias'])) {
             $model->imageOwnerAlias = $map['ImageOwnerAlias'];
         }
-        if (isset($map['RemoteDirectory'])) {
-            $model->remoteDirectory = $map['RemoteDirectory'];
+        if (isset($map['OsTag'])) {
+            $model->osTag = $map['OsTag'];
         }
         if (isset($map['VolumeMountpoint'])) {
             $model->volumeMountpoint = $map['VolumeMountpoint'];
         }
-        if (isset($map['OsTag'])) {
-            $model->osTag = $map['OsTag'];
+        if (isset($map['RemoteDirectory'])) {
+            $model->remoteDirectory = $map['RemoteDirectory'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -401,20 +380,8 @@ class clusterInfo extends Model
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['EcsInfo'])) {
-            $model->ecsInfo = ecsInfo::fromMap($map['EcsInfo']);
-        }
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
-        }
-        if (isset($map['Applications'])) {
-            if (!empty($map['Applications'])) {
-                $model->applications = [];
-                $n                   = 0;
-                foreach ($map['Applications'] as $item) {
-                    $model->applications[$n++] = null !== $item ? applications::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['VolumeType'])) {
             $model->volumeType = $map['VolumeType'];
@@ -427,6 +394,15 @@ class clusterInfo extends Model
         }
         if (isset($map['ClientVersion'])) {
             $model->clientVersion = $map['ClientVersion'];
+        }
+        if (isset($map['Applications'])) {
+            $model->applications = applications::fromMap($map['Applications']);
+        }
+        if (isset($map['PostInstallScripts'])) {
+            $model->postInstallScripts = postInstallScripts::fromMap($map['PostInstallScripts']);
+        }
+        if (isset($map['EcsInfo'])) {
+            $model->ecsInfo = ecsInfo::fromMap($map['EcsInfo']);
         }
 
         return $model;

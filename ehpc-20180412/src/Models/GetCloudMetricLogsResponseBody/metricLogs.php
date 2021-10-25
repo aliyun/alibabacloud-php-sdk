@@ -4,46 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricLogsResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricLogsResponseBody\metricLogs\metricLog;
 use AlibabaCloud\Tea\Model;
 
 class metricLogs extends Model
 {
     /**
-     * @var int
+     * @var metricLog[]
      */
-    public $time;
-
-    /**
-     * @var string
-     */
-    public $diskDevice;
-
-    /**
-     * @var string
-     */
-    public $networkInterface;
-
-    /**
-     * @var string
-     */
-    public $metricData;
-
-    /**
-     * @var string
-     */
-    public $hostname;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $metricLog;
     protected $_name = [
-        'time'             => 'Time',
-        'diskDevice'       => 'DiskDevice',
-        'networkInterface' => 'NetworkInterface',
-        'metricData'       => 'MetricData',
-        'hostname'         => 'Hostname',
-        'instanceId'       => 'InstanceId',
+        'metricLog' => 'MetricLog',
     ];
 
     public function validate()
@@ -53,23 +24,14 @@ class metricLogs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
-        if (null !== $this->diskDevice) {
-            $res['DiskDevice'] = $this->diskDevice;
-        }
-        if (null !== $this->networkInterface) {
-            $res['NetworkInterface'] = $this->networkInterface;
-        }
-        if (null !== $this->metricData) {
-            $res['MetricData'] = $this->metricData;
-        }
-        if (null !== $this->hostname) {
-            $res['Hostname'] = $this->hostname;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->metricLog) {
+            $res['MetricLog'] = [];
+            if (null !== $this->metricLog && \is_array($this->metricLog)) {
+                $n = 0;
+                foreach ($this->metricLog as $item) {
+                    $res['MetricLog'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -83,23 +45,14 @@ class metricLogs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
-        if (isset($map['DiskDevice'])) {
-            $model->diskDevice = $map['DiskDevice'];
-        }
-        if (isset($map['NetworkInterface'])) {
-            $model->networkInterface = $map['NetworkInterface'];
-        }
-        if (isset($map['MetricData'])) {
-            $model->metricData = $map['MetricData'];
-        }
-        if (isset($map['Hostname'])) {
-            $model->hostname = $map['Hostname'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['MetricLog'])) {
+            if (!empty($map['MetricLog'])) {
+                $model->metricLog = [];
+                $n                = 0;
+                foreach ($map['MetricLog'] as $item) {
+                    $model->metricLog[$n++] = null !== $item ? metricLog::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

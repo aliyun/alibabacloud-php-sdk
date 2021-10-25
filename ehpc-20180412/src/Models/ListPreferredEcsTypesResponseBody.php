@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListPreferredEcsTypesResponseBody extends Model
 {
     /**
-     * @var series[]
-     */
-    public $series;
-
-    /**
      * @var bool
      */
     public $supportSpotInstance;
@@ -23,10 +18,15 @@ class ListPreferredEcsTypesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var series
+     */
+    public $series;
     protected $_name = [
-        'series'              => 'Series',
         'supportSpotInstance' => 'SupportSpotInstance',
         'requestId'           => 'RequestId',
+        'series'              => 'Series',
     ];
 
     public function validate()
@@ -36,20 +36,14 @@ class ListPreferredEcsTypesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->series) {
-            $res['Series'] = [];
-            if (null !== $this->series && \is_array($this->series)) {
-                $n = 0;
-                foreach ($this->series as $item) {
-                    $res['Series'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->supportSpotInstance) {
             $res['SupportSpotInstance'] = $this->supportSpotInstance;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->series) {
+            $res['Series'] = null !== $this->series ? $this->series->toMap() : null;
         }
 
         return $res;
@@ -63,20 +57,14 @@ class ListPreferredEcsTypesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Series'])) {
-            if (!empty($map['Series'])) {
-                $model->series = [];
-                $n             = 0;
-                foreach ($map['Series'] as $item) {
-                    $model->series[$n++] = null !== $item ? series::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['SupportSpotInstance'])) {
             $model->supportSpotInstance = $map['SupportSpotInstance'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Series'])) {
+            $model->series = series::fromMap($map['Series']);
         }
 
         return $model;

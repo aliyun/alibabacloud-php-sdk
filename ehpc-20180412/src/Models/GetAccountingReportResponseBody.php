@@ -4,19 +4,20 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetAccountingReportResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class GetAccountingReportResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $totalCoreTime;
+
+    /**
      * @var string
      */
     public $metrics;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
 
     /**
      * @var string
@@ -36,19 +37,19 @@ class GetAccountingReportResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCoreTime;
+    public $totalCount;
 
     /**
-     * @var string[]
+     * @var data
      */
     public $data;
     protected $_name = [
+        'totalCoreTime' => 'TotalCoreTime',
         'metrics'       => 'Metrics',
-        'totalCount'    => 'TotalCount',
         'requestId'     => 'RequestId',
         'pageSize'      => 'PageSize',
         'pageNumber'    => 'PageNumber',
-        'totalCoreTime' => 'TotalCoreTime',
+        'totalCount'    => 'TotalCount',
         'data'          => 'Data',
     ];
 
@@ -59,11 +60,11 @@ class GetAccountingReportResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->totalCoreTime) {
+            $res['TotalCoreTime'] = $this->totalCoreTime;
+        }
         if (null !== $this->metrics) {
             $res['Metrics'] = $this->metrics;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -74,11 +75,11 @@ class GetAccountingReportResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->totalCoreTime) {
-            $res['TotalCoreTime'] = $this->totalCoreTime;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -92,11 +93,11 @@ class GetAccountingReportResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TotalCoreTime'])) {
+            $model->totalCoreTime = $map['TotalCoreTime'];
+        }
         if (isset($map['Metrics'])) {
             $model->metrics = $map['Metrics'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -107,13 +108,11 @@ class GetAccountingReportResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['TotalCoreTime'])) {
-            $model->totalCoreTime = $map['TotalCoreTime'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = $map['Data'];
-            }
+            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

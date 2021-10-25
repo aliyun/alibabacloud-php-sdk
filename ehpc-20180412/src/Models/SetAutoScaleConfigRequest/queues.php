@@ -10,9 +10,44 @@ use AlibabaCloud\Tea\Model;
 class queues extends Model
 {
     /**
+     * @var string
+     */
+    public $queueImageId;
+
+    /**
+     * @var string
+     */
+    public $systemDiskCategory;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $hostNameSuffix;
+
+    /**
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
+     * @var string
+     */
+    public $hostNamePrefix;
+
+    /**
      * @var int
      */
     public $minNodesInQueue;
+
+    /**
+     * @var int
+     */
+    public $systemDiskSize;
 
     /**
      * @var int
@@ -37,7 +72,7 @@ class queues extends Model
     /**
      * @var string
      */
-    public $queueImageId;
+    public $systemDiskLevel;
 
     /**
      * @var float
@@ -48,27 +83,22 @@ class queues extends Model
      * @var instanceTypes[]
      */
     public $instanceTypes;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
-
-    /**
-     * @var string
-     */
-    public $spotStrategy;
     protected $_name = [
-        'minNodesInQueue'  => 'MinNodesInQueue',
-        'maxNodesInQueue'  => 'MaxNodesInQueue',
-        'enableAutoShrink' => 'EnableAutoShrink',
-        'queueName'        => 'QueueName',
-        'enableAutoGrow'   => 'EnableAutoGrow',
-        'queueImageId'     => 'QueueImageId',
-        'spotPriceLimit'   => 'SpotPriceLimit',
-        'instanceTypes'    => 'InstanceTypes',
-        'instanceType'     => 'InstanceType',
-        'spotStrategy'     => 'SpotStrategy',
+        'queueImageId'       => 'QueueImageId',
+        'systemDiskCategory' => 'SystemDiskCategory',
+        'instanceType'       => 'InstanceType',
+        'hostNameSuffix'     => 'HostNameSuffix',
+        'spotStrategy'       => 'SpotStrategy',
+        'hostNamePrefix'     => 'HostNamePrefix',
+        'minNodesInQueue'    => 'MinNodesInQueue',
+        'systemDiskSize'     => 'SystemDiskSize',
+        'maxNodesInQueue'    => 'MaxNodesInQueue',
+        'enableAutoShrink'   => 'EnableAutoShrink',
+        'queueName'          => 'QueueName',
+        'enableAutoGrow'     => 'EnableAutoGrow',
+        'systemDiskLevel'    => 'SystemDiskLevel',
+        'spotPriceLimit'     => 'SpotPriceLimit',
+        'instanceTypes'      => 'InstanceTypes',
     ];
 
     public function validate()
@@ -78,8 +108,29 @@ class queues extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->queueImageId) {
+            $res['QueueImageId'] = $this->queueImageId;
+        }
+        if (null !== $this->systemDiskCategory) {
+            $res['SystemDiskCategory'] = $this->systemDiskCategory;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->hostNameSuffix) {
+            $res['HostNameSuffix'] = $this->hostNameSuffix;
+        }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->hostNamePrefix) {
+            $res['HostNamePrefix'] = $this->hostNamePrefix;
+        }
         if (null !== $this->minNodesInQueue) {
             $res['MinNodesInQueue'] = $this->minNodesInQueue;
+        }
+        if (null !== $this->systemDiskSize) {
+            $res['SystemDiskSize'] = $this->systemDiskSize;
         }
         if (null !== $this->maxNodesInQueue) {
             $res['MaxNodesInQueue'] = $this->maxNodesInQueue;
@@ -93,8 +144,8 @@ class queues extends Model
         if (null !== $this->enableAutoGrow) {
             $res['EnableAutoGrow'] = $this->enableAutoGrow;
         }
-        if (null !== $this->queueImageId) {
-            $res['QueueImageId'] = $this->queueImageId;
+        if (null !== $this->systemDiskLevel) {
+            $res['SystemDiskLevel'] = $this->systemDiskLevel;
         }
         if (null !== $this->spotPriceLimit) {
             $res['SpotPriceLimit'] = $this->spotPriceLimit;
@@ -108,12 +159,6 @@ class queues extends Model
                 }
             }
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
-        if (null !== $this->spotStrategy) {
-            $res['SpotStrategy'] = $this->spotStrategy;
-        }
 
         return $res;
     }
@@ -126,8 +171,29 @@ class queues extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['QueueImageId'])) {
+            $model->queueImageId = $map['QueueImageId'];
+        }
+        if (isset($map['SystemDiskCategory'])) {
+            $model->systemDiskCategory = $map['SystemDiskCategory'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['HostNameSuffix'])) {
+            $model->hostNameSuffix = $map['HostNameSuffix'];
+        }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
+        }
+        if (isset($map['HostNamePrefix'])) {
+            $model->hostNamePrefix = $map['HostNamePrefix'];
+        }
         if (isset($map['MinNodesInQueue'])) {
             $model->minNodesInQueue = $map['MinNodesInQueue'];
+        }
+        if (isset($map['SystemDiskSize'])) {
+            $model->systemDiskSize = $map['SystemDiskSize'];
         }
         if (isset($map['MaxNodesInQueue'])) {
             $model->maxNodesInQueue = $map['MaxNodesInQueue'];
@@ -141,8 +207,8 @@ class queues extends Model
         if (isset($map['EnableAutoGrow'])) {
             $model->enableAutoGrow = $map['EnableAutoGrow'];
         }
-        if (isset($map['QueueImageId'])) {
-            $model->queueImageId = $map['QueueImageId'];
+        if (isset($map['SystemDiskLevel'])) {
+            $model->systemDiskLevel = $map['SystemDiskLevel'];
         }
         if (isset($map['SpotPriceLimit'])) {
             $model->spotPriceLimit = $map['SpotPriceLimit'];
@@ -155,12 +221,6 @@ class queues extends Model
                     $model->instanceTypes[$n++] = null !== $item ? instanceTypes::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
-        if (isset($map['SpotStrategy'])) {
-            $model->spotStrategy = $map['SpotStrategy'];
         }
 
         return $model;

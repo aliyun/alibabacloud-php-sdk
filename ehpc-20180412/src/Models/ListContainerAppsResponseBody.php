@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListContainerAppsResponseBody extends Model
 {
     /**
-     * @var containerApps[]
-     */
-    public $containerApps;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -33,12 +23,22 @@ class ListContainerAppsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var containerApps
+     */
+    public $containerApps;
     protected $_name = [
-        'containerApps' => 'ContainerApps',
-        'totalCount'    => 'TotalCount',
         'pageSize'      => 'PageSize',
         'requestId'     => 'RequestId',
         'pageNumber'    => 'PageNumber',
+        'totalCount'    => 'TotalCount',
+        'containerApps' => 'ContainerApps',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class ListContainerAppsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->containerApps) {
-            $res['ContainerApps'] = [];
-            if (null !== $this->containerApps && \is_array($this->containerApps)) {
-                $n = 0;
-                foreach ($this->containerApps as $item) {
-                    $res['ContainerApps'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -68,6 +56,12 @@ class ListContainerAppsResponseBody extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->containerApps) {
+            $res['ContainerApps'] = null !== $this->containerApps ? $this->containerApps->toMap() : null;
         }
 
         return $res;
@@ -81,18 +75,6 @@ class ListContainerAppsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ContainerApps'])) {
-            if (!empty($map['ContainerApps'])) {
-                $model->containerApps = [];
-                $n                    = 0;
-                foreach ($map['ContainerApps'] as $item) {
-                    $model->containerApps[$n++] = null !== $item ? containerApps::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -101,6 +83,12 @@ class ListContainerAppsResponseBody extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['ContainerApps'])) {
+            $model->containerApps = containerApps::fromMap($map['ContainerApps']);
         }
 
         return $model;

@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListUsersResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListUsersResponseBody\users\userInfo;
 use AlibabaCloud\Tea\Model;
 
 class users extends Model
 {
     /**
-     * @var string
+     * @var userInfo[]
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $addTime;
-
-    /**
-     * @var string
-     */
-    public $group;
+    public $userInfo;
     protected $_name = [
-        'name'    => 'Name',
-        'addTime' => 'AddTime',
-        'group'   => 'Group',
+        'userInfo' => 'UserInfo',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class users extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->addTime) {
-            $res['AddTime'] = $this->addTime;
-        }
-        if (null !== $this->group) {
-            $res['Group'] = $this->group;
+        if (null !== $this->userInfo) {
+            $res['UserInfo'] = [];
+            if (null !== $this->userInfo && \is_array($this->userInfo)) {
+                $n = 0;
+                foreach ($this->userInfo as $item) {
+                    $res['UserInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class users extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['AddTime'])) {
-            $model->addTime = $map['AddTime'];
-        }
-        if (isset($map['Group'])) {
-            $model->group = $map['Group'];
+        if (isset($map['UserInfo'])) {
+            if (!empty($map['UserInfo'])) {
+                $model->userInfo = [];
+                $n               = 0;
+                foreach ($map['UserInfo'] as $item) {
+                    $model->userInfo[$n++] = null !== $item ? userInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

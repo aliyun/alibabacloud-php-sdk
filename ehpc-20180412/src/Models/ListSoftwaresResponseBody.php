@@ -15,7 +15,7 @@ class ListSoftwaresResponseBody extends Model
     public $requestId;
 
     /**
-     * @var softwares[]
+     * @var softwares
      */
     public $softwares;
     protected $_name = [
@@ -34,13 +34,7 @@ class ListSoftwaresResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->softwares) {
-            $res['Softwares'] = [];
-            if (null !== $this->softwares && \is_array($this->softwares)) {
-                $n = 0;
-                foreach ($this->softwares as $item) {
-                    $res['Softwares'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Softwares'] = null !== $this->softwares ? $this->softwares->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class ListSoftwaresResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Softwares'])) {
-            if (!empty($map['Softwares'])) {
-                $model->softwares = [];
-                $n                = 0;
-                foreach ($map['Softwares'] as $item) {
-                    $model->softwares[$n++] = null !== $item ? softwares::fromMap($item) : $item;
-                }
-            }
+            $model->softwares = softwares::fromMap($map['Softwares']);
         }
 
         return $model;

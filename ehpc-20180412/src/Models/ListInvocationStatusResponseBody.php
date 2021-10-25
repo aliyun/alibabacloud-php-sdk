@@ -12,11 +12,6 @@ class ListInvocationStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $invokeStatus;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
@@ -25,13 +20,18 @@ class ListInvocationStatusResponseBody extends Model
     public $commandId;
 
     /**
-     * @var invokeInstances[]
+     * @var string
+     */
+    public $invokeStatus;
+
+    /**
+     * @var invokeInstances
      */
     public $invokeInstances;
     protected $_name = [
-        'invokeStatus'    => 'InvokeStatus',
         'requestId'       => 'RequestId',
         'commandId'       => 'CommandId',
+        'invokeStatus'    => 'InvokeStatus',
         'invokeInstances' => 'InvokeInstances',
     ];
 
@@ -42,23 +42,17 @@ class ListInvocationStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->invokeStatus) {
-            $res['InvokeStatus'] = $this->invokeStatus;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
         }
+        if (null !== $this->invokeStatus) {
+            $res['InvokeStatus'] = $this->invokeStatus;
+        }
         if (null !== $this->invokeInstances) {
-            $res['InvokeInstances'] = [];
-            if (null !== $this->invokeInstances && \is_array($this->invokeInstances)) {
-                $n = 0;
-                foreach ($this->invokeInstances as $item) {
-                    $res['InvokeInstances'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InvokeInstances'] = null !== $this->invokeInstances ? $this->invokeInstances->toMap() : null;
         }
 
         return $res;
@@ -72,23 +66,17 @@ class ListInvocationStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InvokeStatus'])) {
-            $model->invokeStatus = $map['InvokeStatus'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
         }
+        if (isset($map['InvokeStatus'])) {
+            $model->invokeStatus = $map['InvokeStatus'];
+        }
         if (isset($map['InvokeInstances'])) {
-            if (!empty($map['InvokeInstances'])) {
-                $model->invokeInstances = [];
-                $n                      = 0;
-                foreach ($map['InvokeInstances'] as $item) {
-                    $model->invokeInstances[$n++] = null !== $item ? invokeInstances::fromMap($item) : $item;
-                }
-            }
+            $model->invokeInstances = invokeInstances::fromMap($map['InvokeInstances']);
         }
 
         return $model;

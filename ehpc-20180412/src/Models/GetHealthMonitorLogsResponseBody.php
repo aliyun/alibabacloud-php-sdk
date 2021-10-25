@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetHealthMonitorLogsResponseBody extends Model
 {
     /**
-     * @var logInfo[]
-     */
-    public $logInfo;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var logInfo
+     */
+    public $logInfo;
     protected $_name = [
-        'logInfo'   => 'LogInfo',
         'requestId' => 'RequestId',
+        'logInfo'   => 'LogInfo',
     ];
 
     public function validate()
@@ -30,17 +30,11 @@ class GetHealthMonitorLogsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logInfo) {
-            $res['LogInfo'] = [];
-            if (null !== $this->logInfo && \is_array($this->logInfo)) {
-                $n = 0;
-                foreach ($this->logInfo as $item) {
-                    $res['LogInfo'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->logInfo) {
+            $res['LogInfo'] = null !== $this->logInfo ? $this->logInfo->toMap() : null;
         }
 
         return $res;
@@ -54,17 +48,11 @@ class GetHealthMonitorLogsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogInfo'])) {
-            if (!empty($map['LogInfo'])) {
-                $model->logInfo = [];
-                $n              = 0;
-                foreach ($map['LogInfo'] as $item) {
-                    $model->logInfo[$n++] = null !== $item ? logInfo::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['LogInfo'])) {
+            $model->logInfo = logInfo::fromMap($map['LogInfo']);
         }
 
         return $model;

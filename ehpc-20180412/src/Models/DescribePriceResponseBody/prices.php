@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribePriceResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribePriceResponseBody\prices\priceInfo;
 use AlibabaCloud\Tea\Model;
 
 class prices extends Model
 {
     /**
-     * @var string
+     * @var priceInfo[]
      */
-    public $nodeType;
-
-    /**
-     * @var float
-     */
-    public $tradePrice;
-
-    /**
-     * @var float
-     */
-    public $originalPrice;
-
-    /**
-     * @var string
-     */
-    public $currency;
+    public $priceInfo;
     protected $_name = [
-        'nodeType'      => 'NodeType',
-        'tradePrice'    => 'TradePrice',
-        'originalPrice' => 'OriginalPrice',
-        'currency'      => 'Currency',
+        'priceInfo' => 'PriceInfo',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class prices extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nodeType) {
-            $res['NodeType'] = $this->nodeType;
-        }
-        if (null !== $this->tradePrice) {
-            $res['TradePrice'] = $this->tradePrice;
-        }
-        if (null !== $this->originalPrice) {
-            $res['OriginalPrice'] = $this->originalPrice;
-        }
-        if (null !== $this->currency) {
-            $res['Currency'] = $this->currency;
+        if (null !== $this->priceInfo) {
+            $res['PriceInfo'] = [];
+            if (null !== $this->priceInfo && \is_array($this->priceInfo)) {
+                $n = 0;
+                foreach ($this->priceInfo as $item) {
+                    $res['PriceInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class prices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NodeType'])) {
-            $model->nodeType = $map['NodeType'];
-        }
-        if (isset($map['TradePrice'])) {
-            $model->tradePrice = $map['TradePrice'];
-        }
-        if (isset($map['OriginalPrice'])) {
-            $model->originalPrice = $map['OriginalPrice'];
-        }
-        if (isset($map['Currency'])) {
-            $model->currency = $map['Currency'];
+        if (isset($map['PriceInfo'])) {
+            if (!empty($map['PriceInfo'])) {
+                $model->priceInfo = [];
+                $n                = 0;
+                foreach ($map['PriceInfo'] as $item) {
+                    $model->priceInfo[$n++] = null !== $item ? priceInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

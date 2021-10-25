@@ -12,11 +12,6 @@ class DescribeGWSImagesResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribeGWSImagesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var images[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var images
      */
     public $images;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
         'images'     => 'Images',
     ];
 
@@ -48,9 +48,6 @@ class DescribeGWSImagesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class DescribeGWSImagesResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->images) {
-            $res['Images'] = [];
-            if (null !== $this->images && \is_array($this->images)) {
-                $n = 0;
-                foreach ($this->images as $item) {
-                    $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Images'] = null !== $this->images ? $this->images->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class DescribeGWSImagesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class DescribeGWSImagesResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['Images'])) {
-            if (!empty($map['Images'])) {
-                $model->images = [];
-                $n             = 0;
-                foreach ($map['Images'] as $item) {
-                    $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
-                }
-            }
+            $model->images = images::fromMap($map['Images']);
         }
 
         return $model;

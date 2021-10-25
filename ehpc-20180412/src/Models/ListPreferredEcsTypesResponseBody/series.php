@@ -4,29 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListPreferredEcsTypesResponseBody;
 
-use AlibabaCloud\SDK\EHPC\V20180412\Models\ListPreferredEcsTypesResponseBody\series\roles;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListPreferredEcsTypesResponseBody\series\seriesInfo;
 use AlibabaCloud\Tea\Model;
 
 class series extends Model
 {
     /**
-     * @var string
+     * @var seriesInfo[]
      */
-    public $seriesId;
-
-    /**
-     * @var string
-     */
-    public $seriesName;
-
-    /**
-     * @var roles
-     */
-    public $roles;
+    public $seriesInfo;
     protected $_name = [
-        'seriesId'   => 'SeriesId',
-        'seriesName' => 'SeriesName',
-        'roles'      => 'Roles',
+        'seriesInfo' => 'SeriesInfo',
     ];
 
     public function validate()
@@ -36,14 +24,14 @@ class series extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->seriesId) {
-            $res['SeriesId'] = $this->seriesId;
-        }
-        if (null !== $this->seriesName) {
-            $res['SeriesName'] = $this->seriesName;
-        }
-        if (null !== $this->roles) {
-            $res['Roles'] = null !== $this->roles ? $this->roles->toMap() : null;
+        if (null !== $this->seriesInfo) {
+            $res['SeriesInfo'] = [];
+            if (null !== $this->seriesInfo && \is_array($this->seriesInfo)) {
+                $n = 0;
+                foreach ($this->seriesInfo as $item) {
+                    $res['SeriesInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -57,14 +45,14 @@ class series extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SeriesId'])) {
-            $model->seriesId = $map['SeriesId'];
-        }
-        if (isset($map['SeriesName'])) {
-            $model->seriesName = $map['SeriesName'];
-        }
-        if (isset($map['Roles'])) {
-            $model->roles = roles::fromMap($map['Roles']);
+        if (isset($map['SeriesInfo'])) {
+            if (!empty($map['SeriesInfo'])) {
+                $model->seriesInfo = [];
+                $n                 = 0;
+                foreach ($map['SeriesInfo'] as $item) {
+                    $model->seriesInfo[$n++] = null !== $item ? seriesInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
