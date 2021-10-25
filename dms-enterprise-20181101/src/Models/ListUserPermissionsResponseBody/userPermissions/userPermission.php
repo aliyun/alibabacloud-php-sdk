@@ -83,6 +83,16 @@ class userPermission extends Model
      * @var string
      */
     public $alias;
+
+    /**
+     * @var string
+     */
+    public $host;
+
+    /**
+     * @var int
+     */
+    public $port;
     protected $_name = [
         'dbId'         => 'DbId',
         'tableName'    => 'TableName',
@@ -99,6 +109,8 @@ class userPermission extends Model
         'tableId'      => 'TableId',
         'searchName'   => 'SearchName',
         'alias'        => 'Alias',
+        'host'         => 'Host',
+        'port'         => 'Port',
     ];
 
     public function validate()
@@ -152,6 +164,12 @@ class userPermission extends Model
         }
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
+        }
+        if (null !== $this->host) {
+            $res['Host'] = $this->host;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
 
         return $res;
@@ -209,6 +227,12 @@ class userPermission extends Model
         }
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
+        }
+        if (isset($map['Host'])) {
+            $model->host = $map['Host'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
 
         return $model;

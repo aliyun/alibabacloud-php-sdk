@@ -29,6 +29,11 @@ class ListUserPermissionsRequest extends Model
     public $databaseName;
 
     /**
+     * @var string
+     */
+    public $searchKey;
+
+    /**
      * @var bool
      */
     public $logic;
@@ -57,6 +62,7 @@ class ListUserPermissionsRequest extends Model
         'permType'     => 'PermType',
         'userId'       => 'UserId',
         'databaseName' => 'DatabaseName',
+        'searchKey'    => 'SearchKey',
         'logic'        => 'Logic',
         'envType'      => 'EnvType',
         'dbType'       => 'DbType',
@@ -82,6 +88,9 @@ class ListUserPermissionsRequest extends Model
         }
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
+        }
+        if (null !== $this->searchKey) {
+            $res['SearchKey'] = $this->searchKey;
         }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
@@ -121,6 +130,9 @@ class ListUserPermissionsRequest extends Model
         }
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
+        }
+        if (isset($map['SearchKey'])) {
+            $model->searchKey = $map['SearchKey'];
         }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];

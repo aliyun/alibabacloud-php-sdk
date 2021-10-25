@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeColumnSecLevelRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeColumnSecLevelResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderRequest;
@@ -22,6 +24,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderShrinkR
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLogicDatabaseRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLogicDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLogicDatabaseShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderShrinkRequest;
@@ -44,6 +49,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobRespon
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLogicDatabaseRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLogicDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyAccessRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyAccessResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyRequest;
@@ -52,6 +59,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DisableUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DisableUserResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EditLogicDatabaseRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EditLogicDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EditLogicDatabaseShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EnableUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EnableUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteDataCorrectRequest;
@@ -151,6 +161,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstanceUserPermissionsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstanceUserPermissionsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicTablesRequest;
@@ -440,34 +452,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetDataCorrectSQLFileRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetDataCorrectSQLFileResponse
-     */
-    public function getDataCorrectSQLFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDataCorrectSQLFileResponse::fromMap($this->doRPCRequest('GetDataCorrectSQLFile', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDataCorrectSQLFileRequest $request
-     *
-     * @return GetDataCorrectSQLFileResponse
-     */
-    public function getDataCorrectSQLFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDataCorrectSQLFileWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateFreeLockCorrectOrderRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
@@ -501,6 +485,1027 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createFreeLockCorrectOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListUserPermissionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListUserPermissionsResponse
+     */
+    public function listUserPermissionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListUserPermissionsResponse::fromMap($this->doRPCRequest('ListUserPermissions', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListUserPermissionsRequest $request
+     *
+     * @return ListUserPermissionsResponse
+     */
+    public function listUserPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserPermissionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetProxyRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetProxyResponse
+     */
+    public function getProxyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetProxyResponse::fromMap($this->doRPCRequest('GetProxy', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetProxyRequest $request
+     *
+     * @return GetProxyResponse
+     */
+    public function getProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProxyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteLogicDatabaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteLogicDatabaseResponse
+     */
+    public function deleteLogicDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteLogicDatabaseResponse::fromMap($this->doRPCRequest('DeleteLogicDatabase', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteLogicDatabaseRequest $request
+     *
+     * @return DeleteLogicDatabaseResponse
+     */
+    public function deleteLogicDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLogicDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDDLPublishRecordsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDDLPublishRecordsResponse
+     */
+    public function listDDLPublishRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDDLPublishRecordsResponse::fromMap($this->doRPCRequest('ListDDLPublishRecords', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDDLPublishRecordsRequest $request
+     *
+     * @return ListDDLPublishRecordsResponse
+     */
+    public function listDDLPublishRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDDLPublishRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetStructSyncJobDetailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetStructSyncJobDetailResponse
+     */
+    public function getStructSyncJobDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetStructSyncJobDetailResponse::fromMap($this->doRPCRequest('GetStructSyncJobDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetStructSyncJobDetailRequest $request
+     *
+     * @return GetStructSyncJobDetailResponse
+     */
+    public function getStructSyncJobDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStructSyncJobDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchDatabaseRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SearchDatabaseResponse
+     */
+    public function searchDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SearchDatabaseResponse::fromMap($this->doRPCRequest('SearchDatabase', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SearchDatabaseRequest $request
+     *
+     * @return SearchDatabaseResponse
+     */
+    public function searchDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SyncDatabaseMetaRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SyncDatabaseMetaResponse
+     */
+    public function syncDatabaseMetaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SyncDatabaseMetaResponse::fromMap($this->doRPCRequest('SyncDatabaseMeta', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SyncDatabaseMetaRequest $request
+     *
+     * @return SyncDatabaseMetaResponse
+     */
+    public function syncDatabaseMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncDatabaseMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTableColumnRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMetaTableColumnResponse
+     */
+    public function getMetaTableColumnWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMetaTableColumnResponse::fromMap($this->doRPCRequest('GetMetaTableColumn', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTableColumnRequest $request
+     *
+     * @return GetMetaTableColumnResponse
+     */
+    public function getMetaTableColumn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTableColumnWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeColumnSecLevelRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ChangeColumnSecLevelResponse
+     */
+    public function changeColumnSecLevelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ChangeColumnSecLevelResponse::fromMap($this->doRPCRequest('ChangeColumnSecLevel', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ChangeColumnSecLevelRequest $request
+     *
+     * @return ChangeColumnSecLevelResponse
+     */
+    public function changeColumnSecLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeColumnSecLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExecuteScriptRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ExecuteScriptResponse
+     */
+    public function executeScriptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ExecuteScriptResponse::fromMap($this->doRPCRequest('ExecuteScript', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ExecuteScriptRequest $request
+     *
+     * @return ExecuteScriptResponse
+     */
+    public function executeScript($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeScriptWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDBTaskSQLJobDetailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDBTaskSQLJobDetailResponse
+     */
+    public function listDBTaskSQLJobDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDBTaskSQLJobDetailResponse::fromMap($this->doRPCRequest('ListDBTaskSQLJobDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDBTaskSQLJobDetailRequest $request
+     *
+     * @return ListDBTaskSQLJobDetailResponse
+     */
+    public function listDBTaskSQLJobDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDBTaskSQLJobDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserActiveTenantRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetUserActiveTenantResponse
+     */
+    public function getUserActiveTenantWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetUserActiveTenantResponse::fromMap($this->doRPCRequest('GetUserActiveTenant', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetUserActiveTenantRequest $request
+     *
+     * @return GetUserActiveTenantResponse
+     */
+    public function getUserActiveTenant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserActiveTenantWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RegisterUserRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RegisterUserResponse
+     */
+    public function registerUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RegisterUserResponse::fromMap($this->doRPCRequest('RegisterUser', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RegisterUserRequest $request
+     *
+     * @return RegisterUserResponse
+     */
+    public function registerUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPermApplyOrderDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetPermApplyOrderDetailResponse
+     */
+    public function getPermApplyOrderDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetPermApplyOrderDetailResponse::fromMap($this->doRPCRequest('GetPermApplyOrderDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetPermApplyOrderDetailRequest $request
+     *
+     * @return GetPermApplyOrderDetailResponse
+     */
+    public function getPermApplyOrderDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPermApplyOrderDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListLogicTablesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListLogicTablesResponse
+     */
+    public function listLogicTablesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListLogicTablesResponse::fromMap($this->doRPCRequest('ListLogicTables', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListLogicTablesRequest $request
+     *
+     * @return ListLogicTablesResponse
+     */
+    public function listLogicTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLogicTablesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDataExportDownloadURLRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataExportDownloadURLResponse
+     */
+    public function getDataExportDownloadURLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDataExportDownloadURLResponse::fromMap($this->doRPCRequest('GetDataExportDownloadURL', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDataExportDownloadURLRequest $request
+     *
+     * @return GetDataExportDownloadURLResponse
+     */
+    public function getDataExportDownloadURL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataExportDownloadURLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDatabaseRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetDatabaseResponse
+     */
+    public function getDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDatabaseResponse::fromMap($this->doRPCRequest('GetDatabase', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDatabaseRequest $request
+     *
+     * @return GetDatabaseResponse
+     */
+    public function getDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchTableRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SearchTableResponse
+     */
+    public function searchTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SearchTableResponse::fromMap($this->doRPCRequest('SearchTable', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SearchTableRequest $request
+     *
+     * @return SearchTableResponse
+     */
+    public function searchTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ApproveOrderRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ApproveOrderResponse
+     */
+    public function approveOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ApproveOrderResponse::fromMap($this->doRPCRequest('ApproveOrder', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ApproveOrderRequest $request
+     *
+     * @return ApproveOrderResponse
+     */
+    public function approveOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->approveOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteProxyAccessRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteProxyAccessResponse
+     */
+    public function deleteProxyAccessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteProxyAccessResponse::fromMap($this->doRPCRequest('DeleteProxyAccess', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteProxyAccessRequest $request
+     *
+     * @return DeleteProxyAccessResponse
+     */
+    public function deleteProxyAccess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProxyAccessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDataCorrectTaskDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataCorrectTaskDetailResponse
+     */
+    public function getDataCorrectTaskDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDataCorrectTaskDetailResponse::fromMap($this->doRPCRequest('GetDataCorrectTaskDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDataCorrectTaskDetailRequest $request
+     *
+     * @return GetDataCorrectTaskDetailResponse
+     */
+    public function getDataCorrectTaskDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataCorrectTaskDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CloseOrderRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CloseOrderResponse
+     */
+    public function closeOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CloseOrderResponse::fromMap($this->doRPCRequest('CloseOrder', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CloseOrderRequest $request
+     *
+     * @return CloseOrderResponse
+     */
+    public function closeOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SyncInstanceMetaRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SyncInstanceMetaResponse
+     */
+    public function syncInstanceMetaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SyncInstanceMetaResponse::fromMap($this->doRPCRequest('SyncInstanceMeta', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SyncInstanceMetaRequest $request
+     *
+     * @return SyncInstanceMetaResponse
+     */
+    public function syncInstanceMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncInstanceMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSQLReviewOptimizeDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetSQLReviewOptimizeDetailResponse
+     */
+    public function getSQLReviewOptimizeDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSQLReviewOptimizeDetailResponse::fromMap($this->doRPCRequest('GetSQLReviewOptimizeDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSQLReviewOptimizeDetailRequest $request
+     *
+     * @return GetSQLReviewOptimizeDetailResponse
+     */
+    public function getSQLReviewOptimizeDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSQLReviewOptimizeDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RegisterInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RegisterInstanceResponse
+     */
+    public function registerInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RegisterInstanceResponse::fromMap($this->doRPCRequest('RegisterInstance', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RegisterInstanceRequest $request
+     *
+     * @return RegisterInstanceResponse
+     */
+    public function registerInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateStructSyncOrderRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateStructSyncOrderResponse
+     */
+    public function createStructSyncOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateStructSyncOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->param)) {
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateStructSyncOrderResponse::fromMap($this->doRPCRequest('CreateStructSyncOrder', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateStructSyncOrderRequest $request
+     *
+     * @return CreateStructSyncOrderResponse
+     */
+    public function createStructSyncOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStructSyncOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExecuteDataExportRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExecuteDataExportResponse
+     */
+    public function executeDataExportWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ExecuteDataExportShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->actionDetail)) {
+            $request->actionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actionDetail, 'ActionDetail', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ExecuteDataExportResponse::fromMap($this->doRPCRequest('ExecuteDataExport', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ExecuteDataExportRequest $request
+     *
+     * @return ExecuteDataExportResponse
+     */
+    public function executeDataExport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeDataExportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListWorkFlowNodesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListWorkFlowNodesResponse
+     */
+    public function listWorkFlowNodesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListWorkFlowNodesResponse::fromMap($this->doRPCRequest('ListWorkFlowNodes', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListWorkFlowNodesRequest $request
+     *
+     * @return ListWorkFlowNodesResponse
+     */
+    public function listWorkFlowNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkFlowNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProxiesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListProxiesResponse
+     */
+    public function listProxiesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListProxiesResponse::fromMap($this->doRPCRequest('ListProxies', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListProxiesRequest $request
+     *
+     * @return ListProxiesResponse
+     */
+    public function listProxies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProxiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetStructSyncOrderDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetStructSyncOrderDetailResponse
+     */
+    public function getStructSyncOrderDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetStructSyncOrderDetailResponse::fromMap($this->doRPCRequest('GetStructSyncOrderDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetStructSyncOrderDetailRequest $request
+     *
+     * @return GetStructSyncOrderDetailResponse
+     */
+    public function getStructSyncOrderDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStructSyncOrderDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateUserResponse
+     */
+    public function updateUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateUserResponse::fromMap($this->doRPCRequest('UpdateUser', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateUserRequest $request
+     *
+     * @return UpdateUserResponse
+     */
+    public function updateUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPhysicalDatabaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetPhysicalDatabaseResponse
+     */
+    public function getPhysicalDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetPhysicalDatabaseResponse::fromMap($this->doRPCRequest('GetPhysicalDatabase', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetPhysicalDatabaseRequest $request
+     *
+     * @return GetPhysicalDatabaseResponse
+     */
+    public function getPhysicalDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPhysicalDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetStructSyncExecSqlDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetStructSyncExecSqlDetailResponse
+     */
+    public function getStructSyncExecSqlDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetStructSyncExecSqlDetailResponse::fromMap($this->doRPCRequest('GetStructSyncExecSqlDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetStructSyncExecSqlDetailRequest $request
+     *
+     * @return GetStructSyncExecSqlDetailResponse
+     */
+    public function getStructSyncExecSqlDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStructSyncExecSqlDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
+     */
+    public function deleteInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteInstanceResponse::fromMap($this->doRPCRequest('DeleteInstance', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
+     */
+    public function deleteInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTableDBTopologyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTableDBTopologyResponse
+     */
+    public function getTableDBTopologyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetTableDBTopologyResponse::fromMap($this->doRPCRequest('GetTableDBTopology', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetTableDBTopologyRequest $request
+     *
+     * @return GetTableDBTopologyResponse
+     */
+    public function getTableDBTopology($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableDBTopologyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDataCorrectSQLFileRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDataCorrectSQLFileResponse
+     */
+    public function getDataCorrectSQLFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDataCorrectSQLFileResponse::fromMap($this->doRPCRequest('GetDataCorrectSQLFile', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDataCorrectSQLFileRequest $request
+     *
+     * @return GetDataCorrectSQLFileResponse
+     */
+    public function getDataCorrectSQLFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataCorrectSQLFileWithOptions($request, $runtime);
     }
 
     /**
@@ -593,34 +1598,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListUserPermissionsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListUserPermissionsResponse
-     */
-    public function listUserPermissionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListUserPermissionsResponse::fromMap($this->doRPCRequest('ListUserPermissions', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListUserPermissionsRequest $request
-     *
-     * @return ListUserPermissionsResponse
-     */
-    public function listUserPermissions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listUserPermissionsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListWorkFlowTemplatesRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -646,34 +1623,6 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listWorkFlowTemplatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetProxyRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return GetProxyResponse
-     */
-    public function getProxyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetProxyResponse::fromMap($this->doRPCRequest('GetProxy', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetProxyRequest $request
-     *
-     * @return GetProxyResponse
-     */
-    public function getProxy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getProxyWithOptions($request, $runtime);
     }
 
     /**
@@ -761,62 +1710,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListDDLPublishRecordsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListDDLPublishRecordsResponse
-     */
-    public function listDDLPublishRecordsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListDDLPublishRecordsResponse::fromMap($this->doRPCRequest('ListDDLPublishRecords', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDDLPublishRecordsRequest $request
-     *
-     * @return ListDDLPublishRecordsResponse
-     */
-    public function listDDLPublishRecords($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDDLPublishRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetStructSyncJobDetailRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetStructSyncJobDetailResponse
-     */
-    public function getStructSyncJobDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetStructSyncJobDetailResponse::fromMap($this->doRPCRequest('GetStructSyncJobDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetStructSyncJobDetailRequest $request
-     *
-     * @return GetStructSyncJobDetailResponse
-     */
-    public function getStructSyncJobDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getStructSyncJobDetailWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateProxyRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -878,34 +1771,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param SearchDatabaseRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return SearchDatabaseResponse
-     */
-    public function searchDatabaseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SearchDatabaseResponse::fromMap($this->doRPCRequest('SearchDatabase', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SearchDatabaseRequest $request
-     *
-     * @return SearchDatabaseResponse
-     */
-    public function searchDatabase($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->searchDatabaseWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetDBTopologyRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -959,34 +1824,6 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSQLReviewCheckResultStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SyncDatabaseMetaRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SyncDatabaseMetaResponse
-     */
-    public function syncDatabaseMetaWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SyncDatabaseMetaResponse::fromMap($this->doRPCRequest('SyncDatabaseMeta', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SyncDatabaseMetaRequest $request
-     *
-     * @return SyncDatabaseMetaResponse
-     */
-    public function syncDatabaseMeta($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->syncDatabaseMetaWithOptions($request, $runtime);
     }
 
     /**
@@ -1130,34 +1967,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableColumnRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetMetaTableColumnResponse
-     */
-    public function getMetaTableColumnWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetMetaTableColumnResponse::fromMap($this->doRPCRequest('GetMetaTableColumn', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetMetaTableColumnRequest $request
-     *
-     * @return GetMetaTableColumnResponse
-     */
-    public function getMetaTableColumn($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMetaTableColumnWithOptions($request, $runtime);
-    }
-
-    /**
      * @param EnableUserRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1186,6 +1995,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param EditLogicDatabaseRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return EditLogicDatabaseResponse
+     */
+    public function editLogicDatabaseWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new EditLogicDatabaseShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->databaseIds)) {
+            $request->databaseIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->databaseIds, 'DatabaseIds', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EditLogicDatabaseResponse::fromMap($this->doRPCRequest('EditLogicDatabase', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EditLogicDatabaseRequest $request
+     *
+     * @return EditLogicDatabaseResponse
+     */
+    public function editLogicDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->editLogicDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateInstanceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1211,62 +2053,6 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ExecuteScriptRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ExecuteScriptResponse
-     */
-    public function executeScriptWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ExecuteScriptResponse::fromMap($this->doRPCRequest('ExecuteScript', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ExecuteScriptRequest $request
-     *
-     * @return ExecuteScriptResponse
-     */
-    public function executeScript($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->executeScriptWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDBTaskSQLJobDetailRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListDBTaskSQLJobDetailResponse
-     */
-    public function listDBTaskSQLJobDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListDBTaskSQLJobDetailResponse::fromMap($this->doRPCRequest('ListDBTaskSQLJobDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDBTaskSQLJobDetailRequest $request
-     *
-     * @return ListDBTaskSQLJobDetailResponse
-     */
-    public function listDBTaskSQLJobDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDBTaskSQLJobDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -1359,62 +2145,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetUserActiveTenantRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetUserActiveTenantResponse
-     */
-    public function getUserActiveTenantWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetUserActiveTenantResponse::fromMap($this->doRPCRequest('GetUserActiveTenant', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetUserActiveTenantRequest $request
-     *
-     * @return GetUserActiveTenantResponse
-     */
-    public function getUserActiveTenant($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getUserActiveTenantWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RegisterUserRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return RegisterUserResponse
-     */
-    public function registerUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RegisterUserResponse::fromMap($this->doRPCRequest('RegisterUser', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RegisterUserRequest $request
-     *
-     * @return RegisterUserResponse
-     */
-    public function registerUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->registerUserWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetInstanceRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1440,34 +2170,6 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetPermApplyOrderDetailRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetPermApplyOrderDetailResponse
-     */
-    public function getPermApplyOrderDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetPermApplyOrderDetailResponse::fromMap($this->doRPCRequest('GetPermApplyOrderDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetPermApplyOrderDetailRequest $request
-     *
-     * @return GetPermApplyOrderDetailResponse
-     */
-    public function getPermApplyOrderDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPermApplyOrderDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -1499,34 +2201,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListLogicTablesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListLogicTablesResponse
-     */
-    public function listLogicTablesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListLogicTablesResponse::fromMap($this->doRPCRequest('ListLogicTables', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListLogicTablesRequest $request
-     *
-     * @return ListLogicTablesResponse
-     */
-    public function listLogicTables($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listLogicTablesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetTableTopologyRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1552,34 +2226,6 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTableTopologyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDataExportDownloadURLRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetDataExportDownloadURLResponse
-     */
-    public function getDataExportDownloadURLWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDataExportDownloadURLResponse::fromMap($this->doRPCRequest('GetDataExportDownloadURL', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDataExportDownloadURLRequest $request
-     *
-     * @return GetDataExportDownloadURLResponse
-     */
-    public function getDataExportDownloadURL($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDataExportDownloadURLWithOptions($request, $runtime);
     }
 
     /**
@@ -1675,34 +2321,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetDatabaseRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetDatabaseResponse
-     */
-    public function getDatabaseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDatabaseResponse::fromMap($this->doRPCRequest('GetDatabase', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDatabaseRequest $request
-     *
-     * @return GetDatabaseResponse
-     */
-    public function getDatabase($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDatabaseWithOptions($request, $runtime);
-    }
-
-    /**
      * @param InspectProxyAccessSecretRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1759,6 +2377,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ListInstanceUserPermissionsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListInstanceUserPermissionsResponse
+     */
+    public function listInstanceUserPermissionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListInstanceUserPermissionsResponse::fromMap($this->doRPCRequest('ListInstanceUserPermissions', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListInstanceUserPermissionsRequest $request
+     *
+     * @return ListInstanceUserPermissionsResponse
+     */
+    public function listInstanceUserPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceUserPermissionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetOpLogRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -1784,34 +2430,6 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOpLogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SearchTableRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SearchTableResponse
-     */
-    public function searchTableWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SearchTableResponse::fromMap($this->doRPCRequest('SearchTable', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SearchTableRequest $request
-     *
-     * @return SearchTableResponse
-     */
-    public function searchTable($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->searchTableWithOptions($request, $runtime);
     }
 
     /**
@@ -1924,90 +2542,6 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getStructSyncJobAnalyzeResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ApproveOrderRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ApproveOrderResponse
-     */
-    public function approveOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ApproveOrderResponse::fromMap($this->doRPCRequest('ApproveOrder', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ApproveOrderRequest $request
-     *
-     * @return ApproveOrderResponse
-     */
-    public function approveOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->approveOrderWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteProxyAccessRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteProxyAccessResponse
-     */
-    public function deleteProxyAccessWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteProxyAccessResponse::fromMap($this->doRPCRequest('DeleteProxyAccess', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteProxyAccessRequest $request
-     *
-     * @return DeleteProxyAccessResponse
-     */
-    public function deleteProxyAccess($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteProxyAccessWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDataCorrectTaskDetailRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetDataCorrectTaskDetailResponse
-     */
-    public function getDataCorrectTaskDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDataCorrectTaskDetailResponse::fromMap($this->doRPCRequest('GetDataCorrectTaskDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDataCorrectTaskDetailRequest $request
-     *
-     * @return GetDataCorrectTaskDetailResponse
-     */
-    public function getDataCorrectTaskDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDataCorrectTaskDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -2131,62 +2665,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param CloseOrderRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CloseOrderResponse
-     */
-    public function closeOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CloseOrderResponse::fromMap($this->doRPCRequest('CloseOrder', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CloseOrderRequest $request
-     *
-     * @return CloseOrderResponse
-     */
-    public function closeOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->closeOrderWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SyncInstanceMetaRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SyncInstanceMetaResponse
-     */
-    public function syncInstanceMetaWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SyncInstanceMetaResponse::fromMap($this->doRPCRequest('SyncInstanceMeta', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SyncInstanceMetaRequest $request
-     *
-     * @return SyncInstanceMetaResponse
-     */
-    public function syncInstanceMeta($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->syncInstanceMetaWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListOrdersRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -2276,34 +2754,6 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOrderBaseInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSQLReviewOptimizeDetailRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetSQLReviewOptimizeDetailResponse
-     */
-    public function getSQLReviewOptimizeDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSQLReviewOptimizeDetailResponse::fromMap($this->doRPCRequest('GetSQLReviewOptimizeDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSQLReviewOptimizeDetailRequest $request
-     *
-     * @return GetSQLReviewOptimizeDetailResponse
-     */
-    public function getSQLReviewOptimizeDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSQLReviewOptimizeDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -2488,103 +2938,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param RegisterInstanceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RegisterInstanceResponse
-     */
-    public function registerInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RegisterInstanceResponse::fromMap($this->doRPCRequest('RegisterInstance', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RegisterInstanceRequest $request
-     *
-     * @return RegisterInstanceResponse
-     */
-    public function registerInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->registerInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateStructSyncOrderRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateStructSyncOrderResponse
-     */
-    public function createStructSyncOrderWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateStructSyncOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateStructSyncOrderResponse::fromMap($this->doRPCRequest('CreateStructSyncOrder', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateStructSyncOrderRequest $request
-     *
-     * @return CreateStructSyncOrderResponse
-     */
-    public function createStructSyncOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createStructSyncOrderWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ExecuteDataExportRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ExecuteDataExportResponse
-     */
-    public function executeDataExportWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ExecuteDataExportShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->actionDetail)) {
-            $request->actionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actionDetail, 'ActionDetail', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ExecuteDataExportResponse::fromMap($this->doRPCRequest('ExecuteDataExport', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ExecuteDataExportRequest $request
-     *
-     * @return ExecuteDataExportResponse
-     */
-    public function executeDataExport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->executeDataExportWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ExecuteDataCorrectRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
@@ -2646,6 +2999,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param CreateLogicDatabaseRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateLogicDatabaseResponse
+     */
+    public function createLogicDatabaseWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateLogicDatabaseShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->databaseIds)) {
+            $request->databaseIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->databaseIds, 'DatabaseIds', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateLogicDatabaseResponse::fromMap($this->doRPCRequest('CreateLogicDatabase', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateLogicDatabaseRequest $request
+     *
+     * @return CreateLogicDatabaseResponse
+     */
+    public function createLogicDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLogicDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTablesRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -2674,90 +3060,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListWorkFlowNodesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListWorkFlowNodesResponse
-     */
-    public function listWorkFlowNodesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListWorkFlowNodesResponse::fromMap($this->doRPCRequest('ListWorkFlowNodes', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListWorkFlowNodesRequest $request
-     *
-     * @return ListWorkFlowNodesResponse
-     */
-    public function listWorkFlowNodes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listWorkFlowNodesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListProxiesRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListProxiesResponse
-     */
-    public function listProxiesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListProxiesResponse::fromMap($this->doRPCRequest('ListProxies', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListProxiesRequest $request
-     *
-     * @return ListProxiesResponse
-     */
-    public function listProxies($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listProxiesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetStructSyncOrderDetailRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetStructSyncOrderDetailResponse
-     */
-    public function getStructSyncOrderDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetStructSyncOrderDetailResponse::fromMap($this->doRPCRequest('GetStructSyncOrderDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetStructSyncOrderDetailRequest $request
-     *
-     * @return GetStructSyncOrderDetailResponse
-     */
-    public function getStructSyncOrderDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getStructSyncOrderDetailWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListSensitiveColumnsDetailRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -2783,145 +3085,5 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSensitiveColumnsDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateUserRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return UpdateUserResponse
-     */
-    public function updateUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateUserResponse::fromMap($this->doRPCRequest('UpdateUser', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateUserRequest $request
-     *
-     * @return UpdateUserResponse
-     */
-    public function updateUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetPhysicalDatabaseRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetPhysicalDatabaseResponse
-     */
-    public function getPhysicalDatabaseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetPhysicalDatabaseResponse::fromMap($this->doRPCRequest('GetPhysicalDatabase', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetPhysicalDatabaseRequest $request
-     *
-     * @return GetPhysicalDatabaseResponse
-     */
-    public function getPhysicalDatabase($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPhysicalDatabaseWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetStructSyncExecSqlDetailRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetStructSyncExecSqlDetailResponse
-     */
-    public function getStructSyncExecSqlDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetStructSyncExecSqlDetailResponse::fromMap($this->doRPCRequest('GetStructSyncExecSqlDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetStructSyncExecSqlDetailRequest $request
-     *
-     * @return GetStructSyncExecSqlDetailResponse
-     */
-    public function getStructSyncExecSqlDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getStructSyncExecSqlDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteInstanceResponse
-     */
-    public function deleteInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteInstanceResponse::fromMap($this->doRPCRequest('DeleteInstance', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteInstanceRequest $request
-     *
-     * @return DeleteInstanceResponse
-     */
-    public function deleteInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetTableDBTopologyRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetTableDBTopologyResponse
-     */
-    public function getTableDBTopologyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetTableDBTopologyResponse::fromMap($this->doRPCRequest('GetTableDBTopology', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetTableDBTopologyRequest $request
-     *
-     * @return GetTableDBTopologyResponse
-     */
-    public function getTableDBTopology($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getTableDBTopologyWithOptions($request, $runtime);
     }
 }

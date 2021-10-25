@@ -6,12 +6,22 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListSensitiveColumnsDetailRequest extends Model
+class ChangeColumnSecLevelRequest extends Model
 {
     /**
      * @var int
      */
     public $tid;
+
+    /**
+     * @var int
+     */
+    public $dbId;
+
+    /**
+     * @var bool
+     */
+    public $isLogic;
 
     /**
      * @var string
@@ -29,21 +39,19 @@ class ListSensitiveColumnsDetailRequest extends Model
     public $columnName;
 
     /**
-     * @var int
+     * @description 新的敏感等级
+     *
+     * @var string
      */
-    public $dbId;
-
-    /**
-     * @var bool
-     */
-    public $logic;
+    public $newLevel;
     protected $_name = [
         'tid'        => 'Tid',
+        'dbId'       => 'DbId',
+        'isLogic'    => 'IsLogic',
         'schemaName' => 'SchemaName',
         'tableName'  => 'TableName',
         'columnName' => 'ColumnName',
-        'dbId'       => 'DbId',
-        'logic'      => 'Logic',
+        'newLevel'   => 'NewLevel',
     ];
 
     public function validate()
@@ -56,6 +64,12 @@ class ListSensitiveColumnsDetailRequest extends Model
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
+        }
+        if (null !== $this->isLogic) {
+            $res['IsLogic'] = $this->isLogic;
+        }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
@@ -65,11 +79,8 @@ class ListSensitiveColumnsDetailRequest extends Model
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
-        if (null !== $this->dbId) {
-            $res['DbId'] = $this->dbId;
-        }
-        if (null !== $this->logic) {
-            $res['Logic'] = $this->logic;
+        if (null !== $this->newLevel) {
+            $res['NewLevel'] = $this->newLevel;
         }
 
         return $res;
@@ -78,13 +89,19 @@ class ListSensitiveColumnsDetailRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListSensitiveColumnsDetailRequest
+     * @return ChangeColumnSecLevelRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
+        }
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
+        }
+        if (isset($map['IsLogic'])) {
+            $model->isLogic = $map['IsLogic'];
         }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
@@ -95,11 +112,8 @@ class ListSensitiveColumnsDetailRequest extends Model
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
-        }
-        if (isset($map['Logic'])) {
-            $model->logic = $map['Logic'];
+        if (isset($map['NewLevel'])) {
+            $model->newLevel = $map['NewLevel'];
         }
 
         return $model;

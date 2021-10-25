@@ -42,6 +42,16 @@ class ListSensitiveColumnsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $dbId;
+
+    /**
+     * @var bool
+     */
+    public $logic;
     protected $_name = [
         'tid'           => 'Tid',
         'schemaName'    => 'SchemaName',
@@ -50,6 +60,8 @@ class ListSensitiveColumnsRequest extends Model
         'securityLevel' => 'SecurityLevel',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'dbId'          => 'DbId',
+        'logic'         => 'Logic',
     ];
 
     public function validate()
@@ -79,6 +91,12 @@ class ListSensitiveColumnsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
+        }
+        if (null !== $this->logic) {
+            $res['Logic'] = $this->logic;
         }
 
         return $res;
@@ -112,6 +130,12 @@ class ListSensitiveColumnsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
+        }
+        if (isset($map['Logic'])) {
+            $model->logic = $map['Logic'];
         }
 
         return $model;

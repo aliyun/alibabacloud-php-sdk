@@ -19,7 +19,7 @@ class opLogDetail extends Model
     public $database;
 
     /**
-     * @var int
+     * @var string
      */
     public $userId;
 

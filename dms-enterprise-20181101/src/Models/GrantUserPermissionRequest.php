@@ -24,6 +24,11 @@ class GrantUserPermissionRequest extends Model
     public $dsType;
 
     /**
+     * @var int
+     */
+    public $instanceId;
+
+    /**
      * @var string
      */
     public $dbId;
@@ -56,6 +61,7 @@ class GrantUserPermissionRequest extends Model
         'tid'        => 'Tid',
         'userId'     => 'UserId',
         'dsType'     => 'DsType',
+        'instanceId' => 'InstanceId',
         'dbId'       => 'DbId',
         'logic'      => 'Logic',
         'tableId'    => 'TableId',
@@ -79,6 +85,9 @@ class GrantUserPermissionRequest extends Model
         }
         if (null !== $this->dsType) {
             $res['DsType'] = $this->dsType;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
@@ -118,6 +127,9 @@ class GrantUserPermissionRequest extends Model
         }
         if (isset($map['DsType'])) {
             $model->dsType = $map['DsType'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];

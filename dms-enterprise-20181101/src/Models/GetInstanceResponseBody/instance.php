@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceResponseBod
 
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceResponseBody\instance\ownerIdList;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceResponseBody\instance\ownerNameList;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceResponseBody\instance\standardGroup;
 use AlibabaCloud\Tea\Model;
 
 class instance extends Model
@@ -129,6 +130,11 @@ class instance extends Model
      * @var string
      */
     public $ecsRegion;
+
+    /**
+     * @var standardGroup
+     */
+    public $standardGroup;
     protected $_name = [
         'vpcId'            => 'VpcId',
         'databaseUser'     => 'DatabaseUser',
@@ -154,6 +160,7 @@ class instance extends Model
         'instanceAlias'    => 'InstanceAlias',
         'ddlOnline'        => 'DdlOnline',
         'ecsRegion'        => 'EcsRegion',
+        'standardGroup'    => 'StandardGroup',
     ];
 
     public function validate()
@@ -234,6 +241,9 @@ class instance extends Model
         }
         if (null !== $this->ecsRegion) {
             $res['EcsRegion'] = $this->ecsRegion;
+        }
+        if (null !== $this->standardGroup) {
+            $res['StandardGroup'] = null !== $this->standardGroup ? $this->standardGroup->toMap() : null;
         }
 
         return $res;
@@ -318,6 +328,9 @@ class instance extends Model
         }
         if (isset($map['EcsRegion'])) {
             $model->ecsRegion = $map['EcsRegion'];
+        }
+        if (isset($map['StandardGroup'])) {
+            $model->standardGroup = standardGroup::fromMap($map['StandardGroup']);
         }
 
         return $model;
