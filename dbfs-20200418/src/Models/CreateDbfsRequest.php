@@ -77,6 +77,11 @@ class CreateDbfsRequest extends Model
      * @var string
      */
     public $usedScene;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
     protected $_name = [
         'regionId'             => 'RegionId',
         'fsName'               => 'FsName',
@@ -92,6 +97,7 @@ class CreateDbfsRequest extends Model
         'KMSKeyId'             => 'KMSKeyId',
         'encryption'           => 'Encryption',
         'usedScene'            => 'UsedScene',
+        'instanceType'         => 'InstanceType',
     ];
 
     public function validate()
@@ -142,6 +148,9 @@ class CreateDbfsRequest extends Model
         }
         if (null !== $this->usedScene) {
             $res['UsedScene'] = $this->usedScene;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         return $res;
@@ -196,6 +205,9 @@ class CreateDbfsRequest extends Model
         }
         if (isset($map['UsedScene'])) {
             $model->usedScene = $map['UsedScene'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         return $model;
