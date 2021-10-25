@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class supportedFlexibleResource extends Model
 {
     /**
-     * @var supportedElasticIOResource
-     */
-    public $supportedElasticIOResource;
-
-    /**
-     * @var string[]
-     */
-    public $supportedStorageResource;
-
-    /**
      * @var string
      */
     public $storageType;
@@ -28,11 +18,21 @@ class supportedFlexibleResource extends Model
      * @var string[]
      */
     public $supportedComputeResource;
+
+    /**
+     * @var string[]
+     */
+    public $supportedStorageResource;
+
+    /**
+     * @var supportedElasticIOResource
+     */
+    public $supportedElasticIOResource;
     protected $_name = [
-        'supportedElasticIOResource' => 'SupportedElasticIOResource',
-        'supportedStorageResource'   => 'SupportedStorageResource',
         'storageType'                => 'StorageType',
         'supportedComputeResource'   => 'SupportedComputeResource',
+        'supportedStorageResource'   => 'SupportedStorageResource',
+        'supportedElasticIOResource' => 'SupportedElasticIOResource',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class supportedFlexibleResource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->supportedElasticIOResource) {
-            $res['SupportedElasticIOResource'] = null !== $this->supportedElasticIOResource ? $this->supportedElasticIOResource->toMap() : null;
-        }
-        if (null !== $this->supportedStorageResource) {
-            $res['SupportedStorageResource'] = $this->supportedStorageResource;
-        }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
         if (null !== $this->supportedComputeResource) {
             $res['SupportedComputeResource'] = $this->supportedComputeResource;
+        }
+        if (null !== $this->supportedStorageResource) {
+            $res['SupportedStorageResource'] = $this->supportedStorageResource;
+        }
+        if (null !== $this->supportedElasticIOResource) {
+            $res['SupportedElasticIOResource'] = null !== $this->supportedElasticIOResource ? $this->supportedElasticIOResource->toMap() : null;
         }
 
         return $res;
@@ -66,14 +66,6 @@ class supportedFlexibleResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SupportedElasticIOResource'])) {
-            $model->supportedElasticIOResource = supportedElasticIOResource::fromMap($map['SupportedElasticIOResource']);
-        }
-        if (isset($map['SupportedStorageResource'])) {
-            if (!empty($map['SupportedStorageResource'])) {
-                $model->supportedStorageResource = $map['SupportedStorageResource'];
-            }
-        }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }
@@ -81,6 +73,14 @@ class supportedFlexibleResource extends Model
             if (!empty($map['SupportedComputeResource'])) {
                 $model->supportedComputeResource = $map['SupportedComputeResource'];
             }
+        }
+        if (isset($map['SupportedStorageResource'])) {
+            if (!empty($map['SupportedStorageResource'])) {
+                $model->supportedStorageResource = $map['SupportedStorageResource'];
+            }
+        }
+        if (isset($map['SupportedElasticIOResource'])) {
+            $model->supportedElasticIOResource = supportedElasticIOResource::fromMap($map['SupportedElasticIOResource']);
         }
 
         return $model;

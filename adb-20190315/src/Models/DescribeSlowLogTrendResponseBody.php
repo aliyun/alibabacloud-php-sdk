@@ -17,12 +17,12 @@ class DescribeSlowLogTrendResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $startTime;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $requestId;
 
     /**
      * @var string
@@ -35,8 +35,8 @@ class DescribeSlowLogTrendResponseBody extends Model
     public $items;
     protected $_name = [
         'endTime'     => 'EndTime',
-        'requestId'   => 'RequestId',
         'startTime'   => 'StartTime',
+        'requestId'   => 'RequestId',
         'DBClusterId' => 'DBClusterId',
         'items'       => 'Items',
     ];
@@ -51,11 +51,11 @@ class DescribeSlowLogTrendResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
@@ -78,11 +78,11 @@ class DescribeSlowLogTrendResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];

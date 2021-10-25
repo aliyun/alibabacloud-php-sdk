@@ -13,27 +13,27 @@ class DescribeSQLPlanResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var stageList[]
-     */
-    public $stageList;
+    public $originInfo;
 
     /**
      * @var string
      */
-    public $originInfo;
+    public $requestId;
 
     /**
      * @var detail
      */
     public $detail;
+
+    /**
+     * @var stageList[]
+     */
+    public $stageList;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'stageList'  => 'StageList',
         'originInfo' => 'OriginInfo',
+        'requestId'  => 'RequestId',
         'detail'     => 'Detail',
+        'stageList'  => 'StageList',
     ];
 
     public function validate()
@@ -43,8 +43,14 @@ class DescribeSQLPlanResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->originInfo) {
+            $res['OriginInfo'] = $this->originInfo;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->detail) {
+            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
         }
         if (null !== $this->stageList) {
             $res['StageList'] = [];
@@ -54,12 +60,6 @@ class DescribeSQLPlanResponseBody extends Model
                     $res['StageList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->originInfo) {
-            $res['OriginInfo'] = $this->originInfo;
-        }
-        if (null !== $this->detail) {
-            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
         }
 
         return $res;
@@ -73,8 +73,14 @@ class DescribeSQLPlanResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OriginInfo'])) {
+            $model->originInfo = $map['OriginInfo'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Detail'])) {
+            $model->detail = detail::fromMap($map['Detail']);
         }
         if (isset($map['StageList'])) {
             if (!empty($map['StageList'])) {
@@ -84,12 +90,6 @@ class DescribeSQLPlanResponseBody extends Model
                     $model->stageList[$n++] = null !== $item ? stageList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['OriginInfo'])) {
-            $model->originInfo = $map['OriginInfo'];
-        }
-        if (isset($map['Detail'])) {
-            $model->detail = detail::fromMap($map['Detail']);
         }
 
         return $model;

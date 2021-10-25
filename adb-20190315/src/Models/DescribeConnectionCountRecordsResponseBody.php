@@ -13,11 +13,6 @@ class DescribeConnectionCountRecordsResponseBody extends Model
     /**
      * @var string
      */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
@@ -35,7 +30,6 @@ class DescribeConnectionCountRecordsResponseBody extends Model
      */
     public $userRecords;
     protected $_name = [
-        'totalCount'      => 'TotalCount',
         'requestId'       => 'RequestId',
         'DBClusterId'     => 'DBClusterId',
         'accessIpRecords' => 'AccessIpRecords',
@@ -49,9 +43,6 @@ class DescribeConnectionCountRecordsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -88,9 +79,6 @@ class DescribeConnectionCountRecordsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

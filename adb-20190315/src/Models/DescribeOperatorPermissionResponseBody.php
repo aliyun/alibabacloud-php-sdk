@@ -11,7 +11,12 @@ class DescribeOperatorPermissionResponseBody extends Model
     /**
      * @var string
      */
-    public $createdTime;
+    public $privileges;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
 
     /**
      * @var string
@@ -21,23 +26,18 @@ class DescribeOperatorPermissionResponseBody extends Model
     /**
      * @var string
      */
-    public $privileges;
-
-    /**
-     * @var string
-     */
     public $expiredTime;
 
     /**
      * @var string
      */
-    public $DBClusterId;
+    public $createdTime;
     protected $_name = [
-        'createdTime' => 'CreatedTime',
-        'requestId'   => 'RequestId',
         'privileges'  => 'Privileges',
-        'expiredTime' => 'ExpiredTime',
         'DBClusterId' => 'DBClusterId',
+        'requestId'   => 'RequestId',
+        'expiredTime' => 'ExpiredTime',
+        'createdTime' => 'CreatedTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeOperatorPermissionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
+        if (null !== $this->privileges) {
+            $res['Privileges'] = $this->privileges;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->privileges) {
-            $res['Privileges'] = $this->privileges;
-        }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeOperatorPermissionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
+        if (isset($map['Privileges'])) {
+            $model->privileges = $map['Privileges'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Privileges'])) {
-            $model->privileges = $map['Privileges'];
-        }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
         }
 
         return $model;

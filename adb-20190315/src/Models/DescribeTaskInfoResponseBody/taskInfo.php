@@ -24,20 +24,20 @@ class taskInfo extends Model
     public $progress;
 
     /**
-     * @var string
-     */
-    public $beginTime;
-
-    /**
      * @var int
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $beginTime;
     protected $_name = [
         'status'     => 'Status',
         'finishTime' => 'FinishTime',
         'progress'   => 'Progress',
-        'beginTime'  => 'BeginTime',
         'taskId'     => 'TaskId',
+        'beginTime'  => 'BeginTime',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class taskInfo extends Model
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
-        if (null !== $this->beginTime) {
-            $res['BeginTime'] = $this->beginTime;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->beginTime) {
+            $res['BeginTime'] = $this->beginTime;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class taskInfo extends Model
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
-        if (isset($map['BeginTime'])) {
-            $model->beginTime = $map['BeginTime'];
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['BeginTime'])) {
+            $model->beginTime = $map['BeginTime'];
         }
 
         return $model;

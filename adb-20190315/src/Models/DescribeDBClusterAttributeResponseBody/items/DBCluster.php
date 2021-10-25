@@ -208,6 +208,11 @@ class DBCluster extends Model
      * @var string
      */
     public $engine;
+
+    /**
+     * @var string
+     */
+    public $kmsId;
     protected $_name = [
         'creationTime'         => 'CreationTime',
         'enableSpark'          => 'EnableSpark',
@@ -249,6 +254,7 @@ class DBCluster extends Model
         'zoneId'               => 'ZoneId',
         'category'             => 'Category',
         'engine'               => 'Engine',
+        'kmsId'                => 'KmsId',
     ];
 
     public function validate()
@@ -377,6 +383,9 @@ class DBCluster extends Model
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->kmsId) {
+            $res['KmsId'] = $this->kmsId;
         }
 
         return $res;
@@ -509,6 +518,9 @@ class DBCluster extends Model
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+        if (isset($map['KmsId'])) {
+            $model->kmsId = $map['KmsId'];
         }
 
         return $model;

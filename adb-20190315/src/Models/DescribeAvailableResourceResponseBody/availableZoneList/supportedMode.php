@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedMode extends Model
 {
     /**
-     * @var supportedSerialList[]
-     */
-    public $supportedSerialList;
-
-    /**
      * @var string
      */
     public $mode;
+
+    /**
+     * @var supportedSerialList[]
+     */
+    public $supportedSerialList;
     protected $_name = [
-        'supportedSerialList' => 'SupportedSerialList',
         'mode'                => 'Mode',
+        'supportedSerialList' => 'SupportedSerialList',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class supportedMode extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
         if (null !== $this->supportedSerialList) {
             $res['SupportedSerialList'] = [];
             if (null !== $this->supportedSerialList && \is_array($this->supportedSerialList)) {
@@ -38,9 +41,6 @@ class supportedMode extends Model
                     $res['SupportedSerialList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class supportedMode extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
         if (isset($map['SupportedSerialList'])) {
             if (!empty($map['SupportedSerialList'])) {
                 $model->supportedSerialList = [];
@@ -62,9 +65,6 @@ class supportedMode extends Model
                     $model->supportedSerialList[$n++] = null !== $item ? supportedSerialList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
         }
 
         return $model;

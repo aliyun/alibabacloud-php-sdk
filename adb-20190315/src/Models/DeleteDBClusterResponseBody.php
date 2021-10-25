@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBClusterResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $taskId;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -22,10 +17,15 @@ class DeleteDBClusterResponseBody extends Model
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
-        'taskId'      => 'TaskId',
         'requestId'   => 'RequestId',
         'DBClusterId' => 'DBClusterId',
+        'taskId'      => 'TaskId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteDBClusterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteDBClusterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

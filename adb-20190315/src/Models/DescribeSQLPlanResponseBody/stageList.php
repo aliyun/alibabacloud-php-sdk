@@ -16,12 +16,12 @@ class stageList extends Model
     /**
      * @var int
      */
-    public $CPUTimeAvg;
+    public $CPUTimeMax;
 
     /**
      * @var int
      */
-    public $CPUTimeMax;
+    public $CPUTimeAvg;
 
     /**
      * @var int
@@ -36,12 +36,12 @@ class stageList extends Model
     /**
      * @var int
      */
-    public $inputSizeMax;
+    public $stageId;
 
     /**
      * @var int
      */
-    public $stageId;
+    public $inputSizeMax;
 
     /**
      * @var int
@@ -89,12 +89,12 @@ class stageList extends Model
     public $inputSizeAvg;
     protected $_name = [
         'state'        => 'State',
-        'CPUTimeAvg'   => 'CPUTimeAvg',
         'CPUTimeMax'   => 'CPUTimeMax',
+        'CPUTimeAvg'   => 'CPUTimeAvg',
         'operatorCost' => 'OperatorCost',
         'scanTimeMax'  => 'ScanTimeMax',
-        'inputSizeMax' => 'InputSizeMax',
         'stageId'      => 'StageId',
+        'inputSizeMax' => 'InputSizeMax',
         'scanSizeMax'  => 'ScanSizeMax',
         'CPUTimeMin'   => 'CPUTimeMin',
         'scanTimeMin'  => 'ScanTimeMin',
@@ -116,11 +116,11 @@ class stageList extends Model
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
-        if (null !== $this->CPUTimeAvg) {
-            $res['CPUTimeAvg'] = $this->CPUTimeAvg;
-        }
         if (null !== $this->CPUTimeMax) {
             $res['CPUTimeMax'] = $this->CPUTimeMax;
+        }
+        if (null !== $this->CPUTimeAvg) {
+            $res['CPUTimeAvg'] = $this->CPUTimeAvg;
         }
         if (null !== $this->operatorCost) {
             $res['OperatorCost'] = $this->operatorCost;
@@ -128,11 +128,11 @@ class stageList extends Model
         if (null !== $this->scanTimeMax) {
             $res['ScanTimeMax'] = $this->scanTimeMax;
         }
-        if (null !== $this->inputSizeMax) {
-            $res['InputSizeMax'] = $this->inputSizeMax;
-        }
         if (null !== $this->stageId) {
             $res['StageId'] = $this->stageId;
+        }
+        if (null !== $this->inputSizeMax) {
+            $res['InputSizeMax'] = $this->inputSizeMax;
         }
         if (null !== $this->scanSizeMax) {
             $res['ScanSizeMax'] = $this->scanSizeMax;
@@ -176,11 +176,11 @@ class stageList extends Model
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
-        if (isset($map['CPUTimeAvg'])) {
-            $model->CPUTimeAvg = $map['CPUTimeAvg'];
-        }
         if (isset($map['CPUTimeMax'])) {
             $model->CPUTimeMax = $map['CPUTimeMax'];
+        }
+        if (isset($map['CPUTimeAvg'])) {
+            $model->CPUTimeAvg = $map['CPUTimeAvg'];
         }
         if (isset($map['OperatorCost'])) {
             $model->operatorCost = $map['OperatorCost'];
@@ -188,11 +188,11 @@ class stageList extends Model
         if (isset($map['ScanTimeMax'])) {
             $model->scanTimeMax = $map['ScanTimeMax'];
         }
-        if (isset($map['InputSizeMax'])) {
-            $model->inputSizeMax = $map['InputSizeMax'];
-        }
         if (isset($map['StageId'])) {
             $model->stageId = $map['StageId'];
+        }
+        if (isset($map['InputSizeMax'])) {
+            $model->inputSizeMax = $map['InputSizeMax'];
         }
         if (isset($map['ScanSizeMax'])) {
             $model->scanSizeMax = $map['ScanSizeMax'];

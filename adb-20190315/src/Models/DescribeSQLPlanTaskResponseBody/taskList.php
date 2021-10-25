@@ -11,12 +11,12 @@ class taskList extends Model
     /**
      * @var int
      */
-    public $scanCost;
+    public $outputSize;
 
     /**
      * @var int
      */
-    public $outputSize;
+    public $scanCost;
 
     /**
      * @var int
@@ -68,8 +68,8 @@ class taskList extends Model
      */
     public $inputRows;
     protected $_name = [
-        'scanCost'     => 'ScanCost',
         'outputSize'   => 'OutputSize',
+        'scanCost'     => 'ScanCost',
         'inputSize'    => 'InputSize',
         'state'        => 'State',
         'operatorCost' => 'OperatorCost',
@@ -89,11 +89,11 @@ class taskList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scanCost) {
-            $res['ScanCost'] = $this->scanCost;
-        }
         if (null !== $this->outputSize) {
             $res['OutputSize'] = $this->outputSize;
+        }
+        if (null !== $this->scanCost) {
+            $res['ScanCost'] = $this->scanCost;
         }
         if (null !== $this->inputSize) {
             $res['InputSize'] = $this->inputSize;
@@ -137,11 +137,11 @@ class taskList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScanCost'])) {
-            $model->scanCost = $map['ScanCost'];
-        }
         if (isset($map['OutputSize'])) {
             $model->outputSize = $map['OutputSize'];
+        }
+        if (isset($map['ScanCost'])) {
+            $model->scanCost = $map['ScanCost'];
         }
         if (isset($map['InputSize'])) {
             $model->inputSize = $map['InputSize'];

@@ -16,28 +16,28 @@ class table extends Model
     /**
      * @var string
      */
-    public $schema;
-
-    /**
-     * @var int
-     */
-    public $size;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $schema;
 
     /**
      * @var bool
      */
     public $isIncline;
+
+    /**
+     * @var int
+     */
+    public $size;
     protected $_name = [
         'type'      => 'Type',
-        'schema'    => 'Schema',
-        'size'      => 'Size',
         'name'      => 'Name',
+        'schema'    => 'Schema',
         'isIncline' => 'IsIncline',
+        'size'      => 'Size',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class table extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->schema) {
-            $res['Schema'] = $this->schema;
-        }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->schema) {
+            $res['Schema'] = $this->schema;
+        }
         if (null !== $this->isIncline) {
             $res['IsIncline'] = $this->isIncline;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class table extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['Schema'])) {
-            $model->schema = $map['Schema'];
-        }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['Schema'])) {
+            $model->schema = $map['Schema'];
+        }
         if (isset($map['IsIncline'])) {
             $model->isIncline = $map['IsIncline'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class seriesItem extends Model
     /**
      * @var string
      */
-    public $values;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $values;
     protected $_name = [
-        'values' => 'Values',
         'name'   => 'Name',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class seriesItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->values) {
-            $res['Values'] = $this->values;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->values) {
+            $res['Values'] = $this->values;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class seriesItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Values'])) {
-            $model->values = $map['Values'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Values'])) {
+            $model->values = $map['Values'];
         }
 
         return $model;

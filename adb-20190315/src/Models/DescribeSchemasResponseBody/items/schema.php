@@ -11,15 +11,15 @@ class schema extends Model
     /**
      * @var string
      */
-    public $DBClusterId;
+    public $schemaName;
 
     /**
      * @var string
      */
-    public $schemaName;
+    public $DBClusterId;
     protected $_name = [
-        'DBClusterId' => 'DBClusterId',
         'schemaName'  => 'SchemaName',
+        'DBClusterId' => 'DBClusterId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class schema extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class schema extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
 
         return $model;

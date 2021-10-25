@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adb\V20190315;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Adb\V20190315\Models\AllocateClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\AllocateClusterPublicConnectionResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\BindDBResourcePoolWithUserRequest;
@@ -51,6 +52,10 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterAccessWhiteListReques
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterAccessWhiteListResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterAttributeRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterAttributeResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterForecastRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterForecastResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterHealthReportRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterHealthReportResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterNetInfoRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterNetInfoResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterPerformanceRequest;
@@ -61,6 +66,14 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClustersRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClustersResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBResourcePoolRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBResourcePoolResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDiagnosisDimensionsRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDiagnosisDimensionsResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDiagnosisRecordsRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDiagnosisRecordsResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDiagnosisSQLInfoRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDiagnosisSQLInfoResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDownloadRecordsRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDownloadRecordsResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeElasticDailyPlanRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeElasticDailyPlanResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeElasticPlanRequest;
@@ -69,8 +82,12 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeInclinedTablesRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeInclinedTablesResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLoadTasksRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLoadTasksRecordsResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeMaintenanceActionRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeMaintenanceActionResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeOperatorPermissionRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeOperatorPermissionResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribePatternPerformanceRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribePatternPerformanceResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeProcessListRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeProcessListResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRegionsRequest;
@@ -81,10 +98,18 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogRecordsResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogTrendRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogTrendResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPatternAttributeRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPatternAttributeResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSqlPatternRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSqlPatternResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPatternsRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPatternsResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPlanRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPlanResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPlanTaskRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPlanTaskResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTableAccessCountRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTableAccessCountResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTableDetailRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTableDetailResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTablePartitionDiagnoseRequest;
@@ -95,6 +120,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTableStatisticsRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTableStatisticsResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTaskInfoRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTaskInfoResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DownloadDiagnosisRecordsRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DownloadDiagnosisRecordsResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\GrantOperatorPermissionRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\GrantOperatorPermissionResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\KillProcessRequest;
@@ -127,6 +154,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyElasticPlanResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyLogBackupPolicyRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyLogBackupPolicyResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyMaintenanceActionRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyMaintenanceActionResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ReleaseClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ReleaseClusterPublicConnectionResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ResetAccountPasswordRequest;
@@ -868,6 +897,62 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBClusterForecastRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDBClusterForecastResponse
+     */
+    public function describeDBClusterForecastWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDBClusterForecastResponse::fromMap($this->doRPCRequest('DescribeDBClusterForecast', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBClusterForecastRequest $request
+     *
+     * @return DescribeDBClusterForecastResponse
+     */
+    public function describeDBClusterForecast($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterForecastWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBClusterHealthReportRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDBClusterHealthReportResponse
+     */
+    public function describeDBClusterHealthReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDBClusterHealthReportResponse::fromMap($this->doRPCRequest('DescribeDBClusterHealthReport', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBClusterHealthReportRequest $request
+     *
+     * @return DescribeDBClusterHealthReportResponse
+     */
+    public function describeDBClusterHealthReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterHealthReportWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBClusterNetInfoRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1008,6 +1093,119 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeDiagnosisDimensionsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDiagnosisDimensionsResponse
+     */
+    public function describeDiagnosisDimensionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDiagnosisDimensionsResponse::fromMap($this->doRPCRequest('DescribeDiagnosisDimensions', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiagnosisDimensionsRequest $request
+     *
+     * @return DescribeDiagnosisDimensionsResponse
+     */
+    public function describeDiagnosisDimensions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnosisDimensionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDiagnosisRecordsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDiagnosisRecordsResponse
+     */
+    public function describeDiagnosisRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDiagnosisRecordsResponse::fromMap($this->doRPCRequest('DescribeDiagnosisRecords', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiagnosisRecordsRequest $request
+     *
+     * @return DescribeDiagnosisRecordsResponse
+     */
+    public function describeDiagnosisRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnosisRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDiagnosisSQLInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDiagnosisSQLInfoResponse
+     */
+    public function describeDiagnosisSQLInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return DescribeDiagnosisSQLInfoResponse::fromMap($this->doRPCRequest('DescribeDiagnosisSQLInfo', '2019-03-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiagnosisSQLInfoRequest $request
+     *
+     * @return DescribeDiagnosisSQLInfoResponse
+     */
+    public function describeDiagnosisSQLInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnosisSQLInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDownloadRecordsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDownloadRecordsResponse
+     */
+    public function describeDownloadRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDownloadRecordsResponse::fromMap($this->doRPCRequest('DescribeDownloadRecords', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDownloadRecordsRequest $request
+     *
+     * @return DescribeDownloadRecordsResponse
+     */
+    public function describeDownloadRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDownloadRecordsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeElasticDailyPlanRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1120,6 +1318,34 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeMaintenanceActionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeMaintenanceActionResponse
+     */
+    public function describeMaintenanceActionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeMaintenanceActionResponse::fromMap($this->doRPCRequest('DescribeMaintenanceAction', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMaintenanceActionRequest $request
+     *
+     * @return DescribeMaintenanceActionResponse
+     */
+    public function describeMaintenanceAction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMaintenanceActionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeOperatorPermissionRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1145,6 +1371,34 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeOperatorPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePatternPerformanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribePatternPerformanceResponse
+     */
+    public function describePatternPerformanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePatternPerformanceResponse::fromMap($this->doRPCRequest('DescribePatternPerformance', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePatternPerformanceRequest $request
+     *
+     * @return DescribePatternPerformanceResponse
+     */
+    public function describePatternPerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePatternPerformanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1288,6 +1542,90 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeSqlPatternRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSqlPatternResponse
+     */
+    public function describeSqlPatternWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSqlPatternResponse::fromMap($this->doRPCRequest('DescribeSqlPattern', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSqlPatternRequest $request
+     *
+     * @return DescribeSqlPatternResponse
+     */
+    public function describeSqlPattern($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSqlPatternWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSQLPatternAttributeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeSQLPatternAttributeResponse
+     */
+    public function describeSQLPatternAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSQLPatternAttributeResponse::fromMap($this->doRPCRequest('DescribeSQLPatternAttribute', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSQLPatternAttributeRequest $request
+     *
+     * @return DescribeSQLPatternAttributeResponse
+     */
+    public function describeSQLPatternAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQLPatternAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSQLPatternsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeSQLPatternsResponse
+     */
+    public function describeSQLPatternsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSQLPatternsResponse::fromMap($this->doRPCRequest('DescribeSQLPatterns', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSQLPatternsRequest $request
+     *
+     * @return DescribeSQLPatternsResponse
+     */
+    public function describeSQLPatterns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQLPatternsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSQLPlanRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1341,6 +1679,34 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSQLPlanTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeTableAccessCountRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeTableAccessCountResponse
+     */
+    public function describeTableAccessCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeTableAccessCountResponse::fromMap($this->doRPCRequest('DescribeTableAccessCount', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTableAccessCountRequest $request
+     *
+     * @return DescribeTableAccessCountResponse
+     */
+    public function describeTableAccessCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTableAccessCountWithOptions($request, $runtime);
     }
 
     /**
@@ -1481,6 +1847,34 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DownloadDiagnosisRecordsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DownloadDiagnosisRecordsResponse
+     */
+    public function downloadDiagnosisRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DownloadDiagnosisRecordsResponse::fromMap($this->doRPCRequest('DownloadDiagnosisRecords', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DownloadDiagnosisRecordsRequest $request
+     *
+     * @return DownloadDiagnosisRecordsResponse
+     */
+    public function downloadDiagnosisRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadDiagnosisRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -1929,6 +2323,34 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyLogBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyMaintenanceActionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyMaintenanceActionResponse
+     */
+    public function modifyMaintenanceActionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyMaintenanceActionResponse::fromMap($this->doRPCRequest('ModifyMaintenanceAction', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyMaintenanceActionRequest $request
+     *
+     * @return ModifyMaintenanceActionResponse
+     */
+    public function modifyMaintenanceAction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMaintenanceActionWithOptions($request, $runtime);
     }
 
     /**

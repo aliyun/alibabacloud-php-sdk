@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class supportedInstanceClassList extends Model
 {
     /**
-     * @var supportedExecutorList[]
+     * @var string
      */
-    public $supportedExecutorList;
+    public $instanceClass;
 
     /**
      * @var string
      */
-    public $instanceClass;
+    public $tips;
 
     /**
      * @var supportedNodeCountList[]
@@ -26,14 +26,14 @@ class supportedInstanceClassList extends Model
     public $supportedNodeCountList;
 
     /**
-     * @var string
+     * @var supportedExecutorList[]
      */
-    public $tips;
+    public $supportedExecutorList;
     protected $_name = [
-        'supportedExecutorList'  => 'SupportedExecutorList',
         'instanceClass'          => 'InstanceClass',
-        'supportedNodeCountList' => 'SupportedNodeCountList',
         'tips'                   => 'Tips',
+        'supportedNodeCountList' => 'SupportedNodeCountList',
+        'supportedExecutorList'  => 'SupportedExecutorList',
     ];
 
     public function validate()
@@ -43,17 +43,11 @@ class supportedInstanceClassList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->supportedExecutorList) {
-            $res['SupportedExecutorList'] = [];
-            if (null !== $this->supportedExecutorList && \is_array($this->supportedExecutorList)) {
-                $n = 0;
-                foreach ($this->supportedExecutorList as $item) {
-                    $res['SupportedExecutorList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
+        }
+        if (null !== $this->tips) {
+            $res['Tips'] = $this->tips;
         }
         if (null !== $this->supportedNodeCountList) {
             $res['SupportedNodeCountList'] = [];
@@ -64,8 +58,14 @@ class supportedInstanceClassList extends Model
                 }
             }
         }
-        if (null !== $this->tips) {
-            $res['Tips'] = $this->tips;
+        if (null !== $this->supportedExecutorList) {
+            $res['SupportedExecutorList'] = [];
+            if (null !== $this->supportedExecutorList && \is_array($this->supportedExecutorList)) {
+                $n = 0;
+                foreach ($this->supportedExecutorList as $item) {
+                    $res['SupportedExecutorList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -79,17 +79,11 @@ class supportedInstanceClassList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SupportedExecutorList'])) {
-            if (!empty($map['SupportedExecutorList'])) {
-                $model->supportedExecutorList = [];
-                $n                            = 0;
-                foreach ($map['SupportedExecutorList'] as $item) {
-                    $model->supportedExecutorList[$n++] = null !== $item ? supportedExecutorList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
+        }
+        if (isset($map['Tips'])) {
+            $model->tips = $map['Tips'];
         }
         if (isset($map['SupportedNodeCountList'])) {
             if (!empty($map['SupportedNodeCountList'])) {
@@ -100,8 +94,14 @@ class supportedInstanceClassList extends Model
                 }
             }
         }
-        if (isset($map['Tips'])) {
-            $model->tips = $map['Tips'];
+        if (isset($map['SupportedExecutorList'])) {
+            if (!empty($map['SupportedExecutorList'])) {
+                $model->supportedExecutorList = [];
+                $n                            = 0;
+                foreach ($map['SupportedExecutorList'] as $item) {
+                    $model->supportedExecutorList[$n++] = null !== $item ? supportedExecutorList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

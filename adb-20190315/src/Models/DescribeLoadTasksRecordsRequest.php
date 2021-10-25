@@ -66,11 +66,6 @@ class DescribeLoadTasksRecordsRequest extends Model
     /**
      * @var string
      */
-    public $range;
-
-    /**
-     * @var string
-     */
     public $state;
     protected $_name = [
         'ownerId'              => 'OwnerId',
@@ -84,7 +79,6 @@ class DescribeLoadTasksRecordsRequest extends Model
         'pageSize'             => 'PageSize',
         'pageNumber'           => 'PageNumber',
         'order'                => 'Order',
-        'range'                => 'Range',
         'state'                => 'State',
     ];
 
@@ -127,9 +121,6 @@ class DescribeLoadTasksRecordsRequest extends Model
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
-        }
-        if (null !== $this->range) {
-            $res['Range'] = $this->range;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -178,9 +169,6 @@ class DescribeLoadTasksRecordsRequest extends Model
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
-        }
-        if (isset($map['Range'])) {
-            $model->range = $map['Range'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

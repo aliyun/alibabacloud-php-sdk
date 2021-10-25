@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
-     * @var zones
+     * @var string
      */
-    public $zones;
+    public $regionEndpoint;
 
     /**
      * @var string
@@ -22,17 +22,17 @@ class region extends Model
     /**
      * @var string
      */
-    public $regionEndpoint;
+    public $regionId;
 
     /**
-     * @var string
+     * @var zones
      */
-    public $regionId;
+    public $zones;
     protected $_name = [
-        'zones'          => 'Zones',
-        'localName'      => 'LocalName',
         'regionEndpoint' => 'RegionEndpoint',
+        'localName'      => 'LocalName',
         'regionId'       => 'RegionId',
+        'zones'          => 'Zones',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class region extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zones) {
-            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
+        if (null !== $this->regionEndpoint) {
+            $res['RegionEndpoint'] = $this->regionEndpoint;
         }
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
-        if (null !== $this->regionEndpoint) {
-            $res['RegionEndpoint'] = $this->regionEndpoint;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->zones) {
+            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class region extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Zones'])) {
-            $model->zones = zones::fromMap($map['Zones']);
+        if (isset($map['RegionEndpoint'])) {
+            $model->regionEndpoint = $map['RegionEndpoint'];
         }
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
-        if (isset($map['RegionEndpoint'])) {
-            $model->regionEndpoint = $map['RegionEndpoint'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Zones'])) {
+            $model->zones = zones::fromMap($map['Zones']);
         }
 
         return $model;

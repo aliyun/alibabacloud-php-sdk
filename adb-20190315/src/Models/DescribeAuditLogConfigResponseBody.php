@@ -11,20 +11,20 @@ class DescribeAuditLogConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $auditLogStatus;
 
     /**
      * @var string
      */
-    public $auditLogStatus;
+    public $requestId;
 
     /**
      * @var string
      */
     public $DBClusterId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'auditLogStatus' => 'AuditLogStatus',
+        'requestId'      => 'RequestId',
         'DBClusterId'    => 'DBClusterId',
     ];
 
@@ -35,11 +35,11 @@ class DescribeAuditLogConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->auditLogStatus) {
             $res['AuditLogStatus'] = $this->auditLogStatus;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
@@ -56,11 +56,11 @@ class DescribeAuditLogConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AuditLogStatus'])) {
             $model->auditLogStatus = $map['AuditLogStatus'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];

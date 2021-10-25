@@ -46,22 +46,22 @@ class detail extends Model
     /**
      * @var int
      */
-    public $queuedTime;
-
-    /**
-     * @var int
-     */
     public $totalTime;
 
     /**
      * @var int
      */
-    public $totalTask;
+    public $queuedTime;
 
     /**
      * @var string
      */
     public $database;
+
+    /**
+     * @var int
+     */
+    public $totalTask;
 
     /**
      * @var int
@@ -90,10 +90,10 @@ class detail extends Model
         'user'         => 'User',
         'startTime'    => 'StartTime',
         'totalStage'   => 'TotalStage',
-        'queuedTime'   => 'QueuedTime',
         'totalTime'    => 'TotalTime',
-        'totalTask'    => 'TotalTask',
+        'queuedTime'   => 'QueuedTime',
         'database'     => 'Database',
+        'totalTask'    => 'TotalTask',
         'peakMemory'   => 'PeakMemory',
         'clientIP'     => 'ClientIP',
         'planningTime' => 'PlanningTime',
@@ -128,17 +128,17 @@ class detail extends Model
         if (null !== $this->totalStage) {
             $res['TotalStage'] = $this->totalStage;
         }
-        if (null !== $this->queuedTime) {
-            $res['QueuedTime'] = $this->queuedTime;
-        }
         if (null !== $this->totalTime) {
             $res['TotalTime'] = $this->totalTime;
         }
-        if (null !== $this->totalTask) {
-            $res['TotalTask'] = $this->totalTask;
+        if (null !== $this->queuedTime) {
+            $res['QueuedTime'] = $this->queuedTime;
         }
         if (null !== $this->database) {
             $res['Database'] = $this->database;
+        }
+        if (null !== $this->totalTask) {
+            $res['TotalTask'] = $this->totalTask;
         }
         if (null !== $this->peakMemory) {
             $res['PeakMemory'] = $this->peakMemory;
@@ -185,17 +185,17 @@ class detail extends Model
         if (isset($map['TotalStage'])) {
             $model->totalStage = $map['TotalStage'];
         }
-        if (isset($map['QueuedTime'])) {
-            $model->queuedTime = $map['QueuedTime'];
-        }
         if (isset($map['TotalTime'])) {
             $model->totalTime = $map['TotalTime'];
         }
-        if (isset($map['TotalTask'])) {
-            $model->totalTask = $map['TotalTask'];
+        if (isset($map['QueuedTime'])) {
+            $model->queuedTime = $map['QueuedTime'];
         }
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
+        }
+        if (isset($map['TotalTask'])) {
+            $model->totalTask = $map['TotalTask'];
         }
         if (isset($map['PeakMemory'])) {
             $model->peakMemory = $map['PeakMemory'];
