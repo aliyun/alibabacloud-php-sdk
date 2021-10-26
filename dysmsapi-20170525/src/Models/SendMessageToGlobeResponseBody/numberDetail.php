@@ -11,20 +11,20 @@ class numberDetail extends Model
     /**
      * @var string
      */
-    public $country;
+    public $carrier;
 
     /**
      * @var string
      */
-    public $carrier;
+    public $country;
 
     /**
      * @var string
      */
     public $region;
     protected $_name = [
-        'country' => 'Country',
         'carrier' => 'Carrier',
+        'country' => 'Country',
         'region'  => 'Region',
     ];
 
@@ -35,11 +35,11 @@ class numberDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->country) {
-            $res['Country'] = $this->country;
-        }
         if (null !== $this->carrier) {
             $res['Carrier'] = $this->carrier;
+        }
+        if (null !== $this->country) {
+            $res['Country'] = $this->country;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -56,11 +56,11 @@ class numberDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Country'])) {
-            $model->country = $map['Country'];
-        }
         if (isset($map['Carrier'])) {
             $model->carrier = $map['Carrier'];
+        }
+        if (isset($map['Country'])) {
+            $model->country = $map['Country'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

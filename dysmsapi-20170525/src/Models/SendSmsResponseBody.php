@@ -11,6 +11,11 @@ class SendSmsResponseBody extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $code;
 
     /**
@@ -21,16 +26,11 @@ class SendSmsResponseBody extends Model
     /**
      * @var string
      */
-    public $bizId;
-
-    /**
-     * @var string
-     */
     public $requestId;
     protected $_name = [
+        'bizId'     => 'BizId',
         'code'      => 'Code',
         'message'   => 'Message',
-        'bizId'     => 'BizId',
         'requestId' => 'RequestId',
     ];
 
@@ -41,14 +41,14 @@ class SendSmsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -65,14 +65,14 @@ class SendSmsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

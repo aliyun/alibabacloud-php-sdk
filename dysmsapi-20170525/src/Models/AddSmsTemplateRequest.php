@@ -16,22 +16,17 @@ class AddSmsTemplateRequest extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $templateType;
-
-    /**
-     * @var string
-     */
-    public $templateName;
 
     /**
      * @var string
@@ -41,15 +36,20 @@ class AddSmsTemplateRequest extends Model
     /**
      * @var string
      */
-    public $remark;
+    public $templateName;
+
+    /**
+     * @var int
+     */
+    public $templateType;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'remark'               => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateType'         => 'TemplateType',
-        'templateName'         => 'TemplateName',
         'templateContent'      => 'TemplateContent',
-        'remark'               => 'Remark',
+        'templateName'         => 'TemplateName',
+        'templateType'         => 'TemplateType',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class AddSmsTemplateRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->templateType) {
-            $res['TemplateType'] = $this->templateType;
+        if (null !== $this->templateContent) {
+            $res['TemplateContent'] = $this->templateContent;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
-        if (null !== $this->templateContent) {
-            $res['TemplateContent'] = $this->templateContent;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class AddSmsTemplateRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['TemplateType'])) {
-            $model->templateType = $map['TemplateType'];
+        if (isset($map['TemplateContent'])) {
+            $model->templateContent = $map['TemplateContent'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
-        if (isset($map['TemplateContent'])) {
-            $model->templateContent = $map['TemplateContent'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

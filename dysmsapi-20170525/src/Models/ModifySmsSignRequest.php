@@ -17,12 +17,22 @@ class ModifySmsSignRequest extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var signFileList[]
+     */
+    public $signFileList;
 
     /**
      * @var string
@@ -33,24 +43,14 @@ class ModifySmsSignRequest extends Model
      * @var int
      */
     public $signSource;
-
-    /**
-     * @var string
-     */
-    public $remark;
-
-    /**
-     * @var signFileList[]
-     */
-    public $signFileList;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'remark'               => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'signFileList'         => 'SignFileList',
         'signName'             => 'SignName',
         'signSource'           => 'SignSource',
-        'remark'               => 'Remark',
-        'signFileList'         => 'SignFileList',
     ];
 
     public function validate()
@@ -63,20 +63,14 @@ class ModifySmsSignRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->signName) {
-            $res['SignName'] = $this->signName;
-        }
-        if (null !== $this->signSource) {
-            $res['SignSource'] = $this->signSource;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
         }
         if (null !== $this->signFileList) {
             $res['SignFileList'] = [];
@@ -86,6 +80,12 @@ class ModifySmsSignRequest extends Model
                     $res['SignFileList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->signName) {
+            $res['SignName'] = $this->signName;
+        }
+        if (null !== $this->signSource) {
+            $res['SignSource'] = $this->signSource;
         }
 
         return $res;
@@ -102,20 +102,14 @@ class ModifySmsSignRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SignName'])) {
-            $model->signName = $map['SignName'];
-        }
-        if (isset($map['SignSource'])) {
-            $model->signSource = $map['SignSource'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
         }
         if (isset($map['SignFileList'])) {
             if (!empty($map['SignFileList'])) {
@@ -125,6 +119,12 @@ class ModifySmsSignRequest extends Model
                     $model->signFileList[$n++] = null !== $item ? signFileList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SignName'])) {
+            $model->signName = $map['SignName'];
+        }
+        if (isset($map['SignSource'])) {
+            $model->signSource = $map['SignSource'];
         }
 
         return $model;

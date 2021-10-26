@@ -5,30 +5,50 @@
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddShortUrlRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetMediaResourceIdRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetMediaResourceIdResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetOSSInfoForCardTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchSmsResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendCardSmsRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendCardSmsResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendCardSmsShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendMessageToGlobeRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendMessageToGlobeResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsSmartRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsSmartResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -71,6 +91,34 @@ class Dysmsapi extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddShortUrlRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddShortUrlResponse
+     */
+    public function addShortUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddShortUrlResponse::fromMap($this->doRPCRequest('AddShortUrl', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddShortUrlRequest $request
+     *
+     * @return AddShortUrlResponse
+     */
+    public function addShortUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addShortUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -130,6 +178,67 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @param CreateCardSmsTemplateRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateCardSmsTemplateResponse
+     */
+    public function createCardSmsTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCardSmsTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->template)) {
+            $request->templateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->template, 'Template', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateCardSmsTemplateResponse::fromMap($this->doRPCRequest('CreateCardSmsTemplate', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateCardSmsTemplateRequest $request
+     *
+     * @return CreateCardSmsTemplateResponse
+     */
+    public function createCardSmsTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCardSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteShortUrlRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteShortUrlResponse
+     */
+    public function deleteShortUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteShortUrlResponse::fromMap($this->doRPCRequest('DeleteShortUrl', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteShortUrlRequest $request
+     *
+     * @return DeleteShortUrlResponse
+     */
+    public function deleteShortUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteShortUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteSmsSignRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -183,6 +292,56 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMediaResourceIdRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMediaResourceIdResponse
+     */
+    public function getMediaResourceIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMediaResourceIdResponse::fromMap($this->doRPCRequest('GetMediaResourceId', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMediaResourceIdRequest $request
+     *
+     * @return GetMediaResourceIdResponse
+     */
+    public function getMediaResourceId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaResourceIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetOSSInfoForCardTemplateResponse
+     */
+    public function getOSSInfoForCardTemplateWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return GetOSSInfoForCardTemplateResponse::fromMap($this->doRPCRequest('GetOSSInfoForCardTemplate', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return GetOSSInfoForCardTemplateResponse
+     */
+    public function getOSSInfoForCardTemplate()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOSSInfoForCardTemplateWithOptions($runtime);
     }
 
     /**
@@ -242,6 +401,34 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @param QueryCardSmsTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryCardSmsTemplateResponse
+     */
+    public function queryCardSmsTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryCardSmsTemplateResponse::fromMap($this->doRPCRequest('QueryCardSmsTemplate', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryCardSmsTemplateRequest $request
+     *
+     * @return QueryCardSmsTemplateResponse
+     */
+    public function queryCardSmsTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCardSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QuerySendDetailsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -267,6 +454,34 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->querySendDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryShortUrlRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryShortUrlResponse
+     */
+    public function queryShortUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryShortUrlResponse::fromMap($this->doRPCRequest('QueryShortUrl', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryShortUrlRequest $request
+     *
+     * @return QueryShortUrlResponse
+     */
+    public function queryShortUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryShortUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -354,6 +569,39 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @param SendCardSmsRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SendCardSmsResponse
+     */
+    public function sendCardSmsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SendCardSmsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->cardObjects)) {
+            $request->cardObjectsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cardObjects, 'CardObjects', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SendCardSmsResponse::fromMap($this->doRPCRequest('SendCardSms', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SendCardSmsRequest $request
+     *
+     * @return SendCardSmsResponse
+     */
+    public function sendCardSms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendCardSmsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SendMessageToGlobeRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -407,5 +655,33 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendSmsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendSmsSmartRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SendSmsSmartResponse
+     */
+    public function sendSmsSmartWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SendSmsSmartResponse::fromMap($this->doRPCRequest('SendSmsSmart', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SendSmsSmartRequest $request
+     *
+     * @return SendSmsSmartResponse
+     */
+    public function sendSmsSmart($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendSmsSmartWithOptions($request, $runtime);
     }
 }

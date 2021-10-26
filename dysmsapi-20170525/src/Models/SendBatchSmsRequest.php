@@ -16,6 +16,11 @@ class SendBatchSmsRequest extends Model
     /**
      * @var string
      */
+    public $phoneNumberJson;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -26,12 +31,12 @@ class SendBatchSmsRequest extends Model
     /**
      * @var string
      */
-    public $phoneNumberJson;
+    public $signNameJson;
 
     /**
      * @var string
      */
-    public $signNameJson;
+    public $smsUpExtendCodeJson;
 
     /**
      * @var string
@@ -42,20 +47,15 @@ class SendBatchSmsRequest extends Model
      * @var string
      */
     public $templateParamJson;
-
-    /**
-     * @var string
-     */
-    public $smsUpExtendCodeJson;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'phoneNumberJson'      => 'PhoneNumberJson',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'phoneNumberJson'      => 'PhoneNumberJson',
         'signNameJson'         => 'SignNameJson',
+        'smsUpExtendCodeJson'  => 'SmsUpExtendCodeJson',
         'templateCode'         => 'TemplateCode',
         'templateParamJson'    => 'TemplateParamJson',
-        'smsUpExtendCodeJson'  => 'SmsUpExtendCodeJson',
     ];
 
     public function validate()
@@ -68,26 +68,26 @@ class SendBatchSmsRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->phoneNumberJson) {
+            $res['PhoneNumberJson'] = $this->phoneNumberJson;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->phoneNumberJson) {
-            $res['PhoneNumberJson'] = $this->phoneNumberJson;
-        }
         if (null !== $this->signNameJson) {
             $res['SignNameJson'] = $this->signNameJson;
+        }
+        if (null !== $this->smsUpExtendCodeJson) {
+            $res['SmsUpExtendCodeJson'] = $this->smsUpExtendCodeJson;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
         if (null !== $this->templateParamJson) {
             $res['TemplateParamJson'] = $this->templateParamJson;
-        }
-        if (null !== $this->smsUpExtendCodeJson) {
-            $res['SmsUpExtendCodeJson'] = $this->smsUpExtendCodeJson;
         }
 
         return $res;
@@ -104,26 +104,26 @@ class SendBatchSmsRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['PhoneNumberJson'])) {
+            $model->phoneNumberJson = $map['PhoneNumberJson'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['PhoneNumberJson'])) {
-            $model->phoneNumberJson = $map['PhoneNumberJson'];
-        }
         if (isset($map['SignNameJson'])) {
             $model->signNameJson = $map['SignNameJson'];
+        }
+        if (isset($map['SmsUpExtendCodeJson'])) {
+            $model->smsUpExtendCodeJson = $map['SmsUpExtendCodeJson'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
         }
         if (isset($map['TemplateParamJson'])) {
             $model->templateParamJson = $map['TemplateParamJson'];
-        }
-        if (isset($map['SmsUpExtendCodeJson'])) {
-            $model->smsUpExtendCodeJson = $map['SmsUpExtendCodeJson'];
         }
 
         return $model;

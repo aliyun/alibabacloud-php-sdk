@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsResponseBody\smsSendDetailDTOs;
 use AlibabaCloud\Tea\Model;
 
-class QuerySendDetailsResponseBody extends Model
+class DeleteShortUrlResponseBody extends Model
 {
     /**
      * @var string
@@ -23,22 +22,10 @@ class QuerySendDetailsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var smsSendDetailDTOs
-     */
-    public $smsSendDetailDTOs;
-
-    /**
-     * @var string
-     */
-    public $totalCount;
     protected $_name = [
-        'code'              => 'Code',
-        'message'           => 'Message',
-        'requestId'         => 'RequestId',
-        'smsSendDetailDTOs' => 'SmsSendDetailDTOs',
-        'totalCount'        => 'TotalCount',
+        'code'      => 'Code',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -57,12 +44,6 @@ class QuerySendDetailsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->smsSendDetailDTOs) {
-            $res['SmsSendDetailDTOs'] = null !== $this->smsSendDetailDTOs ? $this->smsSendDetailDTOs->toMap() : null;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
 
         return $res;
     }
@@ -70,7 +51,7 @@ class QuerySendDetailsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return QuerySendDetailsResponseBody
+     * @return DeleteShortUrlResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -83,12 +64,6 @@ class QuerySendDetailsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SmsSendDetailDTOs'])) {
-            $model->smsSendDetailDTOs = smsSendDetailDTOs::fromMap($map['SmsSendDetailDTOs']);
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

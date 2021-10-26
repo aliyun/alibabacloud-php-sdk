@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QuerySendDetailsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizId;
+
+    /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $phoneNumber;
 
     /**
      * @var string
@@ -26,36 +46,16 @@ class QuerySendDetailsRequest extends Model
     /**
      * @var string
      */
-    public $phoneNumber;
-
-    /**
-     * @var string
-     */
-    public $bizId;
-
-    /**
-     * @var string
-     */
     public $sendDate;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
     protected $_name = [
+        'bizId'                => 'BizId',
+        'currentPage'          => 'CurrentPage',
         'ownerId'              => 'OwnerId',
+        'pageSize'             => 'PageSize',
+        'phoneNumber'          => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'phoneNumber'          => 'PhoneNumber',
-        'bizId'                => 'BizId',
         'sendDate'             => 'SendDate',
-        'pageSize'             => 'PageSize',
-        'currentPage'          => 'CurrentPage',
     ];
 
     public function validate()
@@ -65,8 +65,20 @@ class QuerySendDetailsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->phoneNumber) {
+            $res['PhoneNumber'] = $this->phoneNumber;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -74,20 +86,8 @@ class QuerySendDetailsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
-        }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
-        }
         if (null !== $this->sendDate) {
             $res['SendDate'] = $this->sendDate;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -101,8 +101,20 @@ class QuerySendDetailsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PhoneNumber'])) {
+            $model->phoneNumber = $map['PhoneNumber'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -110,20 +122,8 @@ class QuerySendDetailsRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['PhoneNumber'])) {
-            $model->phoneNumber = $map['PhoneNumber'];
-        }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
-        }
         if (isset($map['SendDate'])) {
             $model->sendDate = $map['SendDate'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

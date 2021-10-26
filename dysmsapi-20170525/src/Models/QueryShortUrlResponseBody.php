@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsResponseBody\smsSendDetailDTOs;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class QuerySendDetailsResponseBody extends Model
+class QueryShortUrlResponseBody extends Model
 {
     /**
      * @var string
      */
     public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
 
     /**
      * @var string
@@ -23,22 +28,11 @@ class QuerySendDetailsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var smsSendDetailDTOs
-     */
-    public $smsSendDetailDTOs;
-
-    /**
-     * @var string
-     */
-    public $totalCount;
     protected $_name = [
-        'code'              => 'Code',
-        'message'           => 'Message',
-        'requestId'         => 'RequestId',
-        'smsSendDetailDTOs' => 'SmsSendDetailDTOs',
-        'totalCount'        => 'TotalCount',
+        'code'      => 'Code',
+        'data'      => 'Data',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -51,17 +45,14 @@ class QuerySendDetailsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->smsSendDetailDTOs) {
-            $res['SmsSendDetailDTOs'] = null !== $this->smsSendDetailDTOs ? $this->smsSendDetailDTOs->toMap() : null;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -70,7 +61,7 @@ class QuerySendDetailsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return QuerySendDetailsResponseBody
+     * @return QueryShortUrlResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -78,17 +69,14 @@ class QuerySendDetailsResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SmsSendDetailDTOs'])) {
-            $model->smsSendDetailDTOs = smsSendDetailDTOs::fromMap($map['SmsSendDetailDTOs']);
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

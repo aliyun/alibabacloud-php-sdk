@@ -6,32 +6,27 @@ namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SendSmsRequest extends Model
+class SendSmsSmartRequest extends Model
 {
     /**
      * @var string
      */
-    public $outId;
+    public $extendCode;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $modelCode;
+
+    /**
+     * @var string
+     */
+    public $numberType;
 
     /**
      * @var string
      */
     public $phoneNumbers;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
 
     /**
      * @var string
@@ -53,15 +48,14 @@ class SendSmsRequest extends Model
      */
     public $templateParam;
     protected $_name = [
-        'outId'                => 'OutId',
-        'ownerId'              => 'OwnerId',
-        'phoneNumbers'         => 'PhoneNumbers',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'signName'             => 'SignName',
-        'smsUpExtendCode'      => 'SmsUpExtendCode',
-        'templateCode'         => 'TemplateCode',
-        'templateParam'        => 'TemplateParam',
+        'extendCode'      => 'ExtendCode',
+        'modelCode'       => 'ModelCode',
+        'numberType'      => 'NumberType',
+        'phoneNumbers'    => 'PhoneNumbers',
+        'signName'        => 'SignName',
+        'smsUpExtendCode' => 'SmsUpExtendCode',
+        'templateCode'    => 'TemplateCode',
+        'templateParam'   => 'TemplateParam',
     ];
 
     public function validate()
@@ -71,20 +65,17 @@ class SendSmsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->outId) {
-            $res['OutId'] = $this->outId;
+        if (null !== $this->extendCode) {
+            $res['ExtendCode'] = $this->extendCode;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->modelCode) {
+            $res['ModelCode'] = $this->modelCode;
+        }
+        if (null !== $this->numberType) {
+            $res['NumberType'] = $this->numberType;
         }
         if (null !== $this->phoneNumbers) {
             $res['PhoneNumbers'] = $this->phoneNumbers;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->signName) {
             $res['SignName'] = $this->signName;
@@ -105,25 +96,22 @@ class SendSmsRequest extends Model
     /**
      * @param array $map
      *
-     * @return SendSmsRequest
+     * @return SendSmsSmartRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OutId'])) {
-            $model->outId = $map['OutId'];
+        if (isset($map['ExtendCode'])) {
+            $model->extendCode = $map['ExtendCode'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['ModelCode'])) {
+            $model->modelCode = $map['ModelCode'];
+        }
+        if (isset($map['NumberType'])) {
+            $model->numberType = $map['NumberType'];
         }
         if (isset($map['PhoneNumbers'])) {
             $model->phoneNumbers = $map['PhoneNumbers'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['SignName'])) {
             $model->signName = $map['SignName'];
