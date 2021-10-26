@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CancelCallRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $callId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,16 +27,11 @@ class CancelCallRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $callId;
     protected $_name = [
+        'callId'               => 'CallId',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'callId'               => 'CallId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class CancelCallRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callId) {
+            $res['CallId'] = $this->callId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -49,9 +52,6 @@ class CancelCallRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->callId) {
-            $res['CallId'] = $this->callId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class CancelCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallId'])) {
+            $model->callId = $map['CallId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -73,9 +76,6 @@ class CancelCallRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CallId'])) {
-            $model->callId = $map['CallId'];
         }
 
         return $model;

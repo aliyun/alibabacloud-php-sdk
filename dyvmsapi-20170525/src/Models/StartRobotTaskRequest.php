@@ -24,20 +24,20 @@ class StartRobotTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var int
-     */
-    public $taskId;
-
-    /**
      * @var string
      */
     public $scheduleTime;
+
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'taskId'               => 'TaskId',
         'scheduleTime'         => 'ScheduleTime',
+        'taskId'               => 'TaskId',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class StartRobotTaskRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->scheduleTime) {
             $res['ScheduleTime'] = $this->scheduleTime;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class StartRobotTaskRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['ScheduleTime'])) {
             $model->scheduleTime = $map['ScheduleTime'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

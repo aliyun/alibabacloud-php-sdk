@@ -21,23 +21,23 @@ class GetTokenResponseBody extends Model
     /**
      * @var string
      */
-    public $token;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $token;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
-        'token'     => 'Token',
         'requestId' => 'RequestId',
         'success'   => 'Success',
+        'token'     => 'Token',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class GetTokenResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class GetTokenResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
 
         return $model;

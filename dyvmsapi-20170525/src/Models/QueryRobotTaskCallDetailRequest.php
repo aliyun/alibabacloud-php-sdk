@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryRobotTaskCallDetailRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $callee;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $queryDate;
 
     /**
      * @var string
@@ -27,23 +37,13 @@ class QueryRobotTaskCallDetailRequest extends Model
      * @var int
      */
     public $taskId;
-
-    /**
-     * @var string
-     */
-    public $callee;
-
-    /**
-     * @var int
-     */
-    public $queryDate;
     protected $_name = [
+        'callee'               => 'Callee',
         'ownerId'              => 'OwnerId',
+        'queryDate'            => 'QueryDate',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'taskId'               => 'TaskId',
-        'callee'               => 'Callee',
-        'queryDate'            => 'QueryDate',
     ];
 
     public function validate()
@@ -53,8 +53,14 @@ class QueryRobotTaskCallDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callee) {
+            $res['Callee'] = $this->callee;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->queryDate) {
+            $res['QueryDate'] = $this->queryDate;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -64,12 +70,6 @@ class QueryRobotTaskCallDetailRequest extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->callee) {
-            $res['Callee'] = $this->callee;
-        }
-        if (null !== $this->queryDate) {
-            $res['QueryDate'] = $this->queryDate;
         }
 
         return $res;
@@ -83,8 +83,14 @@ class QueryRobotTaskCallDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Callee'])) {
+            $model->callee = $map['Callee'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['QueryDate'])) {
+            $model->queryDate = $map['QueryDate'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -94,12 +100,6 @@ class QueryRobotTaskCallDetailRequest extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['Callee'])) {
-            $model->callee = $map['Callee'];
-        }
-        if (isset($map['QueryDate'])) {
-            $model->queryDate = $map['QueryDate'];
         }
 
         return $model;

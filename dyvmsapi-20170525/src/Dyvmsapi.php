@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoubleCallSeatRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoubleCallSeatResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallInfoRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallInfoResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetRtcTokenRequest;
@@ -633,6 +635,34 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeCallTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCallInfoRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetCallInfoResponse
+     */
+    public function getCallInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetCallInfoResponse::fromMap($this->doRPCRequest('GetCallInfo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetCallInfoRequest $request
+     *
+     * @return GetCallInfoResponse
+     */
+    public function getCallInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCallInfoWithOptions($request, $runtime);
     }
 
     /**

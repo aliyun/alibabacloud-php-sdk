@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $calledRouteMode;
+
+    /**
+     * @var details[]
+     */
+    public $details;
+
+    /**
      * @var int
      */
     public $gmtCreate;
@@ -17,22 +27,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $calledRouteMode;
-
-    /**
-     * @var string
-     */
     public $transferTimeout;
-
-    /**
-     * @var details[]
-     */
-    public $details;
     protected $_name = [
-        'gmtCreate'       => 'GmtCreate',
         'calledRouteMode' => 'CalledRouteMode',
-        'transferTimeout' => 'TransferTimeout',
         'details'         => 'Details',
+        'gmtCreate'       => 'GmtCreate',
+        'transferTimeout' => 'TransferTimeout',
     ];
 
     public function validate()
@@ -42,14 +42,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
         if (null !== $this->calledRouteMode) {
             $res['CalledRouteMode'] = $this->calledRouteMode;
-        }
-        if (null !== $this->transferTimeout) {
-            $res['TransferTimeout'] = $this->transferTimeout;
         }
         if (null !== $this->details) {
             $res['Details'] = [];
@@ -59,6 +53,12 @@ class data extends Model
                     $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->transferTimeout) {
+            $res['TransferTimeout'] = $this->transferTimeout;
         }
 
         return $res;
@@ -72,14 +72,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
         if (isset($map['CalledRouteMode'])) {
             $model->calledRouteMode = $map['CalledRouteMode'];
-        }
-        if (isset($map['TransferTimeout'])) {
-            $model->transferTimeout = $map['TransferTimeout'];
         }
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
@@ -89,6 +83,12 @@ class data extends Model
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['TransferTimeout'])) {
+            $model->transferTimeout = $map['TransferTimeout'];
         }
 
         return $model;

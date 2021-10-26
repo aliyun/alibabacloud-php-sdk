@@ -11,21 +11,21 @@ class transferPhoneNumberInfos extends Model
     /**
      * @var string
      */
+    public $identityCard;
+
+    /**
+     * @var string
+     */
     public $phoneNumber;
 
     /**
      * @var string
      */
     public $phoneNumberOwnerName;
-
-    /**
-     * @var string
-     */
-    public $identityCard;
     protected $_name = [
+        'identityCard'         => 'IdentityCard',
         'phoneNumber'          => 'PhoneNumber',
         'phoneNumberOwnerName' => 'PhoneNumberOwnerName',
-        'identityCard'         => 'IdentityCard',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class transferPhoneNumberInfos extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->identityCard) {
+            $res['IdentityCard'] = $this->identityCard;
+        }
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
         if (null !== $this->phoneNumberOwnerName) {
             $res['PhoneNumberOwnerName'] = $this->phoneNumberOwnerName;
-        }
-        if (null !== $this->identityCard) {
-            $res['IdentityCard'] = $this->identityCard;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class transferPhoneNumberInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IdentityCard'])) {
+            $model->identityCard = $map['IdentityCard'];
+        }
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
         if (isset($map['PhoneNumberOwnerName'])) {
             $model->phoneNumberOwnerName = $map['PhoneNumberOwnerName'];
-        }
-        if (isset($map['IdentityCard'])) {
-            $model->identityCard = $map['IdentityCard'];
         }
 
         return $model;

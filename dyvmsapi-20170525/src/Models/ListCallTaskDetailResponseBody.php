@@ -12,22 +12,12 @@ class ListCallTaskDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
-     * @var int
+     * @var data[]
      */
-    public $totalPage;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $data;
 
     /**
      * @var int
@@ -37,20 +27,30 @@ class ListCallTaskDetailResponseBody extends Model
     /**
      * @var int
      */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
     public $total;
 
     /**
-     * @var data[]
+     * @var int
      */
-    public $data;
+    public $totalPage;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'code'       => 'Code',
-        'totalPage'  => 'TotalPage',
-        'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
-        'total'      => 'Total',
         'data'       => 'Data',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
+        'total'      => 'Total',
+        'totalPage'  => 'TotalPage',
     ];
 
     public function validate()
@@ -60,23 +60,8 @@ class ListCallTaskDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->totalPage) {
-            $res['TotalPage'] = $this->totalPage;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
         }
         if (null !== $this->data) {
             $res['Data'] = [];
@@ -86,6 +71,21 @@ class ListCallTaskDetailResponseBody extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
+        }
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
         }
 
         return $res;
@@ -99,23 +99,8 @@ class ListCallTaskDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['TotalPage'])) {
-            $model->totalPage = $map['TotalPage'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
         }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
@@ -125,6 +110,21 @@ class ListCallTaskDetailResponseBody extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
+        }
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
         }
 
         return $model;

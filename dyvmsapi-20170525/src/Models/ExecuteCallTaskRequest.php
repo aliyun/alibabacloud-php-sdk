@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ExecuteCallTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $fireTime;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -24,26 +29,21 @@ class ExecuteCallTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var int
-     */
-    public $taskId;
-
-    /**
      * @var string
      */
     public $status;
 
     /**
-     * @var string
+     * @var int
      */
-    public $fireTime;
+    public $taskId;
     protected $_name = [
+        'fireTime'             => 'FireTime',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'taskId'               => 'TaskId',
         'status'               => 'Status',
-        'fireTime'             => 'FireTime',
+        'taskId'               => 'TaskId',
     ];
 
     public function validate()
@@ -53,6 +53,9 @@ class ExecuteCallTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fireTime) {
+            $res['FireTime'] = $this->fireTime;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -62,14 +65,11 @@ class ExecuteCallTaskRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->fireTime) {
-            $res['FireTime'] = $this->fireTime;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -83,6 +83,9 @@ class ExecuteCallTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FireTime'])) {
+            $model->fireTime = $map['FireTime'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -92,14 +95,11 @@ class ExecuteCallTaskRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['FireTime'])) {
-            $model->fireTime = $map['FireTime'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

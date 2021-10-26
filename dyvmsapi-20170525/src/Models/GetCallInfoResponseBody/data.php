@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderResponseBody;
+namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallInfoResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -11,21 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $orderId;
-
-    /**
-     * @var string
-     */
-    public $qualificationId;
+    public $channelId;
 
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'orderId'         => 'OrderId',
-        'qualificationId' => 'QualificationId',
-        'status'          => 'Status',
+        'channelId' => 'ChannelId',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -35,11 +29,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->qualificationId) {
-            $res['QualificationId'] = $this->qualificationId;
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -56,11 +47,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['QualificationId'])) {
-            $model->qualificationId = $map['QualificationId'];
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

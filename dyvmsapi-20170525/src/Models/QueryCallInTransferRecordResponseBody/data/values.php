@@ -16,17 +16,7 @@ class values extends Model
     /**
      * @var string
      */
-    public $transferCalled;
-
-    /**
-     * @var string
-     */
-    public $recordUrl;
-
-    /**
-     * @var string
-     */
-    public $transferCaller;
+    public $callInCaller;
 
     /**
      * @var int
@@ -36,14 +26,24 @@ class values extends Model
     /**
      * @var string
      */
-    public $callInCaller;
+    public $recordUrl;
+
+    /**
+     * @var string
+     */
+    public $transferCalled;
+
+    /**
+     * @var string
+     */
+    public $transferCaller;
     protected $_name = [
         'callInCalled'   => 'CallInCalled',
-        'transferCalled' => 'TransferCalled',
-        'recordUrl'      => 'RecordUrl',
-        'transferCaller' => 'TransferCaller',
-        'gmtCreate'      => 'GmtCreate',
         'callInCaller'   => 'CallInCaller',
+        'gmtCreate'      => 'GmtCreate',
+        'recordUrl'      => 'RecordUrl',
+        'transferCalled' => 'TransferCalled',
+        'transferCaller' => 'TransferCaller',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class values extends Model
         if (null !== $this->callInCalled) {
             $res['CallInCalled'] = $this->callInCalled;
         }
-        if (null !== $this->transferCalled) {
-            $res['TransferCalled'] = $this->transferCalled;
-        }
-        if (null !== $this->recordUrl) {
-            $res['RecordUrl'] = $this->recordUrl;
-        }
-        if (null !== $this->transferCaller) {
-            $res['TransferCaller'] = $this->transferCaller;
+        if (null !== $this->callInCaller) {
+            $res['CallInCaller'] = $this->callInCaller;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->callInCaller) {
-            $res['CallInCaller'] = $this->callInCaller;
+        if (null !== $this->recordUrl) {
+            $res['RecordUrl'] = $this->recordUrl;
+        }
+        if (null !== $this->transferCalled) {
+            $res['TransferCalled'] = $this->transferCalled;
+        }
+        if (null !== $this->transferCaller) {
+            $res['TransferCaller'] = $this->transferCaller;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class values extends Model
         if (isset($map['CallInCalled'])) {
             $model->callInCalled = $map['CallInCalled'];
         }
-        if (isset($map['TransferCalled'])) {
-            $model->transferCalled = $map['TransferCalled'];
-        }
-        if (isset($map['RecordUrl'])) {
-            $model->recordUrl = $map['RecordUrl'];
-        }
-        if (isset($map['TransferCaller'])) {
-            $model->transferCaller = $map['TransferCaller'];
+        if (isset($map['CallInCaller'])) {
+            $model->callInCaller = $map['CallInCaller'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['CallInCaller'])) {
-            $model->callInCaller = $map['CallInCaller'];
+        if (isset($map['RecordUrl'])) {
+            $model->recordUrl = $map['RecordUrl'];
+        }
+        if (isset($map['TransferCalled'])) {
+            $model->transferCalled = $map['TransferCalled'];
+        }
+        if (isset($map['TransferCaller'])) {
+            $model->transferCaller = $map['TransferCaller'];
         }
 
         return $model;

@@ -16,6 +16,11 @@ class QueryVoipNumberBindInfosRequest extends Model
     /**
      * @var string
      */
+    public $phoneNumber;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -26,17 +31,12 @@ class QueryVoipNumberBindInfosRequest extends Model
     /**
      * @var string
      */
-    public $phoneNumber;
-
-    /**
-     * @var string
-     */
     public $voipId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'phoneNumber'          => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'phoneNumber'          => 'PhoneNumber',
         'voipId'               => 'VoipId',
     ];
 
@@ -50,14 +50,14 @@ class QueryVoipNumberBindInfosRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->phoneNumber) {
+            $res['PhoneNumber'] = $this->phoneNumber;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
         }
         if (null !== $this->voipId) {
             $res['VoipId'] = $this->voipId;
@@ -77,14 +77,14 @@ class QueryVoipNumberBindInfosRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['PhoneNumber'])) {
+            $model->phoneNumber = $map['PhoneNumber'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['PhoneNumber'])) {
-            $model->phoneNumber = $map['PhoneNumber'];
         }
         if (isset($map['VoipId'])) {
             $model->voipId = $map['VoipId'];

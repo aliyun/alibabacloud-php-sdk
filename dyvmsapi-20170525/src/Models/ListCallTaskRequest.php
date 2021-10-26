@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListCallTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizType;
+
+    /**
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
 
     /**
      * @var int
@@ -36,7 +31,12 @@ class ListCallTaskRequest extends Model
     /**
      * @var string
      */
-    public $templateName;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -46,28 +46,28 @@ class ListCallTaskRequest extends Model
     /**
      * @var string
      */
-    public $taskName;
-
-    /**
-     * @var string
-     */
     public $taskId;
 
     /**
      * @var string
      */
-    public $bizType;
+    public $taskName;
+
+    /**
+     * @var string
+     */
+    public $templateName;
     protected $_name = [
+        'bizType'              => 'BizType',
         'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'templateName'         => 'TemplateName',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'status'               => 'Status',
-        'taskName'             => 'TaskName',
         'taskId'               => 'TaskId',
-        'bizType'              => 'BizType',
+        'taskName'             => 'TaskName',
+        'templateName'         => 'TemplateName',
     ];
 
     public function validate()
@@ -77,14 +77,11 @@ class ListCallTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -92,20 +89,23 @@ class ListCallTaskRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         return $res;
@@ -119,14 +119,11 @@ class ListCallTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -134,20 +131,23 @@ class ListCallTaskRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

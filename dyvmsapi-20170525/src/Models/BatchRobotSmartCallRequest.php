@@ -9,6 +9,36 @@ use AlibabaCloud\Tea\Model;
 class BatchRobotSmartCallRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $calledNumber;
+
+    /**
+     * @var string
+     */
+    public $calledShowNumber;
+
+    /**
+     * @var string
+     */
+    public $corpName;
+
+    /**
+     * @var string
+     */
+    public $dialogId;
+
+    /**
+     * @var bool
+     */
+    public $earlyMediaAsr;
+
+    /**
+     * @var bool
+     */
+    public $isSelfLine;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -24,34 +54,9 @@ class BatchRobotSmartCallRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $calledShowNumber;
-
-    /**
-     * @var string
-     */
-    public $corpName;
-
-    /**
-     * @var string
-     */
-    public $calledNumber;
-
-    /**
-     * @var string
-     */
-    public $dialogId;
-
-    /**
      * @var bool
      */
-    public $earlyMediaAsr;
-
-    /**
-     * @var string
-     */
-    public $taskName;
+    public $scheduleCall;
 
     /**
      * @var int
@@ -59,9 +64,9 @@ class BatchRobotSmartCallRequest extends Model
     public $scheduleTime;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $scheduleCall;
+    public $taskName;
 
     /**
      * @var string
@@ -72,26 +77,21 @@ class BatchRobotSmartCallRequest extends Model
      * @var string
      */
     public $ttsParamHead;
-
-    /**
-     * @var bool
-     */
-    public $isSelfLine;
     protected $_name = [
+        'calledNumber'         => 'CalledNumber',
+        'calledShowNumber'     => 'CalledShowNumber',
+        'corpName'             => 'CorpName',
+        'dialogId'             => 'DialogId',
+        'earlyMediaAsr'        => 'EarlyMediaAsr',
+        'isSelfLine'           => 'IsSelfLine',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'calledShowNumber'     => 'CalledShowNumber',
-        'corpName'             => 'CorpName',
-        'calledNumber'         => 'CalledNumber',
-        'dialogId'             => 'DialogId',
-        'earlyMediaAsr'        => 'EarlyMediaAsr',
-        'taskName'             => 'TaskName',
-        'scheduleTime'         => 'ScheduleTime',
         'scheduleCall'         => 'ScheduleCall',
+        'scheduleTime'         => 'ScheduleTime',
+        'taskName'             => 'TaskName',
         'ttsParam'             => 'TtsParam',
         'ttsParamHead'         => 'TtsParamHead',
-        'isSelfLine'           => 'IsSelfLine',
     ];
 
     public function validate()
@@ -101,6 +101,24 @@ class BatchRobotSmartCallRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->calledNumber) {
+            $res['CalledNumber'] = $this->calledNumber;
+        }
+        if (null !== $this->calledShowNumber) {
+            $res['CalledShowNumber'] = $this->calledShowNumber;
+        }
+        if (null !== $this->corpName) {
+            $res['CorpName'] = $this->corpName;
+        }
+        if (null !== $this->dialogId) {
+            $res['DialogId'] = $this->dialogId;
+        }
+        if (null !== $this->earlyMediaAsr) {
+            $res['EarlyMediaAsr'] = $this->earlyMediaAsr;
+        }
+        if (null !== $this->isSelfLine) {
+            $res['IsSelfLine'] = $this->isSelfLine;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -110,38 +128,20 @@ class BatchRobotSmartCallRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->calledShowNumber) {
-            $res['CalledShowNumber'] = $this->calledShowNumber;
-        }
-        if (null !== $this->corpName) {
-            $res['CorpName'] = $this->corpName;
-        }
-        if (null !== $this->calledNumber) {
-            $res['CalledNumber'] = $this->calledNumber;
-        }
-        if (null !== $this->dialogId) {
-            $res['DialogId'] = $this->dialogId;
-        }
-        if (null !== $this->earlyMediaAsr) {
-            $res['EarlyMediaAsr'] = $this->earlyMediaAsr;
-        }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
+        if (null !== $this->scheduleCall) {
+            $res['ScheduleCall'] = $this->scheduleCall;
         }
         if (null !== $this->scheduleTime) {
             $res['ScheduleTime'] = $this->scheduleTime;
         }
-        if (null !== $this->scheduleCall) {
-            $res['ScheduleCall'] = $this->scheduleCall;
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
         }
         if (null !== $this->ttsParam) {
             $res['TtsParam'] = $this->ttsParam;
         }
         if (null !== $this->ttsParamHead) {
             $res['TtsParamHead'] = $this->ttsParamHead;
-        }
-        if (null !== $this->isSelfLine) {
-            $res['IsSelfLine'] = $this->isSelfLine;
         }
 
         return $res;
@@ -155,6 +155,24 @@ class BatchRobotSmartCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CalledNumber'])) {
+            $model->calledNumber = $map['CalledNumber'];
+        }
+        if (isset($map['CalledShowNumber'])) {
+            $model->calledShowNumber = $map['CalledShowNumber'];
+        }
+        if (isset($map['CorpName'])) {
+            $model->corpName = $map['CorpName'];
+        }
+        if (isset($map['DialogId'])) {
+            $model->dialogId = $map['DialogId'];
+        }
+        if (isset($map['EarlyMediaAsr'])) {
+            $model->earlyMediaAsr = $map['EarlyMediaAsr'];
+        }
+        if (isset($map['IsSelfLine'])) {
+            $model->isSelfLine = $map['IsSelfLine'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -164,38 +182,20 @@ class BatchRobotSmartCallRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['CalledShowNumber'])) {
-            $model->calledShowNumber = $map['CalledShowNumber'];
-        }
-        if (isset($map['CorpName'])) {
-            $model->corpName = $map['CorpName'];
-        }
-        if (isset($map['CalledNumber'])) {
-            $model->calledNumber = $map['CalledNumber'];
-        }
-        if (isset($map['DialogId'])) {
-            $model->dialogId = $map['DialogId'];
-        }
-        if (isset($map['EarlyMediaAsr'])) {
-            $model->earlyMediaAsr = $map['EarlyMediaAsr'];
-        }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
+        if (isset($map['ScheduleCall'])) {
+            $model->scheduleCall = $map['ScheduleCall'];
         }
         if (isset($map['ScheduleTime'])) {
             $model->scheduleTime = $map['ScheduleTime'];
         }
-        if (isset($map['ScheduleCall'])) {
-            $model->scheduleCall = $map['ScheduleCall'];
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
         }
         if (isset($map['TtsParam'])) {
             $model->ttsParam = $map['TtsParam'];
         }
         if (isset($map['TtsParamHead'])) {
             $model->ttsParamHead = $map['TtsParamHead'];
-        }
-        if (isset($map['IsSelfLine'])) {
-            $model->isSelfLine = $map['IsSelfLine'];
         }
 
         return $model;

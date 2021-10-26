@@ -9,26 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddVirtualNumberRelationRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $prodCode;
-
-    /**
      * @var string
      */
     public $corpNameList;
@@ -41,21 +21,41 @@ class AddVirtualNumberRelationRequest extends Model
     /**
      * @var int
      */
-    public $routeType;
+    public $ownerId;
 
     /**
      * @var string
      */
     public $phoneNum;
+
+    /**
+     * @var string
+     */
+    public $prodCode;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $routeType;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'prodCode'             => 'ProdCode',
         'corpNameList'         => 'CorpNameList',
         'numberList'           => 'NumberList',
-        'routeType'            => 'RouteType',
+        'ownerId'              => 'OwnerId',
         'phoneNum'             => 'PhoneNum',
+        'prodCode'             => 'ProdCode',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'routeType'            => 'RouteType',
     ];
 
     public function validate()
@@ -65,8 +65,20 @@ class AddVirtualNumberRelationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->corpNameList) {
+            $res['CorpNameList'] = $this->corpNameList;
+        }
+        if (null !== $this->numberList) {
+            $res['NumberList'] = $this->numberList;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->phoneNum) {
+            $res['PhoneNum'] = $this->phoneNum;
+        }
+        if (null !== $this->prodCode) {
+            $res['ProdCode'] = $this->prodCode;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -74,20 +86,8 @@ class AddVirtualNumberRelationRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->prodCode) {
-            $res['ProdCode'] = $this->prodCode;
-        }
-        if (null !== $this->corpNameList) {
-            $res['CorpNameList'] = $this->corpNameList;
-        }
-        if (null !== $this->numberList) {
-            $res['NumberList'] = $this->numberList;
-        }
         if (null !== $this->routeType) {
             $res['RouteType'] = $this->routeType;
-        }
-        if (null !== $this->phoneNum) {
-            $res['PhoneNum'] = $this->phoneNum;
         }
 
         return $res;
@@ -101,8 +101,20 @@ class AddVirtualNumberRelationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CorpNameList'])) {
+            $model->corpNameList = $map['CorpNameList'];
+        }
+        if (isset($map['NumberList'])) {
+            $model->numberList = $map['NumberList'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PhoneNum'])) {
+            $model->phoneNum = $map['PhoneNum'];
+        }
+        if (isset($map['ProdCode'])) {
+            $model->prodCode = $map['ProdCode'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -110,20 +122,8 @@ class AddVirtualNumberRelationRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['ProdCode'])) {
-            $model->prodCode = $map['ProdCode'];
-        }
-        if (isset($map['CorpNameList'])) {
-            $model->corpNameList = $map['CorpNameList'];
-        }
-        if (isset($map['NumberList'])) {
-            $model->numberList = $map['NumberList'];
-        }
         if (isset($map['RouteType'])) {
             $model->routeType = $map['RouteType'];
-        }
-        if (isset($map['PhoneNum'])) {
-            $model->phoneNum = $map['PhoneNum'];
         }
 
         return $model;

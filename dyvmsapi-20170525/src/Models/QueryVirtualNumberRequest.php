@@ -14,21 +14,6 @@ class QueryVirtualNumberRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $prodCode;
-
-    /**
      * @var int
      */
     public $pageNo;
@@ -39,16 +24,31 @@ class QueryVirtualNumberRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $prodCode;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var int
      */
     public $routeType;
     protected $_name = [
         'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'prodCode'             => 'ProdCode',
         'pageNo'               => 'PageNo',
         'pageSize'             => 'PageSize',
+        'prodCode'             => 'ProdCode',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'routeType'            => 'RouteType',
     ];
 
@@ -62,20 +62,20 @@ class QueryVirtualNumberRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->prodCode) {
-            $res['ProdCode'] = $this->prodCode;
-        }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->prodCode) {
+            $res['ProdCode'] = $this->prodCode;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->routeType) {
             $res['RouteType'] = $this->routeType;
@@ -95,20 +95,20 @@ class QueryVirtualNumberRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ProdCode'])) {
-            $model->prodCode = $map['ProdCode'];
-        }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProdCode'])) {
+            $model->prodCode = $map['ProdCode'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['RouteType'])) {
             $model->routeType = $map['RouteType'];

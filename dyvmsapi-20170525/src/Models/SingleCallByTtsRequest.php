@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SingleCallByTtsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $calledNumber;
+
+    /**
+     * @var string
+     */
+    public $calledShowNumber;
+
+    /**
+     * @var string
+     */
+    public $outId;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $playTimes;
 
     /**
      * @var string
@@ -24,14 +44,9 @@ class SingleCallByTtsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $calledShowNumber;
-
-    /**
-     * @var string
-     */
-    public $calledNumber;
+    public $speed;
 
     /**
      * @var string
@@ -46,34 +61,19 @@ class SingleCallByTtsRequest extends Model
     /**
      * @var int
      */
-    public $playTimes;
-
-    /**
-     * @var int
-     */
     public $volume;
-
-    /**
-     * @var int
-     */
-    public $speed;
-
-    /**
-     * @var string
-     */
-    public $outId;
     protected $_name = [
+        'calledNumber'         => 'CalledNumber',
+        'calledShowNumber'     => 'CalledShowNumber',
+        'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
+        'playTimes'            => 'PlayTimes',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'calledShowNumber'     => 'CalledShowNumber',
-        'calledNumber'         => 'CalledNumber',
+        'speed'                => 'Speed',
         'ttsCode'              => 'TtsCode',
         'ttsParam'             => 'TtsParam',
-        'playTimes'            => 'PlayTimes',
         'volume'               => 'Volume',
-        'speed'                => 'Speed',
-        'outId'                => 'OutId',
     ];
 
     public function validate()
@@ -83,8 +83,20 @@ class SingleCallByTtsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->calledNumber) {
+            $res['CalledNumber'] = $this->calledNumber;
+        }
+        if (null !== $this->calledShowNumber) {
+            $res['CalledShowNumber'] = $this->calledShowNumber;
+        }
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->playTimes) {
+            $res['PlayTimes'] = $this->playTimes;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -92,11 +104,8 @@ class SingleCallByTtsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->calledShowNumber) {
-            $res['CalledShowNumber'] = $this->calledShowNumber;
-        }
-        if (null !== $this->calledNumber) {
-            $res['CalledNumber'] = $this->calledNumber;
+        if (null !== $this->speed) {
+            $res['Speed'] = $this->speed;
         }
         if (null !== $this->ttsCode) {
             $res['TtsCode'] = $this->ttsCode;
@@ -104,17 +113,8 @@ class SingleCallByTtsRequest extends Model
         if (null !== $this->ttsParam) {
             $res['TtsParam'] = $this->ttsParam;
         }
-        if (null !== $this->playTimes) {
-            $res['PlayTimes'] = $this->playTimes;
-        }
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
-        }
-        if (null !== $this->speed) {
-            $res['Speed'] = $this->speed;
-        }
-        if (null !== $this->outId) {
-            $res['OutId'] = $this->outId;
         }
 
         return $res;
@@ -128,8 +128,20 @@ class SingleCallByTtsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CalledNumber'])) {
+            $model->calledNumber = $map['CalledNumber'];
+        }
+        if (isset($map['CalledShowNumber'])) {
+            $model->calledShowNumber = $map['CalledShowNumber'];
+        }
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PlayTimes'])) {
+            $model->playTimes = $map['PlayTimes'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -137,11 +149,8 @@ class SingleCallByTtsRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['CalledShowNumber'])) {
-            $model->calledShowNumber = $map['CalledShowNumber'];
-        }
-        if (isset($map['CalledNumber'])) {
-            $model->calledNumber = $map['CalledNumber'];
+        if (isset($map['Speed'])) {
+            $model->speed = $map['Speed'];
         }
         if (isset($map['TtsCode'])) {
             $model->ttsCode = $map['TtsCode'];
@@ -149,17 +158,8 @@ class SingleCallByTtsRequest extends Model
         if (isset($map['TtsParam'])) {
             $model->ttsParam = $map['TtsParam'];
         }
-        if (isset($map['PlayTimes'])) {
-            $model->playTimes = $map['PlayTimes'];
-        }
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];
-        }
-        if (isset($map['Speed'])) {
-            $model->speed = $map['Speed'];
-        }
-        if (isset($map['OutId'])) {
-            $model->outId = $map['OutId'];
         }
 
         return $model;

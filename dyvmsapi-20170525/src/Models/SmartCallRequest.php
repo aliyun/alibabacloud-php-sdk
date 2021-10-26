@@ -9,24 +9,39 @@ use AlibabaCloud\Tea\Model;
 class SmartCallRequest extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
+    public $actionCodeBreak;
 
     /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $actionCodeTimeBreak;
 
     /**
      * @var string
      */
-    public $calledShowNumber;
+    public $asrBaseId;
+
+    /**
+     * @var string
+     */
+    public $asrModelId;
+
+    /**
+     * @var string
+     */
+    public $backgroundFileCode;
+
+    /**
+     * @var int
+     */
+    public $backgroundSpeed;
+
+    /**
+     * @var int
+     */
+    public $backgroundVolume;
 
     /**
      * @var string
@@ -36,47 +51,7 @@ class SmartCallRequest extends Model
     /**
      * @var string
      */
-    public $voiceCode;
-
-    /**
-     * @var bool
-     */
-    public $recordFlag;
-
-    /**
-     * @var int
-     */
-    public $volume;
-
-    /**
-     * @var int
-     */
-    public $speed;
-
-    /**
-     * @var string
-     */
-    public $asrModelId;
-
-    /**
-     * @var int
-     */
-    public $pauseTime;
-
-    /**
-     * @var int
-     */
-    public $muteTime;
-
-    /**
-     * @var bool
-     */
-    public $actionCodeBreak;
-
-    /**
-     * @var string
-     */
-    public $outId;
+    public $calledShowNumber;
 
     /**
      * @var string
@@ -89,9 +64,44 @@ class SmartCallRequest extends Model
     public $earlyMediaAsr;
 
     /**
+     * @var bool
+     */
+    public $enableITN;
+
+    /**
+     * @var int
+     */
+    public $muteTime;
+
+    /**
      * @var string
      */
-    public $voiceCodeParam;
+    public $outId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pauseTime;
+
+    /**
+     * @var bool
+     */
+    public $recordFlag;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var int
@@ -101,7 +111,22 @@ class SmartCallRequest extends Model
     /**
      * @var int
      */
-    public $actionCodeTimeBreak;
+    public $speed;
+
+    /**
+     * @var int
+     */
+    public $streamAsr;
+
+    /**
+     * @var bool
+     */
+    public $ttsConf;
+
+    /**
+     * @var int
+     */
+    public $ttsSpeed;
 
     /**
      * @var string
@@ -114,50 +139,49 @@ class SmartCallRequest extends Model
     public $ttsVolume;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ttsSpeed;
-
-    /**
-     * @var bool
-     */
-    public $ttsConf;
+    public $voiceCode;
 
     /**
      * @var string
      */
-    public $asrBaseId;
+    public $voiceCodeParam;
 
     /**
      * @var int
      */
-    public $streamAsr;
+    public $volume;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'calledShowNumber'     => 'CalledShowNumber',
-        'calledNumber'         => 'CalledNumber',
-        'voiceCode'            => 'VoiceCode',
-        'recordFlag'           => 'RecordFlag',
-        'volume'               => 'Volume',
-        'speed'                => 'Speed',
-        'asrModelId'           => 'AsrModelId',
-        'pauseTime'            => 'PauseTime',
-        'muteTime'             => 'MuteTime',
         'actionCodeBreak'      => 'ActionCodeBreak',
-        'outId'                => 'OutId',
+        'actionCodeTimeBreak'  => 'ActionCodeTimeBreak',
+        'asrBaseId'            => 'AsrBaseId',
+        'asrModelId'           => 'AsrModelId',
+        'backgroundFileCode'   => 'BackgroundFileCode',
+        'backgroundSpeed'      => 'BackgroundSpeed',
+        'backgroundVolume'     => 'BackgroundVolume',
+        'calledNumber'         => 'CalledNumber',
+        'calledShowNumber'     => 'CalledShowNumber',
         'dynamicId'            => 'DynamicId',
         'earlyMediaAsr'        => 'EarlyMediaAsr',
-        'voiceCodeParam'       => 'VoiceCodeParam',
+        'enableITN'            => 'EnableITN',
+        'muteTime'             => 'MuteTime',
+        'outId'                => 'OutId',
+        'ownerId'              => 'OwnerId',
+        'pauseTime'            => 'PauseTime',
+        'recordFlag'           => 'RecordFlag',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'sessionTimeout'       => 'SessionTimeout',
-        'actionCodeTimeBreak'  => 'ActionCodeTimeBreak',
+        'speed'                => 'Speed',
+        'streamAsr'            => 'StreamAsr',
+        'ttsConf'              => 'TtsConf',
+        'ttsSpeed'             => 'TtsSpeed',
         'ttsStyle'             => 'TtsStyle',
         'ttsVolume'            => 'TtsVolume',
-        'ttsSpeed'             => 'TtsSpeed',
-        'ttsConf'              => 'TtsConf',
-        'asrBaseId'            => 'AsrBaseId',
-        'streamAsr'            => 'StreamAsr',
+        'voiceCode'            => 'VoiceCode',
+        'voiceCodeParam'       => 'VoiceCodeParam',
+        'volume'               => 'Volume',
     ];
 
     public function validate()
@@ -167,47 +191,32 @@ class SmartCallRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->actionCodeBreak) {
+            $res['ActionCodeBreak'] = $this->actionCodeBreak;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->actionCodeTimeBreak) {
+            $res['ActionCodeTimeBreak'] = $this->actionCodeTimeBreak;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->calledShowNumber) {
-            $res['CalledShowNumber'] = $this->calledShowNumber;
-        }
-        if (null !== $this->calledNumber) {
-            $res['CalledNumber'] = $this->calledNumber;
-        }
-        if (null !== $this->voiceCode) {
-            $res['VoiceCode'] = $this->voiceCode;
-        }
-        if (null !== $this->recordFlag) {
-            $res['RecordFlag'] = $this->recordFlag;
-        }
-        if (null !== $this->volume) {
-            $res['Volume'] = $this->volume;
-        }
-        if (null !== $this->speed) {
-            $res['Speed'] = $this->speed;
+        if (null !== $this->asrBaseId) {
+            $res['AsrBaseId'] = $this->asrBaseId;
         }
         if (null !== $this->asrModelId) {
             $res['AsrModelId'] = $this->asrModelId;
         }
-        if (null !== $this->pauseTime) {
-            $res['PauseTime'] = $this->pauseTime;
+        if (null !== $this->backgroundFileCode) {
+            $res['BackgroundFileCode'] = $this->backgroundFileCode;
         }
-        if (null !== $this->muteTime) {
-            $res['MuteTime'] = $this->muteTime;
+        if (null !== $this->backgroundSpeed) {
+            $res['BackgroundSpeed'] = $this->backgroundSpeed;
         }
-        if (null !== $this->actionCodeBreak) {
-            $res['ActionCodeBreak'] = $this->actionCodeBreak;
+        if (null !== $this->backgroundVolume) {
+            $res['BackgroundVolume'] = $this->backgroundVolume;
         }
-        if (null !== $this->outId) {
-            $res['OutId'] = $this->outId;
+        if (null !== $this->calledNumber) {
+            $res['CalledNumber'] = $this->calledNumber;
+        }
+        if (null !== $this->calledShowNumber) {
+            $res['CalledShowNumber'] = $this->calledShowNumber;
         }
         if (null !== $this->dynamicId) {
             $res['DynamicId'] = $this->dynamicId;
@@ -215,14 +224,44 @@ class SmartCallRequest extends Model
         if (null !== $this->earlyMediaAsr) {
             $res['EarlyMediaAsr'] = $this->earlyMediaAsr;
         }
-        if (null !== $this->voiceCodeParam) {
-            $res['VoiceCodeParam'] = $this->voiceCodeParam;
+        if (null !== $this->enableITN) {
+            $res['EnableITN'] = $this->enableITN;
+        }
+        if (null !== $this->muteTime) {
+            $res['MuteTime'] = $this->muteTime;
+        }
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pauseTime) {
+            $res['PauseTime'] = $this->pauseTime;
+        }
+        if (null !== $this->recordFlag) {
+            $res['RecordFlag'] = $this->recordFlag;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->sessionTimeout) {
             $res['SessionTimeout'] = $this->sessionTimeout;
         }
-        if (null !== $this->actionCodeTimeBreak) {
-            $res['ActionCodeTimeBreak'] = $this->actionCodeTimeBreak;
+        if (null !== $this->speed) {
+            $res['Speed'] = $this->speed;
+        }
+        if (null !== $this->streamAsr) {
+            $res['StreamAsr'] = $this->streamAsr;
+        }
+        if (null !== $this->ttsConf) {
+            $res['TtsConf'] = $this->ttsConf;
+        }
+        if (null !== $this->ttsSpeed) {
+            $res['TtsSpeed'] = $this->ttsSpeed;
         }
         if (null !== $this->ttsStyle) {
             $res['TtsStyle'] = $this->ttsStyle;
@@ -230,17 +269,14 @@ class SmartCallRequest extends Model
         if (null !== $this->ttsVolume) {
             $res['TtsVolume'] = $this->ttsVolume;
         }
-        if (null !== $this->ttsSpeed) {
-            $res['TtsSpeed'] = $this->ttsSpeed;
+        if (null !== $this->voiceCode) {
+            $res['VoiceCode'] = $this->voiceCode;
         }
-        if (null !== $this->ttsConf) {
-            $res['TtsConf'] = $this->ttsConf;
+        if (null !== $this->voiceCodeParam) {
+            $res['VoiceCodeParam'] = $this->voiceCodeParam;
         }
-        if (null !== $this->asrBaseId) {
-            $res['AsrBaseId'] = $this->asrBaseId;
-        }
-        if (null !== $this->streamAsr) {
-            $res['StreamAsr'] = $this->streamAsr;
+        if (null !== $this->volume) {
+            $res['Volume'] = $this->volume;
         }
 
         return $res;
@@ -254,47 +290,32 @@ class SmartCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['ActionCodeBreak'])) {
+            $model->actionCodeBreak = $map['ActionCodeBreak'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['ActionCodeTimeBreak'])) {
+            $model->actionCodeTimeBreak = $map['ActionCodeTimeBreak'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CalledShowNumber'])) {
-            $model->calledShowNumber = $map['CalledShowNumber'];
-        }
-        if (isset($map['CalledNumber'])) {
-            $model->calledNumber = $map['CalledNumber'];
-        }
-        if (isset($map['VoiceCode'])) {
-            $model->voiceCode = $map['VoiceCode'];
-        }
-        if (isset($map['RecordFlag'])) {
-            $model->recordFlag = $map['RecordFlag'];
-        }
-        if (isset($map['Volume'])) {
-            $model->volume = $map['Volume'];
-        }
-        if (isset($map['Speed'])) {
-            $model->speed = $map['Speed'];
+        if (isset($map['AsrBaseId'])) {
+            $model->asrBaseId = $map['AsrBaseId'];
         }
         if (isset($map['AsrModelId'])) {
             $model->asrModelId = $map['AsrModelId'];
         }
-        if (isset($map['PauseTime'])) {
-            $model->pauseTime = $map['PauseTime'];
+        if (isset($map['BackgroundFileCode'])) {
+            $model->backgroundFileCode = $map['BackgroundFileCode'];
         }
-        if (isset($map['MuteTime'])) {
-            $model->muteTime = $map['MuteTime'];
+        if (isset($map['BackgroundSpeed'])) {
+            $model->backgroundSpeed = $map['BackgroundSpeed'];
         }
-        if (isset($map['ActionCodeBreak'])) {
-            $model->actionCodeBreak = $map['ActionCodeBreak'];
+        if (isset($map['BackgroundVolume'])) {
+            $model->backgroundVolume = $map['BackgroundVolume'];
         }
-        if (isset($map['OutId'])) {
-            $model->outId = $map['OutId'];
+        if (isset($map['CalledNumber'])) {
+            $model->calledNumber = $map['CalledNumber'];
+        }
+        if (isset($map['CalledShowNumber'])) {
+            $model->calledShowNumber = $map['CalledShowNumber'];
         }
         if (isset($map['DynamicId'])) {
             $model->dynamicId = $map['DynamicId'];
@@ -302,14 +323,44 @@ class SmartCallRequest extends Model
         if (isset($map['EarlyMediaAsr'])) {
             $model->earlyMediaAsr = $map['EarlyMediaAsr'];
         }
-        if (isset($map['VoiceCodeParam'])) {
-            $model->voiceCodeParam = $map['VoiceCodeParam'];
+        if (isset($map['EnableITN'])) {
+            $model->enableITN = $map['EnableITN'];
+        }
+        if (isset($map['MuteTime'])) {
+            $model->muteTime = $map['MuteTime'];
+        }
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PauseTime'])) {
+            $model->pauseTime = $map['PauseTime'];
+        }
+        if (isset($map['RecordFlag'])) {
+            $model->recordFlag = $map['RecordFlag'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['SessionTimeout'])) {
             $model->sessionTimeout = $map['SessionTimeout'];
         }
-        if (isset($map['ActionCodeTimeBreak'])) {
-            $model->actionCodeTimeBreak = $map['ActionCodeTimeBreak'];
+        if (isset($map['Speed'])) {
+            $model->speed = $map['Speed'];
+        }
+        if (isset($map['StreamAsr'])) {
+            $model->streamAsr = $map['StreamAsr'];
+        }
+        if (isset($map['TtsConf'])) {
+            $model->ttsConf = $map['TtsConf'];
+        }
+        if (isset($map['TtsSpeed'])) {
+            $model->ttsSpeed = $map['TtsSpeed'];
         }
         if (isset($map['TtsStyle'])) {
             $model->ttsStyle = $map['TtsStyle'];
@@ -317,17 +368,14 @@ class SmartCallRequest extends Model
         if (isset($map['TtsVolume'])) {
             $model->ttsVolume = $map['TtsVolume'];
         }
-        if (isset($map['TtsSpeed'])) {
-            $model->ttsSpeed = $map['TtsSpeed'];
+        if (isset($map['VoiceCode'])) {
+            $model->voiceCode = $map['VoiceCode'];
         }
-        if (isset($map['TtsConf'])) {
-            $model->ttsConf = $map['TtsConf'];
+        if (isset($map['VoiceCodeParam'])) {
+            $model->voiceCodeParam = $map['VoiceCodeParam'];
         }
-        if (isset($map['AsrBaseId'])) {
-            $model->asrBaseId = $map['AsrBaseId'];
-        }
-        if (isset($map['StreamAsr'])) {
-            $model->streamAsr = $map['StreamAsr'];
+        if (isset($map['Volume'])) {
+            $model->volume = $map['Volume'];
         }
 
         return $model;

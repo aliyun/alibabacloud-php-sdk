@@ -14,11 +14,6 @@ class SendVerificationResponseBody extends Model
     public $code;
 
     /**
-     * @var string
-     */
-    public $message;
-
-    /**
      * @var bool
      */
     public $data;
@@ -26,11 +21,16 @@ class SendVerificationResponseBody extends Model
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'code'      => 'Code',
-        'message'   => 'Message',
         'data'      => 'Data',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
     ];
 
@@ -44,11 +44,11 @@ class SendVerificationResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -68,11 +68,11 @@ class SendVerificationResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

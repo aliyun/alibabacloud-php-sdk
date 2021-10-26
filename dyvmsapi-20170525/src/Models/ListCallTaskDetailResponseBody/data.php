@@ -11,16 +11,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $duration;
-
-    /**
-     * @var string
-     */
     public $calledNum;
 
     /**
@@ -31,13 +21,23 @@ class data extends Model
     /**
      * @var int
      */
+    public $duration;
+
+    /**
+     * @var int
+     */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'    => 'Status',
-        'duration'  => 'Duration',
         'calledNum' => 'CalledNum',
         'caller'    => 'Caller',
+        'duration'  => 'Duration',
         'id'        => 'Id',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
         if (null !== $this->calledNum) {
             $res['CalledNum'] = $this->calledNum;
         }
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
         }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
         if (isset($map['CalledNum'])) {
             $model->calledNum = $map['CalledNum'];
         }
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
         }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

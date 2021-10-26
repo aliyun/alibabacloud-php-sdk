@@ -14,6 +14,11 @@ class CloseSipAccountRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $partnerId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -24,19 +29,14 @@ class CloseSipAccountRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var int
-     */
-    public $partnerId;
-
-    /**
      * @var string
      */
     public $sipAccountID;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'partnerId'            => 'PartnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'partnerId'            => 'PartnerId',
         'sipAccountID'         => 'SipAccountID',
     ];
 
@@ -50,14 +50,14 @@ class CloseSipAccountRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->partnerId) {
+            $res['PartnerId'] = $this->partnerId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->partnerId) {
-            $res['PartnerId'] = $this->partnerId;
         }
         if (null !== $this->sipAccountID) {
             $res['SipAccountID'] = $this->sipAccountID;
@@ -77,14 +77,14 @@ class CloseSipAccountRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['PartnerId'])) {
+            $model->partnerId = $map['PartnerId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['PartnerId'])) {
-            $model->partnerId = $map['PartnerId'];
         }
         if (isset($map['SipAccountID'])) {
             $model->sipAccountID = $map['SipAccountID'];

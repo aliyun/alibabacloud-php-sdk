@@ -20,19 +20,19 @@ class ListOutboundStrategiesResponseBody extends Model
     public $message;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var outboundStrategies[]
      */
     public $outboundStrategies;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'code'               => 'Code',
         'message'            => 'Message',
-        'requestId'          => 'RequestId',
         'outboundStrategies' => 'OutboundStrategies',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class ListOutboundStrategiesResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->outboundStrategies) {
             $res['OutboundStrategies'] = [];
             if (null !== $this->outboundStrategies && \is_array($this->outboundStrategies)) {
@@ -59,6 +56,9 @@ class ListOutboundStrategiesResponseBody extends Model
                     $res['OutboundStrategies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class ListOutboundStrategiesResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OutboundStrategies'])) {
             if (!empty($map['OutboundStrategies'])) {
                 $model->outboundStrategies = [];
@@ -89,6 +86,9 @@ class ListOutboundStrategiesResponseBody extends Model
                     $model->outboundStrategies[$n++] = null !== $item ? outboundStrategies::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

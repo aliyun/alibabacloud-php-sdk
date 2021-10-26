@@ -9,29 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateRobotTaskRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $taskName;
-
-    /**
-     * @var int
-     */
-    public $dialogId;
+    public $caller;
 
     /**
      * @var string
@@ -39,9 +19,14 @@ class CreateRobotTaskRequest extends Model
     public $corpName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $caller;
+    public $dialogId;
+
+    /**
+     * @var bool
+     */
+    public $isSelfLine;
 
     /**
      * @var bool
@@ -51,7 +36,12 @@ class CreateRobotTaskRequest extends Model
     /**
      * @var int
      */
-    public $retryType;
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $recallInterval;
 
     /**
      * @var string
@@ -64,28 +54,38 @@ class CreateRobotTaskRequest extends Model
     public $recallTimes;
 
     /**
-     * @var int
+     * @var string
      */
-    public $recallInterval;
+    public $resourceOwnerAccount;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $isSelfLine;
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $retryType;
+
+    /**
+     * @var string
+     */
+    public $taskName;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'taskName'             => 'TaskName',
-        'dialogId'             => 'DialogId',
-        'corpName'             => 'CorpName',
         'caller'               => 'Caller',
+        'corpName'             => 'CorpName',
+        'dialogId'             => 'DialogId',
+        'isSelfLine'           => 'IsSelfLine',
         'numberStatusIdent'    => 'NumberStatusIdent',
-        'retryType'            => 'RetryType',
+        'ownerId'              => 'OwnerId',
+        'recallInterval'       => 'RecallInterval',
         'recallStateCodes'     => 'RecallStateCodes',
         'recallTimes'          => 'RecallTimes',
-        'recallInterval'       => 'RecallInterval',
-        'isSelfLine'           => 'IsSelfLine',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'retryType'            => 'RetryType',
+        'taskName'             => 'TaskName',
     ];
 
     public function validate()
@@ -95,32 +95,26 @@ class CreateRobotTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
-        }
-        if (null !== $this->dialogId) {
-            $res['DialogId'] = $this->dialogId;
+        if (null !== $this->caller) {
+            $res['Caller'] = $this->caller;
         }
         if (null !== $this->corpName) {
             $res['CorpName'] = $this->corpName;
         }
-        if (null !== $this->caller) {
-            $res['Caller'] = $this->caller;
+        if (null !== $this->dialogId) {
+            $res['DialogId'] = $this->dialogId;
+        }
+        if (null !== $this->isSelfLine) {
+            $res['IsSelfLine'] = $this->isSelfLine;
         }
         if (null !== $this->numberStatusIdent) {
             $res['NumberStatusIdent'] = $this->numberStatusIdent;
         }
-        if (null !== $this->retryType) {
-            $res['RetryType'] = $this->retryType;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->recallInterval) {
+            $res['RecallInterval'] = $this->recallInterval;
         }
         if (null !== $this->recallStateCodes) {
             $res['RecallStateCodes'] = $this->recallStateCodes;
@@ -128,11 +122,17 @@ class CreateRobotTaskRequest extends Model
         if (null !== $this->recallTimes) {
             $res['RecallTimes'] = $this->recallTimes;
         }
-        if (null !== $this->recallInterval) {
-            $res['RecallInterval'] = $this->recallInterval;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-        if (null !== $this->isSelfLine) {
-            $res['IsSelfLine'] = $this->isSelfLine;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->retryType) {
+            $res['RetryType'] = $this->retryType;
+        }
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
         }
 
         return $res;
@@ -146,32 +146,26 @@ class CreateRobotTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
-        }
-        if (isset($map['DialogId'])) {
-            $model->dialogId = $map['DialogId'];
+        if (isset($map['Caller'])) {
+            $model->caller = $map['Caller'];
         }
         if (isset($map['CorpName'])) {
             $model->corpName = $map['CorpName'];
         }
-        if (isset($map['Caller'])) {
-            $model->caller = $map['Caller'];
+        if (isset($map['DialogId'])) {
+            $model->dialogId = $map['DialogId'];
+        }
+        if (isset($map['IsSelfLine'])) {
+            $model->isSelfLine = $map['IsSelfLine'];
         }
         if (isset($map['NumberStatusIdent'])) {
             $model->numberStatusIdent = $map['NumberStatusIdent'];
         }
-        if (isset($map['RetryType'])) {
-            $model->retryType = $map['RetryType'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RecallInterval'])) {
+            $model->recallInterval = $map['RecallInterval'];
         }
         if (isset($map['RecallStateCodes'])) {
             $model->recallStateCodes = $map['RecallStateCodes'];
@@ -179,11 +173,17 @@ class CreateRobotTaskRequest extends Model
         if (isset($map['RecallTimes'])) {
             $model->recallTimes = $map['RecallTimes'];
         }
-        if (isset($map['RecallInterval'])) {
-            $model->recallInterval = $map['RecallInterval'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-        if (isset($map['IsSelfLine'])) {
-            $model->isSelfLine = $map['IsSelfLine'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RetryType'])) {
+            $model->retryType = $map['RetryType'];
+        }
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
         }
 
         return $model;

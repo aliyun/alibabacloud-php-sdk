@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class SetTransferCalleePoolConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $calledRouteMode;
+
+    /**
+     * @var details[]
+     */
+    public $details;
+
+    /**
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
 
     /**
      * @var string
@@ -37,20 +37,20 @@ class SetTransferCalleePoolConfigRequest extends Model
     /**
      * @var string
      */
-    public $calledRouteMode;
+    public $resourceOwnerAccount;
 
     /**
-     * @var details[]
+     * @var int
      */
-    public $details;
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'phoneNumber'          => 'PhoneNumber',
-        'qualificationId'      => 'QualificationId',
         'calledRouteMode'      => 'CalledRouteMode',
         'details'              => 'Details',
+        'ownerId'              => 'OwnerId',
+        'phoneNumber'          => 'PhoneNumber',
+        'qualificationId'      => 'QualificationId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -60,21 +60,6 @@ class SetTransferCalleePoolConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
-        }
-        if (null !== $this->qualificationId) {
-            $res['QualificationId'] = $this->qualificationId;
-        }
         if (null !== $this->calledRouteMode) {
             $res['CalledRouteMode'] = $this->calledRouteMode;
         }
@@ -86,6 +71,21 @@ class SetTransferCalleePoolConfigRequest extends Model
                     $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->phoneNumber) {
+            $res['PhoneNumber'] = $this->phoneNumber;
+        }
+        if (null !== $this->qualificationId) {
+            $res['QualificationId'] = $this->qualificationId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -99,21 +99,6 @@ class SetTransferCalleePoolConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['PhoneNumber'])) {
-            $model->phoneNumber = $map['PhoneNumber'];
-        }
-        if (isset($map['QualificationId'])) {
-            $model->qualificationId = $map['QualificationId'];
-        }
         if (isset($map['CalledRouteMode'])) {
             $model->calledRouteMode = $map['CalledRouteMode'];
         }
@@ -125,6 +110,21 @@ class SetTransferCalleePoolConfigRequest extends Model
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PhoneNumber'])) {
+            $model->phoneNumber = $map['PhoneNumber'];
+        }
+        if (isset($map['QualificationId'])) {
+            $model->qualificationId = $map['QualificationId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

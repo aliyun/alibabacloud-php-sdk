@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddRtcAccountRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $deviceId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,16 +27,11 @@ class AddRtcAccountRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $deviceId;
     protected $_name = [
+        'deviceId'             => 'DeviceId',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'deviceId'             => 'DeviceId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class AddRtcAccountRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -49,9 +52,6 @@ class AddRtcAccountRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class AddRtcAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -73,9 +76,6 @@ class AddRtcAccountRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
         }
 
         return $model;

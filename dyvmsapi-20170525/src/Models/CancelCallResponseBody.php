@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CancelCallResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $status;
-
-    /**
      * @var string
      */
     public $code;
@@ -27,11 +22,16 @@ class CancelCallResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $status;
     protected $_name = [
-        'status'    => 'Status',
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class CancelCallResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -52,6 +49,9 @@ class CancelCallResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class CancelCallResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -76,6 +73,9 @@ class CancelCallResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

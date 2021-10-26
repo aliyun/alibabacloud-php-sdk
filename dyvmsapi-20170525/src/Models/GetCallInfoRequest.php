@@ -6,18 +6,8 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UploadRobotTaskCalledFileRequest extends Model
+class GetCallInfoRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $calledNumber;
-
-    /**
-     * @var int
-     */
-    public $id;
-
     /**
      * @var int
      */
@@ -36,20 +26,12 @@ class UploadRobotTaskCalledFileRequest extends Model
     /**
      * @var string
      */
-    public $ttsParam;
-
-    /**
-     * @var string
-     */
-    public $ttsParamHead;
+    public $rtcId;
     protected $_name = [
-        'calledNumber'         => 'CalledNumber',
-        'id'                   => 'Id',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ttsParam'             => 'TtsParam',
-        'ttsParamHead'         => 'TtsParamHead',
+        'rtcId'                => 'RtcId',
     ];
 
     public function validate()
@@ -59,12 +41,6 @@ class UploadRobotTaskCalledFileRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->calledNumber) {
-            $res['CalledNumber'] = $this->calledNumber;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -74,11 +50,8 @@ class UploadRobotTaskCalledFileRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ttsParam) {
-            $res['TtsParam'] = $this->ttsParam;
-        }
-        if (null !== $this->ttsParamHead) {
-            $res['TtsParamHead'] = $this->ttsParamHead;
+        if (null !== $this->rtcId) {
+            $res['RtcId'] = $this->rtcId;
         }
 
         return $res;
@@ -87,17 +60,11 @@ class UploadRobotTaskCalledFileRequest extends Model
     /**
      * @param array $map
      *
-     * @return UploadRobotTaskCalledFileRequest
+     * @return GetCallInfoRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CalledNumber'])) {
-            $model->calledNumber = $map['CalledNumber'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -107,11 +74,8 @@ class UploadRobotTaskCalledFileRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['TtsParam'])) {
-            $model->ttsParam = $map['TtsParam'];
-        }
-        if (isset($map['TtsParamHead'])) {
-            $model->ttsParamHead = $map['TtsParamHead'];
+        if (isset($map['RtcId'])) {
+            $model->rtcId = $map['RtcId'];
         }
 
         return $model;

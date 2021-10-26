@@ -16,22 +16,22 @@ class ListOrderedNumbersRequest extends Model
     /**
      * @var string
      */
+    public $prodCode;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $prodCode;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'prodCode'             => 'ProdCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'prodCode'             => 'ProdCode',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ListOrderedNumbersRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->prodCode) {
+            $res['ProdCode'] = $this->prodCode;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->prodCode) {
-            $res['ProdCode'] = $this->prodCode;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ListOrderedNumbersRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['ProdCode'])) {
+            $model->prodCode = $map['ProdCode'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ProdCode'])) {
-            $model->prodCode = $map['ProdCode'];
         }
 
         return $model;

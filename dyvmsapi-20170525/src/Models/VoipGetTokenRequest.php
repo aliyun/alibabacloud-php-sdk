@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class VoipGetTokenRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $deviceId;
+
+    /**
+     * @var bool
+     */
+    public $isCustomAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -27,23 +37,13 @@ class VoipGetTokenRequest extends Model
      * @var string
      */
     public $voipId;
-
-    /**
-     * @var string
-     */
-    public $deviceId;
-
-    /**
-     * @var bool
-     */
-    public $isCustomAccount;
     protected $_name = [
+        'deviceId'             => 'DeviceId',
+        'isCustomAccount'      => 'IsCustomAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'voipId'               => 'VoipId',
-        'deviceId'             => 'DeviceId',
-        'isCustomAccount'      => 'IsCustomAccount',
     ];
 
     public function validate()
@@ -53,6 +53,12 @@ class VoipGetTokenRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
+        }
+        if (null !== $this->isCustomAccount) {
+            $res['IsCustomAccount'] = $this->isCustomAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -64,12 +70,6 @@ class VoipGetTokenRequest extends Model
         }
         if (null !== $this->voipId) {
             $res['VoipId'] = $this->voipId;
-        }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
-        }
-        if (null !== $this->isCustomAccount) {
-            $res['IsCustomAccount'] = $this->isCustomAccount;
         }
 
         return $res;
@@ -83,6 +83,12 @@ class VoipGetTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
+        }
+        if (isset($map['IsCustomAccount'])) {
+            $model->isCustomAccount = $map['IsCustomAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -94,12 +100,6 @@ class VoipGetTokenRequest extends Model
         }
         if (isset($map['VoipId'])) {
             $model->voipId = $map['VoipId'];
-        }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
-        }
-        if (isset($map['IsCustomAccount'])) {
-            $model->isCustomAccount = $map['IsCustomAccount'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class details extends Model
     /**
      * @var string
      */
-    public $caller;
+    public $called;
 
     /**
      * @var string
      */
-    public $called;
+    public $caller;
     protected $_name = [
-        'caller' => 'Caller',
         'called' => 'Called',
+        'caller' => 'Caller',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class details extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->caller) {
-            $res['Caller'] = $this->caller;
-        }
         if (null !== $this->called) {
             $res['Called'] = $this->called;
+        }
+        if (null !== $this->caller) {
+            $res['Caller'] = $this->caller;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class details extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Caller'])) {
-            $model->caller = $map['Caller'];
-        }
         if (isset($map['Called'])) {
             $model->called = $map['Called'];
+        }
+        if (isset($map['Caller'])) {
+            $model->caller = $map['Caller'];
         }
 
         return $model;

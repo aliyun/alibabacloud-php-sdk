@@ -11,12 +11,7 @@ class values extends Model
     /**
      * @var string
      */
-    public $mngOpMail;
-
-    /**
-     * @var string
-     */
-    public $mngOpName;
+    public $agree;
 
     /**
      * @var string
@@ -26,12 +21,7 @@ class values extends Model
     /**
      * @var string
      */
-    public $agree;
-
-    /**
-     * @var string
-     */
-    public $mngOpMobile;
+    public $hotlineNumber;
 
     /**
      * @var string
@@ -41,7 +31,17 @@ class values extends Model
     /**
      * @var string
      */
-    public $hotlineNumber;
+    public $mngOpMail;
+
+    /**
+     * @var string
+     */
+    public $mngOpMobile;
+
+    /**
+     * @var string
+     */
+    public $mngOpName;
 
     /**
      * @var string
@@ -53,13 +53,13 @@ class values extends Model
      */
     public $resUniqueCode;
     protected $_name = [
-        'mngOpMail'         => 'MngOpMail',
-        'mngOpName'         => 'MngOpName',
-        'corpName'          => 'CorpName',
         'agree'             => 'Agree',
-        'mngOpMobile'       => 'MngOpMobile',
-        'mngOpIdentityCard' => 'MngOpIdentityCard',
+        'corpName'          => 'CorpName',
         'hotlineNumber'     => 'HotlineNumber',
+        'mngOpIdentityCard' => 'MngOpIdentityCard',
+        'mngOpMail'         => 'MngOpMail',
+        'mngOpMobile'       => 'MngOpMobile',
+        'mngOpName'         => 'MngOpName',
         'qualificationId'   => 'QualificationId',
         'resUniqueCode'     => 'ResUniqueCode',
     ];
@@ -71,26 +71,26 @@ class values extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mngOpMail) {
-            $res['MngOpMail'] = $this->mngOpMail;
-        }
-        if (null !== $this->mngOpName) {
-            $res['MngOpName'] = $this->mngOpName;
+        if (null !== $this->agree) {
+            $res['Agree'] = $this->agree;
         }
         if (null !== $this->corpName) {
             $res['CorpName'] = $this->corpName;
         }
-        if (null !== $this->agree) {
-            $res['Agree'] = $this->agree;
-        }
-        if (null !== $this->mngOpMobile) {
-            $res['MngOpMobile'] = $this->mngOpMobile;
+        if (null !== $this->hotlineNumber) {
+            $res['HotlineNumber'] = $this->hotlineNumber;
         }
         if (null !== $this->mngOpIdentityCard) {
             $res['MngOpIdentityCard'] = $this->mngOpIdentityCard;
         }
-        if (null !== $this->hotlineNumber) {
-            $res['HotlineNumber'] = $this->hotlineNumber;
+        if (null !== $this->mngOpMail) {
+            $res['MngOpMail'] = $this->mngOpMail;
+        }
+        if (null !== $this->mngOpMobile) {
+            $res['MngOpMobile'] = $this->mngOpMobile;
+        }
+        if (null !== $this->mngOpName) {
+            $res['MngOpName'] = $this->mngOpName;
         }
         if (null !== $this->qualificationId) {
             $res['QualificationId'] = $this->qualificationId;
@@ -110,26 +110,26 @@ class values extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MngOpMail'])) {
-            $model->mngOpMail = $map['MngOpMail'];
-        }
-        if (isset($map['MngOpName'])) {
-            $model->mngOpName = $map['MngOpName'];
+        if (isset($map['Agree'])) {
+            $model->agree = $map['Agree'];
         }
         if (isset($map['CorpName'])) {
             $model->corpName = $map['CorpName'];
         }
-        if (isset($map['Agree'])) {
-            $model->agree = $map['Agree'];
-        }
-        if (isset($map['MngOpMobile'])) {
-            $model->mngOpMobile = $map['MngOpMobile'];
+        if (isset($map['HotlineNumber'])) {
+            $model->hotlineNumber = $map['HotlineNumber'];
         }
         if (isset($map['MngOpIdentityCard'])) {
             $model->mngOpIdentityCard = $map['MngOpIdentityCard'];
         }
-        if (isset($map['HotlineNumber'])) {
-            $model->hotlineNumber = $map['HotlineNumber'];
+        if (isset($map['MngOpMail'])) {
+            $model->mngOpMail = $map['MngOpMail'];
+        }
+        if (isset($map['MngOpMobile'])) {
+            $model->mngOpMobile = $map['MngOpMobile'];
+        }
+        if (isset($map['MngOpName'])) {
+            $model->mngOpName = $map['MngOpName'];
         }
         if (isset($map['QualificationId'])) {
             $model->qualificationId = $map['QualificationId'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SendVerificationRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizType;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,24 +31,19 @@ class SendVerificationRequest extends Model
     /**
      * @var string
      */
-    public $verifyType;
-
-    /**
-     * @var string
-     */
-    public $bizType;
-
-    /**
-     * @var string
-     */
     public $target;
+
+    /**
+     * @var string
+     */
+    public $verifyType;
     protected $_name = [
+        'bizType'              => 'BizType',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'verifyType'           => 'VerifyType',
-        'bizType'              => 'BizType',
         'target'               => 'Target',
+        'verifyType'           => 'VerifyType',
     ];
 
     public function validate()
@@ -53,6 +53,9 @@ class SendVerificationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -62,14 +65,11 @@ class SendVerificationRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->verifyType) {
-            $res['VerifyType'] = $this->verifyType;
-        }
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
-        }
         if (null !== $this->target) {
             $res['Target'] = $this->target;
+        }
+        if (null !== $this->verifyType) {
+            $res['VerifyType'] = $this->verifyType;
         }
 
         return $res;
@@ -83,6 +83,9 @@ class SendVerificationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -92,14 +95,11 @@ class SendVerificationRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['VerifyType'])) {
-            $model->verifyType = $map['VerifyType'];
-        }
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
-        }
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
+        }
+        if (isset($map['VerifyType'])) {
+            $model->verifyType = $map['VerifyType'];
         }
 
         return $model;

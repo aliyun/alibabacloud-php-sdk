@@ -11,6 +11,11 @@ class QueryRobotTaskDetailRequest extends Model
     /**
      * @var int
      */
+    public $id;
+
+    /**
+     * @var int
+     */
     public $ownerId;
 
     /**
@@ -22,16 +27,11 @@ class QueryRobotTaskDetailRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $id;
     protected $_name = [
+        'id'                   => 'Id',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'id'                   => 'Id',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class QueryRobotTaskDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -49,9 +52,6 @@ class QueryRobotTaskDetailRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class QueryRobotTaskDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -73,9 +76,6 @@ class QueryRobotTaskDetailRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;
