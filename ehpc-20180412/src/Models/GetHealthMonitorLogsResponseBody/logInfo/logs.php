@@ -10,9 +10,24 @@ use AlibabaCloud\Tea\Model;
 class logs extends Model
 {
     /**
-     * @var int
+     * @var checkList
      */
-    public $time;
+    public $checkList;
+
+    /**
+     * @var string
+     */
+    public $healthId;
+
+    /**
+     * @var string
+     */
+    public $hostName;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -27,7 +42,7 @@ class logs extends Model
     /**
      * @var string
      */
-    public $healthId;
+    public $level;
 
     /**
      * @var string
@@ -37,38 +52,23 @@ class logs extends Model
     /**
      * @var string
      */
-    public $hostName;
-
-    /**
-     * @var string
-     */
     public $sceneName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $level;
-
-    /**
-     * @var checkList
-     */
-    public $checkList;
+    public $time;
     protected $_name = [
-        'time'             => 'Time',
+        'checkList'        => 'CheckList',
+        'healthId'         => 'HealthId',
+        'hostName'         => 'HostName',
+        'instanceId'       => 'InstanceId',
         'itemDescription'  => 'ItemDescription',
         'itemName'         => 'ItemName',
-        'healthId'         => 'HealthId',
-        'sceneDescription' => 'SceneDescription',
-        'hostName'         => 'HostName',
-        'sceneName'        => 'SceneName',
-        'instanceId'       => 'InstanceId',
         'level'            => 'Level',
-        'checkList'        => 'CheckList',
+        'sceneDescription' => 'SceneDescription',
+        'sceneName'        => 'SceneName',
+        'time'             => 'Time',
     ];
 
     public function validate()
@@ -78,8 +78,17 @@ class logs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
+        if (null !== $this->checkList) {
+            $res['CheckList'] = null !== $this->checkList ? $this->checkList->toMap() : null;
+        }
+        if (null !== $this->healthId) {
+            $res['HealthId'] = $this->healthId;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->itemDescription) {
             $res['ItemDescription'] = $this->itemDescription;
@@ -87,26 +96,17 @@ class logs extends Model
         if (null !== $this->itemName) {
             $res['ItemName'] = $this->itemName;
         }
-        if (null !== $this->healthId) {
-            $res['HealthId'] = $this->healthId;
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
         if (null !== $this->sceneDescription) {
             $res['SceneDescription'] = $this->sceneDescription;
         }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
-        }
         if (null !== $this->sceneName) {
             $res['SceneName'] = $this->sceneName;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
-        }
-        if (null !== $this->checkList) {
-            $res['CheckList'] = null !== $this->checkList ? $this->checkList->toMap() : null;
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -120,8 +120,17 @@ class logs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
+        if (isset($map['CheckList'])) {
+            $model->checkList = checkList::fromMap($map['CheckList']);
+        }
+        if (isset($map['HealthId'])) {
+            $model->healthId = $map['HealthId'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ItemDescription'])) {
             $model->itemDescription = $map['ItemDescription'];
@@ -129,26 +138,17 @@ class logs extends Model
         if (isset($map['ItemName'])) {
             $model->itemName = $map['ItemName'];
         }
-        if (isset($map['HealthId'])) {
-            $model->healthId = $map['HealthId'];
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
         if (isset($map['SceneDescription'])) {
             $model->sceneDescription = $map['SceneDescription'];
         }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
-        }
         if (isset($map['SceneName'])) {
             $model->sceneName = $map['SceneName'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
-        }
-        if (isset($map['CheckList'])) {
-            $model->checkList = checkList::fromMap($map['CheckList']);
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

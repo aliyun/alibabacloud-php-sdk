@@ -14,29 +14,19 @@ class commodities extends Model
     public $amount;
 
     /**
-     * @var int
-     */
-    public $systemDiskSize;
-
-    /**
      * @var string
      */
-    public $systemDiskPerformanceLevel;
-
-    /**
-     * @var string
-     */
-    public $nodeType;
-
-    /**
-     * @var string
-     */
-    public $systemDiskCategory;
+    public $instanceType;
 
     /**
      * @var string
      */
     public $internetChargeType;
+
+    /**
+     * @var int
+     */
+    public $internetMaxBandWidthOut;
 
     /**
      * @var string
@@ -46,7 +36,7 @@ class commodities extends Model
     /**
      * @var string
      */
-    public $instanceType;
+    public $nodeType;
 
     /**
      * @var int
@@ -54,20 +44,30 @@ class commodities extends Model
     public $period;
 
     /**
+     * @var string
+     */
+    public $systemDiskCategory;
+
+    /**
+     * @var string
+     */
+    public $systemDiskPerformanceLevel;
+
+    /**
      * @var int
      */
-    public $internetMaxBandWidthOut;
+    public $systemDiskSize;
     protected $_name = [
         'amount'                     => 'Amount',
-        'systemDiskSize'             => 'SystemDiskSize',
-        'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
-        'nodeType'                   => 'NodeType',
-        'systemDiskCategory'         => 'SystemDiskCategory',
-        'internetChargeType'         => 'InternetChargeType',
-        'networkType'                => 'NetworkType',
         'instanceType'               => 'InstanceType',
-        'period'                     => 'Period',
+        'internetChargeType'         => 'InternetChargeType',
         'internetMaxBandWidthOut'    => 'InternetMaxBandWidthOut',
+        'networkType'                => 'NetworkType',
+        'nodeType'                   => 'NodeType',
+        'period'                     => 'Period',
+        'systemDiskCategory'         => 'SystemDiskCategory',
+        'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
+        'systemDiskSize'             => 'SystemDiskSize',
     ];
 
     public function validate()
@@ -80,32 +80,32 @@ class commodities extends Model
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
-        if (null !== $this->systemDiskSize) {
-            $res['SystemDiskSize'] = $this->systemDiskSize;
-        }
-        if (null !== $this->systemDiskPerformanceLevel) {
-            $res['SystemDiskPerformanceLevel'] = $this->systemDiskPerformanceLevel;
-        }
-        if (null !== $this->nodeType) {
-            $res['NodeType'] = $this->nodeType;
-        }
-        if (null !== $this->systemDiskCategory) {
-            $res['SystemDiskCategory'] = $this->systemDiskCategory;
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
         }
+        if (null !== $this->internetMaxBandWidthOut) {
+            $res['InternetMaxBandWidthOut'] = $this->internetMaxBandWidthOut;
+        }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-        if (null !== $this->internetMaxBandWidthOut) {
-            $res['InternetMaxBandWidthOut'] = $this->internetMaxBandWidthOut;
+        if (null !== $this->systemDiskCategory) {
+            $res['SystemDiskCategory'] = $this->systemDiskCategory;
+        }
+        if (null !== $this->systemDiskPerformanceLevel) {
+            $res['SystemDiskPerformanceLevel'] = $this->systemDiskPerformanceLevel;
+        }
+        if (null !== $this->systemDiskSize) {
+            $res['SystemDiskSize'] = $this->systemDiskSize;
         }
 
         return $res;
@@ -122,32 +122,32 @@ class commodities extends Model
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
-        if (isset($map['SystemDiskSize'])) {
-            $model->systemDiskSize = $map['SystemDiskSize'];
-        }
-        if (isset($map['SystemDiskPerformanceLevel'])) {
-            $model->systemDiskPerformanceLevel = $map['SystemDiskPerformanceLevel'];
-        }
-        if (isset($map['NodeType'])) {
-            $model->nodeType = $map['NodeType'];
-        }
-        if (isset($map['SystemDiskCategory'])) {
-            $model->systemDiskCategory = $map['SystemDiskCategory'];
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
         }
+        if (isset($map['InternetMaxBandWidthOut'])) {
+            $model->internetMaxBandWidthOut = $map['InternetMaxBandWidthOut'];
+        }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
-        if (isset($map['InternetMaxBandWidthOut'])) {
-            $model->internetMaxBandWidthOut = $map['InternetMaxBandWidthOut'];
+        if (isset($map['SystemDiskCategory'])) {
+            $model->systemDiskCategory = $map['SystemDiskCategory'];
+        }
+        if (isset($map['SystemDiskPerformanceLevel'])) {
+            $model->systemDiskPerformanceLevel = $map['SystemDiskPerformanceLevel'];
+        }
+        if (isset($map['SystemDiskSize'])) {
+            $model->systemDiskSize = $map['SystemDiskSize'];
         }
 
         return $model;

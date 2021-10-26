@@ -11,7 +11,7 @@ class baseOsTag extends Model
     /**
      * @var string
      */
-    public $platform;
+    public $architecture;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class baseOsTag extends Model
     /**
      * @var string
      */
-    public $version;
+    public $platform;
 
     /**
      * @var string
      */
-    public $architecture;
+    public $version;
     protected $_name = [
-        'platform'     => 'Platform',
-        'osTag'        => 'OsTag',
-        'version'      => 'Version',
         'architecture' => 'Architecture',
+        'osTag'        => 'OsTag',
+        'platform'     => 'Platform',
+        'version'      => 'Version',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class baseOsTag extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->platform) {
-            $res['Platform'] = $this->platform;
+        if (null !== $this->architecture) {
+            $res['Architecture'] = $this->architecture;
         }
         if (null !== $this->osTag) {
             $res['OsTag'] = $this->osTag;
         }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
+        }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
-        }
-        if (null !== $this->architecture) {
-            $res['Architecture'] = $this->architecture;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class baseOsTag extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Platform'])) {
-            $model->platform = $map['Platform'];
+        if (isset($map['Architecture'])) {
+            $model->architecture = $map['Architecture'];
         }
         if (isset($map['OsTag'])) {
             $model->osTag = $map['OsTag'];
         }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
+        }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
-        }
-        if (isset($map['Architecture'])) {
-            $model->architecture = $map['Architecture'];
         }
 
         return $model;

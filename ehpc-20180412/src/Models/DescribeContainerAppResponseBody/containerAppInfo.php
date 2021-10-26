@@ -11,7 +11,7 @@ class containerAppInfo extends Model
     /**
      * @var string
      */
-    public $type;
+    public $createTime;
 
     /**
      * @var string
@@ -21,12 +21,7 @@ class containerAppInfo extends Model
     /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $repository;
+    public $id;
 
     /**
      * @var string
@@ -41,15 +36,20 @@ class containerAppInfo extends Model
     /**
      * @var string
      */
-    public $id;
+    public $repository;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'        => 'Type',
-        'description' => 'Description',
         'createTime'  => 'CreateTime',
-        'repository'  => 'Repository',
+        'description' => 'Description',
+        'id'          => 'Id',
         'imageTag'    => 'ImageTag',
         'name'        => 'Name',
-        'id'          => 'Id',
+        'repository'  => 'Repository',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -59,17 +59,14 @@ class containerAppInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->repository) {
-            $res['Repository'] = $this->repository;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->imageTag) {
             $res['ImageTag'] = $this->imageTag;
@@ -77,8 +74,11 @@ class containerAppInfo extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->repository) {
+            $res['Repository'] = $this->repository;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -92,17 +92,14 @@ class containerAppInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['Repository'])) {
-            $model->repository = $map['Repository'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['ImageTag'])) {
             $model->imageTag = $map['ImageTag'];
@@ -110,8 +107,11 @@ class containerAppInfo extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Repository'])) {
+            $model->repository = $map['Repository'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

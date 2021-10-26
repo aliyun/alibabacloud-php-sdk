@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class fileSystems extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $status;
+    public $bandWidth;
 
     /**
      * @var int
@@ -28,17 +28,12 @@ class fileSystems extends Model
     /**
      * @var string
      */
-    public $storageType;
+    public $destription;
 
     /**
      * @var int
      */
-    public $bandWidth;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $encryptType;
 
     /**
      * @var string
@@ -56,9 +51,14 @@ class fileSystems extends Model
     public $meteredSize;
 
     /**
-     * @var int
+     * @var mountTargetList
      */
-    public $encryptType;
+    public $mountTargetList;
+
+    /**
+     * @var packageList
+     */
+    public $packageList;
 
     /**
      * @var string
@@ -68,32 +68,32 @@ class fileSystems extends Model
     /**
      * @var string
      */
-    public $destription;
+    public $regionId;
 
     /**
-     * @var packageList
+     * @var string
      */
-    public $packageList;
+    public $status;
 
     /**
-     * @var mountTargetList
+     * @var string
      */
-    public $mountTargetList;
+    public $storageType;
     protected $_name = [
-        'status'          => 'Status',
+        'bandWidth'       => 'BandWidth',
         'capacity'        => 'Capacity',
         'createTime'      => 'CreateTime',
-        'storageType'     => 'StorageType',
-        'bandWidth'       => 'BandWidth',
-        'regionId'        => 'RegionId',
+        'destription'     => 'Destription',
+        'encryptType'     => 'EncryptType',
         'fileSystemId'    => 'FileSystemId',
         'fileSystemType'  => 'FileSystemType',
         'meteredSize'     => 'MeteredSize',
-        'encryptType'     => 'EncryptType',
-        'protocolType'    => 'ProtocolType',
-        'destription'     => 'Destription',
-        'packageList'     => 'PackageList',
         'mountTargetList' => 'MountTargetList',
+        'packageList'     => 'PackageList',
+        'protocolType'    => 'ProtocolType',
+        'regionId'        => 'RegionId',
+        'status'          => 'Status',
+        'storageType'     => 'StorageType',
     ];
 
     public function validate()
@@ -103,8 +103,8 @@ class fileSystems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->bandWidth) {
+            $res['BandWidth'] = $this->bandWidth;
         }
         if (null !== $this->capacity) {
             $res['Capacity'] = $this->capacity;
@@ -112,14 +112,11 @@ class fileSystems extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->storageType) {
-            $res['StorageType'] = $this->storageType;
+        if (null !== $this->destription) {
+            $res['Destription'] = $this->destription;
         }
-        if (null !== $this->bandWidth) {
-            $res['BandWidth'] = $this->bandWidth;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->encryptType) {
+            $res['EncryptType'] = $this->encryptType;
         }
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
@@ -130,20 +127,23 @@ class fileSystems extends Model
         if (null !== $this->meteredSize) {
             $res['MeteredSize'] = $this->meteredSize;
         }
-        if (null !== $this->encryptType) {
-            $res['EncryptType'] = $this->encryptType;
-        }
-        if (null !== $this->protocolType) {
-            $res['ProtocolType'] = $this->protocolType;
-        }
-        if (null !== $this->destription) {
-            $res['Destription'] = $this->destription;
+        if (null !== $this->mountTargetList) {
+            $res['MountTargetList'] = null !== $this->mountTargetList ? $this->mountTargetList->toMap() : null;
         }
         if (null !== $this->packageList) {
             $res['PackageList'] = null !== $this->packageList ? $this->packageList->toMap() : null;
         }
-        if (null !== $this->mountTargetList) {
-            $res['MountTargetList'] = null !== $this->mountTargetList ? $this->mountTargetList->toMap() : null;
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         return $res;
@@ -157,8 +157,8 @@ class fileSystems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['BandWidth'])) {
+            $model->bandWidth = $map['BandWidth'];
         }
         if (isset($map['Capacity'])) {
             $model->capacity = $map['Capacity'];
@@ -166,14 +166,11 @@ class fileSystems extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['StorageType'])) {
-            $model->storageType = $map['StorageType'];
+        if (isset($map['Destription'])) {
+            $model->destription = $map['Destription'];
         }
-        if (isset($map['BandWidth'])) {
-            $model->bandWidth = $map['BandWidth'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['EncryptType'])) {
+            $model->encryptType = $map['EncryptType'];
         }
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
@@ -184,20 +181,23 @@ class fileSystems extends Model
         if (isset($map['MeteredSize'])) {
             $model->meteredSize = $map['MeteredSize'];
         }
-        if (isset($map['EncryptType'])) {
-            $model->encryptType = $map['EncryptType'];
-        }
-        if (isset($map['ProtocolType'])) {
-            $model->protocolType = $map['ProtocolType'];
-        }
-        if (isset($map['Destription'])) {
-            $model->destription = $map['Destription'];
+        if (isset($map['MountTargetList'])) {
+            $model->mountTargetList = mountTargetList::fromMap($map['MountTargetList']);
         }
         if (isset($map['PackageList'])) {
             $model->packageList = packageList::fromMap($map['PackageList']);
         }
-        if (isset($map['MountTargetList'])) {
-            $model->mountTargetList = mountTargetList::fromMap($map['MountTargetList']);
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         return $model;

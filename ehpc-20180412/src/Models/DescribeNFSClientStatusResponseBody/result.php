@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $output;
+    public $exitCode;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class result extends Model
     public $invokeRecordStatus;
 
     /**
-     * @var int
+     * @var string
      */
-    public $exitCode;
+    public $output;
     protected $_name = [
-        'output'             => 'Output',
-        'invokeRecordStatus' => 'InvokeRecordStatus',
         'exitCode'           => 'ExitCode',
+        'invokeRecordStatus' => 'InvokeRecordStatus',
+        'output'             => 'Output',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->output) {
-            $res['Output'] = $this->output;
+        if (null !== $this->exitCode) {
+            $res['ExitCode'] = $this->exitCode;
         }
         if (null !== $this->invokeRecordStatus) {
             $res['InvokeRecordStatus'] = $this->invokeRecordStatus;
         }
-        if (null !== $this->exitCode) {
-            $res['ExitCode'] = $this->exitCode;
+        if (null !== $this->output) {
+            $res['Output'] = $this->output;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Output'])) {
-            $model->output = $map['Output'];
+        if (isset($map['ExitCode'])) {
+            $model->exitCode = $map['ExitCode'];
         }
         if (isset($map['InvokeRecordStatus'])) {
             $model->invokeRecordStatus = $map['InvokeRecordStatus'];
         }
-        if (isset($map['ExitCode'])) {
-            $model->exitCode = $map['ExitCode'];
+        if (isset($map['Output'])) {
+            $model->output = $map['Output'];
         }
 
         return $model;

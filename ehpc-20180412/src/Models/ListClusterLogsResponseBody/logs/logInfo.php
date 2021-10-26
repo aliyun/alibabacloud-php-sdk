@@ -11,7 +11,12 @@ class logInfo extends Model
     /**
      * @var string
      */
-    public $operation;
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $level;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class logInfo extends Model
     /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $level;
+    public $operation;
     protected $_name = [
-        'operation'  => 'Operation',
-        'message'    => 'Message',
         'createTime' => 'CreateTime',
         'level'      => 'Level',
+        'message'    => 'Message',
+        'operation'  => 'Operation',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class logInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->operation) {
-            $res['Operation'] = $this->operation;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->operation) {
+            $res['Operation'] = $this->operation;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class logInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Operation'])) {
-            $model->operation = $map['Operation'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['Operation'])) {
+            $model->operation = $map['Operation'];
         }
 
         return $model;

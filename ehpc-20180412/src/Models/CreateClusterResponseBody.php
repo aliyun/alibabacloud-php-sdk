@@ -11,21 +11,21 @@ class CreateClusterResponseBody extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var string
      */
     public $taskId;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
     protected $_name = [
+        'clusterId' => 'ClusterId',
         'requestId' => 'RequestId',
         'taskId'    => 'TaskId',
-        'clusterId' => 'ClusterId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateClusterResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateClusterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
         }
 
         return $model;

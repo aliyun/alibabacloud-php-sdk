@@ -11,15 +11,15 @@ class invokeInstance extends Model
     /**
      * @var string
      */
-    public $instanceInvokeStatus;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $instanceInvokeStatus;
     protected $_name = [
-        'instanceInvokeStatus' => 'InstanceInvokeStatus',
         'instanceId'           => 'InstanceId',
+        'instanceInvokeStatus' => 'InstanceInvokeStatus',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class invokeInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceInvokeStatus) {
-            $res['InstanceInvokeStatus'] = $this->instanceInvokeStatus;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceInvokeStatus) {
+            $res['InstanceInvokeStatus'] = $this->instanceInvokeStatus;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class invokeInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceInvokeStatus'])) {
-            $model->instanceInvokeStatus = $map['InstanceInvokeStatus'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceInvokeStatus'])) {
+            $model->instanceInvokeStatus = $map['InstanceInvokeStatus'];
         }
 
         return $model;

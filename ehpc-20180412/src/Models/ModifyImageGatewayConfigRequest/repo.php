@@ -16,16 +16,16 @@ class repo extends Model
     /**
      * @var string
      */
-    public $URL;
+    public $location;
 
     /**
      * @var string
      */
-    public $location;
+    public $URL;
     protected $_name = [
         'auth'     => 'Auth',
-        'URL'      => 'URL',
         'location' => 'Location',
+        'URL'      => 'URL',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class repo extends Model
         if (null !== $this->auth) {
             $res['Auth'] = $this->auth;
         }
-        if (null !== $this->URL) {
-            $res['URL'] = $this->URL;
-        }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
+        }
+        if (null !== $this->URL) {
+            $res['URL'] = $this->URL;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class repo extends Model
         if (isset($map['Auth'])) {
             $model->auth = $map['Auth'];
         }
-        if (isset($map['URL'])) {
-            $model->URL = $map['URL'];
-        }
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
+        }
+        if (isset($map['URL'])) {
+            $model->URL = $map['URL'];
         }
 
         return $model;

@@ -11,27 +11,17 @@ class RecoverClusterRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $osTag;
-
-    /**
-     * @var string
-     */
     public $accountType;
 
     /**
      * @var string
      */
-    public $schedulerType;
+    public $clientVersion;
 
     /**
      * @var string
      */
-    public $imageOwnerAlias;
+    public $clusterId;
 
     /**
      * @var string
@@ -41,15 +31,25 @@ class RecoverClusterRequest extends Model
     /**
      * @var string
      */
-    public $clientVersion;
+    public $imageOwnerAlias;
+
+    /**
+     * @var string
+     */
+    public $osTag;
+
+    /**
+     * @var string
+     */
+    public $schedulerType;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
-        'osTag'           => 'OsTag',
         'accountType'     => 'AccountType',
-        'schedulerType'   => 'SchedulerType',
-        'imageOwnerAlias' => 'ImageOwnerAlias',
-        'imageId'         => 'ImageId',
         'clientVersion'   => 'ClientVersion',
+        'clusterId'       => 'ClusterId',
+        'imageId'         => 'ImageId',
+        'imageOwnerAlias' => 'ImageOwnerAlias',
+        'osTag'           => 'OsTag',
+        'schedulerType'   => 'SchedulerType',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class RecoverClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->osTag) {
-            $res['OsTag'] = $this->osTag;
-        }
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
-        if (null !== $this->schedulerType) {
-            $res['SchedulerType'] = $this->schedulerType;
+        if (null !== $this->clientVersion) {
+            $res['ClientVersion'] = $this->clientVersion;
         }
-        if (null !== $this->imageOwnerAlias) {
-            $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-        if (null !== $this->clientVersion) {
-            $res['ClientVersion'] = $this->clientVersion;
+        if (null !== $this->imageOwnerAlias) {
+            $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
+        }
+        if (null !== $this->osTag) {
+            $res['OsTag'] = $this->osTag;
+        }
+        if (null !== $this->schedulerType) {
+            $res['SchedulerType'] = $this->schedulerType;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class RecoverClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['OsTag'])) {
-            $model->osTag = $map['OsTag'];
-        }
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
-        if (isset($map['SchedulerType'])) {
-            $model->schedulerType = $map['SchedulerType'];
+        if (isset($map['ClientVersion'])) {
+            $model->clientVersion = $map['ClientVersion'];
         }
-        if (isset($map['ImageOwnerAlias'])) {
-            $model->imageOwnerAlias = $map['ImageOwnerAlias'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-        if (isset($map['ClientVersion'])) {
-            $model->clientVersion = $map['ClientVersion'];
+        if (isset($map['ImageOwnerAlias'])) {
+            $model->imageOwnerAlias = $map['ImageOwnerAlias'];
+        }
+        if (isset($map['OsTag'])) {
+            $model->osTag = $map['OsTag'];
+        }
+        if (isset($map['SchedulerType'])) {
+            $model->schedulerType = $map['SchedulerType'];
         }
 
         return $model;

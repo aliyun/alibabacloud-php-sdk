@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeGWSClusterPolicyRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $asyncMode;
+
+    /**
      * @var string
      */
     public $clusterId;
@@ -17,15 +22,10 @@ class DescribeGWSClusterPolicyRequest extends Model
      * @var string
      */
     public $taskId;
-
-    /**
-     * @var bool
-     */
-    public $asyncMode;
     protected $_name = [
+        'asyncMode' => 'AsyncMode',
         'clusterId' => 'ClusterId',
         'taskId'    => 'TaskId',
-        'asyncMode' => 'AsyncMode',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeGWSClusterPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->asyncMode) {
+            $res['AsyncMode'] = $this->asyncMode;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->asyncMode) {
-            $res['AsyncMode'] = $this->asyncMode;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeGWSClusterPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AsyncMode'])) {
+            $model->asyncMode = $map['AsyncMode'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['AsyncMode'])) {
-            $model->asyncMode = $map['AsyncMode'];
         }
 
         return $model;

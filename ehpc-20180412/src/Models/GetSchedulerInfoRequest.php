@@ -12,20 +12,20 @@ class GetSchedulerInfoRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clusterId;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $regionId;
 
     /**
      * @var scheduler[]
      */
     public $scheduler;
     protected $_name = [
-        'regionId'  => 'RegionId',
         'clusterId' => 'ClusterId',
+        'regionId'  => 'RegionId',
         'scheduler' => 'Scheduler',
     ];
 
@@ -36,11 +36,11 @@ class GetSchedulerInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->scheduler) {
             $res['Scheduler'] = [];
@@ -63,11 +63,11 @@ class GetSchedulerInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Scheduler'])) {
             if (!empty($map['Scheduler'])) {

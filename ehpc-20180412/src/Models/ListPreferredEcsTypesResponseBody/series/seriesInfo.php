@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class seriesInfo extends Model
 {
     /**
-     * @var string
+     * @var roles
      */
-    public $seriesName;
+    public $roles;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class seriesInfo extends Model
     public $seriesId;
 
     /**
-     * @var roles
+     * @var string
      */
-    public $roles;
+    public $seriesName;
     protected $_name = [
-        'seriesName' => 'SeriesName',
-        'seriesId'   => 'SeriesId',
         'roles'      => 'Roles',
+        'seriesId'   => 'SeriesId',
+        'seriesName' => 'SeriesName',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class seriesInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->seriesName) {
-            $res['SeriesName'] = $this->seriesName;
+        if (null !== $this->roles) {
+            $res['Roles'] = null !== $this->roles ? $this->roles->toMap() : null;
         }
         if (null !== $this->seriesId) {
             $res['SeriesId'] = $this->seriesId;
         }
-        if (null !== $this->roles) {
-            $res['Roles'] = null !== $this->roles ? $this->roles->toMap() : null;
+        if (null !== $this->seriesName) {
+            $res['SeriesName'] = $this->seriesName;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class seriesInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SeriesName'])) {
-            $model->seriesName = $map['SeriesName'];
+        if (isset($map['Roles'])) {
+            $model->roles = roles::fromMap($map['Roles']);
         }
         if (isset($map['SeriesId'])) {
             $model->seriesId = $map['SeriesId'];
         }
-        if (isset($map['Roles'])) {
-            $model->roles = roles::fromMap($map['Roles']);
+        if (isset($map['SeriesName'])) {
+            $model->seriesName = $map['SeriesName'];
         }
 
         return $model;

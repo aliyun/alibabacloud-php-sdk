@@ -11,27 +11,27 @@ class checkList extends Model
     /**
      * @var string
      */
-    public $checkInfo;
-
-    /**
-     * @var string
-     */
     public $checkDescription;
 
     /**
      * @var string
      */
-    public $checkSolution;
+    public $checkInfo;
 
     /**
      * @var string
      */
     public $checkName;
+
+    /**
+     * @var string
+     */
+    public $checkSolution;
     protected $_name = [
-        'checkInfo'        => 'CheckInfo',
         'checkDescription' => 'CheckDescription',
-        'checkSolution'    => 'CheckSolution',
+        'checkInfo'        => 'CheckInfo',
         'checkName'        => 'CheckName',
+        'checkSolution'    => 'CheckSolution',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class checkList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->checkInfo) {
-            $res['CheckInfo'] = $this->checkInfo;
-        }
         if (null !== $this->checkDescription) {
             $res['CheckDescription'] = $this->checkDescription;
         }
-        if (null !== $this->checkSolution) {
-            $res['CheckSolution'] = $this->checkSolution;
+        if (null !== $this->checkInfo) {
+            $res['CheckInfo'] = $this->checkInfo;
         }
         if (null !== $this->checkName) {
             $res['CheckName'] = $this->checkName;
+        }
+        if (null !== $this->checkSolution) {
+            $res['CheckSolution'] = $this->checkSolution;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class checkList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CheckInfo'])) {
-            $model->checkInfo = $map['CheckInfo'];
-        }
         if (isset($map['CheckDescription'])) {
             $model->checkDescription = $map['CheckDescription'];
         }
-        if (isset($map['CheckSolution'])) {
-            $model->checkSolution = $map['CheckSolution'];
+        if (isset($map['CheckInfo'])) {
+            $model->checkInfo = $map['CheckInfo'];
         }
         if (isset($map['CheckName'])) {
             $model->checkName = $map['CheckName'];
+        }
+        if (isset($map['CheckSolution'])) {
+            $model->checkSolution = $map['CheckSolution'];
         }
 
         return $model;

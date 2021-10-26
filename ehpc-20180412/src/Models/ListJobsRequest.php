@@ -19,16 +19,6 @@ class ListJobsRequest extends Model
     public $owner;
 
     /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $rerunable;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -37,13 +27,23 @@ class ListJobsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $rerunable;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'clusterId'  => 'ClusterId',
         'owner'      => 'Owner',
-        'state'      => 'State',
-        'rerunable'  => 'Rerunable',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'rerunable'  => 'Rerunable',
+        'state'      => 'State',
     ];
 
     public function validate()
@@ -59,17 +59,17 @@ class ListJobsRequest extends Model
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->rerunable) {
-            $res['Rerunable'] = $this->rerunable;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->rerunable) {
+            $res['Rerunable'] = $this->rerunable;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -89,17 +89,17 @@ class ListJobsRequest extends Model
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['Rerunable'])) {
-            $model->rerunable = $map['Rerunable'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Rerunable'])) {
+            $model->rerunable = $map['Rerunable'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

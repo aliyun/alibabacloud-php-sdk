@@ -16,12 +16,12 @@ class MountNFSRequest extends Model
     /**
      * @var string
      */
-    public $nfsDir;
+    public $mountDir;
 
     /**
      * @var string
      */
-    public $mountDir;
+    public $nfsDir;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class MountNFSRequest extends Model
     public $remoteDir;
     protected $_name = [
         'instanceId'   => 'InstanceId',
-        'nfsDir'       => 'NfsDir',
         'mountDir'     => 'MountDir',
+        'nfsDir'       => 'NfsDir',
         'protocolType' => 'ProtocolType',
         'remoteDir'    => 'RemoteDir',
     ];
@@ -50,11 +50,11 @@ class MountNFSRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->nfsDir) {
-            $res['NfsDir'] = $this->nfsDir;
-        }
         if (null !== $this->mountDir) {
             $res['MountDir'] = $this->mountDir;
+        }
+        if (null !== $this->nfsDir) {
+            $res['NfsDir'] = $this->nfsDir;
         }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
@@ -77,11 +77,11 @@ class MountNFSRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['NfsDir'])) {
-            $model->nfsDir = $map['NfsDir'];
-        }
         if (isset($map['MountDir'])) {
             $model->mountDir = $map['MountDir'];
+        }
+        if (isset($map['NfsDir'])) {
+            $model->nfsDir = $map['NfsDir'];
         }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];

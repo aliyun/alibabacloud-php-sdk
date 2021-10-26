@@ -16,22 +16,22 @@ class softwareList extends Model
     /**
      * @var string
      */
+    public $softwareName;
+
+    /**
+     * @var string
+     */
     public $softwareStatus;
 
     /**
      * @var string
      */
     public $softwareVersion;
-
-    /**
-     * @var string
-     */
-    public $softwareName;
     protected $_name = [
         'softwareId'      => 'SoftwareId',
+        'softwareName'    => 'SoftwareName',
         'softwareStatus'  => 'SoftwareStatus',
         'softwareVersion' => 'SoftwareVersion',
-        'softwareName'    => 'SoftwareName',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class softwareList extends Model
         if (null !== $this->softwareId) {
             $res['SoftwareId'] = $this->softwareId;
         }
+        if (null !== $this->softwareName) {
+            $res['SoftwareName'] = $this->softwareName;
+        }
         if (null !== $this->softwareStatus) {
             $res['SoftwareStatus'] = $this->softwareStatus;
         }
         if (null !== $this->softwareVersion) {
             $res['SoftwareVersion'] = $this->softwareVersion;
-        }
-        if (null !== $this->softwareName) {
-            $res['SoftwareName'] = $this->softwareName;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class softwareList extends Model
         if (isset($map['SoftwareId'])) {
             $model->softwareId = $map['SoftwareId'];
         }
+        if (isset($map['SoftwareName'])) {
+            $model->softwareName = $map['SoftwareName'];
+        }
         if (isset($map['SoftwareStatus'])) {
             $model->softwareStatus = $map['SoftwareStatus'];
         }
         if (isset($map['SoftwareVersion'])) {
             $model->softwareVersion = $map['SoftwareVersion'];
-        }
-        if (isset($map['SoftwareName'])) {
-            $model->softwareName = $map['SoftwareName'];
         }
 
         return $model;

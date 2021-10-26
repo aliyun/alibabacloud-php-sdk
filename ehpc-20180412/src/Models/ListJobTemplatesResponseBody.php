@@ -12,6 +12,11 @@ class ListJobTemplatesResponseBody extends Model
     /**
      * @var int
      */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
     public $pageSize;
 
     /**
@@ -20,25 +25,20 @@ class ListJobTemplatesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var templates
      */
-    public $pageNumber;
+    public $templates;
 
     /**
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var templates
-     */
-    public $templates;
     protected $_name = [
+        'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'pageNumber' => 'PageNumber',
-        'totalCount' => 'TotalCount',
         'templates'  => 'Templates',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class ListJobTemplatesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->templates) {
+            $res['Templates'] = null !== $this->templates ? $this->templates->toMap() : null;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->templates) {
-            $res['Templates'] = null !== $this->templates ? $this->templates->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class ListJobTemplatesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['Templates'])) {
+            $model->templates = templates::fromMap($map['Templates']);
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Templates'])) {
-            $model->templates = templates::fromMap($map['Templates']);
         }
 
         return $model;

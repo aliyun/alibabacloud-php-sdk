@@ -9,24 +9,19 @@ use AlibabaCloud\Tea\Model;
 class invocationResult extends Model
 {
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var string
      */
-    public $message;
+    public $commandId;
+
+    /**
+     * @var int
+     */
+    public $exitCode;
 
     /**
      * @var string
      */
     public $finishedTime;
-
-    /**
-     * @var string
-     */
-    public $commandId;
 
     /**
      * @var string
@@ -39,17 +34,22 @@ class invocationResult extends Model
     public $invokeRecordStatus;
 
     /**
-     * @var int
+     * @var string
      */
-    public $exitCode;
+    public $message;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'success'            => 'Success',
-        'message'            => 'Message',
-        'finishedTime'       => 'FinishedTime',
         'commandId'          => 'CommandId',
+        'exitCode'           => 'ExitCode',
+        'finishedTime'       => 'FinishedTime',
         'instanceId'         => 'InstanceId',
         'invokeRecordStatus' => 'InvokeRecordStatus',
-        'exitCode'           => 'ExitCode',
+        'message'            => 'Message',
+        'success'            => 'Success',
     ];
 
     public function validate()
@@ -59,17 +59,14 @@ class invocationResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->commandId) {
+            $res['CommandId'] = $this->commandId;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->exitCode) {
+            $res['ExitCode'] = $this->exitCode;
         }
         if (null !== $this->finishedTime) {
             $res['FinishedTime'] = $this->finishedTime;
-        }
-        if (null !== $this->commandId) {
-            $res['CommandId'] = $this->commandId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -77,8 +74,11 @@ class invocationResult extends Model
         if (null !== $this->invokeRecordStatus) {
             $res['InvokeRecordStatus'] = $this->invokeRecordStatus;
         }
-        if (null !== $this->exitCode) {
-            $res['ExitCode'] = $this->exitCode;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -92,17 +92,14 @@ class invocationResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['CommandId'])) {
+            $model->commandId = $map['CommandId'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['ExitCode'])) {
+            $model->exitCode = $map['ExitCode'];
         }
         if (isset($map['FinishedTime'])) {
             $model->finishedTime = $map['FinishedTime'];
-        }
-        if (isset($map['CommandId'])) {
-            $model->commandId = $map['CommandId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -110,8 +107,11 @@ class invocationResult extends Model
         if (isset($map['InvokeRecordStatus'])) {
             $model->invokeRecordStatus = $map['InvokeRecordStatus'];
         }
-        if (isset($map['ExitCode'])) {
-            $model->exitCode = $map['ExitCode'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

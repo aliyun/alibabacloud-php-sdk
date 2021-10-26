@@ -11,7 +11,12 @@ class ListAvailableEcsTypesRequest extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $instanceChargeType;
+
+    /**
+     * @var bool
+     */
+    public $showSoldOut;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class ListAvailableEcsTypesRequest extends Model
     /**
      * @var string
      */
-    public $instanceChargeType;
-
-    /**
-     * @var bool
-     */
-    public $showSoldOut;
+    public $zoneId;
     protected $_name = [
-        'zoneId'             => 'ZoneId',
-        'spotStrategy'       => 'SpotStrategy',
         'instanceChargeType' => 'InstanceChargeType',
         'showSoldOut'        => 'ShowSoldOut',
+        'spotStrategy'       => 'SpotStrategy',
+        'zoneId'             => 'ZoneId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListAvailableEcsTypesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->spotStrategy) {
-            $res['SpotStrategy'] = $this->spotStrategy;
-        }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
         if (null !== $this->showSoldOut) {
             $res['ShowSoldOut'] = $this->showSoldOut;
+        }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListAvailableEcsTypesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['SpotStrategy'])) {
-            $model->spotStrategy = $map['SpotStrategy'];
-        }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
         if (isset($map['ShowSoldOut'])) {
             $model->showSoldOut = $map['ShowSoldOut'];
+        }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

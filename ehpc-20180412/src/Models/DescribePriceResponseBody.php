@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
-     * @var float
+     * @var prices
      */
-    public $totalTradePrice;
+    public $prices;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribePriceResponseBody extends Model
     public $requestId;
 
     /**
-     * @var prices
+     * @var float
      */
-    public $prices;
+    public $totalTradePrice;
     protected $_name = [
-        'totalTradePrice' => 'TotalTradePrice',
-        'requestId'       => 'RequestId',
         'prices'          => 'Prices',
+        'requestId'       => 'RequestId',
+        'totalTradePrice' => 'TotalTradePrice',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribePriceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalTradePrice) {
-            $res['TotalTradePrice'] = $this->totalTradePrice;
+        if (null !== $this->prices) {
+            $res['Prices'] = null !== $this->prices ? $this->prices->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->prices) {
-            $res['Prices'] = null !== $this->prices ? $this->prices->toMap() : null;
+        if (null !== $this->totalTradePrice) {
+            $res['TotalTradePrice'] = $this->totalTradePrice;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribePriceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalTradePrice'])) {
-            $model->totalTradePrice = $map['TotalTradePrice'];
+        if (isset($map['Prices'])) {
+            $model->prices = prices::fromMap($map['Prices']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Prices'])) {
-            $model->prices = prices::fromMap($map['Prices']);
+        if (isset($map['TotalTradePrice'])) {
+            $model->totalTradePrice = $map['TotalTradePrice'];
         }
 
         return $model;

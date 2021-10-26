@@ -11,12 +11,12 @@ class clusterInfo extends Model
     /**
      * @var string
      */
-    public $vpcId;
+    public $clusterId;
 
     /**
      * @var string
      */
-    public $status;
+    public $createTime;
 
     /**
      * @var int
@@ -26,18 +26,18 @@ class clusterInfo extends Model
     /**
      * @var string
      */
-    public $createTime;
+    public $status;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $vpcId;
     protected $_name = [
-        'vpcId'         => 'VpcId',
-        'status'        => 'Status',
-        'instanceCount' => 'InstanceCount',
-        'createTime'    => 'CreateTime',
         'clusterId'     => 'ClusterId',
+        'createTime'    => 'CreateTime',
+        'instanceCount' => 'InstanceCount',
+        'status'        => 'Status',
+        'vpcId'         => 'VpcId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class clusterInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->instanceCount) {
-            $res['InstanceCount'] = $this->instanceCount;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->instanceCount) {
+            $res['InstanceCount'] = $this->instanceCount;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class clusterInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['InstanceCount'])) {
-            $model->instanceCount = $map['InstanceCount'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['InstanceCount'])) {
+            $model->instanceCount = $map['InstanceCount'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

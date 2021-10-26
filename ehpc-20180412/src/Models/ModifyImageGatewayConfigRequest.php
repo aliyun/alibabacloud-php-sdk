@@ -17,16 +17,6 @@ class ModifyImageGatewayConfigRequest extends Model
     /**
      * @var string
      */
-    public $DBType;
-
-    /**
-     * @var string
-     */
-    public $DBUsername;
-
-    /**
-     * @var string
-     */
     public $DBPassword;
 
     /**
@@ -37,12 +27,17 @@ class ModifyImageGatewayConfigRequest extends Model
     /**
      * @var string
      */
-    public $defaultRepoLocation;
+    public $DBType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pullUpdateTimeout;
+    public $DBUsername;
+
+    /**
+     * @var string
+     */
+    public $defaultRepoLocation;
 
     /**
      * @var string
@@ -50,18 +45,23 @@ class ModifyImageGatewayConfigRequest extends Model
     public $imageExpirationTimeout;
 
     /**
+     * @var int
+     */
+    public $pullUpdateTimeout;
+
+    /**
      * @var repo[]
      */
     public $repo;
     protected $_name = [
         'clusterId'              => 'ClusterId',
-        'DBType'                 => 'DBType',
-        'DBUsername'             => 'DBUsername',
         'DBPassword'             => 'DBPassword',
         'DBServerInfo'           => 'DBServerInfo',
+        'DBType'                 => 'DBType',
+        'DBUsername'             => 'DBUsername',
         'defaultRepoLocation'    => 'DefaultRepoLocation',
-        'pullUpdateTimeout'      => 'PullUpdateTimeout',
         'imageExpirationTimeout' => 'ImageExpirationTimeout',
+        'pullUpdateTimeout'      => 'PullUpdateTimeout',
         'repo'                   => 'Repo',
     ];
 
@@ -75,26 +75,26 @@ class ModifyImageGatewayConfigRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->DBType) {
-            $res['DBType'] = $this->DBType;
-        }
-        if (null !== $this->DBUsername) {
-            $res['DBUsername'] = $this->DBUsername;
-        }
         if (null !== $this->DBPassword) {
             $res['DBPassword'] = $this->DBPassword;
         }
         if (null !== $this->DBServerInfo) {
             $res['DBServerInfo'] = $this->DBServerInfo;
         }
+        if (null !== $this->DBType) {
+            $res['DBType'] = $this->DBType;
+        }
+        if (null !== $this->DBUsername) {
+            $res['DBUsername'] = $this->DBUsername;
+        }
         if (null !== $this->defaultRepoLocation) {
             $res['DefaultRepoLocation'] = $this->defaultRepoLocation;
         }
-        if (null !== $this->pullUpdateTimeout) {
-            $res['PullUpdateTimeout'] = $this->pullUpdateTimeout;
-        }
         if (null !== $this->imageExpirationTimeout) {
             $res['ImageExpirationTimeout'] = $this->imageExpirationTimeout;
+        }
+        if (null !== $this->pullUpdateTimeout) {
+            $res['PullUpdateTimeout'] = $this->pullUpdateTimeout;
         }
         if (null !== $this->repo) {
             $res['Repo'] = [];
@@ -120,26 +120,26 @@ class ModifyImageGatewayConfigRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['DBType'])) {
-            $model->DBType = $map['DBType'];
-        }
-        if (isset($map['DBUsername'])) {
-            $model->DBUsername = $map['DBUsername'];
-        }
         if (isset($map['DBPassword'])) {
             $model->DBPassword = $map['DBPassword'];
         }
         if (isset($map['DBServerInfo'])) {
             $model->DBServerInfo = $map['DBServerInfo'];
         }
+        if (isset($map['DBType'])) {
+            $model->DBType = $map['DBType'];
+        }
+        if (isset($map['DBUsername'])) {
+            $model->DBUsername = $map['DBUsername'];
+        }
         if (isset($map['DefaultRepoLocation'])) {
             $model->defaultRepoLocation = $map['DefaultRepoLocation'];
         }
-        if (isset($map['PullUpdateTimeout'])) {
-            $model->pullUpdateTimeout = $map['PullUpdateTimeout'];
-        }
         if (isset($map['ImageExpirationTimeout'])) {
             $model->imageExpirationTimeout = $map['ImageExpirationTimeout'];
+        }
+        if (isset($map['PullUpdateTimeout'])) {
+            $model->pullUpdateTimeout = $map['PullUpdateTimeout'];
         }
         if (isset($map['Repo'])) {
             if (!empty($map['Repo'])) {

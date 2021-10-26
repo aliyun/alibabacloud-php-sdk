@@ -15,18 +15,18 @@ class InvokeShellCommandResponseBody extends Model
     public $commandId;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var instanceIds
      */
     public $instanceIds;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'commandId'   => 'CommandId',
-        'requestId'   => 'RequestId',
         'instanceIds' => 'InstanceIds',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class InvokeShellCommandResponseBody extends Model
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class InvokeShellCommandResponseBody extends Model
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

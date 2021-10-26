@@ -11,11 +11,6 @@ class ListCloudMetricProfilingsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $clusterId;
 
     /**
@@ -27,11 +22,16 @@ class ListCloudMetricProfilingsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'clusterId'  => 'ClusterId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class ListCloudMetricProfilingsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -52,6 +49,9 @@ class ListCloudMetricProfilingsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class ListCloudMetricProfilingsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -76,6 +73,9 @@ class ListCloudMetricProfilingsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

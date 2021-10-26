@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateClusterVolumesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @var additionalVolumes[]
      */
     public $additionalVolumes;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
     protected $_name = [
-        'clusterId'         => 'ClusterId',
         'additionalVolumes' => 'AdditionalVolumes',
+        'clusterId'         => 'ClusterId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class UpdateClusterVolumesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->additionalVolumes) {
             $res['AdditionalVolumes'] = [];
             if (null !== $this->additionalVolumes && \is_array($this->additionalVolumes)) {
@@ -41,6 +38,9 @@ class UpdateClusterVolumesRequest extends Model
                     $res['AdditionalVolumes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class UpdateClusterVolumesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['AdditionalVolumes'])) {
             if (!empty($map['AdditionalVolumes'])) {
                 $model->additionalVolumes = [];
@@ -65,6 +62,9 @@ class UpdateClusterVolumesRequest extends Model
                     $model->additionalVolumes[$n++] = null !== $item ? additionalVolumes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
 
         return $model;

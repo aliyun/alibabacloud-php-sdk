@@ -11,15 +11,15 @@ class user extends Model
     /**
      * @var string
      */
-    public $password;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $password;
     protected $_name = [
-        'password' => 'Password',
         'name'     => 'Name',
+        'password' => 'Password',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class user extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class user extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
         }
 
         return $model;

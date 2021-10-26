@@ -11,12 +11,7 @@ class AddContainerAppRequest extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $repository;
+    public $containerType;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class AddContainerAppRequest extends Model
     /**
      * @var string
      */
-    public $containerType;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $repository;
     protected $_name = [
-        'name'          => 'Name',
-        'repository'    => 'Repository',
+        'containerType' => 'ContainerType',
         'description'   => 'Description',
         'imageTag'      => 'ImageTag',
-        'containerType' => 'ContainerType',
+        'name'          => 'Name',
+        'repository'    => 'Repository',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class AddContainerAppRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->repository) {
-            $res['Repository'] = $this->repository;
+        if (null !== $this->containerType) {
+            $res['ContainerType'] = $this->containerType;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -59,8 +56,11 @@ class AddContainerAppRequest extends Model
         if (null !== $this->imageTag) {
             $res['ImageTag'] = $this->imageTag;
         }
-        if (null !== $this->containerType) {
-            $res['ContainerType'] = $this->containerType;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->repository) {
+            $res['Repository'] = $this->repository;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class AddContainerAppRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Repository'])) {
-            $model->repository = $map['Repository'];
+        if (isset($map['ContainerType'])) {
+            $model->containerType = $map['ContainerType'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -86,8 +83,11 @@ class AddContainerAppRequest extends Model
         if (isset($map['ImageTag'])) {
             $model->imageTag = $map['ImageTag'];
         }
-        if (isset($map['ContainerType'])) {
-            $model->containerType = $map['ContainerType'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Repository'])) {
+            $model->repository = $map['Repository'];
         }
 
         return $model;

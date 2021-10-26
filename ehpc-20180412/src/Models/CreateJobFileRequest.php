@@ -16,6 +16,11 @@ class CreateJobFileRequest extends Model
     /**
      * @var string
      */
+    public $content;
+
+    /**
+     * @var string
+     */
     public $runasUser;
 
     /**
@@ -26,17 +31,12 @@ class CreateJobFileRequest extends Model
     /**
      * @var string
      */
-    public $content;
-
-    /**
-     * @var string
-     */
     public $targetFile;
     protected $_name = [
         'clusterId'         => 'ClusterId',
+        'content'           => 'Content',
         'runasUser'         => 'RunasUser',
         'runasUserPassword' => 'RunasUserPassword',
-        'content'           => 'Content',
         'targetFile'        => 'TargetFile',
     ];
 
@@ -50,14 +50,14 @@ class CreateJobFileRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->runasUser) {
             $res['RunasUser'] = $this->runasUser;
         }
         if (null !== $this->runasUserPassword) {
             $res['RunasUserPassword'] = $this->runasUserPassword;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
         }
         if (null !== $this->targetFile) {
             $res['TargetFile'] = $this->targetFile;
@@ -77,14 +77,14 @@ class CreateJobFileRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['RunasUser'])) {
             $model->runasUser = $map['RunasUser'];
         }
         if (isset($map['RunasUserPassword'])) {
             $model->runasUserPassword = $map['RunasUserPassword'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
         }
         if (isset($map['TargetFile'])) {
             $model->targetFile = $map['TargetFile'];

@@ -29,21 +29,21 @@ class DescribeGWSInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $userUid;
-
-    /**
      * @var string
      */
     public $userName;
+
+    /**
+     * @var int
+     */
+    public $userUid;
     protected $_name = [
         'clusterId'  => 'ClusterId',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'userUid'    => 'UserUid',
         'userName'   => 'UserName',
+        'userUid'    => 'UserUid',
     ];
 
     public function validate()
@@ -65,11 +65,11 @@ class DescribeGWSInstancesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->userUid) {
-            $res['UserUid'] = $this->userUid;
-        }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
+        }
+        if (null !== $this->userUid) {
+            $res['UserUid'] = $this->userUid;
         }
 
         return $res;
@@ -95,11 +95,11 @@ class DescribeGWSInstancesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['UserUid'])) {
-            $model->userUid = $map['UserUid'];
-        }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
+        }
+        if (isset($map['UserUid'])) {
+            $model->userUid = $map['UserUid'];
         }
 
         return $model;

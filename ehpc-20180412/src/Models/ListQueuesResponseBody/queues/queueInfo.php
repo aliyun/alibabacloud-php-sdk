@@ -11,19 +11,9 @@ use AlibabaCloud\Tea\Model;
 class queueInfo extends Model
 {
     /**
-     * @var string
+     * @var computeInstanceType
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $hostNamePrefix;
-
-    /**
-     * @var string
-     */
-    public $queueName;
+    public $computeInstanceType;
 
     /**
      * @var bool
@@ -33,12 +23,7 @@ class queueInfo extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $imageId;
+    public $hostNamePrefix;
 
     /**
      * @var string
@@ -48,7 +33,17 @@ class queueInfo extends Model
     /**
      * @var string
      */
-    public $spotStrategy;
+    public $imageId;
+
+    /**
+     * @var string
+     */
+    public $queueName;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var spotInstanceTypes
@@ -56,20 +51,25 @@ class queueInfo extends Model
     public $spotInstanceTypes;
 
     /**
-     * @var computeInstanceType
+     * @var string
      */
-    public $computeInstanceType;
+    public $spotStrategy;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'                => 'Type',
-        'hostNamePrefix'      => 'HostNamePrefix',
-        'queueName'           => 'QueueName',
-        'enableAutoGrow'      => 'EnableAutoGrow',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'imageId'             => 'ImageId',
-        'hostNameSuffix'      => 'HostNameSuffix',
-        'spotStrategy'        => 'SpotStrategy',
-        'spotInstanceTypes'   => 'SpotInstanceTypes',
         'computeInstanceType' => 'ComputeInstanceType',
+        'enableAutoGrow'      => 'EnableAutoGrow',
+        'hostNamePrefix'      => 'HostNamePrefix',
+        'hostNameSuffix'      => 'HostNameSuffix',
+        'imageId'             => 'ImageId',
+        'queueName'           => 'QueueName',
+        'resourceGroupId'     => 'ResourceGroupId',
+        'spotInstanceTypes'   => 'SpotInstanceTypes',
+        'spotStrategy'        => 'SpotStrategy',
+        'type'                => 'Type',
     ];
 
     public function validate()
@@ -79,35 +79,35 @@ class queueInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->hostNamePrefix) {
-            $res['HostNamePrefix'] = $this->hostNamePrefix;
-        }
-        if (null !== $this->queueName) {
-            $res['QueueName'] = $this->queueName;
+        if (null !== $this->computeInstanceType) {
+            $res['ComputeInstanceType'] = null !== $this->computeInstanceType ? $this->computeInstanceType->toMap() : null;
         }
         if (null !== $this->enableAutoGrow) {
             $res['EnableAutoGrow'] = $this->enableAutoGrow;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->hostNamePrefix) {
+            $res['HostNamePrefix'] = $this->hostNamePrefix;
         }
         if (null !== $this->hostNameSuffix) {
             $res['HostNameSuffix'] = $this->hostNameSuffix;
         }
-        if (null !== $this->spotStrategy) {
-            $res['SpotStrategy'] = $this->spotStrategy;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->queueName) {
+            $res['QueueName'] = $this->queueName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->spotInstanceTypes) {
             $res['SpotInstanceTypes'] = null !== $this->spotInstanceTypes ? $this->spotInstanceTypes->toMap() : null;
         }
-        if (null !== $this->computeInstanceType) {
-            $res['ComputeInstanceType'] = null !== $this->computeInstanceType ? $this->computeInstanceType->toMap() : null;
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -121,35 +121,35 @@ class queueInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['HostNamePrefix'])) {
-            $model->hostNamePrefix = $map['HostNamePrefix'];
-        }
-        if (isset($map['QueueName'])) {
-            $model->queueName = $map['QueueName'];
+        if (isset($map['ComputeInstanceType'])) {
+            $model->computeInstanceType = computeInstanceType::fromMap($map['ComputeInstanceType']);
         }
         if (isset($map['EnableAutoGrow'])) {
             $model->enableAutoGrow = $map['EnableAutoGrow'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['HostNamePrefix'])) {
+            $model->hostNamePrefix = $map['HostNamePrefix'];
         }
         if (isset($map['HostNameSuffix'])) {
             $model->hostNameSuffix = $map['HostNameSuffix'];
         }
-        if (isset($map['SpotStrategy'])) {
-            $model->spotStrategy = $map['SpotStrategy'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['QueueName'])) {
+            $model->queueName = $map['QueueName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SpotInstanceTypes'])) {
             $model->spotInstanceTypes = spotInstanceTypes::fromMap($map['SpotInstanceTypes']);
         }
-        if (isset($map['ComputeInstanceType'])) {
-            $model->computeInstanceType = computeInstanceType::fromMap($map['ComputeInstanceType']);
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

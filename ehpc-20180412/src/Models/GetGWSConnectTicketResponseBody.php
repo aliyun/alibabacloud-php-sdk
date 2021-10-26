@@ -11,15 +11,15 @@ class GetGWSConnectTicketResponseBody extends Model
     /**
      * @var string
      */
-    public $ticket;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $ticket;
     protected $_name = [
-        'ticket'    => 'Ticket',
         'requestId' => 'RequestId',
+        'ticket'    => 'Ticket',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetGWSConnectTicketResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ticket) {
-            $res['Ticket'] = $this->ticket;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->ticket) {
+            $res['Ticket'] = $this->ticket;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetGWSConnectTicketResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Ticket'])) {
-            $model->ticket = $map['Ticket'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Ticket'])) {
+            $model->ticket = $map['Ticket'];
         }
 
         return $model;

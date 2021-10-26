@@ -11,21 +11,21 @@ class GetCloudMetricProfilingRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $clusterId;
 
     /**
      * @var string
      */
     public $profilingId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'clusterId'   => 'ClusterId',
         'profilingId' => 'ProfilingId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetCloudMetricProfilingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->profilingId) {
             $res['ProfilingId'] = $this->profilingId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetCloudMetricProfilingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ProfilingId'])) {
             $model->profilingId = $map['ProfilingId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

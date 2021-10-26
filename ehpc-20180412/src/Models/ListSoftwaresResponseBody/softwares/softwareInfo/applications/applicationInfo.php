@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class applicationInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var bool
      */
     public $required;
@@ -21,16 +26,11 @@ class applicationInfo extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $version;
     protected $_name = [
+        'name'     => 'Name',
         'required' => 'Required',
         'tag'      => 'Tag',
-        'name'     => 'Name',
         'version'  => 'Version',
     ];
 
@@ -41,14 +41,14 @@ class applicationInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->required) {
             $res['Required'] = $this->required;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -65,14 +65,14 @@ class applicationInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Required'])) {
             $model->required = $map['Required'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

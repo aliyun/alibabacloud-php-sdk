@@ -16,22 +16,22 @@ class ModifyVisualServicePasswdRequest extends Model
     /**
      * @var string
      */
+    public $passwd;
+
+    /**
+     * @var string
+     */
     public $runasUser;
 
     /**
      * @var string
      */
     public $runasUserPassword;
-
-    /**
-     * @var string
-     */
-    public $passwd;
     protected $_name = [
         'clusterId'         => 'ClusterId',
+        'passwd'            => 'Passwd',
         'runasUser'         => 'RunasUser',
         'runasUserPassword' => 'RunasUserPassword',
-        'passwd'            => 'Passwd',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ModifyVisualServicePasswdRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+        if (null !== $this->passwd) {
+            $res['Passwd'] = $this->passwd;
+        }
         if (null !== $this->runasUser) {
             $res['RunasUser'] = $this->runasUser;
         }
         if (null !== $this->runasUserPassword) {
             $res['RunasUserPassword'] = $this->runasUserPassword;
-        }
-        if (null !== $this->passwd) {
-            $res['Passwd'] = $this->passwd;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ModifyVisualServicePasswdRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+        if (isset($map['Passwd'])) {
+            $model->passwd = $map['Passwd'];
+        }
         if (isset($map['RunasUser'])) {
             $model->runasUser = $map['RunasUser'];
         }
         if (isset($map['RunasUserPassword'])) {
             $model->runasUserPassword = $map['RunasUserPassword'];
-        }
-        if (isset($map['Passwd'])) {
-            $model->passwd = $map['Passwd'];
         }
 
         return $model;

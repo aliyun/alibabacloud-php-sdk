@@ -11,11 +11,6 @@ class CreateGWSClusterRequest extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
     public $clusterType;
 
     /**
@@ -27,11 +22,16 @@ class CreateGWSClusterRequest extends Model
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'vpcId'       => 'VpcId',
         'clusterType' => 'ClusterType',
         'name'        => 'Name',
         'vSwitchId'   => 'VSwitchId',
+        'vpcId'       => 'VpcId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class CreateGWSClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
@@ -52,6 +49,9 @@ class CreateGWSClusterRequest extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class CreateGWSClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }
@@ -76,6 +73,9 @@ class CreateGWSClusterRequest extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

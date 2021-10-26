@@ -12,12 +12,12 @@ class ListInvocationStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $commandId;
 
     /**
-     * @var string
+     * @var invokeInstances
      */
-    public $commandId;
+    public $invokeInstances;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class ListInvocationStatusResponseBody extends Model
     public $invokeStatus;
 
     /**
-     * @var invokeInstances
+     * @var string
      */
-    public $invokeInstances;
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'commandId'       => 'CommandId',
-        'invokeStatus'    => 'InvokeStatus',
         'invokeInstances' => 'InvokeInstances',
+        'invokeStatus'    => 'InvokeStatus',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class ListInvocationStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
+        }
+        if (null !== $this->invokeInstances) {
+            $res['InvokeInstances'] = null !== $this->invokeInstances ? $this->invokeInstances->toMap() : null;
         }
         if (null !== $this->invokeStatus) {
             $res['InvokeStatus'] = $this->invokeStatus;
         }
-        if (null !== $this->invokeInstances) {
-            $res['InvokeInstances'] = null !== $this->invokeInstances ? $this->invokeInstances->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class ListInvocationStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
+        }
+        if (isset($map['InvokeInstances'])) {
+            $model->invokeInstances = invokeInstances::fromMap($map['InvokeInstances']);
         }
         if (isset($map['InvokeStatus'])) {
             $model->invokeStatus = $map['InvokeStatus'];
         }
-        if (isset($map['InvokeInstances'])) {
-            $model->invokeInstances = invokeInstances::fromMap($map['InvokeInstances']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

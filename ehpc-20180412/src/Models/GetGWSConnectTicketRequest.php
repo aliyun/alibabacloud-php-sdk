@@ -11,15 +11,15 @@ class GetGWSConnectTicketRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $appName;
 
     /**
      * @var string
      */
-    public $appName;
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'appName'    => 'AppName',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetGWSConnectTicketRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetGWSConnectTicketRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

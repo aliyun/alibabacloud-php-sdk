@@ -11,21 +11,21 @@ class AddSecurityGroupRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
      * @var string
      */
     public $securityGroupId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken'     => 'ClientToken',
         'clusterId'       => 'ClusterId',
         'securityGroupId' => 'SecurityGroupId',
-        'clientToken'     => 'ClientToken',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AddSecurityGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AddSecurityGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

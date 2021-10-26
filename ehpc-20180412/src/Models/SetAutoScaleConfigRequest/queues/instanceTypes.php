@@ -11,12 +11,7 @@ class instanceTypes extends Model
     /**
      * @var string
      */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
+    public $instanceType;
 
     /**
      * @var float
@@ -26,18 +21,23 @@ class instanceTypes extends Model
     /**
      * @var string
      */
-    public $instanceType;
+    public $spotStrategy;
 
     /**
      * @var string
      */
-    public $spotStrategy;
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
+        'instanceType'   => 'InstanceType',
+        'spotPriceLimit' => 'SpotPriceLimit',
+        'spotStrategy'   => 'SpotStrategy',
         'vSwitchId'      => 'VSwitchId',
         'zoneId'         => 'ZoneId',
-        'spotPriceLimit' => 'SpotPriceLimit',
-        'instanceType'   => 'InstanceType',
-        'spotStrategy'   => 'SpotStrategy',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class instanceTypes extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->spotPriceLimit) {
+            $res['SpotPriceLimit'] = $this->spotPriceLimit;
+        }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
+        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->spotPriceLimit) {
-            $res['SpotPriceLimit'] = $this->spotPriceLimit;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
-        if (null !== $this->spotStrategy) {
-            $res['SpotStrategy'] = $this->spotStrategy;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class instanceTypes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['SpotPriceLimit'])) {
+            $model->spotPriceLimit = $map['SpotPriceLimit'];
+        }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
+        }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['SpotPriceLimit'])) {
-            $model->spotPriceLimit = $map['SpotPriceLimit'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
-        if (isset($map['SpotStrategy'])) {
-            $model->spotStrategy = $map['SpotStrategy'];
         }
 
         return $model;

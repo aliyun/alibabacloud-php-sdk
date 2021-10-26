@@ -12,19 +12,14 @@ use AlibabaCloud\Tea\Model;
 class ApplyNodesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allocatePublicAddress;
+
+    /**
      * @var string
      */
     public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $imageId;
-
-    /**
-     * @var string
-     */
-    public $computeSpotStrategy;
 
     /**
      * @var float
@@ -34,12 +29,12 @@ class ApplyNodesRequest extends Model
     /**
      * @var string
      */
-    public $systemDiskType;
+    public $computeSpotStrategy;
 
     /**
      * @var int
      */
-    public $systemDiskSize;
+    public $cores;
 
     /**
      * @var string
@@ -52,9 +47,19 @@ class ApplyNodesRequest extends Model
     public $hostNameSuffix;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $allocatePublicAddress;
+    public $imageId;
+
+    /**
+     * @var string
+     */
+    public $instanceFamilyLevel;
+
+    /**
+     * @var instanceTypeModel[]
+     */
+    public $instanceTypeModel;
 
     /**
      * @var string
@@ -74,7 +79,7 @@ class ApplyNodesRequest extends Model
     /**
      * @var int
      */
-    public $cores;
+    public $interval;
 
     /**
      * @var int
@@ -84,12 +89,7 @@ class ApplyNodesRequest extends Model
     /**
      * @var string
      */
-    public $instanceFamilyLevel;
-
-    /**
-     * @var int
-     */
-    public $targetCapacity;
+    public $priorityStrategy;
 
     /**
      * @var string
@@ -97,9 +97,14 @@ class ApplyNodesRequest extends Model
     public $resourceAmountType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $priorityStrategy;
+    public $round;
+
+    /**
+     * @var bool
+     */
+    public $strictResourceProvision;
 
     /**
      * @var bool
@@ -112,61 +117,56 @@ class ApplyNodesRequest extends Model
     public $systemDiskLevel;
 
     /**
-     * @var bool
-     */
-    public $strictResourceProvision;
-
-    /**
      * @var int
      */
-    public $round;
+    public $systemDiskSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $interval;
-
-    /**
-     * @var zoneInfos[]
-     */
-    public $zoneInfos;
-
-    /**
-     * @var instanceTypeModel[]
-     */
-    public $instanceTypeModel;
+    public $systemDiskType;
 
     /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var int
+     */
+    public $targetCapacity;
+
+    /**
+     * @var zoneInfos[]
+     */
+    public $zoneInfos;
     protected $_name = [
+        'allocatePublicAddress'         => 'AllocatePublicAddress',
         'clusterId'                     => 'ClusterId',
-        'imageId'                       => 'ImageId',
-        'computeSpotStrategy'           => 'ComputeSpotStrategy',
         'computeSpotPriceLimit'         => 'ComputeSpotPriceLimit',
-        'systemDiskType'                => 'SystemDiskType',
-        'systemDiskSize'                => 'SystemDiskSize',
+        'computeSpotStrategy'           => 'ComputeSpotStrategy',
+        'cores'                         => 'Cores',
         'hostNamePrefix'                => 'HostNamePrefix',
         'hostNameSuffix'                => 'HostNameSuffix',
-        'allocatePublicAddress'         => 'AllocatePublicAddress',
+        'imageId'                       => 'ImageId',
+        'instanceFamilyLevel'           => 'InstanceFamilyLevel',
+        'instanceTypeModel'             => 'InstanceTypeModel',
         'internetChargeType'            => 'InternetChargeType',
         'internetMaxBandWidthIn'        => 'InternetMaxBandWidthIn',
         'internetMaxBandWidthOut'       => 'InternetMaxBandWidthOut',
-        'cores'                         => 'Cores',
+        'interval'                      => 'Interval',
         'memory'                        => 'Memory',
-        'instanceFamilyLevel'           => 'InstanceFamilyLevel',
-        'targetCapacity'                => 'TargetCapacity',
-        'resourceAmountType'            => 'ResourceAmountType',
         'priorityStrategy'              => 'PriorityStrategy',
+        'resourceAmountType'            => 'ResourceAmountType',
+        'round'                         => 'Round',
+        'strictResourceProvision'       => 'StrictResourceProvision',
         'strictSatisfiedTargetCapacity' => 'StrictSatisfiedTargetCapacity',
         'systemDiskLevel'               => 'SystemDiskLevel',
-        'strictResourceProvision'       => 'StrictResourceProvision',
-        'round'                         => 'Round',
-        'interval'                      => 'Interval',
-        'zoneInfos'                     => 'ZoneInfos',
-        'instanceTypeModel'             => 'InstanceTypeModel',
+        'systemDiskSize'                => 'SystemDiskSize',
+        'systemDiskType'                => 'SystemDiskType',
         'tag'                           => 'Tag',
+        'targetCapacity'                => 'TargetCapacity',
+        'zoneInfos'                     => 'ZoneInfos',
     ];
 
     public function validate()
@@ -176,23 +176,20 @@ class ApplyNodesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allocatePublicAddress) {
+            $res['AllocatePublicAddress'] = $this->allocatePublicAddress;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
-        }
-        if (null !== $this->computeSpotStrategy) {
-            $res['ComputeSpotStrategy'] = $this->computeSpotStrategy;
         }
         if (null !== $this->computeSpotPriceLimit) {
             $res['ComputeSpotPriceLimit'] = $this->computeSpotPriceLimit;
         }
-        if (null !== $this->systemDiskType) {
-            $res['SystemDiskType'] = $this->systemDiskType;
+        if (null !== $this->computeSpotStrategy) {
+            $res['ComputeSpotStrategy'] = $this->computeSpotStrategy;
         }
-        if (null !== $this->systemDiskSize) {
-            $res['SystemDiskSize'] = $this->systemDiskSize;
+        if (null !== $this->cores) {
+            $res['Cores'] = $this->cores;
         }
         if (null !== $this->hostNamePrefix) {
             $res['HostNamePrefix'] = $this->hostNamePrefix;
@@ -200,59 +197,11 @@ class ApplyNodesRequest extends Model
         if (null !== $this->hostNameSuffix) {
             $res['HostNameSuffix'] = $this->hostNameSuffix;
         }
-        if (null !== $this->allocatePublicAddress) {
-            $res['AllocatePublicAddress'] = $this->allocatePublicAddress;
-        }
-        if (null !== $this->internetChargeType) {
-            $res['InternetChargeType'] = $this->internetChargeType;
-        }
-        if (null !== $this->internetMaxBandWidthIn) {
-            $res['InternetMaxBandWidthIn'] = $this->internetMaxBandWidthIn;
-        }
-        if (null !== $this->internetMaxBandWidthOut) {
-            $res['InternetMaxBandWidthOut'] = $this->internetMaxBandWidthOut;
-        }
-        if (null !== $this->cores) {
-            $res['Cores'] = $this->cores;
-        }
-        if (null !== $this->memory) {
-            $res['Memory'] = $this->memory;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->instanceFamilyLevel) {
             $res['InstanceFamilyLevel'] = $this->instanceFamilyLevel;
-        }
-        if (null !== $this->targetCapacity) {
-            $res['TargetCapacity'] = $this->targetCapacity;
-        }
-        if (null !== $this->resourceAmountType) {
-            $res['ResourceAmountType'] = $this->resourceAmountType;
-        }
-        if (null !== $this->priorityStrategy) {
-            $res['PriorityStrategy'] = $this->priorityStrategy;
-        }
-        if (null !== $this->strictSatisfiedTargetCapacity) {
-            $res['StrictSatisfiedTargetCapacity'] = $this->strictSatisfiedTargetCapacity;
-        }
-        if (null !== $this->systemDiskLevel) {
-            $res['SystemDiskLevel'] = $this->systemDiskLevel;
-        }
-        if (null !== $this->strictResourceProvision) {
-            $res['StrictResourceProvision'] = $this->strictResourceProvision;
-        }
-        if (null !== $this->round) {
-            $res['Round'] = $this->round;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->zoneInfos) {
-            $res['ZoneInfos'] = [];
-            if (null !== $this->zoneInfos && \is_array($this->zoneInfos)) {
-                $n = 0;
-                foreach ($this->zoneInfos as $item) {
-                    $res['ZoneInfos'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->instanceTypeModel) {
             $res['InstanceTypeModel'] = [];
@@ -263,12 +212,63 @@ class ApplyNodesRequest extends Model
                 }
             }
         }
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
+        }
+        if (null !== $this->internetMaxBandWidthIn) {
+            $res['InternetMaxBandWidthIn'] = $this->internetMaxBandWidthIn;
+        }
+        if (null !== $this->internetMaxBandWidthOut) {
+            $res['InternetMaxBandWidthOut'] = $this->internetMaxBandWidthOut;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->priorityStrategy) {
+            $res['PriorityStrategy'] = $this->priorityStrategy;
+        }
+        if (null !== $this->resourceAmountType) {
+            $res['ResourceAmountType'] = $this->resourceAmountType;
+        }
+        if (null !== $this->round) {
+            $res['Round'] = $this->round;
+        }
+        if (null !== $this->strictResourceProvision) {
+            $res['StrictResourceProvision'] = $this->strictResourceProvision;
+        }
+        if (null !== $this->strictSatisfiedTargetCapacity) {
+            $res['StrictSatisfiedTargetCapacity'] = $this->strictSatisfiedTargetCapacity;
+        }
+        if (null !== $this->systemDiskLevel) {
+            $res['SystemDiskLevel'] = $this->systemDiskLevel;
+        }
+        if (null !== $this->systemDiskSize) {
+            $res['SystemDiskSize'] = $this->systemDiskSize;
+        }
+        if (null !== $this->systemDiskType) {
+            $res['SystemDiskType'] = $this->systemDiskType;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
                 $n = 0;
                 foreach ($this->tag as $item) {
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->targetCapacity) {
+            $res['TargetCapacity'] = $this->targetCapacity;
+        }
+        if (null !== $this->zoneInfos) {
+            $res['ZoneInfos'] = [];
+            if (null !== $this->zoneInfos && \is_array($this->zoneInfos)) {
+                $n = 0;
+                foreach ($this->zoneInfos as $item) {
+                    $res['ZoneInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -284,23 +284,20 @@ class ApplyNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllocatePublicAddress'])) {
+            $model->allocatePublicAddress = $map['AllocatePublicAddress'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
-        }
-        if (isset($map['ComputeSpotStrategy'])) {
-            $model->computeSpotStrategy = $map['ComputeSpotStrategy'];
         }
         if (isset($map['ComputeSpotPriceLimit'])) {
             $model->computeSpotPriceLimit = $map['ComputeSpotPriceLimit'];
         }
-        if (isset($map['SystemDiskType'])) {
-            $model->systemDiskType = $map['SystemDiskType'];
+        if (isset($map['ComputeSpotStrategy'])) {
+            $model->computeSpotStrategy = $map['ComputeSpotStrategy'];
         }
-        if (isset($map['SystemDiskSize'])) {
-            $model->systemDiskSize = $map['SystemDiskSize'];
+        if (isset($map['Cores'])) {
+            $model->cores = $map['Cores'];
         }
         if (isset($map['HostNamePrefix'])) {
             $model->hostNamePrefix = $map['HostNamePrefix'];
@@ -308,59 +305,11 @@ class ApplyNodesRequest extends Model
         if (isset($map['HostNameSuffix'])) {
             $model->hostNameSuffix = $map['HostNameSuffix'];
         }
-        if (isset($map['AllocatePublicAddress'])) {
-            $model->allocatePublicAddress = $map['AllocatePublicAddress'];
-        }
-        if (isset($map['InternetChargeType'])) {
-            $model->internetChargeType = $map['InternetChargeType'];
-        }
-        if (isset($map['InternetMaxBandWidthIn'])) {
-            $model->internetMaxBandWidthIn = $map['InternetMaxBandWidthIn'];
-        }
-        if (isset($map['InternetMaxBandWidthOut'])) {
-            $model->internetMaxBandWidthOut = $map['InternetMaxBandWidthOut'];
-        }
-        if (isset($map['Cores'])) {
-            $model->cores = $map['Cores'];
-        }
-        if (isset($map['Memory'])) {
-            $model->memory = $map['Memory'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['InstanceFamilyLevel'])) {
             $model->instanceFamilyLevel = $map['InstanceFamilyLevel'];
-        }
-        if (isset($map['TargetCapacity'])) {
-            $model->targetCapacity = $map['TargetCapacity'];
-        }
-        if (isset($map['ResourceAmountType'])) {
-            $model->resourceAmountType = $map['ResourceAmountType'];
-        }
-        if (isset($map['PriorityStrategy'])) {
-            $model->priorityStrategy = $map['PriorityStrategy'];
-        }
-        if (isset($map['StrictSatisfiedTargetCapacity'])) {
-            $model->strictSatisfiedTargetCapacity = $map['StrictSatisfiedTargetCapacity'];
-        }
-        if (isset($map['SystemDiskLevel'])) {
-            $model->systemDiskLevel = $map['SystemDiskLevel'];
-        }
-        if (isset($map['StrictResourceProvision'])) {
-            $model->strictResourceProvision = $map['StrictResourceProvision'];
-        }
-        if (isset($map['Round'])) {
-            $model->round = $map['Round'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
-        }
-        if (isset($map['ZoneInfos'])) {
-            if (!empty($map['ZoneInfos'])) {
-                $model->zoneInfos = [];
-                $n                = 0;
-                foreach ($map['ZoneInfos'] as $item) {
-                    $model->zoneInfos[$n++] = null !== $item ? zoneInfos::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['InstanceTypeModel'])) {
             if (!empty($map['InstanceTypeModel'])) {
@@ -371,12 +320,63 @@ class ApplyNodesRequest extends Model
                 }
             }
         }
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
+        }
+        if (isset($map['InternetMaxBandWidthIn'])) {
+            $model->internetMaxBandWidthIn = $map['InternetMaxBandWidthIn'];
+        }
+        if (isset($map['InternetMaxBandWidthOut'])) {
+            $model->internetMaxBandWidthOut = $map['InternetMaxBandWidthOut'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
+        if (isset($map['PriorityStrategy'])) {
+            $model->priorityStrategy = $map['PriorityStrategy'];
+        }
+        if (isset($map['ResourceAmountType'])) {
+            $model->resourceAmountType = $map['ResourceAmountType'];
+        }
+        if (isset($map['Round'])) {
+            $model->round = $map['Round'];
+        }
+        if (isset($map['StrictResourceProvision'])) {
+            $model->strictResourceProvision = $map['StrictResourceProvision'];
+        }
+        if (isset($map['StrictSatisfiedTargetCapacity'])) {
+            $model->strictSatisfiedTargetCapacity = $map['StrictSatisfiedTargetCapacity'];
+        }
+        if (isset($map['SystemDiskLevel'])) {
+            $model->systemDiskLevel = $map['SystemDiskLevel'];
+        }
+        if (isset($map['SystemDiskSize'])) {
+            $model->systemDiskSize = $map['SystemDiskSize'];
+        }
+        if (isset($map['SystemDiskType'])) {
+            $model->systemDiskType = $map['SystemDiskType'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
                 $n          = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['TargetCapacity'])) {
+            $model->targetCapacity = $map['TargetCapacity'];
+        }
+        if (isset($map['ZoneInfos'])) {
+            if (!empty($map['ZoneInfos'])) {
+                $model->zoneInfos = [];
+                $n                = 0;
+                foreach ($map['ZoneInfos'] as $item) {
+                    $model->zoneInfos[$n++] = null !== $item ? zoneInfos::fromMap($item) : $item;
                 }
             }
         }

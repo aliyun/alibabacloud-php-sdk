@@ -11,15 +11,15 @@ class UninstallSoftwareRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $application;
 
     /**
      * @var string
      */
-    public $application;
+    public $clusterId;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
         'application' => 'Application',
+        'clusterId'   => 'ClusterId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UninstallSoftwareRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->application) {
             $res['Application'] = $this->application;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UninstallSoftwareRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['Application'])) {
             $model->application = $map['Application'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
 
         return $model;

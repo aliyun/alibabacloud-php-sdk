@@ -12,6 +12,11 @@ class AddExistedNodesRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -22,29 +27,24 @@ class AddExistedNodesRequest extends Model
     /**
      * @var string
      */
-    public $jobQueue;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $imageOwnerAlias;
 
     /**
      * @var instance[]
      */
     public $instance;
+
+    /**
+     * @var string
+     */
+    public $jobQueue;
     protected $_name = [
+        'clientToken'     => 'ClientToken',
         'clusterId'       => 'ClusterId',
         'imageId'         => 'ImageId',
-        'jobQueue'        => 'JobQueue',
-        'clientToken'     => 'ClientToken',
         'imageOwnerAlias' => 'ImageOwnerAlias',
         'instance'        => 'Instance',
+        'jobQueue'        => 'JobQueue',
     ];
 
     public function validate()
@@ -54,17 +54,14 @@ class AddExistedNodesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
-        }
-        if (null !== $this->jobQueue) {
-            $res['JobQueue'] = $this->jobQueue;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->imageOwnerAlias) {
             $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
@@ -78,6 +75,9 @@ class AddExistedNodesRequest extends Model
                 }
             }
         }
+        if (null !== $this->jobQueue) {
+            $res['JobQueue'] = $this->jobQueue;
+        }
 
         return $res;
     }
@@ -90,17 +90,14 @@ class AddExistedNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
-        }
-        if (isset($map['JobQueue'])) {
-            $model->jobQueue = $map['JobQueue'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['ImageOwnerAlias'])) {
             $model->imageOwnerAlias = $map['ImageOwnerAlias'];
@@ -113,6 +110,9 @@ class AddExistedNodesRequest extends Model
                     $model->instance[$n++] = null !== $item ? instance::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['JobQueue'])) {
+            $model->jobQueue = $map['JobQueue'];
         }
 
         return $model;

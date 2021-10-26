@@ -20,9 +20,9 @@ class InvokeShellCommandRequest extends Model
     public $command;
 
     /**
-     * @var string
+     * @var instance[]
      */
-    public $workingDir;
+    public $instance;
 
     /**
      * @var int
@@ -30,15 +30,15 @@ class InvokeShellCommandRequest extends Model
     public $timeout;
 
     /**
-     * @var instance[]
+     * @var string
      */
-    public $instance;
+    public $workingDir;
     protected $_name = [
         'clusterId'  => 'ClusterId',
         'command'    => 'Command',
-        'workingDir' => 'WorkingDir',
-        'timeout'    => 'Timeout',
         'instance'   => 'Instance',
+        'timeout'    => 'Timeout',
+        'workingDir' => 'WorkingDir',
     ];
 
     public function validate()
@@ -54,12 +54,6 @@ class InvokeShellCommandRequest extends Model
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
-        if (null !== $this->workingDir) {
-            $res['WorkingDir'] = $this->workingDir;
-        }
-        if (null !== $this->timeout) {
-            $res['Timeout'] = $this->timeout;
-        }
         if (null !== $this->instance) {
             $res['Instance'] = [];
             if (null !== $this->instance && \is_array($this->instance)) {
@@ -68,6 +62,12 @@ class InvokeShellCommandRequest extends Model
                     $res['Instance'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
+        }
+        if (null !== $this->workingDir) {
+            $res['WorkingDir'] = $this->workingDir;
         }
 
         return $res;
@@ -87,12 +87,6 @@ class InvokeShellCommandRequest extends Model
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
-        if (isset($map['WorkingDir'])) {
-            $model->workingDir = $map['WorkingDir'];
-        }
-        if (isset($map['Timeout'])) {
-            $model->timeout = $map['Timeout'];
-        }
         if (isset($map['Instance'])) {
             if (!empty($map['Instance'])) {
                 $model->instance = [];
@@ -101,6 +95,12 @@ class InvokeShellCommandRequest extends Model
                     $model->instance[$n++] = null !== $item ? instance::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
+        }
+        if (isset($map['WorkingDir'])) {
+            $model->workingDir = $map['WorkingDir'];
         }
 
         return $model;

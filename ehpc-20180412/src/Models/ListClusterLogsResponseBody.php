@@ -10,14 +10,24 @@ use AlibabaCloud\Tea\Model;
 class ListClusterLogsResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $clusterId;
+
+    /**
+     * @var logs
+     */
+    public $logs;
 
     /**
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -28,23 +38,13 @@ class ListClusterLogsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
-
-    /**
-     * @var logs
-     */
-    public $logs;
     protected $_name = [
-        'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
         'clusterId'  => 'ClusterId',
         'logs'       => 'Logs',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class ListClusterLogsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->logs) {
+            $res['Logs'] = null !== $this->logs ? $this->logs->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->logs) {
-            $res['Logs'] = null !== $this->logs ? $this->logs->toMap() : null;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class ListClusterLogsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['Logs'])) {
+            $model->logs = logs::fromMap($map['Logs']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['Logs'])) {
-            $model->logs = logs::fromMap($map['Logs']);
         }
 
         return $model;

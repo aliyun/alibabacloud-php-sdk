@@ -14,11 +14,6 @@ class SetSchedulerInfoRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $clusterId;
 
     /**
@@ -27,20 +22,25 @@ class SetSchedulerInfoRequest extends Model
     public $pbsInfo;
 
     /**
-     * @var slurmInfo[]
+     * @var string
      */
-    public $slurmInfo;
+    public $regionId;
 
     /**
      * @var scheduler[]
      */
     public $scheduler;
+
+    /**
+     * @var slurmInfo[]
+     */
+    public $slurmInfo;
     protected $_name = [
-        'regionId'  => 'RegionId',
         'clusterId' => 'ClusterId',
         'pbsInfo'   => 'PbsInfo',
-        'slurmInfo' => 'SlurmInfo',
+        'regionId'  => 'RegionId',
         'scheduler' => 'Scheduler',
+        'slurmInfo' => 'SlurmInfo',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class SetSchedulerInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -65,14 +62,8 @@ class SetSchedulerInfoRequest extends Model
                 }
             }
         }
-        if (null !== $this->slurmInfo) {
-            $res['SlurmInfo'] = [];
-            if (null !== $this->slurmInfo && \is_array($this->slurmInfo)) {
-                $n = 0;
-                foreach ($this->slurmInfo as $item) {
-                    $res['SlurmInfo'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->scheduler) {
             $res['Scheduler'] = [];
@@ -80,6 +71,15 @@ class SetSchedulerInfoRequest extends Model
                 $n = 0;
                 foreach ($this->scheduler as $item) {
                     $res['Scheduler'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->slurmInfo) {
+            $res['SlurmInfo'] = [];
+            if (null !== $this->slurmInfo && \is_array($this->slurmInfo)) {
+                $n = 0;
+                foreach ($this->slurmInfo as $item) {
+                    $res['SlurmInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -95,9 +95,6 @@ class SetSchedulerInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -110,14 +107,8 @@ class SetSchedulerInfoRequest extends Model
                 }
             }
         }
-        if (isset($map['SlurmInfo'])) {
-            if (!empty($map['SlurmInfo'])) {
-                $model->slurmInfo = [];
-                $n                = 0;
-                foreach ($map['SlurmInfo'] as $item) {
-                    $model->slurmInfo[$n++] = null !== $item ? slurmInfo::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Scheduler'])) {
             if (!empty($map['Scheduler'])) {
@@ -125,6 +116,15 @@ class SetSchedulerInfoRequest extends Model
                 $n                = 0;
                 foreach ($map['Scheduler'] as $item) {
                     $model->scheduler[$n++] = null !== $item ? scheduler::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['SlurmInfo'])) {
+            if (!empty($map['SlurmInfo'])) {
+                $model->slurmInfo = [];
+                $n                = 0;
+                foreach ($map['SlurmInfo'] as $item) {
+                    $model->slurmInfo[$n++] = null !== $item ? slurmInfo::fromMap($item) : $item;
                 }
             }
         }

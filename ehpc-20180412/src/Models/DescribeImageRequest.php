@@ -16,7 +16,7 @@ class DescribeImageRequest extends Model
     /**
      * @var string
      */
-    public $repository;
+    public $containerType;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DescribeImageRequest extends Model
     /**
      * @var string
      */
-    public $containerType;
+    public $repository;
     protected $_name = [
         'clusterId'     => 'ClusterId',
-        'repository'    => 'Repository',
-        'imageTag'      => 'ImageTag',
         'containerType' => 'ContainerType',
+        'imageTag'      => 'ImageTag',
+        'repository'    => 'Repository',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DescribeImageRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->repository) {
-            $res['Repository'] = $this->repository;
+        if (null !== $this->containerType) {
+            $res['ContainerType'] = $this->containerType;
         }
         if (null !== $this->imageTag) {
             $res['ImageTag'] = $this->imageTag;
         }
-        if (null !== $this->containerType) {
-            $res['ContainerType'] = $this->containerType;
+        if (null !== $this->repository) {
+            $res['Repository'] = $this->repository;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DescribeImageRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Repository'])) {
-            $model->repository = $map['Repository'];
+        if (isset($map['ContainerType'])) {
+            $model->containerType = $map['ContainerType'];
         }
         if (isset($map['ImageTag'])) {
             $model->imageTag = $map['ImageTag'];
         }
-        if (isset($map['ContainerType'])) {
-            $model->containerType = $map['ContainerType'];
+        if (isset($map['Repository'])) {
+            $model->repository = $map['Repository'];
         }
 
         return $model;

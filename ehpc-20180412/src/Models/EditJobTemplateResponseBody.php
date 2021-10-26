@@ -11,15 +11,15 @@ class EditJobTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $templateId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $templateId;
     protected $_name = [
-        'templateId' => 'TemplateId',
         'requestId'  => 'RequestId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class EditJobTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class EditJobTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

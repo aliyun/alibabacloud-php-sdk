@@ -11,37 +11,17 @@ class clusterInfoSimple extends Model
     /**
      * @var string
      */
-    public $status;
+    public $accountType;
 
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $schedulerType;
+    public $clientVersion;
 
     /**
      * @var string
      */
     public $deployMode;
-
-    /**
-     * @var bool
-     */
-    public $isComputeEss;
-
-    /**
-     * @var string
-     */
-    public $osTag;
-
-    /**
-     * @var string
-     */
-    public $accountType;
 
     /**
      * @var string
@@ -51,12 +31,12 @@ class clusterInfoSimple extends Model
     /**
      * @var string
      */
-    public $name;
+    public $id;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $id;
+    public $isComputeEss;
 
     /**
      * @var string
@@ -66,20 +46,40 @@ class clusterInfoSimple extends Model
     /**
      * @var string
      */
-    public $clientVersion;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $osTag;
+
+    /**
+     * @var string
+     */
+    public $schedulerType;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
+        'accountType'   => 'AccountType',
+        'clientVersion' => 'ClientVersion',
+        'deployMode'    => 'DeployMode',
+        'description'   => 'Description',
+        'id'            => 'Id',
+        'isComputeEss'  => 'IsComputeEss',
+        'location'      => 'Location',
+        'name'          => 'Name',
+        'osTag'         => 'OsTag',
+        'schedulerType' => 'SchedulerType',
         'status'        => 'Status',
         'vpcId'         => 'VpcId',
-        'schedulerType' => 'SchedulerType',
-        'deployMode'    => 'DeployMode',
-        'isComputeEss'  => 'IsComputeEss',
-        'osTag'         => 'OsTag',
-        'accountType'   => 'AccountType',
-        'description'   => 'Description',
-        'name'          => 'Name',
-        'id'            => 'Id',
-        'location'      => 'Location',
-        'clientVersion' => 'ClientVersion',
     ];
 
     public function validate()
@@ -89,41 +89,41 @@ class clusterInfoSimple extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+        if (null !== $this->clientVersion) {
+            $res['ClientVersion'] = $this->clientVersion;
+        }
+        if (null !== $this->deployMode) {
+            $res['DeployMode'] = $this->deployMode;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->isComputeEss) {
+            $res['IsComputeEss'] = $this->isComputeEss;
+        }
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->osTag) {
+            $res['OsTag'] = $this->osTag;
+        }
+        if (null !== $this->schedulerType) {
+            $res['SchedulerType'] = $this->schedulerType;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->schedulerType) {
-            $res['SchedulerType'] = $this->schedulerType;
-        }
-        if (null !== $this->deployMode) {
-            $res['DeployMode'] = $this->deployMode;
-        }
-        if (null !== $this->isComputeEss) {
-            $res['IsComputeEss'] = $this->isComputeEss;
-        }
-        if (null !== $this->osTag) {
-            $res['OsTag'] = $this->osTag;
-        }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
-        }
-        if (null !== $this->clientVersion) {
-            $res['ClientVersion'] = $this->clientVersion;
         }
 
         return $res;
@@ -137,41 +137,41 @@ class clusterInfoSimple extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+        if (isset($map['ClientVersion'])) {
+            $model->clientVersion = $map['ClientVersion'];
+        }
+        if (isset($map['DeployMode'])) {
+            $model->deployMode = $map['DeployMode'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['IsComputeEss'])) {
+            $model->isComputeEss = $map['IsComputeEss'];
+        }
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OsTag'])) {
+            $model->osTag = $map['OsTag'];
+        }
+        if (isset($map['SchedulerType'])) {
+            $model->schedulerType = $map['SchedulerType'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['SchedulerType'])) {
-            $model->schedulerType = $map['SchedulerType'];
-        }
-        if (isset($map['DeployMode'])) {
-            $model->deployMode = $map['DeployMode'];
-        }
-        if (isset($map['IsComputeEss'])) {
-            $model->isComputeEss = $map['IsComputeEss'];
-        }
-        if (isset($map['OsTag'])) {
-            $model->osTag = $map['OsTag'];
-        }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
-        }
-        if (isset($map['ClientVersion'])) {
-            $model->clientVersion = $map['ClientVersion'];
         }
 
         return $model;

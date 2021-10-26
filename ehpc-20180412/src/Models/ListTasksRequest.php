@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListTasksRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $archived;
+
+    /**
      * @var string
      */
     public $clusterId;
@@ -27,17 +32,12 @@ class ListTasksRequest extends Model
      * @var string
      */
     public $taskId;
-
-    /**
-     * @var bool
-     */
-    public $archived;
     protected $_name = [
+        'archived'   => 'Archived',
         'clusterId'  => 'ClusterId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'taskId'     => 'TaskId',
-        'archived'   => 'Archived',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class ListTasksRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->archived) {
+            $res['Archived'] = $this->archived;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -58,9 +61,6 @@ class ListTasksRequest extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->archived) {
-            $res['Archived'] = $this->archived;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class ListTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Archived'])) {
+            $model->archived = $map['Archived'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -85,9 +88,6 @@ class ListTasksRequest extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['Archived'])) {
-            $model->archived = $map['Archived'];
         }
 
         return $model;

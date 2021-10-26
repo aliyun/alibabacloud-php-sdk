@@ -12,11 +12,6 @@ use AlibabaCloud\Tea\Model;
 class roles extends Model
 {
     /**
-     * @var manager
-     */
-    public $manager;
-
-    /**
      * @var compute
      */
     public $compute;
@@ -25,10 +20,15 @@ class roles extends Model
      * @var login
      */
     public $login;
+
+    /**
+     * @var manager
+     */
+    public $manager;
     protected $_name = [
-        'manager' => 'Manager',
         'compute' => 'Compute',
         'login'   => 'Login',
+        'manager' => 'Manager',
     ];
 
     public function validate()
@@ -38,14 +38,14 @@ class roles extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->manager) {
-            $res['Manager'] = null !== $this->manager ? $this->manager->toMap() : null;
-        }
         if (null !== $this->compute) {
             $res['Compute'] = null !== $this->compute ? $this->compute->toMap() : null;
         }
         if (null !== $this->login) {
             $res['Login'] = null !== $this->login ? $this->login->toMap() : null;
+        }
+        if (null !== $this->manager) {
+            $res['Manager'] = null !== $this->manager ? $this->manager->toMap() : null;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class roles extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Manager'])) {
-            $model->manager = manager::fromMap($map['Manager']);
-        }
         if (isset($map['Compute'])) {
             $model->compute = compute::fromMap($map['Compute']);
         }
         if (isset($map['Login'])) {
             $model->login = login::fromMap($map['Login']);
+        }
+        if (isset($map['Manager'])) {
+            $model->manager = manager::fromMap($map['Manager']);
         }
 
         return $model;

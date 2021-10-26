@@ -18,14 +18,29 @@ class CreateHybridClusterRequest extends Model
     public $ecsOrder;
 
     /**
-     * @var string
+     * @var application[]
      */
-    public $zoneId;
+    public $application;
 
     /**
      * @var string
      */
-    public $name;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $clientVersion;
+
+    /**
+     * @var float
+     */
+    public $computeSpotPriceLimit;
+
+    /**
+     * @var string
+     */
+    public $computeSpotStrategy;
 
     /**
      * @var string
@@ -35,97 +50,27 @@ class CreateHybridClusterRequest extends Model
     /**
      * @var string
      */
-    public $ehpcVersion;
-
-    /**
-     * @var string
-     */
-    public $clientVersion;
-
-    /**
-     * @var string
-     */
-    public $osTag;
-
-    /**
-     * @var string
-     */
     public $domain;
 
     /**
      * @var string
      */
-    public $location;
+    public $ehpcVersion;
 
     /**
      * @var string
      */
-    public $securityGroupId;
+    public $imageId;
 
     /**
      * @var string
      */
-    public $securityGroupName;
+    public $imageOwnerAlias;
 
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $volumeType;
-
-    /**
-     * @var string
-     */
-    public $volumeId;
-
-    /**
-     * @var string
-     */
-    public $volumeProtocol;
-
-    /**
-     * @var string
-     */
-    public $volumeMountpoint;
-
-    /**
-     * @var string
-     */
-    public $remoteDirectory;
-
-    /**
-     * @var string
-     */
-    public $onPremiseVolumeProtocol;
-
-    /**
-     * @var string
-     */
-    public $onPremiseVolumeMountPoint;
-
-    /**
-     * @var string
-     */
-    public $onPremiseVolumeRemotePath;
-
-    /**
-     * @var string
-     */
-    public $onPremiseVolumeLocalPath;
-
-    /**
-     * @var string
-     */
-    public $password;
+    public $jobQueue;
 
     /**
      * @var string
@@ -135,7 +80,62 @@ class CreateHybridClusterRequest extends Model
     /**
      * @var string
      */
-    public $jobQueue;
+    public $location;
+
+    /**
+     * @var bool
+     */
+    public $multiOs;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var nodes[]
+     */
+    public $nodes;
+
+    /**
+     * @var string
+     */
+    public $onPremiseVolumeLocalPath;
+
+    /**
+     * @var string
+     */
+    public $onPremiseVolumeMountPoint;
+
+    /**
+     * @var string
+     */
+    public $onPremiseVolumeProtocol;
+
+    /**
+     * @var string
+     */
+    public $onPremiseVolumeRemotePath;
+
+    /**
+     * @var string
+     */
+    public $osTag;
+
+    /**
+     * @var string
+     */
+    public $password;
+
+    /**
+     * @var postInstallScript[]
+     */
+    public $postInstallScript;
+
+    /**
+     * @var string
+     */
+    public $remoteDirectory;
 
     /**
      * @var string
@@ -150,84 +150,84 @@ class CreateHybridClusterRequest extends Model
     /**
      * @var string
      */
-    public $computeSpotStrategy;
-
-    /**
-     * @var float
-     */
-    public $computeSpotPriceLimit;
+    public $securityGroupId;
 
     /**
      * @var string
      */
-    public $imageOwnerAlias;
+    public $securityGroupName;
 
     /**
      * @var string
      */
-    public $imageId;
+    public $vSwitchId;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $volumeId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $multiOs;
+    public $volumeMountpoint;
 
     /**
-     * @var nodes[]
+     * @var string
      */
-    public $nodes;
+    public $volumeProtocol;
 
     /**
-     * @var application[]
+     * @var string
      */
-    public $application;
+    public $volumeType;
 
     /**
-     * @var postInstallScript[]
+     * @var string
      */
-    public $postInstallScript;
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'ecsOrder'                  => 'EcsOrder',
-        'zoneId'                    => 'ZoneId',
-        'name'                      => 'Name',
-        'description'               => 'Description',
-        'ehpcVersion'               => 'EhpcVersion',
+        'application'               => 'Application',
+        'clientToken'               => 'ClientToken',
         'clientVersion'             => 'ClientVersion',
-        'osTag'                     => 'OsTag',
+        'computeSpotPriceLimit'     => 'ComputeSpotPriceLimit',
+        'computeSpotStrategy'       => 'ComputeSpotStrategy',
+        'description'               => 'Description',
         'domain'                    => 'Domain',
-        'location'                  => 'Location',
-        'securityGroupId'           => 'SecurityGroupId',
-        'securityGroupName'         => 'SecurityGroupName',
-        'vpcId'                     => 'VpcId',
-        'vSwitchId'                 => 'VSwitchId',
-        'volumeType'                => 'VolumeType',
-        'volumeId'                  => 'VolumeId',
-        'volumeProtocol'            => 'VolumeProtocol',
-        'volumeMountpoint'          => 'VolumeMountpoint',
-        'remoteDirectory'           => 'RemoteDirectory',
-        'onPremiseVolumeProtocol'   => 'OnPremiseVolumeProtocol',
-        'onPremiseVolumeMountPoint' => 'OnPremiseVolumeMountPoint',
-        'onPremiseVolumeRemotePath' => 'OnPremiseVolumeRemotePath',
-        'onPremiseVolumeLocalPath'  => 'OnPremiseVolumeLocalPath',
-        'password'                  => 'Password',
-        'keyPairName'               => 'KeyPairName',
+        'ehpcVersion'               => 'EhpcVersion',
+        'imageId'                   => 'ImageId',
+        'imageOwnerAlias'           => 'ImageOwnerAlias',
         'jobQueue'                  => 'JobQueue',
+        'keyPairName'               => 'KeyPairName',
+        'location'                  => 'Location',
+        'multiOs'                   => 'MultiOs',
+        'name'                      => 'Name',
+        'nodes'                     => 'Nodes',
+        'onPremiseVolumeLocalPath'  => 'OnPremiseVolumeLocalPath',
+        'onPremiseVolumeMountPoint' => 'OnPremiseVolumeMountPoint',
+        'onPremiseVolumeProtocol'   => 'OnPremiseVolumeProtocol',
+        'onPremiseVolumeRemotePath' => 'OnPremiseVolumeRemotePath',
+        'osTag'                     => 'OsTag',
+        'password'                  => 'Password',
+        'postInstallScript'         => 'PostInstallScript',
+        'remoteDirectory'           => 'RemoteDirectory',
         'resourceGroupId'           => 'ResourceGroupId',
         'schedulerPreInstall'       => 'SchedulerPreInstall',
-        'computeSpotStrategy'       => 'ComputeSpotStrategy',
-        'computeSpotPriceLimit'     => 'ComputeSpotPriceLimit',
-        'imageOwnerAlias'           => 'ImageOwnerAlias',
-        'imageId'                   => 'ImageId',
-        'clientToken'               => 'ClientToken',
-        'multiOs'                   => 'MultiOs',
-        'nodes'                     => 'Nodes',
-        'application'               => 'Application',
-        'postInstallScript'         => 'PostInstallScript',
+        'securityGroupId'           => 'SecurityGroupId',
+        'securityGroupName'         => 'SecurityGroupName',
+        'vSwitchId'                 => 'VSwitchId',
+        'volumeId'                  => 'VolumeId',
+        'volumeMountpoint'          => 'VolumeMountpoint',
+        'volumeProtocol'            => 'VolumeProtocol',
+        'volumeType'                => 'VolumeType',
+        'vpcId'                     => 'VpcId',
+        'zoneId'                    => 'ZoneId',
     ];
 
     public function validate()
@@ -240,101 +240,56 @@ class CreateHybridClusterRequest extends Model
         if (null !== $this->ecsOrder) {
             $res['EcsOrder'] = null !== $this->ecsOrder ? $this->ecsOrder->toMap() : null;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->ehpcVersion) {
-            $res['EhpcVersion'] = $this->ehpcVersion;
-        }
-        if (null !== $this->clientVersion) {
-            $res['ClientVersion'] = $this->clientVersion;
-        }
-        if (null !== $this->osTag) {
-            $res['OsTag'] = $this->osTag;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->securityGroupName) {
-            $res['SecurityGroupName'] = $this->securityGroupName;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->volumeType) {
-            $res['VolumeType'] = $this->volumeType;
-        }
-        if (null !== $this->volumeId) {
-            $res['VolumeId'] = $this->volumeId;
-        }
-        if (null !== $this->volumeProtocol) {
-            $res['VolumeProtocol'] = $this->volumeProtocol;
-        }
-        if (null !== $this->volumeMountpoint) {
-            $res['VolumeMountpoint'] = $this->volumeMountpoint;
-        }
-        if (null !== $this->remoteDirectory) {
-            $res['RemoteDirectory'] = $this->remoteDirectory;
-        }
-        if (null !== $this->onPremiseVolumeProtocol) {
-            $res['OnPremiseVolumeProtocol'] = $this->onPremiseVolumeProtocol;
-        }
-        if (null !== $this->onPremiseVolumeMountPoint) {
-            $res['OnPremiseVolumeMountPoint'] = $this->onPremiseVolumeMountPoint;
-        }
-        if (null !== $this->onPremiseVolumeRemotePath) {
-            $res['OnPremiseVolumeRemotePath'] = $this->onPremiseVolumeRemotePath;
-        }
-        if (null !== $this->onPremiseVolumeLocalPath) {
-            $res['OnPremiseVolumeLocalPath'] = $this->onPremiseVolumeLocalPath;
-        }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
-        }
-        if (null !== $this->keyPairName) {
-            $res['KeyPairName'] = $this->keyPairName;
-        }
-        if (null !== $this->jobQueue) {
-            $res['JobQueue'] = $this->jobQueue;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->schedulerPreInstall) {
-            $res['SchedulerPreInstall'] = $this->schedulerPreInstall;
-        }
-        if (null !== $this->computeSpotStrategy) {
-            $res['ComputeSpotStrategy'] = $this->computeSpotStrategy;
-        }
-        if (null !== $this->computeSpotPriceLimit) {
-            $res['ComputeSpotPriceLimit'] = $this->computeSpotPriceLimit;
-        }
-        if (null !== $this->imageOwnerAlias) {
-            $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->application) {
+            $res['Application'] = [];
+            if (null !== $this->application && \is_array($this->application)) {
+                $n = 0;
+                foreach ($this->application as $item) {
+                    $res['Application'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->clientVersion) {
+            $res['ClientVersion'] = $this->clientVersion;
+        }
+        if (null !== $this->computeSpotPriceLimit) {
+            $res['ComputeSpotPriceLimit'] = $this->computeSpotPriceLimit;
+        }
+        if (null !== $this->computeSpotStrategy) {
+            $res['ComputeSpotStrategy'] = $this->computeSpotStrategy;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->ehpcVersion) {
+            $res['EhpcVersion'] = $this->ehpcVersion;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->imageOwnerAlias) {
+            $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
+        }
+        if (null !== $this->jobQueue) {
+            $res['JobQueue'] = $this->jobQueue;
+        }
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
+        }
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
+        }
         if (null !== $this->multiOs) {
             $res['MultiOs'] = $this->multiOs;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->nodes) {
             $res['Nodes'] = [];
@@ -345,14 +300,23 @@ class CreateHybridClusterRequest extends Model
                 }
             }
         }
-        if (null !== $this->application) {
-            $res['Application'] = [];
-            if (null !== $this->application && \is_array($this->application)) {
-                $n = 0;
-                foreach ($this->application as $item) {
-                    $res['Application'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->onPremiseVolumeLocalPath) {
+            $res['OnPremiseVolumeLocalPath'] = $this->onPremiseVolumeLocalPath;
+        }
+        if (null !== $this->onPremiseVolumeMountPoint) {
+            $res['OnPremiseVolumeMountPoint'] = $this->onPremiseVolumeMountPoint;
+        }
+        if (null !== $this->onPremiseVolumeProtocol) {
+            $res['OnPremiseVolumeProtocol'] = $this->onPremiseVolumeProtocol;
+        }
+        if (null !== $this->onPremiseVolumeRemotePath) {
+            $res['OnPremiseVolumeRemotePath'] = $this->onPremiseVolumeRemotePath;
+        }
+        if (null !== $this->osTag) {
+            $res['OsTag'] = $this->osTag;
+        }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
         }
         if (null !== $this->postInstallScript) {
             $res['PostInstallScript'] = [];
@@ -362,6 +326,42 @@ class CreateHybridClusterRequest extends Model
                     $res['PostInstallScript'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->remoteDirectory) {
+            $res['RemoteDirectory'] = $this->remoteDirectory;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->schedulerPreInstall) {
+            $res['SchedulerPreInstall'] = $this->schedulerPreInstall;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->securityGroupName) {
+            $res['SecurityGroupName'] = $this->securityGroupName;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->volumeId) {
+            $res['VolumeId'] = $this->volumeId;
+        }
+        if (null !== $this->volumeMountpoint) {
+            $res['VolumeMountpoint'] = $this->volumeMountpoint;
+        }
+        if (null !== $this->volumeProtocol) {
+            $res['VolumeProtocol'] = $this->volumeProtocol;
+        }
+        if (null !== $this->volumeType) {
+            $res['VolumeType'] = $this->volumeType;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -378,101 +378,56 @@ class CreateHybridClusterRequest extends Model
         if (isset($map['EcsOrder'])) {
             $model->ecsOrder = ecsOrder::fromMap($map['EcsOrder']);
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['EhpcVersion'])) {
-            $model->ehpcVersion = $map['EhpcVersion'];
-        }
-        if (isset($map['ClientVersion'])) {
-            $model->clientVersion = $map['ClientVersion'];
-        }
-        if (isset($map['OsTag'])) {
-            $model->osTag = $map['OsTag'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['SecurityGroupName'])) {
-            $model->securityGroupName = $map['SecurityGroupName'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['VolumeType'])) {
-            $model->volumeType = $map['VolumeType'];
-        }
-        if (isset($map['VolumeId'])) {
-            $model->volumeId = $map['VolumeId'];
-        }
-        if (isset($map['VolumeProtocol'])) {
-            $model->volumeProtocol = $map['VolumeProtocol'];
-        }
-        if (isset($map['VolumeMountpoint'])) {
-            $model->volumeMountpoint = $map['VolumeMountpoint'];
-        }
-        if (isset($map['RemoteDirectory'])) {
-            $model->remoteDirectory = $map['RemoteDirectory'];
-        }
-        if (isset($map['OnPremiseVolumeProtocol'])) {
-            $model->onPremiseVolumeProtocol = $map['OnPremiseVolumeProtocol'];
-        }
-        if (isset($map['OnPremiseVolumeMountPoint'])) {
-            $model->onPremiseVolumeMountPoint = $map['OnPremiseVolumeMountPoint'];
-        }
-        if (isset($map['OnPremiseVolumeRemotePath'])) {
-            $model->onPremiseVolumeRemotePath = $map['OnPremiseVolumeRemotePath'];
-        }
-        if (isset($map['OnPremiseVolumeLocalPath'])) {
-            $model->onPremiseVolumeLocalPath = $map['OnPremiseVolumeLocalPath'];
-        }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
-        }
-        if (isset($map['KeyPairName'])) {
-            $model->keyPairName = $map['KeyPairName'];
-        }
-        if (isset($map['JobQueue'])) {
-            $model->jobQueue = $map['JobQueue'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['SchedulerPreInstall'])) {
-            $model->schedulerPreInstall = $map['SchedulerPreInstall'];
-        }
-        if (isset($map['ComputeSpotStrategy'])) {
-            $model->computeSpotStrategy = $map['ComputeSpotStrategy'];
-        }
-        if (isset($map['ComputeSpotPriceLimit'])) {
-            $model->computeSpotPriceLimit = $map['ComputeSpotPriceLimit'];
-        }
-        if (isset($map['ImageOwnerAlias'])) {
-            $model->imageOwnerAlias = $map['ImageOwnerAlias'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['Application'])) {
+            if (!empty($map['Application'])) {
+                $model->application = [];
+                $n                  = 0;
+                foreach ($map['Application'] as $item) {
+                    $model->application[$n++] = null !== $item ? application::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['ClientVersion'])) {
+            $model->clientVersion = $map['ClientVersion'];
+        }
+        if (isset($map['ComputeSpotPriceLimit'])) {
+            $model->computeSpotPriceLimit = $map['ComputeSpotPriceLimit'];
+        }
+        if (isset($map['ComputeSpotStrategy'])) {
+            $model->computeSpotStrategy = $map['ComputeSpotStrategy'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['EhpcVersion'])) {
+            $model->ehpcVersion = $map['EhpcVersion'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['ImageOwnerAlias'])) {
+            $model->imageOwnerAlias = $map['ImageOwnerAlias'];
+        }
+        if (isset($map['JobQueue'])) {
+            $model->jobQueue = $map['JobQueue'];
+        }
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
+        }
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
+        }
         if (isset($map['MultiOs'])) {
             $model->multiOs = $map['MultiOs'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
@@ -483,14 +438,23 @@ class CreateHybridClusterRequest extends Model
                 }
             }
         }
-        if (isset($map['Application'])) {
-            if (!empty($map['Application'])) {
-                $model->application = [];
-                $n                  = 0;
-                foreach ($map['Application'] as $item) {
-                    $model->application[$n++] = null !== $item ? application::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['OnPremiseVolumeLocalPath'])) {
+            $model->onPremiseVolumeLocalPath = $map['OnPremiseVolumeLocalPath'];
+        }
+        if (isset($map['OnPremiseVolumeMountPoint'])) {
+            $model->onPremiseVolumeMountPoint = $map['OnPremiseVolumeMountPoint'];
+        }
+        if (isset($map['OnPremiseVolumeProtocol'])) {
+            $model->onPremiseVolumeProtocol = $map['OnPremiseVolumeProtocol'];
+        }
+        if (isset($map['OnPremiseVolumeRemotePath'])) {
+            $model->onPremiseVolumeRemotePath = $map['OnPremiseVolumeRemotePath'];
+        }
+        if (isset($map['OsTag'])) {
+            $model->osTag = $map['OsTag'];
+        }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
         }
         if (isset($map['PostInstallScript'])) {
             if (!empty($map['PostInstallScript'])) {
@@ -500,6 +464,42 @@ class CreateHybridClusterRequest extends Model
                     $model->postInstallScript[$n++] = null !== $item ? postInstallScript::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RemoteDirectory'])) {
+            $model->remoteDirectory = $map['RemoteDirectory'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SchedulerPreInstall'])) {
+            $model->schedulerPreInstall = $map['SchedulerPreInstall'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['SecurityGroupName'])) {
+            $model->securityGroupName = $map['SecurityGroupName'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VolumeId'])) {
+            $model->volumeId = $map['VolumeId'];
+        }
+        if (isset($map['VolumeMountpoint'])) {
+            $model->volumeMountpoint = $map['VolumeMountpoint'];
+        }
+        if (isset($map['VolumeProtocol'])) {
+            $model->volumeProtocol = $map['VolumeProtocol'];
+        }
+        if (isset($map['VolumeType'])) {
+            $model->volumeType = $map['VolumeType'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

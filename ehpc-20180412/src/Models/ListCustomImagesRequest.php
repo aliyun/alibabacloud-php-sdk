@@ -11,27 +11,27 @@ class ListCustomImagesRequest extends Model
     /**
      * @var string
      */
-    public $imageOwnerAlias;
-
-    /**
-     * @var string
-     */
     public $baseOsTag;
 
     /**
      * @var string
      */
-    public $instanceType;
+    public $clusterId;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $imageOwnerAlias;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
     protected $_name = [
-        'imageOwnerAlias' => 'ImageOwnerAlias',
         'baseOsTag'       => 'BaseOsTag',
-        'instanceType'    => 'InstanceType',
         'clusterId'       => 'ClusterId',
+        'imageOwnerAlias' => 'ImageOwnerAlias',
+        'instanceType'    => 'InstanceType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListCustomImagesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageOwnerAlias) {
-            $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
-        }
         if (null !== $this->baseOsTag) {
             $res['BaseOsTag'] = $this->baseOsTag;
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->imageOwnerAlias) {
+            $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListCustomImagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageOwnerAlias'])) {
-            $model->imageOwnerAlias = $map['ImageOwnerAlias'];
-        }
         if (isset($map['BaseOsTag'])) {
             $model->baseOsTag = $map['BaseOsTag'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ImageOwnerAlias'])) {
+            $model->imageOwnerAlias = $map['ImageOwnerAlias'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         return $model;

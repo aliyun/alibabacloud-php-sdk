@@ -10,19 +10,14 @@ use AlibabaCloud\Tea\Model;
 class instanceInfo extends Model
 {
     /**
-     * @var string
+     * @var appList
      */
-    public $status;
+    public $appList;
 
     /**
      * @var string
      */
-    public $workMode;
-
-    /**
-     * @var string
-     */
-    public $expireTime;
+    public $clusterId;
 
     /**
      * @var string
@@ -32,12 +27,12 @@ class instanceInfo extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $expireTime;
 
     /**
      * @var string
      */
-    public $name;
+    public $instanceId;
 
     /**
      * @var string
@@ -47,28 +42,33 @@ class instanceInfo extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $userName;
 
     /**
      * @var string
      */
-    public $clusterId;
-
-    /**
-     * @var appList
-     */
-    public $appList;
+    public $workMode;
     protected $_name = [
-        'status'       => 'Status',
-        'workMode'     => 'WorkMode',
-        'expireTime'   => 'ExpireTime',
-        'createTime'   => 'CreateTime',
-        'instanceId'   => 'InstanceId',
-        'name'         => 'Name',
-        'instanceType' => 'InstanceType',
-        'userName'     => 'UserName',
-        'clusterId'    => 'ClusterId',
         'appList'      => 'AppList',
+        'clusterId'    => 'ClusterId',
+        'createTime'   => 'CreateTime',
+        'expireTime'   => 'ExpireTime',
+        'instanceId'   => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'name'         => 'Name',
+        'status'       => 'Status',
+        'userName'     => 'UserName',
+        'workMode'     => 'WorkMode',
     ];
 
     public function validate()
@@ -78,35 +78,35 @@ class instanceInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->workMode) {
-            $res['WorkMode'] = $this->workMode;
-        }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
+        if (null !== $this->appList) {
+            $res['AppList'] = null !== $this->appList ? $this->appList->toMap() : null;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->appList) {
-            $res['AppList'] = null !== $this->appList ? $this->appList->toMap() : null;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
+        }
+        if (null !== $this->workMode) {
+            $res['WorkMode'] = $this->workMode;
         }
 
         return $res;
@@ -120,35 +120,35 @@ class instanceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['WorkMode'])) {
-            $model->workMode = $map['WorkMode'];
-        }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
+        if (isset($map['AppList'])) {
+            $model->appList = appList::fromMap($map['AppList']);
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['AppList'])) {
-            $model->appList = appList::fromMap($map['AppList']);
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
+        }
+        if (isset($map['WorkMode'])) {
+            $model->workMode = $map['WorkMode'];
         }
 
         return $model;

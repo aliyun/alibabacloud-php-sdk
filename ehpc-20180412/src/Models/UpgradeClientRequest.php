@@ -11,15 +11,15 @@ class UpgradeClientRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $clientVersion;
 
     /**
      * @var string
      */
-    public $clientVersion;
+    public $clusterId;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
         'clientVersion' => 'ClientVersion',
+        'clusterId'     => 'ClusterId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpgradeClientRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->clientVersion) {
             $res['ClientVersion'] = $this->clientVersion;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpgradeClientRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['ClientVersion'])) {
             $model->clientVersion = $map['ClientVersion'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
 
         return $model;

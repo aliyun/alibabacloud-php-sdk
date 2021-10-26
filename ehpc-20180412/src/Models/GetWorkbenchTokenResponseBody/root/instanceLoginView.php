@@ -11,22 +11,22 @@ class instanceLoginView extends Model
     /**
      * @var string
      */
-    public $defaultViewUrl;
-
-    /**
-     * @var string
-     */
-    public $rdpViewUrl;
-
-    /**
-     * @var string
-     */
     public $baseViewUrl;
 
     /**
      * @var string
      */
+    public $defaultViewUrl;
+
+    /**
+     * @var string
+     */
     public $fileTreeViewUrl;
+
+    /**
+     * @var string
+     */
+    public $rdpViewUrl;
 
     /**
      * @var string
@@ -38,10 +38,10 @@ class instanceLoginView extends Model
      */
     public $viewName;
     protected $_name = [
-        'defaultViewUrl'  => 'defaultViewUrl',
-        'rdpViewUrl'      => 'rdpViewUrl',
         'baseViewUrl'     => 'baseViewUrl',
+        'defaultViewUrl'  => 'defaultViewUrl',
         'fileTreeViewUrl' => 'fileTreeViewUrl',
+        'rdpViewUrl'      => 'rdpViewUrl',
         'terminalViewUrl' => 'terminalViewUrl',
         'viewName'        => 'viewName',
     ];
@@ -53,17 +53,17 @@ class instanceLoginView extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->defaultViewUrl) {
-            $res['defaultViewUrl'] = $this->defaultViewUrl;
-        }
-        if (null !== $this->rdpViewUrl) {
-            $res['rdpViewUrl'] = $this->rdpViewUrl;
-        }
         if (null !== $this->baseViewUrl) {
             $res['baseViewUrl'] = $this->baseViewUrl;
         }
+        if (null !== $this->defaultViewUrl) {
+            $res['defaultViewUrl'] = $this->defaultViewUrl;
+        }
         if (null !== $this->fileTreeViewUrl) {
             $res['fileTreeViewUrl'] = $this->fileTreeViewUrl;
+        }
+        if (null !== $this->rdpViewUrl) {
+            $res['rdpViewUrl'] = $this->rdpViewUrl;
         }
         if (null !== $this->terminalViewUrl) {
             $res['terminalViewUrl'] = $this->terminalViewUrl;
@@ -83,17 +83,17 @@ class instanceLoginView extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['defaultViewUrl'])) {
-            $model->defaultViewUrl = $map['defaultViewUrl'];
-        }
-        if (isset($map['rdpViewUrl'])) {
-            $model->rdpViewUrl = $map['rdpViewUrl'];
-        }
         if (isset($map['baseViewUrl'])) {
             $model->baseViewUrl = $map['baseViewUrl'];
         }
+        if (isset($map['defaultViewUrl'])) {
+            $model->defaultViewUrl = $map['defaultViewUrl'];
+        }
         if (isset($map['fileTreeViewUrl'])) {
             $model->fileTreeViewUrl = $map['fileTreeViewUrl'];
+        }
+        if (isset($map['rdpViewUrl'])) {
+            $model->rdpViewUrl = $map['rdpViewUrl'];
         }
         if (isset($map['terminalViewUrl'])) {
             $model->terminalViewUrl = $map['terminalViewUrl'];

@@ -11,20 +11,20 @@ class usedResources extends Model
     /**
      * @var int
      */
-    public $gpu;
+    public $cpu;
 
     /**
      * @var int
      */
-    public $cpu;
+    public $gpu;
 
     /**
      * @var int
      */
     public $memory;
     protected $_name = [
-        'gpu'    => 'Gpu',
         'cpu'    => 'Cpu',
+        'gpu'    => 'Gpu',
         'memory' => 'Memory',
     ];
 
@@ -35,11 +35,11 @@ class usedResources extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gpu) {
-            $res['Gpu'] = $this->gpu;
-        }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->gpu) {
+            $res['Gpu'] = $this->gpu;
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
@@ -56,11 +56,11 @@ class usedResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Gpu'])) {
-            $model->gpu = $map['Gpu'];
-        }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+        if (isset($map['Gpu'])) {
+            $model->gpu = $map['Gpu'];
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];

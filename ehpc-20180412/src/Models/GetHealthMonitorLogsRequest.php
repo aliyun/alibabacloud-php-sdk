@@ -14,9 +14,9 @@ class GetHealthMonitorLogsRequest extends Model
     public $clusterId;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $startTime;
+    public $enableReverse;
 
     /**
      * @var int
@@ -24,20 +24,20 @@ class GetHealthMonitorLogsRequest extends Model
     public $endTime;
 
     /**
-     * @var bool
-     */
-    public $enableReverse;
-
-    /**
      * @var string
      */
     public $filter;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
         'clusterId'     => 'ClusterId',
-        'startTime'     => 'StartTime',
-        'endTime'       => 'EndTime',
         'enableReverse' => 'EnableReverse',
+        'endTime'       => 'EndTime',
         'filter'        => 'Filter',
+        'startTime'     => 'StartTime',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class GetHealthMonitorLogsRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->enableReverse) {
+            $res['EnableReverse'] = $this->enableReverse;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->enableReverse) {
-            $res['EnableReverse'] = $this->enableReverse;
-        }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class GetHealthMonitorLogsRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['EnableReverse'])) {
+            $model->enableReverse = $map['EnableReverse'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['EnableReverse'])) {
-            $model->enableReverse = $map['EnableReverse'];
-        }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -15,18 +15,18 @@ class SetQueueRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
-     */
-    public $queueName;
-
-    /**
      * @var node[]
      */
     public $node;
+
+    /**
+     * @var string
+     */
+    public $queueName;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'queueName' => 'QueueName',
         'node'      => 'Node',
+        'queueName' => 'QueueName',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class SetQueueRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->queueName) {
-            $res['QueueName'] = $this->queueName;
-        }
         if (null !== $this->node) {
             $res['Node'] = [];
             if (null !== $this->node && \is_array($this->node)) {
@@ -50,6 +47,9 @@ class SetQueueRequest extends Model
                     $res['Node'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->queueName) {
+            $res['QueueName'] = $this->queueName;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class SetQueueRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['QueueName'])) {
-            $model->queueName = $map['QueueName'];
-        }
         if (isset($map['Node'])) {
             if (!empty($map['Node'])) {
                 $model->node = [];
@@ -77,6 +74,9 @@ class SetQueueRequest extends Model
                     $model->node[$n++] = null !== $item ? node::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['QueueName'])) {
+            $model->queueName = $map['QueueName'];
         }
 
         return $model;

@@ -16,11 +16,6 @@ class ListNodesNoPagingRequest extends Model
     /**
      * @var string
      */
-    public $role;
-
-    /**
-     * @var string
-     */
     public $hostName;
 
     /**
@@ -31,12 +26,17 @@ class ListNodesNoPagingRequest extends Model
     /**
      * @var string
      */
+    public $role;
+
+    /**
+     * @var string
+     */
     public $sequence;
     protected $_name = [
         'clusterId'    => 'ClusterId',
-        'role'         => 'Role',
         'hostName'     => 'HostName',
         'onlyDetached' => 'OnlyDetached',
+        'role'         => 'Role',
         'sequence'     => 'Sequence',
     ];
 
@@ -50,14 +50,14 @@ class ListNodesNoPagingRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
         if (null !== $this->onlyDetached) {
             $res['OnlyDetached'] = $this->onlyDetached;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
         if (null !== $this->sequence) {
             $res['Sequence'] = $this->sequence;
@@ -77,14 +77,14 @@ class ListNodesNoPagingRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
         if (isset($map['OnlyDetached'])) {
             $model->onlyDetached = $map['OnlyDetached'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
         if (isset($map['Sequence'])) {
             $model->sequence = $map['Sequence'];

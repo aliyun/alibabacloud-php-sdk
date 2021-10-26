@@ -16,16 +16,16 @@ class SetGWSInstanceUserRequest extends Model
     /**
      * @var string
      */
-    public $userUid;
+    public $userName;
 
     /**
      * @var string
      */
-    public $userName;
+    public $userUid;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'userUid'    => 'UserUid',
         'userName'   => 'UserName',
+        'userUid'    => 'UserUid',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class SetGWSInstanceUserRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userUid) {
-            $res['UserUid'] = $this->userUid;
-        }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
+        }
+        if (null !== $this->userUid) {
+            $res['UserUid'] = $this->userUid;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class SetGWSInstanceUserRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserUid'])) {
-            $model->userUid = $map['UserUid'];
-        }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
+        }
+        if (isset($map['UserUid'])) {
+            $model->userUid = $map['UserUid'];
         }
 
         return $model;

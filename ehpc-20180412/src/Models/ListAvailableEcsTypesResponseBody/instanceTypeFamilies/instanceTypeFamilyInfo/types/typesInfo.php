@@ -10,24 +10,29 @@ use AlibabaCloud\Tea\Model;
 class typesInfo extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $instanceTypeId;
+    public $cpuCoreCount;
 
     /**
      * @var int
      */
-    public $instanceBandwidthRx;
+    public $eniQuantity;
+
+    /**
+     * @var int
+     */
+    public $GPUAmount;
 
     /**
      * @var string
      */
     public $GPUSpec;
+
+    /**
+     * @var int
+     */
+    public $instanceBandwidthRx;
 
     /**
      * @var int
@@ -45,14 +50,9 @@ class typesInfo extends Model
     public $instancePpsTx;
 
     /**
-     * @var int
+     * @var string
      */
-    public $GPUAmount;
-
-    /**
-     * @var int
-     */
-    public $cpuCoreCount;
+    public $instanceTypeId;
 
     /**
      * @var int
@@ -60,26 +60,26 @@ class typesInfo extends Model
     public $memorySize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $eniQuantity;
+    public $status;
 
     /**
      * @var zoneIds
      */
     public $zoneIds;
     protected $_name = [
-        'status'              => 'Status',
-        'instanceTypeId'      => 'InstanceTypeId',
-        'instanceBandwidthRx' => 'InstanceBandwidthRx',
+        'cpuCoreCount'        => 'CpuCoreCount',
+        'eniQuantity'         => 'EniQuantity',
+        'GPUAmount'           => 'GPUAmount',
         'GPUSpec'             => 'GPUSpec',
+        'instanceBandwidthRx' => 'InstanceBandwidthRx',
         'instanceBandwidthTx' => 'InstanceBandwidthTx',
         'instancePpsRx'       => 'InstancePpsRx',
         'instancePpsTx'       => 'InstancePpsTx',
-        'GPUAmount'           => 'GPUAmount',
-        'cpuCoreCount'        => 'CpuCoreCount',
+        'instanceTypeId'      => 'InstanceTypeId',
         'memorySize'          => 'MemorySize',
-        'eniQuantity'         => 'EniQuantity',
+        'status'              => 'Status',
         'zoneIds'             => 'ZoneIds',
     ];
 
@@ -90,17 +90,20 @@ class typesInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->cpuCoreCount) {
+            $res['CpuCoreCount'] = $this->cpuCoreCount;
         }
-        if (null !== $this->instanceTypeId) {
-            $res['InstanceTypeId'] = $this->instanceTypeId;
+        if (null !== $this->eniQuantity) {
+            $res['EniQuantity'] = $this->eniQuantity;
         }
-        if (null !== $this->instanceBandwidthRx) {
-            $res['InstanceBandwidthRx'] = $this->instanceBandwidthRx;
+        if (null !== $this->GPUAmount) {
+            $res['GPUAmount'] = $this->GPUAmount;
         }
         if (null !== $this->GPUSpec) {
             $res['GPUSpec'] = $this->GPUSpec;
+        }
+        if (null !== $this->instanceBandwidthRx) {
+            $res['InstanceBandwidthRx'] = $this->instanceBandwidthRx;
         }
         if (null !== $this->instanceBandwidthTx) {
             $res['InstanceBandwidthTx'] = $this->instanceBandwidthTx;
@@ -111,17 +114,14 @@ class typesInfo extends Model
         if (null !== $this->instancePpsTx) {
             $res['InstancePpsTx'] = $this->instancePpsTx;
         }
-        if (null !== $this->GPUAmount) {
-            $res['GPUAmount'] = $this->GPUAmount;
-        }
-        if (null !== $this->cpuCoreCount) {
-            $res['CpuCoreCount'] = $this->cpuCoreCount;
+        if (null !== $this->instanceTypeId) {
+            $res['InstanceTypeId'] = $this->instanceTypeId;
         }
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
         }
-        if (null !== $this->eniQuantity) {
-            $res['EniQuantity'] = $this->eniQuantity;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->zoneIds) {
             $res['ZoneIds'] = null !== $this->zoneIds ? $this->zoneIds->toMap() : null;
@@ -138,17 +138,20 @@ class typesInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CpuCoreCount'])) {
+            $model->cpuCoreCount = $map['CpuCoreCount'];
         }
-        if (isset($map['InstanceTypeId'])) {
-            $model->instanceTypeId = $map['InstanceTypeId'];
+        if (isset($map['EniQuantity'])) {
+            $model->eniQuantity = $map['EniQuantity'];
         }
-        if (isset($map['InstanceBandwidthRx'])) {
-            $model->instanceBandwidthRx = $map['InstanceBandwidthRx'];
+        if (isset($map['GPUAmount'])) {
+            $model->GPUAmount = $map['GPUAmount'];
         }
         if (isset($map['GPUSpec'])) {
             $model->GPUSpec = $map['GPUSpec'];
+        }
+        if (isset($map['InstanceBandwidthRx'])) {
+            $model->instanceBandwidthRx = $map['InstanceBandwidthRx'];
         }
         if (isset($map['InstanceBandwidthTx'])) {
             $model->instanceBandwidthTx = $map['InstanceBandwidthTx'];
@@ -159,17 +162,14 @@ class typesInfo extends Model
         if (isset($map['InstancePpsTx'])) {
             $model->instancePpsTx = $map['InstancePpsTx'];
         }
-        if (isset($map['GPUAmount'])) {
-            $model->GPUAmount = $map['GPUAmount'];
-        }
-        if (isset($map['CpuCoreCount'])) {
-            $model->cpuCoreCount = $map['CpuCoreCount'];
+        if (isset($map['InstanceTypeId'])) {
+            $model->instanceTypeId = $map['InstanceTypeId'];
         }
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
         }
-        if (isset($map['EniQuantity'])) {
-            $model->eniQuantity = $map['EniQuantity'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['ZoneIds'])) {
             $model->zoneIds = zoneIds::fromMap($map['ZoneIds']);

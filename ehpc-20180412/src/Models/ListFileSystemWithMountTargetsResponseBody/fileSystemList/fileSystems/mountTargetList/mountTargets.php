@@ -11,6 +11,21 @@ class mountTargets extends Model
     /**
      * @var string
      */
+    public $accessGroup;
+
+    /**
+     * @var string
+     */
+    public $mountTargetDomain;
+
+    /**
+     * @var string
+     */
+    public $networkType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -21,29 +36,14 @@ class mountTargets extends Model
     /**
      * @var string
      */
-    public $mountTargetDomain;
-
-    /**
-     * @var string
-     */
-    public $accessGroup;
-
-    /**
-     * @var string
-     */
     public $vswId;
-
-    /**
-     * @var string
-     */
-    public $networkType;
     protected $_name = [
+        'accessGroup'       => 'AccessGroup',
+        'mountTargetDomain' => 'MountTargetDomain',
+        'networkType'       => 'NetworkType',
         'status'            => 'Status',
         'vpcId'             => 'VpcId',
-        'mountTargetDomain' => 'MountTargetDomain',
-        'accessGroup'       => 'AccessGroup',
         'vswId'             => 'VswId',
-        'networkType'       => 'NetworkType',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class mountTargets extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessGroup) {
+            $res['AccessGroup'] = $this->accessGroup;
+        }
+        if (null !== $this->mountTargetDomain) {
+            $res['MountTargetDomain'] = $this->mountTargetDomain;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-        if (null !== $this->mountTargetDomain) {
-            $res['MountTargetDomain'] = $this->mountTargetDomain;
-        }
-        if (null !== $this->accessGroup) {
-            $res['AccessGroup'] = $this->accessGroup;
-        }
         if (null !== $this->vswId) {
             $res['VswId'] = $this->vswId;
-        }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class mountTargets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessGroup'])) {
+            $model->accessGroup = $map['AccessGroup'];
+        }
+        if (isset($map['MountTargetDomain'])) {
+            $model->mountTargetDomain = $map['MountTargetDomain'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-        if (isset($map['MountTargetDomain'])) {
-            $model->mountTargetDomain = $map['MountTargetDomain'];
-        }
-        if (isset($map['AccessGroup'])) {
-            $model->accessGroup = $map['AccessGroup'];
-        }
         if (isset($map['VswId'])) {
             $model->vswId = $map['VswId'];
-        }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
         }
 
         return $model;

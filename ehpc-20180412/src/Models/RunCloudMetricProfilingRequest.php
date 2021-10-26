@@ -11,12 +11,17 @@ class RunCloudMetricProfilingRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clusterId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $clusterId;
+    public $duration;
+
+    /**
+     * @var int
+     */
+    public $freq;
 
     /**
      * @var string
@@ -29,21 +34,16 @@ class RunCloudMetricProfilingRequest extends Model
     public $processId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $duration;
-
-    /**
-     * @var int
-     */
-    public $freq;
+    public $regionId;
     protected $_name = [
-        'regionId'  => 'RegionId',
         'clusterId' => 'ClusterId',
-        'hostName'  => 'HostName',
-        'processId' => 'ProcessId',
         'duration'  => 'Duration',
         'freq'      => 'Freq',
+        'hostName'  => 'HostName',
+        'processId' => 'ProcessId',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class RunCloudMetricProfilingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->freq) {
+            $res['Freq'] = $this->freq;
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
@@ -65,11 +68,8 @@ class RunCloudMetricProfilingRequest extends Model
         if (null !== $this->processId) {
             $res['ProcessId'] = $this->processId;
         }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->freq) {
-            $res['Freq'] = $this->freq;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -83,11 +83,14 @@ class RunCloudMetricProfilingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['Freq'])) {
+            $model->freq = $map['Freq'];
         }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
@@ -95,11 +98,8 @@ class RunCloudMetricProfilingRequest extends Model
         if (isset($map['ProcessId'])) {
             $model->processId = $map['ProcessId'];
         }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
-        if (isset($map['Freq'])) {
-            $model->freq = $map['Freq'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

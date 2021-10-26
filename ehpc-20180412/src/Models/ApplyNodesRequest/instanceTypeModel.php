@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instanceTypeModel extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @var float
      */
     public $maxPrice;
@@ -17,15 +22,10 @@ class instanceTypeModel extends Model
      * @var string
      */
     public $targetImageId;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
     protected $_name = [
+        'instanceType'  => 'InstanceType',
         'maxPrice'      => 'MaxPrice',
         'targetImageId' => 'TargetImageId',
-        'instanceType'  => 'InstanceType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class instanceTypeModel extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
         if (null !== $this->maxPrice) {
             $res['MaxPrice'] = $this->maxPrice;
         }
         if (null !== $this->targetImageId) {
             $res['TargetImageId'] = $this->targetImageId;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class instanceTypeModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
         if (isset($map['MaxPrice'])) {
             $model->maxPrice = $map['MaxPrice'];
         }
         if (isset($map['TargetImageId'])) {
             $model->targetImageId = $map['TargetImageId'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
         }
 
         return $model;

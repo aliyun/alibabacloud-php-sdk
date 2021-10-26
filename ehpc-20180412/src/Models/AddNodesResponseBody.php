@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class AddNodesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var instanceIds
      */
-    public $taskId;
+    public $instanceIds;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class AddNodesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var instanceIds
+     * @var string
      */
-    public $instanceIds;
+    public $taskId;
     protected $_name = [
-        'taskId'      => 'TaskId',
-        'requestId'   => 'RequestId',
         'instanceIds' => 'InstanceIds',
+        'requestId'   => 'RequestId',
+        'taskId'      => 'TaskId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class AddNodesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class AddNodesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['InstanceIds'])) {
-            $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class locationInfo extends Model
     /**
      * @var string
      */
-    public $URL;
-
-    /**
-     * @var string
-     */
-    public $remoteType;
+    public $authentication;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class locationInfo extends Model
     /**
      * @var string
      */
-    public $authentication;
+    public $remoteType;
+
+    /**
+     * @var string
+     */
+    public $URL;
     protected $_name = [
-        'URL'            => 'URL',
-        'remoteType'     => 'RemoteType',
-        'location'       => 'Location',
         'authentication' => 'Authentication',
+        'location'       => 'Location',
+        'remoteType'     => 'RemoteType',
+        'URL'            => 'URL',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class locationInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->URL) {
-            $res['URL'] = $this->URL;
-        }
-        if (null !== $this->remoteType) {
-            $res['RemoteType'] = $this->remoteType;
+        if (null !== $this->authentication) {
+            $res['Authentication'] = $this->authentication;
         }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
-        if (null !== $this->authentication) {
-            $res['Authentication'] = $this->authentication;
+        if (null !== $this->remoteType) {
+            $res['RemoteType'] = $this->remoteType;
+        }
+        if (null !== $this->URL) {
+            $res['URL'] = $this->URL;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class locationInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['URL'])) {
-            $model->URL = $map['URL'];
-        }
-        if (isset($map['RemoteType'])) {
-            $model->remoteType = $map['RemoteType'];
+        if (isset($map['Authentication'])) {
+            $model->authentication = $map['Authentication'];
         }
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
-        if (isset($map['Authentication'])) {
-            $model->authentication = $map['Authentication'];
+        if (isset($map['RemoteType'])) {
+            $model->remoteType = $map['RemoteType'];
+        }
+        if (isset($map['URL'])) {
+            $model->URL = $map['URL'];
         }
 
         return $model;

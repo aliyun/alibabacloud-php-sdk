@@ -11,17 +11,12 @@ class nodeInfo extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $hostName;
 
     /**
      * @var string
      */
-    public $instanceType;
+    public $id;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class nodeInfo extends Model
     /**
      * @var string
      */
-    public $id;
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
         'hostName'     => 'HostName',
-        'instanceType' => 'InstanceType',
-        'imageId'      => 'ImageId',
         'id'           => 'Id',
+        'imageId'      => 'ImageId',
+        'instanceType' => 'InstanceType',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class nodeInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class nodeInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

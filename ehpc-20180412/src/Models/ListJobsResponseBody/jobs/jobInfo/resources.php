@@ -11,15 +11,15 @@ class resources extends Model
     /**
      * @var int
      */
-    public $nodes;
+    public $cores;
 
     /**
      * @var int
      */
-    public $cores;
+    public $nodes;
     protected $_name = [
-        'nodes' => 'Nodes',
         'cores' => 'Cores',
+        'nodes' => 'Nodes',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class resources extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nodes) {
-            $res['Nodes'] = $this->nodes;
-        }
         if (null !== $this->cores) {
             $res['Cores'] = $this->cores;
+        }
+        if (null !== $this->nodes) {
+            $res['Nodes'] = $this->nodes;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class resources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Nodes'])) {
-            $model->nodes = $map['Nodes'];
-        }
         if (isset($map['Cores'])) {
             $model->cores = $map['Cores'];
+        }
+        if (isset($map['Nodes'])) {
+            $model->nodes = $map['Nodes'];
         }
 
         return $model;

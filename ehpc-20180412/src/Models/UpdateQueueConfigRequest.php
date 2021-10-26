@@ -16,22 +16,22 @@ class UpdateQueueConfigRequest extends Model
     /**
      * @var string
      */
+    public $computeInstanceType;
+
+    /**
+     * @var string
+     */
     public $queueName;
 
     /**
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $computeInstanceType;
     protected $_name = [
         'clusterId'           => 'ClusterId',
+        'computeInstanceType' => 'ComputeInstanceType',
         'queueName'           => 'QueueName',
         'resourceGroupId'     => 'ResourceGroupId',
-        'computeInstanceType' => 'ComputeInstanceType',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class UpdateQueueConfigRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+        if (null !== $this->computeInstanceType) {
+            $res['ComputeInstanceType'] = $this->computeInstanceType;
+        }
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->computeInstanceType) {
-            $res['ComputeInstanceType'] = $this->computeInstanceType;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class UpdateQueueConfigRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+        if (isset($map['ComputeInstanceType'])) {
+            $model->computeInstanceType = $map['ComputeInstanceType'];
+        }
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['ComputeInstanceType'])) {
-            $model->computeInstanceType = $map['ComputeInstanceType'];
         }
 
         return $model;

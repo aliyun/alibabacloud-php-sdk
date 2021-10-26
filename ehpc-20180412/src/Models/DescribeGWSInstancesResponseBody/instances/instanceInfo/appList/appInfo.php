@@ -11,20 +11,20 @@ class appInfo extends Model
     /**
      * @var string
      */
-    public $appName;
+    public $appArgs;
 
     /**
      * @var string
      */
-    public $appArgs;
+    public $appName;
 
     /**
      * @var string
      */
     public $appPath;
     protected $_name = [
-        'appName' => 'AppName',
         'appArgs' => 'AppArgs',
+        'appName' => 'AppName',
         'appPath' => 'AppPath',
     ];
 
@@ -35,11 +35,11 @@ class appInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
         if (null !== $this->appArgs) {
             $res['AppArgs'] = $this->appArgs;
+        }
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->appPath) {
             $res['AppPath'] = $this->appPath;
@@ -56,11 +56,11 @@ class appInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
         if (isset($map['AppArgs'])) {
             $model->appArgs = $map['AppArgs'];
+        }
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['AppPath'])) {
             $model->appPath = $map['AppPath'];

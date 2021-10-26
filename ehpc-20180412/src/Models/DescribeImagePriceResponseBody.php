@@ -14,19 +14,14 @@ class DescribeImagePriceResponseBody extends Model
     public $amount;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var float
      */
     public $discountPrice;
 
     /**
-     * @var float
+     * @var string
      */
-    public $tradePrice;
+    public $imageId;
 
     /**
      * @var float
@@ -36,14 +31,19 @@ class DescribeImagePriceResponseBody extends Model
     /**
      * @var string
      */
-    public $imageId;
+    public $requestId;
+
+    /**
+     * @var float
+     */
+    public $tradePrice;
     protected $_name = [
         'amount'        => 'Amount',
-        'requestId'     => 'RequestId',
         'discountPrice' => 'DiscountPrice',
-        'tradePrice'    => 'TradePrice',
-        'originalPrice' => 'OriginalPrice',
         'imageId'       => 'ImageId',
+        'originalPrice' => 'OriginalPrice',
+        'requestId'     => 'RequestId',
+        'tradePrice'    => 'TradePrice',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class DescribeImagePriceResponseBody extends Model
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
         }
-        if (null !== $this->tradePrice) {
-            $res['TradePrice'] = $this->tradePrice;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->originalPrice) {
             $res['OriginalPrice'] = $this->originalPrice;
         }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->tradePrice) {
+            $res['TradePrice'] = $this->tradePrice;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class DescribeImagePriceResponseBody extends Model
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
         }
-        if (isset($map['TradePrice'])) {
-            $model->tradePrice = $map['TradePrice'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['OriginalPrice'])) {
             $model->originalPrice = $map['OriginalPrice'];
         }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TradePrice'])) {
+            $model->tradePrice = $map['TradePrice'];
         }
 
         return $model;

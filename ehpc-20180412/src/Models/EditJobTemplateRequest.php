@@ -11,7 +11,12 @@ class EditJobTemplateRequest extends Model
     /**
      * @var string
      */
-    public $templateId;
+    public $arrayRequest;
+
+    /**
+     * @var string
+     */
+    public $clockTime;
 
     /**
      * @var string
@@ -19,14 +24,29 @@ class EditJobTemplateRequest extends Model
     public $commandLine;
 
     /**
+     * @var int
+     */
+    public $gpu;
+
+    /**
+     * @var string
+     */
+    public $mem;
+
+    /**
      * @var string
      */
     public $name;
 
     /**
+     * @var int
+     */
+    public $node;
+
+    /**
      * @var string
      */
-    public $runasUser;
+    public $packagePath;
 
     /**
      * @var int
@@ -36,17 +56,7 @@ class EditJobTemplateRequest extends Model
     /**
      * @var string
      */
-    public $packagePath;
-
-    /**
-     * @var string
-     */
-    public $stdoutRedirectPath;
-
-    /**
-     * @var string
-     */
-    public $stderrRedirectPath;
+    public $queue;
 
     /**
      * @var bool
@@ -56,32 +66,27 @@ class EditJobTemplateRequest extends Model
     /**
      * @var string
      */
-    public $arrayRequest;
+    public $runasUser;
 
     /**
      * @var string
      */
-    public $variables;
+    public $stderrRedirectPath;
 
     /**
      * @var string
      */
-    public $queue;
-
-    /**
-     * @var string
-     */
-    public $clockTime;
-
-    /**
-     * @var int
-     */
-    public $node;
+    public $stdoutRedirectPath;
 
     /**
      * @var int
      */
     public $task;
+
+    /**
+     * @var string
+     */
+    public $templateId;
 
     /**
      * @var int
@@ -91,31 +96,26 @@ class EditJobTemplateRequest extends Model
     /**
      * @var string
      */
-    public $mem;
-
-    /**
-     * @var int
-     */
-    public $gpu;
+    public $variables;
     protected $_name = [
-        'templateId'         => 'TemplateId',
-        'commandLine'        => 'CommandLine',
-        'name'               => 'Name',
-        'runasUser'          => 'RunasUser',
-        'priority'           => 'Priority',
-        'packagePath'        => 'PackagePath',
-        'stdoutRedirectPath' => 'StdoutRedirectPath',
-        'stderrRedirectPath' => 'StderrRedirectPath',
-        'reRunable'          => 'ReRunable',
         'arrayRequest'       => 'ArrayRequest',
-        'variables'          => 'Variables',
-        'queue'              => 'Queue',
         'clockTime'          => 'ClockTime',
-        'node'               => 'Node',
-        'task'               => 'Task',
-        'thread'             => 'Thread',
-        'mem'                => 'Mem',
+        'commandLine'        => 'CommandLine',
         'gpu'                => 'Gpu',
+        'mem'                => 'Mem',
+        'name'               => 'Name',
+        'node'               => 'Node',
+        'packagePath'        => 'PackagePath',
+        'priority'           => 'Priority',
+        'queue'              => 'Queue',
+        'reRunable'          => 'ReRunable',
+        'runasUser'          => 'RunasUser',
+        'stderrRedirectPath' => 'StderrRedirectPath',
+        'stdoutRedirectPath' => 'StdoutRedirectPath',
+        'task'               => 'Task',
+        'templateId'         => 'TemplateId',
+        'thread'             => 'Thread',
+        'variables'          => 'Variables',
     ];
 
     public function validate()
@@ -125,59 +125,59 @@ class EditJobTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->commandLine) {
-            $res['CommandLine'] = $this->commandLine;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->runasUser) {
-            $res['RunasUser'] = $this->runasUser;
-        }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
-        }
-        if (null !== $this->packagePath) {
-            $res['PackagePath'] = $this->packagePath;
-        }
-        if (null !== $this->stdoutRedirectPath) {
-            $res['StdoutRedirectPath'] = $this->stdoutRedirectPath;
-        }
-        if (null !== $this->stderrRedirectPath) {
-            $res['StderrRedirectPath'] = $this->stderrRedirectPath;
-        }
-        if (null !== $this->reRunable) {
-            $res['ReRunable'] = $this->reRunable;
-        }
         if (null !== $this->arrayRequest) {
             $res['ArrayRequest'] = $this->arrayRequest;
-        }
-        if (null !== $this->variables) {
-            $res['Variables'] = $this->variables;
-        }
-        if (null !== $this->queue) {
-            $res['Queue'] = $this->queue;
         }
         if (null !== $this->clockTime) {
             $res['ClockTime'] = $this->clockTime;
         }
-        if (null !== $this->node) {
-            $res['Node'] = $this->node;
+        if (null !== $this->commandLine) {
+            $res['CommandLine'] = $this->commandLine;
         }
-        if (null !== $this->task) {
-            $res['Task'] = $this->task;
-        }
-        if (null !== $this->thread) {
-            $res['Thread'] = $this->thread;
+        if (null !== $this->gpu) {
+            $res['Gpu'] = $this->gpu;
         }
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
         }
-        if (null !== $this->gpu) {
-            $res['Gpu'] = $this->gpu;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->node) {
+            $res['Node'] = $this->node;
+        }
+        if (null !== $this->packagePath) {
+            $res['PackagePath'] = $this->packagePath;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->queue) {
+            $res['Queue'] = $this->queue;
+        }
+        if (null !== $this->reRunable) {
+            $res['ReRunable'] = $this->reRunable;
+        }
+        if (null !== $this->runasUser) {
+            $res['RunasUser'] = $this->runasUser;
+        }
+        if (null !== $this->stderrRedirectPath) {
+            $res['StderrRedirectPath'] = $this->stderrRedirectPath;
+        }
+        if (null !== $this->stdoutRedirectPath) {
+            $res['StdoutRedirectPath'] = $this->stdoutRedirectPath;
+        }
+        if (null !== $this->task) {
+            $res['Task'] = $this->task;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->thread) {
+            $res['Thread'] = $this->thread;
+        }
+        if (null !== $this->variables) {
+            $res['Variables'] = $this->variables;
         }
 
         return $res;
@@ -191,59 +191,59 @@ class EditJobTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['CommandLine'])) {
-            $model->commandLine = $map['CommandLine'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['RunasUser'])) {
-            $model->runasUser = $map['RunasUser'];
-        }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
-        }
-        if (isset($map['PackagePath'])) {
-            $model->packagePath = $map['PackagePath'];
-        }
-        if (isset($map['StdoutRedirectPath'])) {
-            $model->stdoutRedirectPath = $map['StdoutRedirectPath'];
-        }
-        if (isset($map['StderrRedirectPath'])) {
-            $model->stderrRedirectPath = $map['StderrRedirectPath'];
-        }
-        if (isset($map['ReRunable'])) {
-            $model->reRunable = $map['ReRunable'];
-        }
         if (isset($map['ArrayRequest'])) {
             $model->arrayRequest = $map['ArrayRequest'];
-        }
-        if (isset($map['Variables'])) {
-            $model->variables = $map['Variables'];
-        }
-        if (isset($map['Queue'])) {
-            $model->queue = $map['Queue'];
         }
         if (isset($map['ClockTime'])) {
             $model->clockTime = $map['ClockTime'];
         }
-        if (isset($map['Node'])) {
-            $model->node = $map['Node'];
+        if (isset($map['CommandLine'])) {
+            $model->commandLine = $map['CommandLine'];
         }
-        if (isset($map['Task'])) {
-            $model->task = $map['Task'];
-        }
-        if (isset($map['Thread'])) {
-            $model->thread = $map['Thread'];
+        if (isset($map['Gpu'])) {
+            $model->gpu = $map['Gpu'];
         }
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
         }
-        if (isset($map['Gpu'])) {
-            $model->gpu = $map['Gpu'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Node'])) {
+            $model->node = $map['Node'];
+        }
+        if (isset($map['PackagePath'])) {
+            $model->packagePath = $map['PackagePath'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
+        if (isset($map['Queue'])) {
+            $model->queue = $map['Queue'];
+        }
+        if (isset($map['ReRunable'])) {
+            $model->reRunable = $map['ReRunable'];
+        }
+        if (isset($map['RunasUser'])) {
+            $model->runasUser = $map['RunasUser'];
+        }
+        if (isset($map['StderrRedirectPath'])) {
+            $model->stderrRedirectPath = $map['StderrRedirectPath'];
+        }
+        if (isset($map['StdoutRedirectPath'])) {
+            $model->stdoutRedirectPath = $map['StdoutRedirectPath'];
+        }
+        if (isset($map['Task'])) {
+            $model->task = $map['Task'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['Thread'])) {
+            $model->thread = $map['Thread'];
+        }
+        if (isset($map['Variables'])) {
+            $model->variables = $map['Variables'];
         }
 
         return $model;

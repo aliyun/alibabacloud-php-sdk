@@ -11,12 +11,7 @@ class nodes extends Model
     /**
      * @var string
      */
-    public $schedulerType;
-
-    /**
-     * @var string
-     */
-    public $ipAddress;
+    public $accountType;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class nodes extends Model
     /**
      * @var string
      */
+    public $ipAddress;
+
+    /**
+     * @var string
+     */
     public $role;
 
     /**
      * @var string
      */
-    public $accountType;
+    public $schedulerType;
     protected $_name = [
-        'schedulerType' => 'SchedulerType',
-        'ipAddress'     => 'IpAddress',
-        'hostName'      => 'HostName',
-        'role'          => 'Role',
         'accountType'   => 'AccountType',
+        'hostName'      => 'HostName',
+        'ipAddress'     => 'IpAddress',
+        'role'          => 'Role',
+        'schedulerType' => 'SchedulerType',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class nodes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->schedulerType) {
-            $res['SchedulerType'] = $this->schedulerType;
-        }
-        if (null !== $this->ipAddress) {
-            $res['IpAddress'] = $this->ipAddress;
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
+        if (null !== $this->ipAddress) {
+            $res['IpAddress'] = $this->ipAddress;
+        }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
+        if (null !== $this->schedulerType) {
+            $res['SchedulerType'] = $this->schedulerType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class nodes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SchedulerType'])) {
-            $model->schedulerType = $map['SchedulerType'];
-        }
-        if (isset($map['IpAddress'])) {
-            $model->ipAddress = $map['IpAddress'];
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
         }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
+        if (isset($map['IpAddress'])) {
+            $model->ipAddress = $map['IpAddress'];
+        }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
+        if (isset($map['SchedulerType'])) {
+            $model->schedulerType = $map['SchedulerType'];
         }
 
         return $model;

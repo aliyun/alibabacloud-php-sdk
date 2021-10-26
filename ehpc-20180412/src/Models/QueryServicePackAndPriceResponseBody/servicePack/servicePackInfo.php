@@ -11,27 +11,27 @@ class servicePackInfo extends Model
     /**
      * @var int
      */
-    public $endTime;
-
-    /**
-     * @var int
-     */
     public $capacity;
 
     /**
      * @var int
      */
-    public $startTime;
+    public $endTime;
 
     /**
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
         'capacity'     => 'Capacity',
-        'startTime'    => 'StartTime',
+        'endTime'      => 'EndTime',
         'instanceName' => 'InstanceName',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class servicePackInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
         if (null !== $this->capacity) {
             $res['Capacity'] = $this->capacity;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class servicePackInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
         if (isset($map['Capacity'])) {
             $model->capacity = $map['Capacity'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

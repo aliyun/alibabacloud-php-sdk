@@ -16,6 +16,11 @@ class pbsInfo extends Model
     public $aclLimit;
 
     /**
+     * @var int
+     */
+    public $jobHistoryDuration;
+
+    /**
      * @var resourceLimit[]
      */
     public $resourceLimit;
@@ -23,16 +28,11 @@ class pbsInfo extends Model
     /**
      * @var int
      */
-    public $jobHistoryDuration;
-
-    /**
-     * @var int
-     */
     public $schedInterval;
     protected $_name = [
         'aclLimit'           => 'AclLimit',
-        'resourceLimit'      => 'ResourceLimit',
         'jobHistoryDuration' => 'JobHistoryDuration',
+        'resourceLimit'      => 'ResourceLimit',
         'schedInterval'      => 'SchedInterval',
     ];
 
@@ -52,6 +52,9 @@ class pbsInfo extends Model
                 }
             }
         }
+        if (null !== $this->jobHistoryDuration) {
+            $res['JobHistoryDuration'] = $this->jobHistoryDuration;
+        }
         if (null !== $this->resourceLimit) {
             $res['ResourceLimit'] = [];
             if (null !== $this->resourceLimit && \is_array($this->resourceLimit)) {
@@ -60,9 +63,6 @@ class pbsInfo extends Model
                     $res['ResourceLimit'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->jobHistoryDuration) {
-            $res['JobHistoryDuration'] = $this->jobHistoryDuration;
         }
         if (null !== $this->schedInterval) {
             $res['SchedInterval'] = $this->schedInterval;
@@ -88,6 +88,9 @@ class pbsInfo extends Model
                 }
             }
         }
+        if (isset($map['JobHistoryDuration'])) {
+            $model->jobHistoryDuration = $map['JobHistoryDuration'];
+        }
         if (isset($map['ResourceLimit'])) {
             if (!empty($map['ResourceLimit'])) {
                 $model->resourceLimit = [];
@@ -96,9 +99,6 @@ class pbsInfo extends Model
                     $model->resourceLimit[$n++] = null !== $item ? resourceLimit::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['JobHistoryDuration'])) {
-            $model->jobHistoryDuration = $map['JobHistoryDuration'];
         }
         if (isset($map['SchedInterval'])) {
             $model->schedInterval = $map['SchedInterval'];

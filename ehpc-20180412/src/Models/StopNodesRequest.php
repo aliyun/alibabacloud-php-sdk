@@ -15,18 +15,18 @@ class StopNodesRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
-     */
-    public $role;
-
-    /**
      * @var instance[]
      */
     public $instance;
+
+    /**
+     * @var string
+     */
+    public $role;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'role'      => 'Role',
         'instance'  => 'Instance',
+        'role'      => 'Role',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class StopNodesRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
         if (null !== $this->instance) {
             $res['Instance'] = [];
             if (null !== $this->instance && \is_array($this->instance)) {
@@ -50,6 +47,9 @@ class StopNodesRequest extends Model
                     $res['Instance'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class StopNodesRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
         if (isset($map['Instance'])) {
             if (!empty($map['Instance'])) {
                 $model->instance = [];
@@ -77,6 +74,9 @@ class StopNodesRequest extends Model
                     $model->instance[$n++] = null !== $item ? instance::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
 
         return $model;

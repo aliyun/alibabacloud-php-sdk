@@ -12,12 +12,12 @@ class DescribePriceRequest extends Model
     /**
      * @var string
      */
-    public $priceUnit;
+    public $chargeType;
 
     /**
-     * @var string
+     * @var commodities[]
      */
-    public $chargeType;
+    public $commodities;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class DescribePriceRequest extends Model
     public $orderType;
 
     /**
-     * @var commodities[]
+     * @var string
      */
-    public $commodities;
+    public $priceUnit;
     protected $_name = [
-        'priceUnit'   => 'PriceUnit',
         'chargeType'  => 'ChargeType',
-        'orderType'   => 'OrderType',
         'commodities' => 'Commodities',
+        'orderType'   => 'OrderType',
+        'priceUnit'   => 'PriceUnit',
     ];
 
     public function validate()
@@ -42,14 +42,8 @@ class DescribePriceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->priceUnit) {
-            $res['PriceUnit'] = $this->priceUnit;
-        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
-        }
-        if (null !== $this->orderType) {
-            $res['OrderType'] = $this->orderType;
         }
         if (null !== $this->commodities) {
             $res['Commodities'] = [];
@@ -59,6 +53,12 @@ class DescribePriceRequest extends Model
                     $res['Commodities'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
+        }
+        if (null !== $this->priceUnit) {
+            $res['PriceUnit'] = $this->priceUnit;
         }
 
         return $res;
@@ -72,14 +72,8 @@ class DescribePriceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PriceUnit'])) {
-            $model->priceUnit = $map['PriceUnit'];
-        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
-        }
-        if (isset($map['OrderType'])) {
-            $model->orderType = $map['OrderType'];
         }
         if (isset($map['Commodities'])) {
             if (!empty($map['Commodities'])) {
@@ -89,6 +83,12 @@ class DescribePriceRequest extends Model
                     $model->commodities[$n++] = null !== $item ? commodities::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
+        }
+        if (isset($map['PriceUnit'])) {
+            $model->priceUnit = $map['PriceUnit'];
         }
 
         return $model;

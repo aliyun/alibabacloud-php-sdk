@@ -20,6 +20,11 @@ class ListInvocationResultsRequest extends Model
     public $commandId;
 
     /**
+     * @var instance[]
+     */
+    public $instance;
+
+    /**
      * @var string
      */
     public $invokeRecordStatus;
@@ -33,18 +38,13 @@ class ListInvocationResultsRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var instance[]
-     */
-    public $instance;
     protected $_name = [
         'clusterId'          => 'ClusterId',
         'commandId'          => 'CommandId',
+        'instance'           => 'Instance',
         'invokeRecordStatus' => 'InvokeRecordStatus',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
-        'instance'           => 'Instance',
     ];
 
     public function validate()
@@ -60,15 +60,6 @@ class ListInvocationResultsRequest extends Model
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
         }
-        if (null !== $this->invokeRecordStatus) {
-            $res['InvokeRecordStatus'] = $this->invokeRecordStatus;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->instance) {
             $res['Instance'] = [];
             if (null !== $this->instance && \is_array($this->instance)) {
@@ -77,6 +68,15 @@ class ListInvocationResultsRequest extends Model
                     $res['Instance'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->invokeRecordStatus) {
+            $res['InvokeRecordStatus'] = $this->invokeRecordStatus;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -96,15 +96,6 @@ class ListInvocationResultsRequest extends Model
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
         }
-        if (isset($map['InvokeRecordStatus'])) {
-            $model->invokeRecordStatus = $map['InvokeRecordStatus'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['Instance'])) {
             if (!empty($map['Instance'])) {
                 $model->instance = [];
@@ -113,6 +104,15 @@ class ListInvocationResultsRequest extends Model
                     $model->instance[$n++] = null !== $item ? instance::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['InvokeRecordStatus'])) {
+            $model->invokeRecordStatus = $map['InvokeRecordStatus'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

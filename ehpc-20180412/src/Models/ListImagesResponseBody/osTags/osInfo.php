@@ -11,7 +11,7 @@ class osInfo extends Model
     /**
      * @var string
      */
-    public $version;
+    public $architecture;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class osInfo extends Model
     /**
      * @var string
      */
-    public $platform;
+    public $imageId;
 
     /**
      * @var string
@@ -31,19 +31,19 @@ class osInfo extends Model
     /**
      * @var string
      */
-    public $imageId;
+    public $platform;
 
     /**
      * @var string
      */
-    public $architecture;
+    public $version;
     protected $_name = [
-        'version'      => 'Version',
-        'baseOsTag'    => 'BaseOsTag',
-        'platform'     => 'Platform',
-        'osTag'        => 'OsTag',
-        'imageId'      => 'ImageId',
         'architecture' => 'Architecture',
+        'baseOsTag'    => 'BaseOsTag',
+        'imageId'      => 'ImageId',
+        'osTag'        => 'OsTag',
+        'platform'     => 'Platform',
+        'version'      => 'Version',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class osInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->architecture) {
+            $res['Architecture'] = $this->architecture;
         }
         if (null !== $this->baseOsTag) {
             $res['BaseOsTag'] = $this->baseOsTag;
         }
-        if (null !== $this->platform) {
-            $res['Platform'] = $this->platform;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->osTag) {
             $res['OsTag'] = $this->osTag;
         }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
-        if (null !== $this->architecture) {
-            $res['Architecture'] = $this->architecture;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class osInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['Architecture'])) {
+            $model->architecture = $map['Architecture'];
         }
         if (isset($map['BaseOsTag'])) {
             $model->baseOsTag = $map['BaseOsTag'];
         }
-        if (isset($map['Platform'])) {
-            $model->platform = $map['Platform'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['OsTag'])) {
             $model->osTag = $map['OsTag'];
         }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
-        if (isset($map['Architecture'])) {
-            $model->architecture = $map['Architecture'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

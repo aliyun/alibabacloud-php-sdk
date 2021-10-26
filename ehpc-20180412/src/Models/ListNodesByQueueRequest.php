@@ -14,11 +14,6 @@ class ListNodesByQueueRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
-     */
-    public $queueName;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -27,11 +22,16 @@ class ListNodesByQueueRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $queueName;
     protected $_name = [
         'clusterId'  => 'ClusterId',
-        'queueName'  => 'QueueName',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'queueName'  => 'QueueName',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ListNodesByQueueRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->queueName) {
-            $res['QueueName'] = $this->queueName;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->queueName) {
+            $res['QueueName'] = $this->queueName;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ListNodesByQueueRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['QueueName'])) {
-            $model->queueName = $map['QueueName'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['QueueName'])) {
+            $model->queueName = $map['QueueName'];
         }
 
         return $model;

@@ -16,12 +16,12 @@ class ModifyClusterAttributesRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $imageId;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class ModifyClusterAttributesRequest extends Model
     /**
      * @var string
      */
-    public $imageId;
+    public $name;
     protected $_name = [
         'clusterId'       => 'ClusterId',
-        'name'            => 'Name',
         'description'     => 'Description',
-        'imageOwnerAlias' => 'ImageOwnerAlias',
         'imageId'         => 'ImageId',
+        'imageOwnerAlias' => 'ImageOwnerAlias',
+        'name'            => 'Name',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class ModifyClusterAttributesRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->imageOwnerAlias) {
             $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
         }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class ModifyClusterAttributesRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['ImageOwnerAlias'])) {
             $model->imageOwnerAlias = $map['ImageOwnerAlias'];
         }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListSecurityGroupsResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -23,10 +18,15 @@ class ListSecurityGroupsResponseBody extends Model
      * @var securityGroups
      */
     public $securityGroups;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'     => 'TotalCount',
         'requestId'      => 'RequestId',
         'securityGroups' => 'SecurityGroups',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class ListSecurityGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->securityGroups) {
             $res['SecurityGroups'] = null !== $this->securityGroups ? $this->securityGroups->toMap() : null;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class ListSecurityGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SecurityGroups'])) {
             $model->securityGroups = securityGroups::fromMap($map['SecurityGroups']);
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

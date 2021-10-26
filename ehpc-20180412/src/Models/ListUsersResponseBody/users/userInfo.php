@@ -11,21 +11,21 @@ class userInfo extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $addTime;
 
     /**
      * @var string
      */
     public $group;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'name'    => 'Name',
         'addTime' => 'AddTime',
         'group'   => 'Group',
+        'name'    => 'Name',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class userInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->addTime) {
             $res['AddTime'] = $this->addTime;
         }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class userInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['AddTime'])) {
             $model->addTime = $map['AddTime'];
         }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

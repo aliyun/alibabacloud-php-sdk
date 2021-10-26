@@ -11,15 +11,15 @@ class postInstallScriptInfo extends Model
     /**
      * @var string
      */
-    public $url;
+    public $args;
 
     /**
      * @var string
      */
-    public $args;
+    public $url;
     protected $_name = [
-        'url'  => 'Url',
         'args' => 'Args',
+        'url'  => 'Url',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class postInstallScriptInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->args) {
             $res['Args'] = $this->args;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class postInstallScriptInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['Args'])) {
             $model->args = $map['Args'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

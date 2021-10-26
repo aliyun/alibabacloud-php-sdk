@@ -11,7 +11,7 @@ class command extends Model
     /**
      * @var string
      */
-    public $timeout;
+    public $commandContent;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class command extends Model
     /**
      * @var string
      */
-    public $workingDir;
+    public $timeout;
 
     /**
      * @var string
      */
-    public $commandContent;
+    public $workingDir;
     protected $_name = [
-        'timeout'        => 'Timeout',
-        'commandId'      => 'CommandId',
-        'workingDir'     => 'WorkingDir',
         'commandContent' => 'CommandContent',
+        'commandId'      => 'CommandId',
+        'timeout'        => 'Timeout',
+        'workingDir'     => 'WorkingDir',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class command extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeout) {
-            $res['Timeout'] = $this->timeout;
+        if (null !== $this->commandContent) {
+            $res['CommandContent'] = $this->commandContent;
         }
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
         }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
+        }
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
-        }
-        if (null !== $this->commandContent) {
-            $res['CommandContent'] = $this->commandContent;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class command extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Timeout'])) {
-            $model->timeout = $map['Timeout'];
+        if (isset($map['CommandContent'])) {
+            $model->commandContent = $map['CommandContent'];
         }
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
         }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
+        }
         if (isset($map['WorkingDir'])) {
             $model->workingDir = $map['WorkingDir'];
-        }
-        if (isset($map['CommandContent'])) {
-            $model->commandContent = $map['CommandContent'];
         }
 
         return $model;

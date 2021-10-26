@@ -12,7 +12,7 @@ class imagegw extends Model
     /**
      * @var string
      */
-    public $updateDateTime;
+    public $defaultImageLocation;
 
     /**
      * @var string
@@ -20,14 +20,14 @@ class imagegw extends Model
     public $imageExpirationTimeout;
 
     /**
-     * @var string
+     * @var locations
      */
-    public $mongoDBURI;
+    public $locations;
 
     /**
      * @var string
      */
-    public $defaultImageLocation;
+    public $mongoDBURI;
 
     /**
      * @var int
@@ -35,16 +35,16 @@ class imagegw extends Model
     public $pullUpdateTimeout;
 
     /**
-     * @var locations
+     * @var string
      */
-    public $locations;
+    public $updateDateTime;
     protected $_name = [
-        'updateDateTime'         => 'UpdateDateTime',
-        'imageExpirationTimeout' => 'ImageExpirationTimeout',
-        'mongoDBURI'             => 'MongoDBURI',
         'defaultImageLocation'   => 'DefaultImageLocation',
-        'pullUpdateTimeout'      => 'PullUpdateTimeout',
+        'imageExpirationTimeout' => 'ImageExpirationTimeout',
         'locations'              => 'Locations',
+        'mongoDBURI'             => 'MongoDBURI',
+        'pullUpdateTimeout'      => 'PullUpdateTimeout',
+        'updateDateTime'         => 'UpdateDateTime',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class imagegw extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateDateTime) {
-            $res['UpdateDateTime'] = $this->updateDateTime;
+        if (null !== $this->defaultImageLocation) {
+            $res['DefaultImageLocation'] = $this->defaultImageLocation;
         }
         if (null !== $this->imageExpirationTimeout) {
             $res['ImageExpirationTimeout'] = $this->imageExpirationTimeout;
         }
+        if (null !== $this->locations) {
+            $res['Locations'] = null !== $this->locations ? $this->locations->toMap() : null;
+        }
         if (null !== $this->mongoDBURI) {
             $res['MongoDBURI'] = $this->mongoDBURI;
-        }
-        if (null !== $this->defaultImageLocation) {
-            $res['DefaultImageLocation'] = $this->defaultImageLocation;
         }
         if (null !== $this->pullUpdateTimeout) {
             $res['PullUpdateTimeout'] = $this->pullUpdateTimeout;
         }
-        if (null !== $this->locations) {
-            $res['Locations'] = null !== $this->locations ? $this->locations->toMap() : null;
+        if (null !== $this->updateDateTime) {
+            $res['UpdateDateTime'] = $this->updateDateTime;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class imagegw extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateDateTime'])) {
-            $model->updateDateTime = $map['UpdateDateTime'];
+        if (isset($map['DefaultImageLocation'])) {
+            $model->defaultImageLocation = $map['DefaultImageLocation'];
         }
         if (isset($map['ImageExpirationTimeout'])) {
             $model->imageExpirationTimeout = $map['ImageExpirationTimeout'];
         }
+        if (isset($map['Locations'])) {
+            $model->locations = locations::fromMap($map['Locations']);
+        }
         if (isset($map['MongoDBURI'])) {
             $model->mongoDBURI = $map['MongoDBURI'];
-        }
-        if (isset($map['DefaultImageLocation'])) {
-            $model->defaultImageLocation = $map['DefaultImageLocation'];
         }
         if (isset($map['PullUpdateTimeout'])) {
             $model->pullUpdateTimeout = $map['PullUpdateTimeout'];
         }
-        if (isset($map['Locations'])) {
-            $model->locations = locations::fromMap($map['Locations']);
+        if (isset($map['UpdateDateTime'])) {
+            $model->updateDateTime = $map['UpdateDateTime'];
         }
 
         return $model;

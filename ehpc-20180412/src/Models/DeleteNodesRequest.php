@@ -15,6 +15,11 @@ class DeleteNodesRequest extends Model
     public $clusterId;
 
     /**
+     * @var instance[]
+     */
+    public $instance;
+
+    /**
      * @var bool
      */
     public $releaseInstance;
@@ -23,16 +28,11 @@ class DeleteNodesRequest extends Model
      * @var bool
      */
     public $sync;
-
-    /**
-     * @var instance[]
-     */
-    public $instance;
     protected $_name = [
         'clusterId'       => 'ClusterId',
+        'instance'        => 'Instance',
         'releaseInstance' => 'ReleaseInstance',
         'sync'            => 'Sync',
-        'instance'        => 'Instance',
     ];
 
     public function validate()
@@ -45,12 +45,6 @@ class DeleteNodesRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->releaseInstance) {
-            $res['ReleaseInstance'] = $this->releaseInstance;
-        }
-        if (null !== $this->sync) {
-            $res['Sync'] = $this->sync;
-        }
         if (null !== $this->instance) {
             $res['Instance'] = [];
             if (null !== $this->instance && \is_array($this->instance)) {
@@ -59,6 +53,12 @@ class DeleteNodesRequest extends Model
                     $res['Instance'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->releaseInstance) {
+            $res['ReleaseInstance'] = $this->releaseInstance;
+        }
+        if (null !== $this->sync) {
+            $res['Sync'] = $this->sync;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class DeleteNodesRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['ReleaseInstance'])) {
-            $model->releaseInstance = $map['ReleaseInstance'];
-        }
-        if (isset($map['Sync'])) {
-            $model->sync = $map['Sync'];
-        }
         if (isset($map['Instance'])) {
             if (!empty($map['Instance'])) {
                 $model->instance = [];
@@ -89,6 +83,12 @@ class DeleteNodesRequest extends Model
                     $model->instance[$n++] = null !== $item ? instance::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ReleaseInstance'])) {
+            $model->releaseInstance = $map['ReleaseInstance'];
+        }
+        if (isset($map['Sync'])) {
+            $model->sync = $map['Sync'];
         }
 
         return $model;

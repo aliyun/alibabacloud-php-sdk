@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListPreferredEcsTypesResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $supportSpotInstance;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -23,10 +18,15 @@ class ListPreferredEcsTypesResponseBody extends Model
      * @var series
      */
     public $series;
+
+    /**
+     * @var bool
+     */
+    public $supportSpotInstance;
     protected $_name = [
-        'supportSpotInstance' => 'SupportSpotInstance',
         'requestId'           => 'RequestId',
         'series'              => 'Series',
+        'supportSpotInstance' => 'SupportSpotInstance',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class ListPreferredEcsTypesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->supportSpotInstance) {
-            $res['SupportSpotInstance'] = $this->supportSpotInstance;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->series) {
             $res['Series'] = null !== $this->series ? $this->series->toMap() : null;
+        }
+        if (null !== $this->supportSpotInstance) {
+            $res['SupportSpotInstance'] = $this->supportSpotInstance;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class ListPreferredEcsTypesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SupportSpotInstance'])) {
-            $model->supportSpotInstance = $map['SupportSpotInstance'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Series'])) {
             $model->series = series::fromMap($map['Series']);
+        }
+        if (isset($map['SupportSpotInstance'])) {
+            $model->supportSpotInstance = $map['SupportSpotInstance'];
         }
 
         return $model;

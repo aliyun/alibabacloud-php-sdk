@@ -11,15 +11,15 @@ class aclLimit extends Model
     /**
      * @var string
      */
-    public $queue;
+    public $aclUsers;
 
     /**
      * @var string
      */
-    public $aclUsers;
+    public $queue;
     protected $_name = [
-        'queue'    => 'Queue',
         'aclUsers' => 'AclUsers',
+        'queue'    => 'Queue',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class aclLimit extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->queue) {
-            $res['Queue'] = $this->queue;
-        }
         if (null !== $this->aclUsers) {
             $res['AclUsers'] = $this->aclUsers;
+        }
+        if (null !== $this->queue) {
+            $res['Queue'] = $this->queue;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class aclLimit extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Queue'])) {
-            $model->queue = $map['Queue'];
-        }
         if (isset($map['AclUsers'])) {
             $model->aclUsers = $map['AclUsers'];
+        }
+        if (isset($map['Queue'])) {
+            $model->queue = $map['Queue'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class applicationInfo extends Model
     /**
      * @var string
      */
-    public $tag;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $tag;
 
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'tag'     => 'Tag',
         'name'    => 'Name',
+        'tag'     => 'Tag',
         'version' => 'Version',
     ];
 
@@ -35,11 +35,11 @@ class applicationInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -56,11 +56,11 @@ class applicationInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

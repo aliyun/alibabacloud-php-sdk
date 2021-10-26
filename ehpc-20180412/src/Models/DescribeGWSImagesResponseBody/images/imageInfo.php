@@ -11,12 +11,22 @@ class imageInfo extends Model
     /**
      * @var string
      */
-    public $status;
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $imageId;
 
     /**
      * @var string
      */
     public $imageType;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
@@ -31,25 +41,15 @@ class imageInfo extends Model
     /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $imageId;
+    public $status;
     protected $_name = [
-        'status'     => 'Status',
+        'createTime' => 'CreateTime',
+        'imageId'    => 'ImageId',
         'imageType'  => 'ImageType',
+        'name'       => 'Name',
         'progress'   => 'Progress',
         'size'       => 'Size',
-        'createTime' => 'CreateTime',
-        'name'       => 'Name',
-        'imageId'    => 'ImageId',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -59,11 +59,17 @@ class imageInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
@@ -71,14 +77,8 @@ class imageInfo extends Model
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,11 +92,17 @@ class imageInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
@@ -104,14 +110,8 @@ class imageInfo extends Model
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
