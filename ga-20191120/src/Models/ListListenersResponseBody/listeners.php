@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListListenersResponseBody;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListListenersResponseBody\listeners\backendPorts;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListListenersResponseBody\listeners\certificates;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListListenersResponseBody\listeners\portRanges;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListListenersResponseBody\listeners\XForwardedForConfig;
 use AlibabaCloud\Tea\Model;
 
 class listeners extends Model
@@ -70,19 +71,31 @@ class listeners extends Model
      * @var string
      */
     public $acceleratorId;
+
+    /**
+     * @var XForwardedForConfig
+     */
+    public $XForwardedForConfig;
+
+    /**
+     * @var string
+     */
+    public $securityPolicyId;
     protected $_name = [
-        'certificates'   => 'Certificates',
-        'backendPorts'   => 'BackendPorts',
-        'listenerId'     => 'ListenerId',
-        'description'    => 'Description',
-        'state'          => 'State',
-        'clientAffinity' => 'ClientAffinity',
-        'protocol'       => 'Protocol',
-        'createTime'     => 'CreateTime',
-        'portRanges'     => 'PortRanges',
-        'name'           => 'Name',
-        'proxyProtocol'  => 'ProxyProtocol',
-        'acceleratorId'  => 'AcceleratorId',
+        'certificates'        => 'Certificates',
+        'backendPorts'        => 'BackendPorts',
+        'listenerId'          => 'ListenerId',
+        'description'         => 'Description',
+        'state'               => 'State',
+        'clientAffinity'      => 'ClientAffinity',
+        'protocol'            => 'Protocol',
+        'createTime'          => 'CreateTime',
+        'portRanges'          => 'PortRanges',
+        'name'                => 'Name',
+        'proxyProtocol'       => 'ProxyProtocol',
+        'acceleratorId'       => 'AcceleratorId',
+        'XForwardedForConfig' => 'XForwardedForConfig',
+        'securityPolicyId'    => 'SecurityPolicyId',
     ];
 
     public function validate()
@@ -145,6 +158,12 @@ class listeners extends Model
         }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->XForwardedForConfig) {
+            $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
+        }
+        if (null !== $this->securityPolicyId) {
+            $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
 
         return $res;
@@ -211,6 +230,12 @@ class listeners extends Model
         }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['XForwardedForConfig'])) {
+            $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);
+        }
+        if (isset($map['SecurityPolicyId'])) {
+            $model->securityPolicyId = $map['SecurityPolicyId'];
         }
 
         return $model;

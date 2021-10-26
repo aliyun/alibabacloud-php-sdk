@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\backendPor
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\certificates;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\portRanges;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\relatedAcls;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\XForwardedForConfig;
 use AlibabaCloud\Tea\Model;
 
 class DescribeListenerResponseBody extends Model
@@ -86,22 +87,34 @@ class DescribeListenerResponseBody extends Model
      * @var bool
      */
     public $proxyProtocol;
+
+    /**
+     * @var XForwardedForConfig
+     */
+    public $XForwardedForConfig;
+
+    /**
+     * @var string
+     */
+    public $securityPolicyId;
     protected $_name = [
-        'description'    => 'Description',
-        'requestId'      => 'RequestId',
-        'state'          => 'State',
-        'createTime'     => 'CreateTime',
-        'portRanges'     => 'PortRanges',
-        'backendPorts'   => 'BackendPorts',
-        'certificates'   => 'Certificates',
-        'protocol'       => 'Protocol',
-        'listenerId'     => 'ListenerId',
-        'clientAffinity' => 'ClientAffinity',
-        'name'           => 'Name',
-        'relatedAcls'    => 'RelatedAcls',
-        'aclType'        => 'AclType',
-        'acceleratorId'  => 'AcceleratorId',
-        'proxyProtocol'  => 'ProxyProtocol',
+        'description'         => 'Description',
+        'requestId'           => 'RequestId',
+        'state'               => 'State',
+        'createTime'          => 'CreateTime',
+        'portRanges'          => 'PortRanges',
+        'backendPorts'        => 'BackendPorts',
+        'certificates'        => 'Certificates',
+        'protocol'            => 'Protocol',
+        'listenerId'          => 'ListenerId',
+        'clientAffinity'      => 'ClientAffinity',
+        'name'                => 'Name',
+        'relatedAcls'         => 'RelatedAcls',
+        'aclType'             => 'AclType',
+        'acceleratorId'       => 'AcceleratorId',
+        'proxyProtocol'       => 'ProxyProtocol',
+        'XForwardedForConfig' => 'XForwardedForConfig',
+        'securityPolicyId'    => 'SecurityPolicyId',
     ];
 
     public function validate()
@@ -179,6 +192,12 @@ class DescribeListenerResponseBody extends Model
         }
         if (null !== $this->proxyProtocol) {
             $res['ProxyProtocol'] = $this->proxyProtocol;
+        }
+        if (null !== $this->XForwardedForConfig) {
+            $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
+        }
+        if (null !== $this->securityPolicyId) {
+            $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
 
         return $res;
@@ -260,6 +279,12 @@ class DescribeListenerResponseBody extends Model
         }
         if (isset($map['ProxyProtocol'])) {
             $model->proxyProtocol = $map['ProxyProtocol'];
+        }
+        if (isset($map['XForwardedForConfig'])) {
+            $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);
+        }
+        if (isset($map['SecurityPolicyId'])) {
+            $model->securityPolicyId = $map['SecurityPolicyId'];
         }
 
         return $model;

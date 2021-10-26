@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\certificates;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\portRanges;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\XForwardedForConfig;
 use AlibabaCloud\Tea\Model;
 
 class CreateListenerRequest extends Model
@@ -59,17 +60,29 @@ class CreateListenerRequest extends Model
      * @var certificates[]
      */
     public $certificates;
+
+    /**
+     * @var XForwardedForConfig
+     */
+    public $XForwardedForConfig;
+
+    /**
+     * @var string
+     */
+    public $securityPolicyId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'clientToken'    => 'ClientToken',
-        'acceleratorId'  => 'AcceleratorId',
-        'name'           => 'Name',
-        'description'    => 'Description',
-        'clientAffinity' => 'ClientAffinity',
-        'protocol'       => 'Protocol',
-        'proxyProtocol'  => 'ProxyProtocol',
-        'portRanges'     => 'PortRanges',
-        'certificates'   => 'Certificates',
+        'regionId'            => 'RegionId',
+        'clientToken'         => 'ClientToken',
+        'acceleratorId'       => 'AcceleratorId',
+        'name'                => 'Name',
+        'description'         => 'Description',
+        'clientAffinity'      => 'ClientAffinity',
+        'protocol'            => 'Protocol',
+        'proxyProtocol'       => 'ProxyProtocol',
+        'portRanges'          => 'PortRanges',
+        'certificates'        => 'Certificates',
+        'XForwardedForConfig' => 'XForwardedForConfig',
+        'securityPolicyId'    => 'SecurityPolicyId',
     ];
 
     public function validate()
@@ -120,6 +133,12 @@ class CreateListenerRequest extends Model
                     $res['Certificates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->XForwardedForConfig) {
+            $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
+        }
+        if (null !== $this->securityPolicyId) {
+            $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
 
         return $res;
@@ -174,6 +193,12 @@ class CreateListenerRequest extends Model
                     $model->certificates[$n++] = null !== $item ? certificates::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['XForwardedForConfig'])) {
+            $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);
+        }
+        if (isset($map['SecurityPolicyId'])) {
+            $model->securityPolicyId = $map['SecurityPolicyId'];
         }
 
         return $model;

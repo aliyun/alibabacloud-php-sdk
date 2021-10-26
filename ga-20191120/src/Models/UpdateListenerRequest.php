@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerRequest\backendPorts;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerRequest\certificates;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerRequest\portRanges;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerRequest\XForwardedForConfig;
 use AlibabaCloud\Tea\Model;
 
 class UpdateListenerRequest extends Model
@@ -65,18 +66,30 @@ class UpdateListenerRequest extends Model
      * @var backendPorts[]
      */
     public $backendPorts;
+
+    /**
+     * @var XForwardedForConfig
+     */
+    public $XForwardedForConfig;
+
+    /**
+     * @var string
+     */
+    public $securityPolicyId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'clientToken'    => 'ClientToken',
-        'name'           => 'Name',
-        'description'    => 'Description',
-        'clientAffinity' => 'ClientAffinity',
-        'protocol'       => 'Protocol',
-        'listenerId'     => 'ListenerId',
-        'proxyProtocol'  => 'ProxyProtocol',
-        'portRanges'     => 'PortRanges',
-        'certificates'   => 'Certificates',
-        'backendPorts'   => 'BackendPorts',
+        'regionId'            => 'RegionId',
+        'clientToken'         => 'ClientToken',
+        'name'                => 'Name',
+        'description'         => 'Description',
+        'clientAffinity'      => 'ClientAffinity',
+        'protocol'            => 'Protocol',
+        'listenerId'          => 'ListenerId',
+        'proxyProtocol'       => 'ProxyProtocol',
+        'portRanges'          => 'PortRanges',
+        'certificates'        => 'Certificates',
+        'backendPorts'        => 'BackendPorts',
+        'XForwardedForConfig' => 'XForwardedForConfig',
+        'securityPolicyId'    => 'SecurityPolicyId',
     ];
 
     public function validate()
@@ -136,6 +149,12 @@ class UpdateListenerRequest extends Model
                     $res['BackendPorts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->XForwardedForConfig) {
+            $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
+        }
+        if (null !== $this->securityPolicyId) {
+            $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
 
         return $res;
@@ -199,6 +218,12 @@ class UpdateListenerRequest extends Model
                     $model->backendPorts[$n++] = null !== $item ? backendPorts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['XForwardedForConfig'])) {
+            $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);
+        }
+        if (isset($map['SecurityPolicyId'])) {
+            $model->securityPolicyId = $map['SecurityPolicyId'];
         }
 
         return $model;
