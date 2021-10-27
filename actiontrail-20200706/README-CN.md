@@ -2,7 +2,7 @@
 
 ![](https://aliyunsdk-pages.alicdn.com/icons/AlibabaCloud.svg)
 
-## Alibaba Cloud ActionTrail (20200706) SDK Library for PHP
+# Alibaba Cloud Actiontrail SDK for PHP
 
 ## 安装
 
@@ -14,7 +14,11 @@ composer require alibabacloud/actiontrail-20200706
 
 ## 问题
 
-[提交 Issue](https://github.com/aliyun/alibabacloud-sdk/issues/new)，不符合指南的问题可能会立即关闭。
+[提交 Issue](https://github.com/aliyun/alibabacloud-php-sdk/issues/new)，不符合指南的问题可能会立即关闭。
+
+## 使用说明
+
+[快速使用](https://github.com/aliyun/alibabacloud-php-sdk/blob/master/docs/0-Examples-CN.md#%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8)
 
 ## 发行说明
 
@@ -22,7 +26,7 @@ composer require alibabacloud/actiontrail-20200706
 
 ## 相关
 
-* [最新源码](https://github.com/aliyun/alibabacloud-sdk)
+* [最新源码](https://github.com/aliyun/alibabacloud-php-sdk/)
 
 ## 许可证
 

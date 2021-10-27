@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class LookupEventsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var LookupEventsResponseBody
      */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var mixed[][]
-     */
-    public $events;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'nextToken' => 'NextToken',
-        'startTime' => 'StartTime',
-        'endTime'   => 'EndTime',
-        'events'    => 'Events',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
-        Model::validateRequired('events', $this->events, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->events) {
-            $res['Events'] = $this->events;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,22 +49,11 @@ class LookupEventsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Events'])) {
-            if (!empty($map['Events'])) {
-                $model->events = $map['Events'];
-            }
+        if (isset($map['body'])) {
+            $model->body = LookupEventsResponseBody::fromMap($map['body']);
         }
 
         return $model;

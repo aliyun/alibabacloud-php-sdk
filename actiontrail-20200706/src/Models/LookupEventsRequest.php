@@ -12,17 +12,7 @@ class LookupEventsRequest extends Model
     /**
      * @var string
      */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
-    public $startTime;
+    public $direction;
 
     /**
      * @var string
@@ -37,14 +27,24 @@ class LookupEventsRequest extends Model
     /**
      * @var string
      */
-    public $direction;
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'nextToken'       => 'NextToken',
-        'maxResults'      => 'MaxResults',
-        'startTime'       => 'StartTime',
+        'direction'       => 'Direction',
         'endTime'         => 'EndTime',
         'lookupAttribute' => 'LookupAttribute',
-        'direction'       => 'Direction',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -54,14 +54,8 @@ class LookupEventsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -75,8 +69,14 @@ class LookupEventsRequest extends Model
                 }
             }
         }
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -90,14 +90,8 @@ class LookupEventsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -111,8 +105,14 @@ class LookupEventsRequest extends Model
                 }
             }
         }
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

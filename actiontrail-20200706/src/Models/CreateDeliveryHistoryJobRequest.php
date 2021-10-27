@@ -11,30 +11,29 @@ class CreateDeliveryHistoryJobRequest extends Model
     /**
      * @var string
      */
-    public $trailName;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $trailName;
     protected $_name = [
-        'trailName'   => 'TrailName',
         'clientToken' => 'ClientToken',
+        'trailName'   => 'TrailName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('trailName', $this->trailName, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->trailName) {
-            $res['TrailName'] = $this->trailName;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->trailName) {
+            $res['TrailName'] = $this->trailName;
         }
 
         return $res;
@@ -48,11 +47,11 @@ class CreateDeliveryHistoryJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TrailName'])) {
-            $model->trailName = $map['TrailName'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['TrailName'])) {
+            $model->trailName = $map['TrailName'];
         }
 
         return $model;

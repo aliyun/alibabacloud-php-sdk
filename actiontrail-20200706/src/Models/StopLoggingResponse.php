@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListDeliveryHistoryJobsResponse extends Model
+class StopLoggingResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ListDeliveryHistoryJobsResponse extends Model
     public $headers;
 
     /**
-     * @var ListDeliveryHistoryJobsResponseBody
+     * @var StopLoggingResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ListDeliveryHistoryJobsResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListDeliveryHistoryJobsResponse
+     * @return StopLoggingResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ListDeliveryHistoryJobsResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ListDeliveryHistoryJobsResponseBody::fromMap($map['body']);
+            $model->body = StopLoggingResponseBody::fromMap($map['body']);
         }
 
         return $model;
