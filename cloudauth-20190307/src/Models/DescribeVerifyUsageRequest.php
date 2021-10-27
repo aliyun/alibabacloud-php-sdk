@@ -30,8 +30,6 @@ class DescribeVerifyUsageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('endDate', $this->endDate, true);
-        Model::validateRequired('startDate', $this->startDate, true);
     }
 
     public function toMap()

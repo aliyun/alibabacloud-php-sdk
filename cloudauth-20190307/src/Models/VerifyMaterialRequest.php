@@ -60,11 +60,6 @@ class VerifyMaterialRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('bizId', $this->bizId, true);
-        Model::validateRequired('bizType', $this->bizType, true);
-        Model::validateRequired('faceImageUrl', $this->faceImageUrl, true);
-        Model::validateRequired('idCardNumber', $this->idCardNumber, true);
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

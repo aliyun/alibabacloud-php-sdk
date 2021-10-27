@@ -78,9 +78,6 @@ class DescribeWhitelistSettingRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('serviceCode', $this->serviceCode, true);
     }
 
     public function toMap()

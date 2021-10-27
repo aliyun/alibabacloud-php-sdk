@@ -36,8 +36,6 @@ class CreateFaceConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('bizName', $this->bizName, true);
-        Model::validateRequired('bizType', $this->bizType, true);
     }
 
     public function toMap()

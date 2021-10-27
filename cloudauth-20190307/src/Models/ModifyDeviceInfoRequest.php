@@ -42,7 +42,6 @@ class ModifyDeviceInfoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceId', $this->deviceId, true);
     }
 
     public function toMap()

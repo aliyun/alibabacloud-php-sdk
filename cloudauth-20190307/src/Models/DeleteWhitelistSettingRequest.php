@@ -36,8 +36,6 @@ class DeleteWhitelistSettingRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('ids', $this->ids, true);
-        Model::validateRequired('serviceCode', $this->serviceCode, true);
     }
 
     public function toMap()

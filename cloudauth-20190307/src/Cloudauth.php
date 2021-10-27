@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cloudauth\V20190307;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFacesRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFacesResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFaceVerifyRequest;
@@ -40,7 +41,6 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceUsageRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceUsageResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyResponse;
-use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssUploadTokenRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssUploadTokenResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeRPSDKRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeRPSDKResponse;
@@ -50,7 +50,6 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeUpdatePackageResultReque
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeUpdatePackageResultResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeUploadInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeUploadInfoResponse;
-use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeUserStatusRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeUserStatusResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyRecordsRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyRecordsResponse;
@@ -58,7 +57,6 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyResultResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifySDKRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifySDKResponse;
-use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifySettingRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifySettingResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyTokenRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyTokenResponse;
@@ -95,14 +93,13 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
-use AlibabaCloud\Tea\RpcUtils\RpcUtils;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\OpenApiClient;
 
-class Cloudauth extends Rpc
+class Cloudauth extends OpenApiClient
 {
     public function __construct($config)
     {
@@ -113,16 +110,42 @@ class Cloudauth extends Rpc
     }
 
     /**
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    {
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
+
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
      * @param CompareFaceVerifyRequest $request
      * @param RuntimeOptions           $runtime
      *
      * @return CompareFaceVerifyResponse
      */
-    public function compareFaceVerify($request, $runtime)
+    public function compareFaceVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CompareFaceVerifyResponse::fromMap($this->doRequest('CompareFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CompareFaceVerifyResponse::fromMap($this->doRPCRequest('CompareFaceVerify', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -130,11 +153,11 @@ class Cloudauth extends Rpc
      *
      * @return CompareFaceVerifyResponse
      */
-    public function compareFaceVerifySimply($request)
+    public function compareFaceVerify($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->compareFaceVerify($request, $runtime);
+        return $this->compareFaceVerifyWithOptions($request, $runtime);
     }
 
     /**
@@ -143,11 +166,14 @@ class Cloudauth extends Rpc
      *
      * @return CompareFacesResponse
      */
-    public function compareFaces($request, $runtime)
+    public function compareFacesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CompareFacesResponse::fromMap($this->doRequest('CompareFaces', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CompareFacesResponse::fromMap($this->doRPCRequest('CompareFaces', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -155,11 +181,11 @@ class Cloudauth extends Rpc
      *
      * @return CompareFacesResponse
      */
-    public function compareFacesSimply($request)
+    public function compareFaces($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->compareFaces($request, $runtime);
+        return $this->compareFacesWithOptions($request, $runtime);
     }
 
     /**
@@ -168,11 +194,14 @@ class Cloudauth extends Rpc
      *
      * @return ContrastFaceVerifyResponse
      */
-    public function contrastFaceVerify($request, $runtime)
+    public function contrastFaceVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ContrastFaceVerifyResponse::fromMap($this->doRequest('ContrastFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return ContrastFaceVerifyResponse::fromMap($this->doRPCRequest('ContrastFaceVerify', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -180,11 +209,11 @@ class Cloudauth extends Rpc
      *
      * @return ContrastFaceVerifyResponse
      */
-    public function contrastFaceVerifySimply($request)
+    public function contrastFaceVerify($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->contrastFaceVerify($request, $runtime);
+        return $this->contrastFaceVerifyWithOptions($request, $runtime);
     }
 
     /**
@@ -198,9 +227,9 @@ class Cloudauth extends Rpc
         // Step 0: init client
         $accessKeyId          = $this->_credential->getAccessKeyId();
         $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::isUnset($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
@@ -233,13 +262,13 @@ class Cloudauth extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
         $contrastFaceVerifyReq = new ContrastFaceVerifyRequest([]);
-        RpcUtils::convert($request, $contrastFaceVerifyReq);
+        OpenApiUtilClient::convert($request, $contrastFaceVerifyReq);
         if (!Utils::isUnset($request->faceContrastFileObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->objectKey,
@@ -262,7 +291,7 @@ class Cloudauth extends Rpc
             $contrastFaceVerifyReq->faceContrastFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
         }
 
-        return $this->contrastFaceVerify($contrastFaceVerifyReq, $runtime);
+        return $this->contrastFaceVerifyWithOptions($contrastFaceVerifyReq, $runtime);
     }
 
     /**
@@ -271,11 +300,14 @@ class Cloudauth extends Rpc
      *
      * @return CreateAuthKeyResponse
      */
-    public function createAuthKey($request, $runtime)
+    public function createAuthKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateAuthKeyResponse::fromMap($this->doRequest('CreateAuthKey', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CreateAuthKeyResponse::fromMap($this->doRPCRequest('CreateAuthKey', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -283,11 +315,11 @@ class Cloudauth extends Rpc
      *
      * @return CreateAuthKeyResponse
      */
-    public function createAuthKeySimply($request)
+    public function createAuthKey($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createAuthKey($request, $runtime);
+        return $this->createAuthKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -296,11 +328,14 @@ class Cloudauth extends Rpc
      *
      * @return CreateFaceConfigResponse
      */
-    public function createFaceConfig($request, $runtime)
+    public function createFaceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateFaceConfigResponse::fromMap($this->doRequest('CreateFaceConfig', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CreateFaceConfigResponse::fromMap($this->doRPCRequest('CreateFaceConfig', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -308,11 +343,11 @@ class Cloudauth extends Rpc
      *
      * @return CreateFaceConfigResponse
      */
-    public function createFaceConfigSimply($request)
+    public function createFaceConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createFaceConfig($request, $runtime);
+        return $this->createFaceConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -321,11 +356,14 @@ class Cloudauth extends Rpc
      *
      * @return CreateRPSDKResponse
      */
-    public function createRPSDK($request, $runtime)
+    public function createRPSDKWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateRPSDKResponse::fromMap($this->doRequest('CreateRPSDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CreateRPSDKResponse::fromMap($this->doRPCRequest('CreateRPSDK', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -333,11 +371,11 @@ class Cloudauth extends Rpc
      *
      * @return CreateRPSDKResponse
      */
-    public function createRPSDKSimply($request)
+    public function createRPSDK($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createRPSDK($request, $runtime);
+        return $this->createRPSDKWithOptions($request, $runtime);
     }
 
     /**
@@ -346,11 +384,14 @@ class Cloudauth extends Rpc
      *
      * @return CreateVerifySDKResponse
      */
-    public function createVerifySDK($request, $runtime)
+    public function createVerifySDKWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateVerifySDKResponse::fromMap($this->doRequest('CreateVerifySDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CreateVerifySDKResponse::fromMap($this->doRPCRequest('CreateVerifySDK', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -358,11 +399,11 @@ class Cloudauth extends Rpc
      *
      * @return CreateVerifySDKResponse
      */
-    public function createVerifySDKSimply($request)
+    public function createVerifySDK($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createVerifySDK($request, $runtime);
+        return $this->createVerifySDKWithOptions($request, $runtime);
     }
 
     /**
@@ -371,11 +412,14 @@ class Cloudauth extends Rpc
      *
      * @return CreateVerifySettingResponse
      */
-    public function createVerifySetting($request, $runtime)
+    public function createVerifySettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateVerifySettingResponse::fromMap($this->doRequest('CreateVerifySetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CreateVerifySettingResponse::fromMap($this->doRPCRequest('CreateVerifySetting', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -383,11 +427,11 @@ class Cloudauth extends Rpc
      *
      * @return CreateVerifySettingResponse
      */
-    public function createVerifySettingSimply($request)
+    public function createVerifySetting($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createVerifySetting($request, $runtime);
+        return $this->createVerifySettingWithOptions($request, $runtime);
     }
 
     /**
@@ -396,11 +440,14 @@ class Cloudauth extends Rpc
      *
      * @return CreateWhitelistResponse
      */
-    public function createWhitelist($request, $runtime)
+    public function createWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateWhitelistResponse::fromMap($this->doRequest('CreateWhitelist', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CreateWhitelistResponse::fromMap($this->doRPCRequest('CreateWhitelist', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -408,11 +455,11 @@ class Cloudauth extends Rpc
      *
      * @return CreateWhitelistResponse
      */
-    public function createWhitelistSimply($request)
+    public function createWhitelist($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createWhitelist($request, $runtime);
+        return $this->createWhitelistWithOptions($request, $runtime);
     }
 
     /**
@@ -421,11 +468,14 @@ class Cloudauth extends Rpc
      *
      * @return CreateWhitelistSettingResponse
      */
-    public function createWhitelistSetting($request, $runtime)
+    public function createWhitelistSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateWhitelistSettingResponse::fromMap($this->doRequest('CreateWhitelistSetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CreateWhitelistSettingResponse::fromMap($this->doRPCRequest('CreateWhitelistSetting', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -433,11 +483,11 @@ class Cloudauth extends Rpc
      *
      * @return CreateWhitelistSettingResponse
      */
-    public function createWhitelistSettingSimply($request)
+    public function createWhitelistSetting($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createWhitelistSetting($request, $runtime);
+        return $this->createWhitelistSettingWithOptions($request, $runtime);
     }
 
     /**
@@ -446,11 +496,14 @@ class Cloudauth extends Rpc
      *
      * @return DeleteWhitelistResponse
      */
-    public function deleteWhitelist($request, $runtime)
+    public function deleteWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteWhitelistResponse::fromMap($this->doRequest('DeleteWhitelist', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DeleteWhitelistResponse::fromMap($this->doRPCRequest('DeleteWhitelist', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -458,11 +511,11 @@ class Cloudauth extends Rpc
      *
      * @return DeleteWhitelistResponse
      */
-    public function deleteWhitelistSimply($request)
+    public function deleteWhitelist($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteWhitelist($request, $runtime);
+        return $this->deleteWhitelistWithOptions($request, $runtime);
     }
 
     /**
@@ -471,11 +524,14 @@ class Cloudauth extends Rpc
      *
      * @return DeleteWhitelistSettingResponse
      */
-    public function deleteWhitelistSetting($request, $runtime)
+    public function deleteWhitelistSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteWhitelistSettingResponse::fromMap($this->doRequest('DeleteWhitelistSetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DeleteWhitelistSettingResponse::fromMap($this->doRPCRequest('DeleteWhitelistSetting', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -483,11 +539,11 @@ class Cloudauth extends Rpc
      *
      * @return DeleteWhitelistSettingResponse
      */
-    public function deleteWhitelistSettingSimply($request)
+    public function deleteWhitelistSetting($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteWhitelistSetting($request, $runtime);
+        return $this->deleteWhitelistSettingWithOptions($request, $runtime);
     }
 
     /**
@@ -496,11 +552,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeAppInfoResponse
      */
-    public function describeAppInfo($request, $runtime)
+    public function describeAppInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeAppInfoResponse::fromMap($this->doRequest('DescribeAppInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeAppInfoResponse::fromMap($this->doRPCRequest('DescribeAppInfo', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -508,11 +567,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeAppInfoResponse
      */
-    public function describeAppInfoSimply($request)
+    public function describeAppInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeAppInfo($request, $runtime);
+        return $this->describeAppInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -521,11 +580,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeDeviceInfoResponse
      */
-    public function describeDeviceInfo($request, $runtime)
+    public function describeDeviceInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeDeviceInfoResponse::fromMap($this->doRequest('DescribeDeviceInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeDeviceInfoResponse::fromMap($this->doRPCRequest('DescribeDeviceInfo', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -533,11 +595,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeDeviceInfoResponse
      */
-    public function describeDeviceInfoSimply($request)
+    public function describeDeviceInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDeviceInfo($request, $runtime);
+        return $this->describeDeviceInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -546,11 +608,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeFaceConfigResponse
      */
-    public function describeFaceConfig($request, $runtime)
+    public function describeFaceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeFaceConfigResponse::fromMap($this->doRequest('DescribeFaceConfig', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeFaceConfigResponse::fromMap($this->doRPCRequest('DescribeFaceConfig', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -558,11 +623,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeFaceConfigResponse
      */
-    public function describeFaceConfigSimply($request)
+    public function describeFaceConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeFaceConfig($request, $runtime);
+        return $this->describeFaceConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -571,11 +636,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeFaceUsageResponse
      */
-    public function describeFaceUsage($request, $runtime)
+    public function describeFaceUsageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeFaceUsageResponse::fromMap($this->doRequest('DescribeFaceUsage', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeFaceUsageResponse::fromMap($this->doRPCRequest('DescribeFaceUsage', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -583,11 +651,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeFaceUsageResponse
      */
-    public function describeFaceUsageSimply($request)
+    public function describeFaceUsage($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeFaceUsage($request, $runtime);
+        return $this->describeFaceUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -596,11 +664,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeFaceVerifyResponse
      */
-    public function describeFaceVerify($request, $runtime)
+    public function describeFaceVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeFaceVerifyResponse::fromMap($this->doRequest('DescribeFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeFaceVerifyResponse::fromMap($this->doRPCRequest('DescribeFaceVerify', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -608,36 +679,33 @@ class Cloudauth extends Rpc
      *
      * @return DescribeFaceVerifyResponse
      */
-    public function describeFaceVerifySimply($request)
+    public function describeFaceVerify($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeFaceVerify($request, $runtime);
+        return $this->describeFaceVerifyWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeOssUploadTokenRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeOssUploadTokenResponse
      */
-    public function describeOssUploadToken($request, $runtime)
+    public function describeOssUploadTokenWithOptions($runtime)
     {
-        Utils::validateModel($request);
+        $req = new OpenApiRequest([]);
 
-        return DescribeOssUploadTokenResponse::fromMap($this->doRequest('DescribeOssUploadToken', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeOssUploadTokenResponse::fromMap($this->doRPCRequest('DescribeOssUploadToken', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeOssUploadTokenRequest $request
-     *
      * @return DescribeOssUploadTokenResponse
      */
-    public function describeOssUploadTokenSimply($request)
+    public function describeOssUploadToken()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeOssUploadToken($request, $runtime);
+        return $this->describeOssUploadTokenWithOptions($runtime);
     }
 
     /**
@@ -646,11 +714,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeRPSDKResponse
      */
-    public function describeRPSDK($request, $runtime)
+    public function describeRPSDKWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeRPSDKResponse::fromMap($this->doRequest('DescribeRPSDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeRPSDKResponse::fromMap($this->doRPCRequest('DescribeRPSDK', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -658,11 +729,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeRPSDKResponse
      */
-    public function describeRPSDKSimply($request)
+    public function describeRPSDK($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRPSDK($request, $runtime);
+        return $this->describeRPSDKWithOptions($request, $runtime);
     }
 
     /**
@@ -671,11 +742,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeSdkUrlResponse
      */
-    public function describeSdkUrl($request, $runtime)
+    public function describeSdkUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeSdkUrlResponse::fromMap($this->doRequest('DescribeSdkUrl', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeSdkUrlResponse::fromMap($this->doRPCRequest('DescribeSdkUrl', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -683,11 +757,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeSdkUrlResponse
      */
-    public function describeSdkUrlSimply($request)
+    public function describeSdkUrl($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeSdkUrl($request, $runtime);
+        return $this->describeSdkUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -696,11 +770,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeUpdatePackageResultResponse
      */
-    public function describeUpdatePackageResult($request, $runtime)
+    public function describeUpdatePackageResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeUpdatePackageResultResponse::fromMap($this->doRequest('DescribeUpdatePackageResult', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeUpdatePackageResultResponse::fromMap($this->doRPCRequest('DescribeUpdatePackageResult', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -708,11 +785,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeUpdatePackageResultResponse
      */
-    public function describeUpdatePackageResultSimply($request)
+    public function describeUpdatePackageResult($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeUpdatePackageResult($request, $runtime);
+        return $this->describeUpdatePackageResultWithOptions($request, $runtime);
     }
 
     /**
@@ -721,11 +798,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeUploadInfoResponse
      */
-    public function describeUploadInfo($request, $runtime)
+    public function describeUploadInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeUploadInfoResponse::fromMap($this->doRequest('DescribeUploadInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeUploadInfoResponse::fromMap($this->doRPCRequest('DescribeUploadInfo', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -733,36 +813,33 @@ class Cloudauth extends Rpc
      *
      * @return DescribeUploadInfoResponse
      */
-    public function describeUploadInfoSimply($request)
+    public function describeUploadInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeUploadInfo($request, $runtime);
+        return $this->describeUploadInfoWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeUserStatusRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeUserStatusResponse
      */
-    public function describeUserStatus($request, $runtime)
+    public function describeUserStatusWithOptions($runtime)
     {
-        Utils::validateModel($request);
+        $req = new OpenApiRequest([]);
 
-        return DescribeUserStatusResponse::fromMap($this->doRequest('DescribeUserStatus', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeUserStatusResponse::fromMap($this->doRPCRequest('DescribeUserStatus', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeUserStatusRequest $request
-     *
      * @return DescribeUserStatusResponse
      */
-    public function describeUserStatusSimply($request)
+    public function describeUserStatus()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeUserStatus($request, $runtime);
+        return $this->describeUserStatusWithOptions($runtime);
     }
 
     /**
@@ -771,11 +848,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyRecordsResponse
      */
-    public function describeVerifyRecords($request, $runtime)
+    public function describeVerifyRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeVerifyRecordsResponse::fromMap($this->doRequest('DescribeVerifyRecords', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeVerifyRecordsResponse::fromMap($this->doRPCRequest('DescribeVerifyRecords', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -783,11 +863,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyRecordsResponse
      */
-    public function describeVerifyRecordsSimply($request)
+    public function describeVerifyRecords($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVerifyRecords($request, $runtime);
+        return $this->describeVerifyRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -796,11 +876,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyResultResponse
      */
-    public function describeVerifyResult($request, $runtime)
+    public function describeVerifyResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeVerifyResultResponse::fromMap($this->doRequest('DescribeVerifyResult', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeVerifyResultResponse::fromMap($this->doRPCRequest('DescribeVerifyResult', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -808,11 +891,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyResultResponse
      */
-    public function describeVerifyResultSimply($request)
+    public function describeVerifyResult($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVerifyResult($request, $runtime);
+        return $this->describeVerifyResultWithOptions($request, $runtime);
     }
 
     /**
@@ -821,11 +904,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifySDKResponse
      */
-    public function describeVerifySDK($request, $runtime)
+    public function describeVerifySDKWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeVerifySDKResponse::fromMap($this->doRequest('DescribeVerifySDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeVerifySDKResponse::fromMap($this->doRPCRequest('DescribeVerifySDK', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -833,36 +919,33 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifySDKResponse
      */
-    public function describeVerifySDKSimply($request)
+    public function describeVerifySDK($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVerifySDK($request, $runtime);
+        return $this->describeVerifySDKWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeVerifySettingRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeVerifySettingResponse
      */
-    public function describeVerifySetting($request, $runtime)
+    public function describeVerifySettingWithOptions($runtime)
     {
-        Utils::validateModel($request);
+        $req = new OpenApiRequest([]);
 
-        return DescribeVerifySettingResponse::fromMap($this->doRequest('DescribeVerifySetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeVerifySettingResponse::fromMap($this->doRPCRequest('DescribeVerifySetting', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeVerifySettingRequest $request
-     *
      * @return DescribeVerifySettingResponse
      */
-    public function describeVerifySettingSimply($request)
+    public function describeVerifySetting()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVerifySetting($request, $runtime);
+        return $this->describeVerifySettingWithOptions($runtime);
     }
 
     /**
@@ -871,11 +954,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyTokenResponse
      */
-    public function describeVerifyToken($request, $runtime)
+    public function describeVerifyTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeVerifyTokenResponse::fromMap($this->doRequest('DescribeVerifyToken', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeVerifyTokenResponse::fromMap($this->doRPCRequest('DescribeVerifyToken', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -883,11 +969,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyTokenResponse
      */
-    public function describeVerifyTokenSimply($request)
+    public function describeVerifyToken($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVerifyToken($request, $runtime);
+        return $this->describeVerifyTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -896,11 +982,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyUsageResponse
      */
-    public function describeVerifyUsage($request, $runtime)
+    public function describeVerifyUsageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeVerifyUsageResponse::fromMap($this->doRequest('DescribeVerifyUsage', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeVerifyUsageResponse::fromMap($this->doRPCRequest('DescribeVerifyUsage', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -908,11 +997,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyUsageResponse
      */
-    public function describeVerifyUsageSimply($request)
+    public function describeVerifyUsage($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVerifyUsage($request, $runtime);
+        return $this->describeVerifyUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -921,11 +1010,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeWhitelistResponse
      */
-    public function describeWhitelist($request, $runtime)
+    public function describeWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeWhitelistResponse::fromMap($this->doRequest('DescribeWhitelist', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeWhitelistResponse::fromMap($this->doRPCRequest('DescribeWhitelist', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -933,11 +1025,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeWhitelistResponse
      */
-    public function describeWhitelistSimply($request)
+    public function describeWhitelist($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeWhitelist($request, $runtime);
+        return $this->describeWhitelistWithOptions($request, $runtime);
     }
 
     /**
@@ -946,11 +1038,14 @@ class Cloudauth extends Rpc
      *
      * @return DescribeWhitelistSettingResponse
      */
-    public function describeWhitelistSetting($request, $runtime)
+    public function describeWhitelistSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeWhitelistSettingResponse::fromMap($this->doRequest('DescribeWhitelistSetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeWhitelistSettingResponse::fromMap($this->doRPCRequest('DescribeWhitelistSetting', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -958,11 +1053,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeWhitelistSettingResponse
      */
-    public function describeWhitelistSettingSimply($request)
+    public function describeWhitelistSetting($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeWhitelistSetting($request, $runtime);
+        return $this->describeWhitelistSettingWithOptions($request, $runtime);
     }
 
     /**
@@ -971,11 +1066,14 @@ class Cloudauth extends Rpc
      *
      * @return DetectFaceAttributesResponse
      */
-    public function detectFaceAttributes($request, $runtime)
+    public function detectFaceAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DetectFaceAttributesResponse::fromMap($this->doRequest('DetectFaceAttributes', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DetectFaceAttributesResponse::fromMap($this->doRPCRequest('DetectFaceAttributes', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -983,11 +1081,11 @@ class Cloudauth extends Rpc
      *
      * @return DetectFaceAttributesResponse
      */
-    public function detectFaceAttributesSimply($request)
+    public function detectFaceAttributes($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->detectFaceAttributes($request, $runtime);
+        return $this->detectFaceAttributesWithOptions($request, $runtime);
     }
 
     /**
@@ -996,11 +1094,14 @@ class Cloudauth extends Rpc
      *
      * @return InitDeviceResponse
      */
-    public function initDevice($request, $runtime)
+    public function initDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return InitDeviceResponse::fromMap($this->doRequest('InitDevice', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return InitDeviceResponse::fromMap($this->doRPCRequest('InitDevice', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1008,11 +1109,11 @@ class Cloudauth extends Rpc
      *
      * @return InitDeviceResponse
      */
-    public function initDeviceSimply($request)
+    public function initDevice($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->initDevice($request, $runtime);
+        return $this->initDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -1021,11 +1122,14 @@ class Cloudauth extends Rpc
      *
      * @return InitFaceVerifyResponse
      */
-    public function initFaceVerify($request, $runtime)
+    public function initFaceVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return InitFaceVerifyResponse::fromMap($this->doRequest('InitFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return InitFaceVerifyResponse::fromMap($this->doRPCRequest('InitFaceVerify', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1033,11 +1137,11 @@ class Cloudauth extends Rpc
      *
      * @return InitFaceVerifyResponse
      */
-    public function initFaceVerifySimply($request)
+    public function initFaceVerify($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->initFaceVerify($request, $runtime);
+        return $this->initFaceVerifyWithOptions($request, $runtime);
     }
 
     /**
@@ -1046,11 +1150,14 @@ class Cloudauth extends Rpc
      *
      * @return LivenessFaceVerifyResponse
      */
-    public function livenessFaceVerify($request, $runtime)
+    public function livenessFaceVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return LivenessFaceVerifyResponse::fromMap($this->doRequest('LivenessFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return LivenessFaceVerifyResponse::fromMap($this->doRPCRequest('LivenessFaceVerify', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1058,11 +1165,11 @@ class Cloudauth extends Rpc
      *
      * @return LivenessFaceVerifyResponse
      */
-    public function livenessFaceVerifySimply($request)
+    public function livenessFaceVerify($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->livenessFaceVerify($request, $runtime);
+        return $this->livenessFaceVerifyWithOptions($request, $runtime);
     }
 
     /**
@@ -1071,11 +1178,14 @@ class Cloudauth extends Rpc
      *
      * @return ModifyDeviceInfoResponse
      */
-    public function modifyDeviceInfo($request, $runtime)
+    public function modifyDeviceInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyDeviceInfoResponse::fromMap($this->doRequest('ModifyDeviceInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return ModifyDeviceInfoResponse::fromMap($this->doRPCRequest('ModifyDeviceInfo', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1083,11 +1193,11 @@ class Cloudauth extends Rpc
      *
      * @return ModifyDeviceInfoResponse
      */
-    public function modifyDeviceInfoSimply($request)
+    public function modifyDeviceInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyDeviceInfo($request, $runtime);
+        return $this->modifyDeviceInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -1096,11 +1206,14 @@ class Cloudauth extends Rpc
      *
      * @return UpdateAppPackageResponse
      */
-    public function updateAppPackage($request, $runtime)
+    public function updateAppPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return UpdateAppPackageResponse::fromMap($this->doRequest('UpdateAppPackage', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return UpdateAppPackageResponse::fromMap($this->doRPCRequest('UpdateAppPackage', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1108,11 +1221,11 @@ class Cloudauth extends Rpc
      *
      * @return UpdateAppPackageResponse
      */
-    public function updateAppPackageSimply($request)
+    public function updateAppPackage($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateAppPackage($request, $runtime);
+        return $this->updateAppPackageWithOptions($request, $runtime);
     }
 
     /**
@@ -1121,11 +1234,14 @@ class Cloudauth extends Rpc
      *
      * @return UpdateFaceConfigResponse
      */
-    public function updateFaceConfig($request, $runtime)
+    public function updateFaceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return UpdateFaceConfigResponse::fromMap($this->doRequest('UpdateFaceConfig', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return UpdateFaceConfigResponse::fromMap($this->doRPCRequest('UpdateFaceConfig', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1133,11 +1249,11 @@ class Cloudauth extends Rpc
      *
      * @return UpdateFaceConfigResponse
      */
-    public function updateFaceConfigSimply($request)
+    public function updateFaceConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateFaceConfig($request, $runtime);
+        return $this->updateFaceConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -1146,11 +1262,14 @@ class Cloudauth extends Rpc
      *
      * @return UpdateVerifySettingResponse
      */
-    public function updateVerifySetting($request, $runtime)
+    public function updateVerifySettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return UpdateVerifySettingResponse::fromMap($this->doRequest('UpdateVerifySetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return UpdateVerifySettingResponse::fromMap($this->doRPCRequest('UpdateVerifySetting', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1158,11 +1277,11 @@ class Cloudauth extends Rpc
      *
      * @return UpdateVerifySettingResponse
      */
-    public function updateVerifySettingSimply($request)
+    public function updateVerifySetting($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateVerifySetting($request, $runtime);
+        return $this->updateVerifySettingWithOptions($request, $runtime);
     }
 
     /**
@@ -1171,11 +1290,14 @@ class Cloudauth extends Rpc
      *
      * @return VerifyDeviceResponse
      */
-    public function verifyDevice($request, $runtime)
+    public function verifyDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return VerifyDeviceResponse::fromMap($this->doRequest('VerifyDevice', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return VerifyDeviceResponse::fromMap($this->doRPCRequest('VerifyDevice', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1183,11 +1305,11 @@ class Cloudauth extends Rpc
      *
      * @return VerifyDeviceResponse
      */
-    public function verifyDeviceSimply($request)
+    public function verifyDevice($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->verifyDevice($request, $runtime);
+        return $this->verifyDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -1196,11 +1318,14 @@ class Cloudauth extends Rpc
      *
      * @return VerifyMaterialResponse
      */
-    public function verifyMaterial($request, $runtime)
+    public function verifyMaterialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return VerifyMaterialResponse::fromMap($this->doRequest('VerifyMaterial', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return VerifyMaterialResponse::fromMap($this->doRPCRequest('VerifyMaterial', '2019-03-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1208,33 +1333,10 @@ class Cloudauth extends Rpc
      *
      * @return VerifyMaterialResponse
      */
-    public function verifyMaterialSimply($request)
+    public function verifyMaterial($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->verifyMaterial($request, $runtime);
-    }
-
-    /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
-     *
-     * @return string
-     */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
-    {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
-            return @$endpointMap[$regionId];
-        }
-
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return $this->verifyMaterialWithOptions($request, $runtime);
     }
 }
