@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
+     * @var configParameters[]
      */
-    public $engineVersion;
+    public $configParameters;
 
     /**
      * @var string
@@ -21,18 +21,18 @@ class data extends Model
     public $engine;
 
     /**
-     * @var configParameters[]
+     * @var string
      */
-    public $configParameters;
+    public $engineVersion;
 
     /**
      * @var runningParameters[]
      */
     public $runningParameters;
     protected $_name = [
-        'engineVersion'     => 'EngineVersion',
-        'engine'            => 'Engine',
         'configParameters'  => 'ConfigParameters',
+        'engine'            => 'Engine',
+        'engineVersion'     => 'EngineVersion',
         'runningParameters' => 'RunningParameters',
     ];
 
@@ -43,12 +43,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->engineVersion) {
-            $res['EngineVersion'] = $this->engineVersion;
-        }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
-        }
         if (null !== $this->configParameters) {
             $res['ConfigParameters'] = [];
             if (null !== $this->configParameters && \is_array($this->configParameters)) {
@@ -57,6 +51,12 @@ class data extends Model
                     $res['ConfigParameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->runningParameters) {
             $res['RunningParameters'] = [];
@@ -79,12 +79,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EngineVersion'])) {
-            $model->engineVersion = $map['EngineVersion'];
-        }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
-        }
         if (isset($map['ConfigParameters'])) {
             if (!empty($map['ConfigParameters'])) {
                 $model->configParameters = [];
@@ -93,6 +87,12 @@ class data extends Model
                     $model->configParameters[$n++] = null !== $item ? configParameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['RunningParameters'])) {
             if (!empty($map['RunningParameters'])) {

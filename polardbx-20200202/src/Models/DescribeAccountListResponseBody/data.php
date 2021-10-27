@@ -11,22 +11,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $gmtCreated;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceName;
-
-    /**
-     * @var string
-     */
     public $accountDescription;
 
     /**
      * @var string
      */
-    public $DBName;
+    public $accountName;
 
     /**
      * @var string
@@ -41,15 +31,25 @@ class data extends Model
     /**
      * @var string
      */
-    public $accountName;
+    public $DBInstanceName;
+
+    /**
+     * @var string
+     */
+    public $DBName;
+
+    /**
+     * @var string
+     */
+    public $gmtCreated;
     protected $_name = [
-        'gmtCreated'         => 'GmtCreated',
-        'DBInstanceName'     => 'DBInstanceName',
         'accountDescription' => 'AccountDescription',
-        'DBName'             => 'DBName',
+        'accountName'        => 'AccountName',
         'accountPrivilege'   => 'AccountPrivilege',
         'accountType'        => 'AccountType',
-        'accountName'        => 'AccountName',
+        'DBInstanceName'     => 'DBInstanceName',
+        'DBName'             => 'DBName',
+        'gmtCreated'         => 'GmtCreated',
     ];
 
     public function validate()
@@ -59,17 +59,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gmtCreated) {
-            $res['GmtCreated'] = $this->gmtCreated;
-        }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
-        }
         if (null !== $this->accountDescription) {
             $res['AccountDescription'] = $this->accountDescription;
         }
-        if (null !== $this->DBName) {
-            $res['DBName'] = $this->DBName;
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
         }
         if (null !== $this->accountPrivilege) {
             $res['AccountPrivilege'] = $this->accountPrivilege;
@@ -77,8 +71,14 @@ class data extends Model
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
+        }
+        if (null !== $this->gmtCreated) {
+            $res['GmtCreated'] = $this->gmtCreated;
         }
 
         return $res;
@@ -92,17 +92,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GmtCreated'])) {
-            $model->gmtCreated = $map['GmtCreated'];
-        }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
-        }
         if (isset($map['AccountDescription'])) {
             $model->accountDescription = $map['AccountDescription'];
         }
-        if (isset($map['DBName'])) {
-            $model->DBName = $map['DBName'];
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
         }
         if (isset($map['AccountPrivilege'])) {
             $model->accountPrivilege = $map['AccountPrivilege'];
@@ -110,8 +104,14 @@ class data extends Model
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
+        }
+        if (isset($map['GmtCreated'])) {
+            $model->gmtCreated = $map['GmtCreated'];
         }
 
         return $model;

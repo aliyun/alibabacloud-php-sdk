@@ -11,15 +11,15 @@ class accounts extends Model
     /**
      * @var string
      */
-    public $accountPrivilege;
+    public $accountName;
 
     /**
      * @var string
      */
-    public $accountName;
+    public $accountPrivilege;
     protected $_name = [
-        'accountPrivilege' => 'AccountPrivilege',
         'accountName'      => 'AccountName',
+        'accountPrivilege' => 'AccountPrivilege',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class accounts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountPrivilege) {
-            $res['AccountPrivilege'] = $this->accountPrivilege;
-        }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->accountPrivilege) {
+            $res['AccountPrivilege'] = $this->accountPrivilege;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class accounts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountPrivilege'])) {
-            $model->accountPrivilege = $map['AccountPrivilege'];
-        }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['AccountPrivilege'])) {
+            $model->accountPrivilege = $map['AccountPrivilege'];
         }
 
         return $model;

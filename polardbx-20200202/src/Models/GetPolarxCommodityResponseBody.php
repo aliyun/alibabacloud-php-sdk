@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class GetPolarxCommodityResponseBody extends Model
 {
     /**
-     * @var string
+     * @var componentList[]
      */
-    public $requestId;
+    public $componentList;
 
     /**
      * @var DBInstance
@@ -21,13 +21,13 @@ class GetPolarxCommodityResponseBody extends Model
     public $DBInstance;
 
     /**
-     * @var componentList[]
+     * @var string
      */
-    public $componentList;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'DBInstance'    => 'DBInstance',
         'componentList' => 'ComponentList',
+        'DBInstance'    => 'DBInstance',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class GetPolarxCommodityResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->DBInstance) {
-            $res['DBInstance'] = null !== $this->DBInstance ? $this->DBInstance->toMap() : null;
-        }
         if (null !== $this->componentList) {
             $res['ComponentList'] = [];
             if (null !== $this->componentList && \is_array($this->componentList)) {
@@ -51,6 +45,12 @@ class GetPolarxCommodityResponseBody extends Model
                     $res['ComponentList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->DBInstance) {
+            $res['DBInstance'] = null !== $this->DBInstance ? $this->DBInstance->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class GetPolarxCommodityResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DBInstance'])) {
-            $model->DBInstance = DBInstance::fromMap($map['DBInstance']);
-        }
         if (isset($map['ComponentList'])) {
             if (!empty($map['ComponentList'])) {
                 $model->componentList = [];
@@ -78,6 +72,12 @@ class GetPolarxCommodityResponseBody extends Model
                     $model->componentList[$n++] = null !== $item ? componentList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DBInstance'])) {
+            $model->DBInstance = DBInstance::fromMap($map['DBInstance']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

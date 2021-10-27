@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $certCommonName;
+
+    /**
      * @var bool
      */
     public $SSLEnabled;
@@ -17,15 +22,10 @@ class data extends Model
      * @var string
      */
     public $SSLExpiredTime;
-
-    /**
-     * @var string
-     */
-    public $certCommonName;
     protected $_name = [
+        'certCommonName' => 'CertCommonName',
         'SSLEnabled'     => 'SSLEnabled',
         'SSLExpiredTime' => 'SSLExpiredTime',
-        'certCommonName' => 'CertCommonName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certCommonName) {
+            $res['CertCommonName'] = $this->certCommonName;
+        }
         if (null !== $this->SSLEnabled) {
             $res['SSLEnabled'] = $this->SSLEnabled;
         }
         if (null !== $this->SSLExpiredTime) {
             $res['SSLExpiredTime'] = $this->SSLExpiredTime;
-        }
-        if (null !== $this->certCommonName) {
-            $res['CertCommonName'] = $this->certCommonName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertCommonName'])) {
+            $model->certCommonName = $map['CertCommonName'];
+        }
         if (isset($map['SSLEnabled'])) {
             $model->SSLEnabled = $map['SSLEnabled'];
         }
         if (isset($map['SSLExpiredTime'])) {
             $model->SSLExpiredTime = $map['SSLExpiredTime'];
-        }
-        if (isset($map['CertCommonName'])) {
-            $model->certCommonName = $map['CertCommonName'];
         }
 
         return $model;

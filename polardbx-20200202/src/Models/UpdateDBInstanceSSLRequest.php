@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateDBInstanceSSLRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $enableSSL;
-
-    /**
      * @var string
      */
     public $certCommonName;
@@ -24,13 +19,18 @@ class UpdateDBInstanceSSLRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @var bool
+     */
+    public $enableSSL;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'enableSSL'      => 'EnableSSL',
         'certCommonName' => 'CertCommonName',
         'DBInstanceName' => 'DBInstanceName',
+        'enableSSL'      => 'EnableSSL',
         'regionId'       => 'RegionId',
     ];
 
@@ -41,14 +41,14 @@ class UpdateDBInstanceSSLRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enableSSL) {
-            $res['EnableSSL'] = $this->enableSSL;
-        }
         if (null !== $this->certCommonName) {
             $res['CertCommonName'] = $this->certCommonName;
         }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->enableSSL) {
+            $res['EnableSSL'] = $this->enableSSL;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -65,14 +65,14 @@ class UpdateDBInstanceSSLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnableSSL'])) {
-            $model->enableSSL = $map['EnableSSL'];
-        }
         if (isset($map['CertCommonName'])) {
             $model->certCommonName = $map['CertCommonName'];
         }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['EnableSSL'])) {
+            $model->enableSSL = $map['EnableSSL'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

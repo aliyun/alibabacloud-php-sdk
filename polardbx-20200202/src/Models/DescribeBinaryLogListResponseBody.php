@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBinaryLogListResponseBody extends Model
 {
     /**
-     * @var string
+     * @var logList[]
      */
-    public $requestId;
+    public $logList;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeBinaryLogListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalNumber;
-
-    /**
-     * @var logList[]
-     */
-    public $logList;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'logList'     => 'LogList',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
+        'requestId'   => 'RequestId',
         'totalNumber' => 'TotalNumber',
-        'logList'     => 'LogList',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class DescribeBinaryLogListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalNumber) {
-            $res['TotalNumber'] = $this->totalNumber;
-        }
         if (null !== $this->logList) {
             $res['LogList'] = [];
             if (null !== $this->logList && \is_array($this->logList)) {
@@ -68,6 +56,18 @@ class DescribeBinaryLogListResponseBody extends Model
                     $res['LogList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalNumber) {
+            $res['TotalNumber'] = $this->totalNumber;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class DescribeBinaryLogListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalNumber'])) {
-            $model->totalNumber = $map['TotalNumber'];
-        }
         if (isset($map['LogList'])) {
             if (!empty($map['LogList'])) {
                 $model->logList = [];
@@ -101,6 +89,18 @@ class DescribeBinaryLogListResponseBody extends Model
                     $model->logList[$n++] = null !== $item ? logList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalNumber'])) {
+            $model->totalNumber = $map['TotalNumber'];
         }
 
         return $model;

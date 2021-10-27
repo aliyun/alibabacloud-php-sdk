@@ -11,12 +11,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceName;
+    public $accountDescription;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @var string
      */
-    public $accountDescription;
+    public $DBInstanceName;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'           => 'RegionId',
-        'DBInstanceName'     => 'DBInstanceName',
-        'accountName'        => 'AccountName',
         'accountDescription' => 'AccountDescription',
+        'accountName'        => 'AccountName',
+        'DBInstanceName'     => 'DBInstanceName',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyAccountDescriptionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
+        if (null !== $this->accountDescription) {
+            $res['AccountDescription'] = $this->accountDescription;
         }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
-        if (null !== $this->accountDescription) {
-            $res['AccountDescription'] = $this->accountDescription;
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyAccountDescriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
+        if (isset($map['AccountDescription'])) {
+            $model->accountDescription = $map['AccountDescription'];
         }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
-        if (isset($map['AccountDescription'])) {
-            $model->accountDescription = $map['AccountDescription'];
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

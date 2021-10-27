@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var DBInstances[]
      */
-    public $requestId;
+    public $DBInstances;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeDBInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalNumber;
-
-    /**
-     * @var DBInstances[]
-     */
-    public $DBInstances;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'DBInstances' => 'DBInstances',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
+        'requestId'   => 'RequestId',
         'totalNumber' => 'TotalNumber',
-        'DBInstances' => 'DBInstances',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class DescribeDBInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalNumber) {
-            $res['TotalNumber'] = $this->totalNumber;
-        }
         if (null !== $this->DBInstances) {
             $res['DBInstances'] = [];
             if (null !== $this->DBInstances && \is_array($this->DBInstances)) {
@@ -68,6 +56,18 @@ class DescribeDBInstancesResponseBody extends Model
                     $res['DBInstances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalNumber) {
+            $res['TotalNumber'] = $this->totalNumber;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class DescribeDBInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalNumber'])) {
-            $model->totalNumber = $map['TotalNumber'];
-        }
         if (isset($map['DBInstances'])) {
             if (!empty($map['DBInstances'])) {
                 $model->DBInstances = [];
@@ -101,6 +89,18 @@ class DescribeDBInstancesResponseBody extends Model
                     $model->DBInstances[$n++] = null !== $item ? DBInstances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalNumber'])) {
+            $model->totalNumber = $map['TotalNumber'];
         }
 
         return $model;

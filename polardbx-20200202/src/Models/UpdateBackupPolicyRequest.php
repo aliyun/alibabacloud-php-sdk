@@ -11,16 +11,6 @@ class UpdateBackupPolicyRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceName;
-
-    /**
-     * @var string
-     */
     public $backupPeriod;
 
     /**
@@ -44,6 +34,11 @@ class UpdateBackupPolicyRequest extends Model
     public $backupWay;
 
     /**
+     * @var string
+     */
+    public $DBInstanceName;
+
+    /**
      * @var int
      */
     public $forceCleanOnHighSpaceUsage;
@@ -61,25 +56,30 @@ class UpdateBackupPolicyRequest extends Model
     /**
      * @var int
      */
-    public $removeLogRetention;
+    public $logLocalRetentionSpace;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var int
      */
-    public $logLocalRetentionSpace;
+    public $removeLogRetention;
     protected $_name = [
-        'regionId'                   => 'RegionId',
-        'DBInstanceName'             => 'DBInstanceName',
         'backupPeriod'               => 'BackupPeriod',
         'backupPlanBegin'            => 'BackupPlanBegin',
         'backupSetRetention'         => 'BackupSetRetention',
         'backupType'                 => 'BackupType',
         'backupWay'                  => 'BackupWay',
+        'DBInstanceName'             => 'DBInstanceName',
         'forceCleanOnHighSpaceUsage' => 'ForceCleanOnHighSpaceUsage',
         'isEnabled'                  => 'IsEnabled',
         'localLogRetention'          => 'LocalLogRetention',
-        'removeLogRetention'         => 'RemoveLogRetention',
         'logLocalRetentionSpace'     => 'LogLocalRetentionSpace',
+        'regionId'                   => 'RegionId',
+        'removeLogRetention'         => 'RemoveLogRetention',
     ];
 
     public function validate()
@@ -89,12 +89,6 @@ class UpdateBackupPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
-        }
         if (null !== $this->backupPeriod) {
             $res['BackupPeriod'] = $this->backupPeriod;
         }
@@ -110,6 +104,9 @@ class UpdateBackupPolicyRequest extends Model
         if (null !== $this->backupWay) {
             $res['BackupWay'] = $this->backupWay;
         }
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
         if (null !== $this->forceCleanOnHighSpaceUsage) {
             $res['ForceCleanOnHighSpaceUsage'] = $this->forceCleanOnHighSpaceUsage;
         }
@@ -119,11 +116,14 @@ class UpdateBackupPolicyRequest extends Model
         if (null !== $this->localLogRetention) {
             $res['LocalLogRetention'] = $this->localLogRetention;
         }
-        if (null !== $this->removeLogRetention) {
-            $res['RemoveLogRetention'] = $this->removeLogRetention;
-        }
         if (null !== $this->logLocalRetentionSpace) {
             $res['LogLocalRetentionSpace'] = $this->logLocalRetentionSpace;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->removeLogRetention) {
+            $res['RemoveLogRetention'] = $this->removeLogRetention;
         }
 
         return $res;
@@ -137,12 +137,6 @@ class UpdateBackupPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
-        }
         if (isset($map['BackupPeriod'])) {
             $model->backupPeriod = $map['BackupPeriod'];
         }
@@ -158,6 +152,9 @@ class UpdateBackupPolicyRequest extends Model
         if (isset($map['BackupWay'])) {
             $model->backupWay = $map['BackupWay'];
         }
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
         if (isset($map['ForceCleanOnHighSpaceUsage'])) {
             $model->forceCleanOnHighSpaceUsage = $map['ForceCleanOnHighSpaceUsage'];
         }
@@ -167,11 +164,14 @@ class UpdateBackupPolicyRequest extends Model
         if (isset($map['LocalLogRetention'])) {
             $model->localLogRetention = $map['LocalLogRetention'];
         }
-        if (isset($map['RemoveLogRetention'])) {
-            $model->removeLogRetention = $map['RemoveLogRetention'];
-        }
         if (isset($map['LogLocalRetentionSpace'])) {
             $model->logLocalRetentionSpace = $map['LogLocalRetentionSpace'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RemoveLogRetention'])) {
+            $model->removeLogRetention = $map['RemoveLogRetention'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $regionId;
     protected $_name = [
-        'regionId'            => 'RegionId',
+        'clientToken'         => 'ClientToken',
         'DBInstanceName'      => 'DBInstanceName',
         'dbInstanceNodeCount' => 'DbInstanceNodeCount',
-        'clientToken'         => 'ClientToken',
+        'regionId'            => 'RegionId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
@@ -50,8 +50,8 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
         if (null !== $this->dbInstanceNodeCount) {
             $res['DbInstanceNodeCount'] = $this->dbInstanceNodeCount;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
@@ -74,8 +74,8 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
         if (isset($map['DbInstanceNodeCount'])) {
             $model->dbInstanceNodeCount = $map['DbInstanceNodeCount'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

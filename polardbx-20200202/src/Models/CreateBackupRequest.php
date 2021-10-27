@@ -11,7 +11,7 @@ class CreateBackupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $backupType;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class CreateBackupRequest extends Model
     /**
      * @var string
      */
-    public $backupType;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'DBInstanceName' => 'DBInstanceName',
         'backupType'     => 'BackupType',
+        'DBInstanceName' => 'DBInstanceName',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateBackupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->backupType) {
+            $res['BackupType'] = $this->backupType;
         }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
-        if (null !== $this->backupType) {
-            $res['BackupType'] = $this->backupType;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateBackupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['BackupType'])) {
+            $model->backupType = $map['BackupType'];
         }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
-        if (isset($map['BackupType'])) {
-            $model->backupType = $map['BackupType'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

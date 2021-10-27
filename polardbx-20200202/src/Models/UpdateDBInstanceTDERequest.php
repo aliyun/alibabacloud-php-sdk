@@ -11,17 +11,7 @@ class UpdateDBInstanceTDERequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $DBInstanceName;
-
-    /**
-     * @var int
-     */
-    public $TDEStatus;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class UpdateDBInstanceTDERequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $roleArn;
+
+    /**
+     * @var int
+     */
+    public $TDEStatus;
     protected $_name = [
-        'regionId'       => 'RegionId',
         'DBInstanceName' => 'DBInstanceName',
-        'TDEStatus'      => 'TDEStatus',
         'encryptionKey'  => 'EncryptionKey',
+        'regionId'       => 'RegionId',
         'roleArn'        => 'RoleArn',
+        'TDEStatus'      => 'TDEStatus',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class UpdateDBInstanceTDERequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
-        }
-        if (null !== $this->TDEStatus) {
-            $res['TDEStatus'] = $this->TDEStatus;
         }
         if (null !== $this->encryptionKey) {
             $res['EncryptionKey'] = $this->encryptionKey;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
+        }
+        if (null !== $this->TDEStatus) {
+            $res['TDEStatus'] = $this->TDEStatus;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class UpdateDBInstanceTDERequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
-        }
-        if (isset($map['TDEStatus'])) {
-            $model->TDEStatus = $map['TDEStatus'];
         }
         if (isset($map['EncryptionKey'])) {
             $model->encryptionKey = $map['EncryptionKey'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
+        }
+        if (isset($map['TDEStatus'])) {
+            $model->TDEStatus = $map['TDEStatus'];
         }
 
         return $model;

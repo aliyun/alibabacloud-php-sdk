@@ -11,7 +11,7 @@ class ModifyDBInstanceDescriptionRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $DBInstanceDescription;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class ModifyDBInstanceDescriptionRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceDescription;
+    public $regionId;
     protected $_name = [
-        'regionId'              => 'RegionId',
-        'DBInstanceName'        => 'DBInstanceName',
         'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceName'        => 'DBInstanceName',
+        'regionId'              => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->DBInstanceDescription) {
+            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
-        if (null !== $this->DBInstanceDescription) {
-            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DBInstanceDescription'])) {
+            $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
-        if (isset($map['DBInstanceDescription'])) {
-            $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

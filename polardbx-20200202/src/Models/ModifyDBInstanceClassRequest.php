@@ -11,7 +11,7 @@ class ModifyDBInstanceClassRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class ModifyDBInstanceClassRequest extends Model
     /**
      * @var string
      */
-    public $targetDBInstanceClass;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $targetDBInstanceClass;
     protected $_name = [
-        'regionId'              => 'RegionId',
-        'DBInstanceName'        => 'DBInstanceName',
-        'targetDBInstanceClass' => 'TargetDBInstanceClass',
         'clientToken'           => 'ClientToken',
+        'DBInstanceName'        => 'DBInstanceName',
+        'regionId'              => 'RegionId',
+        'targetDBInstanceClass' => 'TargetDBInstanceClass',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyDBInstanceClassRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->targetDBInstanceClass) {
             $res['TargetDBInstanceClass'] = $this->targetDBInstanceClass;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyDBInstanceClassRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['TargetDBInstanceClass'])) {
             $model->targetDBInstanceClass = $map['TargetDBInstanceClass'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class CancelPolarxOrderRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $DBInstanceName;
 
     /**
      * @var string
      */
-    public $DBInstanceName;
+    public $regionId;
 
     /**
      * @var string
      */
     public $scaleOutToken;
     protected $_name = [
-        'regionId'       => 'RegionId',
         'DBInstanceName' => 'DBInstanceName',
+        'regionId'       => 'RegionId',
         'scaleOutToken'  => 'ScaleOutToken',
     ];
 
@@ -35,11 +35,11 @@ class CancelPolarxOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->scaleOutToken) {
             $res['ScaleOutToken'] = $this->scaleOutToken;
@@ -56,11 +56,11 @@ class CancelPolarxOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ScaleOutToken'])) {
             $model->scaleOutToken = $map['ScaleOutToken'];

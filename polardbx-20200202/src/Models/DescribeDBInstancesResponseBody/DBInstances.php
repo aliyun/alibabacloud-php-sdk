@@ -12,27 +12,7 @@ class DBInstances extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $commodityCode;
-
-    /**
-     * @var string
-     */
-    public $expireTime;
-
-    /**
-     * @var bool
-     */
-    public $expired;
 
     /**
      * @var string
@@ -42,42 +22,7 @@ class DBInstances extends Model
     /**
      * @var string
      */
-    public $payType;
-
-    /**
-     * @var string
-     */
-    public $lockReason;
-
-    /**
-     * @var string
-     */
     public $DBType;
-
-    /**
-     * @var string
-     */
-    public $lockMode;
-
-    /**
-     * @var string
-     */
-    public $VPCId;
-
-    /**
-     * @var string
-     */
-    public $minorVersion;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $network;
 
     /**
      * @var string
@@ -92,27 +37,17 @@ class DBInstances extends Model
     /**
      * @var string
      */
-    public $nodeClass;
-
-    /**
-     * @var int
-     */
-    public $storageUsed;
-
-    /**
-     * @var int
-     */
-    public $nodeCount;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
     public $engine;
+
+    /**
+     * @var string
+     */
+    public $expireTime;
+
+    /**
+     * @var bool
+     */
+    public $expired;
 
     /**
      * @var string
@@ -120,39 +55,104 @@ class DBInstances extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $lockMode;
+
+    /**
+     * @var string
+     */
+    public $lockReason;
+
+    /**
+     * @var string
+     */
+    public $minorVersion;
+
+    /**
+     * @var string
+     */
+    public $network;
+
+    /**
+     * @var string
+     */
+    public $nodeClass;
+
+    /**
+     * @var int
+     */
+    public $nodeCount;
+
+    /**
      * @var nodes[]
      */
     public $nodes;
 
     /**
+     * @var string
+     */
+    public $payType;
+
+    /**
      * @var string[]
      */
     public $readDBInstances;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $storageUsed;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $VPCId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'type'            => 'Type',
-        'status'          => 'Status',
         'commodityCode'   => 'CommodityCode',
-        'expireTime'      => 'ExpireTime',
-        'expired'         => 'Expired',
         'createTime'      => 'CreateTime',
-        'payType'         => 'PayType',
-        'lockReason'      => 'LockReason',
         'DBType'          => 'DBType',
-        'lockMode'        => 'LockMode',
-        'VPCId'           => 'VPCId',
-        'minorVersion'    => 'MinorVersion',
-        'regionId'        => 'RegionId',
-        'network'         => 'Network',
         'DBVersion'       => 'DBVersion',
         'description'     => 'Description',
-        'nodeClass'       => 'NodeClass',
-        'storageUsed'     => 'StorageUsed',
-        'nodeCount'       => 'NodeCount',
-        'zoneId'          => 'ZoneId',
         'engine'          => 'Engine',
+        'expireTime'      => 'ExpireTime',
+        'expired'         => 'Expired',
         'id'              => 'Id',
+        'lockMode'        => 'LockMode',
+        'lockReason'      => 'LockReason',
+        'minorVersion'    => 'MinorVersion',
+        'network'         => 'Network',
+        'nodeClass'       => 'NodeClass',
+        'nodeCount'       => 'NodeCount',
         'nodes'           => 'Nodes',
+        'payType'         => 'PayType',
         'readDBInstances' => 'ReadDBInstances',
+        'regionId'        => 'RegionId',
+        'status'          => 'Status',
+        'storageUsed'     => 'StorageUsed',
+        'type'            => 'Type',
+        'VPCId'           => 'VPCId',
+        'zoneId'          => 'ZoneId',
     ];
 
     public function validate()
@@ -162,47 +162,14 @@ class DBInstances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
-        }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
-        }
-        if (null !== $this->expired) {
-            $res['Expired'] = $this->expired;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->payType) {
-            $res['PayType'] = $this->payType;
-        }
-        if (null !== $this->lockReason) {
-            $res['LockReason'] = $this->lockReason;
-        }
         if (null !== $this->DBType) {
             $res['DBType'] = $this->DBType;
-        }
-        if (null !== $this->lockMode) {
-            $res['LockMode'] = $this->lockMode;
-        }
-        if (null !== $this->VPCId) {
-            $res['VPCId'] = $this->VPCId;
-        }
-        if (null !== $this->minorVersion) {
-            $res['MinorVersion'] = $this->minorVersion;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->network) {
-            $res['Network'] = $this->network;
         }
         if (null !== $this->DBVersion) {
             $res['DBVersion'] = $this->DBVersion;
@@ -210,23 +177,35 @@ class DBInstances extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->nodeClass) {
-            $res['NodeClass'] = $this->nodeClass;
-        }
-        if (null !== $this->storageUsed) {
-            $res['StorageUsed'] = $this->storageUsed;
-        }
-        if (null !== $this->nodeCount) {
-            $res['NodeCount'] = $this->nodeCount;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->expired) {
+            $res['Expired'] = $this->expired;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->lockMode) {
+            $res['LockMode'] = $this->lockMode;
+        }
+        if (null !== $this->lockReason) {
+            $res['LockReason'] = $this->lockReason;
+        }
+        if (null !== $this->minorVersion) {
+            $res['MinorVersion'] = $this->minorVersion;
+        }
+        if (null !== $this->network) {
+            $res['Network'] = $this->network;
+        }
+        if (null !== $this->nodeClass) {
+            $res['NodeClass'] = $this->nodeClass;
+        }
+        if (null !== $this->nodeCount) {
+            $res['NodeCount'] = $this->nodeCount;
         }
         if (null !== $this->nodes) {
             $res['Nodes'] = [];
@@ -237,8 +216,29 @@ class DBInstances extends Model
                 }
             }
         }
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
+        }
         if (null !== $this->readDBInstances) {
             $res['ReadDBInstances'] = $this->readDBInstances;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageUsed) {
+            $res['StorageUsed'] = $this->storageUsed;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->VPCId) {
+            $res['VPCId'] = $this->VPCId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -252,47 +252,14 @@ class DBInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
-        }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
-        }
-        if (isset($map['Expired'])) {
-            $model->expired = $map['Expired'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['PayType'])) {
-            $model->payType = $map['PayType'];
-        }
-        if (isset($map['LockReason'])) {
-            $model->lockReason = $map['LockReason'];
-        }
         if (isset($map['DBType'])) {
             $model->DBType = $map['DBType'];
-        }
-        if (isset($map['LockMode'])) {
-            $model->lockMode = $map['LockMode'];
-        }
-        if (isset($map['VPCId'])) {
-            $model->VPCId = $map['VPCId'];
-        }
-        if (isset($map['MinorVersion'])) {
-            $model->minorVersion = $map['MinorVersion'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Network'])) {
-            $model->network = $map['Network'];
         }
         if (isset($map['DBVersion'])) {
             $model->DBVersion = $map['DBVersion'];
@@ -300,23 +267,35 @@ class DBInstances extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['NodeClass'])) {
-            $model->nodeClass = $map['NodeClass'];
-        }
-        if (isset($map['StorageUsed'])) {
-            $model->storageUsed = $map['StorageUsed'];
-        }
-        if (isset($map['NodeCount'])) {
-            $model->nodeCount = $map['NodeCount'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['Expired'])) {
+            $model->expired = $map['Expired'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['LockMode'])) {
+            $model->lockMode = $map['LockMode'];
+        }
+        if (isset($map['LockReason'])) {
+            $model->lockReason = $map['LockReason'];
+        }
+        if (isset($map['MinorVersion'])) {
+            $model->minorVersion = $map['MinorVersion'];
+        }
+        if (isset($map['Network'])) {
+            $model->network = $map['Network'];
+        }
+        if (isset($map['NodeClass'])) {
+            $model->nodeClass = $map['NodeClass'];
+        }
+        if (isset($map['NodeCount'])) {
+            $model->nodeCount = $map['NodeCount'];
         }
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
@@ -327,10 +306,31 @@ class DBInstances extends Model
                 }
             }
         }
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
         if (isset($map['ReadDBInstances'])) {
             if (!empty($map['ReadDBInstances'])) {
                 $model->readDBInstances = $map['ReadDBInstances'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['StorageUsed'])) {
+            $model->storageUsed = $map['StorageUsed'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['VPCId'])) {
+            $model->VPCId = $map['VPCId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

@@ -11,27 +11,27 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $DBInstanceName;
 
     /**
      * @var string
      */
-    public $upgradeTime;
+    public $regionId;
 
     /**
      * @var string
      */
     public $switchTime;
+
+    /**
+     * @var string
+     */
+    public $upgradeTime;
     protected $_name = [
-        'regionId'       => 'RegionId',
         'DBInstanceName' => 'DBInstanceName',
-        'upgradeTime'    => 'UpgradeTime',
+        'regionId'       => 'RegionId',
         'switchTime'     => 'SwitchTime',
+        'upgradeTime'    => 'UpgradeTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
-        if (null !== $this->upgradeTime) {
-            $res['UpgradeTime'] = $this->upgradeTime;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
+        }
+        if (null !== $this->upgradeTime) {
+            $res['UpgradeTime'] = $this->upgradeTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
-        if (isset($map['UpgradeTime'])) {
-            $model->upgradeTime = $map['UpgradeTime'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SwitchTime'])) {
             $model->switchTime = $map['SwitchTime'];
+        }
+        if (isset($map['UpgradeTime'])) {
+            $model->upgradeTime = $map['UpgradeTime'];
         }
 
         return $model;

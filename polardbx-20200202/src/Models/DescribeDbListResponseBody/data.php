@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var accounts[]
+     */
+    public $accounts;
+
+    /**
      * @var string
      */
-    public $DBName;
+    public $characterSetName;
 
     /**
      * @var string
@@ -27,18 +32,13 @@ class data extends Model
     /**
      * @var string
      */
-    public $characterSetName;
-
-    /**
-     * @var accounts[]
-     */
-    public $accounts;
+    public $DBName;
     protected $_name = [
-        'DBName'           => 'DBName',
+        'accounts'         => 'Accounts',
+        'characterSetName' => 'CharacterSetName',
         'DBDescription'    => 'DBDescription',
         'DBInstanceName'   => 'DBInstanceName',
-        'characterSetName' => 'CharacterSetName',
-        'accounts'         => 'Accounts',
+        'DBName'           => 'DBName',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBName) {
-            $res['DBName'] = $this->DBName;
-        }
-        if (null !== $this->DBDescription) {
-            $res['DBDescription'] = $this->DBDescription;
-        }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
-        }
-        if (null !== $this->characterSetName) {
-            $res['CharacterSetName'] = $this->characterSetName;
-        }
         if (null !== $this->accounts) {
             $res['Accounts'] = [];
             if (null !== $this->accounts && \is_array($this->accounts)) {
@@ -68,6 +56,18 @@ class data extends Model
                     $res['Accounts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->characterSetName) {
+            $res['CharacterSetName'] = $this->characterSetName;
+        }
+        if (null !== $this->DBDescription) {
+            $res['DBDescription'] = $this->DBDescription;
+        }
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBName'])) {
-            $model->DBName = $map['DBName'];
-        }
-        if (isset($map['DBDescription'])) {
-            $model->DBDescription = $map['DBDescription'];
-        }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
-        }
-        if (isset($map['CharacterSetName'])) {
-            $model->characterSetName = $map['CharacterSetName'];
-        }
         if (isset($map['Accounts'])) {
             if (!empty($map['Accounts'])) {
                 $model->accounts = [];
@@ -101,6 +89,18 @@ class data extends Model
                     $model->accounts[$n++] = null !== $item ? accounts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CharacterSetName'])) {
+            $model->characterSetName = $map['CharacterSetName'];
+        }
+        if (isset($map['DBDescription'])) {
+            $model->DBDescription = $map['DBDescription'];
+        }
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
         }
 
         return $model;

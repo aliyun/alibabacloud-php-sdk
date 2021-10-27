@@ -40,43 +40,47 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBinaryLogListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBinaryLogListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCharacterSetRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCharacterSetResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceConfigRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceConfigResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceSSLResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceTDERequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceTDEResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceTopologyRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceTopologyResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDbListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDbListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBNodePerformanceRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBNodePerformanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeInstanceDbPerformanceRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeInstanceDbPerformanceResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeInstancePerformanceRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeInstancePerformanceResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeInstanceStoragePerformanceRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeInstanceStoragePerformanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDataNodesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDataNodesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDbInstancesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDbInstancesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxPgInstancesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxPgInstancesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSqlAuditInfoRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSqlAuditInfoResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTasksResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeUserEncryptionKeyListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeUserEncryptionKeyListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\GetPolarxCommodityRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\GetPolarxCommodityResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\GetPolarXPriceRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\GetPolarXPriceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDatabaseDescriptionRequest;
@@ -95,8 +99,6 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionRe
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\RetryPolarxOrderRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\RetryPolarxOrderResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateDBInstanceSSLRequest;
@@ -670,6 +672,34 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param DescribeCharacterSetRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeCharacterSetResponse
+     */
+    public function describeCharacterSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCharacterSetResponse::fromMap($this->doRPCRequest('DescribeCharacterSet', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCharacterSetRequest $request
+     *
+     * @return DescribeCharacterSetResponse
+     */
+    public function describeCharacterSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCharacterSetWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBInstanceAttributeRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -698,31 +728,31 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeDBInstanceConfigRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstanceConfigResponse
      */
-    public function describeDBInstancesWithOptions($request, $runtime)
+    public function describeDBInstanceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDBInstancesResponse::fromMap($this->doRPCRequest('DescribeDBInstances', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBInstanceConfigResponse::fromMap($this->doRPCRequest('DescribeDBInstanceConfig', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeDBInstancesRequest $request
+     * @param DescribeDBInstanceConfigRequest $request
      *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstanceConfigResponse
      */
-    public function describeDBInstances($request)
+    public function describeDBInstanceConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDBInstancesWithOptions($request, $runtime);
+        return $this->describeDBInstanceConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -782,6 +812,90 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBInstanceTopologyRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDBInstanceTopologyResponse
+     */
+    public function describeDBInstanceTopologyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDBInstanceTopologyResponse::fromMap($this->doRPCRequest('DescribeDBInstanceTopology', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceTopologyRequest $request
+     *
+     * @return DescribeDBInstanceTopologyResponse
+     */
+    public function describeDBInstanceTopology($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceTopologyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBInstancesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDBInstancesResponse
+     */
+    public function describeDBInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDBInstancesResponse::fromMap($this->doRPCRequest('DescribeDBInstances', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstancesRequest $request
+     *
+     * @return DescribeDBInstancesResponse
+     */
+    public function describeDBInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBNodePerformanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDBNodePerformanceResponse
+     */
+    public function describeDBNodePerformanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDBNodePerformanceResponse::fromMap($this->doRPCRequest('DescribeDBNodePerformance', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBNodePerformanceRequest $request
+     *
+     * @return DescribeDBNodePerformanceResponse
+     */
+    public function describeDBNodePerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBNodePerformanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDbListRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -838,87 +952,31 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceDbPerformanceRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeParameterTemplatesRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return DescribeInstanceDbPerformanceResponse
+     * @return DescribeParameterTemplatesResponse
      */
-    public function describeInstanceDbPerformanceWithOptions($request, $runtime)
+    public function describeParameterTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeInstanceDbPerformanceResponse::fromMap($this->doRPCRequest('DescribeInstanceDbPerformance', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeParameterTemplatesResponse::fromMap($this->doRPCRequest('DescribeParameterTemplates', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeInstanceDbPerformanceRequest $request
+     * @param DescribeParameterTemplatesRequest $request
      *
-     * @return DescribeInstanceDbPerformanceResponse
+     * @return DescribeParameterTemplatesResponse
      */
-    public function describeInstanceDbPerformance($request)
+    public function describeParameterTemplates($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeInstanceDbPerformanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeInstancePerformanceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeInstancePerformanceResponse
-     */
-    public function describeInstancePerformanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeInstancePerformanceResponse::fromMap($this->doRPCRequest('DescribeInstancePerformance', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeInstancePerformanceRequest $request
-     *
-     * @return DescribeInstancePerformanceResponse
-     */
-    public function describeInstancePerformance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInstancePerformanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeInstanceStoragePerformanceRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeInstanceStoragePerformanceResponse
-     */
-    public function describeInstanceStoragePerformanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeInstanceStoragePerformanceResponse::fromMap($this->doRPCRequest('DescribeInstanceStoragePerformance', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeInstanceStoragePerformanceRequest $request
-     *
-     * @return DescribeInstanceStoragePerformanceResponse
-     */
-    public function describeInstanceStoragePerformance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInstanceStoragePerformanceWithOptions($request, $runtime);
+        return $this->describeParameterTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -950,6 +1008,34 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param DescribePolarxDataNodesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePolarxDataNodesResponse
+     */
+    public function describePolarxDataNodesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePolarxDataNodesResponse::fromMap($this->doRPCRequest('DescribePolarxDataNodes', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePolarxDataNodesRequest $request
+     *
+     * @return DescribePolarxDataNodesResponse
+     */
+    public function describePolarxDataNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarxDataNodesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePolarxDbInstancesRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -975,6 +1061,34 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolarxDbInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePolarxPgInstancesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePolarxPgInstancesResponse
+     */
+    public function describePolarxPgInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePolarxPgInstancesResponse::fromMap($this->doRPCRequest('DescribePolarxPgInstances', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePolarxPgInstancesRequest $request
+     *
+     * @return DescribePolarxPgInstancesResponse
+     */
+    public function describePolarxPgInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarxPgInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -1053,34 +1167,6 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSecurityIpsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSqlAuditInfoRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeSqlAuditInfoResponse
-     */
-    public function describeSqlAuditInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSqlAuditInfoResponse::fromMap($this->doRPCRequest('DescribeSqlAuditInfo', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSqlAuditInfoRequest $request
-     *
-     * @return DescribeSqlAuditInfoResponse
-     */
-    public function describeSqlAuditInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSqlAuditInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -1168,34 +1254,6 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param GetPolarXPriceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetPolarXPriceResponse
-     */
-    public function getPolarXPriceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetPolarXPriceResponse::fromMap($this->doRPCRequest('GetPolarXPrice', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetPolarXPriceRequest $request
-     *
-     * @return GetPolarXPriceResponse
-     */
-    public function getPolarXPrice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPolarXPriceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyAccountDescriptionRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1221,34 +1279,6 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAccountDescriptionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyDatabaseDescriptionRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyDatabaseDescriptionResponse
-     */
-    public function modifyDatabaseDescriptionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyDatabaseDescriptionResponse::fromMap($this->doRPCRequest('ModifyDatabaseDescription', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDatabaseDescriptionRequest $request
-     *
-     * @return ModifyDatabaseDescriptionResponse
-     */
-    public function modifyDatabaseDescription($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDatabaseDescriptionWithOptions($request, $runtime);
     }
 
     /**
@@ -1333,6 +1363,34 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDatabaseDescriptionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyDatabaseDescriptionResponse
+     */
+    public function modifyDatabaseDescriptionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyDatabaseDescriptionResponse::fromMap($this->doRPCRequest('ModifyDatabaseDescription', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDatabaseDescriptionRequest $request
+     *
+     * @return ModifyDatabaseDescriptionResponse
+     */
+    public function modifyDatabaseDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDatabaseDescriptionWithOptions($request, $runtime);
     }
 
     /**
@@ -1445,34 +1503,6 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartDBInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RetryPolarxOrderRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RetryPolarxOrderResponse
-     */
-    public function retryPolarxOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RetryPolarxOrderResponse::fromMap($this->doRPCRequest('RetryPolarxOrder', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RetryPolarxOrderRequest $request
-     *
-     * @return RetryPolarxOrderResponse
-     */
-    public function retryPolarxOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->retryPolarxOrderWithOptions($request, $runtime);
     }
 
     /**

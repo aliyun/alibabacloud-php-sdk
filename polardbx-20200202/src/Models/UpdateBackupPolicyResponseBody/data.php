@@ -9,44 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $logLocalRetentionSpace;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceName;
-
-    /**
-     * @var string
-     */
-    public $backupWay;
-
-    /**
      * @var string
      */
     public $backupPeriod;
-
-    /**
-     * @var int
-     */
-    public $forceCleanOnHighSpaceUsage;
-
-    /**
-     * @var string
-     */
-    public $backupType;
-
-    /**
-     * @var int
-     */
-    public $localLogRetention;
-
-    /**
-     * @var int
-     */
-    public $removeLogRetention;
 
     /**
      * @var string
@@ -59,21 +24,56 @@ class data extends Model
     public $backupSetRetention;
 
     /**
+     * @var string
+     */
+    public $backupType;
+
+    /**
+     * @var string
+     */
+    public $backupWay;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceName;
+
+    /**
+     * @var int
+     */
+    public $forceCleanOnHighSpaceUsage;
+
+    /**
      * @var int
      */
     public $isEnabled;
+
+    /**
+     * @var int
+     */
+    public $localLogRetention;
+
+    /**
+     * @var int
+     */
+    public $logLocalRetentionSpace;
+
+    /**
+     * @var int
+     */
+    public $removeLogRetention;
     protected $_name = [
-        'logLocalRetentionSpace'     => 'LogLocalRetentionSpace',
-        'DBInstanceName'             => 'DBInstanceName',
-        'backupWay'                  => 'BackupWay',
         'backupPeriod'               => 'BackupPeriod',
-        'forceCleanOnHighSpaceUsage' => 'ForceCleanOnHighSpaceUsage',
-        'backupType'                 => 'BackupType',
-        'localLogRetention'          => 'LocalLogRetention',
-        'removeLogRetention'         => 'RemoveLogRetention',
         'backupPlanBegin'            => 'BackupPlanBegin',
         'backupSetRetention'         => 'BackupSetRetention',
+        'backupType'                 => 'BackupType',
+        'backupWay'                  => 'BackupWay',
+        'DBInstanceName'             => 'DBInstanceName',
+        'forceCleanOnHighSpaceUsage' => 'ForceCleanOnHighSpaceUsage',
         'isEnabled'                  => 'IsEnabled',
+        'localLogRetention'          => 'LocalLogRetention',
+        'logLocalRetentionSpace'     => 'LogLocalRetentionSpace',
+        'removeLogRetention'         => 'RemoveLogRetention',
     ];
 
     public function validate()
@@ -83,29 +83,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logLocalRetentionSpace) {
-            $res['LogLocalRetentionSpace'] = $this->logLocalRetentionSpace;
-        }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
-        }
-        if (null !== $this->backupWay) {
-            $res['BackupWay'] = $this->backupWay;
-        }
         if (null !== $this->backupPeriod) {
             $res['BackupPeriod'] = $this->backupPeriod;
-        }
-        if (null !== $this->forceCleanOnHighSpaceUsage) {
-            $res['ForceCleanOnHighSpaceUsage'] = $this->forceCleanOnHighSpaceUsage;
-        }
-        if (null !== $this->backupType) {
-            $res['BackupType'] = $this->backupType;
-        }
-        if (null !== $this->localLogRetention) {
-            $res['LocalLogRetention'] = $this->localLogRetention;
-        }
-        if (null !== $this->removeLogRetention) {
-            $res['RemoveLogRetention'] = $this->removeLogRetention;
         }
         if (null !== $this->backupPlanBegin) {
             $res['BackupPlanBegin'] = $this->backupPlanBegin;
@@ -113,8 +92,29 @@ class data extends Model
         if (null !== $this->backupSetRetention) {
             $res['BackupSetRetention'] = $this->backupSetRetention;
         }
+        if (null !== $this->backupType) {
+            $res['BackupType'] = $this->backupType;
+        }
+        if (null !== $this->backupWay) {
+            $res['BackupWay'] = $this->backupWay;
+        }
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->forceCleanOnHighSpaceUsage) {
+            $res['ForceCleanOnHighSpaceUsage'] = $this->forceCleanOnHighSpaceUsage;
+        }
         if (null !== $this->isEnabled) {
             $res['IsEnabled'] = $this->isEnabled;
+        }
+        if (null !== $this->localLogRetention) {
+            $res['LocalLogRetention'] = $this->localLogRetention;
+        }
+        if (null !== $this->logLocalRetentionSpace) {
+            $res['LogLocalRetentionSpace'] = $this->logLocalRetentionSpace;
+        }
+        if (null !== $this->removeLogRetention) {
+            $res['RemoveLogRetention'] = $this->removeLogRetention;
         }
 
         return $res;
@@ -128,29 +128,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogLocalRetentionSpace'])) {
-            $model->logLocalRetentionSpace = $map['LogLocalRetentionSpace'];
-        }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
-        }
-        if (isset($map['BackupWay'])) {
-            $model->backupWay = $map['BackupWay'];
-        }
         if (isset($map['BackupPeriod'])) {
             $model->backupPeriod = $map['BackupPeriod'];
-        }
-        if (isset($map['ForceCleanOnHighSpaceUsage'])) {
-            $model->forceCleanOnHighSpaceUsage = $map['ForceCleanOnHighSpaceUsage'];
-        }
-        if (isset($map['BackupType'])) {
-            $model->backupType = $map['BackupType'];
-        }
-        if (isset($map['LocalLogRetention'])) {
-            $model->localLogRetention = $map['LocalLogRetention'];
-        }
-        if (isset($map['RemoveLogRetention'])) {
-            $model->removeLogRetention = $map['RemoveLogRetention'];
         }
         if (isset($map['BackupPlanBegin'])) {
             $model->backupPlanBegin = $map['BackupPlanBegin'];
@@ -158,8 +137,29 @@ class data extends Model
         if (isset($map['BackupSetRetention'])) {
             $model->backupSetRetention = $map['BackupSetRetention'];
         }
+        if (isset($map['BackupType'])) {
+            $model->backupType = $map['BackupType'];
+        }
+        if (isset($map['BackupWay'])) {
+            $model->backupWay = $map['BackupWay'];
+        }
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['ForceCleanOnHighSpaceUsage'])) {
+            $model->forceCleanOnHighSpaceUsage = $map['ForceCleanOnHighSpaceUsage'];
+        }
         if (isset($map['IsEnabled'])) {
             $model->isEnabled = $map['IsEnabled'];
+        }
+        if (isset($map['LocalLogRetention'])) {
+            $model->localLogRetention = $map['LocalLogRetention'];
+        }
+        if (isset($map['LogLocalRetentionSpace'])) {
+            $model->logLocalRetentionSpace = $map['LogLocalRetentionSpace'];
+        }
+        if (isset($map['RemoveLogRetention'])) {
+            $model->removeLogRetention = $map['RemoveLogRetention'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class DeleteAccountRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceName;
+    public $accountName;
 
     /**
      * @var string
      */
-    public $accountName;
+    public $DBInstanceName;
 
     /**
      * @var string
@@ -33,8 +33,8 @@ class DeleteAccountRequest extends Model
      */
     public $securityAccountPassword;
     protected $_name = [
-        'DBInstanceName'          => 'DBInstanceName',
         'accountName'             => 'AccountName',
+        'DBInstanceName'          => 'DBInstanceName',
         'regionId'                => 'RegionId',
         'securityAccountName'     => 'SecurityAccountName',
         'securityAccountPassword' => 'SecurityAccountPassword',
@@ -47,11 +47,11 @@ class DeleteAccountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
-        }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -74,11 +74,11 @@ class DeleteAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
-        }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

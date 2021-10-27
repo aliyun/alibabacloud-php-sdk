@@ -11,6 +11,11 @@ class tables extends Model
     /**
      * @var string
      */
+    public $dbKey;
+
+    /**
+     * @var string
+     */
     public $tableName;
 
     /**
@@ -22,16 +27,11 @@ class tables extends Model
      * @var string
      */
     public $tbKey;
-
-    /**
-     * @var string
-     */
-    public $dbKey;
     protected $_name = [
+        'dbKey'     => 'DbKey',
         'tableName' => 'TableName',
         'tableType' => 'TableType',
         'tbKey'     => 'TbKey',
-        'dbKey'     => 'DbKey',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class tables extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dbKey) {
+            $res['DbKey'] = $this->dbKey;
+        }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -49,9 +52,6 @@ class tables extends Model
         }
         if (null !== $this->tbKey) {
             $res['TbKey'] = $this->tbKey;
-        }
-        if (null !== $this->dbKey) {
-            $res['DbKey'] = $this->dbKey;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class tables extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DbKey'])) {
+            $model->dbKey = $map['DbKey'];
+        }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
@@ -73,9 +76,6 @@ class tables extends Model
         }
         if (isset($map['TbKey'])) {
             $model->tbKey = $map['TbKey'];
-        }
-        if (isset($map['DbKey'])) {
-            $model->dbKey = $map['DbKey'];
         }
 
         return $model;

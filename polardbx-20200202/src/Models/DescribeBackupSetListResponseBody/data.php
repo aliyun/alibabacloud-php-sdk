@@ -11,22 +11,17 @@ class data extends Model
     /**
      * @var int
      */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $backupSetSize;
+    public $backupModel;
 
     /**
      * @var int
      */
     public $backupSetId;
+
+    /**
+     * @var int
+     */
+    public $backupSetSize;
 
     /**
      * @var int
@@ -41,15 +36,20 @@ class data extends Model
     /**
      * @var int
      */
-    public $backupModel;
+    public $endTime;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'status'        => 'Status',
-        'backupSetSize' => 'BackupSetSize',
+        'backupModel'   => 'BackupModel',
         'backupSetId'   => 'BackupSetId',
+        'backupSetSize' => 'BackupSetSize',
         'backupType'    => 'BackupType',
         'beginTime'     => 'BeginTime',
-        'backupModel'   => 'BackupModel',
+        'endTime'       => 'EndTime',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -59,17 +59,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->backupSetSize) {
-            $res['BackupSetSize'] = $this->backupSetSize;
+        if (null !== $this->backupModel) {
+            $res['BackupModel'] = $this->backupModel;
         }
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
+        }
+        if (null !== $this->backupSetSize) {
+            $res['BackupSetSize'] = $this->backupSetSize;
         }
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
@@ -77,8 +74,11 @@ class data extends Model
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
-        if (null !== $this->backupModel) {
-            $res['BackupModel'] = $this->backupModel;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,17 +92,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['BackupSetSize'])) {
-            $model->backupSetSize = $map['BackupSetSize'];
+        if (isset($map['BackupModel'])) {
+            $model->backupModel = $map['BackupModel'];
         }
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
+        }
+        if (isset($map['BackupSetSize'])) {
+            $model->backupSetSize = $map['BackupSetSize'];
         }
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
@@ -110,8 +107,11 @@ class data extends Model
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
-        if (isset($map['BackupModel'])) {
-            $model->backupModel = $map['BackupModel'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

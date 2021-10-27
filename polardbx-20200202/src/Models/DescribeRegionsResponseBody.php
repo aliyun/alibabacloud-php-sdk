@@ -15,9 +15,19 @@ class DescribeRegionsResponseBody extends Model
     public $code;
 
     /**
+     * @var int
+     */
+    public $errorCode;
+
+    /**
      * @var string
      */
     public $message;
+
+    /**
+     * @var regions
+     */
+    public $regions;
 
     /**
      * @var string
@@ -28,23 +38,13 @@ class DescribeRegionsResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $errorCode;
-
-    /**
-     * @var regions
-     */
-    public $regions;
     protected $_name = [
         'code'      => 'Code',
+        'errorCode' => 'ErrorCode',
         'message'   => 'Message',
+        'regions'   => 'Regions',
         'requestId' => 'RequestId',
         'success'   => 'Success',
-        'errorCode' => 'ErrorCode',
-        'regions'   => 'Regions',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class DescribeRegionsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->regions) {
+            $res['Regions'] = null !== $this->regions ? $this->regions->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->regions) {
-            $res['Regions'] = null !== $this->regions ? $this->regions->toMap() : null;
         }
 
         return $res;
@@ -87,20 +87,20 @@ class DescribeRegionsResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Regions'])) {
+            $model->regions = regions::fromMap($map['Regions']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['Regions'])) {
-            $model->regions = regions::fromMap($map['Regions']);
         }
 
         return $model;
