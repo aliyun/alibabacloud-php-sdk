@@ -28,8 +28,6 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCarVinCodeRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCarVinCodeResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCtwoMedicalDeviceManageLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCtwoMedicalDeviceManageLicenseResponse;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDoctypeRequest;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDoctypeResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDrivingLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDrivingLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeEduFormulaRequest;
@@ -72,8 +70,6 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMedicalDeviceManageLicense
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMedicalDeviceManageLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMedicalDeviceProduceLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMedicalDeviceProduceLicenseResponse;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMixedCardsRequest;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMixedCardsResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMixedInvoicesRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMixedInvoicesResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMultiLanguageRequest;
@@ -140,418 +136,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeDrivingLicenseRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return RecognizeDrivingLicenseResponse
-     */
-    public function recognizeDrivingLicenseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeDrivingLicenseResponse::fromMap($this->doRPCRequest('RecognizeDrivingLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeDrivingLicenseRequest $request
-     *
-     * @return RecognizeDrivingLicenseResponse
-     */
-    public function recognizeDrivingLicense($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeDrivingLicenseWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeKoreanRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return RecognizeKoreanResponse
-     */
-    public function recognizeKoreanWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeKoreanResponse::fromMap($this->doRPCRequest('RecognizeKorean', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeKoreanRequest $request
-     *
-     * @return RecognizeKoreanResponse
-     */
-    public function recognizeKorean($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeKoreanWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeCarInvoiceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RecognizeCarInvoiceResponse
-     */
-    public function recognizeCarInvoiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeCarInvoiceResponse::fromMap($this->doRPCRequest('RecognizeCarInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeCarInvoiceRequest $request
-     *
-     * @return RecognizeCarInvoiceResponse
-     */
-    public function recognizeCarInvoice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeCarInvoiceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeMixedInvoicesRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return RecognizeMixedInvoicesResponse
-     */
-    public function recognizeMixedInvoicesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeMixedInvoicesResponse::fromMap($this->doRPCRequest('RecognizeMixedInvoices', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeMixedInvoicesRequest $request
-     *
-     * @return RecognizeMixedInvoicesResponse
-     */
-    public function recognizeMixedInvoices($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeMixedInvoicesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeEstateCertificationRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return RecognizeEstateCertificationResponse
-     */
-    public function recognizeEstateCertificationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeEstateCertificationResponse::fromMap($this->doRPCRequest('RecognizeEstateCertification', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeEstateCertificationRequest $request
-     *
-     * @return RecognizeEstateCertificationResponse
-     */
-    public function recognizeEstateCertification($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeEstateCertificationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeCarNumberRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return RecognizeCarNumberResponse
-     */
-    public function recognizeCarNumberWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeCarNumberResponse::fromMap($this->doRPCRequest('RecognizeCarNumber', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeCarNumberRequest $request
-     *
-     * @return RecognizeCarNumberResponse
-     */
-    public function recognizeCarNumber($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeCarNumberWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeEduPaperOcrRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RecognizeEduPaperOcrResponse
-     */
-    public function recognizeEduPaperOcrWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeEduPaperOcrResponse::fromMap($this->doRPCRequest('RecognizeEduPaperOcr', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeEduPaperOcrRequest $request
-     *
-     * @return RecognizeEduPaperOcrResponse
-     */
-    public function recognizeEduPaperOcr($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeEduPaperOcrWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeTradeMarkCertificationRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return RecognizeTradeMarkCertificationResponse
-     */
-    public function recognizeTradeMarkCertificationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeTradeMarkCertificationResponse::fromMap($this->doRPCRequest('RecognizeTradeMarkCertification', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeTradeMarkCertificationRequest $request
-     *
-     * @return RecognizeTradeMarkCertificationResponse
-     */
-    public function recognizeTradeMarkCertification($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeTradeMarkCertificationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeBirthCertificationRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RecognizeBirthCertificationResponse
-     */
-    public function recognizeBirthCertificationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeBirthCertificationResponse::fromMap($this->doRPCRequest('RecognizeBirthCertification', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeBirthCertificationRequest $request
-     *
-     * @return RecognizeBirthCertificationResponse
-     */
-    public function recognizeBirthCertification($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeBirthCertificationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeDoctypeRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RecognizeDoctypeResponse
-     */
-    public function recognizeDoctypeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeDoctypeResponse::fromMap($this->doRPCRequest('RecognizeDoctype', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeDoctypeRequest $request
-     *
-     * @return RecognizeDoctypeResponse
-     */
-    public function recognizeDoctype($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeDoctypeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeBankAccountLicenseRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RecognizeBankAccountLicenseResponse
-     */
-    public function recognizeBankAccountLicenseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeBankAccountLicenseResponse::fromMap($this->doRPCRequest('RecognizeBankAccountLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeBankAccountLicenseRequest $request
-     *
-     * @return RecognizeBankAccountLicenseResponse
-     */
-    public function recognizeBankAccountLicense($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeBankAccountLicenseWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeFoodManageLicenseRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return RecognizeFoodManageLicenseResponse
-     */
-    public function recognizeFoodManageLicenseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeFoodManageLicenseResponse::fromMap($this->doRPCRequest('RecognizeFoodManageLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeFoodManageLicenseRequest $request
-     *
-     * @return RecognizeFoodManageLicenseResponse
-     */
-    public function recognizeFoodManageLicense($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeFoodManageLicenseWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeRollTicketRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RecognizeRollTicketResponse
-     */
-    public function recognizeRollTicketWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeRollTicketResponse::fromMap($this->doRPCRequest('RecognizeRollTicket', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeRollTicketRequest $request
-     *
-     * @return RecognizeRollTicketResponse
-     */
-    public function recognizeRollTicket($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeRollTicketWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeEduFormulaRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RecognizeEduFormulaResponse
-     */
-    public function recognizeEduFormulaWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeEduFormulaResponse::fromMap($this->doRPCRequest('RecognizeEduFormula', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeEduFormulaRequest $request
-     *
-     * @return RecognizeEduFormulaResponse
-     */
-    public function recognizeEduFormula($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeEduFormulaWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizePassportRequest $request
+     * @param RecognizeAdvancedRequest $request
      * @param RuntimeOptions           $runtime
      *
-     * @return RecognizePassportResponse
+     * @return RecognizeAdvancedResponse
      */
-    public function recognizePassportWithOptions($request, $runtime)
+    public function recognizeAdvancedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
@@ -559,135 +149,19 @@ class Ocrapi extends OpenApiClient
             'query' => $query,
         ]);
 
-        return RecognizePassportResponse::fromMap($this->doRPCRequest('RecognizePassport', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeAdvancedResponse::fromMap($this->doRPCRequest('RecognizeAdvanced', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RecognizePassportRequest $request
+     * @param RecognizeAdvancedRequest $request
      *
-     * @return RecognizePassportResponse
+     * @return RecognizeAdvancedResponse
      */
-    public function recognizePassport($request)
+    public function recognizeAdvanced($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->recognizePassportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeTaxiInvoiceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RecognizeTaxiInvoiceResponse
-     */
-    public function recognizeTaxiInvoiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeTaxiInvoiceResponse::fromMap($this->doRPCRequest('RecognizeTaxiInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeTaxiInvoiceRequest $request
-     *
-     * @return RecognizeTaxiInvoiceResponse
-     */
-    public function recognizeTaxiInvoice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeTaxiInvoiceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeFoodProduceLicenseRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RecognizeFoodProduceLicenseResponse
-     */
-    public function recognizeFoodProduceLicenseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeFoodProduceLicenseResponse::fromMap($this->doRPCRequest('RecognizeFoodProduceLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeFoodProduceLicenseRequest $request
-     *
-     * @return RecognizeFoodProduceLicenseResponse
-     */
-    public function recognizeFoodProduceLicense($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeFoodProduceLicenseWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeMedicalDeviceProduceLicenseRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return RecognizeMedicalDeviceProduceLicenseResponse
-     */
-    public function recognizeMedicalDeviceProduceLicenseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeMedicalDeviceProduceLicenseResponse::fromMap($this->doRPCRequest('RecognizeMedicalDeviceProduceLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeMedicalDeviceProduceLicenseRequest $request
-     *
-     * @return RecognizeMedicalDeviceProduceLicenseResponse
-     */
-    public function recognizeMedicalDeviceProduceLicense($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeMedicalDeviceProduceLicenseWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeHandwritingRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RecognizeHandwritingResponse
-     */
-    public function recognizeHandwritingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeHandwritingResponse::fromMap($this->doRPCRequest('RecognizeHandwriting', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeHandwritingRequest $request
-     *
-     * @return RecognizeHandwritingResponse
-     */
-    public function recognizeHandwriting($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeHandwritingWithOptions($request, $runtime);
+        return $this->recognizeAdvancedWithOptions($request, $runtime);
     }
 
     /**
@@ -720,12 +194,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeJanpaneseRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param RecognizeBankAccountLicenseRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return RecognizeJanpaneseResponse
+     * @return RecognizeBankAccountLicenseResponse
      */
-    public function recognizeJanpaneseWithOptions($request, $runtime)
+    public function recognizeBankAccountLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
@@ -733,396 +207,19 @@ class Ocrapi extends OpenApiClient
             'query' => $query,
         ]);
 
-        return RecognizeJanpaneseResponse::fromMap($this->doRPCRequest('RecognizeJanpanese', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeBankAccountLicenseResponse::fromMap($this->doRPCRequest('RecognizeBankAccountLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RecognizeJanpaneseRequest $request
+     * @param RecognizeBankAccountLicenseRequest $request
      *
-     * @return RecognizeJanpaneseResponse
+     * @return RecognizeBankAccountLicenseResponse
      */
-    public function recognizeJanpanese($request)
+    public function recognizeBankAccountLicense($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->recognizeJanpaneseWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse
-     */
-    public function recognizeCtwoMedicalDeviceManageLicenseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeCtwoMedicalDeviceManageLicenseResponse::fromMap($this->doRPCRequest('RecognizeCtwoMedicalDeviceManageLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request
-     *
-     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse
-     */
-    public function recognizeCtwoMedicalDeviceManageLicense($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeCtwoMedicalDeviceManageLicenseWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeThaiRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RecognizeThaiResponse
-     */
-    public function recognizeThaiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeThaiResponse::fromMap($this->doRPCRequest('RecognizeThai', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeThaiRequest $request
-     *
-     * @return RecognizeThaiResponse
-     */
-    public function recognizeThai($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeThaiWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeMedicalDeviceManageLicenseRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return RecognizeMedicalDeviceManageLicenseResponse
-     */
-    public function recognizeMedicalDeviceManageLicenseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeMedicalDeviceManageLicenseResponse::fromMap($this->doRPCRequest('RecognizeMedicalDeviceManageLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeMedicalDeviceManageLicenseRequest $request
-     *
-     * @return RecognizeMedicalDeviceManageLicenseResponse
-     */
-    public function recognizeMedicalDeviceManageLicense($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeMedicalDeviceManageLicenseWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeLatinRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return RecognizeLatinResponse
-     */
-    public function recognizeLatinWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeLatinResponse::fromMap($this->doRPCRequest('RecognizeLatin', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeLatinRequest $request
-     *
-     * @return RecognizeLatinResponse
-     */
-    public function recognizeLatin($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeLatinWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeInvoiceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RecognizeInvoiceResponse
-     */
-    public function recognizeInvoiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeInvoiceResponse::fromMap($this->doRPCRequest('RecognizeInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeInvoiceRequest $request
-     *
-     * @return RecognizeInvoiceResponse
-     */
-    public function recognizeInvoice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeInvoiceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeMixedCardsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RecognizeMixedCardsResponse
-     */
-    public function recognizeMixedCardsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeMixedCardsResponse::fromMap($this->doRPCRequest('RecognizeMixedCards', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeMixedCardsRequest $request
-     *
-     * @return RecognizeMixedCardsResponse
-     */
-    public function recognizeMixedCards($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeMixedCardsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeWaybillRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RecognizeWaybillResponse
-     */
-    public function recognizeWaybillWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeWaybillResponse::fromMap($this->doRPCRequest('RecognizeWaybill', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeWaybillRequest $request
-     *
-     * @return RecognizeWaybillResponse
-     */
-    public function recognizeWaybill($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeWaybillWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeCarVinCodeRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RecognizeCarVinCodeResponse
-     */
-    public function recognizeCarVinCodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeCarVinCodeResponse::fromMap($this->doRPCRequest('RecognizeCarVinCode', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeCarVinCodeRequest $request
-     *
-     * @return RecognizeCarVinCodeResponse
-     */
-    public function recognizeCarVinCode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeCarVinCodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeAdvancedRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RecognizeAdvancedResponse
-     */
-    public function recognizeAdvancedWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeAdvancedResponse::fromMap($this->doRPCRequest('RecognizeAdvanced', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeAdvancedRequest $request
-     *
-     * @return RecognizeAdvancedResponse
-     */
-    public function recognizeAdvanced($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeAdvancedWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeVehicleLicenseRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return RecognizeVehicleLicenseResponse
-     */
-    public function recognizeVehicleLicenseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeVehicleLicenseResponse::fromMap($this->doRPCRequest('RecognizeVehicleLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeVehicleLicenseRequest $request
-     *
-     * @return RecognizeVehicleLicenseResponse
-     */
-    public function recognizeVehicleLicense($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeVehicleLicenseWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeRussianRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RecognizeRussianResponse
-     */
-    public function recognizeRussianWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeRussianResponse::fromMap($this->doRPCRequest('RecognizeRussian', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeRussianRequest $request
-     *
-     * @return RecognizeRussianResponse
-     */
-    public function recognizeRussian($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeRussianWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeBasicRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return RecognizeBasicResponse
-     */
-    public function recognizeBasicWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeBasicResponse::fromMap($this->doRPCRequest('RecognizeBasic', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeBasicRequest $request
-     *
-     * @return RecognizeBasicResponse
-     */
-    public function recognizeBasic($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeBasicWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeBusinessLicenseRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return RecognizeBusinessLicenseResponse
-     */
-    public function recognizeBusinessLicenseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeBusinessLicenseResponse::fromMap($this->doRPCRequest('RecognizeBusinessLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeBusinessLicenseRequest $request
-     *
-     * @return RecognizeBusinessLicenseResponse
-     */
-    public function recognizeBusinessLicense($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeBusinessLicenseWithOptions($request, $runtime);
+        return $this->recognizeBankAccountLicenseWithOptions($request, $runtime);
     }
 
     /**
@@ -1155,6 +252,296 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeBasicRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RecognizeBasicResponse
+     */
+    public function recognizeBasicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeBasicResponse::fromMap($this->doRPCRequest('RecognizeBasic', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeBasicRequest $request
+     *
+     * @return RecognizeBasicResponse
+     */
+    public function recognizeBasic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeBasicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeBirthCertificationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeBirthCertificationResponse
+     */
+    public function recognizeBirthCertificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeBirthCertificationResponse::fromMap($this->doRPCRequest('RecognizeBirthCertification', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeBirthCertificationRequest $request
+     *
+     * @return RecognizeBirthCertificationResponse
+     */
+    public function recognizeBirthCertification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeBirthCertificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeBusinessLicenseRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RecognizeBusinessLicenseResponse
+     */
+    public function recognizeBusinessLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeBusinessLicenseResponse::fromMap($this->doRPCRequest('RecognizeBusinessLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeBusinessLicenseRequest $request
+     *
+     * @return RecognizeBusinessLicenseResponse
+     */
+    public function recognizeBusinessLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeBusinessLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeCarInvoiceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecognizeCarInvoiceResponse
+     */
+    public function recognizeCarInvoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeCarInvoiceResponse::fromMap($this->doRPCRequest('RecognizeCarInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeCarInvoiceRequest $request
+     *
+     * @return RecognizeCarInvoiceResponse
+     */
+    public function recognizeCarInvoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeCarInvoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeCarNumberRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RecognizeCarNumberResponse
+     */
+    public function recognizeCarNumberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeCarNumberResponse::fromMap($this->doRPCRequest('RecognizeCarNumber', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeCarNumberRequest $request
+     *
+     * @return RecognizeCarNumberResponse
+     */
+    public function recognizeCarNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeCarNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeCarVinCodeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecognizeCarVinCodeResponse
+     */
+    public function recognizeCarVinCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeCarVinCodeResponse::fromMap($this->doRPCRequest('RecognizeCarVinCode', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeCarVinCodeRequest $request
+     *
+     * @return RecognizeCarVinCodeResponse
+     */
+    public function recognizeCarVinCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeCarVinCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse
+     */
+    public function recognizeCtwoMedicalDeviceManageLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeCtwoMedicalDeviceManageLicenseResponse::fromMap($this->doRPCRequest('RecognizeCtwoMedicalDeviceManageLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request
+     *
+     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse
+     */
+    public function recognizeCtwoMedicalDeviceManageLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeCtwoMedicalDeviceManageLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeDrivingLicenseRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeDrivingLicenseResponse
+     */
+    public function recognizeDrivingLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeDrivingLicenseResponse::fromMap($this->doRPCRequest('RecognizeDrivingLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeDrivingLicenseRequest $request
+     *
+     * @return RecognizeDrivingLicenseResponse
+     */
+    public function recognizeDrivingLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeDrivingLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeEduFormulaRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecognizeEduFormulaResponse
+     */
+    public function recognizeEduFormulaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeEduFormulaResponse::fromMap($this->doRPCRequest('RecognizeEduFormula', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeEduFormulaRequest $request
+     *
+     * @return RecognizeEduFormulaResponse
+     */
+    public function recognizeEduFormula($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeEduFormulaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeEduOralCalculationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeEduOralCalculationResponse
+     */
+    public function recognizeEduOralCalculationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeEduOralCalculationResponse::fromMap($this->doRPCRequest('RecognizeEduOralCalculation', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeEduOralCalculationRequest $request
+     *
+     * @return RecognizeEduOralCalculationResponse
+     */
+    public function recognizeEduOralCalculation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeEduOralCalculationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeEduPaperCutRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1184,12 +571,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeHouseholdRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param RecognizeEduPaperOcrRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return RecognizeHouseholdResponse
+     * @return RecognizeEduPaperOcrResponse
      */
-    public function recognizeHouseholdWithOptions($request, $runtime)
+    public function recognizeEduPaperOcrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
@@ -1197,19 +584,48 @@ class Ocrapi extends OpenApiClient
             'query' => $query,
         ]);
 
-        return RecognizeHouseholdResponse::fromMap($this->doRPCRequest('RecognizeHousehold', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeEduPaperOcrResponse::fromMap($this->doRPCRequest('RecognizeEduPaperOcr', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RecognizeHouseholdRequest $request
+     * @param RecognizeEduPaperOcrRequest $request
      *
-     * @return RecognizeHouseholdResponse
+     * @return RecognizeEduPaperOcrResponse
      */
-    public function recognizeHousehold($request)
+    public function recognizeEduPaperOcr($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->recognizeHouseholdWithOptions($request, $runtime);
+        return $this->recognizeEduPaperOcrWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeEduPaperStructedRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RecognizeEduPaperStructedResponse
+     */
+    public function recognizeEduPaperStructedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeEduPaperStructedResponse::fromMap($this->doRPCRequest('RecognizeEduPaperStructed', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeEduPaperStructedRequest $request
+     *
+     * @return RecognizeEduPaperStructedResponse
+     */
+    public function recognizeEduPaperStructed($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeEduPaperStructedWithOptions($request, $runtime);
     }
 
     /**
@@ -1242,64 +658,6 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTrainInvoiceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RecognizeTrainInvoiceResponse
-     */
-    public function recognizeTrainInvoiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeTrainInvoiceResponse::fromMap($this->doRPCRequest('RecognizeTrainInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeTrainInvoiceRequest $request
-     *
-     * @return RecognizeTrainInvoiceResponse
-     */
-    public function recognizeTrainInvoice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeTrainInvoiceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeTableOcrRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RecognizeTableOcrResponse
-     */
-    public function recognizeTableOcrWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeTableOcrResponse::fromMap($this->doRPCRequest('RecognizeTableOcr', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeTableOcrRequest $request
-     *
-     * @return RecognizeTableOcrResponse
-     */
-    public function recognizeTableOcr($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeTableOcrWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RecognizeEnglishRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1326,6 +684,412 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeEnglishWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeEstateCertificationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeEstateCertificationResponse
+     */
+    public function recognizeEstateCertificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeEstateCertificationResponse::fromMap($this->doRPCRequest('RecognizeEstateCertification', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeEstateCertificationRequest $request
+     *
+     * @return RecognizeEstateCertificationResponse
+     */
+    public function recognizeEstateCertification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeEstateCertificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeFoodManageLicenseRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RecognizeFoodManageLicenseResponse
+     */
+    public function recognizeFoodManageLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeFoodManageLicenseResponse::fromMap($this->doRPCRequest('RecognizeFoodManageLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeFoodManageLicenseRequest $request
+     *
+     * @return RecognizeFoodManageLicenseResponse
+     */
+    public function recognizeFoodManageLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeFoodManageLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeFoodProduceLicenseRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeFoodProduceLicenseResponse
+     */
+    public function recognizeFoodProduceLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeFoodProduceLicenseResponse::fromMap($this->doRPCRequest('RecognizeFoodProduceLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeFoodProduceLicenseRequest $request
+     *
+     * @return RecognizeFoodProduceLicenseResponse
+     */
+    public function recognizeFoodProduceLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeFoodProduceLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeGeneralRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizeGeneralResponse
+     */
+    public function recognizeGeneralWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeGeneralResponse::fromMap($this->doRPCRequest('RecognizeGeneral', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeGeneralRequest $request
+     *
+     * @return RecognizeGeneralResponse
+     */
+    public function recognizeGeneral($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeGeneralWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeHandwritingRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizeHandwritingResponse
+     */
+    public function recognizeHandwritingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeHandwritingResponse::fromMap($this->doRPCRequest('RecognizeHandwriting', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeHandwritingRequest $request
+     *
+     * @return RecognizeHandwritingResponse
+     */
+    public function recognizeHandwriting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeHandwritingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeHouseholdRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RecognizeHouseholdResponse
+     */
+    public function recognizeHouseholdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeHouseholdResponse::fromMap($this->doRPCRequest('RecognizeHousehold', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeHouseholdRequest $request
+     *
+     * @return RecognizeHouseholdResponse
+     */
+    public function recognizeHousehold($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeHouseholdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeIdcardRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RecognizeIdcardResponse
+     */
+    public function recognizeIdcardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeIdcardResponse::fromMap($this->doRPCRequest('RecognizeIdcard', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeIdcardRequest $request
+     *
+     * @return RecognizeIdcardResponse
+     */
+    public function recognizeIdcard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeIdcardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeInvoiceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizeInvoiceResponse
+     */
+    public function recognizeInvoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeInvoiceResponse::fromMap($this->doRPCRequest('RecognizeInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeInvoiceRequest $request
+     *
+     * @return RecognizeInvoiceResponse
+     */
+    public function recognizeInvoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeInvoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeJanpaneseRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RecognizeJanpaneseResponse
+     */
+    public function recognizeJanpaneseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeJanpaneseResponse::fromMap($this->doRPCRequest('RecognizeJanpanese', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeJanpaneseRequest $request
+     *
+     * @return RecognizeJanpaneseResponse
+     */
+    public function recognizeJanpanese($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeJanpaneseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeKoreanRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RecognizeKoreanResponse
+     */
+    public function recognizeKoreanWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeKoreanResponse::fromMap($this->doRPCRequest('RecognizeKorean', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeKoreanRequest $request
+     *
+     * @return RecognizeKoreanResponse
+     */
+    public function recognizeKorean($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeKoreanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeLatinRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RecognizeLatinResponse
+     */
+    public function recognizeLatinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeLatinResponse::fromMap($this->doRPCRequest('RecognizeLatin', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeLatinRequest $request
+     *
+     * @return RecognizeLatinResponse
+     */
+    public function recognizeLatin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeLatinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeMedicalDeviceManageLicenseRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return RecognizeMedicalDeviceManageLicenseResponse
+     */
+    public function recognizeMedicalDeviceManageLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeMedicalDeviceManageLicenseResponse::fromMap($this->doRPCRequest('RecognizeMedicalDeviceManageLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeMedicalDeviceManageLicenseRequest $request
+     *
+     * @return RecognizeMedicalDeviceManageLicenseResponse
+     */
+    public function recognizeMedicalDeviceManageLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeMedicalDeviceManageLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeMedicalDeviceProduceLicenseRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return RecognizeMedicalDeviceProduceLicenseResponse
+     */
+    public function recognizeMedicalDeviceProduceLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeMedicalDeviceProduceLicenseResponse::fromMap($this->doRPCRequest('RecognizeMedicalDeviceProduceLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeMedicalDeviceProduceLicenseRequest $request
+     *
+     * @return RecognizeMedicalDeviceProduceLicenseResponse
+     */
+    public function recognizeMedicalDeviceProduceLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeMedicalDeviceProduceLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeMixedInvoicesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecognizeMixedInvoicesResponse
+     */
+    public function recognizeMixedInvoicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeMixedInvoicesResponse::fromMap($this->doRPCRequest('RecognizeMixedInvoices', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeMixedInvoicesRequest $request
+     *
+     * @return RecognizeMixedInvoicesResponse
+     */
+    public function recognizeMixedInvoices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeMixedInvoicesWithOptions($request, $runtime);
     }
 
     /**
@@ -1363,12 +1127,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduOralCalculationRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param RecognizePassportRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return RecognizeEduOralCalculationResponse
+     * @return RecognizePassportResponse
      */
-    public function recognizeEduOralCalculationWithOptions($request, $runtime)
+    public function recognizePassportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
@@ -1376,19 +1140,19 @@ class Ocrapi extends OpenApiClient
             'query' => $query,
         ]);
 
-        return RecognizeEduOralCalculationResponse::fromMap($this->doRPCRequest('RecognizeEduOralCalculation', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizePassportResponse::fromMap($this->doRPCRequest('RecognizePassport', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RecognizeEduOralCalculationRequest $request
+     * @param RecognizePassportRequest $request
      *
-     * @return RecognizeEduOralCalculationResponse
+     * @return RecognizePassportResponse
      */
-    public function recognizeEduOralCalculation($request)
+    public function recognizePassport($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->recognizeEduOralCalculationWithOptions($request, $runtime);
+        return $this->recognizePassportWithOptions($request, $runtime);
     }
 
     /**
@@ -1421,12 +1185,41 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeGeneralRequest $request
+     * @param RecognizeRollTicketRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecognizeRollTicketResponse
+     */
+    public function recognizeRollTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeRollTicketResponse::fromMap($this->doRPCRequest('RecognizeRollTicket', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeRollTicketRequest $request
+     *
+     * @return RecognizeRollTicketResponse
+     */
+    public function recognizeRollTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeRollTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeRussianRequest $request
      * @param RuntimeOptions          $runtime
      *
-     * @return RecognizeGeneralResponse
+     * @return RecognizeRussianResponse
      */
-    public function recognizeGeneralWithOptions($request, $runtime)
+    public function recognizeRussianWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
@@ -1434,28 +1227,28 @@ class Ocrapi extends OpenApiClient
             'query' => $query,
         ]);
 
-        return RecognizeGeneralResponse::fromMap($this->doRPCRequest('RecognizeGeneral', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeRussianResponse::fromMap($this->doRPCRequest('RecognizeRussian', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RecognizeGeneralRequest $request
+     * @param RecognizeRussianRequest $request
      *
-     * @return RecognizeGeneralResponse
+     * @return RecognizeRussianResponse
      */
-    public function recognizeGeneral($request)
+    public function recognizeRussian($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->recognizeGeneralWithOptions($request, $runtime);
+        return $this->recognizeRussianWithOptions($request, $runtime);
     }
 
     /**
-     * @param RecognizeEduPaperStructedRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param RecognizeTableOcrRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return RecognizeEduPaperStructedResponse
+     * @return RecognizeTableOcrResponse
      */
-    public function recognizeEduPaperStructedWithOptions($request, $runtime)
+    public function recognizeTableOcrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
@@ -1463,28 +1256,28 @@ class Ocrapi extends OpenApiClient
             'query' => $query,
         ]);
 
-        return RecognizeEduPaperStructedResponse::fromMap($this->doRPCRequest('RecognizeEduPaperStructed', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeTableOcrResponse::fromMap($this->doRPCRequest('RecognizeTableOcr', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RecognizeEduPaperStructedRequest $request
+     * @param RecognizeTableOcrRequest $request
      *
-     * @return RecognizeEduPaperStructedResponse
+     * @return RecognizeTableOcrResponse
      */
-    public function recognizeEduPaperStructed($request)
+    public function recognizeTableOcr($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->recognizeEduPaperStructedWithOptions($request, $runtime);
+        return $this->recognizeTableOcrWithOptions($request, $runtime);
     }
 
     /**
-     * @param RecognizeIdcardRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param RecognizeTaxiInvoiceRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return RecognizeIdcardResponse
+     * @return RecognizeTaxiInvoiceResponse
      */
-    public function recognizeIdcardWithOptions($request, $runtime)
+    public function recognizeTaxiInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
@@ -1492,18 +1285,163 @@ class Ocrapi extends OpenApiClient
             'query' => $query,
         ]);
 
-        return RecognizeIdcardResponse::fromMap($this->doRPCRequest('RecognizeIdcard', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeTaxiInvoiceResponse::fromMap($this->doRPCRequest('RecognizeTaxiInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RecognizeIdcardRequest $request
+     * @param RecognizeTaxiInvoiceRequest $request
      *
-     * @return RecognizeIdcardResponse
+     * @return RecognizeTaxiInvoiceResponse
      */
-    public function recognizeIdcard($request)
+    public function recognizeTaxiInvoice($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->recognizeIdcardWithOptions($request, $runtime);
+        return $this->recognizeTaxiInvoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeThaiRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RecognizeThaiResponse
+     */
+    public function recognizeThaiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeThaiResponse::fromMap($this->doRPCRequest('RecognizeThai', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeThaiRequest $request
+     *
+     * @return RecognizeThaiResponse
+     */
+    public function recognizeThai($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeThaiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeTradeMarkCertificationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return RecognizeTradeMarkCertificationResponse
+     */
+    public function recognizeTradeMarkCertificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeTradeMarkCertificationResponse::fromMap($this->doRPCRequest('RecognizeTradeMarkCertification', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeTradeMarkCertificationRequest $request
+     *
+     * @return RecognizeTradeMarkCertificationResponse
+     */
+    public function recognizeTradeMarkCertification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeTradeMarkCertificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeTrainInvoiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecognizeTrainInvoiceResponse
+     */
+    public function recognizeTrainInvoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeTrainInvoiceResponse::fromMap($this->doRPCRequest('RecognizeTrainInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeTrainInvoiceRequest $request
+     *
+     * @return RecognizeTrainInvoiceResponse
+     */
+    public function recognizeTrainInvoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeTrainInvoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeVehicleLicenseRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeVehicleLicenseResponse
+     */
+    public function recognizeVehicleLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeVehicleLicenseResponse::fromMap($this->doRPCRequest('RecognizeVehicleLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeVehicleLicenseRequest $request
+     *
+     * @return RecognizeVehicleLicenseResponse
+     */
+    public function recognizeVehicleLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeVehicleLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeWaybillRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizeWaybillResponse
+     */
+    public function recognizeWaybillWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return RecognizeWaybillResponse::fromMap($this->doRPCRequest('RecognizeWaybill', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeWaybillRequest $request
+     *
+     * @return RecognizeWaybillResponse
+     */
+    public function recognizeWaybill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeWaybillWithOptions($request, $runtime);
     }
 }

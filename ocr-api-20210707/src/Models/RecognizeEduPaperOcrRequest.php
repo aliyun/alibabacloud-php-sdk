@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class RecognizeEduPaperOcrRequest extends Model
 {
     /**
-     * @description 图片链接（长度不超 1014，不支持 base64）
-     *
-     * @var string
-     */
-    public $url;
-
-    /**
      * @description 图片类型
      *
      * @var string
      */
     public $imageType;
+
+    /**
+     * @description 是否输出原图坐标信息(如果图片被做过旋转，图片校正等处理)
+     *
+     * @var bool
+     */
+    public $outputOricoord;
 
     /**
      * @description 年级学科
@@ -30,16 +30,16 @@ class RecognizeEduPaperOcrRequest extends Model
     public $subject;
 
     /**
-     * @description 是否输出原图坐标信息(如果图片被做过旋转，图片校正等处理)
+     * @description 图片链接（长度不超 1014，不支持 base64）
      *
-     * @var bool
+     * @var string
      */
-    public $outputOricoord;
+    public $url;
     protected $_name = [
-        'url'            => 'Url',
         'imageType'      => 'ImageType',
-        'subject'        => 'Subject',
         'outputOricoord' => 'OutputOricoord',
+        'subject'        => 'Subject',
+        'url'            => 'Url',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class RecognizeEduPaperOcrRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
+        }
+        if (null !== $this->outputOricoord) {
+            $res['OutputOricoord'] = $this->outputOricoord;
         }
         if (null !== $this->subject) {
             $res['Subject'] = $this->subject;
         }
-        if (null !== $this->outputOricoord) {
-            $res['OutputOricoord'] = $this->outputOricoord;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class RecognizeEduPaperOcrRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
+        }
+        if (isset($map['OutputOricoord'])) {
+            $model->outputOricoord = $map['OutputOricoord'];
         }
         if (isset($map['Subject'])) {
             $model->subject = $map['Subject'];
         }
-        if (isset($map['OutputOricoord'])) {
-            $model->outputOricoord = $map['OutputOricoord'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

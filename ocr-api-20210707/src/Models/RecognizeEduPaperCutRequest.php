@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RecognizeEduPaperCutRequest extends Model
 {
     /**
-     * @description 图片链接（长度不超 1014，不支持 base64）
-     *
-     * @var string
-     */
-    public $url;
-
-    /**
      * @description 切题类型
      *
      * @var string
@@ -35,11 +28,18 @@ class RecognizeEduPaperCutRequest extends Model
      * @var string
      */
     public $subject;
+
+    /**
+     * @description 图片链接（长度不超 1014，不支持 base64）
+     *
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'url'       => 'Url',
         'cutType'   => 'CutType',
         'imageType' => 'ImageType',
         'subject'   => 'Subject',
+        'url'       => 'Url',
     ];
 
     public function validate()
@@ -49,9 +49,6 @@ class RecognizeEduPaperCutRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->cutType) {
             $res['CutType'] = $this->cutType;
         }
@@ -60,6 +57,9 @@ class RecognizeEduPaperCutRequest extends Model
         }
         if (null !== $this->subject) {
             $res['Subject'] = $this->subject;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -73,9 +73,6 @@ class RecognizeEduPaperCutRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['CutType'])) {
             $model->cutType = $map['CutType'];
         }
@@ -84,6 +81,9 @@ class RecognizeEduPaperCutRequest extends Model
         }
         if (isset($map['Subject'])) {
             $model->subject = $map['Subject'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

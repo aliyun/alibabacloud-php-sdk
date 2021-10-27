@@ -9,25 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RecognizeMultiLanguageShrinkRequest extends Model
 {
     /**
-     * @description 图片链接（长度不超 1014，不支持 base64）
-     *
-     * @var string
-     */
-    public $url;
-
-    /**
      * @description 识别语种
      *
      * @var string
      */
     public $languagesShrink;
-
-    /**
-     * @description 是否输出单字识别结果
-     *
-     * @var bool
-     */
-    public $outputCharInfo;
 
     /**
      * @description 是否需要自动旋转功能(结构化检测、混贴场景、教育相关场景会自动做旋转，无需设置)，返回角度信息
@@ -37,6 +23,20 @@ class RecognizeMultiLanguageShrinkRequest extends Model
     public $needRotate;
 
     /**
+     * @description 是否按顺序输出文字块。false表示从左往右，从上到下的顺序；true表示从上到下，从左往右的顺序
+     *
+     * @var bool
+     */
+    public $needSortPage;
+
+    /**
+     * @description 是否输出单字识别结果
+     *
+     * @var bool
+     */
+    public $outputCharInfo;
+
+    /**
      * @description 是否输出表格识别结果，包含单元格信息
      *
      * @var bool
@@ -44,18 +44,18 @@ class RecognizeMultiLanguageShrinkRequest extends Model
     public $outputTable;
 
     /**
-     * @description 是否按顺序输出文字块。false表示从左往右，从上到下的顺序；true表示从上到下，从左往右的顺序
+     * @description 图片链接（长度不超 1014，不支持 base64）
      *
-     * @var bool
+     * @var string
      */
-    public $needSortPage;
+    public $url;
     protected $_name = [
-        'url'             => 'Url',
         'languagesShrink' => 'Languages',
-        'outputCharInfo'  => 'OutputCharInfo',
         'needRotate'      => 'NeedRotate',
-        'outputTable'     => 'OutputTable',
         'needSortPage'    => 'NeedSortPage',
+        'outputCharInfo'  => 'OutputCharInfo',
+        'outputTable'     => 'OutputTable',
+        'url'             => 'Url',
     ];
 
     public function validate()
@@ -65,23 +65,23 @@ class RecognizeMultiLanguageShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->languagesShrink) {
             $res['Languages'] = $this->languagesShrink;
-        }
-        if (null !== $this->outputCharInfo) {
-            $res['OutputCharInfo'] = $this->outputCharInfo;
         }
         if (null !== $this->needRotate) {
             $res['NeedRotate'] = $this->needRotate;
         }
+        if (null !== $this->needSortPage) {
+            $res['NeedSortPage'] = $this->needSortPage;
+        }
+        if (null !== $this->outputCharInfo) {
+            $res['OutputCharInfo'] = $this->outputCharInfo;
+        }
         if (null !== $this->outputTable) {
             $res['OutputTable'] = $this->outputTable;
         }
-        if (null !== $this->needSortPage) {
-            $res['NeedSortPage'] = $this->needSortPage;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class RecognizeMultiLanguageShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['Languages'])) {
             $model->languagesShrink = $map['Languages'];
-        }
-        if (isset($map['OutputCharInfo'])) {
-            $model->outputCharInfo = $map['OutputCharInfo'];
         }
         if (isset($map['NeedRotate'])) {
             $model->needRotate = $map['NeedRotate'];
         }
+        if (isset($map['NeedSortPage'])) {
+            $model->needSortPage = $map['NeedSortPage'];
+        }
+        if (isset($map['OutputCharInfo'])) {
+            $model->outputCharInfo = $map['OutputCharInfo'];
+        }
         if (isset($map['OutputTable'])) {
             $model->outputTable = $map['OutputTable'];
         }
-        if (isset($map['NeedSortPage'])) {
-            $model->needSortPage = $map['NeedSortPage'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;
