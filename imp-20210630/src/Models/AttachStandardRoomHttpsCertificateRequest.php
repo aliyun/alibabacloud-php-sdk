@@ -16,11 +16,11 @@ class AttachStandardRoomHttpsCertificateRequest extends Model
     public $appId;
 
     /**
-     * @description 使用证书的确切域名
+     * @description NGINX格式证书私钥
      *
      * @var string
      */
-    public $domainName;
+    public $certificatePrivateKey;
 
     /**
      * @description NGINX格式证书公钥
@@ -30,16 +30,16 @@ class AttachStandardRoomHttpsCertificateRequest extends Model
     public $certificatePublicKey;
 
     /**
-     * @description NGINX格式证书私钥
+     * @description 使用证书的确切域名
      *
      * @var string
      */
-    public $certificatePrivateKey;
+    public $domainName;
     protected $_name = [
         'appId'                 => 'AppId',
-        'domainName'            => 'DomainName',
-        'certificatePublicKey'  => 'CertificatePublicKey',
         'certificatePrivateKey' => 'CertificatePrivateKey',
+        'certificatePublicKey'  => 'CertificatePublicKey',
+        'domainName'            => 'DomainName',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class AttachStandardRoomHttpsCertificateRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->certificatePrivateKey) {
+            $res['CertificatePrivateKey'] = $this->certificatePrivateKey;
         }
         if (null !== $this->certificatePublicKey) {
             $res['CertificatePublicKey'] = $this->certificatePublicKey;
         }
-        if (null !== $this->certificatePrivateKey) {
-            $res['CertificatePrivateKey'] = $this->certificatePrivateKey;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -76,14 +76,14 @@ class AttachStandardRoomHttpsCertificateRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['CertificatePrivateKey'])) {
+            $model->certificatePrivateKey = $map['CertificatePrivateKey'];
         }
         if (isset($map['CertificatePublicKey'])) {
             $model->certificatePublicKey = $map['CertificatePublicKey'];
         }
-        if (isset($map['CertificatePrivateKey'])) {
-            $model->certificatePrivateKey = $map['CertificatePrivateKey'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
 
         return $model;

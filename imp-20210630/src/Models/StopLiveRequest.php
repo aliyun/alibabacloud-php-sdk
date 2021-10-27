@@ -16,6 +16,13 @@ class StopLiveRequest extends Model
     public $appId;
 
     /**
+     * @description 直播资源的唯一标识ID
+     *
+     * @var string
+     */
+    public $liveId;
+
+    /**
      * @description 房间ID，最大长度36位
      *
      * @var string
@@ -28,18 +35,11 @@ class StopLiveRequest extends Model
      * @var string
      */
     public $userId;
-
-    /**
-     * @description 直播资源的唯一标识ID
-     *
-     * @var string
-     */
-    public $liveId;
     protected $_name = [
         'appId'  => 'AppId',
+        'liveId' => 'LiveId',
         'roomId' => 'RoomId',
         'userId' => 'UserId',
-        'liveId' => 'LiveId',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class StopLiveRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->liveId) {
+            $res['LiveId'] = $this->liveId;
+        }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->liveId) {
-            $res['LiveId'] = $this->liveId;
         }
 
         return $res;
@@ -76,14 +76,14 @@ class StopLiveRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['LiveId'])) {
+            $model->liveId = $map['LiveId'];
+        }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['LiveId'])) {
-            $model->liveId = $map['LiveId'];
         }
 
         return $model;

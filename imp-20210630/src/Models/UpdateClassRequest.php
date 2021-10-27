@@ -23,11 +23,11 @@ class UpdateClassRequest extends Model
     public $classId;
 
     /**
-     * @description 课堂标题，1~32个字符。
+     * @description 创建人用户昵称，1~32个字符。
      *
      * @var string
      */
-    public $title;
+    public $createNickname;
 
     /**
      * @description 创建人用户ID，仅支持中英文数字，下划线，中划线，1~36个字符。
@@ -37,17 +37,17 @@ class UpdateClassRequest extends Model
     public $createUserId;
 
     /**
-     * @description 创建人用户昵称，1~32个字符。
+     * @description 课堂标题，1~32个字符。
      *
      * @var string
      */
-    public $createNickname;
+    public $title;
     protected $_name = [
         'appId'          => 'AppId',
         'classId'        => 'ClassId',
-        'title'          => 'Title',
-        'createUserId'   => 'CreateUserId',
         'createNickname' => 'CreateNickname',
+        'createUserId'   => 'CreateUserId',
+        'title'          => 'Title',
     ];
 
     public function validate()
@@ -63,14 +63,14 @@ class UpdateClassRequest extends Model
         if (null !== $this->classId) {
             $res['ClassId'] = $this->classId;
         }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->createNickname) {
+            $res['CreateNickname'] = $this->createNickname;
         }
         if (null !== $this->createUserId) {
             $res['CreateUserId'] = $this->createUserId;
         }
-        if (null !== $this->createNickname) {
-            $res['CreateNickname'] = $this->createNickname;
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -90,14 +90,14 @@ class UpdateClassRequest extends Model
         if (isset($map['ClassId'])) {
             $model->classId = $map['ClassId'];
         }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['CreateNickname'])) {
+            $model->createNickname = $map['CreateNickname'];
         }
         if (isset($map['CreateUserId'])) {
             $model->createUserId = $map['CreateUserId'];
         }
-        if (isset($map['CreateNickname'])) {
-            $model->createNickname = $map['CreateNickname'];
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

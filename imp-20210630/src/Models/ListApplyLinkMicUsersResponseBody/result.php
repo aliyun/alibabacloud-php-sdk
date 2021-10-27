@@ -23,23 +23,23 @@ class result extends Model
     public $hasMore;
 
     /**
-     * @description 该会议的申请连麦成员总数。
-     *
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @description 改会议的申请连麦成员总页数。
      *
      * @var int
      */
     public $pageTotal;
+
+    /**
+     * @description 该会议的申请连麦成员总数。
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'applyLinkMicUserList' => 'ApplyLinkMicUserList',
         'hasMore'              => 'HasMore',
-        'totalCount'           => 'TotalCount',
         'pageTotal'            => 'PageTotal',
+        'totalCount'           => 'TotalCount',
     ];
 
     public function validate()
@@ -55,11 +55,11 @@ class result extends Model
         if (null !== $this->hasMore) {
             $res['HasMore'] = $this->hasMore;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageTotal) {
             $res['PageTotal'] = $this->pageTotal;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,11 +81,11 @@ class result extends Model
         if (isset($map['HasMore'])) {
             $model->hasMore = $map['HasMore'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageTotal'])) {
             $model->pageTotal = $map['PageTotal'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

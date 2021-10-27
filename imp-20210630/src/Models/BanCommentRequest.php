@@ -16,6 +16,20 @@ class BanCommentRequest extends Model
     public $appId;
 
     /**
+     * @description 禁言时长（秒）
+     *
+     * @var int
+     */
+    public $banCommentTime;
+
+    /**
+     * @description 被禁言的用户在房间内的唯一标识
+     *
+     * @var string
+     */
+    public $banCommentUser;
+
+    /**
      * @description 房间唯一标识，由调用CreateRoom返回。
      *
      * @var string
@@ -28,26 +42,12 @@ class BanCommentRequest extends Model
      * @var string
      */
     public $userId;
-
-    /**
-     * @description 被禁言的用户在房间内的唯一标识
-     *
-     * @var string
-     */
-    public $banCommentUser;
-
-    /**
-     * @description 禁言时长（秒）
-     *
-     * @var int
-     */
-    public $banCommentTime;
     protected $_name = [
         'appId'          => 'AppId',
+        'banCommentTime' => 'BanCommentTime',
+        'banCommentUser' => 'BanCommentUser',
         'roomId'         => 'RoomId',
         'userId'         => 'UserId',
-        'banCommentUser' => 'BanCommentUser',
-        'banCommentTime' => 'BanCommentTime',
     ];
 
     public function validate()
@@ -60,17 +60,17 @@ class BanCommentRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->banCommentTime) {
+            $res['BanCommentTime'] = $this->banCommentTime;
+        }
+        if (null !== $this->banCommentUser) {
+            $res['BanCommentUser'] = $this->banCommentUser;
+        }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->banCommentUser) {
-            $res['BanCommentUser'] = $this->banCommentUser;
-        }
-        if (null !== $this->banCommentTime) {
-            $res['BanCommentTime'] = $this->banCommentTime;
         }
 
         return $res;
@@ -87,17 +87,17 @@ class BanCommentRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['BanCommentTime'])) {
+            $model->banCommentTime = $map['BanCommentTime'];
+        }
+        if (isset($map['BanCommentUser'])) {
+            $model->banCommentUser = $map['BanCommentUser'];
+        }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['BanCommentUser'])) {
-            $model->banCommentUser = $map['BanCommentUser'];
-        }
-        if (isset($map['BanCommentTime'])) {
-            $model->banCommentTime = $map['BanCommentTime'];
         }
 
         return $model;

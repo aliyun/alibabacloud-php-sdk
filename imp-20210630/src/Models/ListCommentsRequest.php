@@ -16,20 +16,6 @@ class ListCommentsRequest extends Model
     public $appId;
 
     /**
-     * @description 房间的唯一标识，在调用CreateRoom时返回。
-     *
-     * @var string
-     */
-    public $roomId;
-
-    /**
-     * @description 操作人用户ID，表示谁执行了查询弹幕消息列表的操作。
-     *
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @description 查询弹幕消息列表的分页页数。应该从1开始，每次分页拉取时递增。
      *
      * @var int
@@ -44,18 +30,32 @@ class ListCommentsRequest extends Model
     public $pageSize;
 
     /**
+     * @description 房间的唯一标识，在调用CreateRoom时返回。
+     *
+     * @var string
+     */
+    public $roomId;
+
+    /**
      * @description 查询弹幕消息列表的排序方式。取值仅限0和1，其中0表示按照弹幕消息创建时间递增的顺序拉取，1表示按照弹幕消息创建时间递减的时间拉取。
      *
      * @var int
      */
     public $sortType;
+
+    /**
+     * @description 操作人用户ID，表示谁执行了查询弹幕消息列表的操作。
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'appId'    => 'AppId',
-        'roomId'   => 'RoomId',
-        'userId'   => 'UserId',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
+        'roomId'   => 'RoomId',
         'sortType' => 'SortType',
+        'userId'   => 'UserId',
     ];
 
     public function validate()
@@ -68,20 +68,20 @@ class ListCommentsRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->roomId) {
-            $res['RoomId'] = $this->roomId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
+        }
         if (null !== $this->sortType) {
             $res['SortType'] = $this->sortType;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -98,20 +98,20 @@ class ListCommentsRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
+        }
         if (isset($map['SortType'])) {
             $model->sortType = $map['SortType'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

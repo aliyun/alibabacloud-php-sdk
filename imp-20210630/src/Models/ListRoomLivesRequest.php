@@ -16,6 +16,13 @@ class ListRoomLivesRequest extends Model
     public $appId;
 
     /**
+     * @description 拉取在这个时间戳之前创建的直播，单位毫秒，不传则默认拉取最新创建的。
+     *
+     * @var int
+     */
+    public $queryTimestamp;
+
+    /**
      * @description 房间ID，最大长度36个字符。
      *
      * @var string
@@ -23,18 +30,11 @@ class ListRoomLivesRequest extends Model
     public $roomId;
 
     /**
-     * @description 直播状态筛选条件，0-直播 1-下播，不传则返回全部状态
+     * @description 房间ID列表，可指定多个房间id，过滤优先级高于RoomId。
      *
-     * @var int
+     * @var string[]
      */
-    public $status;
-
-    /**
-     * @description 拉取在这个时间戳之前创建的直播，单位毫秒，不传则默认拉取最新创建的。
-     *
-     * @var int
-     */
-    public $queryTimestamp;
+    public $roomIdList;
 
     /**
      * @description 拉取直播数量。
@@ -44,18 +44,18 @@ class ListRoomLivesRequest extends Model
     public $size;
 
     /**
-     * @description 房间ID列表，可指定多个房间id，过滤优先级高于RoomId。
+     * @description 直播状态筛选条件，0-直播 1-下播，不传则返回全部状态
      *
-     * @var string[]
+     * @var int
      */
-    public $roomIdList;
+    public $status;
     protected $_name = [
         'appId'          => 'AppId',
-        'roomId'         => 'RoomId',
-        'status'         => 'Status',
         'queryTimestamp' => 'QueryTimestamp',
-        'size'           => 'Size',
+        'roomId'         => 'RoomId',
         'roomIdList'     => 'RoomIdList',
+        'size'           => 'Size',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -68,20 +68,20 @@ class ListRoomLivesRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->queryTimestamp) {
+            $res['QueryTimestamp'] = $this->queryTimestamp;
+        }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->queryTimestamp) {
-            $res['QueryTimestamp'] = $this->queryTimestamp;
+        if (null !== $this->roomIdList) {
+            $res['RoomIdList'] = $this->roomIdList;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-        if (null !== $this->roomIdList) {
-            $res['RoomIdList'] = $this->roomIdList;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -98,22 +98,22 @@ class ListRoomLivesRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['QueryTimestamp'])) {
             $model->queryTimestamp = $map['QueryTimestamp'];
         }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
         }
         if (isset($map['RoomIdList'])) {
             if (!empty($map['RoomIdList'])) {
                 $model->roomIdList = $map['RoomIdList'];
             }
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

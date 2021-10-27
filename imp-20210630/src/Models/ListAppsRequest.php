@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListAppsRequest extends Model
 {
     /**
+     * @description 集成方式：- 一体化SDK：paasSDK - 样板间：standardRoom
+     *
+     * @var string
+     */
+    public $integrationMode;
+
+    /**
      * @description 查询页码，参数为空默认查询第1页。
      *
      * @var int
@@ -28,18 +35,11 @@ class ListAppsRequest extends Model
      * @var string
      */
     public $status;
-
-    /**
-     * @description 集成方式：- 一体化SDK：paasSDK - 样板间：standardRoom
-     *
-     * @var string
-     */
-    public $integrationMode;
     protected $_name = [
+        'integrationMode' => 'IntegrationMode',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'status'          => 'Status',
-        'integrationMode' => 'IntegrationMode',
     ];
 
     public function validate()
@@ -49,6 +49,9 @@ class ListAppsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->integrationMode) {
+            $res['IntegrationMode'] = $this->integrationMode;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -57,9 +60,6 @@ class ListAppsRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->integrationMode) {
-            $res['IntegrationMode'] = $this->integrationMode;
         }
 
         return $res;
@@ -73,6 +73,9 @@ class ListAppsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IntegrationMode'])) {
+            $model->integrationMode = $map['IntegrationMode'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -81,9 +84,6 @@ class ListAppsRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['IntegrationMode'])) {
-            $model->integrationMode = $map['IntegrationMode'];
         }
 
         return $model;

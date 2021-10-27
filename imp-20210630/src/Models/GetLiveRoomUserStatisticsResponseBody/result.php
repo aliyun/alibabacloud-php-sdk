@@ -10,18 +10,18 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description 是否还有下一页。
+     *
+     * @var bool
+     */
+    public $hasMore;
+
+    /**
      * @description 直播ID。
      *
      * @var string
      */
     public $liveId;
-
-    /**
-     * @description 用户总数
-     *
-     * @var int
-     */
-    public $totalCount;
 
     /**
      * @description 用户总页数。
@@ -31,11 +31,11 @@ class result extends Model
     public $pageTotal;
 
     /**
-     * @description 是否还有下一页。
+     * @description 用户总数
      *
-     * @var bool
+     * @var int
      */
-    public $hasMore;
+    public $totalCount;
 
     /**
      * @description 用户观看数据列表。
@@ -44,10 +44,10 @@ class result extends Model
      */
     public $userStatisticsList;
     protected $_name = [
-        'liveId'             => 'LiveId',
-        'totalCount'         => 'TotalCount',
-        'pageTotal'          => 'PageTotal',
         'hasMore'            => 'HasMore',
+        'liveId'             => 'LiveId',
+        'pageTotal'          => 'PageTotal',
+        'totalCount'         => 'TotalCount',
         'userStatisticsList' => 'UserStatisticsList',
     ];
 
@@ -58,17 +58,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hasMore) {
+            $res['HasMore'] = $this->hasMore;
+        }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->pageTotal) {
             $res['PageTotal'] = $this->pageTotal;
         }
-        if (null !== $this->hasMore) {
-            $res['HasMore'] = $this->hasMore;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->userStatisticsList) {
             $res['UserStatisticsList'] = [];
@@ -91,17 +91,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HasMore'])) {
+            $model->hasMore = $map['HasMore'];
+        }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['PageTotal'])) {
             $model->pageTotal = $map['PageTotal'];
         }
-        if (isset($map['HasMore'])) {
-            $model->hasMore = $map['HasMore'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['UserStatisticsList'])) {
             if (!empty($map['UserStatisticsList'])) {

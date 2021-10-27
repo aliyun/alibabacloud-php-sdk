@@ -10,25 +10,25 @@ use AlibabaCloud\Tea\Model;
 class roomInfoList extends Model
 {
     /**
-     * @description 房间唯一标识。
+     * @description 应用唯一标识，由6位小写字母、数字组成。
      *
      * @var string
      */
-    public $roomId;
+    public $appId;
 
     /**
-     * @description 房间标题。
+     * @description 房间创建时间戳，单位：毫秒。
      *
      * @var string
      */
-    public $title;
+    public $createTime;
 
     /**
-     * @description 房主用户id。
+     * @description 房间拓展字段。
      *
-     * @var string
+     * @var string[]
      */
-    public $roomOwnerId;
+    public $extension;
 
     /**
      * @description 房间公告。
@@ -36,13 +36,6 @@ class roomInfoList extends Model
      * @var string
      */
     public $notice;
-
-    /**
-     * @description 用户访问数。
-     *
-     * @var int
-     */
-    public $uv;
 
     /**
      * @description 用户在线数。
@@ -59,18 +52,18 @@ class roomInfoList extends Model
     public $pluginInstanceInfoList;
 
     /**
-     * @description 房间创建时间戳，单位：毫秒。
+     * @description 房间唯一标识。
      *
      * @var string
      */
-    public $createTime;
+    public $roomId;
 
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
+     * @description 房主用户id。
      *
      * @var string
      */
-    public $appId;
+    public $roomOwnerId;
 
     /**
      * @description 创建房间使用的模板id。
@@ -80,23 +73,30 @@ class roomInfoList extends Model
     public $templateId;
 
     /**
-     * @description 房间拓展字段。
+     * @description 房间标题。
      *
-     * @var string[]
+     * @var string
      */
-    public $extension;
+    public $title;
+
+    /**
+     * @description 用户访问数。
+     *
+     * @var int
+     */
+    public $uv;
     protected $_name = [
-        'roomId'                 => 'RoomId',
-        'title'                  => 'Title',
-        'roomOwnerId'            => 'RoomOwnerId',
+        'appId'                  => 'AppId',
+        'createTime'             => 'CreateTime',
+        'extension'              => 'Extension',
         'notice'                 => 'Notice',
-        'uv'                     => 'Uv',
         'onlineCount'            => 'OnlineCount',
         'pluginInstanceInfoList' => 'PluginInstanceInfoList',
-        'createTime'             => 'CreateTime',
-        'appId'                  => 'AppId',
+        'roomId'                 => 'RoomId',
+        'roomOwnerId'            => 'RoomOwnerId',
         'templateId'             => 'TemplateId',
-        'extension'              => 'Extension',
+        'title'                  => 'Title',
+        'uv'                     => 'Uv',
     ];
 
     public function validate()
@@ -106,20 +106,17 @@ class roomInfoList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->roomId) {
-            $res['RoomId'] = $this->roomId;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->roomOwnerId) {
-            $res['RoomOwnerId'] = $this->roomOwnerId;
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
         }
         if (null !== $this->notice) {
             $res['Notice'] = $this->notice;
-        }
-        if (null !== $this->uv) {
-            $res['Uv'] = $this->uv;
         }
         if (null !== $this->onlineCount) {
             $res['OnlineCount'] = $this->onlineCount;
@@ -133,17 +130,20 @@ class roomInfoList extends Model
                 }
             }
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->roomOwnerId) {
+            $res['RoomOwnerId'] = $this->roomOwnerId;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
+        if (null !== $this->uv) {
+            $res['Uv'] = $this->uv;
         }
 
         return $res;
@@ -157,20 +157,17 @@ class roomInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['RoomOwnerId'])) {
-            $model->roomOwnerId = $map['RoomOwnerId'];
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
         }
         if (isset($map['Notice'])) {
             $model->notice = $map['Notice'];
-        }
-        if (isset($map['Uv'])) {
-            $model->uv = $map['Uv'];
         }
         if (isset($map['OnlineCount'])) {
             $model->onlineCount = $map['OnlineCount'];
@@ -184,17 +181,20 @@ class roomInfoList extends Model
                 }
             }
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['RoomOwnerId'])) {
+            $model->roomOwnerId = $map['RoomOwnerId'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
+        if (isset($map['Uv'])) {
+            $model->uv = $map['Uv'];
         }
 
         return $model;

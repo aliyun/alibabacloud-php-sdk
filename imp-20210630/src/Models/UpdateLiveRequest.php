@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveRequest extends Model
 {
     /**
+     * @description 直播简介，支持中英文，最大长度2048位
+     *
+     * @var string
+     */
+    public $introduction;
+
+    /**
      * @description 直播资源的唯一标识ID
      *
      * @var string
@@ -21,17 +28,10 @@ class UpdateLiveRequest extends Model
      * @var string
      */
     public $title;
-
-    /**
-     * @description 直播简介，支持中英文，最大长度2048位
-     *
-     * @var string
-     */
-    public $introduction;
     protected $_name = [
+        'introduction' => 'Introduction',
         'liveId'       => 'LiveId',
         'title'        => 'Title',
-        'introduction' => 'Introduction',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class UpdateLiveRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->introduction) {
+            $res['Introduction'] = $this->introduction;
+        }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
-        }
-        if (null !== $this->introduction) {
-            $res['Introduction'] = $this->introduction;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class UpdateLiveRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Introduction'])) {
+            $model->introduction = $map['Introduction'];
+        }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
-        }
-        if (isset($map['Introduction'])) {
-            $model->introduction = $map['Introduction'];
         }
 
         return $model;

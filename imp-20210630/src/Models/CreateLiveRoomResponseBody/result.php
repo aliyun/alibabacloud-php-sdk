@@ -4,11 +4,26 @@
 
 namespace AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRoomResponseBody;
 
+use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRoomResponseBody\result\artcInfo;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRoomResponseBody\result\pluginInstanceInfoList;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
+    /**
+     * @description 主播ID。
+     *
+     * @var string
+     */
+    public $anchorId;
+
+    /**
+     * @description 主播昵称。
+     *
+     * @var string
+     */
+    public $anchorNick;
+
     /**
      * @description 应用ID。
      *
@@ -17,18 +32,11 @@ class result extends Model
     public $appId;
 
     /**
-     * @description 房间ID。
+     * @description RTS低延迟播流信息。
      *
-     * @var string
+     * @var artcInfo
      */
-    public $roomId;
-
-    /**
-     * @description 直播ID。
-     *
-     * @var string
-     */
-    public $liveId;
+    public $artcInfo;
 
     /**
      * @description 聊天ID。
@@ -38,60 +46,11 @@ class result extends Model
     public $chatId;
 
     /**
-     * @description 标题。
-     *
-     * @var string
-     */
-    public $title;
-
-    /**
-     * @description 公告。
-     *
-     * @var string
-     */
-    public $notice;
-
-    /**
      * @description 封面。
      *
      * @var string
      */
     public $coverUrl;
-
-    /**
-     * @description 主播ID。
-     *
-     * @var string
-     */
-    public $anchorId;
-
-    /**
-     * @description 直播回放地址。
-     *
-     * @var string
-     */
-    public $playbackUrl;
-
-    /**
-     * @description 直播推流地址。
-     *
-     * @var string
-     */
-    public $pushUrl;
-
-    /**
-     * @description 直播拉流地址。
-     *
-     * @var string
-     */
-    public $liveUrl;
-
-    /**
-     * @description 活跃插件列表。
-     *
-     * @var pluginInstanceInfoList[]
-     */
-    public $pluginInstanceInfoList;
 
     /**
      * @description 直播拓展字段。
@@ -101,26 +60,84 @@ class result extends Model
     public $extension;
 
     /**
-     * @description 主播昵称。
+     * @description 原画HLS播放地址。
      *
      * @var string
      */
-    public $anchorNick;
+    public $hlsUrl;
+
+    /**
+     * @description 直播ID。
+     *
+     * @var string
+     */
+    public $liveId;
+
+    /**
+     * @description 直播拉流地址。
+     *
+     * @var string
+     */
+    public $liveUrl;
+
+    /**
+     * @description 公告。
+     *
+     * @var string
+     */
+    public $notice;
+
+    /**
+     * @description 直播回放地址。
+     *
+     * @var string
+     */
+    public $playbackUrl;
+
+    /**
+     * @description 活跃插件列表。
+     *
+     * @var pluginInstanceInfoList[]
+     */
+    public $pluginInstanceInfoList;
+
+    /**
+     * @description 直播推流地址。
+     *
+     * @var string
+     */
+    public $pushUrl;
+
+    /**
+     * @description 房间ID。
+     *
+     * @var string
+     */
+    public $roomId;
+
+    /**
+     * @description 标题。
+     *
+     * @var string
+     */
+    public $title;
     protected $_name = [
-        'appId'                  => 'AppId',
-        'roomId'                 => 'RoomId',
-        'liveId'                 => 'LiveId',
-        'chatId'                 => 'ChatId',
-        'title'                  => 'Title',
-        'notice'                 => 'Notice',
-        'coverUrl'               => 'CoverUrl',
         'anchorId'               => 'AnchorId',
-        'playbackUrl'            => 'PlaybackUrl',
-        'pushUrl'                => 'PushUrl',
-        'liveUrl'                => 'LiveUrl',
-        'pluginInstanceInfoList' => 'PluginInstanceInfoList',
-        'extension'              => 'Extension',
         'anchorNick'             => 'AnchorNick',
+        'appId'                  => 'AppId',
+        'artcInfo'               => 'ArtcInfo',
+        'chatId'                 => 'ChatId',
+        'coverUrl'               => 'CoverUrl',
+        'extension'              => 'Extension',
+        'hlsUrl'                 => 'HlsUrl',
+        'liveId'                 => 'LiveId',
+        'liveUrl'                => 'LiveUrl',
+        'notice'                 => 'Notice',
+        'playbackUrl'            => 'PlaybackUrl',
+        'pluginInstanceInfoList' => 'PluginInstanceInfoList',
+        'pushUrl'                => 'PushUrl',
+        'roomId'                 => 'RoomId',
+        'title'                  => 'Title',
     ];
 
     public function validate()
@@ -130,38 +147,41 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->anchorId) {
+            $res['AnchorId'] = $this->anchorId;
+        }
+        if (null !== $this->anchorNick) {
+            $res['AnchorNick'] = $this->anchorNick;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->roomId) {
-            $res['RoomId'] = $this->roomId;
-        }
-        if (null !== $this->liveId) {
-            $res['LiveId'] = $this->liveId;
+        if (null !== $this->artcInfo) {
+            $res['ArtcInfo'] = null !== $this->artcInfo ? $this->artcInfo->toMap() : null;
         }
         if (null !== $this->chatId) {
             $res['ChatId'] = $this->chatId;
         }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->coverUrl) {
+            $res['CoverUrl'] = $this->coverUrl;
+        }
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
+        }
+        if (null !== $this->hlsUrl) {
+            $res['HlsUrl'] = $this->hlsUrl;
+        }
+        if (null !== $this->liveId) {
+            $res['LiveId'] = $this->liveId;
+        }
+        if (null !== $this->liveUrl) {
+            $res['LiveUrl'] = $this->liveUrl;
         }
         if (null !== $this->notice) {
             $res['Notice'] = $this->notice;
         }
-        if (null !== $this->coverUrl) {
-            $res['CoverUrl'] = $this->coverUrl;
-        }
-        if (null !== $this->anchorId) {
-            $res['AnchorId'] = $this->anchorId;
-        }
         if (null !== $this->playbackUrl) {
             $res['PlaybackUrl'] = $this->playbackUrl;
-        }
-        if (null !== $this->pushUrl) {
-            $res['PushUrl'] = $this->pushUrl;
-        }
-        if (null !== $this->liveUrl) {
-            $res['LiveUrl'] = $this->liveUrl;
         }
         if (null !== $this->pluginInstanceInfoList) {
             $res['PluginInstanceInfoList'] = [];
@@ -172,11 +192,14 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
+        if (null !== $this->pushUrl) {
+            $res['PushUrl'] = $this->pushUrl;
         }
-        if (null !== $this->anchorNick) {
-            $res['AnchorNick'] = $this->anchorNick;
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -190,38 +213,41 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnchorId'])) {
+            $model->anchorId = $map['AnchorId'];
+        }
+        if (isset($map['AnchorNick'])) {
+            $model->anchorNick = $map['AnchorNick'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
-        }
-        if (isset($map['LiveId'])) {
-            $model->liveId = $map['LiveId'];
+        if (isset($map['ArtcInfo'])) {
+            $model->artcInfo = artcInfo::fromMap($map['ArtcInfo']);
         }
         if (isset($map['ChatId'])) {
             $model->chatId = $map['ChatId'];
         }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['CoverUrl'])) {
+            $model->coverUrl = $map['CoverUrl'];
+        }
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
+        }
+        if (isset($map['HlsUrl'])) {
+            $model->hlsUrl = $map['HlsUrl'];
+        }
+        if (isset($map['LiveId'])) {
+            $model->liveId = $map['LiveId'];
+        }
+        if (isset($map['LiveUrl'])) {
+            $model->liveUrl = $map['LiveUrl'];
         }
         if (isset($map['Notice'])) {
             $model->notice = $map['Notice'];
         }
-        if (isset($map['CoverUrl'])) {
-            $model->coverUrl = $map['CoverUrl'];
-        }
-        if (isset($map['AnchorId'])) {
-            $model->anchorId = $map['AnchorId'];
-        }
         if (isset($map['PlaybackUrl'])) {
             $model->playbackUrl = $map['PlaybackUrl'];
-        }
-        if (isset($map['PushUrl'])) {
-            $model->pushUrl = $map['PushUrl'];
-        }
-        if (isset($map['LiveUrl'])) {
-            $model->liveUrl = $map['LiveUrl'];
         }
         if (isset($map['PluginInstanceInfoList'])) {
             if (!empty($map['PluginInstanceInfoList'])) {
@@ -232,11 +258,14 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
+        if (isset($map['PushUrl'])) {
+            $model->pushUrl = $map['PushUrl'];
         }
-        if (isset($map['AnchorNick'])) {
-            $model->anchorNick = $map['AnchorNick'];
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

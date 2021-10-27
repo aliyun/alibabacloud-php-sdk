@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class conferenceUserList extends Model
 {
     /**
-     * @description 用户ID。
-     *
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @description 用户状态。
      *
      * @var string
      */
     public $status;
+
+    /**
+     * @description 用户ID。
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'userId' => 'UserId',
         'status' => 'Status',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class conferenceUserList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class conferenceUserList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

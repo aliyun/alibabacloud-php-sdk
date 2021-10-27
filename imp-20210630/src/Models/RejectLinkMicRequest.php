@@ -16,22 +16,22 @@ class RejectLinkMicRequest extends Model
     public $conferenceId;
 
     /**
-     * @description 被同意用户ID
-     *
-     * @var string
-     */
-    public $toUserId;
-
-    /**
      * @description 同意者用户ID
      *
      * @var string
      */
     public $fromUserId;
+
+    /**
+     * @description 被同意用户ID
+     *
+     * @var string
+     */
+    public $toUserId;
     protected $_name = [
         'conferenceId' => 'ConferenceId',
-        'toUserId'     => 'ToUserId',
         'fromUserId'   => 'FromUserId',
+        'toUserId'     => 'ToUserId',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class RejectLinkMicRequest extends Model
         if (null !== $this->conferenceId) {
             $res['ConferenceId'] = $this->conferenceId;
         }
-        if (null !== $this->toUserId) {
-            $res['ToUserId'] = $this->toUserId;
-        }
         if (null !== $this->fromUserId) {
             $res['FromUserId'] = $this->fromUserId;
+        }
+        if (null !== $this->toUserId) {
+            $res['ToUserId'] = $this->toUserId;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class RejectLinkMicRequest extends Model
         if (isset($map['ConferenceId'])) {
             $model->conferenceId = $map['ConferenceId'];
         }
-        if (isset($map['ToUserId'])) {
-            $model->toUserId = $map['ToUserId'];
-        }
         if (isset($map['FromUserId'])) {
             $model->fromUserId = $map['FromUserId'];
+        }
+        if (isset($map['ToUserId'])) {
+            $model->toUserId = $map['ToUserId'];
         }
 
         return $model;

@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class componentCategory extends Model
 {
     /**
-     * @description 组件类别
-     *
-     * @var string
-     */
-    public $type;
-
-    /**
      * @description 类别下的组件列表
      *
      * @var list_[]
      */
     public $list;
+
+    /**
+     * @description 组件类别
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type' => 'Type',
         'list' => 'List',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -34,9 +34,6 @@ class componentCategory extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->list) {
             $res['List'] = [];
             if (null !== $this->list && \is_array($this->list)) {
@@ -45,6 +42,9 @@ class componentCategory extends Model
                     $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -58,9 +58,6 @@ class componentCategory extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
@@ -69,6 +66,9 @@ class componentCategory extends Model
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

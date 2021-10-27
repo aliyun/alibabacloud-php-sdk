@@ -16,22 +16,22 @@ class SendCustomMessageToAllRequest extends Model
     public $appId;
 
     /**
-     * @description 房间唯一标识，由调用CreateRoom返回。
-     *
-     * @var string
-     */
-    public $roomId;
-
-    /**
      * @description 消息体内容。
      *
      * @var string
      */
     public $body;
+
+    /**
+     * @description 房间唯一标识，由调用CreateRoom返回。
+     *
+     * @var string
+     */
+    public $roomId;
     protected $_name = [
         'appId'  => 'AppId',
-        'roomId' => 'RoomId',
         'body'   => 'Body',
+        'roomId' => 'RoomId',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class SendCustomMessageToAllRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->roomId) {
-            $res['RoomId'] = $this->roomId;
-        }
         if (null !== $this->body) {
             $res['Body'] = $this->body;
+        }
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class SendCustomMessageToAllRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
-        }
         if (isset($map['Body'])) {
             $model->body = $map['Body'];
+        }
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
         }
 
         return $model;

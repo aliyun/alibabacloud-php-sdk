@@ -23,23 +23,23 @@ class CreateConferenceRequest extends Model
     public $roomId;
 
     /**
-     * @description 创建会议用户。
-     *
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @description 会议标题，支持中英文，最大长度256位。
      *
      * @var string
      */
     public $title;
+
+    /**
+     * @description 创建会议用户。
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'appId'  => 'AppId',
         'roomId' => 'RoomId',
-        'userId' => 'UserId',
         'title'  => 'Title',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -55,11 +55,11 @@ class CreateConferenceRequest extends Model
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -79,11 +79,11 @@ class CreateConferenceRequest extends Model
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

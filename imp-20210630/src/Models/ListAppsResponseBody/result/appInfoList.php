@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class appInfoList extends Model
 {
     /**
+     * @description 应用配置状态
+     *
+     * @var string
+     */
+    public $appConfigStatus;
+
+    /**
      * @description 应用唯一标识符
      *
      * @var string
@@ -16,11 +23,25 @@ class appInfoList extends Model
     public $appId;
 
     /**
+     * @description 应用Key
+     *
+     * @var string
+     */
+    public $appKey;
+
+    /**
      * @description 应用名称
      *
      * @var string
      */
     public $appName;
+
+    /**
+     * @description 应用状态
+     *
+     * @var string
+     */
+    public $appStatus;
 
     /**
      * @description 模板唯一标识
@@ -37,25 +58,11 @@ class appInfoList extends Model
     public $appTemplateName;
 
     /**
-     * @description 应用Key
+     * @description 应用组件列表
      *
-     * @var string
+     * @var string[]
      */
-    public $appKey;
-
-    /**
-     * @description 应用状态
-     *
-     * @var string
-     */
-    public $appStatus;
-
-    /**
-     * @description 应用配置状态
-     *
-     * @var string
-     */
-    public $appConfigStatus;
+    public $componentList;
 
     /**
      * @description 应用创建时间
@@ -77,25 +84,18 @@ class appInfoList extends Model
      * @var string
      */
     public $standardRoomInfo;
-
-    /**
-     * @description 应用组件列表
-     *
-     * @var string[]
-     */
-    public $componentList;
     protected $_name = [
+        'appConfigStatus'  => 'AppConfigStatus',
         'appId'            => 'AppId',
+        'appKey'           => 'AppKey',
         'appName'          => 'AppName',
+        'appStatus'        => 'AppStatus',
         'appTemplateId'    => 'AppTemplateId',
         'appTemplateName'  => 'AppTemplateName',
-        'appKey'           => 'AppKey',
-        'appStatus'        => 'AppStatus',
-        'appConfigStatus'  => 'AppConfigStatus',
+        'componentList'    => 'ComponentList',
         'createTime'       => 'CreateTime',
         'integrationMode'  => 'IntegrationMode',
         'standardRoomInfo' => 'StandardRoomInfo',
-        'componentList'    => 'ComponentList',
     ];
 
     public function validate()
@@ -105,11 +105,20 @@ class appInfoList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appConfigStatus) {
+            $res['AppConfigStatus'] = $this->appConfigStatus;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->appKey) {
+            $res['AppKey'] = $this->appKey;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->appStatus) {
+            $res['AppStatus'] = $this->appStatus;
         }
         if (null !== $this->appTemplateId) {
             $res['AppTemplateId'] = $this->appTemplateId;
@@ -117,14 +126,8 @@ class appInfoList extends Model
         if (null !== $this->appTemplateName) {
             $res['AppTemplateName'] = $this->appTemplateName;
         }
-        if (null !== $this->appKey) {
-            $res['AppKey'] = $this->appKey;
-        }
-        if (null !== $this->appStatus) {
-            $res['AppStatus'] = $this->appStatus;
-        }
-        if (null !== $this->appConfigStatus) {
-            $res['AppConfigStatus'] = $this->appConfigStatus;
+        if (null !== $this->componentList) {
+            $res['ComponentList'] = $this->componentList;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -134,9 +137,6 @@ class appInfoList extends Model
         }
         if (null !== $this->standardRoomInfo) {
             $res['StandardRoomInfo'] = $this->standardRoomInfo;
-        }
-        if (null !== $this->componentList) {
-            $res['ComponentList'] = $this->componentList;
         }
 
         return $res;
@@ -150,11 +150,20 @@ class appInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppConfigStatus'])) {
+            $model->appConfigStatus = $map['AppConfigStatus'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['AppKey'])) {
+            $model->appKey = $map['AppKey'];
+        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['AppStatus'])) {
+            $model->appStatus = $map['AppStatus'];
         }
         if (isset($map['AppTemplateId'])) {
             $model->appTemplateId = $map['AppTemplateId'];
@@ -162,14 +171,10 @@ class appInfoList extends Model
         if (isset($map['AppTemplateName'])) {
             $model->appTemplateName = $map['AppTemplateName'];
         }
-        if (isset($map['AppKey'])) {
-            $model->appKey = $map['AppKey'];
-        }
-        if (isset($map['AppStatus'])) {
-            $model->appStatus = $map['AppStatus'];
-        }
-        if (isset($map['AppConfigStatus'])) {
-            $model->appConfigStatus = $map['AppConfigStatus'];
+        if (isset($map['ComponentList'])) {
+            if (!empty($map['ComponentList'])) {
+                $model->componentList = $map['ComponentList'];
+            }
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -179,11 +184,6 @@ class appInfoList extends Model
         }
         if (isset($map['StandardRoomInfo'])) {
             $model->standardRoomInfo = $map['StandardRoomInfo'];
-        }
-        if (isset($map['ComponentList'])) {
-            if (!empty($map['ComponentList'])) {
-                $model->componentList = $map['ComponentList'];
-            }
         }
 
         return $model;

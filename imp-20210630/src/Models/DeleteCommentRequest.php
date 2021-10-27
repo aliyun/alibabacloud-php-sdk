@@ -16,6 +16,13 @@ class DeleteCommentRequest extends Model
     public $appId;
 
     /**
+     * @description 需要删除的弹幕id列表
+     *
+     * @var string[]
+     */
+    public $commentIdList;
+
+    /**
      * @description 直播间唯一标识，在调用CreateRoom返回。
      *
      * @var string
@@ -28,18 +35,11 @@ class DeleteCommentRequest extends Model
      * @var string
      */
     public $userId;
-
-    /**
-     * @description 需要删除的弹幕id列表
-     *
-     * @var string[]
-     */
-    public $commentIdList;
     protected $_name = [
         'appId'         => 'AppId',
+        'commentIdList' => 'CommentIdList',
         'roomId'        => 'RoomId',
         'userId'        => 'UserId',
-        'commentIdList' => 'CommentIdList',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class DeleteCommentRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->commentIdList) {
+            $res['CommentIdList'] = $this->commentIdList;
+        }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->commentIdList) {
-            $res['CommentIdList'] = $this->commentIdList;
         }
 
         return $res;
@@ -76,16 +76,16 @@ class DeleteCommentRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['CommentIdList'])) {
+            if (!empty($map['CommentIdList'])) {
+                $model->commentIdList = $map['CommentIdList'];
+            }
+        }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['CommentIdList'])) {
-            if (!empty($map['CommentIdList'])) {
-                $model->commentIdList = $map['CommentIdList'];
-            }
         }
 
         return $model;

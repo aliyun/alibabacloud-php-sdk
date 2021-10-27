@@ -16,6 +16,13 @@ class DeleteConferenceRequest extends Model
     public $appId;
 
     /**
+     * @description 会议资源的唯一标识ID
+     *
+     * @var string
+     */
+    public $conferenceId;
+
+    /**
      * @description 房间ID，最大长度36位
      *
      * @var string
@@ -28,18 +35,11 @@ class DeleteConferenceRequest extends Model
      * @var string
      */
     public $userId;
-
-    /**
-     * @description 会议资源的唯一标识ID
-     *
-     * @var string
-     */
-    public $conferenceId;
     protected $_name = [
         'appId'        => 'AppId',
+        'conferenceId' => 'ConferenceId',
         'roomId'       => 'RoomId',
         'userId'       => 'UserId',
-        'conferenceId' => 'ConferenceId',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class DeleteConferenceRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->conferenceId) {
+            $res['ConferenceId'] = $this->conferenceId;
+        }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->conferenceId) {
-            $res['ConferenceId'] = $this->conferenceId;
         }
 
         return $res;
@@ -76,14 +76,14 @@ class DeleteConferenceRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['ConferenceId'])) {
+            $model->conferenceId = $map['ConferenceId'];
+        }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['ConferenceId'])) {
-            $model->conferenceId = $map['ConferenceId'];
         }
 
         return $model;

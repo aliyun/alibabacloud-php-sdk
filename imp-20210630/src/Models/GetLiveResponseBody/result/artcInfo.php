@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class artcInfo extends Model
 {
     /**
-     * @description 源码地址
-     *
-     * @var string
-     */
-    public $artcUrl;
-
-    /**
      * @description 原画转码地址
      *
      * @var string
      */
     public $artcH5Url;
+
+    /**
+     * @description 源码地址
+     *
+     * @var string
+     */
+    public $artcUrl;
     protected $_name = [
-        'artcUrl'   => 'ArtcUrl',
         'artcH5Url' => 'ArtcH5Url',
+        'artcUrl'   => 'ArtcUrl',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class artcInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->artcUrl) {
-            $res['ArtcUrl'] = $this->artcUrl;
-        }
         if (null !== $this->artcH5Url) {
             $res['ArtcH5Url'] = $this->artcH5Url;
+        }
+        if (null !== $this->artcUrl) {
+            $res['ArtcUrl'] = $this->artcUrl;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class artcInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ArtcUrl'])) {
-            $model->artcUrl = $map['ArtcUrl'];
-        }
         if (isset($map['ArtcH5Url'])) {
             $model->artcH5Url = $map['ArtcH5Url'];
+        }
+        if (isset($map['ArtcUrl'])) {
+            $model->artcUrl = $map['ArtcUrl'];
         }
 
         return $model;

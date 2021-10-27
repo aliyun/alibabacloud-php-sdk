@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 总条目数
+     * @description 应用模板信息列表
      *
-     * @var int
+     * @var appTemplateInfoList[]
      */
-    public $totalCount;
+    public $appTemplateInfoList;
 
     /**
      * @description 总页数
@@ -24,15 +24,15 @@ class result extends Model
     public $pageTotal;
 
     /**
-     * @description 应用模板信息列表
+     * @description 总条目数
      *
-     * @var appTemplateInfoList[]
+     * @var int
      */
-    public $appTemplateInfoList;
+    public $totalCount;
     protected $_name = [
-        'totalCount'          => 'TotalCount',
-        'pageTotal'           => 'PageTotal',
         'appTemplateInfoList' => 'AppTemplateInfoList',
+        'pageTotal'           => 'PageTotal',
+        'totalCount'          => 'TotalCount',
     ];
 
     public function validate()
@@ -42,12 +42,6 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageTotal) {
-            $res['PageTotal'] = $this->pageTotal;
-        }
         if (null !== $this->appTemplateInfoList) {
             $res['AppTemplateInfoList'] = [];
             if (null !== $this->appTemplateInfoList && \is_array($this->appTemplateInfoList)) {
@@ -56,6 +50,12 @@ class result extends Model
                     $res['AppTemplateInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageTotal) {
+            $res['PageTotal'] = $this->pageTotal;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -69,12 +69,6 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageTotal'])) {
-            $model->pageTotal = $map['PageTotal'];
-        }
         if (isset($map['AppTemplateInfoList'])) {
             if (!empty($map['AppTemplateInfoList'])) {
                 $model->appTemplateInfoList = [];
@@ -83,6 +77,12 @@ class result extends Model
                     $model->appTemplateInfoList[$n++] = null !== $item ? appTemplateInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageTotal'])) {
+            $model->pageTotal = $map['PageTotal'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

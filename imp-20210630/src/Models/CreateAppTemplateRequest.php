@@ -16,11 +16,11 @@ class CreateAppTemplateRequest extends Model
     public $appTemplateName;
 
     /**
-     * @description 应用模板场景，电商business，课堂classroom
+     * @description 组件列表
      *
-     * @var string
+     * @var string[]
      */
-    public $scene;
+    public $componentList;
 
     /**
      * @description 集成方式（一体化SDK：paasSDK，样板间：standardRoom）
@@ -30,16 +30,16 @@ class CreateAppTemplateRequest extends Model
     public $integrationMode;
 
     /**
-     * @description 组件列表
+     * @description 应用模板场景，电商business，课堂classroom
      *
-     * @var string[]
+     * @var string
      */
-    public $componentList;
+    public $scene;
     protected $_name = [
         'appTemplateName' => 'AppTemplateName',
-        'scene'           => 'Scene',
-        'integrationMode' => 'IntegrationMode',
         'componentList'   => 'ComponentList',
+        'integrationMode' => 'IntegrationMode',
+        'scene'           => 'Scene',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class CreateAppTemplateRequest extends Model
         if (null !== $this->appTemplateName) {
             $res['AppTemplateName'] = $this->appTemplateName;
         }
-        if (null !== $this->scene) {
-            $res['Scene'] = $this->scene;
+        if (null !== $this->componentList) {
+            $res['ComponentList'] = $this->componentList;
         }
         if (null !== $this->integrationMode) {
             $res['IntegrationMode'] = $this->integrationMode;
         }
-        if (null !== $this->componentList) {
-            $res['ComponentList'] = $this->componentList;
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
         }
 
         return $res;
@@ -76,16 +76,16 @@ class CreateAppTemplateRequest extends Model
         if (isset($map['AppTemplateName'])) {
             $model->appTemplateName = $map['AppTemplateName'];
         }
-        if (isset($map['Scene'])) {
-            $model->scene = $map['Scene'];
-        }
-        if (isset($map['IntegrationMode'])) {
-            $model->integrationMode = $map['IntegrationMode'];
-        }
         if (isset($map['ComponentList'])) {
             if (!empty($map['ComponentList'])) {
                 $model->componentList = $map['ComponentList'];
             }
+        }
+        if (isset($map['IntegrationMode'])) {
+            $model->integrationMode = $map['IntegrationMode'];
+        }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
         }
 
         return $model;

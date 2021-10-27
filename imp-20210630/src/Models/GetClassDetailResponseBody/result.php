@@ -16,18 +16,11 @@ class result extends Model
     public $classId;
 
     /**
-     * @description 课堂标题。
+     * @description 连麦会议唯一标识。
      *
      * @var string
      */
-    public $title;
-
-    /**
-     * @description 创建人ID。
-     *
-     * @var string
-     */
-    public $createUserId;
+    public $confId;
 
     /**
      * @description 创建人昵称。
@@ -37,18 +30,11 @@ class result extends Model
     public $createNickname;
 
     /**
-     * @description 课堂状态，0:未开始 1:上课中 2:已下课。
+     * @description 创建人ID。
      *
-     * @var int
+     * @var string
      */
-    public $status;
-
-    /**
-     * @description 开始上课时间戳，毫秒。
-     *
-     * @var int
-     */
-    public $startTime;
+    public $createUserId;
 
     /**
      * @description 下课时间戳，毫秒。
@@ -58,13 +44,6 @@ class result extends Model
     public $endTime;
 
     /**
-     * @description 房间ID
-     *
-     * @var string
-     */
-    public $roomId;
-
-    /**
      * @description 直播的唯一标识ID。
      *
      * @var string
@@ -72,11 +51,32 @@ class result extends Model
     public $liveId;
 
     /**
-     * @description 连麦会议唯一标识。
+     * @description 房间ID
      *
      * @var string
      */
-    public $confId;
+    public $roomId;
+
+    /**
+     * @description 开始上课时间戳，毫秒。
+     *
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @description 课堂状态，0:未开始 1:上课中 2:已下课。
+     *
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @description 课堂标题。
+     *
+     * @var string
+     */
+    public $title;
 
     /**
      * @description 白板ID
@@ -93,15 +93,15 @@ class result extends Model
     public $whiteboardRecordId;
     protected $_name = [
         'classId'            => 'ClassId',
-        'title'              => 'Title',
-        'createUserId'       => 'CreateUserId',
-        'createNickname'     => 'CreateNickname',
-        'status'             => 'Status',
-        'startTime'          => 'StartTime',
-        'endTime'            => 'EndTime',
-        'roomId'             => 'RoomId',
-        'liveId'             => 'LiveId',
         'confId'             => 'ConfId',
+        'createNickname'     => 'CreateNickname',
+        'createUserId'       => 'CreateUserId',
+        'endTime'            => 'EndTime',
+        'liveId'             => 'LiveId',
+        'roomId'             => 'RoomId',
+        'startTime'          => 'StartTime',
+        'status'             => 'Status',
+        'title'              => 'Title',
         'whiteboardId'       => 'WhiteboardId',
         'whiteboardRecordId' => 'WhiteboardRecordId',
     ];
@@ -116,32 +116,32 @@ class result extends Model
         if (null !== $this->classId) {
             $res['ClassId'] = $this->classId;
         }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->createUserId) {
-            $res['CreateUserId'] = $this->createUserId;
+        if (null !== $this->confId) {
+            $res['ConfId'] = $this->confId;
         }
         if (null !== $this->createNickname) {
             $res['CreateNickname'] = $this->createNickname;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->createUserId) {
+            $res['CreateUserId'] = $this->createUserId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->roomId) {
-            $res['RoomId'] = $this->roomId;
-        }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
         }
-        if (null !== $this->confId) {
-            $res['ConfId'] = $this->confId;
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
         if (null !== $this->whiteboardId) {
             $res['WhiteboardId'] = $this->whiteboardId;
@@ -164,32 +164,32 @@ class result extends Model
         if (isset($map['ClassId'])) {
             $model->classId = $map['ClassId'];
         }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['CreateUserId'])) {
-            $model->createUserId = $map['CreateUserId'];
+        if (isset($map['ConfId'])) {
+            $model->confId = $map['ConfId'];
         }
         if (isset($map['CreateNickname'])) {
             $model->createNickname = $map['CreateNickname'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['CreateUserId'])) {
+            $model->createUserId = $map['CreateUserId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
-        }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
         }
-        if (isset($map['ConfId'])) {
-            $model->confId = $map['ConfId'];
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
         if (isset($map['WhiteboardId'])) {
             $model->whiteboardId = $map['WhiteboardId'];

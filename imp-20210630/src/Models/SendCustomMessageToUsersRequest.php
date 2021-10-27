@@ -16,13 +16,6 @@ class SendCustomMessageToUsersRequest extends Model
     public $appId;
 
     /**
-     * @description 房间唯一标识，由调用CreateRoom返回。
-     *
-     * @var string
-     */
-    public $roomId;
-
-    /**
      * @description 消息体内容。
      *
      * @var string
@@ -35,11 +28,18 @@ class SendCustomMessageToUsersRequest extends Model
      * @var string[]
      */
     public $receiverList;
+
+    /**
+     * @description 房间唯一标识，由调用CreateRoom返回。
+     *
+     * @var string
+     */
+    public $roomId;
     protected $_name = [
         'appId'        => 'AppId',
-        'roomId'       => 'RoomId',
         'body'         => 'Body',
         'receiverList' => 'ReceiverList',
+        'roomId'       => 'RoomId',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class SendCustomMessageToUsersRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->roomId) {
-            $res['RoomId'] = $this->roomId;
-        }
         if (null !== $this->body) {
             $res['Body'] = $this->body;
         }
         if (null !== $this->receiverList) {
             $res['ReceiverList'] = $this->receiverList;
+        }
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
         }
 
         return $res;
@@ -76,9 +76,6 @@ class SendCustomMessageToUsersRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
-        }
         if (isset($map['Body'])) {
             $model->body = $map['Body'];
         }
@@ -86,6 +83,9 @@ class SendCustomMessageToUsersRequest extends Model
             if (!empty($map['ReceiverList'])) {
                 $model->receiverList = $map['ReceiverList'];
             }
+        }
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
         }
 
         return $model;

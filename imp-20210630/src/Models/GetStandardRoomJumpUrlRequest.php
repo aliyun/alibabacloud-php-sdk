@@ -16,32 +16,11 @@ class GetStandardRoomJumpUrlRequest extends Model
     public $appId;
 
     /**
-     * @description 用户UserId,在AppId下单独唯一
-     *
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @description 终端设备类型,通过控制台创建和查询
      *
      * @var string
      */
     public $appKey;
-
-    /**
-     * @description 平台：win, mac, android, ios, web
-     *
-     * @var string
-     */
-    public $platform;
-
-    /**
-     * @description 业务类型：互动直播live，互动课堂class
-     *
-     * @var string
-     */
-    public $bizType;
 
     /**
      * @description 资源ID：根据业务类型来定，比如直播ID，课堂ID等
@@ -51,6 +30,27 @@ class GetStandardRoomJumpUrlRequest extends Model
     public $bizId;
 
     /**
+     * @description 业务类型：互动直播live，互动课堂class
+     *
+     * @var string
+     */
+    public $bizType;
+
+    /**
+     * @description 平台：win, mac, android, ios, web
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
+     * @description 用户UserId,在AppId下单独唯一
+     *
+     * @var string
+     */
+    public $userId;
+
+    /**
      * @description 用户昵称
      *
      * @var string
@@ -58,11 +58,11 @@ class GetStandardRoomJumpUrlRequest extends Model
     public $userNick;
     protected $_name = [
         'appId'    => 'AppId',
-        'userId'   => 'UserId',
         'appKey'   => 'AppKey',
-        'platform' => 'Platform',
-        'bizType'  => 'BizType',
         'bizId'    => 'BizId',
+        'bizType'  => 'BizType',
+        'platform' => 'Platform',
+        'userId'   => 'UserId',
         'userNick' => 'UserNick',
     ];
 
@@ -76,20 +76,20 @@ class GetStandardRoomJumpUrlRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
-        if (null !== $this->platform) {
-            $res['Platform'] = $this->platform;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
         if (null !== $this->userNick) {
             $res['UserNick'] = $this->userNick;
@@ -109,20 +109,20 @@ class GetStandardRoomJumpUrlRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
-        if (isset($map['Platform'])) {
-            $model->platform = $map['Platform'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
         if (isset($map['UserNick'])) {
             $model->userNick = $map['UserNick'];

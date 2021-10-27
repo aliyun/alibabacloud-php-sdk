@@ -21,9 +21,17 @@ class UpdateAppTemplateRequest extends Model
      * @var string
      */
     public $appTemplateName;
+
+    /**
+     * @description 组件列表
+     *
+     * @var string[]
+     */
+    public $componentList;
     protected $_name = [
         'appTemplateId'   => 'AppTemplateId',
         'appTemplateName' => 'AppTemplateName',
+        'componentList'   => 'ComponentList',
     ];
 
     public function validate()
@@ -38,6 +46,9 @@ class UpdateAppTemplateRequest extends Model
         }
         if (null !== $this->appTemplateName) {
             $res['AppTemplateName'] = $this->appTemplateName;
+        }
+        if (null !== $this->componentList) {
+            $res['ComponentList'] = $this->componentList;
         }
 
         return $res;
@@ -56,6 +67,11 @@ class UpdateAppTemplateRequest extends Model
         }
         if (isset($map['AppTemplateName'])) {
             $model->appTemplateName = $map['AppTemplateName'];
+        }
+        if (isset($map['ComponentList'])) {
+            if (!empty($map['ComponentList'])) {
+                $model->componentList = $map['ComponentList'];
+            }
         }
 
         return $model;

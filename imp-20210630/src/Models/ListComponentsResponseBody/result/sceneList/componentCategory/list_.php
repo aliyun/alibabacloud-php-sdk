@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description 组件类型
-     *
-     * @var string
-     */
-    public $componentType;
-
-    /**
      * @description 组件名称
      *
      * @var string
      */
     public $componentName;
+
+    /**
+     * @description 组件类型
+     *
+     * @var string
+     */
+    public $componentType;
 
     /**
      * @description 是否使用
@@ -29,8 +29,8 @@ class list_ extends Model
      */
     public $inUse;
     protected $_name = [
-        'componentType' => 'ComponentType',
         'componentName' => 'ComponentName',
+        'componentType' => 'ComponentType',
         'inUse'         => 'InUse',
     ];
 
@@ -41,11 +41,11 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->componentType) {
-            $res['ComponentType'] = $this->componentType;
-        }
         if (null !== $this->componentName) {
             $res['ComponentName'] = $this->componentName;
+        }
+        if (null !== $this->componentType) {
+            $res['ComponentType'] = $this->componentType;
         }
         if (null !== $this->inUse) {
             $res['InUse'] = $this->inUse;
@@ -62,11 +62,11 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ComponentType'])) {
-            $model->componentType = $map['ComponentType'];
-        }
         if (isset($map['ComponentName'])) {
             $model->componentName = $map['ComponentName'];
+        }
+        if (isset($map['ComponentType'])) {
+            $model->componentType = $map['ComponentType'];
         }
         if (isset($map['InUse'])) {
             $model->inUse = $map['InUse'];

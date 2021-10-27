@@ -16,20 +16,6 @@ class SendCommentRequest extends Model
     public $appId;
 
     /**
-     * @description 直播间唯一标识，在调用CreateRoom返回。
-     *
-     * @var string
-     */
-    public $roomId;
-
-    /**
-     * @description 弹幕发送者的用户ID，最大长度不超过32个字节。
-     *
-     * @var string
-     */
-    public $senderId;
-
-    /**
      * @description 发送的文本内容。最大的长度不超过256个字节。
      *
      * @var string
@@ -42,12 +28,26 @@ class SendCommentRequest extends Model
      * @var string[]
      */
     public $extension;
+
+    /**
+     * @description 直播间唯一标识，在调用CreateRoom返回。
+     *
+     * @var string
+     */
+    public $roomId;
+
+    /**
+     * @description 弹幕发送者的用户ID，最大长度不超过32个字节。
+     *
+     * @var string
+     */
+    public $senderId;
     protected $_name = [
         'appId'     => 'AppId',
-        'roomId'    => 'RoomId',
-        'senderId'  => 'SenderId',
         'content'   => 'Content',
         'extension' => 'Extension',
+        'roomId'    => 'RoomId',
+        'senderId'  => 'SenderId',
     ];
 
     public function validate()
@@ -60,17 +60,17 @@ class SendCommentRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->roomId) {
-            $res['RoomId'] = $this->roomId;
-        }
-        if (null !== $this->senderId) {
-            $res['SenderId'] = $this->senderId;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
+        }
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
+        }
+        if (null !== $this->senderId) {
+            $res['SenderId'] = $this->senderId;
         }
 
         return $res;
@@ -87,17 +87,17 @@ class SendCommentRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
-        }
-        if (isset($map['SenderId'])) {
-            $model->senderId = $map['SenderId'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
+        }
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
+        }
+        if (isset($map['SenderId'])) {
+            $model->senderId = $map['SenderId'];
         }
 
         return $model;

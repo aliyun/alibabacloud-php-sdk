@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class sceneList extends Model
 {
     /**
-     * @description 场景类别
-     *
-     * @var string
-     */
-    public $scene;
-
-    /**
      * @description 组件信息
      *
      * @var componentCategory[]
      */
     public $componentCategory;
+
+    /**
+     * @description 场景类别
+     *
+     * @var string
+     */
+    public $scene;
     protected $_name = [
-        'scene'             => 'Scene',
         'componentCategory' => 'ComponentCategory',
+        'scene'             => 'Scene',
     ];
 
     public function validate()
@@ -34,9 +34,6 @@ class sceneList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scene) {
-            $res['Scene'] = $this->scene;
-        }
         if (null !== $this->componentCategory) {
             $res['ComponentCategory'] = [];
             if (null !== $this->componentCategory && \is_array($this->componentCategory)) {
@@ -45,6 +42,9 @@ class sceneList extends Model
                     $res['ComponentCategory'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
         }
 
         return $res;
@@ -58,9 +58,6 @@ class sceneList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Scene'])) {
-            $model->scene = $map['Scene'];
-        }
         if (isset($map['ComponentCategory'])) {
             if (!empty($map['ComponentCategory'])) {
                 $model->componentCategory = [];
@@ -69,6 +66,9 @@ class sceneList extends Model
                     $model->componentCategory[$n++] = null !== $item ? componentCategory::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
         }
 
         return $model;

@@ -16,13 +16,6 @@ class GetAuthTokenRequest extends Model
     public $appId;
 
     /**
-     * @description 用户UserId,在AppId下单独唯一
-     *
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @description 终端设备类型,通过控制台创建和查询
      *
      * @var string
@@ -35,11 +28,18 @@ class GetAuthTokenRequest extends Model
      * @var string
      */
     public $deviceId;
+
+    /**
+     * @description 用户UserId,在AppId下单独唯一
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'appId'    => 'AppId',
-        'userId'   => 'UserId',
         'appKey'   => 'AppKey',
         'deviceId' => 'DeviceId',
+        'userId'   => 'UserId',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class GetAuthTokenRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -76,14 +76,14 @@ class GetAuthTokenRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

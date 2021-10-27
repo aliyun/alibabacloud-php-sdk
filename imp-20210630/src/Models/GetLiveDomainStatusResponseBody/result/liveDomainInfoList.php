@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class liveDomainInfoList extends Model
 {
     /**
-     * @description 直播域名
-     *
-     * @var string
-     */
-    public $domain;
-
-    /**
      * @description 直播域名CNAME
      *
      * @var string
      */
     public $cname;
+
+    /**
+     * @description 直播域名
+     *
+     * @var string
+     */
+    public $domain;
 
     /**
      * @description 直播域名状态
@@ -29,8 +29,8 @@ class liveDomainInfoList extends Model
      */
     public $status;
     protected $_name = [
-        'domain' => 'Domain',
         'cname'  => 'Cname',
+        'domain' => 'Domain',
         'status' => 'Status',
     ];
 
@@ -41,11 +41,11 @@ class liveDomainInfoList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -62,11 +62,11 @@ class liveDomainInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

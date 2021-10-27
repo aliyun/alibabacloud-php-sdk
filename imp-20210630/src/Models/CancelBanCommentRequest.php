@@ -16,6 +16,13 @@ class CancelBanCommentRequest extends Model
     public $appId;
 
     /**
+     * @description 取消禁言的用户唯一标识
+     *
+     * @var string
+     */
+    public $banCommentUser;
+
+    /**
      * @description 房间唯一标识，由调用CreateRoom返回。
      *
      * @var string
@@ -28,18 +35,11 @@ class CancelBanCommentRequest extends Model
      * @var string
      */
     public $userId;
-
-    /**
-     * @description 取消禁言的用户唯一标识
-     *
-     * @var string
-     */
-    public $banCommentUser;
     protected $_name = [
         'appId'          => 'AppId',
+        'banCommentUser' => 'BanCommentUser',
         'roomId'         => 'RoomId',
         'userId'         => 'UserId',
-        'banCommentUser' => 'BanCommentUser',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class CancelBanCommentRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->banCommentUser) {
+            $res['BanCommentUser'] = $this->banCommentUser;
+        }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->banCommentUser) {
-            $res['BanCommentUser'] = $this->banCommentUser;
         }
 
         return $res;
@@ -76,14 +76,14 @@ class CancelBanCommentRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['BanCommentUser'])) {
+            $model->banCommentUser = $map['BanCommentUser'];
+        }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['BanCommentUser'])) {
-            $model->banCommentUser = $map['BanCommentUser'];
         }
 
         return $model;

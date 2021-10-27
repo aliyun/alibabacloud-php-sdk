@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class appTemplateInfoList extends Model
 {
     /**
+     * @description 应用模板创建者
+     *
+     * @var string
+     */
+    public $appTemplateCreator;
+
+    /**
      * @description 应用模板唯一标识
      *
      * @var string
@@ -24,39 +31,11 @@ class appTemplateInfoList extends Model
     public $appTemplateName;
 
     /**
-     * @description 应用模板创建者
-     *
-     * @var string
-     */
-    public $appTemplateCreator;
-
-    /**
-     * @description 应用模板使用状态
-     *
-     * @var string
-     */
-    public $status;
-
-    /**
      * @description 组件列表
      *
      * @var string[]
      */
     public $componentList;
-
-    /**
-     * @description 创建时间
-     *
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @description SDK信息
-     *
-     * @var string
-     */
-    public $sdkInfo;
 
     /**
      * @description 配置列表
@@ -66,11 +45,11 @@ class appTemplateInfoList extends Model
     public $configList;
 
     /**
-     * @description 应用模板场景，电商business，课堂classroom
+     * @description 创建时间
      *
      * @var string
      */
-    public $scene;
+    public $createTime;
 
     /**
      * @description 集成方式：- 一体化SDK：paasSDK - 样板间：standardRoom
@@ -80,23 +59,44 @@ class appTemplateInfoList extends Model
     public $integrationMode;
 
     /**
+     * @description 应用模板场景，电商business，课堂classroom
+     *
+     * @var string
+     */
+    public $scene;
+
+    /**
+     * @description SDK信息
+     *
+     * @var string
+     */
+    public $sdkInfo;
+
+    /**
      * @description 样板间信息
      *
      * @var string
      */
     public $standardRoomInfo;
+
+    /**
+     * @description 应用模板使用状态
+     *
+     * @var string
+     */
+    public $status;
     protected $_name = [
+        'appTemplateCreator' => 'AppTemplateCreator',
         'appTemplateId'      => 'AppTemplateId',
         'appTemplateName'    => 'AppTemplateName',
-        'appTemplateCreator' => 'AppTemplateCreator',
-        'status'             => 'Status',
         'componentList'      => 'ComponentList',
-        'createTime'         => 'CreateTime',
-        'sdkInfo'            => 'SdkInfo',
         'configList'         => 'ConfigList',
-        'scene'              => 'Scene',
+        'createTime'         => 'CreateTime',
         'integrationMode'    => 'IntegrationMode',
+        'scene'              => 'Scene',
+        'sdkInfo'            => 'SdkInfo',
         'standardRoomInfo'   => 'StandardRoomInfo',
+        'status'             => 'Status',
     ];
 
     public function validate()
@@ -106,26 +106,17 @@ class appTemplateInfoList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appTemplateCreator) {
+            $res['AppTemplateCreator'] = $this->appTemplateCreator;
+        }
         if (null !== $this->appTemplateId) {
             $res['AppTemplateId'] = $this->appTemplateId;
         }
         if (null !== $this->appTemplateName) {
             $res['AppTemplateName'] = $this->appTemplateName;
         }
-        if (null !== $this->appTemplateCreator) {
-            $res['AppTemplateCreator'] = $this->appTemplateCreator;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->componentList) {
             $res['ComponentList'] = $this->componentList;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->sdkInfo) {
-            $res['SdkInfo'] = $this->sdkInfo;
         }
         if (null !== $this->configList) {
             $res['ConfigList'] = [];
@@ -136,14 +127,23 @@ class appTemplateInfoList extends Model
                 }
             }
         }
-        if (null !== $this->scene) {
-            $res['Scene'] = $this->scene;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->integrationMode) {
             $res['IntegrationMode'] = $this->integrationMode;
         }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
+        }
+        if (null !== $this->sdkInfo) {
+            $res['SdkInfo'] = $this->sdkInfo;
+        }
         if (null !== $this->standardRoomInfo) {
             $res['StandardRoomInfo'] = $this->standardRoomInfo;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -157,28 +157,19 @@ class appTemplateInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppTemplateCreator'])) {
+            $model->appTemplateCreator = $map['AppTemplateCreator'];
+        }
         if (isset($map['AppTemplateId'])) {
             $model->appTemplateId = $map['AppTemplateId'];
         }
         if (isset($map['AppTemplateName'])) {
             $model->appTemplateName = $map['AppTemplateName'];
         }
-        if (isset($map['AppTemplateCreator'])) {
-            $model->appTemplateCreator = $map['AppTemplateCreator'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['ComponentList'])) {
             if (!empty($map['ComponentList'])) {
                 $model->componentList = $map['ComponentList'];
             }
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['SdkInfo'])) {
-            $model->sdkInfo = $map['SdkInfo'];
         }
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
@@ -189,14 +180,23 @@ class appTemplateInfoList extends Model
                 }
             }
         }
-        if (isset($map['Scene'])) {
-            $model->scene = $map['Scene'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['IntegrationMode'])) {
             $model->integrationMode = $map['IntegrationMode'];
         }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
+        }
+        if (isset($map['SdkInfo'])) {
+            $model->sdkInfo = $map['SdkInfo'];
+        }
         if (isset($map['StandardRoomInfo'])) {
             $model->standardRoomInfo = $map['StandardRoomInfo'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 该应用的房间总数。
+     * @description 是否还有下一页房间列表。
      *
-     * @var int
+     * @var bool
      */
-    public $totalCount;
+    public $hasMore;
 
     /**
      * @description 该应用的房间总页数。
@@ -24,23 +24,23 @@ class result extends Model
     public $pageTotal;
 
     /**
-     * @description 是否还有下一页房间列表。
-     *
-     * @var bool
-     */
-    public $hasMore;
-
-    /**
      * @description 房间列表信息。
      *
      * @var roomInfoList[]
      */
     public $roomInfoList;
+
+    /**
+     * @description 该应用的房间总数。
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'   => 'TotalCount',
-        'pageTotal'    => 'PageTotal',
         'hasMore'      => 'HasMore',
+        'pageTotal'    => 'PageTotal',
         'roomInfoList' => 'RoomInfoList',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -50,14 +50,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->hasMore) {
+            $res['HasMore'] = $this->hasMore;
         }
         if (null !== $this->pageTotal) {
             $res['PageTotal'] = $this->pageTotal;
-        }
-        if (null !== $this->hasMore) {
-            $res['HasMore'] = $this->hasMore;
         }
         if (null !== $this->roomInfoList) {
             $res['RoomInfoList'] = [];
@@ -67,6 +64,9 @@ class result extends Model
                     $res['RoomInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -80,14 +80,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['HasMore'])) {
+            $model->hasMore = $map['HasMore'];
         }
         if (isset($map['PageTotal'])) {
             $model->pageTotal = $map['PageTotal'];
-        }
-        if (isset($map['HasMore'])) {
-            $model->hasMore = $map['HasMore'];
         }
         if (isset($map['RoomInfoList'])) {
             if (!empty($map['RoomInfoList'])) {
@@ -97,6 +94,9 @@ class result extends Model
                     $model->roomInfoList[$n++] = null !== $item ? roomInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
