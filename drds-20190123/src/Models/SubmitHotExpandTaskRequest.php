@@ -15,22 +15,17 @@ class SubmitHotExpandTaskRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
-
-    /**
-     * @var string
-     */
     public $dbName;
 
     /**
      * @var string
      */
-    public $taskName;
+    public $drdsInstanceId;
 
     /**
-     * @var string
+     * @var extendedMapping[]
      */
-    public $taskDesc;
+    public $extendedMapping;
 
     /**
      * @var instanceDbMapping[]
@@ -48,18 +43,23 @@ class SubmitHotExpandTaskRequest extends Model
     public $supperAccountMapping;
 
     /**
-     * @var extendedMapping[]
+     * @var string
      */
-    public $extendedMapping;
+    public $taskDesc;
+
+    /**
+     * @var string
+     */
+    public $taskName;
     protected $_name = [
-        'drdsInstanceId'       => 'DrdsInstanceId',
         'dbName'               => 'DbName',
-        'taskName'             => 'TaskName',
-        'taskDesc'             => 'TaskDesc',
+        'drdsInstanceId'       => 'DrdsInstanceId',
+        'extendedMapping'      => 'ExtendedMapping',
         'instanceDbMapping'    => 'InstanceDbMapping',
         'mapping'              => 'Mapping',
         'supperAccountMapping' => 'SupperAccountMapping',
-        'extendedMapping'      => 'ExtendedMapping',
+        'taskDesc'             => 'TaskDesc',
+        'taskName'             => 'TaskName',
     ];
 
     public function validate()
@@ -69,17 +69,20 @@ class SubmitHotExpandTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
-        if (null !== $this->taskDesc) {
-            $res['TaskDesc'] = $this->taskDesc;
+        if (null !== $this->extendedMapping) {
+            $res['ExtendedMapping'] = [];
+            if (null !== $this->extendedMapping && \is_array($this->extendedMapping)) {
+                $n = 0;
+                foreach ($this->extendedMapping as $item) {
+                    $res['ExtendedMapping'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->instanceDbMapping) {
             $res['InstanceDbMapping'] = [];
@@ -108,14 +111,11 @@ class SubmitHotExpandTaskRequest extends Model
                 }
             }
         }
-        if (null !== $this->extendedMapping) {
-            $res['ExtendedMapping'] = [];
-            if (null !== $this->extendedMapping && \is_array($this->extendedMapping)) {
-                $n = 0;
-                foreach ($this->extendedMapping as $item) {
-                    $res['ExtendedMapping'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->taskDesc) {
+            $res['TaskDesc'] = $this->taskDesc;
+        }
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
         }
 
         return $res;
@@ -129,17 +129,20 @@ class SubmitHotExpandTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
-        if (isset($map['TaskDesc'])) {
-            $model->taskDesc = $map['TaskDesc'];
+        if (isset($map['ExtendedMapping'])) {
+            if (!empty($map['ExtendedMapping'])) {
+                $model->extendedMapping = [];
+                $n                      = 0;
+                foreach ($map['ExtendedMapping'] as $item) {
+                    $model->extendedMapping[$n++] = null !== $item ? extendedMapping::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['InstanceDbMapping'])) {
             if (!empty($map['InstanceDbMapping'])) {
@@ -168,14 +171,11 @@ class SubmitHotExpandTaskRequest extends Model
                 }
             }
         }
-        if (isset($map['ExtendedMapping'])) {
-            if (!empty($map['ExtendedMapping'])) {
-                $model->extendedMapping = [];
-                $n                      = 0;
-                foreach ($map['ExtendedMapping'] as $item) {
-                    $model->extendedMapping[$n++] = null !== $item ? extendedMapping::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['TaskDesc'])) {
+            $model->taskDesc = $map['TaskDesc'];
+        }
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
         }
 
         return $model;

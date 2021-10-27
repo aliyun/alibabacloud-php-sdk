@@ -11,7 +11,12 @@ class db extends Model
     /**
      * @var string
      */
-    public $status;
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $dbInstType;
 
     /**
      * @var string
@@ -21,29 +26,24 @@ class db extends Model
     /**
      * @var string
      */
-    public $schema;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
     public $mode;
 
     /**
      * @var string
      */
-    public $dbInstType;
+    public $schema;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'     => 'Status',
-        'dbName'     => 'DbName',
-        'schema'     => 'Schema',
         'createTime' => 'CreateTime',
-        'mode'       => 'Mode',
         'dbInstType' => 'DbInstType',
+        'dbName'     => 'DbName',
+        'mode'       => 'Mode',
+        'schema'     => 'Schema',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class db extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->dbInstType) {
+            $res['DbInstType'] = $this->dbInstType;
         }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->schema) {
-            $res['Schema'] = $this->schema;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-        if (null !== $this->dbInstType) {
-            $res['DbInstType'] = $this->dbInstType;
+        if (null !== $this->schema) {
+            $res['Schema'] = $this->schema;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class db extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DbInstType'])) {
+            $model->dbInstType = $map['DbInstType'];
         }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['Schema'])) {
-            $model->schema = $map['Schema'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-        if (isset($map['DbInstType'])) {
-            $model->dbInstType = $map['DbInstType'];
+        if (isset($map['Schema'])) {
+            $model->schema = $map['Schema'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

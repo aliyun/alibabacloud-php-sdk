@@ -12,6 +12,11 @@ class vpcInfo extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $vpcId;
 
     /**
@@ -20,18 +25,13 @@ class vpcInfo extends Model
     public $vpcName;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var vswitchInfos
      */
     public $vswitchInfos;
     protected $_name = [
+        'regionId'     => 'RegionId',
         'vpcId'        => 'VpcId',
         'vpcName'      => 'VpcName',
-        'regionId'     => 'RegionId',
         'vswitchInfos' => 'VswitchInfos',
     ];
 
@@ -42,14 +42,14 @@ class vpcInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->vswitchInfos) {
             $res['VswitchInfos'] = null !== $this->vswitchInfos ? $this->vswitchInfos->toMap() : null;
@@ -66,14 +66,14 @@ class vpcInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['VswitchInfos'])) {
             $model->vswitchInfos = vswitchInfos::fromMap($map['VswitchInfos']);

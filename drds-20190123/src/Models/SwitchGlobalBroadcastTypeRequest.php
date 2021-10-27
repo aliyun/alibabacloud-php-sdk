@@ -11,7 +11,7 @@ class SwitchGlobalBroadcastTypeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $dbName;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class SwitchGlobalBroadcastTypeRequest extends Model
     /**
      * @var string
      */
-    public $dbName;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'drdsInstanceId' => 'DrdsInstanceId',
         'dbName'         => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SwitchGlobalBroadcastTypeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
         }
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
-        if (null !== $this->dbName) {
-            $res['DbName'] = $this->dbName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SwitchGlobalBroadcastTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
         }
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
-        if (isset($map['DbName'])) {
-            $model->dbName = $map['DbName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

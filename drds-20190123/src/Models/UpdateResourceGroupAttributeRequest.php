@@ -11,21 +11,21 @@ class UpdateResourceGroupAttributeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $drdsInstanceId;
 
     /**
      * @var string
      */
     public $newResourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'           => 'RegionId',
         'drdsInstanceId'     => 'DrdsInstanceId',
         'newResourceGroupId' => 'NewResourceGroupId',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateResourceGroupAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->newResourceGroupId) {
             $res['NewResourceGroupId'] = $this->newResourceGroupId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateResourceGroupAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['NewResourceGroupId'])) {
             $model->newResourceGroupId = $map['NewResourceGroupId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class SetupDrdsParamsRequest extends Model
 {
     /**
-     * @var string
+     * @var data[]
      */
-    public $regionId;
+    public $data;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class SetupDrdsParamsRequest extends Model
     public $paramLevel;
 
     /**
-     * @var data[]
+     * @var string
      */
-    public $data;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
+        'data'           => 'Data',
         'drdsInstanceId' => 'DrdsInstanceId',
         'paramLevel'     => 'ParamLevel',
-        'data'           => 'Data',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class SetupDrdsParamsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
-        if (null !== $this->paramLevel) {
-            $res['ParamLevel'] = $this->paramLevel;
-        }
         if (null !== $this->data) {
             $res['Data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -59,6 +50,15 @@ class SetupDrdsParamsRequest extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
+        }
+        if (null !== $this->paramLevel) {
+            $res['ParamLevel'] = $this->paramLevel;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class SetupDrdsParamsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
-        if (isset($map['ParamLevel'])) {
-            $model->paramLevel = $map['ParamLevel'];
-        }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
@@ -89,6 +80,15 @@ class SetupDrdsParamsRequest extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
+        }
+        if (isset($map['ParamLevel'])) {
+            $model->paramLevel = $map['ParamLevel'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

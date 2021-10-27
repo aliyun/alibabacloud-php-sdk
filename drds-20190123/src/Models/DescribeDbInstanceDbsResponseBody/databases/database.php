@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class database extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
      * @var string
      */
     public $dbName;
@@ -22,10 +17,15 @@ class database extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
         'dbName'      => 'DbName',
         'description' => 'Description',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class database extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class database extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

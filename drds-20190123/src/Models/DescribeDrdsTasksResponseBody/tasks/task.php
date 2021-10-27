@@ -11,21 +11,21 @@ class task extends Model
     /**
      * @var string
      */
-    public $state;
-
-    /**
-     * @var string
-     */
     public $content;
 
     /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
-        'state'   => 'State',
         'content' => 'Content',
         'id'      => 'Id',
+        'state'   => 'State',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class task extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class task extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

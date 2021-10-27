@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstanceDbMonitorResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var data[]
      */
-    public $success;
+    public $data;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeDrdsInstanceDbMonitorResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data[]
+     * @var bool
      */
-    public $data;
+    public $success;
     protected $_name = [
-        'success'   => 'Success',
-        'requestId' => 'RequestId',
         'data'      => 'Data',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeDrdsInstanceDbMonitorResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->data) {
             $res['Data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -50,6 +44,12 @@ class DescribeDrdsInstanceDbMonitorResponseBody extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeDrdsInstanceDbMonitorResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
@@ -77,6 +71,12 @@ class DescribeDrdsInstanceDbMonitorResponseBody extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

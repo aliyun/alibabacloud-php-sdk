@@ -10,19 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeBroadcastTablesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var bool
      */
     public $isShard;
+
+    /**
+     * @var list_[]
+     */
+    public $list;
 
     /**
      * @var int
@@ -35,22 +30,27 @@ class DescribeBroadcastTablesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @var int
      */
     public $total;
-
-    /**
-     * @var list_[]
-     */
-    public $list;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
         'isShard'    => 'IsShard',
+        'list'       => 'List',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
         'total'      => 'Total',
-        'list'       => 'List',
     ];
 
     public function validate()
@@ -60,23 +60,8 @@ class DescribeBroadcastTablesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->isShard) {
             $res['IsShard'] = $this->isShard;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
         }
         if (null !== $this->list) {
             $res['List'] = [];
@@ -86,6 +71,21 @@ class DescribeBroadcastTablesResponseBody extends Model
                     $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -99,23 +99,8 @@ class DescribeBroadcastTablesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['IsShard'])) {
             $model->isShard = $map['IsShard'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
         }
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
@@ -125,6 +110,21 @@ class DescribeBroadcastTablesResponseBody extends Model
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

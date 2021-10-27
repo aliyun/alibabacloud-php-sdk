@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDbRdsNameListResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var instanceNameList
      */
-    public $success;
+    public $instanceNameList;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeDrdsDbRdsNameListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var instanceNameList
+     * @var bool
      */
-    public $instanceNameList;
+    public $success;
     protected $_name = [
-        'success'          => 'Success',
-        'requestId'        => 'RequestId',
         'instanceNameList' => 'InstanceNameList',
+        'requestId'        => 'RequestId',
+        'success'          => 'Success',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeDrdsDbRdsNameListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->instanceNameList) {
+            $res['InstanceNameList'] = null !== $this->instanceNameList ? $this->instanceNameList->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->instanceNameList) {
-            $res['InstanceNameList'] = null !== $this->instanceNameList ? $this->instanceNameList->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeDrdsDbRdsNameListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['InstanceNameList'])) {
+            $model->instanceNameList = instanceNameList::fromMap($map['InstanceNameList']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['InstanceNameList'])) {
-            $model->instanceNameList = instanceNameList::fromMap($map['InstanceNameList']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePreCheckResultResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var preCheckResult
      */
-    public $success;
+    public $preCheckResult;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribePreCheckResultResponseBody extends Model
     public $requestId;
 
     /**
-     * @var preCheckResult
+     * @var bool
      */
-    public $preCheckResult;
+    public $success;
     protected $_name = [
-        'success'        => 'Success',
-        'requestId'      => 'RequestId',
         'preCheckResult' => 'PreCheckResult',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribePreCheckResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->preCheckResult) {
+            $res['PreCheckResult'] = null !== $this->preCheckResult ? $this->preCheckResult->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->preCheckResult) {
-            $res['PreCheckResult'] = null !== $this->preCheckResult ? $this->preCheckResult->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribePreCheckResultResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['PreCheckResult'])) {
+            $model->preCheckResult = preCheckResult::fromMap($map['PreCheckResult']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PreCheckResult'])) {
-            $model->preCheckResult = preCheckResult::fromMap($map['PreCheckResult']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

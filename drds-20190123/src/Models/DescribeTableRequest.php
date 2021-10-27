@@ -11,7 +11,7 @@ class DescribeTableRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $dbName;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class DescribeTableRequest extends Model
     /**
      * @var string
      */
-    public $dbName;
+    public $regionId;
 
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'drdsInstanceId' => 'DrdsInstanceId',
         'dbName'         => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
+        'regionId'       => 'RegionId',
         'tableName'      => 'TableName',
     ];
 
@@ -41,14 +41,14 @@ class DescribeTableRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
         }
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
-        if (null !== $this->dbName) {
-            $res['DbName'] = $this->dbName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
@@ -65,14 +65,14 @@ class DescribeTableRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
         }
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
-        if (isset($map['DbName'])) {
-            $model->dbName = $map['DbName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];

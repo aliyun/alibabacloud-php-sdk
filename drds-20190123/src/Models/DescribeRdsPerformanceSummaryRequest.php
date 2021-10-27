@@ -11,21 +11,21 @@ class DescribeRdsPerformanceSummaryRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $drdsInstanceId;
 
     /**
      * @var string[]
      */
     public $rdsInstanceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
         'drdsInstanceId' => 'DrdsInstanceId',
         'rdsInstanceId'  => 'RdsInstanceId',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeRdsPerformanceSummaryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->rdsInstanceId) {
             $res['RdsInstanceId'] = $this->rdsInstanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,9 +56,6 @@ class DescribeRdsPerformanceSummaryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
@@ -66,6 +63,9 @@ class DescribeRdsPerformanceSummaryRequest extends Model
             if (!empty($map['RdsInstanceId'])) {
                 $model->rdsInstanceId = $map['RdsInstanceId'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -12,27 +12,27 @@ class CreateInstanceAccountRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
-
-    /**
-     * @var string
-     */
     public $accountName;
-
-    /**
-     * @var string
-     */
-    public $password;
 
     /**
      * @var dbPrivilege[]
      */
     public $dbPrivilege;
+
+    /**
+     * @var string
+     */
+    public $drdsInstanceId;
+
+    /**
+     * @var string
+     */
+    public $password;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'accountName'    => 'AccountName',
-        'password'       => 'Password',
         'dbPrivilege'    => 'DbPrivilege',
+        'drdsInstanceId' => 'DrdsInstanceId',
+        'password'       => 'Password',
     ];
 
     public function validate()
@@ -42,14 +42,8 @@ class CreateInstanceAccountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
-        }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
         }
         if (null !== $this->dbPrivilege) {
             $res['DbPrivilege'] = [];
@@ -59,6 +53,12 @@ class CreateInstanceAccountRequest extends Model
                     $res['DbPrivilege'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
+        }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
         }
 
         return $res;
@@ -72,14 +72,8 @@ class CreateInstanceAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
-        }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
         }
         if (isset($map['DbPrivilege'])) {
             if (!empty($map['DbPrivilege'])) {
@@ -89,6 +83,12 @@ class CreateInstanceAccountRequest extends Model
                     $model->dbPrivilege[$n++] = null !== $item ? dbPrivilege::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
+        }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
         }
 
         return $model;

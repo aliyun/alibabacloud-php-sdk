@@ -11,12 +11,7 @@ class PutStartBackupRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
-
-    /**
-     * @var string
-     */
-    public $backupMode;
+    public $backupDbNames;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class PutStartBackupRequest extends Model
     /**
      * @var string
      */
-    public $backupDbNames;
+    public $backupMode;
+
+    /**
+     * @var string
+     */
+    public $drdsInstanceId;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
-        'backupMode'     => 'BackupMode',
-        'backupLevel'    => 'BackupLevel',
         'backupDbNames'  => 'BackupDbNames',
+        'backupLevel'    => 'BackupLevel',
+        'backupMode'     => 'BackupMode',
+        'drdsInstanceId' => 'DrdsInstanceId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class PutStartBackupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
-        if (null !== $this->backupMode) {
-            $res['BackupMode'] = $this->backupMode;
+        if (null !== $this->backupDbNames) {
+            $res['BackupDbNames'] = $this->backupDbNames;
         }
         if (null !== $this->backupLevel) {
             $res['BackupLevel'] = $this->backupLevel;
         }
-        if (null !== $this->backupDbNames) {
-            $res['BackupDbNames'] = $this->backupDbNames;
+        if (null !== $this->backupMode) {
+            $res['BackupMode'] = $this->backupMode;
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class PutStartBackupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
-        if (isset($map['BackupMode'])) {
-            $model->backupMode = $map['BackupMode'];
+        if (isset($map['BackupDbNames'])) {
+            $model->backupDbNames = $map['BackupDbNames'];
         }
         if (isset($map['BackupLevel'])) {
             $model->backupLevel = $map['BackupLevel'];
         }
-        if (isset($map['BackupDbNames'])) {
-            $model->backupDbNames = $map['BackupDbNames'];
+        if (isset($map['BackupMode'])) {
+            $model->backupMode = $map['BackupMode'];
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
 
         return $model;

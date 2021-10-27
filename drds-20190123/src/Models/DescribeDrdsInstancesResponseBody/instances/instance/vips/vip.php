@@ -11,17 +11,7 @@ class vip extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $vswitchId;
+    public $IP;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class vip extends Model
     /**
      * @var string
      */
-    public $IP;
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $vswitchId;
     protected $_name = [
-        'vpcId'     => 'VpcId',
-        'type'      => 'Type',
-        'vswitchId' => 'VswitchId',
-        'port'      => 'Port',
         'IP'        => 'IP',
+        'port'      => 'Port',
+        'type'      => 'Type',
+        'vpcId'     => 'VpcId',
+        'vswitchId' => 'VswitchId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class vip extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->vswitchId) {
-            $res['VswitchId'] = $this->vswitchId;
+        if (null !== $this->IP) {
+            $res['IP'] = $this->IP;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->IP) {
-            $res['IP'] = $this->IP;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vswitchId) {
+            $res['VswitchId'] = $this->vswitchId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class vip extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['VswitchId'])) {
-            $model->vswitchId = $map['VswitchId'];
+        if (isset($map['IP'])) {
+            $model->IP = $map['IP'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['IP'])) {
-            $model->IP = $map['IP'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VswitchId'])) {
+            $model->vswitchId = $map['VswitchId'];
         }
 
         return $model;

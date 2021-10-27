@@ -11,17 +11,12 @@ class SubmitSqlFlashbackTaskRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
-
-    /**
-     * @var string
-     */
     public $dbName;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $drdsInstanceId;
 
     /**
      * @var string
@@ -29,14 +24,19 @@ class SubmitSqlFlashbackTaskRequest extends Model
     public $endTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $traceId;
+    public $recallRestoreType;
+
+    /**
+     * @var int
+     */
+    public $recallType;
 
     /**
      * @var string
      */
-    public $tableName;
+    public $sqlPk;
 
     /**
      * @var string
@@ -46,28 +46,28 @@ class SubmitSqlFlashbackTaskRequest extends Model
     /**
      * @var string
      */
-    public $sqlPk;
+    public $startTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $recallType;
+    public $tableName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $recallRestoreType;
+    public $traceId;
     protected $_name = [
-        'drdsInstanceId'    => 'DrdsInstanceId',
         'dbName'            => 'DbName',
-        'startTime'         => 'StartTime',
+        'drdsInstanceId'    => 'DrdsInstanceId',
         'endTime'           => 'EndTime',
-        'traceId'           => 'TraceId',
-        'tableName'         => 'TableName',
-        'sqlType'           => 'SqlType',
-        'sqlPk'             => 'SqlPk',
-        'recallType'        => 'RecallType',
         'recallRestoreType' => 'RecallRestoreType',
+        'recallType'        => 'RecallType',
+        'sqlPk'             => 'SqlPk',
+        'sqlType'           => 'SqlType',
+        'startTime'         => 'StartTime',
+        'tableName'         => 'TableName',
+        'traceId'           => 'TraceId',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class SubmitSqlFlashbackTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->traceId) {
-            $res['TraceId'] = $this->traceId;
-        }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->sqlType) {
-            $res['SqlType'] = $this->sqlType;
-        }
-        if (null !== $this->sqlPk) {
-            $res['SqlPk'] = $this->sqlPk;
+        if (null !== $this->recallRestoreType) {
+            $res['RecallRestoreType'] = $this->recallRestoreType;
         }
         if (null !== $this->recallType) {
             $res['RecallType'] = $this->recallType;
         }
-        if (null !== $this->recallRestoreType) {
-            $res['RecallRestoreType'] = $this->recallRestoreType;
+        if (null !== $this->sqlPk) {
+            $res['SqlPk'] = $this->sqlPk;
+        }
+        if (null !== $this->sqlType) {
+            $res['SqlType'] = $this->sqlType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
+        if (null !== $this->traceId) {
+            $res['TraceId'] = $this->traceId;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class SubmitSqlFlashbackTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['TraceId'])) {
-            $model->traceId = $map['TraceId'];
-        }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
-        if (isset($map['SqlType'])) {
-            $model->sqlType = $map['SqlType'];
-        }
-        if (isset($map['SqlPk'])) {
-            $model->sqlPk = $map['SqlPk'];
+        if (isset($map['RecallRestoreType'])) {
+            $model->recallRestoreType = $map['RecallRestoreType'];
         }
         if (isset($map['RecallType'])) {
             $model->recallType = $map['RecallType'];
         }
-        if (isset($map['RecallRestoreType'])) {
-            $model->recallRestoreType = $map['RecallRestoreType'];
+        if (isset($map['SqlPk'])) {
+            $model->sqlPk = $map['SqlPk'];
+        }
+        if (isset($map['SqlType'])) {
+            $model->sqlType = $map['SqlType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
+        if (isset($map['TraceId'])) {
+            $model->traceId = $map['TraceId'];
         }
 
         return $model;

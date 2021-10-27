@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $randomCode;
-
-    /**
      * @var list_
      */
     public $list;
+
+    /**
+     * @var string
+     */
+    public $randomCode;
     protected $_name = [
-        'randomCode' => 'RandomCode',
         'list'       => 'List',
+        'randomCode' => 'RandomCode',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->randomCode) {
-            $res['RandomCode'] = $this->randomCode;
-        }
         if (null !== $this->list) {
             $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+        }
+        if (null !== $this->randomCode) {
+            $res['RandomCode'] = $this->randomCode;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RandomCode'])) {
-            $model->randomCode = $map['RandomCode'];
-        }
         if (isset($map['List'])) {
             $model->list = list_::fromMap($map['List']);
+        }
+        if (isset($map['RandomCode'])) {
+            $model->randomCode = $map['RandomCode'];
         }
 
         return $model;

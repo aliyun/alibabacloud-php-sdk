@@ -11,12 +11,12 @@ class mapping extends Model
     /**
      * @var string
      */
-    public $hotDbName;
+    public $dbShardColumn;
 
     /**
      * @var string
      */
-    public $shardTbValue;
+    public $hotDbName;
 
     /**
      * @var string
@@ -26,30 +26,30 @@ class mapping extends Model
     /**
      * @var string
      */
+    public $logicTable;
+
+    /**
+     * @var string
+     */
     public $shardDbValue;
 
     /**
      * @var string
      */
+    public $shardTbValue;
+
+    /**
+     * @var string
+     */
     public $tbShardColumn;
-
-    /**
-     * @var string
-     */
-    public $dbShardColumn;
-
-    /**
-     * @var string
-     */
-    public $logicTable;
     protected $_name = [
-        'hotDbName'     => 'HotDbName',
-        'shardTbValue'  => 'ShardTbValue',
-        'hotTableName'  => 'HotTableName',
-        'shardDbValue'  => 'ShardDbValue',
-        'tbShardColumn' => 'TbShardColumn',
         'dbShardColumn' => 'DbShardColumn',
+        'hotDbName'     => 'HotDbName',
+        'hotTableName'  => 'HotTableName',
         'logicTable'    => 'LogicTable',
+        'shardDbValue'  => 'ShardDbValue',
+        'shardTbValue'  => 'ShardTbValue',
+        'tbShardColumn' => 'TbShardColumn',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class mapping extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dbShardColumn) {
+            $res['DbShardColumn'] = $this->dbShardColumn;
+        }
         if (null !== $this->hotDbName) {
             $res['HotDbName'] = $this->hotDbName;
-        }
-        if (null !== $this->shardTbValue) {
-            $res['ShardTbValue'] = $this->shardTbValue;
         }
         if (null !== $this->hotTableName) {
             $res['HotTableName'] = $this->hotTableName;
         }
+        if (null !== $this->logicTable) {
+            $res['LogicTable'] = $this->logicTable;
+        }
         if (null !== $this->shardDbValue) {
             $res['ShardDbValue'] = $this->shardDbValue;
         }
+        if (null !== $this->shardTbValue) {
+            $res['ShardTbValue'] = $this->shardTbValue;
+        }
         if (null !== $this->tbShardColumn) {
             $res['TbShardColumn'] = $this->tbShardColumn;
-        }
-        if (null !== $this->dbShardColumn) {
-            $res['DbShardColumn'] = $this->dbShardColumn;
-        }
-        if (null !== $this->logicTable) {
-            $res['LogicTable'] = $this->logicTable;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class mapping extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DbShardColumn'])) {
+            $model->dbShardColumn = $map['DbShardColumn'];
+        }
         if (isset($map['HotDbName'])) {
             $model->hotDbName = $map['HotDbName'];
-        }
-        if (isset($map['ShardTbValue'])) {
-            $model->shardTbValue = $map['ShardTbValue'];
         }
         if (isset($map['HotTableName'])) {
             $model->hotTableName = $map['HotTableName'];
         }
+        if (isset($map['LogicTable'])) {
+            $model->logicTable = $map['LogicTable'];
+        }
         if (isset($map['ShardDbValue'])) {
             $model->shardDbValue = $map['ShardDbValue'];
         }
+        if (isset($map['ShardTbValue'])) {
+            $model->shardTbValue = $map['ShardTbValue'];
+        }
         if (isset($map['TbShardColumn'])) {
             $model->tbShardColumn = $map['TbShardColumn'];
-        }
-        if (isset($map['DbShardColumn'])) {
-            $model->dbShardColumn = $map['DbShardColumn'];
-        }
-        if (isset($map['LogicTable'])) {
-            $model->logicTable = $map['LogicTable'];
         }
 
         return $model;

@@ -5,20 +5,64 @@
 namespace AlibabaCloud\SDK\Drds\V20190123;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeAccountPasswordRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeAccountPasswordResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeInstanceAzoneRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeInstanceAzoneResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeInstanceNetworkRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeInstanceNetworkResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CheckConnectivityRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CheckConnectivityResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CheckConnectivityShrinkRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CheckDrdsDbNameRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CheckDrdsDbNameResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CheckExpandStatusRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CheckExpandStatusResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CheckNewTableNameValidRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CheckNewTableNameValidResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CheckRdsSuperAccountRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CheckRdsSuperAccountResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CheckSqlAuditEnableStatusRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CheckSqlAuditEnableStatusResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ConfigureDrdsDbInstancesRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ConfigureDrdsDbInstancesResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataExportPreCheckTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataExportPreCheckTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataExportPreCheckTaskShrinkRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataExportTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataExportTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataExportTaskShrinkRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataImportPreCheckTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataImportPreCheckTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataImportPreCheckTaskShrinkRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataImportTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataImportTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateCustomDataImportTaskShrinkRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsDBPreCheckRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsDBPreCheckResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsDBPreviewRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsDBPreviewResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsDBRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsDBResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsInstanceRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsInstanceResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateEvaluateDataImportPreCheckTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateEvaluateDataImportPreCheckTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateEvaluateDataImportPreCheckTaskShrinkRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateEvaluateDataImportTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateEvaluateDataImportTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateEvaluateDataImportTaskShrinkRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateEvaluatePreCheckTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateEvaluatePreCheckTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateEvaluateTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateEvaluateTaskResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateInstanceAccountRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateInstanceAccountResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateInstanceInternetAddressRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateInstanceInternetAddressResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateMyCatEvaluateRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\CreateMyCatEvaluateResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateOrderForRdsRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateOrderForRdsResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateShardTaskRequest;
@@ -35,8 +79,30 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackupSetsRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackupSetsResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackupTimesRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackupTimesResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBatchEvaluateTaskReportRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBatchEvaluateTaskReportResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBroadcastTablesRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBroadcastTablesResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeCanExpandInstanceDetailListRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeCanExpandInstanceDetailListResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeCustomDataExportSrcDstTablesRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeCustomDataExportSrcDstTablesResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeCustomDataExportSrcDstTablesShrinkRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeCustomDataImportSrcDstTablesRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeCustomDataImportSrcDstTablesResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeCustomDataImportSrcDstTablesShrinkRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataExportPreCheckResultRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataExportPreCheckResultResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataExportTaskReportRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataExportTaskReportResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataExportTasksRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataExportTasksResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataImportPreCheckResultRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataImportPreCheckResultResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataImportTaskReportRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataImportTaskReportResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataImportTasksRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDataImportTasksResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDbInstanceDbsRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDbInstanceDbsResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDbInstancesRequest;
@@ -81,6 +147,15 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsSqlAuditStatusRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsSqlAuditStatusResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsTasksRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsTasksResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeEvaluateDataImportDbTopologysRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeEvaluateDataImportDbTopologysResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeEvaluateDataImportDbTopologysShrinkRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeEvaluatePreCheckResultRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeEvaluatePreCheckResultResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeEvaluateTaskReportRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeEvaluateTaskReportResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeEvaluateTasksRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeEvaluateTasksResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeExpandLogicTableInfoListRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeExpandLogicTableInfoListResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeHiStoreInstanceInfoRequest;
@@ -103,12 +178,26 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\DescribePreCheckResultRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribePreCheckResultResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsCommodityRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsCommodityResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsDrdsDBRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsDrdsDBResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsInstInfosRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsInstInfosResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRDSPerformanceRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRDSPerformanceResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsPerformanceSummaryRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsPerformanceSummaryResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsPriceRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsPriceResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsReadOnlyRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsReadOnlyResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsSuperAccountInstancesRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsSuperAccountInstancesResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsVpcForZoneRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRdsVpcForZoneResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRecycleBinStatusRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRecycleBinStatusResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRecycleBinTablesRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRecycleBinTablesResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeShardTaskInfoRequest;
@@ -117,42 +206,97 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeShardTaskListRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeShardTaskListResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeSqlFlashbakTaskRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeSqlFlashbakTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeSrcRdsListRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeSrcRdsListResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeTableListByTypeRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeTableListByTypeResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeTableRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeTableResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeTableShardingInfoRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeTableShardingInfoResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeTablesRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeTablesResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DisableSqlAuditRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DisableSqlAuditResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\EnableInstanceIpv6AddressRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\EnableInstanceIpv6AddressResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\EnableSqlAuditRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\EnableSqlAuditResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\EnableSqlFlashbackMatchSwitchRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\EnableSqlFlashbackMatchSwitchResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\FlashbackRecycleBinTableRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\FlashbackRecycleBinTableResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\GetBatchEvaluateTaskReportRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\GetBatchEvaluateTaskReportResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\GetDrdsDbRdsRelationInfoRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\GetDrdsDbRdsRelationInfoResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ListUserReportsRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ListUserReportsResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ListVersionsRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ListVersionsResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ManagePrivateRdsRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ManagePrivateRdsResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyAccountDescriptionRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyAccountDescriptionResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyAccountPrivilegeRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyDrdsInstanceDescriptionRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyDrdsInstanceDescriptionResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyDrdsIpWhiteListRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyDrdsIpWhiteListResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyEventTaskStatusRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyEventTaskStatusResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyPolarDbReadWeightRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyPolarDbReadWeightResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyRdsReadWeightRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyRdsReadWeightResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\MyCatConnectTestRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\MyCatConnectTestResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\MyCatCustomImportPreCheckRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\MyCatCustomImportPreCheckResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\MyCatCustomImportPreCheckShrinkRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\PreCheckModifyTableShardingKeyParamRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\PreCheckModifyTableShardingKeyParamResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\PrecheckMyCatEvaluateRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\PrecheckMyCatEvaluateResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\PreCheckSqlFlashbackTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\PreCheckSqlFlashbackTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\PutRestorePreCheckRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\PutRestorePreCheckResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\PutStartBackupRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\PutStartBackupResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RearrangeDbToInstanceRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RearrangeDbToInstanceResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RefreshDrdsAtomUrlRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RefreshDrdsAtomUrlResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ReleaseInstanceInternetAddressRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ReleaseInstanceInternetAddressResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveBackupsSetRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveBackupsSetResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDataExportTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDataExportTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDataImportTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDataImportTaskResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDrdsDbFailedRecordRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDrdsDbFailedRecordResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDrdsDbRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDrdsDbResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDrdsInstanceRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDrdsInstanceResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDrdsMysqlRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveDrdsMysqlResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveEvaluateTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveEvaluateTaskResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveInstanceAccountRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveInstanceAccountResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveRecycleBinTableRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RemoveRecycleBinTableResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RestartDrdsInstanceRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RestartDrdsInstanceResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RollbackInstanceVersionRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\RollbackInstanceVersionResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SetBackupLocalRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SetBackupLocalResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SetBackupPolicyRequest;
@@ -161,16 +305,36 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\SetupBroadcastTablesRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SetupBroadcastTablesResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SetupDrdsParamsRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SetupDrdsParamsResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SetupRecycleBinStatusRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SetupRecycleBinStatusResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SetupTableAsyncRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SetupTableAsyncResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SetupTableRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SetupTableResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SqlCompatibilityCancelRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SqlCompatibilityCancelResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SqlCompatibilityStartRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SqlCompatibilityStartResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\StartEvaluateTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\StartEvaluateTaskResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\StartRestoreRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\StartRestoreResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\StopDataExportTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\StopDataExportTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\StopDataImportTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\StopDataImportTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\StopEvaluateTaskRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\StopEvaluateTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitCleanTableShardingKeyModifyRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitCleanTableShardingKeyModifyResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitCleanTaskRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitCleanTaskResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitHotExpandPreCheckTaskRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitHotExpandPreCheckTaskResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitHotExpandTaskRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitHotExpandTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitRollbackShardingKeyModifyRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitRollbackShardingKeyModifyResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitSmoothExpandPreCheckRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitSmoothExpandPreCheckResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitSmoothExpandPreCheckTaskRequest;
@@ -179,8 +343,12 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitSmoothExpandTaskRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitSmoothExpandTaskResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitSqlFlashbackTaskRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitSqlFlashbackTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitSwitchTableShardingKeyModifyRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitSwitchTableShardingKeyModifyResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitSwitchTaskRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitSwitchTaskResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitTableShardingKeyModifyRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitTableShardingKeyModifyResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SwitchGlobalBroadcastTypeRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SwitchGlobalBroadcastTypeResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\TagResourcesRequest;
@@ -281,6 +449,123 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param ChangeAccountPasswordRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ChangeAccountPasswordResponse
+     */
+    public function changeAccountPasswordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ChangeAccountPasswordResponse::fromMap($this->doRPCRequest('ChangeAccountPassword', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ChangeAccountPasswordRequest $request
+     *
+     * @return ChangeAccountPasswordResponse
+     */
+    public function changeAccountPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeAccountPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeInstanceAzoneRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeInstanceAzoneResponse
+     */
+    public function changeInstanceAzoneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ChangeInstanceAzoneResponse::fromMap($this->doRPCRequest('ChangeInstanceAzone', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ChangeInstanceAzoneRequest $request
+     *
+     * @return ChangeInstanceAzoneResponse
+     */
+    public function changeInstanceAzone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeInstanceAzoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeInstanceNetworkRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ChangeInstanceNetworkResponse
+     */
+    public function changeInstanceNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ChangeInstanceNetworkResponse::fromMap($this->doRPCRequest('ChangeInstanceNetwork', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ChangeInstanceNetworkRequest $request
+     *
+     * @return ChangeInstanceNetworkResponse
+     */
+    public function changeInstanceNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeInstanceNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckConnectivityRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CheckConnectivityResponse
+     */
+    public function checkConnectivityWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CheckConnectivityShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dbInfo)) {
+            $request->dbInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dbInfo, 'DbInfo', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckConnectivityResponse::fromMap($this->doRPCRequest('CheckConnectivity', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckConnectivityRequest $request
+     *
+     * @return CheckConnectivityResponse
+     */
+    public function checkConnectivity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkConnectivityWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CheckDrdsDbNameRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -337,6 +622,62 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param CheckNewTableNameValidRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CheckNewTableNameValidResponse
+     */
+    public function checkNewTableNameValidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckNewTableNameValidResponse::fromMap($this->doRPCRequest('CheckNewTableNameValid', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckNewTableNameValidRequest $request
+     *
+     * @return CheckNewTableNameValidResponse
+     */
+    public function checkNewTableNameValid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkNewTableNameValidWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckRdsSuperAccountRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CheckRdsSuperAccountResponse
+     */
+    public function checkRdsSuperAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckRdsSuperAccountResponse::fromMap($this->doRPCRequest('CheckRdsSuperAccount', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckRdsSuperAccountRequest $request
+     *
+     * @return CheckRdsSuperAccountResponse
+     */
+    public function checkRdsSuperAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkRdsSuperAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CheckSqlAuditEnableStatusRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -362,6 +703,166 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkSqlAuditEnableStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfigureDrdsDbInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ConfigureDrdsDbInstancesResponse
+     */
+    public function configureDrdsDbInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ConfigureDrdsDbInstancesResponse::fromMap($this->doRPCRequest('ConfigureDrdsDbInstances', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ConfigureDrdsDbInstancesRequest $request
+     *
+     * @return ConfigureDrdsDbInstancesResponse
+     */
+    public function configureDrdsDbInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configureDrdsDbInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomDataExportPreCheckTaskRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateCustomDataExportPreCheckTaskResponse
+     */
+    public function createCustomDataExportPreCheckTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCustomDataExportPreCheckTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->exportParam)) {
+            $request->exportParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->exportParam, 'ExportParam', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateCustomDataExportPreCheckTaskResponse::fromMap($this->doRPCRequest('CreateCustomDataExportPreCheckTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomDataExportPreCheckTaskRequest $request
+     *
+     * @return CreateCustomDataExportPreCheckTaskResponse
+     */
+    public function createCustomDataExportPreCheckTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomDataExportPreCheckTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomDataExportTaskRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateCustomDataExportTaskResponse
+     */
+    public function createCustomDataExportTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCustomDataExportTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->exportParam)) {
+            $request->exportParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->exportParam, 'ExportParam', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateCustomDataExportTaskResponse::fromMap($this->doRPCRequest('CreateCustomDataExportTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomDataExportTaskRequest $request
+     *
+     * @return CreateCustomDataExportTaskResponse
+     */
+    public function createCustomDataExportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomDataExportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomDataImportPreCheckTaskRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateCustomDataImportPreCheckTaskResponse
+     */
+    public function createCustomDataImportPreCheckTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCustomDataImportPreCheckTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->importParam)) {
+            $request->importParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->importParam, 'ImportParam', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateCustomDataImportPreCheckTaskResponse::fromMap($this->doRPCRequest('CreateCustomDataImportPreCheckTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomDataImportPreCheckTaskRequest $request
+     *
+     * @return CreateCustomDataImportPreCheckTaskResponse
+     */
+    public function createCustomDataImportPreCheckTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomDataImportPreCheckTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomDataImportTaskRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateCustomDataImportTaskResponse
+     */
+    public function createCustomDataImportTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCustomDataImportTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->importParam)) {
+            $request->importParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->importParam, 'ImportParam', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateCustomDataImportTaskResponse::fromMap($this->doRPCRequest('CreateCustomDataImportTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomDataImportTaskRequest $request
+     *
+     * @return CreateCustomDataImportTaskResponse
+     */
+    public function createCustomDataImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomDataImportTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -393,6 +894,62 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param CreateDrdsDBPreCheckRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDrdsDBPreCheckResponse
+     */
+    public function createDrdsDBPreCheckWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDrdsDBPreCheckResponse::fromMap($this->doRPCRequest('CreateDrdsDBPreCheck', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDrdsDBPreCheckRequest $request
+     *
+     * @return CreateDrdsDBPreCheckResponse
+     */
+    public function createDrdsDBPreCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDrdsDBPreCheckWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDrdsDBPreviewRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateDrdsDBPreviewResponse
+     */
+    public function createDrdsDBPreviewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDrdsDBPreviewResponse::fromMap($this->doRPCRequest('CreateDrdsDBPreview', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDrdsDBPreviewRequest $request
+     *
+     * @return CreateDrdsDBPreviewResponse
+     */
+    public function createDrdsDBPreview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDrdsDBPreviewWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDrdsInstanceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -418,6 +975,128 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDrdsInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateEvaluateDataImportPreCheckTaskRequest $tmpReq
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return CreateEvaluateDataImportPreCheckTaskResponse
+     */
+    public function createEvaluateDataImportPreCheckTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateEvaluateDataImportPreCheckTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->importParam)) {
+            $request->importParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->importParam, 'ImportParam', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateEvaluateDataImportPreCheckTaskResponse::fromMap($this->doRPCRequest('CreateEvaluateDataImportPreCheckTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateEvaluateDataImportPreCheckTaskRequest $request
+     *
+     * @return CreateEvaluateDataImportPreCheckTaskResponse
+     */
+    public function createEvaluateDataImportPreCheckTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEvaluateDataImportPreCheckTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateEvaluateDataImportTaskRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateEvaluateDataImportTaskResponse
+     */
+    public function createEvaluateDataImportTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateEvaluateDataImportTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->importParam)) {
+            $request->importParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->importParam, 'ImportParam', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateEvaluateDataImportTaskResponse::fromMap($this->doRPCRequest('CreateEvaluateDataImportTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateEvaluateDataImportTaskRequest $request
+     *
+     * @return CreateEvaluateDataImportTaskResponse
+     */
+    public function createEvaluateDataImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEvaluateDataImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateEvaluatePreCheckTaskRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateEvaluatePreCheckTaskResponse
+     */
+    public function createEvaluatePreCheckTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateEvaluatePreCheckTaskResponse::fromMap($this->doRPCRequest('CreateEvaluatePreCheckTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateEvaluatePreCheckTaskRequest $request
+     *
+     * @return CreateEvaluatePreCheckTaskResponse
+     */
+    public function createEvaluatePreCheckTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEvaluatePreCheckTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateEvaluateTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateEvaluateTaskResponse
+     */
+    public function createEvaluateTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateEvaluateTaskResponse::fromMap($this->doRPCRequest('CreateEvaluateTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateEvaluateTaskRequest $request
+     *
+     * @return CreateEvaluateTaskResponse
+     */
+    public function createEvaluateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEvaluateTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -474,6 +1153,34 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createInstanceInternetAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateMyCatEvaluateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateMyCatEvaluateResponse
+     */
+    public function createMyCatEvaluateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateMyCatEvaluateResponse::fromMap($this->doRPCRequest('CreateMyCatEvaluate', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateMyCatEvaluateRequest $request
+     *
+     * @return CreateMyCatEvaluateResponse
+     */
+    public function createMyCatEvaluate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMyCatEvaluateWithOptions($request, $runtime);
     }
 
     /**
@@ -701,6 +1408,34 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param DescribeBatchEvaluateTaskReportRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeBatchEvaluateTaskReportResponse
+     */
+    public function describeBatchEvaluateTaskReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeBatchEvaluateTaskReportResponse::fromMap($this->doRPCRequest('DescribeBatchEvaluateTaskReport', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBatchEvaluateTaskReportRequest $request
+     *
+     * @return DescribeBatchEvaluateTaskReportResponse
+     */
+    public function describeBatchEvaluateTaskReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBatchEvaluateTaskReportWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeBroadcastTablesRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -726,6 +1461,268 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBroadcastTablesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCanExpandInstanceDetailListRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeCanExpandInstanceDetailListResponse
+     */
+    public function describeCanExpandInstanceDetailListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCanExpandInstanceDetailListResponse::fromMap($this->doRPCRequest('DescribeCanExpandInstanceDetailList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCanExpandInstanceDetailListRequest $request
+     *
+     * @return DescribeCanExpandInstanceDetailListResponse
+     */
+    public function describeCanExpandInstanceDetailList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCanExpandInstanceDetailListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustomDataExportSrcDstTablesRequest $tmpReq
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeCustomDataExportSrcDstTablesResponse
+     */
+    public function describeCustomDataExportSrcDstTablesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeCustomDataExportSrcDstTablesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->exportParam)) {
+            $request->exportParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->exportParam, 'ExportParam', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCustomDataExportSrcDstTablesResponse::fromMap($this->doRPCRequest('DescribeCustomDataExportSrcDstTables', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustomDataExportSrcDstTablesRequest $request
+     *
+     * @return DescribeCustomDataExportSrcDstTablesResponse
+     */
+    public function describeCustomDataExportSrcDstTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomDataExportSrcDstTablesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustomDataImportSrcDstTablesRequest $tmpReq
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeCustomDataImportSrcDstTablesResponse
+     */
+    public function describeCustomDataImportSrcDstTablesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeCustomDataImportSrcDstTablesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->importParam)) {
+            $request->importParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->importParam, 'ImportParam', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCustomDataImportSrcDstTablesResponse::fromMap($this->doRPCRequest('DescribeCustomDataImportSrcDstTables', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustomDataImportSrcDstTablesRequest $request
+     *
+     * @return DescribeCustomDataImportSrcDstTablesResponse
+     */
+    public function describeCustomDataImportSrcDstTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomDataImportSrcDstTablesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataExportPreCheckResultRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDataExportPreCheckResultResponse
+     */
+    public function describeDataExportPreCheckResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDataExportPreCheckResultResponse::fromMap($this->doRPCRequest('DescribeDataExportPreCheckResult', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataExportPreCheckResultRequest $request
+     *
+     * @return DescribeDataExportPreCheckResultResponse
+     */
+    public function describeDataExportPreCheckResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataExportPreCheckResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataExportTaskReportRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDataExportTaskReportResponse
+     */
+    public function describeDataExportTaskReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDataExportTaskReportResponse::fromMap($this->doRPCRequest('DescribeDataExportTaskReport', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataExportTaskReportRequest $request
+     *
+     * @return DescribeDataExportTaskReportResponse
+     */
+    public function describeDataExportTaskReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataExportTaskReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataExportTasksRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDataExportTasksResponse
+     */
+    public function describeDataExportTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDataExportTasksResponse::fromMap($this->doRPCRequest('DescribeDataExportTasks', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataExportTasksRequest $request
+     *
+     * @return DescribeDataExportTasksResponse
+     */
+    public function describeDataExportTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataExportTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataImportPreCheckResultRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDataImportPreCheckResultResponse
+     */
+    public function describeDataImportPreCheckResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDataImportPreCheckResultResponse::fromMap($this->doRPCRequest('DescribeDataImportPreCheckResult', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataImportPreCheckResultRequest $request
+     *
+     * @return DescribeDataImportPreCheckResultResponse
+     */
+    public function describeDataImportPreCheckResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataImportPreCheckResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataImportTaskReportRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDataImportTaskReportResponse
+     */
+    public function describeDataImportTaskReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDataImportTaskReportResponse::fromMap($this->doRPCRequest('DescribeDataImportTaskReport', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataImportTaskReportRequest $request
+     *
+     * @return DescribeDataImportTaskReportResponse
+     */
+    public function describeDataImportTaskReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataImportTaskReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataImportTasksRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDataImportTasksResponse
+     */
+    public function describeDataImportTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDataImportTasksResponse::fromMap($this->doRPCRequest('DescribeDataImportTasks', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataImportTasksRequest $request
+     *
+     * @return DescribeDataImportTasksResponse
+     */
+    public function describeDataImportTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataImportTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -841,6 +1838,62 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param DescribeDrdsDBIpWhiteListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDrdsDBIpWhiteListResponse
+     */
+    public function describeDrdsDBIpWhiteListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDrdsDBIpWhiteListResponse::fromMap($this->doRPCRequest('DescribeDrdsDBIpWhiteList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDrdsDBIpWhiteListRequest $request
+     *
+     * @return DescribeDrdsDBIpWhiteListResponse
+     */
+    public function describeDrdsDBIpWhiteList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDrdsDBIpWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDrdsDBsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeDrdsDBsResponse
+     */
+    public function describeDrdsDBsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDrdsDBsResponse::fromMap($this->doRPCRequest('DescribeDrdsDBs', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDrdsDBsRequest $request
+     *
+     * @return DescribeDrdsDBsResponse
+     */
+    public function describeDrdsDBs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDrdsDBsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDrdsDbInstanceRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -897,34 +1950,6 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDBIpWhiteListRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeDrdsDBIpWhiteListResponse
-     */
-    public function describeDrdsDBIpWhiteListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDrdsDBIpWhiteListResponse::fromMap($this->doRPCRequest('DescribeDrdsDBIpWhiteList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDrdsDBIpWhiteListRequest $request
-     *
-     * @return DescribeDrdsDBIpWhiteListResponse
-     */
-    public function describeDrdsDBIpWhiteList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDrdsDBIpWhiteListWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDrdsDbRdsNameListRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -950,34 +1975,6 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDrdsDbRdsNameListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDrdsDBsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeDrdsDBsResponse
-     */
-    public function describeDrdsDBsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDrdsDBsResponse::fromMap($this->doRPCRequest('DescribeDrdsDBs', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDrdsDBsRequest $request
-     *
-     * @return DescribeDrdsDBsResponse
-     */
-    public function describeDrdsDBs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDrdsDBsWithOptions($request, $runtime);
     }
 
     /**
@@ -1121,34 +2118,6 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstancesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeDrdsInstancesResponse
-     */
-    public function describeDrdsInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDrdsInstancesResponse::fromMap($this->doRPCRequest('DescribeDrdsInstances', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDrdsInstancesRequest $request
-     *
-     * @return DescribeDrdsInstancesResponse
-     */
-    public function describeDrdsInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDrdsInstancesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDrdsInstanceVersionRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1174,6 +2143,34 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDrdsInstanceVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDrdsInstancesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDrdsInstancesResponse
+     */
+    public function describeDrdsInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDrdsInstancesResponse::fromMap($this->doRPCRequest('DescribeDrdsInstances', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDrdsInstancesRequest $request
+     *
+     * @return DescribeDrdsInstancesResponse
+     */
+    public function describeDrdsInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDrdsInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -1345,6 +2342,123 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param DescribeEvaluateDataImportDbTopologysRequest $tmpReq
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeEvaluateDataImportDbTopologysResponse
+     */
+    public function describeEvaluateDataImportDbTopologysWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeEvaluateDataImportDbTopologysShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->importParam)) {
+            $request->importParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->importParam, 'ImportParam', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeEvaluateDataImportDbTopologysResponse::fromMap($this->doRPCRequest('DescribeEvaluateDataImportDbTopologys', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEvaluateDataImportDbTopologysRequest $request
+     *
+     * @return DescribeEvaluateDataImportDbTopologysResponse
+     */
+    public function describeEvaluateDataImportDbTopologys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEvaluateDataImportDbTopologysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEvaluatePreCheckResultRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeEvaluatePreCheckResultResponse
+     */
+    public function describeEvaluatePreCheckResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeEvaluatePreCheckResultResponse::fromMap($this->doRPCRequest('DescribeEvaluatePreCheckResult', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEvaluatePreCheckResultRequest $request
+     *
+     * @return DescribeEvaluatePreCheckResultResponse
+     */
+    public function describeEvaluatePreCheckResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEvaluatePreCheckResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEvaluateTaskReportRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeEvaluateTaskReportResponse
+     */
+    public function describeEvaluateTaskReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeEvaluateTaskReportResponse::fromMap($this->doRPCRequest('DescribeEvaluateTaskReport', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEvaluateTaskReportRequest $request
+     *
+     * @return DescribeEvaluateTaskReportResponse
+     */
+    public function describeEvaluateTaskReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEvaluateTaskReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEvaluateTasksRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeEvaluateTasksResponse
+     */
+    public function describeEvaluateTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeEvaluateTasksResponse::fromMap($this->doRPCRequest('DescribeEvaluateTasks', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEvaluateTasksRequest $request
+     *
+     * @return DescribeEvaluateTasksResponse
+     */
+    public function describeEvaluateTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEvaluateTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeExpandLogicTableInfoListRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -1426,6 +2540,62 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHotDbListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstDbLogInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeInstDbLogInfoResponse
+     */
+    public function describeInstDbLogInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeInstDbLogInfoResponse::fromMap($this->doRPCRequest('DescribeInstDbLogInfo', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstDbLogInfoRequest $request
+     *
+     * @return DescribeInstDbLogInfoResponse
+     */
+    public function describeInstDbLogInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstDbLogInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstDbSlsInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeInstDbSlsInfoResponse
+     */
+    public function describeInstDbSlsInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeInstDbSlsInfoResponse::fromMap($this->doRPCRequest('DescribeInstDbSlsInfo', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstDbSlsInfoRequest $request
+     *
+     * @return DescribeInstDbSlsInfoResponse
+     */
+    public function describeInstDbSlsInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstDbSlsInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -1541,62 +2711,6 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstDbLogInfoRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeInstDbLogInfoResponse
-     */
-    public function describeInstDbLogInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeInstDbLogInfoResponse::fromMap($this->doRPCRequest('DescribeInstDbLogInfo', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeInstDbLogInfoRequest $request
-     *
-     * @return DescribeInstDbLogInfoResponse
-     */
-    public function describeInstDbLogInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInstDbLogInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeInstDbSlsInfoRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeInstDbSlsInfoResponse
-     */
-    public function describeInstDbSlsInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeInstDbSlsInfoResponse::fromMap($this->doRPCRequest('DescribeInstDbSlsInfo', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeInstDbSlsInfoRequest $request
-     *
-     * @return DescribeInstDbSlsInfoResponse
-     */
-    public function describeInstDbSlsInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInstDbSlsInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribePreCheckResultRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1622,34 +2736,6 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePreCheckResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRdsCommodityRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeRdsCommodityResponse
-     */
-    public function describeRdsCommodityWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRdsCommodityResponse::fromMap($this->doRPCRequest('DescribeRdsCommodity', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRdsCommodityRequest $request
-     *
-     * @return DescribeRdsCommodityResponse
-     */
-    public function describeRdsCommodity($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRdsCommodityWithOptions($request, $runtime);
     }
 
     /**
@@ -1681,6 +2767,62 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param DescribeRdsCommodityRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRdsCommodityResponse
+     */
+    public function describeRdsCommodityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRdsCommodityResponse::fromMap($this->doRPCRequest('DescribeRdsCommodity', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRdsCommodityRequest $request
+     *
+     * @return DescribeRdsCommodityResponse
+     */
+    public function describeRdsCommodity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsCommodityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRdsDrdsDBRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeRdsDrdsDBResponse
+     */
+    public function describeRdsDrdsDBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRdsDrdsDBResponse::fromMap($this->doRPCRequest('DescribeRdsDrdsDB', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRdsDrdsDBRequest $request
+     *
+     * @return DescribeRdsDrdsDBResponse
+     */
+    public function describeRdsDrdsDB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsDrdsDBWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRdsPerformanceSummaryRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -1709,6 +2851,62 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param DescribeRdsPriceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeRdsPriceResponse
+     */
+    public function describeRdsPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRdsPriceResponse::fromMap($this->doRPCRequest('DescribeRdsPrice', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRdsPriceRequest $request
+     *
+     * @return DescribeRdsPriceResponse
+     */
+    public function describeRdsPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsPriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRdsReadOnlyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeRdsReadOnlyResponse
+     */
+    public function describeRdsReadOnlyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRdsReadOnlyResponse::fromMap($this->doRPCRequest('DescribeRdsReadOnly', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRdsReadOnlyRequest $request
+     *
+     * @return DescribeRdsReadOnlyResponse
+     */
+    public function describeRdsReadOnly($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsReadOnlyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRdsSuperAccountInstancesRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -1734,6 +2932,90 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRdsSuperAccountInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRdsVpcForZoneRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeRdsVpcForZoneResponse
+     */
+    public function describeRdsVpcForZoneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRdsVpcForZoneResponse::fromMap($this->doRPCRequest('DescribeRdsVpcForZone', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRdsVpcForZoneRequest $request
+     *
+     * @return DescribeRdsVpcForZoneResponse
+     */
+    public function describeRdsVpcForZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsVpcForZoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRecycleBinStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeRecycleBinStatusResponse
+     */
+    public function describeRecycleBinStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRecycleBinStatusResponse::fromMap($this->doRPCRequest('DescribeRecycleBinStatus', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRecycleBinStatusRequest $request
+     *
+     * @return DescribeRecycleBinStatusResponse
+     */
+    public function describeRecycleBinStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRecycleBinStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRecycleBinTablesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeRecycleBinTablesResponse
+     */
+    public function describeRecycleBinTablesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRecycleBinTablesResponse::fromMap($this->doRPCRequest('DescribeRecycleBinTables', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRecycleBinTablesRequest $request
+     *
+     * @return DescribeRecycleBinTablesResponse
+     */
+    public function describeRecycleBinTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRecycleBinTablesWithOptions($request, $runtime);
     }
 
     /**
@@ -1849,6 +3131,34 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param DescribeSrcRdsListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSrcRdsListResponse
+     */
+    public function describeSrcRdsListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSrcRdsListResponse::fromMap($this->doRPCRequest('DescribeSrcRdsList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSrcRdsListRequest $request
+     *
+     * @return DescribeSrcRdsListResponse
+     */
+    public function describeSrcRdsList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSrcRdsListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeTableRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1902,6 +3212,34 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTableListByTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeTableShardingInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeTableShardingInfoResponse
+     */
+    public function describeTableShardingInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeTableShardingInfoResponse::fromMap($this->doRPCRequest('DescribeTableShardingInfo', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTableShardingInfoRequest $request
+     *
+     * @return DescribeTableShardingInfoResponse
+     */
+    public function describeTableShardingInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTableShardingInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -1961,6 +3299,34 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param EnableInstanceIpv6AddressRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableInstanceIpv6AddressResponse
+     */
+    public function enableInstanceIpv6AddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EnableInstanceIpv6AddressResponse::fromMap($this->doRPCRequest('EnableInstanceIpv6Address', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EnableInstanceIpv6AddressRequest $request
+     *
+     * @return EnableInstanceIpv6AddressResponse
+     */
+    public function enableInstanceIpv6Address($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableInstanceIpv6AddressWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EnableSqlAuditRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2017,6 +3383,90 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param FlashbackRecycleBinTableRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return FlashbackRecycleBinTableResponse
+     */
+    public function flashbackRecycleBinTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return FlashbackRecycleBinTableResponse::fromMap($this->doRPCRequest('FlashbackRecycleBinTable', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param FlashbackRecycleBinTableRequest $request
+     *
+     * @return FlashbackRecycleBinTableResponse
+     */
+    public function flashbackRecycleBinTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->flashbackRecycleBinTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBatchEvaluateTaskReportRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetBatchEvaluateTaskReportResponse
+     */
+    public function getBatchEvaluateTaskReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetBatchEvaluateTaskReportResponse::fromMap($this->doRPCRequest('GetBatchEvaluateTaskReport', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetBatchEvaluateTaskReportRequest $request
+     *
+     * @return GetBatchEvaluateTaskReportResponse
+     */
+    public function getBatchEvaluateTaskReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBatchEvaluateTaskReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDrdsDbRdsRelationInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDrdsDbRdsRelationInfoResponse
+     */
+    public function getDrdsDbRdsRelationInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDrdsDbRdsRelationInfoResponse::fromMap($this->doRPCRequest('GetDrdsDbRdsRelationInfo', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDrdsDbRdsRelationInfoRequest $request
+     *
+     * @return GetDrdsDbRdsRelationInfoResponse
+     */
+    public function getDrdsDbRdsRelationInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDrdsDbRdsRelationInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2045,6 +3495,62 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param ListUserReportsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListUserReportsResponse
+     */
+    public function listUserReportsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListUserReportsResponse::fromMap($this->doRPCRequest('ListUserReports', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListUserReportsRequest $request
+     *
+     * @return ListUserReportsResponse
+     */
+    public function listUserReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserReportsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListVersionsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListVersionsResponse
+     */
+    public function listVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListVersionsResponse::fromMap($this->doRPCRequest('ListVersions', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListVersionsRequest $request
+     *
+     * @return ListVersionsResponse
+     */
+    public function listVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVersionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ManagePrivateRdsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2070,6 +3576,62 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->managePrivateRdsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAccountDescriptionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyAccountDescriptionResponse
+     */
+    public function modifyAccountDescriptionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyAccountDescriptionResponse::fromMap($this->doRPCRequest('ModifyAccountDescription', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAccountDescriptionRequest $request
+     *
+     * @return ModifyAccountDescriptionResponse
+     */
+    public function modifyAccountDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccountDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAccountPrivilegeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyAccountPrivilegeResponse
+     */
+    public function modifyAccountPrivilegeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyAccountPrivilegeResponse::fromMap($this->doRPCRequest('ModifyAccountPrivilege', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAccountPrivilegeRequest $request
+     *
+     * @return ModifyAccountPrivilegeResponse
+     */
+    public function modifyAccountPrivilege($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccountPrivilegeWithOptions($request, $runtime);
     }
 
     /**
@@ -2129,6 +3691,62 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param ModifyEventTaskStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyEventTaskStatusResponse
+     */
+    public function modifyEventTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyEventTaskStatusResponse::fromMap($this->doRPCRequest('ModifyEventTaskStatus', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyEventTaskStatusRequest $request
+     *
+     * @return ModifyEventTaskStatusResponse
+     */
+    public function modifyEventTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyEventTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyPolarDbReadWeightRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyPolarDbReadWeightResponse
+     */
+    public function modifyPolarDbReadWeightWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyPolarDbReadWeightResponse::fromMap($this->doRPCRequest('ModifyPolarDbReadWeight', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyPolarDbReadWeightRequest $request
+     *
+     * @return ModifyPolarDbReadWeightResponse
+     */
+    public function modifyPolarDbReadWeight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPolarDbReadWeightWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyRdsReadWeightRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2157,6 +3775,179 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param MyCatConnectTestRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return MyCatConnectTestResponse
+     */
+    public function myCatConnectTestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return MyCatConnectTestResponse::fromMap($this->doRPCRequest('MyCatConnectTest', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param MyCatConnectTestRequest $request
+     *
+     * @return MyCatConnectTestResponse
+     */
+    public function myCatConnectTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->myCatConnectTestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MyCatCustomImportPreCheckRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return MyCatCustomImportPreCheckResponse
+     */
+    public function myCatCustomImportPreCheckWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new MyCatCustomImportPreCheckShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tableMap)) {
+            $request->tableMapShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableMap, 'TableMap', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return MyCatCustomImportPreCheckResponse::fromMap($this->doRPCRequest('MyCatCustomImportPreCheck', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param MyCatCustomImportPreCheckRequest $request
+     *
+     * @return MyCatCustomImportPreCheckResponse
+     */
+    public function myCatCustomImportPreCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->myCatCustomImportPreCheckWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PreCheckModifyTableShardingKeyParamRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return PreCheckModifyTableShardingKeyParamResponse
+     */
+    public function preCheckModifyTableShardingKeyParamWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PreCheckModifyTableShardingKeyParamResponse::fromMap($this->doRPCRequest('PreCheckModifyTableShardingKeyParam', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PreCheckModifyTableShardingKeyParamRequest $request
+     *
+     * @return PreCheckModifyTableShardingKeyParamResponse
+     */
+    public function preCheckModifyTableShardingKeyParam($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->preCheckModifyTableShardingKeyParamWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PreCheckSqlFlashbackTaskRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return PreCheckSqlFlashbackTaskResponse
+     */
+    public function preCheckSqlFlashbackTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PreCheckSqlFlashbackTaskResponse::fromMap($this->doRPCRequest('PreCheckSqlFlashbackTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PreCheckSqlFlashbackTaskRequest $request
+     *
+     * @return PreCheckSqlFlashbackTaskResponse
+     */
+    public function preCheckSqlFlashbackTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->preCheckSqlFlashbackTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PrecheckMyCatEvaluateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PrecheckMyCatEvaluateResponse
+     */
+    public function precheckMyCatEvaluateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PrecheckMyCatEvaluateResponse::fromMap($this->doRPCRequest('PrecheckMyCatEvaluate', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PrecheckMyCatEvaluateRequest $request
+     *
+     * @return PrecheckMyCatEvaluateResponse
+     */
+    public function precheckMyCatEvaluate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->precheckMyCatEvaluateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PutRestorePreCheckRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PutRestorePreCheckResponse
+     */
+    public function putRestorePreCheckWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PutRestorePreCheckResponse::fromMap($this->doRPCRequest('PutRestorePreCheck', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PutRestorePreCheckRequest $request
+     *
+     * @return PutRestorePreCheckResponse
+     */
+    public function putRestorePreCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putRestorePreCheckWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PutStartBackupRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2182,6 +3973,62 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->putStartBackupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RearrangeDbToInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RearrangeDbToInstanceResponse
+     */
+    public function rearrangeDbToInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RearrangeDbToInstanceResponse::fromMap($this->doRPCRequest('RearrangeDbToInstance', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RearrangeDbToInstanceRequest $request
+     *
+     * @return RearrangeDbToInstanceResponse
+     */
+    public function rearrangeDbToInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rearrangeDbToInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RefreshDrdsAtomUrlRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RefreshDrdsAtomUrlResponse
+     */
+    public function refreshDrdsAtomUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RefreshDrdsAtomUrlResponse::fromMap($this->doRPCRequest('RefreshDrdsAtomUrl', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RefreshDrdsAtomUrlRequest $request
+     *
+     * @return RefreshDrdsAtomUrlResponse
+     */
+    public function refreshDrdsAtomUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshDrdsAtomUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -2238,6 +4085,62 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeBackupsSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveDataExportTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RemoveDataExportTaskResponse
+     */
+    public function removeDataExportTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveDataExportTaskResponse::fromMap($this->doRPCRequest('RemoveDataExportTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveDataExportTaskRequest $request
+     *
+     * @return RemoveDataExportTaskResponse
+     */
+    public function removeDataExportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDataExportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveDataImportTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RemoveDataImportTaskResponse
+     */
+    public function removeDataImportTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveDataImportTaskResponse::fromMap($this->doRPCRequest('RemoveDataImportTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveDataImportTaskRequest $request
+     *
+     * @return RemoveDataImportTaskResponse
+     */
+    public function removeDataImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDataImportTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -2325,6 +4228,62 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param RemoveDrdsMysqlRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RemoveDrdsMysqlResponse
+     */
+    public function removeDrdsMysqlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveDrdsMysqlResponse::fromMap($this->doRPCRequest('RemoveDrdsMysql', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveDrdsMysqlRequest $request
+     *
+     * @return RemoveDrdsMysqlResponse
+     */
+    public function removeDrdsMysql($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDrdsMysqlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveEvaluateTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RemoveEvaluateTaskResponse
+     */
+    public function removeEvaluateTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveEvaluateTaskResponse::fromMap($this->doRPCRequest('RemoveEvaluateTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveEvaluateTaskRequest $request
+     *
+     * @return RemoveEvaluateTaskResponse
+     */
+    public function removeEvaluateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeEvaluateTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RemoveInstanceAccountRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2350,6 +4309,90 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeInstanceAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveRecycleBinTableRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RemoveRecycleBinTableResponse
+     */
+    public function removeRecycleBinTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveRecycleBinTableResponse::fromMap($this->doRPCRequest('RemoveRecycleBinTable', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveRecycleBinTableRequest $request
+     *
+     * @return RemoveRecycleBinTableResponse
+     */
+    public function removeRecycleBinTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeRecycleBinTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RestartDrdsInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RestartDrdsInstanceResponse
+     */
+    public function restartDrdsInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RestartDrdsInstanceResponse::fromMap($this->doRPCRequest('RestartDrdsInstance', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RestartDrdsInstanceRequest $request
+     *
+     * @return RestartDrdsInstanceResponse
+     */
+    public function restartDrdsInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartDrdsInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RollbackInstanceVersionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RollbackInstanceVersionResponse
+     */
+    public function rollbackInstanceVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RollbackInstanceVersionResponse::fromMap($this->doRPCRequest('RollbackInstanceVersion', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RollbackInstanceVersionRequest $request
+     *
+     * @return RollbackInstanceVersionResponse
+     */
+    public function rollbackInstanceVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackInstanceVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -2465,6 +4508,34 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param SetupRecycleBinStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SetupRecycleBinStatusResponse
+     */
+    public function setupRecycleBinStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetupRecycleBinStatusResponse::fromMap($this->doRPCRequest('SetupRecycleBinStatus', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetupRecycleBinStatusRequest $request
+     *
+     * @return SetupRecycleBinStatusResponse
+     */
+    public function setupRecycleBinStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setupRecycleBinStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetupTableRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -2493,6 +4564,118 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param SetupTableAsyncRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetupTableAsyncResponse
+     */
+    public function setupTableAsyncWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetupTableAsyncResponse::fromMap($this->doRPCRequest('SetupTableAsync', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetupTableAsyncRequest $request
+     *
+     * @return SetupTableAsyncResponse
+     */
+    public function setupTableAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setupTableAsyncWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SqlCompatibilityCancelRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SqlCompatibilityCancelResponse
+     */
+    public function sqlCompatibilityCancelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SqlCompatibilityCancelResponse::fromMap($this->doRPCRequest('SqlCompatibilityCancel', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SqlCompatibilityCancelRequest $request
+     *
+     * @return SqlCompatibilityCancelResponse
+     */
+    public function sqlCompatibilityCancel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sqlCompatibilityCancelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SqlCompatibilityStartRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SqlCompatibilityStartResponse
+     */
+    public function sqlCompatibilityStartWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SqlCompatibilityStartResponse::fromMap($this->doRPCRequest('SqlCompatibilityStart', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SqlCompatibilityStartRequest $request
+     *
+     * @return SqlCompatibilityStartResponse
+     */
+    public function sqlCompatibilityStart($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sqlCompatibilityStartWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartEvaluateTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return StartEvaluateTaskResponse
+     */
+    public function startEvaluateTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartEvaluateTaskResponse::fromMap($this->doRPCRequest('StartEvaluateTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartEvaluateTaskRequest $request
+     *
+     * @return StartEvaluateTaskResponse
+     */
+    public function startEvaluateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startEvaluateTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StartRestoreRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2518,6 +4701,118 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startRestoreWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopDataExportTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopDataExportTaskResponse
+     */
+    public function stopDataExportTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StopDataExportTaskResponse::fromMap($this->doRPCRequest('StopDataExportTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StopDataExportTaskRequest $request
+     *
+     * @return StopDataExportTaskResponse
+     */
+    public function stopDataExportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDataExportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopDataImportTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopDataImportTaskResponse
+     */
+    public function stopDataImportTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StopDataImportTaskResponse::fromMap($this->doRPCRequest('StopDataImportTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StopDataImportTaskRequest $request
+     *
+     * @return StopDataImportTaskResponse
+     */
+    public function stopDataImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDataImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopEvaluateTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StopEvaluateTaskResponse
+     */
+    public function stopEvaluateTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StopEvaluateTaskResponse::fromMap($this->doRPCRequest('StopEvaluateTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StopEvaluateTaskRequest $request
+     *
+     * @return StopEvaluateTaskResponse
+     */
+    public function stopEvaluateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopEvaluateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitCleanTableShardingKeyModifyRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return SubmitCleanTableShardingKeyModifyResponse
+     */
+    public function submitCleanTableShardingKeyModifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitCleanTableShardingKeyModifyResponse::fromMap($this->doRPCRequest('SubmitCleanTableShardingKeyModify', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitCleanTableShardingKeyModifyRequest $request
+     *
+     * @return SubmitCleanTableShardingKeyModifyResponse
+     */
+    public function submitCleanTableShardingKeyModify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitCleanTableShardingKeyModifyWithOptions($request, $runtime);
     }
 
     /**
@@ -2602,6 +4897,34 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitHotExpandTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitRollbackShardingKeyModifyRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SubmitRollbackShardingKeyModifyResponse
+     */
+    public function submitRollbackShardingKeyModifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitRollbackShardingKeyModifyResponse::fromMap($this->doRPCRequest('SubmitRollbackShardingKeyModify', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitRollbackShardingKeyModifyRequest $request
+     *
+     * @return SubmitRollbackShardingKeyModifyResponse
+     */
+    public function submitRollbackShardingKeyModify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitRollbackShardingKeyModifyWithOptions($request, $runtime);
     }
 
     /**
@@ -2717,6 +5040,34 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param SubmitSwitchTableShardingKeyModifyRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SubmitSwitchTableShardingKeyModifyResponse
+     */
+    public function submitSwitchTableShardingKeyModifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitSwitchTableShardingKeyModifyResponse::fromMap($this->doRPCRequest('SubmitSwitchTableShardingKeyModify', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitSwitchTableShardingKeyModifyRequest $request
+     *
+     * @return SubmitSwitchTableShardingKeyModifyResponse
+     */
+    public function submitSwitchTableShardingKeyModify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSwitchTableShardingKeyModifyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitSwitchTaskRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2742,6 +5093,34 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitSwitchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitTableShardingKeyModifyRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SubmitTableShardingKeyModifyResponse
+     */
+    public function submitTableShardingKeyModifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitTableShardingKeyModifyResponse::fromMap($this->doRPCRequest('SubmitTableShardingKeyModify', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitTableShardingKeyModifyRequest $request
+     *
+     * @return SubmitTableShardingKeyModifyResponse
+     */
+    public function submitTableShardingKeyModify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitTableShardingKeyModifyWithOptions($request, $runtime);
     }
 
     /**
@@ -2994,5 +5373,33 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->validateShardTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRdsInstInfosRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRdsInstInfosResponse
+     */
+    public function describeRdsInstInfosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRdsInstInfosResponse::fromMap($this->doRPCRequest('describeRdsInstInfos', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRdsInstInfosRequest $request
+     *
+     * @return DescribeRdsInstInfosResponse
+     */
+    public function describeRdsInstInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsInstInfosWithOptions($request, $runtime);
     }
 }

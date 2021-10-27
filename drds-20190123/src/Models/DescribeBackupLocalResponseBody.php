@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupLocalResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var backupPolicyDO
      */
-    public $success;
+    public $backupPolicyDO;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeBackupLocalResponseBody extends Model
     public $requestId;
 
     /**
-     * @var backupPolicyDO
+     * @var bool
      */
-    public $backupPolicyDO;
+    public $success;
     protected $_name = [
-        'success'        => 'Success',
-        'requestId'      => 'RequestId',
         'backupPolicyDO' => 'BackupPolicyDO',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeBackupLocalResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->backupPolicyDO) {
+            $res['BackupPolicyDO'] = null !== $this->backupPolicyDO ? $this->backupPolicyDO->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->backupPolicyDO) {
-            $res['BackupPolicyDO'] = null !== $this->backupPolicyDO ? $this->backupPolicyDO->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeBackupLocalResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['BackupPolicyDO'])) {
+            $model->backupPolicyDO = backupPolicyDO::fromMap($map['BackupPolicyDO']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['BackupPolicyDO'])) {
-            $model->backupPolicyDO = backupPolicyDO::fromMap($map['BackupPolicyDO']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

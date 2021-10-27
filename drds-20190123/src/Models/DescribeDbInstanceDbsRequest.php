@@ -11,7 +11,12 @@ class DescribeDbInstanceDbsRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $accountName;
+
+    /**
+     * @var string
+     */
+    public $dbInstType;
 
     /**
      * @var string
@@ -21,23 +26,18 @@ class DescribeDbInstanceDbsRequest extends Model
     /**
      * @var string
      */
-    public $accountName;
+    public $drdsInstanceId;
 
     /**
      * @var string
      */
     public $password;
-
-    /**
-     * @var string
-     */
-    public $dbInstType;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
-        'dbInstanceId'   => 'DbInstanceId',
         'accountName'    => 'AccountName',
-        'password'       => 'Password',
         'dbInstType'     => 'DbInstType',
+        'dbInstanceId'   => 'DbInstanceId',
+        'drdsInstanceId' => 'DrdsInstanceId',
+        'password'       => 'Password',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeDbInstanceDbsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->dbInstType) {
+            $res['DbInstType'] = $this->dbInstType;
         }
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
         }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
-        }
-        if (null !== $this->dbInstType) {
-            $res['DbInstType'] = $this->dbInstType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeDbInstanceDbsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['DbInstType'])) {
+            $model->dbInstType = $map['DbInstType'];
         }
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
         }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
-        }
-        if (isset($map['DbInstType'])) {
-            $model->dbInstType = $map['DbInstType'];
         }
 
         return $model;

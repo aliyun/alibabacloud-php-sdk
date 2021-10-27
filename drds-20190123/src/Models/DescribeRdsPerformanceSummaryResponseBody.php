@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsPerformanceSummaryResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var rdsPerformanceInfos[]
      */
-    public $success;
+    public $rdsPerformanceInfos;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeRdsPerformanceSummaryResponseBody extends Model
     public $requestId;
 
     /**
-     * @var rdsPerformanceInfos[]
+     * @var bool
      */
-    public $rdsPerformanceInfos;
+    public $success;
     protected $_name = [
-        'success'             => 'Success',
-        'requestId'           => 'RequestId',
         'rdsPerformanceInfos' => 'RdsPerformanceInfos',
+        'requestId'           => 'RequestId',
+        'success'             => 'Success',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeRdsPerformanceSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->rdsPerformanceInfos) {
             $res['RdsPerformanceInfos'] = [];
             if (null !== $this->rdsPerformanceInfos && \is_array($this->rdsPerformanceInfos)) {
@@ -50,6 +44,12 @@ class DescribeRdsPerformanceSummaryResponseBody extends Model
                     $res['RdsPerformanceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeRdsPerformanceSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['RdsPerformanceInfos'])) {
             if (!empty($map['RdsPerformanceInfos'])) {
                 $model->rdsPerformanceInfos = [];
@@ -77,6 +71,12 @@ class DescribeRdsPerformanceSummaryResponseBody extends Model
                     $model->rdsPerformanceInfos[$n++] = null !== $item ? rdsPerformanceInfos::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

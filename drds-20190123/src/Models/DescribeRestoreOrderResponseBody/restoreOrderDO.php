@@ -17,18 +17,18 @@ class restoreOrderDO extends Model
     public $drdsOrderDOList;
 
     /**
-     * @var rdsOrderDOList
-     */
-    public $rdsOrderDOList;
-
-    /**
      * @var polarOrderDOList
      */
     public $polarOrderDOList;
+
+    /**
+     * @var rdsOrderDOList
+     */
+    public $rdsOrderDOList;
     protected $_name = [
         'drdsOrderDOList'  => 'DrdsOrderDOList',
-        'rdsOrderDOList'   => 'RdsOrderDOList',
         'polarOrderDOList' => 'PolarOrderDOList',
+        'rdsOrderDOList'   => 'RdsOrderDOList',
     ];
 
     public function validate()
@@ -41,11 +41,11 @@ class restoreOrderDO extends Model
         if (null !== $this->drdsOrderDOList) {
             $res['DrdsOrderDOList'] = null !== $this->drdsOrderDOList ? $this->drdsOrderDOList->toMap() : null;
         }
-        if (null !== $this->rdsOrderDOList) {
-            $res['RdsOrderDOList'] = null !== $this->rdsOrderDOList ? $this->rdsOrderDOList->toMap() : null;
-        }
         if (null !== $this->polarOrderDOList) {
             $res['PolarOrderDOList'] = null !== $this->polarOrderDOList ? $this->polarOrderDOList->toMap() : null;
+        }
+        if (null !== $this->rdsOrderDOList) {
+            $res['RdsOrderDOList'] = null !== $this->rdsOrderDOList ? $this->rdsOrderDOList->toMap() : null;
         }
 
         return $res;
@@ -62,11 +62,11 @@ class restoreOrderDO extends Model
         if (isset($map['DrdsOrderDOList'])) {
             $model->drdsOrderDOList = drdsOrderDOList::fromMap($map['DrdsOrderDOList']);
         }
-        if (isset($map['RdsOrderDOList'])) {
-            $model->rdsOrderDOList = rdsOrderDOList::fromMap($map['RdsOrderDOList']);
-        }
         if (isset($map['PolarOrderDOList'])) {
             $model->polarOrderDOList = polarOrderDOList::fromMap($map['PolarOrderDOList']);
+        }
+        if (isset($map['RdsOrderDOList'])) {
+            $model->rdsOrderDOList = rdsOrderDOList::fromMap($map['RdsOrderDOList']);
         }
 
         return $model;

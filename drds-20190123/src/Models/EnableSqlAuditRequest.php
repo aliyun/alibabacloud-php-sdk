@@ -11,12 +11,12 @@ class EnableSqlAuditRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $dbName;
 
     /**
      * @var string
      */
-    public $dbName;
+    public $drdsInstanceId;
 
     /**
      * @var bool
@@ -26,18 +26,18 @@ class EnableSqlAuditRequest extends Model
     /**
      * @var string
      */
-    public $recallStartTimestamp;
+    public $recallEndTimestamp;
 
     /**
      * @var string
      */
-    public $recallEndTimestamp;
+    public $recallStartTimestamp;
     protected $_name = [
-        'drdsInstanceId'       => 'DrdsInstanceId',
         'dbName'               => 'DbName',
+        'drdsInstanceId'       => 'DrdsInstanceId',
         'isRecall'             => 'IsRecall',
-        'recallStartTimestamp' => 'RecallStartTimestamp',
         'recallEndTimestamp'   => 'RecallEndTimestamp',
+        'recallStartTimestamp' => 'RecallStartTimestamp',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class EnableSqlAuditRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->isRecall) {
             $res['IsRecall'] = $this->isRecall;
         }
-        if (null !== $this->recallStartTimestamp) {
-            $res['RecallStartTimestamp'] = $this->recallStartTimestamp;
-        }
         if (null !== $this->recallEndTimestamp) {
             $res['RecallEndTimestamp'] = $this->recallEndTimestamp;
+        }
+        if (null !== $this->recallStartTimestamp) {
+            $res['RecallStartTimestamp'] = $this->recallStartTimestamp;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class EnableSqlAuditRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['IsRecall'])) {
             $model->isRecall = $map['IsRecall'];
         }
-        if (isset($map['RecallStartTimestamp'])) {
-            $model->recallStartTimestamp = $map['RecallStartTimestamp'];
-        }
         if (isset($map['RecallEndTimestamp'])) {
             $model->recallEndTimestamp = $map['RecallEndTimestamp'];
+        }
+        if (isset($map['RecallStartTimestamp'])) {
+            $model->recallStartTimestamp = $map['RecallStartTimestamp'];
         }
 
         return $model;

@@ -16,22 +16,22 @@ class SetBackupLocalRequest extends Model
     /**
      * @var string
      */
+    public $highSpaceUsageProtection;
+
+    /**
+     * @var string
+     */
     public $localLogRetentionHours;
 
     /**
      * @var string
      */
     public $localLogRetentionSpace;
-
-    /**
-     * @var string
-     */
-    public $highSpaceUsageProtection;
     protected $_name = [
         'drdsInstanceId'           => 'DrdsInstanceId',
+        'highSpaceUsageProtection' => 'HighSpaceUsageProtection',
         'localLogRetentionHours'   => 'LocalLogRetentionHours',
         'localLogRetentionSpace'   => 'LocalLogRetentionSpace',
-        'highSpaceUsageProtection' => 'HighSpaceUsageProtection',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class SetBackupLocalRequest extends Model
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+        if (null !== $this->highSpaceUsageProtection) {
+            $res['HighSpaceUsageProtection'] = $this->highSpaceUsageProtection;
+        }
         if (null !== $this->localLogRetentionHours) {
             $res['LocalLogRetentionHours'] = $this->localLogRetentionHours;
         }
         if (null !== $this->localLogRetentionSpace) {
             $res['LocalLogRetentionSpace'] = $this->localLogRetentionSpace;
-        }
-        if (null !== $this->highSpaceUsageProtection) {
-            $res['HighSpaceUsageProtection'] = $this->highSpaceUsageProtection;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class SetBackupLocalRequest extends Model
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+        if (isset($map['HighSpaceUsageProtection'])) {
+            $model->highSpaceUsageProtection = $map['HighSpaceUsageProtection'];
+        }
         if (isset($map['LocalLogRetentionHours'])) {
             $model->localLogRetentionHours = $map['LocalLogRetentionHours'];
         }
         if (isset($map['LocalLogRetentionSpace'])) {
             $model->localLogRetentionSpace = $map['LocalLogRetentionSpace'];
-        }
-        if (isset($map['HighSpaceUsageProtection'])) {
-            $model->highSpaceUsageProtection = $map['HighSpaceUsageProtection'];
         }
 
         return $model;

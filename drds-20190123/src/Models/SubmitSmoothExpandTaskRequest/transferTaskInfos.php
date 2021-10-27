@@ -16,12 +16,12 @@ class transferTaskInfos extends Model
     /**
      * @var string
      */
-    public $instanceType;
+    public $dstInstanceName;
 
     /**
      * @var string
      */
-    public $dstInstanceName;
+    public $instanceType;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class transferTaskInfos extends Model
     public $srcInstanceName;
     protected $_name = [
         'dbName'          => 'DbName',
-        'instanceType'    => 'InstanceType',
         'dstInstanceName' => 'DstInstanceName',
+        'instanceType'    => 'InstanceType',
         'srcInstanceName' => 'SrcInstanceName',
     ];
 
@@ -44,11 +44,11 @@ class transferTaskInfos extends Model
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
         if (null !== $this->dstInstanceName) {
             $res['DstInstanceName'] = $this->dstInstanceName;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->srcInstanceName) {
             $res['SrcInstanceName'] = $this->srcInstanceName;
@@ -68,11 +68,11 @@ class transferTaskInfos extends Model
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
         if (isset($map['DstInstanceName'])) {
             $model->dstInstanceName = $map['DstInstanceName'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['SrcInstanceName'])) {
             $model->srcInstanceName = $map['SrcInstanceName'];

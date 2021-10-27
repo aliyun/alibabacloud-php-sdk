@@ -11,7 +11,7 @@ class DescribeDrdsDbInstanceRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $dbInstanceId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeDrdsDbInstanceRequest extends Model
     /**
      * @var string
      */
-    public $dbInstanceId;
+    public $drdsInstanceId;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
-        'dbName'         => 'DbName',
         'dbInstanceId'   => 'DbInstanceId',
+        'dbName'         => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeDrdsDbInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
+        if (null !== $this->dbInstanceId) {
+            $res['DbInstanceId'] = $this->dbInstanceId;
         }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->dbInstanceId) {
-            $res['DbInstanceId'] = $this->dbInstanceId;
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeDrdsDbInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
+        if (isset($map['DbInstanceId'])) {
+            $model->dbInstanceId = $map['DbInstanceId'];
         }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['DbInstanceId'])) {
-            $model->dbInstanceId = $map['DbInstanceId'];
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
 
         return $model;

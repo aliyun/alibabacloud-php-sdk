@@ -11,15 +11,15 @@ class RemoveBackupsSetRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $backupId;
 
     /**
      * @var string
      */
-    public $backupId;
+    public $drdsInstanceId;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'backupId'       => 'BackupId',
+        'drdsInstanceId' => 'DrdsInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RemoveBackupsSetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RemoveBackupsSetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
 
         return $model;

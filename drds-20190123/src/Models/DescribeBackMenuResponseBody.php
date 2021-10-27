@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackMenuResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var list_
      */
-    public $success;
+    public $list;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeBackMenuResponseBody extends Model
     public $requestId;
 
     /**
-     * @var list_
+     * @var bool
      */
-    public $list;
+    public $success;
     protected $_name = [
-        'success'   => 'Success',
-        'requestId' => 'RequestId',
         'list'      => 'List',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeBackMenuResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->list) {
+            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeBackMenuResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['List'])) {
+            $model->list = list_::fromMap($map['List']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['List'])) {
-            $model->list = list_::fromMap($map['List']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

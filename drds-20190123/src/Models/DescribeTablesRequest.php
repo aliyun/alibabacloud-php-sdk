@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeTablesRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $drdsInstanceId;
+    public $currentPage;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class DescribeTablesRequest extends Model
     /**
      * @var string
      */
-    public $query;
+    public $drdsInstanceId;
 
     /**
      * @var int
@@ -29,20 +29,20 @@ class DescribeTablesRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $query;
 
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
-        'dbName'         => 'DbName',
-        'query'          => 'Query',
-        'pageSize'       => 'PageSize',
         'currentPage'    => 'CurrentPage',
+        'dbName'         => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
+        'pageSize'       => 'PageSize',
+        'query'          => 'Query',
         'regionId'       => 'RegionId',
     ];
 
@@ -53,20 +53,20 @@ class DescribeTablesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->query) {
-            $res['Query'] = $this->query;
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->query) {
+            $res['Query'] = $this->query;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -83,20 +83,20 @@ class DescribeTablesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['Query'])) {
-            $model->query = $map['Query'];
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['Query'])) {
+            $model->query = $map['Query'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

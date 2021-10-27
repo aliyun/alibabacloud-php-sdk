@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class instanceDb extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceName;
-
-    /**
      * @var hotDbList
      */
     public $hotDbList;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
     protected $_name = [
-        'instanceName' => 'InstanceName',
         'hotDbList'    => 'HotDbList',
+        'instanceName' => 'InstanceName',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class instanceDb extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
         if (null !== $this->hotDbList) {
             $res['HotDbList'] = null !== $this->hotDbList ? $this->hotDbList->toMap() : null;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class instanceDb extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
         if (isset($map['HotDbList'])) {
             $model->hotDbList = hotDbList::fromMap($map['HotDbList']);
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         return $model;

@@ -14,19 +14,14 @@ class DescribeDrdsInstanceMonitorRequest extends Model
     public $drdsInstanceId;
 
     /**
-     * @var string
-     */
-    public $key;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $key;
 
     /**
      * @var int
@@ -37,13 +32,18 @@ class DescribeDrdsInstanceMonitorRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
         'drdsInstanceId' => 'DrdsInstanceId',
-        'key'            => 'Key',
-        'startTime'      => 'StartTime',
         'endTime'        => 'EndTime',
+        'key'            => 'Key',
         'periodMultiple' => 'PeriodMultiple',
         'regionId'       => 'RegionId',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class DescribeDrdsInstanceMonitorRequest extends Model
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
         if (null !== $this->periodMultiple) {
             $res['PeriodMultiple'] = $this->periodMultiple;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class DescribeDrdsInstanceMonitorRequest extends Model
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
         if (isset($map['PeriodMultiple'])) {
             $model->periodMultiple = $map['PeriodMultiple'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

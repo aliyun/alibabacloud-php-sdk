@@ -19,19 +19,19 @@ class SubmitHotExpandPreCheckTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $taskId;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
         'msg'       => 'Msg',
         'requestId' => 'RequestId',
-        'taskId'    => 'TaskId',
         'success'   => 'Success',
+        'taskId'    => 'TaskId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class SubmitHotExpandPreCheckTaskResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class SubmitHotExpandPreCheckTaskResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

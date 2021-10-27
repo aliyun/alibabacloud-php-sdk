@@ -16,6 +16,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $paramRanges;
+
+    /**
+     * @var string
+     */
     public $paramType;
 
     /**
@@ -27,17 +32,12 @@ class data extends Model
      * @var string
      */
     public $paramVariableName;
-
-    /**
-     * @var string
-     */
-    public $paramRanges;
     protected $_name = [
         'dbName'            => 'DbName',
+        'paramRanges'       => 'ParamRanges',
         'paramType'         => 'ParamType',
         'paramValue'        => 'ParamValue',
         'paramVariableName' => 'ParamVariableName',
-        'paramRanges'       => 'ParamRanges',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class data extends Model
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+        if (null !== $this->paramRanges) {
+            $res['ParamRanges'] = $this->paramRanges;
+        }
         if (null !== $this->paramType) {
             $res['ParamType'] = $this->paramType;
         }
@@ -58,9 +61,6 @@ class data extends Model
         }
         if (null !== $this->paramVariableName) {
             $res['ParamVariableName'] = $this->paramVariableName;
-        }
-        if (null !== $this->paramRanges) {
-            $res['ParamRanges'] = $this->paramRanges;
         }
 
         return $res;
@@ -77,6 +77,9 @@ class data extends Model
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+        if (isset($map['ParamRanges'])) {
+            $model->paramRanges = $map['ParamRanges'];
+        }
         if (isset($map['ParamType'])) {
             $model->paramType = $map['ParamType'];
         }
@@ -85,9 +88,6 @@ class data extends Model
         }
         if (isset($map['ParamVariableName'])) {
             $model->paramVariableName = $map['ParamVariableName'];
-        }
-        if (isset($map['ParamRanges'])) {
-            $model->paramRanges = $map['ParamRanges'];
         }
 
         return $model;

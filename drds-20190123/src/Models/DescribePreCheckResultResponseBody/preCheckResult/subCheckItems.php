@@ -14,6 +14,11 @@ class subCheckItems extends Model
     public $errorMsgCode;
 
     /**
+     * @var string[]
+     */
+    public $errorMsgParams;
+
+    /**
      * @var string
      */
     public $preCheckItemName;
@@ -22,16 +27,11 @@ class subCheckItems extends Model
      * @var string
      */
     public $state;
-
-    /**
-     * @var string[]
-     */
-    public $errorMsgParams;
     protected $_name = [
         'errorMsgCode'     => 'ErrorMsgCode',
+        'errorMsgParams'   => 'ErrorMsgParams',
         'preCheckItemName' => 'PreCheckItemName',
         'state'            => 'State',
-        'errorMsgParams'   => 'ErrorMsgParams',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class subCheckItems extends Model
         if (null !== $this->errorMsgCode) {
             $res['ErrorMsgCode'] = $this->errorMsgCode;
         }
+        if (null !== $this->errorMsgParams) {
+            $res['ErrorMsgParams'] = $this->errorMsgParams;
+        }
         if (null !== $this->preCheckItemName) {
             $res['PreCheckItemName'] = $this->preCheckItemName;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
-        }
-        if (null !== $this->errorMsgParams) {
-            $res['ErrorMsgParams'] = $this->errorMsgParams;
         }
 
         return $res;
@@ -68,16 +68,16 @@ class subCheckItems extends Model
         if (isset($map['ErrorMsgCode'])) {
             $model->errorMsgCode = $map['ErrorMsgCode'];
         }
+        if (isset($map['ErrorMsgParams'])) {
+            if (!empty($map['ErrorMsgParams'])) {
+                $model->errorMsgParams = $map['ErrorMsgParams'];
+            }
+        }
         if (isset($map['PreCheckItemName'])) {
             $model->preCheckItemName = $map['PreCheckItemName'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
-        }
-        if (isset($map['ErrorMsgParams'])) {
-            if (!empty($map['ErrorMsgParams'])) {
-                $model->errorMsgParams = $map['ErrorMsgParams'];
-            }
         }
 
         return $model;

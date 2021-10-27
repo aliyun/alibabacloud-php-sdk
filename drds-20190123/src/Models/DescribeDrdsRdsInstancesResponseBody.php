@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsRdsInstancesResponseBody extends Model
 {
     /**
+     * @var dbInstances
+     */
+    public $dbInstances;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,15 +23,10 @@ class DescribeDrdsRdsInstancesResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var dbInstances
-     */
-    public $dbInstances;
     protected $_name = [
+        'dbInstances' => 'DbInstances',
         'requestId'   => 'RequestId',
         'success'     => 'Success',
-        'dbInstances' => 'DbInstances',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeDrdsRdsInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dbInstances) {
+            $res['DbInstances'] = null !== $this->dbInstances ? $this->dbInstances->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->dbInstances) {
-            $res['DbInstances'] = null !== $this->dbInstances ? $this->dbInstances->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeDrdsRdsInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DbInstances'])) {
+            $model->dbInstances = dbInstances::fromMap($map['DbInstances']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['DbInstances'])) {
-            $model->dbInstances = dbInstances::fromMap($map['DbInstances']);
         }
 
         return $model;

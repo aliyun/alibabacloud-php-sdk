@@ -11,12 +11,12 @@ class DescribeDrdsDbInstancesRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $dbName;
 
     /**
      * @var string
      */
-    public $dbName;
+    public $drdsInstanceId;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class DescribeDrdsDbInstancesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'dbName'         => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
     ];
@@ -41,11 +41,11 @@ class DescribeDrdsDbInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -65,11 +65,11 @@ class DescribeDrdsDbInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

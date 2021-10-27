@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlFlashbakTaskResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -23,10 +18,15 @@ class DescribeSqlFlashbakTaskResponseBody extends Model
      * @var sqlFlashbackTasks
      */
     public $sqlFlashbackTasks;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'success'           => 'Success',
         'requestId'         => 'RequestId',
         'sqlFlashbackTasks' => 'SqlFlashbackTasks',
+        'success'           => 'Success',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeSqlFlashbakTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->sqlFlashbackTasks) {
             $res['SqlFlashbackTasks'] = null !== $this->sqlFlashbackTasks ? $this->sqlFlashbackTasks->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeSqlFlashbakTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SqlFlashbackTasks'])) {
             $model->sqlFlashbackTasks = sqlFlashbackTasks::fromMap($map['SqlFlashbackTasks']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

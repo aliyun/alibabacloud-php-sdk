@@ -11,12 +11,22 @@ class ModifyDrdsIpWhiteListRequest extends Model
     /**
      * @var string
      */
+    public $dbName;
+
+    /**
+     * @var string
+     */
     public $drdsInstanceId;
 
     /**
      * @var string
      */
-    public $dbName;
+    public $groupAttribute;
+
+    /**
+     * @var string
+     */
+    public $groupName;
 
     /**
      * @var string
@@ -27,23 +37,13 @@ class ModifyDrdsIpWhiteListRequest extends Model
      * @var bool
      */
     public $mode;
-
-    /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
-     * @var string
-     */
-    public $groupAttribute;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'dbName'         => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
+        'groupAttribute' => 'GroupAttribute',
+        'groupName'      => 'GroupName',
         'ipWhiteList'    => 'IpWhiteList',
         'mode'           => 'Mode',
-        'groupName'      => 'GroupName',
-        'groupAttribute' => 'GroupAttribute',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ModifyDrdsIpWhiteListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
+        }
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
-        if (null !== $this->dbName) {
-            $res['DbName'] = $this->dbName;
+        if (null !== $this->groupAttribute) {
+            $res['GroupAttribute'] = $this->groupAttribute;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->ipWhiteList) {
             $res['IpWhiteList'] = $this->ipWhiteList;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->groupAttribute) {
-            $res['GroupAttribute'] = $this->groupAttribute;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ModifyDrdsIpWhiteListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
+        }
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
-        if (isset($map['DbName'])) {
-            $model->dbName = $map['DbName'];
+        if (isset($map['GroupAttribute'])) {
+            $model->groupAttribute = $map['GroupAttribute'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['IpWhiteList'])) {
             $model->ipWhiteList = $map['IpWhiteList'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['GroupAttribute'])) {
-            $model->groupAttribute = $map['GroupAttribute'];
         }
 
         return $model;

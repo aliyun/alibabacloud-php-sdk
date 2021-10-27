@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSwitchAzoneResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -23,10 +18,15 @@ class DescribeInstanceSwitchAzoneResponseBody extends Model
      * @var result
      */
     public $result;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'success'   => 'Success',
         'requestId' => 'RequestId',
         'result'    => 'Result',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeInstanceSwitchAzoneResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
             $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeInstanceSwitchAzoneResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

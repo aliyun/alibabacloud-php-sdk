@@ -11,17 +11,7 @@ class drdsOrderDOList extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $network;
-
-    /**
-     * @var string
-     */
-    public $VSwtichId;
+    public $azoneId;
 
     /**
      * @var string
@@ -31,19 +21,29 @@ class drdsOrderDOList extends Model
     /**
      * @var string
      */
-    public $azoneId;
+    public $network;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $VSwtichId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'vpcId'     => 'VpcId',
-        'network'   => 'Network',
-        'VSwtichId' => 'VSwtichId',
-        'instSpec'  => 'InstSpec',
         'azoneId'   => 'AzoneId',
+        'instSpec'  => 'InstSpec',
+        'network'   => 'Network',
         'regionId'  => 'RegionId',
+        'VSwtichId' => 'VSwtichId',
+        'vpcId'     => 'VpcId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class drdsOrderDOList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->network) {
-            $res['Network'] = $this->network;
-        }
-        if (null !== $this->VSwtichId) {
-            $res['VSwtichId'] = $this->VSwtichId;
+        if (null !== $this->azoneId) {
+            $res['AzoneId'] = $this->azoneId;
         }
         if (null !== $this->instSpec) {
             $res['InstSpec'] = $this->instSpec;
         }
-        if (null !== $this->azoneId) {
-            $res['AzoneId'] = $this->azoneId;
+        if (null !== $this->network) {
+            $res['Network'] = $this->network;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->VSwtichId) {
+            $res['VSwtichId'] = $this->VSwtichId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class drdsOrderDOList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['Network'])) {
-            $model->network = $map['Network'];
-        }
-        if (isset($map['VSwtichId'])) {
-            $model->VSwtichId = $map['VSwtichId'];
+        if (isset($map['AzoneId'])) {
+            $model->azoneId = $map['AzoneId'];
         }
         if (isset($map['InstSpec'])) {
             $model->instSpec = $map['InstSpec'];
         }
-        if (isset($map['AzoneId'])) {
-            $model->azoneId = $map['AzoneId'];
+        if (isset($map['Network'])) {
+            $model->network = $map['Network'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['VSwtichId'])) {
+            $model->VSwtichId = $map['VSwtichId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

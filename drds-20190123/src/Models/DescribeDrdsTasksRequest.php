@@ -11,20 +11,20 @@ class DescribeDrdsTasksRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $dbName;
 
     /**
      * @var string
      */
-    public $dbName;
+    public $drdsInstanceId;
 
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'dbName'         => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
         'taskType'       => 'TaskType',
     ];
 
@@ -35,11 +35,11 @@ class DescribeDrdsTasksRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
@@ -56,11 +56,11 @@ class DescribeDrdsTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];

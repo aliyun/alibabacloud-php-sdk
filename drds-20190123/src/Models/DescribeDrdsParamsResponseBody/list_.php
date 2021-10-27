@@ -11,7 +11,27 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $dbName;
+
+    /**
+     * @var bool
+     */
+    public $needRestart;
+
+    /**
+     * @var string
+     */
     public $paramDefaultValue;
+
+    /**
+     * @var string
+     */
+    public $paramDesc;
+
+    /**
+     * @var string
+     */
+    public $paramEnglishName;
 
     /**
      * @var string
@@ -26,6 +46,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $paramRanges;
+
+    /**
+     * @var string
+     */
     public $paramType;
 
     /**
@@ -34,45 +59,20 @@ class list_ extends Model
     public $paramValue;
 
     /**
-     * @var bool
-     */
-    public $needRestart;
-
-    /**
-     * @var string
-     */
-    public $paramRanges;
-
-    /**
-     * @var string
-     */
-    public $dbName;
-
-    /**
-     * @var string
-     */
-    public $paramEnglishName;
-
-    /**
-     * @var string
-     */
-    public $paramDesc;
-
-    /**
      * @var string
      */
     public $paramVariableName;
     protected $_name = [
+        'dbName'            => 'DbName',
+        'needRestart'       => 'NeedRestart',
         'paramDefaultValue' => 'ParamDefaultValue',
+        'paramDesc'         => 'ParamDesc',
+        'paramEnglishName'  => 'ParamEnglishName',
         'paramLevel'        => 'ParamLevel',
         'paramName'         => 'ParamName',
+        'paramRanges'       => 'ParamRanges',
         'paramType'         => 'ParamType',
         'paramValue'        => 'ParamValue',
-        'needRestart'       => 'NeedRestart',
-        'paramRanges'       => 'ParamRanges',
-        'dbName'            => 'DbName',
-        'paramEnglishName'  => 'ParamEnglishName',
-        'paramDesc'         => 'ParamDesc',
         'paramVariableName' => 'ParamVariableName',
     ];
 
@@ -83,8 +83,20 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->needRestart) {
+            $res['NeedRestart'] = $this->needRestart;
+        }
         if (null !== $this->paramDefaultValue) {
             $res['ParamDefaultValue'] = $this->paramDefaultValue;
+        }
+        if (null !== $this->paramDesc) {
+            $res['ParamDesc'] = $this->paramDesc;
+        }
+        if (null !== $this->paramEnglishName) {
+            $res['ParamEnglishName'] = $this->paramEnglishName;
         }
         if (null !== $this->paramLevel) {
             $res['ParamLevel'] = $this->paramLevel;
@@ -92,26 +104,14 @@ class list_ extends Model
         if (null !== $this->paramName) {
             $res['ParamName'] = $this->paramName;
         }
+        if (null !== $this->paramRanges) {
+            $res['ParamRanges'] = $this->paramRanges;
+        }
         if (null !== $this->paramType) {
             $res['ParamType'] = $this->paramType;
         }
         if (null !== $this->paramValue) {
             $res['ParamValue'] = $this->paramValue;
-        }
-        if (null !== $this->needRestart) {
-            $res['NeedRestart'] = $this->needRestart;
-        }
-        if (null !== $this->paramRanges) {
-            $res['ParamRanges'] = $this->paramRanges;
-        }
-        if (null !== $this->dbName) {
-            $res['DbName'] = $this->dbName;
-        }
-        if (null !== $this->paramEnglishName) {
-            $res['ParamEnglishName'] = $this->paramEnglishName;
-        }
-        if (null !== $this->paramDesc) {
-            $res['ParamDesc'] = $this->paramDesc;
         }
         if (null !== $this->paramVariableName) {
             $res['ParamVariableName'] = $this->paramVariableName;
@@ -128,8 +128,20 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
+        }
+        if (isset($map['NeedRestart'])) {
+            $model->needRestart = $map['NeedRestart'];
+        }
         if (isset($map['ParamDefaultValue'])) {
             $model->paramDefaultValue = $map['ParamDefaultValue'];
+        }
+        if (isset($map['ParamDesc'])) {
+            $model->paramDesc = $map['ParamDesc'];
+        }
+        if (isset($map['ParamEnglishName'])) {
+            $model->paramEnglishName = $map['ParamEnglishName'];
         }
         if (isset($map['ParamLevel'])) {
             $model->paramLevel = $map['ParamLevel'];
@@ -137,26 +149,14 @@ class list_ extends Model
         if (isset($map['ParamName'])) {
             $model->paramName = $map['ParamName'];
         }
+        if (isset($map['ParamRanges'])) {
+            $model->paramRanges = $map['ParamRanges'];
+        }
         if (isset($map['ParamType'])) {
             $model->paramType = $map['ParamType'];
         }
         if (isset($map['ParamValue'])) {
             $model->paramValue = $map['ParamValue'];
-        }
-        if (isset($map['NeedRestart'])) {
-            $model->needRestart = $map['NeedRestart'];
-        }
-        if (isset($map['ParamRanges'])) {
-            $model->paramRanges = $map['ParamRanges'];
-        }
-        if (isset($map['DbName'])) {
-            $model->dbName = $map['DbName'];
-        }
-        if (isset($map['ParamEnglishName'])) {
-            $model->paramEnglishName = $map['ParamEnglishName'];
-        }
-        if (isset($map['ParamDesc'])) {
-            $model->paramDesc = $map['ParamDesc'];
         }
         if (isset($map['ParamVariableName'])) {
             $model->paramVariableName = $map['ParamVariableName'];

@@ -11,7 +11,7 @@ class SubmitHotExpandPreCheckTaskRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $dbInstType;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class SubmitHotExpandPreCheckTaskRequest extends Model
     /**
      * @var string
      */
-    public $dbInstType;
+    public $drdsInstanceId;
 
     /**
      * @var string[]
      */
     public $tableList;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
-        'dbName'         => 'DbName',
         'dbInstType'     => 'DbInstType',
+        'dbName'         => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
         'tableList'      => 'TableList',
     ];
 
@@ -41,14 +41,14 @@ class SubmitHotExpandPreCheckTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
+        if (null !== $this->dbInstType) {
+            $res['DbInstType'] = $this->dbInstType;
         }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->dbInstType) {
-            $res['DbInstType'] = $this->dbInstType;
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->tableList) {
             $res['TableList'] = $this->tableList;
@@ -65,14 +65,14 @@ class SubmitHotExpandPreCheckTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
+        if (isset($map['DbInstType'])) {
+            $model->dbInstType = $map['DbInstType'];
         }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['DbInstType'])) {
-            $model->dbInstType = $map['DbInstType'];
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['TableList'])) {
             if (!empty($map['TableList'])) {

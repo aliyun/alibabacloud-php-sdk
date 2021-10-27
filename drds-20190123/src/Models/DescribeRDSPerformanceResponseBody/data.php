@@ -20,14 +20,14 @@ class data extends Model
     public $nodeName;
 
     /**
-     * @var string
-     */
-    public $unit;
-
-    /**
      * @var int
      */
     public $nodeNum;
+
+    /**
+     * @var string
+     */
+    public $unit;
 
     /**
      * @var values[]
@@ -36,8 +36,8 @@ class data extends Model
     protected $_name = [
         'key'      => 'Key',
         'nodeName' => 'NodeName',
-        'unit'     => 'Unit',
         'nodeNum'  => 'NodeNum',
+        'unit'     => 'Unit',
         'values'   => 'Values',
     ];
 
@@ -54,11 +54,11 @@ class data extends Model
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
-        if (null !== $this->unit) {
-            $res['Unit'] = $this->unit;
-        }
         if (null !== $this->nodeNum) {
             $res['NodeNum'] = $this->nodeNum;
+        }
+        if (null !== $this->unit) {
+            $res['Unit'] = $this->unit;
         }
         if (null !== $this->values) {
             $res['Values'] = [];
@@ -87,11 +87,11 @@ class data extends Model
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
-        if (isset($map['Unit'])) {
-            $model->unit = $map['Unit'];
-        }
         if (isset($map['NodeNum'])) {
             $model->nodeNum = $map['NodeNum'];
+        }
+        if (isset($map['Unit'])) {
+            $model->unit = $map['Unit'];
         }
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {

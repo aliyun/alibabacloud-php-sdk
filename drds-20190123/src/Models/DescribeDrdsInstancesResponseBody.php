@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstancesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var instances
      */
-    public $requestId;
+    public $instances;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeDrdsInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $total;
-
-    /**
-     * @var instances
-     */
-    public $instances;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'instances'  => 'Instances',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
         'total'      => 'Total',
-        'instances'  => 'Instances',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class DescribeDrdsInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->instances) {
+            $res['Instances'] = null !== $this->instances ? $this->instances->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -57,11 +57,11 @@ class DescribeDrdsInstancesResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->instances) {
-            $res['Instances'] = null !== $this->instances ? $this->instances->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class DescribeDrdsInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Instances'])) {
+            $model->instances = instances::fromMap($map['Instances']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -84,11 +84,11 @@ class DescribeDrdsInstancesResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['Instances'])) {
-            $model->instances = instances::fromMap($map['Instances']);
         }
 
         return $model;

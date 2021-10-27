@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSwitchNetworkResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
 
     /**
      * @var vpcInfos
      */
     public $vpcInfos;
     protected $_name = [
-        'success'   => 'Success',
         'requestId' => 'RequestId',
+        'success'   => 'Success',
         'vpcInfos'  => 'VpcInfos',
     ];
 
@@ -36,11 +36,11 @@ class DescribeInstanceSwitchNetworkResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->vpcInfos) {
             $res['VpcInfos'] = null !== $this->vpcInfos ? $this->vpcInfos->toMap() : null;
@@ -57,11 +57,11 @@ class DescribeInstanceSwitchNetworkResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['VpcInfos'])) {
             $model->vpcInfos = vpcInfos::fromMap($map['VpcInfos']);

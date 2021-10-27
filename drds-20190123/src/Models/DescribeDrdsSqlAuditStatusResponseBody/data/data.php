@@ -11,22 +11,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $extraSlsLogStore;
-
-    /**
-     * @var string
-     */
     public $dbName;
 
     /**
      * @var string
      */
     public $detailed;
-
-    /**
-     * @var bool
-     */
-    public $extraWriteEnabled;
 
     /**
      * @var string
@@ -41,15 +31,25 @@ class data extends Model
     /**
      * @var string
      */
+    public $extraSlsLogStore;
+
+    /**
+     * @var string
+     */
     public $extraSlsProject;
+
+    /**
+     * @var bool
+     */
+    public $extraWriteEnabled;
     protected $_name = [
-        'extraSlsLogStore'  => 'ExtraSlsLogStore',
         'dbName'            => 'DbName',
         'detailed'          => 'Detailed',
-        'extraWriteEnabled' => 'ExtraWriteEnabled',
         'enabled'           => 'Enabled',
         'extraAliUid'       => 'ExtraAliUid',
+        'extraSlsLogStore'  => 'ExtraSlsLogStore',
         'extraSlsProject'   => 'ExtraSlsProject',
+        'extraWriteEnabled' => 'ExtraWriteEnabled',
     ];
 
     public function validate()
@@ -59,17 +59,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->extraSlsLogStore) {
-            $res['ExtraSlsLogStore'] = $this->extraSlsLogStore;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
         if (null !== $this->detailed) {
             $res['Detailed'] = $this->detailed;
-        }
-        if (null !== $this->extraWriteEnabled) {
-            $res['ExtraWriteEnabled'] = $this->extraWriteEnabled;
         }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
@@ -77,8 +71,14 @@ class data extends Model
         if (null !== $this->extraAliUid) {
             $res['ExtraAliUid'] = $this->extraAliUid;
         }
+        if (null !== $this->extraSlsLogStore) {
+            $res['ExtraSlsLogStore'] = $this->extraSlsLogStore;
+        }
         if (null !== $this->extraSlsProject) {
             $res['ExtraSlsProject'] = $this->extraSlsProject;
+        }
+        if (null !== $this->extraWriteEnabled) {
+            $res['ExtraWriteEnabled'] = $this->extraWriteEnabled;
         }
 
         return $res;
@@ -92,17 +92,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExtraSlsLogStore'])) {
-            $model->extraSlsLogStore = $map['ExtraSlsLogStore'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
         if (isset($map['Detailed'])) {
             $model->detailed = $map['Detailed'];
-        }
-        if (isset($map['ExtraWriteEnabled'])) {
-            $model->extraWriteEnabled = $map['ExtraWriteEnabled'];
         }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
@@ -110,8 +104,14 @@ class data extends Model
         if (isset($map['ExtraAliUid'])) {
             $model->extraAliUid = $map['ExtraAliUid'];
         }
+        if (isset($map['ExtraSlsLogStore'])) {
+            $model->extraSlsLogStore = $map['ExtraSlsLogStore'];
+        }
         if (isset($map['ExtraSlsProject'])) {
             $model->extraSlsProject = $map['ExtraSlsProject'];
+        }
+        if (isset($map['ExtraWriteEnabled'])) {
+            $model->extraWriteEnabled = $map['ExtraWriteEnabled'];
         }
 
         return $model;

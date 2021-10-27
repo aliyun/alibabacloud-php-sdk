@@ -11,17 +11,17 @@ class SubmitSwitchTaskRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
-
-    /**
-     * @var string
-     */
     public $dbName;
 
     /**
      * @var string
      */
-    public $parentJobId;
+    public $drdsInstanceId;
+
+    /**
+     * @var string
+     */
+    public $expandType;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class SubmitSwitchTaskRequest extends Model
     /**
      * @var string
      */
-    public $expandType;
+    public $parentJobId;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'dbName'         => 'DbName',
-        'parentJobId'    => 'ParentJobId',
-        'jobId'          => 'JobId',
+        'drdsInstanceId' => 'DrdsInstanceId',
         'expandType'     => 'ExpandType',
+        'jobId'          => 'JobId',
+        'parentJobId'    => 'ParentJobId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class SubmitSwitchTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->parentJobId) {
-            $res['ParentJobId'] = $this->parentJobId;
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
+        }
+        if (null !== $this->expandType) {
+            $res['ExpandType'] = $this->expandType;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-        if (null !== $this->expandType) {
-            $res['ExpandType'] = $this->expandType;
+        if (null !== $this->parentJobId) {
+            $res['ParentJobId'] = $this->parentJobId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class SubmitSwitchTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['ParentJobId'])) {
-            $model->parentJobId = $map['ParentJobId'];
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
+        }
+        if (isset($map['ExpandType'])) {
+            $model->expandType = $map['ExpandType'];
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-        if (isset($map['ExpandType'])) {
-            $model->expandType = $map['ExpandType'];
+        if (isset($map['ParentJobId'])) {
+            $model->parentJobId = $map['ParentJobId'];
         }
 
         return $model;

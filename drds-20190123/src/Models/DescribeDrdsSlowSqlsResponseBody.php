@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsSlowSqlsResponseBody extends Model
 {
     /**
-     * @var int
+     * @var items
      */
-    public $pageSize;
+    public $items;
 
     /**
      * @var int
@@ -20,14 +20,14 @@ class DescribeDrdsSlowSqlsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $total;
 
     /**
      * @var bool
@@ -35,16 +35,16 @@ class DescribeDrdsSlowSqlsResponseBody extends Model
     public $success;
 
     /**
-     * @var items
+     * @var int
      */
-    public $items;
+    public $total;
     protected $_name = [
-        'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
-        'requestId'  => 'RequestId',
-        'total'      => 'Total',
-        'success'    => 'Success',
         'items'      => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
+        'total'      => 'Total',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeDrdsSlowSqlsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->items) {
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeDrdsSlowSqlsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Items'])) {
+            $model->items = items::fromMap($map['Items']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['Items'])) {
-            $model->items = items::fromMap($map['Items']);
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

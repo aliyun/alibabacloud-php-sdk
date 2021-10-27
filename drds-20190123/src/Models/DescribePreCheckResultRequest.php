@@ -11,20 +11,20 @@ class DescribePreCheckResultRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $drdsInstanceId;
 
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $regionId;
 
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'regionId'       => 'RegionId',
         'drdsInstanceId' => 'DrdsInstanceId',
+        'regionId'       => 'RegionId',
         'taskId'         => 'TaskId',
     ];
 
@@ -35,11 +35,11 @@ class DescribePreCheckResultRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -56,11 +56,11 @@ class DescribePreCheckResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

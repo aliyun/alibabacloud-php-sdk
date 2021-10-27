@@ -11,12 +11,12 @@ class ModifyRdsReadWeightRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $dbName;
 
     /**
      * @var string
      */
-    public $dbName;
+    public $drdsInstanceId;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class ModifyRdsReadWeightRequest extends Model
      */
     public $weights;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'dbName'         => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
         'instanceNames'  => 'InstanceNames',
         'weights'        => 'Weights',
     ];
@@ -41,11 +41,11 @@ class ModifyRdsReadWeightRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->instanceNames) {
             $res['InstanceNames'] = $this->instanceNames;
@@ -65,11 +65,11 @@ class ModifyRdsReadWeightRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['InstanceNames'])) {
             $model->instanceNames = $map['InstanceNames'];

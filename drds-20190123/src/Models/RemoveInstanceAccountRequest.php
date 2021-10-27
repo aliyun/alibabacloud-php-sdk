@@ -11,15 +11,15 @@ class RemoveInstanceAccountRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $accountName;
 
     /**
      * @var string
      */
-    public $accountName;
+    public $drdsInstanceId;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'accountName'    => 'AccountName',
+        'drdsInstanceId' => 'DrdsInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RemoveInstanceAccountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RemoveInstanceAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
 
         return $model;

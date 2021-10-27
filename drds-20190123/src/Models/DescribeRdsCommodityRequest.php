@@ -11,20 +11,20 @@ class DescribeRdsCommodityRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $commodityCode;
 
     /**
      * @var string
      */
-    public $commodityCode;
+    public $drdsInstanceId;
 
     /**
      * @var string
      */
     public $orderType;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'commodityCode'  => 'CommodityCode',
+        'drdsInstanceId' => 'DrdsInstanceId',
         'orderType'      => 'OrderType',
     ];
 
@@ -35,11 +35,11 @@ class DescribeRdsCommodityRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
@@ -56,11 +56,11 @@ class DescribeRdsCommodityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];

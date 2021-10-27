@@ -11,21 +11,21 @@ class data extends Model
     /**
      * @var string
      */
+    public $shardDbKey;
+
+    /**
+     * @var string
+     */
     public $shardTbKey;
 
     /**
      * @var string
      */
     public $tableName;
-
-    /**
-     * @var string
-     */
-    public $shardDbKey;
     protected $_name = [
+        'shardDbKey' => 'ShardDbKey',
         'shardTbKey' => 'ShardTbKey',
         'tableName'  => 'TableName',
-        'shardDbKey' => 'ShardDbKey',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->shardDbKey) {
+            $res['ShardDbKey'] = $this->shardDbKey;
+        }
         if (null !== $this->shardTbKey) {
             $res['ShardTbKey'] = $this->shardTbKey;
         }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->shardDbKey) {
-            $res['ShardDbKey'] = $this->shardDbKey;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ShardDbKey'])) {
+            $model->shardDbKey = $map['ShardDbKey'];
+        }
         if (isset($map['ShardTbKey'])) {
             $model->shardTbKey = $map['ShardTbKey'];
         }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
-        }
-        if (isset($map['ShardDbKey'])) {
-            $model->shardDbKey = $map['ShardDbKey'];
         }
 
         return $model;

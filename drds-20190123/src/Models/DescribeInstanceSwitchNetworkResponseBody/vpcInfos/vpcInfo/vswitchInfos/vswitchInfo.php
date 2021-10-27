@@ -11,7 +11,7 @@ class vswitchInfo extends Model
     /**
      * @var string
      */
-    public $vpcId;
+    public $azoneId;
 
     /**
      * @var bool
@@ -21,22 +21,22 @@ class vswitchInfo extends Model
     /**
      * @var string
      */
-    public $vswitchId;
+    public $vpcId;
 
     /**
      * @var string
      */
-    public $azoneId;
+    public $vswitchId;
 
     /**
      * @var string
      */
     public $vswitchName;
     protected $_name = [
-        'vpcId'         => 'VpcId',
-        'drdsSupported' => 'DrdsSupported',
-        'vswitchId'     => 'VswitchId',
         'azoneId'       => 'AzoneId',
+        'drdsSupported' => 'DrdsSupported',
+        'vpcId'         => 'VpcId',
+        'vswitchId'     => 'VswitchId',
         'vswitchName'   => 'VswitchName',
     ];
 
@@ -47,17 +47,17 @@ class vswitchInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->azoneId) {
+            $res['AzoneId'] = $this->azoneId;
         }
         if (null !== $this->drdsSupported) {
             $res['DrdsSupported'] = $this->drdsSupported;
         }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
-        }
-        if (null !== $this->azoneId) {
-            $res['AzoneId'] = $this->azoneId;
         }
         if (null !== $this->vswitchName) {
             $res['VswitchName'] = $this->vswitchName;
@@ -74,17 +74,17 @@ class vswitchInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['AzoneId'])) {
+            $model->azoneId = $map['AzoneId'];
         }
         if (isset($map['DrdsSupported'])) {
             $model->drdsSupported = $map['DrdsSupported'];
         }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
         if (isset($map['VswitchId'])) {
             $model->vswitchId = $map['VswitchId'];
-        }
-        if (isset($map['AzoneId'])) {
-            $model->azoneId = $map['AzoneId'];
         }
         if (isset($map['VswitchName'])) {
             $model->vswitchName = $map['VswitchName'];

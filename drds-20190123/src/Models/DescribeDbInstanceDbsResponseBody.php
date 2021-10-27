@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDbInstanceDbsResponseBody extends Model
 {
     /**
+     * @var databases
+     */
+    public $databases;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -23,16 +28,11 @@ class DescribeDbInstanceDbsResponseBody extends Model
      * @var string
      */
     public $total;
-
-    /**
-     * @var databases
-     */
-    public $databases;
     protected $_name = [
+        'databases' => 'Databases',
         'requestId' => 'RequestId',
         'success'   => 'Success',
         'total'     => 'Total',
-        'databases' => 'Databases',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class DescribeDbInstanceDbsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->databases) {
+            $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,9 +53,6 @@ class DescribeDbInstanceDbsResponseBody extends Model
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->databases) {
-            $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class DescribeDbInstanceDbsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Databases'])) {
+            $model->databases = databases::fromMap($map['Databases']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -74,9 +77,6 @@ class DescribeDbInstanceDbsResponseBody extends Model
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['Databases'])) {
-            $model->databases = databases::fromMap($map['Databases']);
         }
 
         return $model;

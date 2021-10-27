@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ValidateShardTaskResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var list_[]
      */
-    public $success;
+    public $list;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class ValidateShardTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @var list_[]
+     * @var bool
      */
-    public $list;
+    public $success;
     protected $_name = [
-        'success'   => 'Success',
-        'requestId' => 'RequestId',
         'list'      => 'List',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class ValidateShardTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->list) {
             $res['List'] = [];
             if (null !== $this->list && \is_array($this->list)) {
@@ -50,6 +44,12 @@ class ValidateShardTaskResponseBody extends Model
                     $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class ValidateShardTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
@@ -77,6 +71,12 @@ class ValidateShardTaskResponseBody extends Model
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

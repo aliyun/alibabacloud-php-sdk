@@ -15,14 +15,14 @@ class result extends Model
     public $originAzoneId;
 
     /**
-     * @var bool
-     */
-    public $switchAble;
-
-    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var bool
+     */
+    public $switchAble;
 
     /**
      * @var targetAzones
@@ -30,8 +30,8 @@ class result extends Model
     public $targetAzones;
     protected $_name = [
         'originAzoneId' => 'OriginAzoneId',
-        'switchAble'    => 'SwitchAble',
         'regionId'      => 'RegionId',
+        'switchAble'    => 'SwitchAble',
         'targetAzones'  => 'TargetAzones',
     ];
 
@@ -45,11 +45,11 @@ class result extends Model
         if (null !== $this->originAzoneId) {
             $res['OriginAzoneId'] = $this->originAzoneId;
         }
-        if (null !== $this->switchAble) {
-            $res['SwitchAble'] = $this->switchAble;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->switchAble) {
+            $res['SwitchAble'] = $this->switchAble;
         }
         if (null !== $this->targetAzones) {
             $res['TargetAzones'] = null !== $this->targetAzones ? $this->targetAzones->toMap() : null;
@@ -69,11 +69,11 @@ class result extends Model
         if (isset($map['OriginAzoneId'])) {
             $model->originAzoneId = $map['OriginAzoneId'];
         }
-        if (isset($map['SwitchAble'])) {
-            $model->switchAble = $map['SwitchAble'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SwitchAble'])) {
+            $model->switchAble = $map['SwitchAble'];
         }
         if (isset($map['TargetAzones'])) {
             $model->targetAzones = targetAzones::fromMap($map['TargetAzones']);

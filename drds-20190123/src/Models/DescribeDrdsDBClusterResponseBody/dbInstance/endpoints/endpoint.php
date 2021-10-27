@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class endpoint extends Model
 {
     /**
-     * @var int
-     */
-    public $readWeight;
-
-    /**
      * @var string
      */
     public $endpointId;
@@ -22,10 +17,15 @@ class endpoint extends Model
      * @var string
      */
     public $nodeIds;
+
+    /**
+     * @var int
+     */
+    public $readWeight;
     protected $_name = [
-        'readWeight' => 'ReadWeight',
         'endpointId' => 'EndpointId',
         'nodeIds'    => 'NodeIds',
+        'readWeight' => 'ReadWeight',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class endpoint extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->readWeight) {
-            $res['ReadWeight'] = $this->readWeight;
-        }
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
         }
         if (null !== $this->nodeIds) {
             $res['NodeIds'] = $this->nodeIds;
+        }
+        if (null !== $this->readWeight) {
+            $res['ReadWeight'] = $this->readWeight;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class endpoint extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReadWeight'])) {
-            $model->readWeight = $map['ReadWeight'];
-        }
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
         }
         if (isset($map['NodeIds'])) {
             $model->nodeIds = $map['NodeIds'];
+        }
+        if (isset($map['ReadWeight'])) {
+            $model->readWeight = $map['ReadWeight'];
         }
 
         return $model;

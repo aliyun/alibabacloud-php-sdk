@@ -11,7 +11,7 @@ class ManagePrivateRdsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $DBInstanceId;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class ManagePrivateRdsRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $params;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class ManagePrivateRdsRequest extends Model
     /**
      * @var string
      */
-    public $params;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'drdsInstanceId' => 'DrdsInstanceId',
         'DBInstanceId'   => 'DBInstanceId',
-        'rdsAction'      => 'RdsAction',
+        'drdsInstanceId' => 'DrdsInstanceId',
         'params'         => 'Params',
+        'rdsAction'      => 'RdsAction',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ManagePrivateRdsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->rdsAction) {
             $res['RdsAction'] = $this->rdsAction;
         }
-        if (null !== $this->params) {
-            $res['Params'] = $this->params;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ManagePrivateRdsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
         }
         if (isset($map['RdsAction'])) {
             $model->rdsAction = $map['RdsAction'];
         }
-        if (isset($map['Params'])) {
-            $model->params = $map['Params'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

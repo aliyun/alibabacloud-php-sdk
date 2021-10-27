@@ -11,22 +11,12 @@ class DescribeDrdsInstanceDbMonitorRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
-
-    /**
-     * @var string
-     */
     public $dbName;
 
     /**
      * @var string
      */
-    public $key;
-
-    /**
-     * @var int
-     */
-    public $startTime;
+    public $drdsInstanceId;
 
     /**
      * @var int
@@ -36,14 +26,24 @@ class DescribeDrdsInstanceDbMonitorRequest extends Model
     /**
      * @var string
      */
+    public $key;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'dbName'         => 'DbName',
-        'key'            => 'Key',
-        'startTime'      => 'StartTime',
+        'drdsInstanceId' => 'DrdsInstanceId',
         'endTime'        => 'EndTime',
+        'key'            => 'Key',
         'regionId'       => 'RegionId',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeDrdsInstanceDbMonitorRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeDrdsInstanceDbMonitorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

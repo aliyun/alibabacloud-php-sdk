@@ -11,20 +11,20 @@ class DescribeDrdsDBIpWhiteListRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $dbName;
 
     /**
      * @var string
      */
-    public $dbName;
+    public $drdsInstanceId;
 
     /**
      * @var string
      */
     public $groupName;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'dbName'         => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
         'groupName'      => 'GroupName',
     ];
 
@@ -35,11 +35,11 @@ class DescribeDrdsDBIpWhiteListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -56,11 +56,11 @@ class DescribeDrdsDBIpWhiteListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

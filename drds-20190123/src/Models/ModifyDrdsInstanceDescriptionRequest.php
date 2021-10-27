@@ -11,15 +11,15 @@ class ModifyDrdsInstanceDescriptionRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $drdsInstanceId;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'description'    => 'Description',
+        'drdsInstanceId' => 'DrdsInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ModifyDrdsInstanceDescriptionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ModifyDrdsInstanceDescriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
 
         return $model;

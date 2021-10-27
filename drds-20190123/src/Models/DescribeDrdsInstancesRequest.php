@@ -12,17 +12,17 @@ class DescribeDrdsInstancesRequest extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
      * @var bool
      */
     public $expired;
+
+    /**
+     * @var bool
+     */
+    public $mix;
 
     /**
      * @var int
@@ -37,7 +37,7 @@ class DescribeDrdsInstancesRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $productVersion;
 
     /**
      * @var string
@@ -45,30 +45,30 @@ class DescribeDrdsInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @var bool
-     */
-    public $mix;
-
-    /**
      * @var string
      */
-    public $productVersion;
+    public $resourceGroupId;
 
     /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'            => 'Type',
         'description'     => 'Description',
         'expired'         => 'Expired',
+        'mix'             => 'Mix',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'resourceGroupId' => 'ResourceGroupId',
-        'regionId'        => 'RegionId',
-        'mix'             => 'Mix',
         'productVersion'  => 'ProductVersion',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'tag'             => 'Tag',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -78,14 +78,14 @@ class DescribeDrdsInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
+        }
+        if (null !== $this->mix) {
+            $res['Mix'] = $this->mix;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -93,17 +93,14 @@ class DescribeDrdsInstancesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->productVersion) {
+            $res['ProductVersion'] = $this->productVersion;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->mix) {
-            $res['Mix'] = $this->mix;
-        }
-        if (null !== $this->productVersion) {
-            $res['ProductVersion'] = $this->productVersion;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -113,6 +110,9 @@ class DescribeDrdsInstancesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -126,14 +126,14 @@ class DescribeDrdsInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
+        }
+        if (isset($map['Mix'])) {
+            $model->mix = $map['Mix'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -141,17 +141,14 @@ class DescribeDrdsInstancesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['ProductVersion'])) {
+            $model->productVersion = $map['ProductVersion'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Mix'])) {
-            $model->mix = $map['Mix'];
-        }
-        if (isset($map['ProductVersion'])) {
-            $model->productVersion = $map['ProductVersion'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -161,6 +158,9 @@ class DescribeDrdsInstancesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

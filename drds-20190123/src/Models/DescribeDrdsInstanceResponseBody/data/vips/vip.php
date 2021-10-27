@@ -11,6 +11,21 @@ class vip extends Model
     /**
      * @var string
      */
+    public $dns;
+
+    /**
+     * @var int
+     */
+    public $expireDays;
+
+    /**
+     * @var string
+     */
+    public $port;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -22,28 +37,13 @@ class vip extends Model
      * @var string
      */
     public $vswitchId;
-
-    /**
-     * @var string
-     */
-    public $dns;
-
-    /**
-     * @var string
-     */
-    public $port;
-
-    /**
-     * @var int
-     */
-    public $expireDays;
     protected $_name = [
+        'dns'        => 'Dns',
+        'expireDays' => 'ExpireDays',
+        'port'       => 'Port',
         'type'       => 'Type',
         'vpcId'      => 'VpcId',
         'vswitchId'  => 'VswitchId',
-        'dns'        => 'Dns',
-        'port'       => 'Port',
-        'expireDays' => 'ExpireDays',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class vip extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dns) {
+            $res['Dns'] = $this->dns;
+        }
+        if (null !== $this->expireDays) {
+            $res['ExpireDays'] = $this->expireDays;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -61,15 +70,6 @@ class vip extends Model
         }
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
-        }
-        if (null !== $this->dns) {
-            $res['Dns'] = $this->dns;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
-        if (null !== $this->expireDays) {
-            $res['ExpireDays'] = $this->expireDays;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class vip extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Dns'])) {
+            $model->dns = $map['Dns'];
+        }
+        if (isset($map['ExpireDays'])) {
+            $model->expireDays = $map['ExpireDays'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
@@ -91,15 +100,6 @@ class vip extends Model
         }
         if (isset($map['VswitchId'])) {
             $model->vswitchId = $map['VswitchId'];
-        }
-        if (isset($map['Dns'])) {
-            $model->dns = $map['Dns'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
-        if (isset($map['ExpireDays'])) {
-            $model->expireDays = $map['ExpireDays'];
         }
 
         return $model;

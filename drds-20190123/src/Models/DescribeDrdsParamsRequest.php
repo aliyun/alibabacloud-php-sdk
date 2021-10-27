@@ -11,7 +11,7 @@ class DescribeDrdsParamsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $dbName;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DescribeDrdsParamsRequest extends Model
     /**
      * @var string
      */
-    public $dbName;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
+        'dbName'         => 'DbName',
         'drdsInstanceId' => 'DrdsInstanceId',
         'paramLevel'     => 'ParamLevel',
-        'dbName'         => 'DbName',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class DescribeDrdsParamsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
         }
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
@@ -50,8 +50,8 @@ class DescribeDrdsParamsRequest extends Model
         if (null !== $this->paramLevel) {
             $res['ParamLevel'] = $this->paramLevel;
         }
-        if (null !== $this->dbName) {
-            $res['DbName'] = $this->dbName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class DescribeDrdsParamsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
         }
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
@@ -74,8 +74,8 @@ class DescribeDrdsParamsRequest extends Model
         if (isset($map['ParamLevel'])) {
             $model->paramLevel = $map['ParamLevel'];
         }
-        if (isset($map['DbName'])) {
-            $model->dbName = $map['DbName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

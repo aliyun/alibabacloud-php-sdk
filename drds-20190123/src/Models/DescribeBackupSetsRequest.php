@@ -16,16 +16,16 @@ class DescribeBackupSetsRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $startTime;
     protected $_name = [
         'drdsInstanceId' => 'DrdsInstanceId',
-        'startTime'      => 'StartTime',
         'endTime'        => 'EndTime',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeBackupSetsRequest extends Model
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeBackupSetsRequest extends Model
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

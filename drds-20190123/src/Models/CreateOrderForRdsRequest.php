@@ -11,15 +11,15 @@ class CreateOrderForRdsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $params;
 
     /**
      * @var string
      */
-    public $params;
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
         'params'   => 'Params',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateOrderForRdsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->params) {
             $res['Params'] = $this->params;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateOrderForRdsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

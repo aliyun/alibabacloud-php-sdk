@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDBsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var data
      */
-    public $pageSize;
+    public $data;
 
     /**
      * @var string
@@ -22,12 +22,12 @@ class DescribeDrdsDBsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $pageSize;
 
     /**
      * @var string
      */
-    public $total;
+    public $requestId;
 
     /**
      * @var bool
@@ -35,16 +35,16 @@ class DescribeDrdsDBsResponseBody extends Model
     public $success;
 
     /**
-     * @var data
+     * @var string
      */
-    public $data;
+    public $total;
     protected $_name = [
-        'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
-        'requestId'  => 'RequestId',
-        'total'      => 'Total',
-        'success'    => 'Success',
         'data'       => 'Data',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
+        'total'      => 'Total',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeDrdsDBsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeDrdsDBsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

@@ -15,6 +15,11 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $resourceId;
+
+    /**
      * @var string
      */
     public $resourceType;
@@ -23,16 +28,11 @@ class TagResourcesRequest extends Model
      * @var tag[]
      */
     public $tag;
-
-    /**
-     * @var string[]
-     */
-    public $resourceId;
     protected $_name = [
         'regionId'     => 'RegionId',
+        'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
-        'resourceId'   => 'ResourceId',
     ];
 
     public function validate()
@@ -45,6 +45,9 @@ class TagResourcesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -56,9 +59,6 @@ class TagResourcesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
         }
 
         return $res;
@@ -75,6 +75,11 @@ class TagResourcesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceId'])) {
+            if (!empty($map['ResourceId'])) {
+                $model->resourceId = $map['ResourceId'];
+            }
+        }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
@@ -85,11 +90,6 @@ class TagResourcesRequest extends Model
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['ResourceId'])) {
-            if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
             }
         }
 

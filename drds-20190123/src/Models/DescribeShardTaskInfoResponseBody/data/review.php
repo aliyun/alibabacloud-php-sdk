@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class review extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $startTime;
+    public $expired;
 
     /**
      * @var int
@@ -19,9 +19,9 @@ class review extends Model
     public $progress;
 
     /**
-     * @var int
+     * @var string
      */
-    public $tps;
+    public $startTime;
 
     /**
      * @var int
@@ -31,13 +31,13 @@ class review extends Model
     /**
      * @var int
      */
-    public $expired;
+    public $tps;
     protected $_name = [
-        'startTime' => 'StartTime',
-        'progress'  => 'Progress',
-        'tps'       => 'Tps',
-        'total'     => 'Total',
         'expired'   => 'Expired',
+        'progress'  => 'Progress',
+        'startTime' => 'StartTime',
+        'total'     => 'Total',
+        'tps'       => 'Tps',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class review extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->expired) {
+            $res['Expired'] = $this->expired;
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
-        if (null !== $this->tps) {
-            $res['Tps'] = $this->tps;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->expired) {
-            $res['Expired'] = $this->expired;
+        if (null !== $this->tps) {
+            $res['Tps'] = $this->tps;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class review extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Expired'])) {
+            $model->expired = $map['Expired'];
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
-        if (isset($map['Tps'])) {
-            $model->tps = $map['Tps'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-        if (isset($map['Expired'])) {
-            $model->expired = $map['Expired'];
+        if (isset($map['Tps'])) {
+            $model->tps = $map['Tps'];
         }
 
         return $model;

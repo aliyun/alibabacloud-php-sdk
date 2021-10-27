@@ -11,20 +11,20 @@ class DescribeRdsSuperAccountInstancesRequest extends Model
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $dbInstType;
 
     /**
      * @var string
      */
-    public $dbInstType;
+    public $drdsInstanceId;
 
     /**
      * @var string[]
      */
     public $rdsInstance;
     protected $_name = [
-        'drdsInstanceId' => 'DrdsInstanceId',
         'dbInstType'     => 'DbInstType',
+        'drdsInstanceId' => 'DrdsInstanceId',
         'rdsInstance'    => 'RdsInstance',
     ];
 
@@ -35,11 +35,11 @@ class DescribeRdsSuperAccountInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceId) {
-            $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
         if (null !== $this->dbInstType) {
             $res['DbInstType'] = $this->dbInstType;
+        }
+        if (null !== $this->drdsInstanceId) {
+            $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->rdsInstance) {
             $res['RdsInstance'] = $this->rdsInstance;
@@ -56,11 +56,11 @@ class DescribeRdsSuperAccountInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceId'])) {
-            $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
         if (isset($map['DbInstType'])) {
             $model->dbInstType = $map['DbInstType'];
+        }
+        if (isset($map['DrdsInstanceId'])) {
+            $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['RdsInstance'])) {
             if (!empty($map['RdsInstance'])) {

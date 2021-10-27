@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $newestVersion;
+    public $instanceVersion;
 
     /**
      * @var string
      */
-    public $instanceVersion;
+    public $newestVersion;
     protected $_name = [
-        'newestVersion'   => 'NewestVersion',
         'instanceVersion' => 'InstanceVersion',
+        'newestVersion'   => 'NewestVersion',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->newestVersion) {
-            $res['NewestVersion'] = $this->newestVersion;
-        }
         if (null !== $this->instanceVersion) {
             $res['InstanceVersion'] = $this->instanceVersion;
+        }
+        if (null !== $this->newestVersion) {
+            $res['NewestVersion'] = $this->newestVersion;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NewestVersion'])) {
-            $model->newestVersion = $map['NewestVersion'];
-        }
         if (isset($map['InstanceVersion'])) {
             $model->instanceVersion = $map['InstanceVersion'];
+        }
+        if (isset($map['NewestVersion'])) {
+            $model->newestVersion = $map['NewestVersion'];
         }
 
         return $model;

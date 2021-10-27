@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceNetworkRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $drdsInstanceId;
+    public $classicExpiredDays;
 
     /**
      * @var string
      */
-    public $srcInstanceNetworkType;
+    public $drdsInstanceId;
 
     /**
      * @var bool
@@ -24,14 +24,14 @@ class UpdateInstanceNetworkRequest extends Model
     public $retainClassic;
 
     /**
-     * @var int
+     * @var string
      */
-    public $classicExpiredDays;
+    public $srcInstanceNetworkType;
     protected $_name = [
-        'drdsInstanceId'         => 'DrdsInstanceId',
-        'srcInstanceNetworkType' => 'SrcInstanceNetworkType',
-        'retainClassic'          => 'RetainClassic',
         'classicExpiredDays'     => 'ClassicExpiredDays',
+        'drdsInstanceId'         => 'DrdsInstanceId',
+        'retainClassic'          => 'RetainClassic',
+        'srcInstanceNetworkType' => 'SrcInstanceNetworkType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpdateInstanceNetworkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->classicExpiredDays) {
+            $res['ClassicExpiredDays'] = $this->classicExpiredDays;
+        }
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
-        }
-        if (null !== $this->srcInstanceNetworkType) {
-            $res['SrcInstanceNetworkType'] = $this->srcInstanceNetworkType;
         }
         if (null !== $this->retainClassic) {
             $res['RetainClassic'] = $this->retainClassic;
         }
-        if (null !== $this->classicExpiredDays) {
-            $res['ClassicExpiredDays'] = $this->classicExpiredDays;
+        if (null !== $this->srcInstanceNetworkType) {
+            $res['SrcInstanceNetworkType'] = $this->srcInstanceNetworkType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpdateInstanceNetworkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClassicExpiredDays'])) {
+            $model->classicExpiredDays = $map['ClassicExpiredDays'];
+        }
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
-        }
-        if (isset($map['SrcInstanceNetworkType'])) {
-            $model->srcInstanceNetworkType = $map['SrcInstanceNetworkType'];
         }
         if (isset($map['RetainClassic'])) {
             $model->retainClassic = $map['RetainClassic'];
         }
-        if (isset($map['ClassicExpiredDays'])) {
-            $model->classicExpiredDays = $map['ClassicExpiredDays'];
+        if (isset($map['SrcInstanceNetworkType'])) {
+            $model->srcInstanceNetworkType = $map['SrcInstanceNetworkType'];
         }
 
         return $model;

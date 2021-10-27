@@ -11,21 +11,21 @@ class DescribeBackupDbsRequest extends Model
     /**
      * @var string
      */
+    public $backupId;
+
+    /**
+     * @var string
+     */
     public $drdsInstanceId;
 
     /**
      * @var string
      */
     public $preferredRestoreTime;
-
-    /**
-     * @var string
-     */
-    public $backupId;
     protected $_name = [
+        'backupId'             => 'BackupId',
         'drdsInstanceId'       => 'DrdsInstanceId',
         'preferredRestoreTime' => 'PreferredRestoreTime',
-        'backupId'             => 'BackupId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeBackupDbsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
         if (null !== $this->preferredRestoreTime) {
             $res['PreferredRestoreTime'] = $this->preferredRestoreTime;
-        }
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeBackupDbsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
         if (isset($map['PreferredRestoreTime'])) {
             $model->preferredRestoreTime = $map['PreferredRestoreTime'];
-        }
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
         }
 
         return $model;

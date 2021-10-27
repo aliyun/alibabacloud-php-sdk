@@ -12,12 +12,7 @@ class instanceAccount extends Model
     /**
      * @var string
      */
-    public $host;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $accountName;
 
     /**
      * @var int
@@ -25,20 +20,25 @@ class instanceAccount extends Model
     public $accountType;
 
     /**
-     * @var string
-     */
-    public $accountName;
-
-    /**
      * @var dbPrivileges
      */
     public $dbPrivileges;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $host;
     protected $_name = [
-        'host'         => 'Host',
-        'description'  => 'Description',
-        'accountType'  => 'AccountType',
         'accountName'  => 'AccountName',
+        'accountType'  => 'AccountType',
         'dbPrivileges' => 'DbPrivileges',
+        'description'  => 'Description',
+        'host'         => 'Host',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class instanceAccount extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->host) {
-            $res['Host'] = $this->host;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
         }
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
         if (null !== $this->dbPrivileges) {
             $res['DbPrivileges'] = null !== $this->dbPrivileges ? $this->dbPrivileges->toMap() : null;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->host) {
+            $res['Host'] = $this->host;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class instanceAccount extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Host'])) {
-            $model->host = $map['Host'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
         }
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
-        }
         if (isset($map['DbPrivileges'])) {
             $model->dbPrivileges = dbPrivileges::fromMap($map['DbPrivileges']);
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Host'])) {
+            $model->host = $map['Host'];
         }
 
         return $model;
