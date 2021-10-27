@@ -11,7 +11,7 @@ class CreateFlowRequest extends Model
     /**
      * @var string
      */
-    public $flowName;
+    public $definition;
 
     /**
      * @var string
@@ -21,23 +21,23 @@ class CreateFlowRequest extends Model
     /**
      * @var string
      */
-    public $definition;
-
-    /**
-     * @var string
-     */
-    public $templateId;
+    public $flowName;
 
     /**
      * @var string
      */
     public $flowSource;
+
+    /**
+     * @var string
+     */
+    public $templateId;
     protected $_name = [
-        'flowName'        => 'FlowName',
-        'flowDescription' => 'FlowDescription',
         'definition'      => 'Definition',
-        'templateId'      => 'TemplateId',
+        'flowDescription' => 'FlowDescription',
+        'flowName'        => 'FlowName',
         'flowSource'      => 'FlowSource',
+        'templateId'      => 'TemplateId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateFlowRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->flowName) {
-            $res['FlowName'] = $this->flowName;
+        if (null !== $this->definition) {
+            $res['Definition'] = $this->definition;
         }
         if (null !== $this->flowDescription) {
             $res['FlowDescription'] = $this->flowDescription;
         }
-        if (null !== $this->definition) {
-            $res['Definition'] = $this->definition;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->flowName) {
+            $res['FlowName'] = $this->flowName;
         }
         if (null !== $this->flowSource) {
             $res['FlowSource'] = $this->flowSource;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FlowName'])) {
-            $model->flowName = $map['FlowName'];
+        if (isset($map['Definition'])) {
+            $model->definition = $map['Definition'];
         }
         if (isset($map['FlowDescription'])) {
             $model->flowDescription = $map['FlowDescription'];
         }
-        if (isset($map['Definition'])) {
-            $model->definition = $map['Definition'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['FlowName'])) {
+            $model->flowName = $map['FlowName'];
         }
         if (isset($map['FlowSource'])) {
             $model->flowSource = $map['FlowSource'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

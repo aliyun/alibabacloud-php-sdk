@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $currentVersionId;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -17,15 +22,10 @@ class UpdateFlowResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $currentVersionId;
     protected $_name = [
+        'currentVersionId' => 'CurrentVersionId',
         'requestId'        => 'RequestId',
         'success'          => 'Success',
-        'currentVersionId' => 'CurrentVersionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateFlowResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentVersionId) {
+            $res['CurrentVersionId'] = $this->currentVersionId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->currentVersionId) {
-            $res['CurrentVersionId'] = $this->currentVersionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateFlowResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentVersionId'])) {
+            $model->currentVersionId = $map['CurrentVersionId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['CurrentVersionId'])) {
-            $model->currentVersionId = $map['CurrentVersionId'];
         }
 
         return $model;

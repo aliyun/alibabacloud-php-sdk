@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $resourceType;
+    public $all;
 
     /**
      * @var string[]
@@ -19,19 +19,19 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @var string[]
      */
     public $tagKey;
-
-    /**
-     * @var bool
-     */
-    public $all;
     protected $_name = [
-        'resourceType' => 'ResourceType',
-        'resourceId'   => 'ResourceId',
-        'tagKey'       => 'TagKey',
         'all'          => 'All',
+        'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'tagKey'       => 'TagKey',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UntagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->all) {
+            $res['All'] = $this->all;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
-        }
-        if (null !== $this->all) {
-            $res['All'] = $this->all;
         }
 
         return $res;
@@ -65,21 +65,21 @@ class UntagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['All'])) {
+            $model->all = $map['All'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
         }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
                 $model->tagKey = $map['TagKey'];
             }
-        }
-        if (isset($map['All'])) {
-            $model->all = $map['All'];
         }
 
         return $model;

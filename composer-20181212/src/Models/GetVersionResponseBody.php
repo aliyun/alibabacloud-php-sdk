@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class GetVersionResponseBody extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 工作流定义
-     *
      * @var string
      */
     public $definition;
 
     /**
-     * @description 工作流 ID
-     *
      * @var string
      */
     public $flowId;
 
     /**
-     * @description 地域 ID
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 请求 ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 更新时间
-     *
      * @var string
      */
     public $updateTime;
 
     /**
-     * @description 版本描述
-     *
      * @var string
      */
     public $versionDescription;
 
     /**
-     * @description 版本 ID
-     *
      * @var string
      */
     public $versionId;
 
     /**
-     * @description 版本名称
-     *
      * @var string
      */
     public $versionName;
 
     /**
-     * @description 版本状态
-     *
      * @var string
      */
     public $versionStatus;

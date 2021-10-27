@@ -12,27 +12,27 @@ class ListTagResourcesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $nextToken;
 
     /**
      * @var string
      */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
+    public $requestId;
 
     /**
      * @var tagResources[]
      */
     public $tagResources;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'nextToken'    => 'NextToken',
-        'totalCount'   => 'TotalCount',
+        'requestId'    => 'RequestId',
         'tagResources' => 'TagResources',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -42,14 +42,11 @@ class ListTagResourcesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->tagResources) {
             $res['TagResources'] = [];
@@ -59,6 +56,9 @@ class ListTagResourcesResponseBody extends Model
                     $res['TagResources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -72,14 +72,11 @@ class ListTagResourcesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TagResources'])) {
             if (!empty($map['TagResources'])) {
@@ -89,6 +86,9 @@ class ListTagResourcesResponseBody extends Model
                     $model->tagResources[$n++] = null !== $item ? tagResources::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

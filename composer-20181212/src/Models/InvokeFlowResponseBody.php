@@ -11,20 +11,20 @@ class InvokeFlowResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $invocationId;
 
     /**
      * @var string
      */
-    public $invocationId;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'invocationId' => 'InvocationId',
+        'requestId'    => 'RequestId',
         'success'      => 'Success',
     ];
 
@@ -35,11 +35,11 @@ class InvokeFlowResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->invocationId) {
             $res['InvocationId'] = $this->invocationId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -56,11 +56,11 @@ class InvokeFlowResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InvocationId'])) {
             $model->invocationId = $map['InvocationId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

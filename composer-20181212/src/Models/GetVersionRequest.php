@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetVersionRequest extends Model
 {
     /**
-     * @description 工作流 ID
-     *
      * @var string
      */
     public $flowId;
 
     /**
-     * @description 工作流版本 ID
-     *
      * @var string
      */
     public $versionId;

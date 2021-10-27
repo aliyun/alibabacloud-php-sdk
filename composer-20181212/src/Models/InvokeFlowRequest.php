@@ -11,12 +11,7 @@ class InvokeFlowRequest extends Model
     /**
      * @var string
      */
-    public $flowId;
-
-    /**
-     * @var string
-     */
-    public $parameters;
+    public $clientToken;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class InvokeFlowRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $flowId;
+
+    /**
+     * @var string
+     */
+    public $parameters;
     protected $_name = [
+        'clientToken' => 'ClientToken',
+        'data'        => 'Data',
         'flowId'      => 'FlowId',
         'parameters'  => 'Parameters',
-        'data'        => 'Data',
-        'clientToken' => 'ClientToken',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class InvokeFlowRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class InvokeFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

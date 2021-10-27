@@ -11,12 +11,22 @@ class versions extends Model
     /**
      * @var string
      */
-    public $versionId;
+    public $createTime;
 
     /**
      * @var string
      */
     public $flowId;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $versionId;
 
     /**
      * @var int
@@ -27,23 +37,13 @@ class versions extends Model
      * @var int
      */
     public $versionStatus;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
     protected $_name = [
-        'versionId'     => 'VersionId',
+        'createTime'    => 'CreateTime',
         'flowId'        => 'FlowId',
+        'updateTime'    => 'UpdateTime',
+        'versionId'     => 'VersionId',
         'versionName'   => 'VersionName',
         'versionStatus' => 'VersionStatus',
-        'createTime'    => 'CreateTime',
-        'updateTime'    => 'UpdateTime',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class versions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->versionId) {
-            $res['VersionId'] = $this->versionId;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
         }
         if (null !== $this->versionStatus) {
             $res['VersionStatus'] = $this->versionStatus;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class versions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VersionId'])) {
-            $model->versionId = $map['VersionId'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
         }
         if (isset($map['VersionStatus'])) {
             $model->versionStatus = $map['VersionStatus'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

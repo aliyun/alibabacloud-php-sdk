@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GroupInvokeFlowResponseBody extends Model
 {
     /**
-     * @description 当前批次
-     *
      * @var int
      */
     public $currentCount;
 
     /**
-     * @description 执行 ID
-     *
      * @var string
      */
     public $groupInvocationId;
 
     /**
-     * @description 请求 ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 调用是否成功
-     *
      * @var bool
      */
     public $success;

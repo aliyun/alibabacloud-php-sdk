@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListFlowsRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
+    public $filter;
 
     /**
      * @var string
@@ -24,14 +19,19 @@ class ListFlowsRequest extends Model
     public $flowName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $filter;
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
-        'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
-        'flowName'   => 'FlowName',
         'filter'     => 'Filter',
+        'flowName'   => 'FlowName',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListFlowsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
         }
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
-        if (null !== $this->filter) {
-            $res['Filter'] = $this->filter;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListFlowsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
         }
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }
-        if (isset($map['Filter'])) {
-            $model->filter = $map['Filter'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

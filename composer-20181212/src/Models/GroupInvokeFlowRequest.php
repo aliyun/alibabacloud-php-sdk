@@ -9,53 +9,41 @@ use AlibabaCloud\Tea\Model;
 class GroupInvokeFlowRequest extends Model
 {
     /**
-     * @description FlowId
-     *
-     * @var string
-     */
-    public $flowId;
-
-    /**
-     * @description GroupKey
-     *
-     * @var string
-     */
-    public $groupKey;
-
-    /**
-     * @description Data
-     *
-     * @var string
-     */
-    public $data;
-
-    /**
-     * @description ClientToken
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description TotalCount
-     *
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $data;
 
     /**
-     * @description Tags
-     *
+     * @var string
+     */
+    public $flowId;
+
+    /**
+     * @var string
+     */
+    public $groupKey;
+
+    /**
      * @var string
      */
     public $tags;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
+        'clientToken' => 'ClientToken',
+        'data'        => 'Data',
         'flowId'      => 'FlowId',
         'groupKey'    => 'GroupKey',
-        'data'        => 'Data',
-        'clientToken' => 'ClientToken',
-        'totalCount'  => 'TotalCount',
         'tags'        => 'Tags',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -65,23 +53,23 @@ class GroupInvokeFlowRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
         }
         if (null !== $this->groupKey) {
             $res['GroupKey'] = $this->groupKey;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -95,23 +83,23 @@ class GroupInvokeFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
         }
         if (isset($map['GroupKey'])) {
             $model->groupKey = $map['GroupKey'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
 
         return $model;

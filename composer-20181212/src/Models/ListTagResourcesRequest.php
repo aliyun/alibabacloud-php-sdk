@@ -10,19 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $resourceType;
-
-    /**
-     * @var string[]
-     */
-    public $resourceId;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
+    public $maxResults;
 
     /**
      * @var string
@@ -30,15 +20,25 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @var int
+     * @var string[]
      */
-    public $maxResults;
+    public $resourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'resourceType' => 'ResourceType',
-        'resourceId'   => 'ResourceId',
-        'tag'          => 'Tag',
-        'nextToken'    => 'NextToken',
         'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
+        'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'tag'          => 'Tag',
     ];
 
     public function validate()
@@ -48,11 +48,17 @@ class ListTagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -62,12 +68,6 @@ class ListTagResourcesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
 
         return $res;
@@ -81,13 +81,19 @@ class ListTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -97,12 +103,6 @@ class ListTagResourcesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
 
         return $model;

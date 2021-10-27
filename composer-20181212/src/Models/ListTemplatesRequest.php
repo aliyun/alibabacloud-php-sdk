@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -21,23 +31,13 @@ class ListTemplatesRequest extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $tag;
-
-    /**
-     * @var string
-     */
-    public $lang;
     protected $_name = [
+        'lang'       => 'Lang',
+        'name'       => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'name'       => 'Name',
         'tag'        => 'Tag',
-        'lang'       => 'Lang',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ListTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ListTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
         }
 
         return $model;

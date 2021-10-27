@@ -11,21 +11,21 @@ class DisableFlowResponseBody extends Model
     /**
      * @var string
      */
+    public $flowStatus;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $flowStatus;
     protected $_name = [
+        'flowStatus' => 'FlowStatus',
         'requestId'  => 'RequestId',
         'success'    => 'Success',
-        'flowStatus' => 'FlowStatus',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DisableFlowResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->flowStatus) {
+            $res['FlowStatus'] = $this->flowStatus;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->flowStatus) {
-            $res['FlowStatus'] = $this->flowStatus;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DisableFlowResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FlowStatus'])) {
+            $model->flowStatus = $map['FlowStatus'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['FlowStatus'])) {
-            $model->flowStatus = $map['FlowStatus'];
         }
 
         return $model;

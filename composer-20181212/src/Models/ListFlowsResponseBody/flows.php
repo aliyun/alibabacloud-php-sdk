@@ -11,12 +11,22 @@ class flows extends Model
     /**
      * @var string
      */
-    public $flowId;
+    public $createTime;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $flowDescription;
+
+    /**
+     * @var string
+     */
+    public $flowEditMode;
+
+    /**
+     * @var string
+     */
+    public $flowId;
 
     /**
      * @var string
@@ -26,22 +36,7 @@ class flows extends Model
     /**
      * @var string
      */
-    public $flowDescription;
-
-    /**
-     * @var int
-     */
-    public $versionId;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
+    public $flowSource;
 
     /**
      * @var string
@@ -51,29 +46,34 @@ class flows extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $templateId;
 
     /**
      * @var string
      */
-    public $flowSource;
+    public $updateTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $flowEditMode;
+    public $versionId;
     protected $_name = [
-        'flowId'          => 'FlowId',
-        'regionId'        => 'RegionId',
-        'flowName'        => 'FlowName',
-        'flowDescription' => 'FlowDescription',
-        'versionId'       => 'VersionId',
         'createTime'      => 'CreateTime',
-        'updateTime'      => 'UpdateTime',
-        'flowStatus'      => 'FlowStatus',
-        'templateId'      => 'TemplateId',
-        'flowSource'      => 'FlowSource',
+        'flowDescription' => 'FlowDescription',
         'flowEditMode'    => 'FlowEditMode',
+        'flowId'          => 'FlowId',
+        'flowName'        => 'FlowName',
+        'flowSource'      => 'FlowSource',
+        'flowStatus'      => 'FlowStatus',
+        'regionId'        => 'RegionId',
+        'templateId'      => 'TemplateId',
+        'updateTime'      => 'UpdateTime',
+        'versionId'       => 'VersionId',
     ];
 
     public function validate()
@@ -83,38 +83,38 @@ class flows extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->flowId) {
-            $res['FlowId'] = $this->flowId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->flowName) {
-            $res['FlowName'] = $this->flowName;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->flowDescription) {
             $res['FlowDescription'] = $this->flowDescription;
         }
-        if (null !== $this->versionId) {
-            $res['VersionId'] = $this->versionId;
+        if (null !== $this->flowEditMode) {
+            $res['FlowEditMode'] = $this->flowEditMode;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->flowId) {
+            $res['FlowId'] = $this->flowId;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->flowStatus) {
-            $res['FlowStatus'] = $this->flowStatus;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->flowName) {
+            $res['FlowName'] = $this->flowName;
         }
         if (null !== $this->flowSource) {
             $res['FlowSource'] = $this->flowSource;
         }
-        if (null !== $this->flowEditMode) {
-            $res['FlowEditMode'] = $this->flowEditMode;
+        if (null !== $this->flowStatus) {
+            $res['FlowStatus'] = $this->flowStatus;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
 
         return $res;
@@ -128,38 +128,38 @@ class flows extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FlowId'])) {
-            $model->flowId = $map['FlowId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['FlowName'])) {
-            $model->flowName = $map['FlowName'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['FlowDescription'])) {
             $model->flowDescription = $map['FlowDescription'];
         }
-        if (isset($map['VersionId'])) {
-            $model->versionId = $map['VersionId'];
+        if (isset($map['FlowEditMode'])) {
+            $model->flowEditMode = $map['FlowEditMode'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['FlowId'])) {
+            $model->flowId = $map['FlowId'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['FlowStatus'])) {
-            $model->flowStatus = $map['FlowStatus'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['FlowName'])) {
+            $model->flowName = $map['FlowName'];
         }
         if (isset($map['FlowSource'])) {
             $model->flowSource = $map['FlowSource'];
         }
-        if (isset($map['FlowEditMode'])) {
-            $model->flowEditMode = $map['FlowEditMode'];
+        if (isset($map['FlowStatus'])) {
+            $model->flowStatus = $map['FlowStatus'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
 
         return $model;

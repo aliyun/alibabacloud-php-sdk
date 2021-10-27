@@ -11,12 +11,17 @@ class templates extends Model
     /**
      * @var string
      */
-    public $templateId;
+    public $createTime;
 
     /**
      * @var string
      */
-    public $templateName;
+    public $templateConnector;
+
+    /**
+     * @var string
+     */
+    public $templateCreator;
 
     /**
      * @var string
@@ -26,22 +31,22 @@ class templates extends Model
     /**
      * @var string
      */
-    public $templateTag;
+    public $templateId;
 
     /**
      * @var string
      */
-    public $createTime;
+    public $templateLocale;
 
     /**
      * @var string
      */
-    public $updateTime;
+    public $templateName;
 
     /**
      * @var string
      */
-    public $templateConnector;
+    public $templateOverview;
 
     /**
      * @var string
@@ -56,7 +61,7 @@ class templates extends Model
     /**
      * @var string
      */
-    public $templateLocale;
+    public $templateTag;
 
     /**
      * @var int
@@ -66,26 +71,21 @@ class templates extends Model
     /**
      * @var string
      */
-    public $templateCreator;
-
-    /**
-     * @var string
-     */
-    public $templateOverview;
+    public $updateTime;
     protected $_name = [
-        'templateId'          => 'TemplateId',
-        'templateName'        => 'TemplateName',
-        'templateDescription' => 'TemplateDescription',
-        'templateTag'         => 'TemplateTag',
         'createTime'          => 'CreateTime',
-        'updateTime'          => 'UpdateTime',
         'templateConnector'   => 'TemplateConnector',
+        'templateCreator'     => 'TemplateCreator',
+        'templateDescription' => 'TemplateDescription',
+        'templateId'          => 'TemplateId',
+        'templateLocale'      => 'TemplateLocale',
+        'templateName'        => 'TemplateName',
+        'templateOverview'    => 'TemplateOverview',
         'templateSummary'     => 'TemplateSummary',
         'templateSummaryEn'   => 'TemplateSummaryEn',
-        'templateLocale'      => 'TemplateLocale',
+        'templateTag'         => 'TemplateTag',
         'templateVersion'     => 'TemplateVersion',
-        'templateCreator'     => 'TemplateCreator',
-        'templateOverview'    => 'TemplateOverview',
+        'updateTime'          => 'UpdateTime',
     ];
 
     public function validate()
@@ -95,26 +95,29 @@ class templates extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
+        if (null !== $this->templateConnector) {
+            $res['TemplateConnector'] = $this->templateConnector;
+        }
+        if (null !== $this->templateCreator) {
+            $res['TemplateCreator'] = $this->templateCreator;
         }
         if (null !== $this->templateDescription) {
             $res['TemplateDescription'] = $this->templateDescription;
         }
-        if (null !== $this->templateTag) {
-            $res['TemplateTag'] = $this->templateTag;
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->templateLocale) {
+            $res['TemplateLocale'] = $this->templateLocale;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
-        if (null !== $this->templateConnector) {
-            $res['TemplateConnector'] = $this->templateConnector;
+        if (null !== $this->templateOverview) {
+            $res['TemplateOverview'] = $this->templateOverview;
         }
         if (null !== $this->templateSummary) {
             $res['TemplateSummary'] = $this->templateSummary;
@@ -122,17 +125,14 @@ class templates extends Model
         if (null !== $this->templateSummaryEn) {
             $res['TemplateSummaryEn'] = $this->templateSummaryEn;
         }
-        if (null !== $this->templateLocale) {
-            $res['TemplateLocale'] = $this->templateLocale;
+        if (null !== $this->templateTag) {
+            $res['TemplateTag'] = $this->templateTag;
         }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
-        if (null !== $this->templateCreator) {
-            $res['TemplateCreator'] = $this->templateCreator;
-        }
-        if (null !== $this->templateOverview) {
-            $res['TemplateOverview'] = $this->templateOverview;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -146,26 +146,29 @@ class templates extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
+        if (isset($map['TemplateConnector'])) {
+            $model->templateConnector = $map['TemplateConnector'];
+        }
+        if (isset($map['TemplateCreator'])) {
+            $model->templateCreator = $map['TemplateCreator'];
         }
         if (isset($map['TemplateDescription'])) {
             $model->templateDescription = $map['TemplateDescription'];
         }
-        if (isset($map['TemplateTag'])) {
-            $model->templateTag = $map['TemplateTag'];
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['TemplateLocale'])) {
+            $model->templateLocale = $map['TemplateLocale'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
-        if (isset($map['TemplateConnector'])) {
-            $model->templateConnector = $map['TemplateConnector'];
+        if (isset($map['TemplateOverview'])) {
+            $model->templateOverview = $map['TemplateOverview'];
         }
         if (isset($map['TemplateSummary'])) {
             $model->templateSummary = $map['TemplateSummary'];
@@ -173,17 +176,14 @@ class templates extends Model
         if (isset($map['TemplateSummaryEn'])) {
             $model->templateSummaryEn = $map['TemplateSummaryEn'];
         }
-        if (isset($map['TemplateLocale'])) {
-            $model->templateLocale = $map['TemplateLocale'];
+        if (isset($map['TemplateTag'])) {
+            $model->templateTag = $map['TemplateTag'];
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
         }
-        if (isset($map['TemplateCreator'])) {
-            $model->templateCreator = $map['TemplateCreator'];
-        }
-        if (isset($map['TemplateOverview'])) {
-            $model->templateOverview = $map['TemplateOverview'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;
