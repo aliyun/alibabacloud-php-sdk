@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListControlPolicyAttachmentsForTargetResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var controlPolicyAttachments
      */
     public $controlPolicyAttachments;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                => 'RequestId',
         'controlPolicyAttachments' => 'ControlPolicyAttachments',
+        'requestId'                => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ListControlPolicyAttachmentsForTargetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->controlPolicyAttachments) {
             $res['ControlPolicyAttachments'] = null !== $this->controlPolicyAttachments ? $this->controlPolicyAttachments->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ListControlPolicyAttachmentsForTargetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ControlPolicyAttachments'])) {
             $model->controlPolicyAttachments = controlPolicyAttachments::fromMap($map['ControlPolicyAttachments']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

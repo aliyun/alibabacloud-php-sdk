@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListTargetAttachmentsForControlPolicyRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $policyId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -22,10 +17,15 @@ class ListTargetAttachmentsForControlPolicyRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $policyId;
     protected $_name = [
-        'policyId'   => 'PolicyId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'policyId'   => 'PolicyId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListTargetAttachmentsForControlPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyId) {
-            $res['PolicyId'] = $this->policyId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListTargetAttachmentsForControlPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyId'])) {
-            $model->policyId = $map['PolicyId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
 
         return $model;

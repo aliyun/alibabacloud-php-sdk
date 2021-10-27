@@ -11,7 +11,7 @@ class UpdateAccountRequest extends Model
     /**
      * @var string
      */
-    public $newDisplayName;
+    public $accountId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class UpdateAccountRequest extends Model
     /**
      * @var string
      */
-    public $accountId;
+    public $newDisplayName;
     protected $_name = [
-        'newDisplayName' => 'NewDisplayName',
-        'newAccountType' => 'NewAccountType',
         'accountId'      => 'AccountId',
+        'newAccountType' => 'NewAccountType',
+        'newDisplayName' => 'NewDisplayName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateAccountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->newDisplayName) {
-            $res['NewDisplayName'] = $this->newDisplayName;
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
         }
         if (null !== $this->newAccountType) {
             $res['NewAccountType'] = $this->newAccountType;
         }
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
+        if (null !== $this->newDisplayName) {
+            $res['NewDisplayName'] = $this->newDisplayName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NewDisplayName'])) {
-            $model->newDisplayName = $map['NewDisplayName'];
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
         }
         if (isset($map['NewAccountType'])) {
             $model->newAccountType = $map['NewAccountType'];
         }
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
+        if (isset($map['NewDisplayName'])) {
+            $model->newDisplayName = $map['NewDisplayName'];
         }
 
         return $model;

@@ -11,7 +11,12 @@ class UpdateControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $policyId;
+    public $newDescription;
+
+    /**
+     * @var string
+     */
+    public $newPolicyDocument;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class UpdateControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $newDescription;
-
-    /**
-     * @var string
-     */
-    public $newPolicyDocument;
+    public $policyId;
     protected $_name = [
-        'policyId'          => 'PolicyId',
-        'newPolicyName'     => 'NewPolicyName',
         'newDescription'    => 'NewDescription',
         'newPolicyDocument' => 'NewPolicyDocument',
+        'newPolicyName'     => 'NewPolicyName',
+        'policyId'          => 'PolicyId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpdateControlPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyId) {
-            $res['PolicyId'] = $this->policyId;
-        }
-        if (null !== $this->newPolicyName) {
-            $res['NewPolicyName'] = $this->newPolicyName;
-        }
         if (null !== $this->newDescription) {
             $res['NewDescription'] = $this->newDescription;
         }
         if (null !== $this->newPolicyDocument) {
             $res['NewPolicyDocument'] = $this->newPolicyDocument;
+        }
+        if (null !== $this->newPolicyName) {
+            $res['NewPolicyName'] = $this->newPolicyName;
+        }
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpdateControlPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyId'])) {
-            $model->policyId = $map['PolicyId'];
-        }
-        if (isset($map['NewPolicyName'])) {
-            $model->newPolicyName = $map['NewPolicyName'];
-        }
         if (isset($map['NewDescription'])) {
             $model->newDescription = $map['NewDescription'];
         }
         if (isset($map['NewPolicyDocument'])) {
             $model->newPolicyDocument = $map['NewPolicyDocument'];
+        }
+        if (isset($map['NewPolicyName'])) {
+            $model->newPolicyName = $map['NewPolicyName'];
+        }
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class folder extends Model
     /**
      * @var string
      */
-    public $folderId;
+    public $createTime;
 
     /**
      * @var string
      */
-    public $createTime;
+    public $folderId;
 
     /**
      * @var string
      */
     public $folderName;
     protected $_name = [
-        'folderId'   => 'FolderId',
         'createTime' => 'CreateTime',
+        'folderId'   => 'FolderId',
         'folderName' => 'FolderName',
     ];
 
@@ -35,11 +35,11 @@ class folder extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->folderId) {
-            $res['FolderId'] = $this->folderId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->folderId) {
+            $res['FolderId'] = $this->folderId;
         }
         if (null !== $this->folderName) {
             $res['FolderName'] = $this->folderName;
@@ -56,11 +56,11 @@ class folder extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FolderId'])) {
-            $model->folderId = $map['FolderId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['FolderId'])) {
+            $model->folderId = $map['FolderId'];
         }
         if (isset($map['FolderName'])) {
             $model->folderName = $map['FolderName'];

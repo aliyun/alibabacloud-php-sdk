@@ -11,12 +11,12 @@ class resource extends Model
     /**
      * @var string
      */
-    public $service;
+    public $createDate;
 
     /**
      * @var string
      */
-    public $resourceType;
+    public $regionId;
 
     /**
      * @var string
@@ -31,19 +31,19 @@ class resource extends Model
     /**
      * @var string
      */
-    public $createDate;
+    public $resourceType;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $service;
     protected $_name = [
-        'service'         => 'Service',
-        'resourceType'    => 'ResourceType',
-        'resourceGroupId' => 'ResourceGroupId',
-        'resourceId'      => 'ResourceId',
         'createDate'      => 'CreateDate',
         'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId'      => 'ResourceId',
+        'resourceType'    => 'ResourceType',
+        'service'         => 'Service',
     ];
 
     public function validate()
@@ -53,11 +53,11 @@ class resource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->service) {
-            $res['Service'] = $this->service;
+        if (null !== $this->createDate) {
+            $res['CreateDate'] = $this->createDate;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -65,11 +65,11 @@ class resource extends Model
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->service) {
+            $res['Service'] = $this->service;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class resource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Service'])) {
-            $model->service = $map['Service'];
+        if (isset($map['CreateDate'])) {
+            $model->createDate = $map['CreateDate'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -95,11 +95,11 @@ class resource extends Model
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Service'])) {
+            $model->service = $map['Service'];
         }
 
         return $model;

@@ -11,22 +11,7 @@ class resourceGroup extends Model
     /**
      * @var string
      */
-    public $displayName;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $accountId;
-
-    /**
-     * @var string
-     */
-    public $name;
 
     /**
      * @var string
@@ -36,14 +21,29 @@ class resourceGroup extends Model
     /**
      * @var string
      */
+    public $displayName;
+
+    /**
+     * @var string
+     */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'displayName' => 'DisplayName',
-        'status'      => 'Status',
         'accountId'   => 'AccountId',
-        'name'        => 'Name',
         'createDate'  => 'CreateDate',
+        'displayName' => 'DisplayName',
         'id'          => 'Id',
+        'name'        => 'Name',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class resourceGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class resourceGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class CreatePolicyVersionRequest extends Model
     /**
      * @var string
      */
-    public $policyName;
+    public $policyDocument;
 
     /**
      * @var string
      */
-    public $policyDocument;
+    public $policyName;
 
     /**
      * @var bool
      */
     public $setAsDefault;
     protected $_name = [
-        'policyName'     => 'PolicyName',
         'policyDocument' => 'PolicyDocument',
+        'policyName'     => 'PolicyName',
         'setAsDefault'   => 'SetAsDefault',
     ];
 
@@ -35,11 +35,11 @@ class CreatePolicyVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyName) {
-            $res['PolicyName'] = $this->policyName;
-        }
         if (null !== $this->policyDocument) {
             $res['PolicyDocument'] = $this->policyDocument;
+        }
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
         }
         if (null !== $this->setAsDefault) {
             $res['SetAsDefault'] = $this->setAsDefault;
@@ -56,11 +56,11 @@ class CreatePolicyVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyName'])) {
-            $model->policyName = $map['PolicyName'];
-        }
         if (isset($map['PolicyDocument'])) {
             $model->policyDocument = $map['PolicyDocument'];
+        }
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
         }
         if (isset($map['SetAsDefault'])) {
             $model->setAsDefault = $map['SetAsDefault'];

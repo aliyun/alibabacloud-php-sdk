@@ -11,7 +11,7 @@ class ListControlPoliciesRequest extends Model
     /**
      * @var string
      */
-    public $policyType;
+    public $language;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class ListControlPoliciesRequest extends Model
     /**
      * @var string
      */
-    public $language;
+    public $policyType;
     protected $_name = [
-        'policyType' => 'PolicyType',
+        'language'   => 'Language',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'language'   => 'Language',
+        'policyType' => 'PolicyType',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ListControlPoliciesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyType) {
-            $res['PolicyType'] = $this->policyType;
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -50,8 +50,8 @@ class ListControlPoliciesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ListControlPoliciesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyType'])) {
-            $model->policyType = $map['PolicyType'];
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -74,8 +74,8 @@ class ListControlPoliciesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
 
         return $model;

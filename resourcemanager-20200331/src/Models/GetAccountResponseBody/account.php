@@ -11,12 +11,12 @@ class account extends Model
     /**
      * @var string
      */
-    public $status;
+    public $accountId;
 
     /**
      * @var string
      */
-    public $type;
+    public $accountName;
 
     /**
      * @var string
@@ -31,22 +31,7 @@ class account extends Model
     /**
      * @var string
      */
-    public $resourceDirectoryId;
-
-    /**
-     * @var string
-     */
     public $identityInformation;
-
-    /**
-     * @var string
-     */
-    public $joinTime;
-
-    /**
-     * @var string
-     */
-    public $accountId;
 
     /**
      * @var string
@@ -56,30 +41,45 @@ class account extends Model
     /**
      * @var string
      */
+    public $joinTime;
+
+    /**
+     * @var string
+     */
     public $modifyTime;
 
     /**
      * @var string
      */
-    public $accountName;
+    public $resourceDirectoryId;
 
     /**
      * @var string
      */
     public $resourceDirectoryPath;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'status'                => 'Status',
-        'type'                  => 'Type',
+        'accountId'             => 'AccountId',
+        'accountName'           => 'AccountName',
         'displayName'           => 'DisplayName',
         'folderId'              => 'FolderId',
-        'resourceDirectoryId'   => 'ResourceDirectoryId',
         'identityInformation'   => 'IdentityInformation',
-        'joinTime'              => 'JoinTime',
-        'accountId'             => 'AccountId',
         'joinMethod'            => 'JoinMethod',
+        'joinTime'              => 'JoinTime',
         'modifyTime'            => 'ModifyTime',
-        'accountName'           => 'AccountName',
+        'resourceDirectoryId'   => 'ResourceDirectoryId',
         'resourceDirectoryPath' => 'ResourceDirectoryPath',
+        'status'                => 'Status',
+        'type'                  => 'Type',
     ];
 
     public function validate()
@@ -89,11 +89,11 @@ class account extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
         }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
@@ -101,29 +101,29 @@ class account extends Model
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
         }
-        if (null !== $this->resourceDirectoryId) {
-            $res['ResourceDirectoryId'] = $this->resourceDirectoryId;
-        }
         if (null !== $this->identityInformation) {
             $res['IdentityInformation'] = $this->identityInformation;
-        }
-        if (null !== $this->joinTime) {
-            $res['JoinTime'] = $this->joinTime;
-        }
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
         }
         if (null !== $this->joinMethod) {
             $res['JoinMethod'] = $this->joinMethod;
         }
+        if (null !== $this->joinTime) {
+            $res['JoinTime'] = $this->joinTime;
+        }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
+        if (null !== $this->resourceDirectoryId) {
+            $res['ResourceDirectoryId'] = $this->resourceDirectoryId;
         }
         if (null !== $this->resourceDirectoryPath) {
             $res['ResourceDirectoryPath'] = $this->resourceDirectoryPath;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -137,11 +137,11 @@ class account extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
         }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
@@ -149,29 +149,29 @@ class account extends Model
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
         }
-        if (isset($map['ResourceDirectoryId'])) {
-            $model->resourceDirectoryId = $map['ResourceDirectoryId'];
-        }
         if (isset($map['IdentityInformation'])) {
             $model->identityInformation = $map['IdentityInformation'];
-        }
-        if (isset($map['JoinTime'])) {
-            $model->joinTime = $map['JoinTime'];
-        }
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
         }
         if (isset($map['JoinMethod'])) {
             $model->joinMethod = $map['JoinMethod'];
         }
+        if (isset($map['JoinTime'])) {
+            $model->joinTime = $map['JoinTime'];
+        }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
+        if (isset($map['ResourceDirectoryId'])) {
+            $model->resourceDirectoryId = $map['ResourceDirectoryId'];
         }
         if (isset($map['ResourceDirectoryPath'])) {
             $model->resourceDirectoryPath = $map['ResourceDirectoryPath'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

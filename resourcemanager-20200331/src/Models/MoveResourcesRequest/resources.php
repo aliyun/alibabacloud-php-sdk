@@ -11,6 +11,11 @@ class resources extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceId;
 
     /**
@@ -21,16 +26,11 @@ class resources extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $service;
     protected $_name = [
+        'regionId'     => 'RegionId',
         'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'regionId'     => 'RegionId',
         'service'      => 'Service',
     ];
 
@@ -41,14 +41,14 @@ class resources extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->service) {
             $res['Service'] = $this->service;
@@ -65,14 +65,14 @@ class resources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Service'])) {
             $model->service = $map['Service'];

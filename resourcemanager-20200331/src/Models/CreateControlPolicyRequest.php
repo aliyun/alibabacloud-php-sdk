@@ -11,11 +11,6 @@ class CreateControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $policyName;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -27,11 +22,16 @@ class CreateControlPolicyRequest extends Model
      * @var string
      */
     public $policyDocument;
+
+    /**
+     * @var string
+     */
+    public $policyName;
     protected $_name = [
-        'policyName'     => 'PolicyName',
         'description'    => 'Description',
         'effectScope'    => 'EffectScope',
         'policyDocument' => 'PolicyDocument',
+        'policyName'     => 'PolicyName',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class CreateControlPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyName) {
-            $res['PolicyName'] = $this->policyName;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -52,6 +49,9 @@ class CreateControlPolicyRequest extends Model
         }
         if (null !== $this->policyDocument) {
             $res['PolicyDocument'] = $this->policyDocument;
+        }
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class CreateControlPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyName'])) {
-            $model->policyName = $map['PolicyName'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -76,6 +73,9 @@ class CreateControlPolicyRequest extends Model
         }
         if (isset($map['PolicyDocument'])) {
             $model->policyDocument = $map['PolicyDocument'];
+        }
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
         }
 
         return $model;

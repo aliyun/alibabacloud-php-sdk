@@ -11,15 +11,15 @@ class enabledServicePrincipal extends Model
     /**
      * @var string
      */
-    public $servicePrincipal;
+    public $enableTime;
 
     /**
      * @var string
      */
-    public $enableTime;
+    public $servicePrincipal;
     protected $_name = [
-        'servicePrincipal' => 'ServicePrincipal',
         'enableTime'       => 'EnableTime',
+        'servicePrincipal' => 'ServicePrincipal',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class enabledServicePrincipal extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->servicePrincipal) {
-            $res['ServicePrincipal'] = $this->servicePrincipal;
-        }
         if (null !== $this->enableTime) {
             $res['EnableTime'] = $this->enableTime;
+        }
+        if (null !== $this->servicePrincipal) {
+            $res['ServicePrincipal'] = $this->servicePrincipal;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class enabledServicePrincipal extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServicePrincipal'])) {
-            $model->servicePrincipal = $map['ServicePrincipal'];
-        }
         if (isset($map['EnableTime'])) {
             $model->enableTime = $map['EnableTime'];
+        }
+        if (isset($map['ServicePrincipal'])) {
+            $model->servicePrincipal = $map['ServicePrincipal'];
         }
 
         return $model;

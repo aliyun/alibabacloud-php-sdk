@@ -16,12 +16,12 @@ class CreateCloudAccountRequest extends Model
     /**
      * @var string
      */
-    public $parentFolderId;
+    public $email;
 
     /**
      * @var string
      */
-    public $email;
+    public $parentFolderId;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class CreateCloudAccountRequest extends Model
     public $payerAccountId;
     protected $_name = [
         'displayName'    => 'DisplayName',
-        'parentFolderId' => 'ParentFolderId',
         'email'          => 'Email',
+        'parentFolderId' => 'ParentFolderId',
         'payerAccountId' => 'PayerAccountId',
     ];
 
@@ -44,11 +44,11 @@ class CreateCloudAccountRequest extends Model
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-        if (null !== $this->parentFolderId) {
-            $res['ParentFolderId'] = $this->parentFolderId;
-        }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
+        }
+        if (null !== $this->parentFolderId) {
+            $res['ParentFolderId'] = $this->parentFolderId;
         }
         if (null !== $this->payerAccountId) {
             $res['PayerAccountId'] = $this->payerAccountId;
@@ -68,11 +68,11 @@ class CreateCloudAccountRequest extends Model
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-        if (isset($map['ParentFolderId'])) {
-            $model->parentFolderId = $map['ParentFolderId'];
-        }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
+        }
+        if (isset($map['ParentFolderId'])) {
+            $model->parentFolderId = $map['ParentFolderId'];
         }
         if (isset($map['PayerAccountId'])) {
             $model->payerAccountId = $map['PayerAccountId'];

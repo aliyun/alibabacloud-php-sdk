@@ -11,20 +11,20 @@ class GetPolicyVersionRequest extends Model
     /**
      * @var string
      */
-    public $policyType;
+    public $policyName;
 
     /**
      * @var string
      */
-    public $policyName;
+    public $policyType;
 
     /**
      * @var string
      */
     public $versionId;
     protected $_name = [
-        'policyType' => 'PolicyType',
         'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
         'versionId'  => 'VersionId',
     ];
 
@@ -35,11 +35,11 @@ class GetPolicyVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyType) {
-            $res['PolicyType'] = $this->policyType;
-        }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
+        }
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
@@ -56,11 +56,11 @@ class GetPolicyVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyType'])) {
-            $model->policyType = $map['PolicyType'];
-        }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
+        }
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];

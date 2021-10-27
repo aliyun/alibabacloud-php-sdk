@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListAncestorsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var folders
      */
     public $folders;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'folders'   => 'Folders',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ListAncestorsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->folders) {
             $res['Folders'] = null !== $this->folders ? $this->folders->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ListAncestorsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Folders'])) {
             $model->folders = folders::fromMap($map['Folders']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

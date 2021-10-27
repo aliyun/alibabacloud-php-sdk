@@ -11,7 +11,7 @@ class DetachPolicyRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $policyName;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class DetachPolicyRequest extends Model
     /**
      * @var string
      */
-    public $policyName;
+    public $principalName;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class DetachPolicyRequest extends Model
     /**
      * @var string
      */
-    public $principalName;
+    public $resourceGroupId;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
-        'policyType'      => 'PolicyType',
         'policyName'      => 'PolicyName',
-        'principalType'   => 'PrincipalType',
+        'policyType'      => 'PolicyType',
         'principalName'   => 'PrincipalName',
+        'principalType'   => 'PrincipalType',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DetachPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
         }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
-        if (null !== $this->policyName) {
-            $res['PolicyName'] = $this->policyName;
+        if (null !== $this->principalName) {
+            $res['PrincipalName'] = $this->principalName;
         }
         if (null !== $this->principalType) {
             $res['PrincipalType'] = $this->principalType;
         }
-        if (null !== $this->principalName) {
-            $res['PrincipalName'] = $this->principalName;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DetachPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
         }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }
-        if (isset($map['PolicyName'])) {
-            $model->policyName = $map['PolicyName'];
+        if (isset($map['PrincipalName'])) {
+            $model->principalName = $map['PrincipalName'];
         }
         if (isset($map['PrincipalType'])) {
             $model->principalType = $map['PrincipalType'];
         }
-        if (isset($map['PrincipalName'])) {
-            $model->principalName = $map['PrincipalName'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

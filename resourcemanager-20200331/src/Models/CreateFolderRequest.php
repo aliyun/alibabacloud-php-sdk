@@ -11,15 +11,15 @@ class CreateFolderRequest extends Model
     /**
      * @var string
      */
-    public $parentFolderId;
+    public $folderName;
 
     /**
      * @var string
      */
-    public $folderName;
+    public $parentFolderId;
     protected $_name = [
-        'parentFolderId' => 'ParentFolderId',
         'folderName'     => 'FolderName',
+        'parentFolderId' => 'ParentFolderId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateFolderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parentFolderId) {
-            $res['ParentFolderId'] = $this->parentFolderId;
-        }
         if (null !== $this->folderName) {
             $res['FolderName'] = $this->folderName;
+        }
+        if (null !== $this->parentFolderId) {
+            $res['ParentFolderId'] = $this->parentFolderId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateFolderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParentFolderId'])) {
-            $model->parentFolderId = $map['ParentFolderId'];
-        }
         if (isset($map['FolderName'])) {
             $model->folderName = $map['FolderName'];
+        }
+        if (isset($map['ParentFolderId'])) {
+            $model->parentFolderId = $map['ParentFolderId'];
         }
 
         return $model;

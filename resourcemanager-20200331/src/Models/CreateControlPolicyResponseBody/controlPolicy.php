@@ -11,7 +11,12 @@ class controlPolicy extends Model
     /**
      * @var string
      */
-    public $updateDate;
+    public $attachmentCount;
+
+    /**
+     * @var string
+     */
+    public $createDate;
 
     /**
      * @var string
@@ -26,7 +31,7 @@ class controlPolicy extends Model
     /**
      * @var string
      */
-    public $attachmentCount;
+    public $policyId;
 
     /**
      * @var string
@@ -36,26 +41,21 @@ class controlPolicy extends Model
     /**
      * @var string
      */
-    public $policyId;
-
-    /**
-     * @var string
-     */
-    public $createDate;
-
-    /**
-     * @var string
-     */
     public $policyType;
+
+    /**
+     * @var string
+     */
+    public $updateDate;
     protected $_name = [
-        'updateDate'      => 'UpdateDate',
+        'attachmentCount' => 'AttachmentCount',
+        'createDate'      => 'CreateDate',
         'description'     => 'Description',
         'effectScope'     => 'EffectScope',
-        'attachmentCount' => 'AttachmentCount',
-        'policyName'      => 'PolicyName',
         'policyId'        => 'PolicyId',
-        'createDate'      => 'CreateDate',
+        'policyName'      => 'PolicyName',
         'policyType'      => 'PolicyType',
+        'updateDate'      => 'UpdateDate',
     ];
 
     public function validate()
@@ -65,8 +65,11 @@ class controlPolicy extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateDate) {
-            $res['UpdateDate'] = $this->updateDate;
+        if (null !== $this->attachmentCount) {
+            $res['AttachmentCount'] = $this->attachmentCount;
+        }
+        if (null !== $this->createDate) {
+            $res['CreateDate'] = $this->createDate;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -74,20 +77,17 @@ class controlPolicy extends Model
         if (null !== $this->effectScope) {
             $res['EffectScope'] = $this->effectScope;
         }
-        if (null !== $this->attachmentCount) {
-            $res['AttachmentCount'] = $this->attachmentCount;
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
         }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
-        if (null !== $this->policyId) {
-            $res['PolicyId'] = $this->policyId;
-        }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
-        }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
+        }
+        if (null !== $this->updateDate) {
+            $res['UpdateDate'] = $this->updateDate;
         }
 
         return $res;
@@ -101,8 +101,11 @@ class controlPolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateDate'])) {
-            $model->updateDate = $map['UpdateDate'];
+        if (isset($map['AttachmentCount'])) {
+            $model->attachmentCount = $map['AttachmentCount'];
+        }
+        if (isset($map['CreateDate'])) {
+            $model->createDate = $map['CreateDate'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -110,20 +113,17 @@ class controlPolicy extends Model
         if (isset($map['EffectScope'])) {
             $model->effectScope = $map['EffectScope'];
         }
-        if (isset($map['AttachmentCount'])) {
-            $model->attachmentCount = $map['AttachmentCount'];
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
-        if (isset($map['PolicyId'])) {
-            $model->policyId = $map['PolicyId'];
-        }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
-        }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
+        }
+        if (isset($map['UpdateDate'])) {
+            $model->updateDate = $map['UpdateDate'];
         }
 
         return $model;

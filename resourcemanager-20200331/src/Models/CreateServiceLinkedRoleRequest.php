@@ -11,21 +11,21 @@ class CreateServiceLinkedRoleRequest extends Model
     /**
      * @var string
      */
-    public $serviceName;
-
-    /**
-     * @var string
-     */
     public $customSuffix;
 
     /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
-        'serviceName'  => 'ServiceName',
         'customSuffix' => 'CustomSuffix',
         'description'  => 'Description',
+        'serviceName'  => 'ServiceName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateServiceLinkedRoleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
-        }
         if (null !== $this->customSuffix) {
             $res['CustomSuffix'] = $this->customSuffix;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateServiceLinkedRoleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
-        }
         if (isset($map['CustomSuffix'])) {
             $model->customSuffix = $map['CustomSuffix'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

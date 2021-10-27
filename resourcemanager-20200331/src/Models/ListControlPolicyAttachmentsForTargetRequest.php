@@ -11,15 +11,15 @@ class ListControlPolicyAttachmentsForTargetRequest extends Model
     /**
      * @var string
      */
-    public $targetId;
+    public $language;
 
     /**
      * @var string
      */
-    public $language;
+    public $targetId;
     protected $_name = [
-        'targetId' => 'TargetId',
         'language' => 'Language',
+        'targetId' => 'TargetId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListControlPolicyAttachmentsForTargetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->targetId) {
-            $res['TargetId'] = $this->targetId;
-        }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->targetId) {
+            $res['TargetId'] = $this->targetId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListControlPolicyAttachmentsForTargetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TargetId'])) {
-            $model->targetId = $map['TargetId'];
-        }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['TargetId'])) {
+            $model->targetId = $map['TargetId'];
         }
 
         return $model;

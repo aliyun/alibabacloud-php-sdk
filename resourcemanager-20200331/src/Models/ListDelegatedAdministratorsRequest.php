@@ -9,10 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListDelegatedAdministratorsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $servicePrincipal;
     protected $_name = [
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
         'servicePrincipal' => 'ServicePrincipal',
     ];
 
@@ -23,6 +35,12 @@ class ListDelegatedAdministratorsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->servicePrincipal) {
             $res['ServicePrincipal'] = $this->servicePrincipal;
         }
@@ -38,6 +56,12 @@ class ListDelegatedAdministratorsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['ServicePrincipal'])) {
             $model->servicePrincipal = $map['ServicePrincipal'];
         }

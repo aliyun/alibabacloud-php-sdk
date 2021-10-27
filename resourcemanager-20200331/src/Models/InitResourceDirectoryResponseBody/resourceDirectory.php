@@ -11,16 +11,6 @@ class resourceDirectory extends Model
     /**
      * @var string
      */
-    public $rootFolderId;
-
-    /**
-     * @var string
-     */
-    public $resourceDirectoryId;
-
-    /**
-     * @var string
-     */
     public $createTime;
 
     /**
@@ -32,12 +22,22 @@ class resourceDirectory extends Model
      * @var string
      */
     public $masterAccountName;
+
+    /**
+     * @var string
+     */
+    public $resourceDirectoryId;
+
+    /**
+     * @var string
+     */
+    public $rootFolderId;
     protected $_name = [
-        'rootFolderId'        => 'RootFolderId',
-        'resourceDirectoryId' => 'ResourceDirectoryId',
         'createTime'          => 'CreateTime',
         'masterAccountId'     => 'MasterAccountId',
         'masterAccountName'   => 'MasterAccountName',
+        'resourceDirectoryId' => 'ResourceDirectoryId',
+        'rootFolderId'        => 'RootFolderId',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class resourceDirectory extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rootFolderId) {
-            $res['RootFolderId'] = $this->rootFolderId;
-        }
-        if (null !== $this->resourceDirectoryId) {
-            $res['ResourceDirectoryId'] = $this->resourceDirectoryId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -61,6 +55,12 @@ class resourceDirectory extends Model
         }
         if (null !== $this->masterAccountName) {
             $res['MasterAccountName'] = $this->masterAccountName;
+        }
+        if (null !== $this->resourceDirectoryId) {
+            $res['ResourceDirectoryId'] = $this->resourceDirectoryId;
+        }
+        if (null !== $this->rootFolderId) {
+            $res['RootFolderId'] = $this->rootFolderId;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class resourceDirectory extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RootFolderId'])) {
-            $model->rootFolderId = $map['RootFolderId'];
-        }
-        if (isset($map['ResourceDirectoryId'])) {
-            $model->resourceDirectoryId = $map['ResourceDirectoryId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -88,6 +82,12 @@ class resourceDirectory extends Model
         }
         if (isset($map['MasterAccountName'])) {
             $model->masterAccountName = $map['MasterAccountName'];
+        }
+        if (isset($map['ResourceDirectoryId'])) {
+            $model->resourceDirectoryId = $map['ResourceDirectoryId'];
+        }
+        if (isset($map['RootFolderId'])) {
+            $model->rootFolderId = $map['RootFolderId'];
         }
 
         return $model;

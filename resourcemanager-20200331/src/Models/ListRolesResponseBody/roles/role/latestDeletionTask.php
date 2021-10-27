@@ -11,15 +11,15 @@ class latestDeletionTask extends Model
     /**
      * @var string
      */
-    public $deletionTaskId;
+    public $createDate;
 
     /**
      * @var string
      */
-    public $createDate;
+    public $deletionTaskId;
     protected $_name = [
-        'deletionTaskId' => 'DeletionTaskId',
         'createDate'     => 'CreateDate',
+        'deletionTaskId' => 'DeletionTaskId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class latestDeletionTask extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deletionTaskId) {
-            $res['DeletionTaskId'] = $this->deletionTaskId;
-        }
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
+        }
+        if (null !== $this->deletionTaskId) {
+            $res['DeletionTaskId'] = $this->deletionTaskId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class latestDeletionTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeletionTaskId'])) {
-            $model->deletionTaskId = $map['DeletionTaskId'];
-        }
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
+        }
+        if (isset($map['DeletionTaskId'])) {
+            $model->deletionTaskId = $map['DeletionTaskId'];
         }
 
         return $model;

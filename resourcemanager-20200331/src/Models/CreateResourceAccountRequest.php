@@ -11,6 +11,11 @@ class CreateResourceAccountRequest extends Model
     /**
      * @var string
      */
+    public $accountNamePrefix;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -22,16 +27,11 @@ class CreateResourceAccountRequest extends Model
      * @var string
      */
     public $payerAccountId;
-
-    /**
-     * @var string
-     */
-    public $accountNamePrefix;
     protected $_name = [
+        'accountNamePrefix' => 'AccountNamePrefix',
         'displayName'       => 'DisplayName',
         'parentFolderId'    => 'ParentFolderId',
         'payerAccountId'    => 'PayerAccountId',
-        'accountNamePrefix' => 'AccountNamePrefix',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class CreateResourceAccountRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountNamePrefix) {
+            $res['AccountNamePrefix'] = $this->accountNamePrefix;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -49,9 +52,6 @@ class CreateResourceAccountRequest extends Model
         }
         if (null !== $this->payerAccountId) {
             $res['PayerAccountId'] = $this->payerAccountId;
-        }
-        if (null !== $this->accountNamePrefix) {
-            $res['AccountNamePrefix'] = $this->accountNamePrefix;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class CreateResourceAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountNamePrefix'])) {
+            $model->accountNamePrefix = $map['AccountNamePrefix'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
@@ -73,9 +76,6 @@ class CreateResourceAccountRequest extends Model
         }
         if (isset($map['PayerAccountId'])) {
             $model->payerAccountId = $map['PayerAccountId'];
-        }
-        if (isset($map['AccountNamePrefix'])) {
-            $model->accountNamePrefix = $map['AccountNamePrefix'];
         }
 
         return $model;

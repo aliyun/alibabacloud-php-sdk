@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListAccountsForParentRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $parentFolderId;
-
-    /**
-     * @var string
-     */
-    public $queryKeyword;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -27,11 +17,21 @@ class ListAccountsForParentRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $parentFolderId;
+
+    /**
+     * @var string
+     */
+    public $queryKeyword;
     protected $_name = [
-        'parentFolderId' => 'ParentFolderId',
-        'queryKeyword'   => 'QueryKeyword',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
+        'parentFolderId' => 'ParentFolderId',
+        'queryKeyword'   => 'QueryKeyword',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListAccountsForParentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parentFolderId) {
-            $res['ParentFolderId'] = $this->parentFolderId;
-        }
-        if (null !== $this->queryKeyword) {
-            $res['QueryKeyword'] = $this->queryKeyword;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->parentFolderId) {
+            $res['ParentFolderId'] = $this->parentFolderId;
+        }
+        if (null !== $this->queryKeyword) {
+            $res['QueryKeyword'] = $this->queryKeyword;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListAccountsForParentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParentFolderId'])) {
-            $model->parentFolderId = $map['ParentFolderId'];
-        }
-        if (isset($map['QueryKeyword'])) {
-            $model->queryKeyword = $map['QueryKeyword'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ParentFolderId'])) {
+            $model->parentFolderId = $map['ParentFolderId'];
+        }
+        if (isset($map['QueryKeyword'])) {
+            $model->queryKeyword = $map['QueryKeyword'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class GetRoleRequest extends Model
     /**
      * @var string
      */
-    public $roleName;
+    public $language;
 
     /**
      * @var string
      */
-    public $language;
+    public $roleName;
     protected $_name = [
-        'roleName' => 'RoleName',
         'language' => 'Language',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetRoleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
-        }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetRoleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
-        }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
         }
 
         return $model;

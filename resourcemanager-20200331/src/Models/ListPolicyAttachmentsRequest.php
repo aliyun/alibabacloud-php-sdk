@@ -11,27 +11,7 @@ class ListPolicyAttachmentsRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $policyType;
-
-    /**
-     * @var string
-     */
-    public $policyName;
-
-    /**
-     * @var string
-     */
-    public $principalType;
-
-    /**
-     * @var string
-     */
-    public $principalName;
+    public $language;
 
     /**
      * @var int
@@ -46,16 +26,36 @@ class ListPolicyAttachmentsRequest extends Model
     /**
      * @var string
      */
-    public $language;
+    public $policyName;
+
+    /**
+     * @var string
+     */
+    public $policyType;
+
+    /**
+     * @var string
+     */
+    public $principalName;
+
+    /**
+     * @var string
+     */
+    public $principalType;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
-        'policyType'      => 'PolicyType',
-        'policyName'      => 'PolicyName',
-        'principalType'   => 'PrincipalType',
-        'principalName'   => 'PrincipalName',
+        'language'        => 'Language',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'language'        => 'Language',
+        'policyName'      => 'PolicyName',
+        'policyType'      => 'PolicyType',
+        'principalName'   => 'PrincipalName',
+        'principalType'   => 'PrincipalType',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -65,20 +65,8 @@ class ListPolicyAttachmentsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->policyType) {
-            $res['PolicyType'] = $this->policyType;
-        }
-        if (null !== $this->policyName) {
-            $res['PolicyName'] = $this->policyName;
-        }
-        if (null !== $this->principalType) {
-            $res['PrincipalType'] = $this->principalType;
-        }
-        if (null !== $this->principalName) {
-            $res['PrincipalName'] = $this->principalName;
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -86,8 +74,20 @@ class ListPolicyAttachmentsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
+        }
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
+        }
+        if (null !== $this->principalName) {
+            $res['PrincipalName'] = $this->principalName;
+        }
+        if (null !== $this->principalType) {
+            $res['PrincipalType'] = $this->principalType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -101,20 +101,8 @@ class ListPolicyAttachmentsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['PolicyType'])) {
-            $model->policyType = $map['PolicyType'];
-        }
-        if (isset($map['PolicyName'])) {
-            $model->policyName = $map['PolicyName'];
-        }
-        if (isset($map['PrincipalType'])) {
-            $model->principalType = $map['PrincipalType'];
-        }
-        if (isset($map['PrincipalName'])) {
-            $model->principalName = $map['PrincipalName'];
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -122,8 +110,20 @@ class ListPolicyAttachmentsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
+        }
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
+        }
+        if (isset($map['PrincipalName'])) {
+            $model->principalName = $map['PrincipalName'];
+        }
+        if (isset($map['PrincipalType'])) {
+            $model->principalType = $map['PrincipalType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

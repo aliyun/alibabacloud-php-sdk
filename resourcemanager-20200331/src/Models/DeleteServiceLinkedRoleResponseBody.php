@@ -11,15 +11,15 @@ class DeleteServiceLinkedRoleResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $deletionTaskId;
 
     /**
      * @var string
      */
-    public $deletionTaskId;
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'deletionTaskId' => 'DeletionTaskId',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteServiceLinkedRoleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->deletionTaskId) {
             $res['DeletionTaskId'] = $this->deletionTaskId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteServiceLinkedRoleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DeletionTaskId'])) {
             $model->deletionTaskId = $map['DeletionTaskId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

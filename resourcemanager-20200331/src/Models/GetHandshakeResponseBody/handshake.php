@@ -11,7 +11,7 @@ class handshake extends Model
     /**
      * @var string
      */
-    public $status;
+    public $createTime;
 
     /**
      * @var string
@@ -21,32 +21,7 @@ class handshake extends Model
     /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $targetEntity;
-
-    /**
-     * @var string
-     */
-    public $masterAccountId;
-
-    /**
-     * @var string
-     */
     public $handshakeId;
-
-    /**
-     * @var string
-     */
-    public $masterAccountRealName;
-
-    /**
-     * @var string
-     */
-    public $resourceDirectoryId;
 
     /**
      * @var string
@@ -56,7 +31,7 @@ class handshake extends Model
     /**
      * @var string
      */
-    public $note;
+    public $masterAccountId;
 
     /**
      * @var string
@@ -66,26 +41,51 @@ class handshake extends Model
     /**
      * @var string
      */
-    public $targetType;
+    public $masterAccountRealName;
 
     /**
      * @var string
      */
     public $modifyTime;
+
+    /**
+     * @var string
+     */
+    public $note;
+
+    /**
+     * @var string
+     */
+    public $resourceDirectoryId;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $targetEntity;
+
+    /**
+     * @var string
+     */
+    public $targetType;
     protected $_name = [
-        'status'                 => 'Status',
-        'expireTime'             => 'ExpireTime',
         'createTime'             => 'CreateTime',
-        'targetEntity'           => 'TargetEntity',
-        'masterAccountId'        => 'MasterAccountId',
+        'expireTime'             => 'ExpireTime',
         'handshakeId'            => 'HandshakeId',
-        'masterAccountRealName'  => 'MasterAccountRealName',
-        'resourceDirectoryId'    => 'ResourceDirectoryId',
         'invitedAccountRealName' => 'InvitedAccountRealName',
-        'note'                   => 'Note',
+        'masterAccountId'        => 'MasterAccountId',
         'masterAccountName'      => 'MasterAccountName',
-        'targetType'             => 'TargetType',
+        'masterAccountRealName'  => 'MasterAccountRealName',
         'modifyTime'             => 'ModifyTime',
+        'note'                   => 'Note',
+        'resourceDirectoryId'    => 'ResourceDirectoryId',
+        'status'                 => 'Status',
+        'targetEntity'           => 'TargetEntity',
+        'targetType'             => 'TargetType',
     ];
 
     public function validate()
@@ -95,44 +95,44 @@ class handshake extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->targetEntity) {
-            $res['TargetEntity'] = $this->targetEntity;
-        }
-        if (null !== $this->masterAccountId) {
-            $res['MasterAccountId'] = $this->masterAccountId;
-        }
         if (null !== $this->handshakeId) {
             $res['HandshakeId'] = $this->handshakeId;
-        }
-        if (null !== $this->masterAccountRealName) {
-            $res['MasterAccountRealName'] = $this->masterAccountRealName;
-        }
-        if (null !== $this->resourceDirectoryId) {
-            $res['ResourceDirectoryId'] = $this->resourceDirectoryId;
         }
         if (null !== $this->invitedAccountRealName) {
             $res['InvitedAccountRealName'] = $this->invitedAccountRealName;
         }
-        if (null !== $this->note) {
-            $res['Note'] = $this->note;
+        if (null !== $this->masterAccountId) {
+            $res['MasterAccountId'] = $this->masterAccountId;
         }
         if (null !== $this->masterAccountName) {
             $res['MasterAccountName'] = $this->masterAccountName;
         }
-        if (null !== $this->targetType) {
-            $res['TargetType'] = $this->targetType;
+        if (null !== $this->masterAccountRealName) {
+            $res['MasterAccountRealName'] = $this->masterAccountRealName;
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->note) {
+            $res['Note'] = $this->note;
+        }
+        if (null !== $this->resourceDirectoryId) {
+            $res['ResourceDirectoryId'] = $this->resourceDirectoryId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->targetEntity) {
+            $res['TargetEntity'] = $this->targetEntity;
+        }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
         }
 
         return $res;
@@ -146,44 +146,44 @@ class handshake extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['TargetEntity'])) {
-            $model->targetEntity = $map['TargetEntity'];
-        }
-        if (isset($map['MasterAccountId'])) {
-            $model->masterAccountId = $map['MasterAccountId'];
-        }
         if (isset($map['HandshakeId'])) {
             $model->handshakeId = $map['HandshakeId'];
-        }
-        if (isset($map['MasterAccountRealName'])) {
-            $model->masterAccountRealName = $map['MasterAccountRealName'];
-        }
-        if (isset($map['ResourceDirectoryId'])) {
-            $model->resourceDirectoryId = $map['ResourceDirectoryId'];
         }
         if (isset($map['InvitedAccountRealName'])) {
             $model->invitedAccountRealName = $map['InvitedAccountRealName'];
         }
-        if (isset($map['Note'])) {
-            $model->note = $map['Note'];
+        if (isset($map['MasterAccountId'])) {
+            $model->masterAccountId = $map['MasterAccountId'];
         }
         if (isset($map['MasterAccountName'])) {
             $model->masterAccountName = $map['MasterAccountName'];
         }
-        if (isset($map['TargetType'])) {
-            $model->targetType = $map['TargetType'];
+        if (isset($map['MasterAccountRealName'])) {
+            $model->masterAccountRealName = $map['MasterAccountRealName'];
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['Note'])) {
+            $model->note = $map['Note'];
+        }
+        if (isset($map['ResourceDirectoryId'])) {
+            $model->resourceDirectoryId = $map['ResourceDirectoryId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TargetEntity'])) {
+            $model->targetEntity = $map['TargetEntity'];
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
         }
 
         return $model;

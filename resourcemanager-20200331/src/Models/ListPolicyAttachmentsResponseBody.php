@@ -12,7 +12,12 @@ class ListPolicyAttachmentsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var policyAttachments
@@ -27,18 +32,13 @@ class ListPolicyAttachmentsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
+    public $totalCount;
     protected $_name = [
-        'totalCount'        => 'TotalCount',
+        'pageNumber'        => 'PageNumber',
+        'pageSize'          => 'PageSize',
         'policyAttachments' => 'PolicyAttachments',
         'requestId'         => 'RequestId',
-        'pageSize'          => 'PageSize',
-        'pageNumber'        => 'PageNumber',
+        'totalCount'        => 'TotalCount',
     ];
 
     public function validate()
@@ -48,8 +48,11 @@ class ListPolicyAttachmentsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->policyAttachments) {
             $res['PolicyAttachments'] = null !== $this->policyAttachments ? $this->policyAttachments->toMap() : null;
@@ -57,11 +60,8 @@ class ListPolicyAttachmentsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,8 +75,11 @@ class ListPolicyAttachmentsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PolicyAttachments'])) {
             $model->policyAttachments = policyAttachments::fromMap($map['PolicyAttachments']);
@@ -84,11 +87,8 @@ class ListPolicyAttachmentsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -11,21 +11,21 @@ class InviteAccountToResourceDirectoryRequest extends Model
     /**
      * @var string
      */
+    public $note;
+
+    /**
+     * @var string
+     */
     public $targetEntity;
 
     /**
      * @var string
      */
     public $targetType;
-
-    /**
-     * @var string
-     */
-    public $note;
     protected $_name = [
+        'note'         => 'Note',
         'targetEntity' => 'TargetEntity',
         'targetType'   => 'TargetType',
-        'note'         => 'Note',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class InviteAccountToResourceDirectoryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->note) {
+            $res['Note'] = $this->note;
+        }
         if (null !== $this->targetEntity) {
             $res['TargetEntity'] = $this->targetEntity;
         }
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
-        }
-        if (null !== $this->note) {
-            $res['Note'] = $this->note;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class InviteAccountToResourceDirectoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Note'])) {
+            $model->note = $map['Note'];
+        }
         if (isset($map['TargetEntity'])) {
             $model->targetEntity = $map['TargetEntity'];
         }
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
-        }
-        if (isset($map['Note'])) {
-            $model->note = $map['Note'];
         }
 
         return $model;

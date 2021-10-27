@@ -16,6 +16,11 @@ class account extends Model
     /**
      * @var string
      */
+    public $delegationEnabledTime;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -27,17 +32,12 @@ class account extends Model
      * @var string
      */
     public $servicePrincipal;
-
-    /**
-     * @var string
-     */
-    public $delegationEnabledTime;
     protected $_name = [
         'accountId'             => 'AccountId',
+        'delegationEnabledTime' => 'DelegationEnabledTime',
         'displayName'           => 'DisplayName',
         'joinMethod'            => 'JoinMethod',
         'servicePrincipal'      => 'ServicePrincipal',
-        'delegationEnabledTime' => 'DelegationEnabledTime',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class account extends Model
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+        if (null !== $this->delegationEnabledTime) {
+            $res['DelegationEnabledTime'] = $this->delegationEnabledTime;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -58,9 +61,6 @@ class account extends Model
         }
         if (null !== $this->servicePrincipal) {
             $res['ServicePrincipal'] = $this->servicePrincipal;
-        }
-        if (null !== $this->delegationEnabledTime) {
-            $res['DelegationEnabledTime'] = $this->delegationEnabledTime;
         }
 
         return $res;
@@ -77,6 +77,9 @@ class account extends Model
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+        if (isset($map['DelegationEnabledTime'])) {
+            $model->delegationEnabledTime = $map['DelegationEnabledTime'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
@@ -85,9 +88,6 @@ class account extends Model
         }
         if (isset($map['ServicePrincipal'])) {
             $model->servicePrincipal = $map['ServicePrincipal'];
-        }
-        if (isset($map['DelegationEnabledTime'])) {
-            $model->delegationEnabledTime = $map['DelegationEnabledTime'];
         }
 
         return $model;

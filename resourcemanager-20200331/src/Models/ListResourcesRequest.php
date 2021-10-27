@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListResourcesRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $resourceGroupId;
+    public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $service;
+    public $pageSize;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class ListResourcesRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -34,22 +34,22 @@ class ListResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $resourceType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $service;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
-        'service'         => 'Service',
-        'region'          => 'Region',
-        'resourceType'    => 'ResourceType',
-        'resourceId'      => 'ResourceId',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'region'          => 'Region',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId'      => 'ResourceId',
+        'resourceType'    => 'ResourceType',
+        'service'         => 'Service',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class ListResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->service) {
-            $res['Service'] = $this->service;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->service) {
+            $res['Service'] = $this->service;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class ListResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Service'])) {
-            $model->service = $map['Service'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['Service'])) {
+            $model->service = $map['Service'];
         }
 
         return $model;

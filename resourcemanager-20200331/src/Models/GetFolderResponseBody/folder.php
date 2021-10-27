@@ -11,17 +11,12 @@ class folder extends Model
     /**
      * @var string
      */
-    public $folderId;
-
-    /**
-     * @var string
-     */
     public $createTime;
 
     /**
      * @var string
      */
-    public $parentFolderId;
+    public $folderId;
 
     /**
      * @var string
@@ -31,12 +26,17 @@ class folder extends Model
     /**
      * @var string
      */
+    public $parentFolderId;
+
+    /**
+     * @var string
+     */
     public $resourceDirectoryPath;
     protected $_name = [
-        'folderId'              => 'FolderId',
         'createTime'            => 'CreateTime',
-        'parentFolderId'        => 'ParentFolderId',
+        'folderId'              => 'FolderId',
         'folderName'            => 'FolderName',
+        'parentFolderId'        => 'ParentFolderId',
         'resourceDirectoryPath' => 'ResourceDirectoryPath',
     ];
 
@@ -47,17 +47,17 @@ class folder extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->folderId) {
-            $res['FolderId'] = $this->folderId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->parentFolderId) {
-            $res['ParentFolderId'] = $this->parentFolderId;
+        if (null !== $this->folderId) {
+            $res['FolderId'] = $this->folderId;
         }
         if (null !== $this->folderName) {
             $res['FolderName'] = $this->folderName;
+        }
+        if (null !== $this->parentFolderId) {
+            $res['ParentFolderId'] = $this->parentFolderId;
         }
         if (null !== $this->resourceDirectoryPath) {
             $res['ResourceDirectoryPath'] = $this->resourceDirectoryPath;
@@ -74,17 +74,17 @@ class folder extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FolderId'])) {
-            $model->folderId = $map['FolderId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['ParentFolderId'])) {
-            $model->parentFolderId = $map['ParentFolderId'];
+        if (isset($map['FolderId'])) {
+            $model->folderId = $map['FolderId'];
         }
         if (isset($map['FolderName'])) {
             $model->folderName = $map['FolderName'];
+        }
+        if (isset($map['ParentFolderId'])) {
+            $model->parentFolderId = $map['ParentFolderId'];
         }
         if (isset($map['ResourceDirectoryPath'])) {
             $model->resourceDirectoryPath = $map['ResourceDirectoryPath'];

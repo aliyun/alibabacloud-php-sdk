@@ -11,15 +11,15 @@ class GetControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $policyId;
+    public $language;
 
     /**
      * @var string
      */
-    public $language;
+    public $policyId;
     protected $_name = [
-        'policyId' => 'PolicyId',
         'language' => 'Language',
+        'policyId' => 'PolicyId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetControlPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyId) {
-            $res['PolicyId'] = $this->policyId;
-        }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetControlPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyId'])) {
-            $model->policyId = $map['PolicyId'];
-        }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
 
         return $model;

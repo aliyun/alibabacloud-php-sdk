@@ -11,6 +11,11 @@ class targetAttachment extends Model
     /**
      * @var string
      */
+    public $attachDate;
+
+    /**
+     * @var string
+     */
     public $targetId;
 
     /**
@@ -21,16 +26,11 @@ class targetAttachment extends Model
     /**
      * @var string
      */
-    public $attachDate;
-
-    /**
-     * @var string
-     */
     public $targetType;
     protected $_name = [
+        'attachDate' => 'AttachDate',
         'targetId'   => 'TargetId',
         'targetName' => 'TargetName',
-        'attachDate' => 'AttachDate',
         'targetType' => 'TargetType',
     ];
 
@@ -41,14 +41,14 @@ class targetAttachment extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachDate) {
+            $res['AttachDate'] = $this->attachDate;
+        }
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
         if (null !== $this->targetName) {
             $res['TargetName'] = $this->targetName;
-        }
-        if (null !== $this->attachDate) {
-            $res['AttachDate'] = $this->attachDate;
         }
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
@@ -65,14 +65,14 @@ class targetAttachment extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachDate'])) {
+            $model->attachDate = $map['AttachDate'];
+        }
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
         if (isset($map['TargetName'])) {
             $model->targetName = $map['TargetName'];
-        }
-        if (isset($map['AttachDate'])) {
-            $model->attachDate = $map['AttachDate'];
         }
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];

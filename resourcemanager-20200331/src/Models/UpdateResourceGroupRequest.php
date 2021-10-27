@@ -11,15 +11,15 @@ class UpdateResourceGroupRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $newDisplayName;
 
     /**
      * @var string
      */
-    public $newDisplayName;
+    public $resourceGroupId;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
         'newDisplayName'  => 'NewDisplayName',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->newDisplayName) {
             $res['NewDisplayName'] = $this->newDisplayName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['NewDisplayName'])) {
             $model->newDisplayName = $map['NewDisplayName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

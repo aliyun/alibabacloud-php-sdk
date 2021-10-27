@@ -11,12 +11,12 @@ class UpdateRoleRequest extends Model
     /**
      * @var string
      */
-    public $roleName;
+    public $newAssumeRolePolicyDocument;
 
     /**
      * @var string
      */
-    public $newAssumeRolePolicyDocument;
+    public $newDescription;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class UpdateRoleRequest extends Model
     /**
      * @var string
      */
-    public $newDescription;
+    public $roleName;
     protected $_name = [
-        'roleName'                    => 'RoleName',
         'newAssumeRolePolicyDocument' => 'NewAssumeRolePolicyDocument',
-        'newMaxSessionDuration'       => 'NewMaxSessionDuration',
         'newDescription'              => 'NewDescription',
+        'newMaxSessionDuration'       => 'NewMaxSessionDuration',
+        'roleName'                    => 'RoleName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpdateRoleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
-        }
         if (null !== $this->newAssumeRolePolicyDocument) {
             $res['NewAssumeRolePolicyDocument'] = $this->newAssumeRolePolicyDocument;
+        }
+        if (null !== $this->newDescription) {
+            $res['NewDescription'] = $this->newDescription;
         }
         if (null !== $this->newMaxSessionDuration) {
             $res['NewMaxSessionDuration'] = $this->newMaxSessionDuration;
         }
-        if (null !== $this->newDescription) {
-            $res['NewDescription'] = $this->newDescription;
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpdateRoleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
-        }
         if (isset($map['NewAssumeRolePolicyDocument'])) {
             $model->newAssumeRolePolicyDocument = $map['NewAssumeRolePolicyDocument'];
+        }
+        if (isset($map['NewDescription'])) {
+            $model->newDescription = $map['NewDescription'];
         }
         if (isset($map['NewMaxSessionDuration'])) {
             $model->newMaxSessionDuration = $map['NewMaxSessionDuration'];
         }
-        if (isset($map['NewDescription'])) {
-            $model->newDescription = $map['NewDescription'];
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
         }
 
         return $model;
