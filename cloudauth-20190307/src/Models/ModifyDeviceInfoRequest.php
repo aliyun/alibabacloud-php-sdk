@@ -11,17 +11,12 @@ class ModifyDeviceInfoRequest extends Model
     /**
      * @var string
      */
-    public $deviceId;
-
-    /**
-     * @var string
-     */
-    public $userDeviceId;
-
-    /**
-     * @var string
-     */
     public $bizType;
+
+    /**
+     * @var string
+     */
+    public $deviceId;
 
     /**
      * @var string
@@ -32,12 +27,17 @@ class ModifyDeviceInfoRequest extends Model
      * @var string
      */
     public $expiredDay;
+
+    /**
+     * @var string
+     */
+    public $userDeviceId;
     protected $_name = [
-        'deviceId'     => 'DeviceId',
-        'userDeviceId' => 'UserDeviceId',
         'bizType'      => 'BizType',
+        'deviceId'     => 'DeviceId',
         'duration'     => 'Duration',
         'expiredDay'   => 'ExpiredDay',
+        'userDeviceId' => 'UserDeviceId',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class ModifyDeviceInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
-        }
-        if (null !== $this->userDeviceId) {
-            $res['UserDeviceId'] = $this->userDeviceId;
-        }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
         if (null !== $this->expiredDay) {
             $res['ExpiredDay'] = $this->expiredDay;
+        }
+        if (null !== $this->userDeviceId) {
+            $res['UserDeviceId'] = $this->userDeviceId;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class ModifyDeviceInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
-        }
-        if (isset($map['UserDeviceId'])) {
-            $model->userDeviceId = $map['UserDeviceId'];
-        }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
         if (isset($map['ExpiredDay'])) {
             $model->expiredDay = $map['ExpiredDay'];
+        }
+        if (isset($map['UserDeviceId'])) {
+            $model->userDeviceId = $map['UserDeviceId'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppPackageRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $debug;
+
+    /**
      * @var int
      */
     public $id;
@@ -22,16 +27,11 @@ class UpdateAppPackageRequest extends Model
      * @var string
      */
     public $platform;
-
-    /**
-     * @var bool
-     */
-    public $debug;
     protected $_name = [
+        'debug'      => 'Debug',
         'id'         => 'Id',
         'packageUrl' => 'PackageUrl',
         'platform'   => 'Platform',
-        'debug'      => 'Debug',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class UpdateAppPackageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->debug) {
+            $res['Debug'] = $this->debug;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -50,9 +53,6 @@ class UpdateAppPackageRequest extends Model
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
-        }
-        if (null !== $this->debug) {
-            $res['Debug'] = $this->debug;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class UpdateAppPackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Debug'])) {
+            $model->debug = $map['Debug'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -74,9 +77,6 @@ class UpdateAppPackageRequest extends Model
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
-        }
-        if (isset($map['Debug'])) {
-            $model->debug = $map['Debug'];
         }
 
         return $model;

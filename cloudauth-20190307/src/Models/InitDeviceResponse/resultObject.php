@@ -11,17 +11,57 @@ class resultObject extends Model
     /**
      * @var string
      */
+    public $accessKeyId;
+
+    /**
+     * @var string
+     */
+    public $accessKeySecret;
+
+    /**
+     * @var string
+     */
+    public $bucketName;
+
+    /**
+     * @var string
+     */
     public $certifyId;
 
     /**
      * @var string
      */
-    public $protocol;
+    public $extParams;
 
     /**
      * @var string
      */
-    public $extParams;
+    public $fileName;
+
+    /**
+     * @var string
+     */
+    public $fileNamePrefix;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $ossEndPoint;
+
+    /**
+     * @var string
+     */
+    public $presignedUrl;
+
+    /**
+     * @var string
+     */
+    public $protocol;
 
     /**
      * @var string
@@ -41,95 +81,79 @@ class resultObject extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $ossEndPoint;
-
-    /**
-     * @var string
-     */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $accessKeySecret;
-
-    /**
-     * @var string
-     */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $bucketName;
-
-    /**
-     * @var string
-     */
-    public $fileNamePrefix;
-
-    /**
-     * @var string
-     */
-    public $fileName;
-
-    /**
-     * @var string
-     */
-    public $presignedUrl;
     protected $_name = [
+        'accessKeyId'     => 'AccessKeyId',
+        'accessKeySecret' => 'AccessKeySecret',
+        'bucketName'      => 'BucketName',
         'certifyId'       => 'CertifyId',
-        'protocol'        => 'Protocol',
         'extParams'       => 'ExtParams',
+        'fileName'        => 'FileName',
+        'fileNamePrefix'  => 'FileNamePrefix',
+        'message'         => 'Message',
+        'ossEndPoint'     => 'OssEndPoint',
+        'presignedUrl'    => 'PresignedUrl',
+        'protocol'        => 'Protocol',
         'retCode'         => 'RetCode',
         'retCodeSub'      => 'RetCodeSub',
         'retMessageSub'   => 'RetMessageSub',
-        'message'         => 'Message',
-        'ossEndPoint'     => 'OssEndPoint',
-        'accessKeyId'     => 'AccessKeyId',
-        'accessKeySecret' => 'AccessKeySecret',
         'securityToken'   => 'SecurityToken',
-        'bucketName'      => 'BucketName',
-        'fileNamePrefix'  => 'FileNamePrefix',
-        'fileName'        => 'FileName',
-        'presignedUrl'    => 'PresignedUrl',
     ];
 
     public function validate()
     {
+        Model::validateRequired('accessKeyId', $this->accessKeyId, true);
+        Model::validateRequired('accessKeySecret', $this->accessKeySecret, true);
+        Model::validateRequired('bucketName', $this->bucketName, true);
         Model::validateRequired('certifyId', $this->certifyId, true);
-        Model::validateRequired('protocol', $this->protocol, true);
         Model::validateRequired('extParams', $this->extParams, true);
+        Model::validateRequired('fileName', $this->fileName, true);
+        Model::validateRequired('fileNamePrefix', $this->fileNamePrefix, true);
+        Model::validateRequired('message', $this->message, true);
+        Model::validateRequired('ossEndPoint', $this->ossEndPoint, true);
+        Model::validateRequired('presignedUrl', $this->presignedUrl, true);
+        Model::validateRequired('protocol', $this->protocol, true);
         Model::validateRequired('retCode', $this->retCode, true);
         Model::validateRequired('retCodeSub', $this->retCodeSub, true);
         Model::validateRequired('retMessageSub', $this->retMessageSub, true);
-        Model::validateRequired('message', $this->message, true);
-        Model::validateRequired('ossEndPoint', $this->ossEndPoint, true);
-        Model::validateRequired('accessKeyId', $this->accessKeyId, true);
-        Model::validateRequired('accessKeySecret', $this->accessKeySecret, true);
         Model::validateRequired('securityToken', $this->securityToken, true);
-        Model::validateRequired('bucketName', $this->bucketName, true);
-        Model::validateRequired('fileNamePrefix', $this->fileNamePrefix, true);
-        Model::validateRequired('fileName', $this->fileName, true);
-        Model::validateRequired('presignedUrl', $this->presignedUrl, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessKeyId) {
+            $res['AccessKeyId'] = $this->accessKeyId;
+        }
+        if (null !== $this->accessKeySecret) {
+            $res['AccessKeySecret'] = $this->accessKeySecret;
+        }
+        if (null !== $this->bucketName) {
+            $res['BucketName'] = $this->bucketName;
+        }
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
         }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
         if (null !== $this->extParams) {
             $res['ExtParams'] = $this->extParams;
+        }
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->fileNamePrefix) {
+            $res['FileNamePrefix'] = $this->fileNamePrefix;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->ossEndPoint) {
+            $res['OssEndPoint'] = $this->ossEndPoint;
+        }
+        if (null !== $this->presignedUrl) {
+            $res['PresignedUrl'] = $this->presignedUrl;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
         if (null !== $this->retCode) {
             $res['RetCode'] = $this->retCode;
@@ -140,32 +164,8 @@ class resultObject extends Model
         if (null !== $this->retMessageSub) {
             $res['RetMessageSub'] = $this->retMessageSub;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->ossEndPoint) {
-            $res['OssEndPoint'] = $this->ossEndPoint;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['AccessKeyId'] = $this->accessKeyId;
-        }
-        if (null !== $this->accessKeySecret) {
-            $res['AccessKeySecret'] = $this->accessKeySecret;
-        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->bucketName) {
-            $res['BucketName'] = $this->bucketName;
-        }
-        if (null !== $this->fileNamePrefix) {
-            $res['FileNamePrefix'] = $this->fileNamePrefix;
-        }
-        if (null !== $this->fileName) {
-            $res['FileName'] = $this->fileName;
-        }
-        if (null !== $this->presignedUrl) {
-            $res['PresignedUrl'] = $this->presignedUrl;
         }
 
         return $res;
@@ -179,14 +179,38 @@ class resultObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessKeyId'])) {
+            $model->accessKeyId = $map['AccessKeyId'];
+        }
+        if (isset($map['AccessKeySecret'])) {
+            $model->accessKeySecret = $map['AccessKeySecret'];
+        }
+        if (isset($map['BucketName'])) {
+            $model->bucketName = $map['BucketName'];
+        }
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
         }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
         if (isset($map['ExtParams'])) {
             $model->extParams = $map['ExtParams'];
+        }
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
+        }
+        if (isset($map['FileNamePrefix'])) {
+            $model->fileNamePrefix = $map['FileNamePrefix'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['OssEndPoint'])) {
+            $model->ossEndPoint = $map['OssEndPoint'];
+        }
+        if (isset($map['PresignedUrl'])) {
+            $model->presignedUrl = $map['PresignedUrl'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
         if (isset($map['RetCode'])) {
             $model->retCode = $map['RetCode'];
@@ -197,32 +221,8 @@ class resultObject extends Model
         if (isset($map['RetMessageSub'])) {
             $model->retMessageSub = $map['RetMessageSub'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['OssEndPoint'])) {
-            $model->ossEndPoint = $map['OssEndPoint'];
-        }
-        if (isset($map['AccessKeyId'])) {
-            $model->accessKeyId = $map['AccessKeyId'];
-        }
-        if (isset($map['AccessKeySecret'])) {
-            $model->accessKeySecret = $map['AccessKeySecret'];
-        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['BucketName'])) {
-            $model->bucketName = $map['BucketName'];
-        }
-        if (isset($map['FileNamePrefix'])) {
-            $model->fileNamePrefix = $map['FileNamePrefix'];
-        }
-        if (isset($map['FileName'])) {
-            $model->fileName = $map['FileName'];
-        }
-        if (isset($map['PresignedUrl'])) {
-            $model->presignedUrl = $map['PresignedUrl'];
         }
 
         return $model;

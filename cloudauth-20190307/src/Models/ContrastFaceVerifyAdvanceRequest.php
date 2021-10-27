@@ -15,26 +15,6 @@ class ContrastFaceVerifyAdvanceRequest extends Model
     public $faceContrastFileObject;
 
     /**
-     * @var int
-     */
-    public $sceneId;
-
-    /**
-     * @var string
-     */
-    public $outerOrderNo;
-
-    /**
-     * @var string
-     */
-    public $productCode;
-
-    /**
-     * @var string
-     */
-    public $certType;
-
-    /**
      * @var string
      */
     public $certName;
@@ -47,7 +27,17 @@ class ContrastFaceVerifyAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $faceContrastPicture;
+    public $certType;
+
+    /**
+     * @var string
+     */
+    public $certifyId;
+
+    /**
+     * @var string
+     */
+    public $crop;
 
     /**
      * @var string
@@ -57,17 +47,7 @@ class ContrastFaceVerifyAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $mobile;
-
-    /**
-     * @var string
-     */
-    public $ip;
-
-    /**
-     * @var string
-     */
-    public $userId;
+    public $faceContrastPicture;
 
     /**
      * @var string
@@ -77,7 +57,17 @@ class ContrastFaceVerifyAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $certifyId;
+    public $ip;
+
+    /**
+     * @var string
+     */
+    public $mobile;
+
+    /**
+     * @var string
+     */
+    public $model;
 
     /**
      * @var string
@@ -92,31 +82,41 @@ class ContrastFaceVerifyAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $model;
+    public $outerOrderNo;
 
     /**
      * @var string
      */
-    public $crop;
+    public $productCode;
+
+    /**
+     * @var int
+     */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'faceContrastFileObject' => 'FaceContrastFileObject',
-        'sceneId'                => 'SceneId',
-        'outerOrderNo'           => 'OuterOrderNo',
-        'productCode'            => 'ProductCode',
-        'certType'               => 'CertType',
         'certName'               => 'CertName',
         'certNo'                 => 'CertNo',
-        'faceContrastPicture'    => 'FaceContrastPicture',
-        'deviceToken'            => 'DeviceToken',
-        'mobile'                 => 'Mobile',
-        'ip'                     => 'Ip',
-        'userId'                 => 'UserId',
-        'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
+        'certType'               => 'CertType',
         'certifyId'              => 'CertifyId',
+        'crop'                   => 'Crop',
+        'deviceToken'            => 'DeviceToken',
+        'faceContrastPicture'    => 'FaceContrastPicture',
+        'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
+        'ip'                     => 'Ip',
+        'mobile'                 => 'Mobile',
+        'model'                  => 'Model',
         'ossBucketName'          => 'OssBucketName',
         'ossObjectName'          => 'OssObjectName',
-        'model'                  => 'Model',
-        'crop'                   => 'Crop',
+        'outerOrderNo'           => 'OuterOrderNo',
+        'productCode'            => 'ProductCode',
+        'sceneId'                => 'SceneId',
+        'userId'                 => 'UserId',
     ];
 
     public function validate()
@@ -130,44 +130,38 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         if (null !== $this->faceContrastFileObject) {
             $res['FaceContrastFileObject'] = $this->faceContrastFileObject;
         }
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
-        }
-        if (null !== $this->outerOrderNo) {
-            $res['OuterOrderNo'] = $this->outerOrderNo;
-        }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->certType) {
-            $res['CertType'] = $this->certType;
-        }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
         }
         if (null !== $this->certNo) {
             $res['CertNo'] = $this->certNo;
         }
-        if (null !== $this->faceContrastPicture) {
-            $res['FaceContrastPicture'] = $this->faceContrastPicture;
+        if (null !== $this->certType) {
+            $res['CertType'] = $this->certType;
+        }
+        if (null !== $this->certifyId) {
+            $res['CertifyId'] = $this->certifyId;
+        }
+        if (null !== $this->crop) {
+            $res['Crop'] = $this->crop;
         }
         if (null !== $this->deviceToken) {
             $res['DeviceToken'] = $this->deviceToken;
         }
-        if (null !== $this->mobile) {
-            $res['Mobile'] = $this->mobile;
-        }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->faceContrastPicture) {
+            $res['FaceContrastPicture'] = $this->faceContrastPicture;
         }
         if (null !== $this->faceContrastPictureUrl) {
             $res['FaceContrastPictureUrl'] = $this->faceContrastPictureUrl;
         }
-        if (null !== $this->certifyId) {
-            $res['CertifyId'] = $this->certifyId;
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->mobile) {
+            $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
         }
         if (null !== $this->ossBucketName) {
             $res['OssBucketName'] = $this->ossBucketName;
@@ -175,11 +169,17 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         if (null !== $this->ossObjectName) {
             $res['OssObjectName'] = $this->ossObjectName;
         }
-        if (null !== $this->model) {
-            $res['Model'] = $this->model;
+        if (null !== $this->outerOrderNo) {
+            $res['OuterOrderNo'] = $this->outerOrderNo;
         }
-        if (null !== $this->crop) {
-            $res['Crop'] = $this->crop;
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -196,44 +196,38 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         if (isset($map['FaceContrastFileObject'])) {
             $model->faceContrastFileObject = $map['FaceContrastFileObject'];
         }
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
-        }
-        if (isset($map['OuterOrderNo'])) {
-            $model->outerOrderNo = $map['OuterOrderNo'];
-        }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['CertType'])) {
-            $model->certType = $map['CertType'];
-        }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
         }
         if (isset($map['CertNo'])) {
             $model->certNo = $map['CertNo'];
         }
-        if (isset($map['FaceContrastPicture'])) {
-            $model->faceContrastPicture = $map['FaceContrastPicture'];
+        if (isset($map['CertType'])) {
+            $model->certType = $map['CertType'];
+        }
+        if (isset($map['CertifyId'])) {
+            $model->certifyId = $map['CertifyId'];
+        }
+        if (isset($map['Crop'])) {
+            $model->crop = $map['Crop'];
         }
         if (isset($map['DeviceToken'])) {
             $model->deviceToken = $map['DeviceToken'];
         }
-        if (isset($map['Mobile'])) {
-            $model->mobile = $map['Mobile'];
-        }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['FaceContrastPicture'])) {
+            $model->faceContrastPicture = $map['FaceContrastPicture'];
         }
         if (isset($map['FaceContrastPictureUrl'])) {
             $model->faceContrastPictureUrl = $map['FaceContrastPictureUrl'];
         }
-        if (isset($map['CertifyId'])) {
-            $model->certifyId = $map['CertifyId'];
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
+        }
+        if (isset($map['Mobile'])) {
+            $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
         }
         if (isset($map['OssBucketName'])) {
             $model->ossBucketName = $map['OssBucketName'];
@@ -241,11 +235,17 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         if (isset($map['OssObjectName'])) {
             $model->ossObjectName = $map['OssObjectName'];
         }
-        if (isset($map['Model'])) {
-            $model->model = $map['Model'];
+        if (isset($map['OuterOrderNo'])) {
+            $model->outerOrderNo = $map['OuterOrderNo'];
         }
-        if (isset($map['Crop'])) {
-            $model->crop = $map['Crop'];
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

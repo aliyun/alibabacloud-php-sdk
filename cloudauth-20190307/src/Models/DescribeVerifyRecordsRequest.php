@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifyRecordsRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $bizId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $bizType;
 
     /**
      * @var int
@@ -26,7 +26,22 @@ class DescribeVerifyRecordsRequest extends Model
     /**
      * @var string
      */
-    public $bizType;
+    public $endDate;
+
+    /**
+     * @var string
+     */
+    public $idCardNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $queryId;
 
     /**
      * @var string
@@ -36,78 +51,63 @@ class DescribeVerifyRecordsRequest extends Model
     /**
      * @var string
      */
-    public $endDate;
-
-    /**
-     * @var string
-     */
-    public $bizId;
-
-    /**
-     * @var string
-     */
-    public $idCardNum;
-
-    /**
-     * @var string
-     */
     public $statusList;
 
     /**
-     * @var string
+     * @var int
      */
-    public $queryId;
+    public $totalCount;
     protected $_name = [
-        'totalCount'  => 'TotalCount',
-        'pageSize'    => 'PageSize',
-        'currentPage' => 'CurrentPage',
-        'bizType'     => 'BizType',
-        'startDate'   => 'StartDate',
-        'endDate'     => 'EndDate',
         'bizId'       => 'BizId',
+        'bizType'     => 'BizType',
+        'currentPage' => 'CurrentPage',
+        'endDate'     => 'EndDate',
         'idCardNum'   => 'IdCardNum',
-        'statusList'  => 'StatusList',
+        'pageSize'    => 'PageSize',
         'queryId'     => 'QueryId',
+        'startDate'   => 'StartDate',
+        'statusList'  => 'StatusList',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('pageSize', $this->pageSize, true);
         Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
-        }
         if (null !== $this->idCardNum) {
             $res['IdCardNum'] = $this->idCardNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->queryId) {
+            $res['QueryId'] = $this->queryId;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
         if (null !== $this->statusList) {
             $res['StatusList'] = $this->statusList;
         }
-        if (null !== $this->queryId) {
-            $res['QueryId'] = $this->queryId;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -121,35 +121,35 @@ class DescribeVerifyRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
-        }
         if (isset($map['IdCardNum'])) {
             $model->idCardNum = $map['IdCardNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['QueryId'])) {
+            $model->queryId = $map['QueryId'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
         if (isset($map['StatusList'])) {
             $model->statusList = $map['StatusList'];
         }
-        if (isset($map['QueryId'])) {
-            $model->queryId = $map['QueryId'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

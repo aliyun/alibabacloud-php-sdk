@@ -11,22 +11,12 @@ class DescribeUploadInfoResponse extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $accessid;
 
     /**
-     * @var string
+     * @var int
      */
-    public $policy;
-
-    /**
-     * @var string
-     */
-    public $signature;
+    public $expire;
 
     /**
      * @var string
@@ -39,44 +29,48 @@ class DescribeUploadInfoResponse extends Model
     public $host;
 
     /**
-     * @var int
+     * @var string
      */
-    public $expire;
+    public $policy;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $signature;
     protected $_name = [
-        'requestId' => 'RequestId',
         'accessid'  => 'Accessid',
-        'policy'    => 'Policy',
-        'signature' => 'Signature',
+        'expire'    => 'Expire',
         'folder'    => 'Folder',
         'host'      => 'Host',
-        'expire'    => 'Expire',
+        'policy'    => 'Policy',
+        'requestId' => 'RequestId',
+        'signature' => 'Signature',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
         Model::validateRequired('accessid', $this->accessid, true);
-        Model::validateRequired('policy', $this->policy, true);
-        Model::validateRequired('signature', $this->signature, true);
+        Model::validateRequired('expire', $this->expire, true);
         Model::validateRequired('folder', $this->folder, true);
         Model::validateRequired('host', $this->host, true);
-        Model::validateRequired('expire', $this->expire, true);
+        Model::validateRequired('policy', $this->policy, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('signature', $this->signature, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->accessid) {
             $res['Accessid'] = $this->accessid;
         }
-        if (null !== $this->policy) {
-            $res['Policy'] = $this->policy;
-        }
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
+        if (null !== $this->expire) {
+            $res['Expire'] = $this->expire;
         }
         if (null !== $this->folder) {
             $res['Folder'] = $this->folder;
@@ -84,8 +78,14 @@ class DescribeUploadInfoResponse extends Model
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
-        if (null !== $this->expire) {
-            $res['Expire'] = $this->expire;
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
         }
 
         return $res;
@@ -99,17 +99,11 @@ class DescribeUploadInfoResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Accessid'])) {
             $model->accessid = $map['Accessid'];
         }
-        if (isset($map['Policy'])) {
-            $model->policy = $map['Policy'];
-        }
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
+        if (isset($map['Expire'])) {
+            $model->expire = $map['Expire'];
         }
         if (isset($map['Folder'])) {
             $model->folder = $map['Folder'];
@@ -117,8 +111,14 @@ class DescribeUploadInfoResponse extends Model
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
-        if (isset($map['Expire'])) {
-            $model->expire = $map['Expire'];
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
         }
 
         return $model;

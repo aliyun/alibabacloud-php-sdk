@@ -11,17 +11,12 @@ class UpdateVerifySettingRequest extends Model
     /**
      * @var string
      */
-    public $bizType;
-
-    /**
-     * @var string
-     */
     public $bizName;
 
     /**
      * @var string
      */
-    public $solution;
+    public $bizType;
 
     /**
      * @var bool
@@ -37,13 +32,18 @@ class UpdateVerifySettingRequest extends Model
      * @var bool
      */
     public $resultStep;
+
+    /**
+     * @var string
+     */
+    public $solution;
     protected $_name = [
-        'bizType'     => 'BizType',
         'bizName'     => 'BizName',
-        'solution'    => 'Solution',
+        'bizType'     => 'BizType',
         'guideStep'   => 'GuideStep',
         'privacyStep' => 'PrivacyStep',
         'resultStep'  => 'ResultStep',
+        'solution'    => 'Solution',
     ];
 
     public function validate()
@@ -54,14 +54,11 @@ class UpdateVerifySettingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
-        }
         if (null !== $this->bizName) {
             $res['BizName'] = $this->bizName;
         }
-        if (null !== $this->solution) {
-            $res['Solution'] = $this->solution;
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
         }
         if (null !== $this->guideStep) {
             $res['GuideStep'] = $this->guideStep;
@@ -71,6 +68,9 @@ class UpdateVerifySettingRequest extends Model
         }
         if (null !== $this->resultStep) {
             $res['ResultStep'] = $this->resultStep;
+        }
+        if (null !== $this->solution) {
+            $res['Solution'] = $this->solution;
         }
 
         return $res;
@@ -84,14 +84,11 @@ class UpdateVerifySettingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
-        }
         if (isset($map['BizName'])) {
             $model->bizName = $map['BizName'];
         }
-        if (isset($map['Solution'])) {
-            $model->solution = $map['Solution'];
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
         }
         if (isset($map['GuideStep'])) {
             $model->guideStep = $map['GuideStep'];
@@ -101,6 +98,9 @@ class UpdateVerifySettingRequest extends Model
         }
         if (isset($map['ResultStep'])) {
             $model->resultStep = $map['ResultStep'];
+        }
+        if (isset($map['Solution'])) {
+            $model->solution = $map['Solution'];
         }
 
         return $model;

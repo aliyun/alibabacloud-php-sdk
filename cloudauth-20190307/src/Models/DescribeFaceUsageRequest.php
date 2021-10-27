@@ -11,31 +11,31 @@ class DescribeFaceUsageRequest extends Model
     /**
      * @var string
      */
-    public $startDate;
+    public $endDate;
 
     /**
      * @var string
      */
-    public $endDate;
+    public $startDate;
     protected $_name = [
-        'startDate' => 'StartDate',
         'endDate'   => 'EndDate',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()
     {
-        Model::validateRequired('startDate', $this->startDate, true);
         Model::validateRequired('endDate', $this->endDate, true);
+        Model::validateRequired('startDate', $this->startDate, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class DescribeFaceUsageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
 
         return $model;

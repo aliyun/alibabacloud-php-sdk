@@ -113,256 +113,6 @@ class Cloudauth extends Rpc
     }
 
     /**
-     * @param DescribeWhitelistSettingRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeWhitelistSettingResponse
-     */
-    public function describeWhitelistSetting($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeWhitelistSettingResponse::fromMap($this->doRequest('DescribeWhitelistSetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeWhitelistSettingRequest $request
-     *
-     * @return DescribeWhitelistSettingResponse
-     */
-    public function describeWhitelistSettingSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeWhitelistSetting($request, $runtime);
-    }
-
-    /**
-     * @param DeleteWhitelistSettingRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteWhitelistSettingResponse
-     */
-    public function deleteWhitelistSetting($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteWhitelistSettingResponse::fromMap($this->doRequest('DeleteWhitelistSetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteWhitelistSettingRequest $request
-     *
-     * @return DeleteWhitelistSettingResponse
-     */
-    public function deleteWhitelistSettingSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteWhitelistSetting($request, $runtime);
-    }
-
-    /**
-     * @param CreateWhitelistSettingRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateWhitelistSettingResponse
-     */
-    public function createWhitelistSetting($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateWhitelistSettingResponse::fromMap($this->doRequest('CreateWhitelistSetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateWhitelistSettingRequest $request
-     *
-     * @return CreateWhitelistSettingResponse
-     */
-    public function createWhitelistSettingSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createWhitelistSetting($request, $runtime);
-    }
-
-    /**
-     * @param DescribeWhitelistRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeWhitelistResponse
-     */
-    public function describeWhitelist($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeWhitelistResponse::fromMap($this->doRequest('DescribeWhitelist', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeWhitelistRequest $request
-     *
-     * @return DescribeWhitelistResponse
-     */
-    public function describeWhitelistSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeWhitelist($request, $runtime);
-    }
-
-    /**
-     * @param DeleteWhitelistRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteWhitelistResponse
-     */
-    public function deleteWhitelist($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteWhitelistResponse::fromMap($this->doRequest('DeleteWhitelist', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteWhitelistRequest $request
-     *
-     * @return DeleteWhitelistResponse
-     */
-    public function deleteWhitelistSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteWhitelist($request, $runtime);
-    }
-
-    /**
-     * @param CreateWhitelistRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateWhitelistResponse
-     */
-    public function createWhitelist($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateWhitelistResponse::fromMap($this->doRequest('CreateWhitelist', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateWhitelistRequest $request
-     *
-     * @return CreateWhitelistResponse
-     */
-    public function createWhitelistSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createWhitelist($request, $runtime);
-    }
-
-    /**
-     * @param DescribeFaceConfigRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeFaceConfigResponse
-     */
-    public function describeFaceConfig($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeFaceConfigResponse::fromMap($this->doRequest('DescribeFaceConfig', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeFaceConfigRequest $request
-     *
-     * @return DescribeFaceConfigResponse
-     */
-    public function describeFaceConfigSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeFaceConfig($request, $runtime);
-    }
-
-    /**
-     * @param UpdateFaceConfigRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateFaceConfigResponse
-     */
-    public function updateFaceConfig($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateFaceConfigResponse::fromMap($this->doRequest('UpdateFaceConfig', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateFaceConfigRequest $request
-     *
-     * @return UpdateFaceConfigResponse
-     */
-    public function updateFaceConfigSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateFaceConfig($request, $runtime);
-    }
-
-    /**
-     * @param CreateFaceConfigRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateFaceConfigResponse
-     */
-    public function createFaceConfig($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateFaceConfigResponse::fromMap($this->doRequest('CreateFaceConfig', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateFaceConfigRequest $request
-     *
-     * @return CreateFaceConfigResponse
-     */
-    public function createFaceConfigSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createFaceConfig($request, $runtime);
-    }
-
-    /**
-     * @param LivenessFaceVerifyRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return LivenessFaceVerifyResponse
-     */
-    public function livenessFaceVerify($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return LivenessFaceVerifyResponse::fromMap($this->doRequest('LivenessFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param LivenessFaceVerifyRequest $request
-     *
-     * @return LivenessFaceVerifyResponse
-     */
-    public function livenessFaceVerifySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->livenessFaceVerify($request, $runtime);
-    }
-
-    /**
      * @param CompareFaceVerifyRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -388,103 +138,28 @@ class Cloudauth extends Rpc
     }
 
     /**
-     * @param DescribeSdkUrlRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param CompareFacesRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return DescribeSdkUrlResponse
+     * @return CompareFacesResponse
      */
-    public function describeSdkUrl($request, $runtime)
+    public function compareFaces($request, $runtime)
     {
         Utils::validateModel($request);
 
-        return DescribeSdkUrlResponse::fromMap($this->doRequest('DescribeSdkUrl', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CompareFacesResponse::fromMap($this->doRequest('CompareFaces', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DescribeSdkUrlRequest $request
+     * @param CompareFacesRequest $request
      *
-     * @return DescribeSdkUrlResponse
+     * @return CompareFacesResponse
      */
-    public function describeSdkUrlSimply($request)
+    public function compareFacesSimply($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeSdkUrl($request, $runtime);
-    }
-
-    /**
-     * @param DescribeUpdatePackageResultRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeUpdatePackageResultResponse
-     */
-    public function describeUpdatePackageResult($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeUpdatePackageResultResponse::fromMap($this->doRequest('DescribeUpdatePackageResult', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeUpdatePackageResultRequest $request
-     *
-     * @return DescribeUpdatePackageResultResponse
-     */
-    public function describeUpdatePackageResultSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUpdatePackageResult($request, $runtime);
-    }
-
-    /**
-     * @param UpdateAppPackageRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateAppPackageResponse
-     */
-    public function updateAppPackage($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateAppPackageResponse::fromMap($this->doRequest('UpdateAppPackage', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateAppPackageRequest $request
-     *
-     * @return UpdateAppPackageResponse
-     */
-    public function updateAppPackageSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateAppPackage($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAppInfoRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeAppInfoResponse
-     */
-    public function describeAppInfo($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeAppInfoResponse::fromMap($this->doRequest('DescribeAppInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeAppInfoRequest $request
-     *
-     * @return DescribeAppInfoResponse
-     */
-    public function describeAppInfoSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAppInfo($request, $runtime);
+        return $this->compareFaces($request, $runtime);
     }
 
     /**
@@ -591,6 +266,731 @@ class Cloudauth extends Rpc
     }
 
     /**
+     * @param CreateAuthKeyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateAuthKeyResponse
+     */
+    public function createAuthKey($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateAuthKeyResponse::fromMap($this->doRequest('CreateAuthKey', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateAuthKeyRequest $request
+     *
+     * @return CreateAuthKeyResponse
+     */
+    public function createAuthKeySimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAuthKey($request, $runtime);
+    }
+
+    /**
+     * @param CreateFaceConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateFaceConfigResponse
+     */
+    public function createFaceConfig($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateFaceConfigResponse::fromMap($this->doRequest('CreateFaceConfig', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateFaceConfigRequest $request
+     *
+     * @return CreateFaceConfigResponse
+     */
+    public function createFaceConfigSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFaceConfig($request, $runtime);
+    }
+
+    /**
+     * @param CreateRPSDKRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateRPSDKResponse
+     */
+    public function createRPSDK($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateRPSDKResponse::fromMap($this->doRequest('CreateRPSDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateRPSDKRequest $request
+     *
+     * @return CreateRPSDKResponse
+     */
+    public function createRPSDKSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRPSDK($request, $runtime);
+    }
+
+    /**
+     * @param CreateVerifySDKRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateVerifySDKResponse
+     */
+    public function createVerifySDK($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateVerifySDKResponse::fromMap($this->doRequest('CreateVerifySDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateVerifySDKRequest $request
+     *
+     * @return CreateVerifySDKResponse
+     */
+    public function createVerifySDKSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVerifySDK($request, $runtime);
+    }
+
+    /**
+     * @param CreateVerifySettingRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVerifySettingResponse
+     */
+    public function createVerifySetting($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateVerifySettingResponse::fromMap($this->doRequest('CreateVerifySetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateVerifySettingRequest $request
+     *
+     * @return CreateVerifySettingResponse
+     */
+    public function createVerifySettingSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVerifySetting($request, $runtime);
+    }
+
+    /**
+     * @param CreateWhitelistRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateWhitelistResponse
+     */
+    public function createWhitelist($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateWhitelistResponse::fromMap($this->doRequest('CreateWhitelist', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateWhitelistRequest $request
+     *
+     * @return CreateWhitelistResponse
+     */
+    public function createWhitelistSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWhitelist($request, $runtime);
+    }
+
+    /**
+     * @param CreateWhitelistSettingRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateWhitelistSettingResponse
+     */
+    public function createWhitelistSetting($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateWhitelistSettingResponse::fromMap($this->doRequest('CreateWhitelistSetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateWhitelistSettingRequest $request
+     *
+     * @return CreateWhitelistSettingResponse
+     */
+    public function createWhitelistSettingSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWhitelistSetting($request, $runtime);
+    }
+
+    /**
+     * @param DeleteWhitelistRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteWhitelistResponse
+     */
+    public function deleteWhitelist($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DeleteWhitelistResponse::fromMap($this->doRequest('DeleteWhitelist', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DeleteWhitelistRequest $request
+     *
+     * @return DeleteWhitelistResponse
+     */
+    public function deleteWhitelistSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWhitelist($request, $runtime);
+    }
+
+    /**
+     * @param DeleteWhitelistSettingRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteWhitelistSettingResponse
+     */
+    public function deleteWhitelistSetting($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DeleteWhitelistSettingResponse::fromMap($this->doRequest('DeleteWhitelistSetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DeleteWhitelistSettingRequest $request
+     *
+     * @return DeleteWhitelistSettingResponse
+     */
+    public function deleteWhitelistSettingSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWhitelistSetting($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAppInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeAppInfoResponse
+     */
+    public function describeAppInfo($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeAppInfoResponse::fromMap($this->doRequest('DescribeAppInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeAppInfoRequest $request
+     *
+     * @return DescribeAppInfoResponse
+     */
+    public function describeAppInfoSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppInfo($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDeviceInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDeviceInfoResponse
+     */
+    public function describeDeviceInfo($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeDeviceInfoResponse::fromMap($this->doRequest('DescribeDeviceInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeDeviceInfoRequest $request
+     *
+     * @return DescribeDeviceInfoResponse
+     */
+    public function describeDeviceInfoSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDeviceInfo($request, $runtime);
+    }
+
+    /**
+     * @param DescribeFaceConfigRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeFaceConfigResponse
+     */
+    public function describeFaceConfig($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeFaceConfigResponse::fromMap($this->doRequest('DescribeFaceConfig', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeFaceConfigRequest $request
+     *
+     * @return DescribeFaceConfigResponse
+     */
+    public function describeFaceConfigSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFaceConfig($request, $runtime);
+    }
+
+    /**
+     * @param DescribeFaceUsageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeFaceUsageResponse
+     */
+    public function describeFaceUsage($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeFaceUsageResponse::fromMap($this->doRequest('DescribeFaceUsage', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeFaceUsageRequest $request
+     *
+     * @return DescribeFaceUsageResponse
+     */
+    public function describeFaceUsageSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFaceUsage($request, $runtime);
+    }
+
+    /**
+     * @param DescribeFaceVerifyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeFaceVerifyResponse
+     */
+    public function describeFaceVerify($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeFaceVerifyResponse::fromMap($this->doRequest('DescribeFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeFaceVerifyRequest $request
+     *
+     * @return DescribeFaceVerifyResponse
+     */
+    public function describeFaceVerifySimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFaceVerify($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOssUploadTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeOssUploadTokenResponse
+     */
+    public function describeOssUploadToken($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeOssUploadTokenResponse::fromMap($this->doRequest('DescribeOssUploadToken', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeOssUploadTokenRequest $request
+     *
+     * @return DescribeOssUploadTokenResponse
+     */
+    public function describeOssUploadTokenSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOssUploadToken($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRPSDKRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeRPSDKResponse
+     */
+    public function describeRPSDK($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeRPSDKResponse::fromMap($this->doRequest('DescribeRPSDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeRPSDKRequest $request
+     *
+     * @return DescribeRPSDKResponse
+     */
+    public function describeRPSDKSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRPSDK($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSdkUrlRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeSdkUrlResponse
+     */
+    public function describeSdkUrl($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeSdkUrlResponse::fromMap($this->doRequest('DescribeSdkUrl', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeSdkUrlRequest $request
+     *
+     * @return DescribeSdkUrlResponse
+     */
+    public function describeSdkUrlSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSdkUrl($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUpdatePackageResultRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeUpdatePackageResultResponse
+     */
+    public function describeUpdatePackageResult($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeUpdatePackageResultResponse::fromMap($this->doRequest('DescribeUpdatePackageResult', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeUpdatePackageResultRequest $request
+     *
+     * @return DescribeUpdatePackageResultResponse
+     */
+    public function describeUpdatePackageResultSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUpdatePackageResult($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUploadInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeUploadInfoResponse
+     */
+    public function describeUploadInfo($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeUploadInfoResponse::fromMap($this->doRequest('DescribeUploadInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeUploadInfoRequest $request
+     *
+     * @return DescribeUploadInfoResponse
+     */
+    public function describeUploadInfoSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUploadInfo($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUserStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeUserStatusResponse
+     */
+    public function describeUserStatus($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeUserStatusResponse::fromMap($this->doRequest('DescribeUserStatus', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeUserStatusRequest $request
+     *
+     * @return DescribeUserStatusResponse
+     */
+    public function describeUserStatusSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserStatus($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVerifyRecordsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeVerifyRecordsResponse
+     */
+    public function describeVerifyRecords($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeVerifyRecordsResponse::fromMap($this->doRequest('DescribeVerifyRecords', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeVerifyRecordsRequest $request
+     *
+     * @return DescribeVerifyRecordsResponse
+     */
+    public function describeVerifyRecordsSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyRecords($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVerifyResultRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeVerifyResultResponse
+     */
+    public function describeVerifyResult($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeVerifyResultResponse::fromMap($this->doRequest('DescribeVerifyResult', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeVerifyResultRequest $request
+     *
+     * @return DescribeVerifyResultResponse
+     */
+    public function describeVerifyResultSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyResult($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVerifySDKRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeVerifySDKResponse
+     */
+    public function describeVerifySDK($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeVerifySDKResponse::fromMap($this->doRequest('DescribeVerifySDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeVerifySDKRequest $request
+     *
+     * @return DescribeVerifySDKResponse
+     */
+    public function describeVerifySDKSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifySDK($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVerifySettingRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeVerifySettingResponse
+     */
+    public function describeVerifySetting($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeVerifySettingResponse::fromMap($this->doRequest('DescribeVerifySetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeVerifySettingRequest $request
+     *
+     * @return DescribeVerifySettingResponse
+     */
+    public function describeVerifySettingSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifySetting($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVerifyTokenRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeVerifyTokenResponse
+     */
+    public function describeVerifyToken($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeVerifyTokenResponse::fromMap($this->doRequest('DescribeVerifyToken', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeVerifyTokenRequest $request
+     *
+     * @return DescribeVerifyTokenResponse
+     */
+    public function describeVerifyTokenSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyToken($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVerifyUsageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeVerifyUsageResponse
+     */
+    public function describeVerifyUsage($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeVerifyUsageResponse::fromMap($this->doRequest('DescribeVerifyUsage', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeVerifyUsageRequest $request
+     *
+     * @return DescribeVerifyUsageResponse
+     */
+    public function describeVerifyUsageSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyUsage($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWhitelistRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeWhitelistResponse
+     */
+    public function describeWhitelist($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeWhitelistResponse::fromMap($this->doRequest('DescribeWhitelist', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeWhitelistRequest $request
+     *
+     * @return DescribeWhitelistResponse
+     */
+    public function describeWhitelistSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhitelist($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWhitelistSettingRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeWhitelistSettingResponse
+     */
+    public function describeWhitelistSetting($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeWhitelistSettingResponse::fromMap($this->doRequest('DescribeWhitelistSetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeWhitelistSettingRequest $request
+     *
+     * @return DescribeWhitelistSettingResponse
+     */
+    public function describeWhitelistSettingSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhitelistSetting($request, $runtime);
+    }
+
+    /**
+     * @param DetectFaceAttributesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DetectFaceAttributesResponse
+     */
+    public function detectFaceAttributes($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DetectFaceAttributesResponse::fromMap($this->doRequest('DetectFaceAttributes', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DetectFaceAttributesRequest $request
+     *
+     * @return DetectFaceAttributesResponse
+     */
+    public function detectFaceAttributesSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectFaceAttributes($request, $runtime);
+    }
+
+    /**
      * @param InitDeviceRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -641,53 +1041,28 @@ class Cloudauth extends Rpc
     }
 
     /**
-     * @param DescribeFaceVerifyRequest $request
+     * @param LivenessFaceVerifyRequest $request
      * @param RuntimeOptions            $runtime
      *
-     * @return DescribeFaceVerifyResponse
+     * @return LivenessFaceVerifyResponse
      */
-    public function describeFaceVerify($request, $runtime)
+    public function livenessFaceVerify($request, $runtime)
     {
         Utils::validateModel($request);
 
-        return DescribeFaceVerifyResponse::fromMap($this->doRequest('DescribeFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return LivenessFaceVerifyResponse::fromMap($this->doRequest('LivenessFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DescribeFaceVerifyRequest $request
+     * @param LivenessFaceVerifyRequest $request
      *
-     * @return DescribeFaceVerifyResponse
+     * @return LivenessFaceVerifyResponse
      */
-    public function describeFaceVerifySimply($request)
+    public function livenessFaceVerifySimply($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeFaceVerify($request, $runtime);
-    }
-
-    /**
-     * @param VerifyDeviceRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return VerifyDeviceResponse
-     */
-    public function verifyDevice($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return VerifyDeviceResponse::fromMap($this->doRequest('VerifyDevice', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param VerifyDeviceRequest $request
-     *
-     * @return VerifyDeviceResponse
-     */
-    public function verifyDeviceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->verifyDevice($request, $runtime);
+        return $this->livenessFaceVerify($request, $runtime);
     }
 
     /**
@@ -716,203 +1091,53 @@ class Cloudauth extends Rpc
     }
 
     /**
-     * @param DescribeVerifySDKRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param UpdateAppPackageRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return DescribeVerifySDKResponse
+     * @return UpdateAppPackageResponse
      */
-    public function describeVerifySDK($request, $runtime)
+    public function updateAppPackage($request, $runtime)
     {
         Utils::validateModel($request);
 
-        return DescribeVerifySDKResponse::fromMap($this->doRequest('DescribeVerifySDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return UpdateAppPackageResponse::fromMap($this->doRequest('UpdateAppPackage', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DescribeVerifySDKRequest $request
+     * @param UpdateAppPackageRequest $request
      *
-     * @return DescribeVerifySDKResponse
+     * @return UpdateAppPackageResponse
      */
-    public function describeVerifySDKSimply($request)
+    public function updateAppPackageSimply($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVerifySDK($request, $runtime);
+        return $this->updateAppPackage($request, $runtime);
     }
 
     /**
-     * @param DescribeDeviceInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param UpdateFaceConfigRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return DescribeDeviceInfoResponse
+     * @return UpdateFaceConfigResponse
      */
-    public function describeDeviceInfo($request, $runtime)
+    public function updateFaceConfig($request, $runtime)
     {
         Utils::validateModel($request);
 
-        return DescribeDeviceInfoResponse::fromMap($this->doRequest('DescribeDeviceInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return UpdateFaceConfigResponse::fromMap($this->doRequest('UpdateFaceConfig', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DescribeDeviceInfoRequest $request
+     * @param UpdateFaceConfigRequest $request
      *
-     * @return DescribeDeviceInfoResponse
+     * @return UpdateFaceConfigResponse
      */
-    public function describeDeviceInfoSimply($request)
+    public function updateFaceConfigSimply($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDeviceInfo($request, $runtime);
-    }
-
-    /**
-     * @param CreateVerifySDKRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateVerifySDKResponse
-     */
-    public function createVerifySDK($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateVerifySDKResponse::fromMap($this->doRequest('CreateVerifySDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateVerifySDKRequest $request
-     *
-     * @return CreateVerifySDKResponse
-     */
-    public function createVerifySDKSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVerifySDK($request, $runtime);
-    }
-
-    /**
-     * @param CreateAuthKeyRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateAuthKeyResponse
-     */
-    public function createAuthKey($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateAuthKeyResponse::fromMap($this->doRequest('CreateAuthKey', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateAuthKeyRequest $request
-     *
-     * @return CreateAuthKeyResponse
-     */
-    public function createAuthKeySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createAuthKey($request, $runtime);
-    }
-
-    /**
-     * @param DetectFaceAttributesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DetectFaceAttributesResponse
-     */
-    public function detectFaceAttributes($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DetectFaceAttributesResponse::fromMap($this->doRequest('DetectFaceAttributes', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DetectFaceAttributesRequest $request
-     *
-     * @return DetectFaceAttributesResponse
-     */
-    public function detectFaceAttributesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectFaceAttributes($request, $runtime);
-    }
-
-    /**
-     * @param CompareFacesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CompareFacesResponse
-     */
-    public function compareFaces($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CompareFacesResponse::fromMap($this->doRequest('CompareFaces', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CompareFacesRequest $request
-     *
-     * @return CompareFacesResponse
-     */
-    public function compareFacesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->compareFaces($request, $runtime);
-    }
-
-    /**
-     * @param DescribeFaceUsageRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeFaceUsageResponse
-     */
-    public function describeFaceUsage($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeFaceUsageResponse::fromMap($this->doRequest('DescribeFaceUsage', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeFaceUsageRequest $request
-     *
-     * @return DescribeFaceUsageResponse
-     */
-    public function describeFaceUsageSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeFaceUsage($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVerifyRecordsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeVerifyRecordsResponse
-     */
-    public function describeVerifyRecords($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVerifyRecordsResponse::fromMap($this->doRequest('DescribeVerifyRecords', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeVerifyRecordsRequest $request
-     *
-     * @return DescribeVerifyRecordsResponse
-     */
-    public function describeVerifyRecordsSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVerifyRecords($request, $runtime);
+        return $this->updateFaceConfig($request, $runtime);
     }
 
     /**
@@ -941,178 +1166,28 @@ class Cloudauth extends Rpc
     }
 
     /**
-     * @param CreateVerifySettingRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param VerifyDeviceRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return CreateVerifySettingResponse
+     * @return VerifyDeviceResponse
      */
-    public function createVerifySetting($request, $runtime)
+    public function verifyDevice($request, $runtime)
     {
         Utils::validateModel($request);
 
-        return CreateVerifySettingResponse::fromMap($this->doRequest('CreateVerifySetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return VerifyDeviceResponse::fromMap($this->doRequest('VerifyDevice', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param CreateVerifySettingRequest $request
+     * @param VerifyDeviceRequest $request
      *
-     * @return CreateVerifySettingResponse
+     * @return VerifyDeviceResponse
      */
-    public function createVerifySettingSimply($request)
+    public function verifyDeviceSimply($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createVerifySetting($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVerifySettingRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeVerifySettingResponse
-     */
-    public function describeVerifySetting($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVerifySettingResponse::fromMap($this->doRequest('DescribeVerifySetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeVerifySettingRequest $request
-     *
-     * @return DescribeVerifySettingResponse
-     */
-    public function describeVerifySettingSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVerifySetting($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVerifyUsageRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeVerifyUsageResponse
-     */
-    public function describeVerifyUsage($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVerifyUsageResponse::fromMap($this->doRequest('DescribeVerifyUsage', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeVerifyUsageRequest $request
-     *
-     * @return DescribeVerifyUsageResponse
-     */
-    public function describeVerifyUsageSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVerifyUsage($request, $runtime);
-    }
-
-    /**
-     * @param DescribeUserStatusRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeUserStatusResponse
-     */
-    public function describeUserStatus($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeUserStatusResponse::fromMap($this->doRequest('DescribeUserStatus', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeUserStatusRequest $request
-     *
-     * @return DescribeUserStatusResponse
-     */
-    public function describeUserStatusSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUserStatus($request, $runtime);
-    }
-
-    /**
-     * @param DescribeUploadInfoRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeUploadInfoResponse
-     */
-    public function describeUploadInfo($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeUploadInfoResponse::fromMap($this->doRequest('DescribeUploadInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeUploadInfoRequest $request
-     *
-     * @return DescribeUploadInfoResponse
-     */
-    public function describeUploadInfoSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUploadInfo($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRPSDKRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeRPSDKResponse
-     */
-    public function describeRPSDK($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeRPSDKResponse::fromMap($this->doRequest('DescribeRPSDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeRPSDKRequest $request
-     *
-     * @return DescribeRPSDKResponse
-     */
-    public function describeRPSDKSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRPSDK($request, $runtime);
-    }
-
-    /**
-     * @param CreateRPSDKRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateRPSDKResponse
-     */
-    public function createRPSDK($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateRPSDKResponse::fromMap($this->doRequest('CreateRPSDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateRPSDKRequest $request
-     *
-     * @return CreateRPSDKResponse
-     */
-    public function createRPSDKSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRPSDK($request, $runtime);
+        return $this->verifyDevice($request, $runtime);
     }
 
     /**
@@ -1138,81 +1213,6 @@ class Cloudauth extends Rpc
         $runtime = new RuntimeOptions([]);
 
         return $this->verifyMaterial($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVerifyResultRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeVerifyResultResponse
-     */
-    public function describeVerifyResult($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVerifyResultResponse::fromMap($this->doRequest('DescribeVerifyResult', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeVerifyResultRequest $request
-     *
-     * @return DescribeVerifyResultResponse
-     */
-    public function describeVerifyResultSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVerifyResult($request, $runtime);
-    }
-
-    /**
-     * @param DescribeOssUploadTokenRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeOssUploadTokenResponse
-     */
-    public function describeOssUploadToken($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeOssUploadTokenResponse::fromMap($this->doRequest('DescribeOssUploadToken', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeOssUploadTokenRequest $request
-     *
-     * @return DescribeOssUploadTokenResponse
-     */
-    public function describeOssUploadTokenSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeOssUploadToken($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVerifyTokenRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeVerifyTokenResponse
-     */
-    public function describeVerifyToken($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVerifyTokenResponse::fromMap($this->doRequest('DescribeVerifyToken', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeVerifyTokenRequest $request
-     *
-     * @return DescribeVerifyTokenResponse
-     */
-    public function describeVerifyTokenSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVerifyToken($request, $runtime);
     }
 
     /**

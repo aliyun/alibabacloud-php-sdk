@@ -19,19 +19,9 @@ class ossUploadToken extends Model
     public $endPoint;
 
     /**
-     * @var string
-     */
-    public $path;
-
-    /**
      * @var int
      */
     public $expired;
-
-    /**
-     * @var string
-     */
-    public $secret;
 
     /**
      * @var string
@@ -41,14 +31,24 @@ class ossUploadToken extends Model
     /**
      * @var string
      */
+    public $path;
+
+    /**
+     * @var string
+     */
+    public $secret;
+
+    /**
+     * @var string
+     */
     public $token;
     protected $_name = [
         'bucket'   => 'Bucket',
         'endPoint' => 'EndPoint',
-        'path'     => 'Path',
         'expired'  => 'Expired',
-        'secret'   => 'Secret',
         'key'      => 'Key',
+        'path'     => 'Path',
+        'secret'   => 'Secret',
         'token'    => 'Token',
     ];
 
@@ -56,10 +56,10 @@ class ossUploadToken extends Model
     {
         Model::validateRequired('bucket', $this->bucket, true);
         Model::validateRequired('endPoint', $this->endPoint, true);
-        Model::validateRequired('path', $this->path, true);
         Model::validateRequired('expired', $this->expired, true);
-        Model::validateRequired('secret', $this->secret, true);
         Model::validateRequired('key', $this->key, true);
+        Model::validateRequired('path', $this->path, true);
+        Model::validateRequired('secret', $this->secret, true);
         Model::validateRequired('token', $this->token, true);
     }
 
@@ -72,17 +72,17 @@ class ossUploadToken extends Model
         if (null !== $this->endPoint) {
             $res['EndPoint'] = $this->endPoint;
         }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
         }
-        if (null !== $this->secret) {
-            $res['Secret'] = $this->secret;
-        }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
+        if (null !== $this->secret) {
+            $res['Secret'] = $this->secret;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
@@ -105,17 +105,17 @@ class ossUploadToken extends Model
         if (isset($map['EndPoint'])) {
             $model->endPoint = $map['EndPoint'];
         }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
         }
-        if (isset($map['Secret'])) {
-            $model->secret = $map['Secret'];
-        }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
+        if (isset($map['Secret'])) {
+            $model->secret = $map['Secret'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];

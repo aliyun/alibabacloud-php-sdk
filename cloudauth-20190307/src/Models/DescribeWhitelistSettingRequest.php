@@ -11,22 +11,7 @@ class DescribeWhitelistSettingRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $serviceCode;
-
-    /**
-     * @var int
-     */
-    public $sceneId;
+    public $certNo;
 
     /**
      * @var string
@@ -34,24 +19,14 @@ class DescribeWhitelistSettingRequest extends Model
     public $certifyId;
 
     /**
-     * @var string
-     */
-    public $certNo;
-
-    /**
      * @var int
      */
-    public $validStartDate;
-
-    /**
-     * @var int
-     */
-    public $validEndDate;
+    public $currentPage;
 
     /**
      * @var string
      */
-    public $status;
+    public $lang;
 
     /**
      * @var int
@@ -61,63 +36,88 @@ class DescribeWhitelistSettingRequest extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $sceneId;
+
+    /**
+     * @var string
+     */
+    public $serviceCode;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $validEndDate;
+
+    /**
+     * @var int
+     */
+    public $validStartDate;
     protected $_name = [
-        'sourceIp'       => 'SourceIp',
-        'lang'           => 'Lang',
-        'serviceCode'    => 'ServiceCode',
-        'sceneId'        => 'SceneId',
-        'certifyId'      => 'CertifyId',
         'certNo'         => 'CertNo',
-        'validStartDate' => 'ValidStartDate',
-        'validEndDate'   => 'ValidEndDate',
-        'status'         => 'Status',
-        'pageSize'       => 'PageSize',
+        'certifyId'      => 'CertifyId',
         'currentPage'    => 'CurrentPage',
+        'lang'           => 'Lang',
+        'pageSize'       => 'PageSize',
+        'sceneId'        => 'SceneId',
+        'serviceCode'    => 'ServiceCode',
+        'sourceIp'       => 'SourceIp',
+        'status'         => 'Status',
+        'validEndDate'   => 'ValidEndDate',
+        'validStartDate' => 'ValidStartDate',
     ];
 
     public function validate()
     {
-        Model::validateRequired('serviceCode', $this->serviceCode, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
         Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('serviceCode', $this->serviceCode, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->serviceCode) {
-            $res['ServiceCode'] = $this->serviceCode;
-        }
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
+        if (null !== $this->certNo) {
+            $res['CertNo'] = $this->certNo;
         }
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
         }
-        if (null !== $this->certNo) {
-            $res['CertNo'] = $this->certNo;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->validStartDate) {
-            $res['ValidStartDate'] = $this->validStartDate;
-        }
-        if (null !== $this->validEndDate) {
-            $res['ValidEndDate'] = $this->validEndDate;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
+        }
+        if (null !== $this->serviceCode) {
+            $res['ServiceCode'] = $this->serviceCode;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->validEndDate) {
+            $res['ValidEndDate'] = $this->validEndDate;
+        }
+        if (null !== $this->validStartDate) {
+            $res['ValidStartDate'] = $this->validStartDate;
         }
 
         return $res;
@@ -131,38 +131,38 @@ class DescribeWhitelistSettingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['ServiceCode'])) {
-            $model->serviceCode = $map['ServiceCode'];
-        }
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
+        if (isset($map['CertNo'])) {
+            $model->certNo = $map['CertNo'];
         }
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
         }
-        if (isset($map['CertNo'])) {
-            $model->certNo = $map['CertNo'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['ValidStartDate'])) {
-            $model->validStartDate = $map['ValidStartDate'];
-        }
-        if (isset($map['ValidEndDate'])) {
-            $model->validEndDate = $map['ValidEndDate'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
+        }
+        if (isset($map['ServiceCode'])) {
+            $model->serviceCode = $map['ServiceCode'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['ValidEndDate'])) {
+            $model->validEndDate = $map['ValidEndDate'];
+        }
+        if (isset($map['ValidStartDate'])) {
+            $model->validStartDate = $map['ValidStartDate'];
         }
 
         return $model;

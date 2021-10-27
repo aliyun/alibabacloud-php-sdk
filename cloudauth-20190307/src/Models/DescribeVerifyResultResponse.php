@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifyResultResponse extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $verifyStatus;
-
-    /**
      * @var float
      */
     public $authorityComparisionScore;
@@ -35,37 +25,41 @@ class DescribeVerifyResultResponse extends Model
     public $idCardFaceComparisonScore;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $verifyStatus;
+
+    /**
      * @var material
      */
     public $material;
     protected $_name = [
-        'requestId'                 => 'RequestId',
-        'verifyStatus'              => 'VerifyStatus',
         'authorityComparisionScore' => 'AuthorityComparisionScore',
         'faceComparisonScore'       => 'FaceComparisonScore',
         'idCardFaceComparisonScore' => 'IdCardFaceComparisonScore',
+        'requestId'                 => 'RequestId',
+        'verifyStatus'              => 'VerifyStatus',
         'material'                  => 'Material',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('verifyStatus', $this->verifyStatus, true);
         Model::validateRequired('authorityComparisionScore', $this->authorityComparisionScore, true);
         Model::validateRequired('faceComparisonScore', $this->faceComparisonScore, true);
         Model::validateRequired('idCardFaceComparisonScore', $this->idCardFaceComparisonScore, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('verifyStatus', $this->verifyStatus, true);
         Model::validateRequired('material', $this->material, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->verifyStatus) {
-            $res['VerifyStatus'] = $this->verifyStatus;
-        }
         if (null !== $this->authorityComparisionScore) {
             $res['AuthorityComparisionScore'] = $this->authorityComparisionScore;
         }
@@ -74,6 +68,12 @@ class DescribeVerifyResultResponse extends Model
         }
         if (null !== $this->idCardFaceComparisonScore) {
             $res['IdCardFaceComparisonScore'] = $this->idCardFaceComparisonScore;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->verifyStatus) {
+            $res['VerifyStatus'] = $this->verifyStatus;
         }
         if (null !== $this->material) {
             $res['Material'] = null !== $this->material ? $this->material->toMap() : null;
@@ -90,12 +90,6 @@ class DescribeVerifyResultResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['VerifyStatus'])) {
-            $model->verifyStatus = $map['VerifyStatus'];
-        }
         if (isset($map['AuthorityComparisionScore'])) {
             $model->authorityComparisionScore = $map['AuthorityComparisionScore'];
         }
@@ -104,6 +98,12 @@ class DescribeVerifyResultResponse extends Model
         }
         if (isset($map['IdCardFaceComparisonScore'])) {
             $model->idCardFaceComparisonScore = $map['IdCardFaceComparisonScore'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VerifyStatus'])) {
+            $model->verifyStatus = $map['VerifyStatus'];
         }
         if (isset($map['Material'])) {
             $model->material = material::fromMap($map['Material']);

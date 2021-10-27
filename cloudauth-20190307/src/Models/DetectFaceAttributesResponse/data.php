@@ -12,38 +12,38 @@ class data extends Model
     /**
      * @var int
      */
-    public $imgWidth;
+    public $imgHeight;
 
     /**
      * @var int
      */
-    public $imgHeight;
+    public $imgWidth;
 
     /**
      * @var faceInfos
      */
     public $faceInfos;
     protected $_name = [
-        'imgWidth'  => 'ImgWidth',
         'imgHeight' => 'ImgHeight',
+        'imgWidth'  => 'ImgWidth',
         'faceInfos' => 'FaceInfos',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imgWidth', $this->imgWidth, true);
         Model::validateRequired('imgHeight', $this->imgHeight, true);
+        Model::validateRequired('imgWidth', $this->imgWidth, true);
         Model::validateRequired('faceInfos', $this->faceInfos, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imgWidth) {
-            $res['ImgWidth'] = $this->imgWidth;
-        }
         if (null !== $this->imgHeight) {
             $res['ImgHeight'] = $this->imgHeight;
+        }
+        if (null !== $this->imgWidth) {
+            $res['ImgWidth'] = $this->imgWidth;
         }
         if (null !== $this->faceInfos) {
             $res['FaceInfos'] = null !== $this->faceInfos ? $this->faceInfos->toMap() : null;
@@ -60,11 +60,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImgWidth'])) {
-            $model->imgWidth = $map['ImgWidth'];
-        }
         if (isset($map['ImgHeight'])) {
             $model->imgHeight = $map['ImgHeight'];
+        }
+        if (isset($map['ImgWidth'])) {
+            $model->imgWidth = $map['ImgWidth'];
         }
         if (isset($map['FaceInfos'])) {
             $model->faceInfos = faceInfos::fromMap($map['FaceInfos']);

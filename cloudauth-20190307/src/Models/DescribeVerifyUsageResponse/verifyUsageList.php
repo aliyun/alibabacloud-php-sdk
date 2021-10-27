@@ -21,7 +21,7 @@ class verifyUsageList extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $failCount;
 
     /**
      * @var int
@@ -31,22 +31,22 @@ class verifyUsageList extends Model
     /**
      * @var int
      */
-    public $failCount;
+    public $totalCount;
     protected $_name = [
         'bizType'    => 'BizType',
         'date'       => 'Date',
-        'totalCount' => 'TotalCount',
-        'passCount'  => 'PassCount',
         'failCount'  => 'FailCount',
+        'passCount'  => 'PassCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
         Model::validateRequired('bizType', $this->bizType, true);
         Model::validateRequired('date', $this->date, true);
-        Model::validateRequired('totalCount', $this->totalCount, true);
-        Model::validateRequired('passCount', $this->passCount, true);
         Model::validateRequired('failCount', $this->failCount, true);
+        Model::validateRequired('passCount', $this->passCount, true);
+        Model::validateRequired('totalCount', $this->totalCount, true);
     }
 
     public function toMap()
@@ -58,14 +58,14 @@ class verifyUsageList extends Model
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->failCount) {
+            $res['FailCount'] = $this->failCount;
         }
         if (null !== $this->passCount) {
             $res['PassCount'] = $this->passCount;
         }
-        if (null !== $this->failCount) {
-            $res['FailCount'] = $this->failCount;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -85,14 +85,14 @@ class verifyUsageList extends Model
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['FailCount'])) {
+            $model->failCount = $map['FailCount'];
         }
         if (isset($map['PassCount'])) {
             $model->passCount = $map['PassCount'];
         }
-        if (isset($map['FailCount'])) {
-            $model->failCount = $map['FailCount'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

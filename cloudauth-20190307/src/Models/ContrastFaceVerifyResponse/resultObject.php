@@ -16,7 +16,7 @@ class resultObject extends Model
     /**
      * @var string
      */
-    public $subCode;
+    public $identityInfo;
 
     /**
      * @var string
@@ -26,27 +26,27 @@ class resultObject extends Model
     /**
      * @var string
      */
-    public $identityInfo;
+    public $passed;
 
     /**
      * @var string
      */
-    public $passed;
+    public $subCode;
     protected $_name = [
         'certifyId'    => 'CertifyId',
-        'subCode'      => 'SubCode',
-        'materialInfo' => 'MaterialInfo',
         'identityInfo' => 'IdentityInfo',
+        'materialInfo' => 'MaterialInfo',
         'passed'       => 'Passed',
+        'subCode'      => 'SubCode',
     ];
 
     public function validate()
     {
         Model::validateRequired('certifyId', $this->certifyId, true);
-        Model::validateRequired('subCode', $this->subCode, true);
-        Model::validateRequired('materialInfo', $this->materialInfo, true);
         Model::validateRequired('identityInfo', $this->identityInfo, true);
+        Model::validateRequired('materialInfo', $this->materialInfo, true);
         Model::validateRequired('passed', $this->passed, true);
+        Model::validateRequired('subCode', $this->subCode, true);
     }
 
     public function toMap()
@@ -55,17 +55,17 @@ class resultObject extends Model
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
         }
-        if (null !== $this->subCode) {
-            $res['SubCode'] = $this->subCode;
+        if (null !== $this->identityInfo) {
+            $res['IdentityInfo'] = $this->identityInfo;
         }
         if (null !== $this->materialInfo) {
             $res['MaterialInfo'] = $this->materialInfo;
         }
-        if (null !== $this->identityInfo) {
-            $res['IdentityInfo'] = $this->identityInfo;
-        }
         if (null !== $this->passed) {
             $res['Passed'] = $this->passed;
+        }
+        if (null !== $this->subCode) {
+            $res['SubCode'] = $this->subCode;
         }
 
         return $res;
@@ -82,17 +82,17 @@ class resultObject extends Model
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
         }
-        if (isset($map['SubCode'])) {
-            $model->subCode = $map['SubCode'];
+        if (isset($map['IdentityInfo'])) {
+            $model->identityInfo = $map['IdentityInfo'];
         }
         if (isset($map['MaterialInfo'])) {
             $model->materialInfo = $map['MaterialInfo'];
         }
-        if (isset($map['IdentityInfo'])) {
-            $model->identityInfo = $map['IdentityInfo'];
-        }
         if (isset($map['Passed'])) {
             $model->passed = $map['Passed'];
+        }
+        if (isset($map['SubCode'])) {
+            $model->subCode = $map['SubCode'];
         }
 
         return $model;

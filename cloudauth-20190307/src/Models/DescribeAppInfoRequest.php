@@ -11,20 +11,20 @@ class DescribeAppInfoRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $currentPage;
 
     /**
      * @var int
      */
-    public $currentPage;
+    public $pageSize;
 
     /**
      * @var string
      */
     public $platform;
     protected $_name = [
-        'pageSize'    => 'PageSize',
         'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
         'platform'    => 'Platform',
     ];
 
@@ -35,11 +35,11 @@ class DescribeAppInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
@@ -56,11 +56,11 @@ class DescribeAppInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];

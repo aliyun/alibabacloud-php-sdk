@@ -11,7 +11,7 @@ class VerifyDeviceRequest extends Model
     /**
      * @var string
      */
-    public $certifyId;
+    public $appVersion;
 
     /**
      * @var string
@@ -21,23 +21,23 @@ class VerifyDeviceRequest extends Model
     /**
      * @var string
      */
-    public $appVersion;
-
-    /**
-     * @var string
-     */
-    public $extInfo;
+    public $certifyId;
 
     /**
      * @var string
      */
     public $deviceToken;
+
+    /**
+     * @var string
+     */
+    public $extInfo;
     protected $_name = [
-        'certifyId'   => 'CertifyId',
-        'certifyData' => 'CertifyData',
         'appVersion'  => 'AppVersion',
-        'extInfo'     => 'ExtInfo',
+        'certifyData' => 'CertifyData',
+        'certifyId'   => 'CertifyId',
         'deviceToken' => 'DeviceToken',
+        'extInfo'     => 'ExtInfo',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class VerifyDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certifyId) {
-            $res['CertifyId'] = $this->certifyId;
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = $this->appVersion;
         }
         if (null !== $this->certifyData) {
             $res['CertifyData'] = $this->certifyData;
         }
-        if (null !== $this->appVersion) {
-            $res['AppVersion'] = $this->appVersion;
-        }
-        if (null !== $this->extInfo) {
-            $res['ExtInfo'] = $this->extInfo;
+        if (null !== $this->certifyId) {
+            $res['CertifyId'] = $this->certifyId;
         }
         if (null !== $this->deviceToken) {
             $res['DeviceToken'] = $this->deviceToken;
+        }
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class VerifyDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertifyId'])) {
-            $model->certifyId = $map['CertifyId'];
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = $map['AppVersion'];
         }
         if (isset($map['CertifyData'])) {
             $model->certifyData = $map['CertifyData'];
         }
-        if (isset($map['AppVersion'])) {
-            $model->appVersion = $map['AppVersion'];
-        }
-        if (isset($map['ExtInfo'])) {
-            $model->extInfo = $map['ExtInfo'];
+        if (isset($map['CertifyId'])) {
+            $model->certifyId = $map['CertifyId'];
         }
         if (isset($map['DeviceToken'])) {
             $model->deviceToken = $map['DeviceToken'];
+        }
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
         }
 
         return $model;

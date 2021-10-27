@@ -11,12 +11,7 @@ class UpdateFaceConfigRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
+    public $bizName;
 
     /**
      * @var string
@@ -26,34 +21,39 @@ class UpdateFaceConfigRequest extends Model
     /**
      * @var string
      */
-    public $bizName;
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'lang'     => 'Lang',
-        'bizType'  => 'BizType',
         'bizName'  => 'BizName',
+        'bizType'  => 'BizType',
+        'lang'     => 'Lang',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('bizType', $this->bizType, true);
         Model::validateRequired('bizName', $this->bizName, true);
+        Model::validateRequired('bizType', $this->bizType, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->bizName) {
+            $res['BizName'] = $this->bizName;
         }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-        if (null !== $this->bizName) {
-            $res['BizName'] = $this->bizName;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -67,17 +67,17 @@ class UpdateFaceConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['BizName'])) {
+            $model->bizName = $map['BizName'];
         }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-        if (isset($map['BizName'])) {
-            $model->bizName = $map['BizName'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

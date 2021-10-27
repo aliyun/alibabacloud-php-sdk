@@ -11,31 +11,31 @@ class CreateAuthKeyResponse extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $authKey;
 
     /**
      * @var string
      */
-    public $authKey;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'authKey'   => 'AuthKey',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
         Model::validateRequired('authKey', $this->authKey, true);
+        Model::validateRequired('requestId', $this->requestId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->authKey) {
             $res['AuthKey'] = $this->authKey;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class CreateAuthKeyResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AuthKey'])) {
             $model->authKey = $map['AuthKey'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

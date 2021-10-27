@@ -11,7 +11,7 @@ class faceRect extends Model
     /**
      * @var int
      */
-    public $top;
+    public $height;
 
     /**
      * @var int
@@ -21,41 +21,41 @@ class faceRect extends Model
     /**
      * @var int
      */
-    public $width;
+    public $top;
 
     /**
      * @var int
      */
-    public $height;
+    public $width;
     protected $_name = [
-        'top'    => 'Top',
-        'left'   => 'Left',
-        'width'  => 'Width',
         'height' => 'Height',
+        'left'   => 'Left',
+        'top'    => 'Top',
+        'width'  => 'Width',
     ];
 
     public function validate()
     {
-        Model::validateRequired('top', $this->top, true);
-        Model::validateRequired('left', $this->left, true);
-        Model::validateRequired('width', $this->width, true);
         Model::validateRequired('height', $this->height, true);
+        Model::validateRequired('left', $this->left, true);
+        Model::validateRequired('top', $this->top, true);
+        Model::validateRequired('width', $this->width, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->top) {
-            $res['Top'] = $this->top;
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
         }
         if (null !== $this->left) {
             $res['Left'] = $this->left;
         }
+        if (null !== $this->top) {
+            $res['Top'] = $this->top;
+        }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
         }
 
         return $res;
@@ -69,17 +69,17 @@ class faceRect extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Top'])) {
-            $model->top = $map['Top'];
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
         }
         if (isset($map['Left'])) {
             $model->left = $map['Left'];
         }
+        if (isset($map['Top'])) {
+            $model->top = $map['Top'];
+        }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
         }
 
         return $model;

@@ -11,32 +11,7 @@ class InitDeviceRequest extends Model
     /**
      * @var string
      */
-    public $certifyId;
-
-    /**
-     * @var string
-     */
-    public $outerOrderNo;
-
-    /**
-     * @var string
-     */
-    public $channel;
-
-    /**
-     * @var string
-     */
-    public $merchant;
-
-    /**
-     * @var string
-     */
-    public $productName;
-
-    /**
-     * @var string
-     */
-    public $produceNode;
+    public $appVersion;
 
     /**
      * @var string
@@ -46,7 +21,7 @@ class InitDeviceRequest extends Model
     /**
      * @var string
      */
-    public $metaInfo;
+    public $certifyId;
 
     /**
      * @var string
@@ -56,12 +31,37 @@ class InitDeviceRequest extends Model
     /**
      * @var string
      */
-    public $appVersion;
+    public $channel;
 
     /**
      * @var string
      */
     public $deviceToken;
+
+    /**
+     * @var string
+     */
+    public $merchant;
+
+    /**
+     * @var string
+     */
+    public $metaInfo;
+
+    /**
+     * @var string
+     */
+    public $outerOrderNo;
+
+    /**
+     * @var string
+     */
+    public $produceNode;
+
+    /**
+     * @var string
+     */
+    public $productName;
 
     /**
      * @var string
@@ -73,17 +73,17 @@ class InitDeviceRequest extends Model
      */
     public $webUmidToken;
     protected $_name = [
-        'certifyId'        => 'CertifyId',
-        'outerOrderNo'     => 'OuterOrderNo',
-        'channel'          => 'Channel',
-        'merchant'         => 'Merchant',
-        'productName'      => 'ProductName',
-        'produceNode'      => 'ProduceNode',
-        'bizData'          => 'BizData',
-        'metaInfo'         => 'MetaInfo',
-        'certifyPrincipal' => 'CertifyPrincipal',
         'appVersion'       => 'AppVersion',
+        'bizData'          => 'BizData',
+        'certifyId'        => 'CertifyId',
+        'certifyPrincipal' => 'CertifyPrincipal',
+        'channel'          => 'Channel',
         'deviceToken'      => 'DeviceToken',
+        'merchant'         => 'Merchant',
+        'metaInfo'         => 'MetaInfo',
+        'outerOrderNo'     => 'OuterOrderNo',
+        'produceNode'      => 'ProduceNode',
+        'productName'      => 'ProductName',
         'uaToken'          => 'UaToken',
         'webUmidToken'     => 'WebUmidToken',
     ];
@@ -95,38 +95,38 @@ class InitDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certifyId) {
-            $res['CertifyId'] = $this->certifyId;
-        }
-        if (null !== $this->outerOrderNo) {
-            $res['OuterOrderNo'] = $this->outerOrderNo;
-        }
-        if (null !== $this->channel) {
-            $res['Channel'] = $this->channel;
-        }
-        if (null !== $this->merchant) {
-            $res['Merchant'] = $this->merchant;
-        }
-        if (null !== $this->productName) {
-            $res['ProductName'] = $this->productName;
-        }
-        if (null !== $this->produceNode) {
-            $res['ProduceNode'] = $this->produceNode;
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = $this->appVersion;
         }
         if (null !== $this->bizData) {
             $res['BizData'] = $this->bizData;
         }
-        if (null !== $this->metaInfo) {
-            $res['MetaInfo'] = $this->metaInfo;
+        if (null !== $this->certifyId) {
+            $res['CertifyId'] = $this->certifyId;
         }
         if (null !== $this->certifyPrincipal) {
             $res['CertifyPrincipal'] = $this->certifyPrincipal;
         }
-        if (null !== $this->appVersion) {
-            $res['AppVersion'] = $this->appVersion;
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
         }
         if (null !== $this->deviceToken) {
             $res['DeviceToken'] = $this->deviceToken;
+        }
+        if (null !== $this->merchant) {
+            $res['Merchant'] = $this->merchant;
+        }
+        if (null !== $this->metaInfo) {
+            $res['MetaInfo'] = $this->metaInfo;
+        }
+        if (null !== $this->outerOrderNo) {
+            $res['OuterOrderNo'] = $this->outerOrderNo;
+        }
+        if (null !== $this->produceNode) {
+            $res['ProduceNode'] = $this->produceNode;
+        }
+        if (null !== $this->productName) {
+            $res['ProductName'] = $this->productName;
         }
         if (null !== $this->uaToken) {
             $res['UaToken'] = $this->uaToken;
@@ -146,38 +146,38 @@ class InitDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertifyId'])) {
-            $model->certifyId = $map['CertifyId'];
-        }
-        if (isset($map['OuterOrderNo'])) {
-            $model->outerOrderNo = $map['OuterOrderNo'];
-        }
-        if (isset($map['Channel'])) {
-            $model->channel = $map['Channel'];
-        }
-        if (isset($map['Merchant'])) {
-            $model->merchant = $map['Merchant'];
-        }
-        if (isset($map['ProductName'])) {
-            $model->productName = $map['ProductName'];
-        }
-        if (isset($map['ProduceNode'])) {
-            $model->produceNode = $map['ProduceNode'];
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = $map['AppVersion'];
         }
         if (isset($map['BizData'])) {
             $model->bizData = $map['BizData'];
         }
-        if (isset($map['MetaInfo'])) {
-            $model->metaInfo = $map['MetaInfo'];
+        if (isset($map['CertifyId'])) {
+            $model->certifyId = $map['CertifyId'];
         }
         if (isset($map['CertifyPrincipal'])) {
             $model->certifyPrincipal = $map['CertifyPrincipal'];
         }
-        if (isset($map['AppVersion'])) {
-            $model->appVersion = $map['AppVersion'];
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
         }
         if (isset($map['DeviceToken'])) {
             $model->deviceToken = $map['DeviceToken'];
+        }
+        if (isset($map['Merchant'])) {
+            $model->merchant = $map['Merchant'];
+        }
+        if (isset($map['MetaInfo'])) {
+            $model->metaInfo = $map['MetaInfo'];
+        }
+        if (isset($map['OuterOrderNo'])) {
+            $model->outerOrderNo = $map['OuterOrderNo'];
+        }
+        if (isset($map['ProduceNode'])) {
+            $model->produceNode = $map['ProduceNode'];
+        }
+        if (isset($map['ProductName'])) {
+            $model->productName = $map['ProductName'];
         }
         if (isset($map['UaToken'])) {
             $model->uaToken = $map['UaToken'];

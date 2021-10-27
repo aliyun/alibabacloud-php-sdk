@@ -11,38 +11,38 @@ class items extends Model
     /**
      * @var string
      */
-    public $bizType;
+    public $bizName;
 
     /**
      * @var string
      */
-    public $bizName;
+    public $bizType;
 
     /**
      * @var int
      */
     public $gmtUpdated;
     protected $_name = [
-        'bizType'    => 'BizType',
         'bizName'    => 'BizName',
+        'bizType'    => 'BizType',
         'gmtUpdated' => 'GmtUpdated',
     ];
 
     public function validate()
     {
-        Model::validateRequired('bizType', $this->bizType, true);
         Model::validateRequired('bizName', $this->bizName, true);
+        Model::validateRequired('bizType', $this->bizType, true);
         Model::validateRequired('gmtUpdated', $this->gmtUpdated, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
-        }
         if (null !== $this->bizName) {
             $res['BizName'] = $this->bizName;
+        }
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
         }
         if (null !== $this->gmtUpdated) {
             $res['GmtUpdated'] = $this->gmtUpdated;
@@ -59,11 +59,11 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
-        }
         if (isset($map['BizName'])) {
             $model->bizName = $map['BizName'];
+        }
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
         }
         if (isset($map['GmtUpdated'])) {
             $model->gmtUpdated = $map['GmtUpdated'];

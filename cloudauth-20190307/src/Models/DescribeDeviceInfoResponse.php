@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceInfoResponse extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $currentPage;
 
     /**
      * @var int
@@ -20,9 +20,9 @@ class DescribeDeviceInfoResponse extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $requestId;
 
     /**
      * @var int
@@ -34,18 +34,18 @@ class DescribeDeviceInfoResponse extends Model
      */
     public $deviceInfoList;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'pageSize'       => 'PageSize',
         'currentPage'    => 'CurrentPage',
+        'pageSize'       => 'PageSize',
+        'requestId'      => 'RequestId',
         'totalCount'     => 'TotalCount',
         'deviceInfoList' => 'DeviceInfoList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
         Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('requestId', $this->requestId, true);
         Model::validateRequired('totalCount', $this->totalCount, true);
         Model::validateRequired('deviceInfoList', $this->deviceInfoList, true);
     }
@@ -53,14 +53,14 @@ class DescribeDeviceInfoResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -80,14 +80,14 @@ class DescribeDeviceInfoResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

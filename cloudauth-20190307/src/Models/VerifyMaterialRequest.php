@@ -11,12 +11,7 @@ class VerifyMaterialRequest extends Model
     /**
      * @var string
      */
-    public $idCardBackImageUrl;
-
-    /**
-     * @var string
-     */
-    public $faceImageUrl;
+    public $bizId;
 
     /**
      * @var string
@@ -26,17 +21,12 @@ class VerifyMaterialRequest extends Model
     /**
      * @var string
      */
-    public $bizId;
+    public $faceImageUrl;
 
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $idCardNumber;
+    public $idCardBackImageUrl;
 
     /**
      * @var string
@@ -46,50 +36,60 @@ class VerifyMaterialRequest extends Model
     /**
      * @var string
      */
+    public $idCardNumber;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
-        'idCardBackImageUrl'  => 'IdCardBackImageUrl',
-        'faceImageUrl'        => 'FaceImageUrl',
-        'bizType'             => 'BizType',
         'bizId'               => 'BizId',
-        'name'                => 'Name',
-        'idCardNumber'        => 'IdCardNumber',
+        'bizType'             => 'BizType',
+        'faceImageUrl'        => 'FaceImageUrl',
+        'idCardBackImageUrl'  => 'IdCardBackImageUrl',
         'idCardFrontImageUrl' => 'IdCardFrontImageUrl',
+        'idCardNumber'        => 'IdCardNumber',
+        'name'                => 'Name',
         'userId'              => 'UserId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('faceImageUrl', $this->faceImageUrl, true);
-        Model::validateRequired('bizType', $this->bizType, true);
         Model::validateRequired('bizId', $this->bizId, true);
-        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('bizType', $this->bizType, true);
+        Model::validateRequired('faceImageUrl', $this->faceImageUrl, true);
         Model::validateRequired('idCardNumber', $this->idCardNumber, true);
+        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->idCardBackImageUrl) {
-            $res['IdCardBackImageUrl'] = $this->idCardBackImageUrl;
-        }
-        if (null !== $this->faceImageUrl) {
-            $res['FaceImageUrl'] = $this->faceImageUrl;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
+        if (null !== $this->faceImageUrl) {
+            $res['FaceImageUrl'] = $this->faceImageUrl;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->idCardBackImageUrl) {
+            $res['IdCardBackImageUrl'] = $this->idCardBackImageUrl;
+        }
+        if (null !== $this->idCardFrontImageUrl) {
+            $res['IdCardFrontImageUrl'] = $this->idCardFrontImageUrl;
         }
         if (null !== $this->idCardNumber) {
             $res['IdCardNumber'] = $this->idCardNumber;
         }
-        if (null !== $this->idCardFrontImageUrl) {
-            $res['IdCardFrontImageUrl'] = $this->idCardFrontImageUrl;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -106,26 +106,26 @@ class VerifyMaterialRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IdCardBackImageUrl'])) {
-            $model->idCardBackImageUrl = $map['IdCardBackImageUrl'];
-        }
-        if (isset($map['FaceImageUrl'])) {
-            $model->faceImageUrl = $map['FaceImageUrl'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
+        if (isset($map['FaceImageUrl'])) {
+            $model->faceImageUrl = $map['FaceImageUrl'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['IdCardBackImageUrl'])) {
+            $model->idCardBackImageUrl = $map['IdCardBackImageUrl'];
+        }
+        if (isset($map['IdCardFrontImageUrl'])) {
+            $model->idCardFrontImageUrl = $map['IdCardFrontImageUrl'];
         }
         if (isset($map['IdCardNumber'])) {
             $model->idCardNumber = $map['IdCardNumber'];
         }
-        if (isset($map['IdCardFrontImageUrl'])) {
-            $model->idCardFrontImageUrl = $map['IdCardFrontImageUrl'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

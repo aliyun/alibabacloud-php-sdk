@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceInfoRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $bizType;
 
     /**
      * @var int
@@ -26,12 +26,7 @@ class DescribeDeviceInfoRequest extends Model
     /**
      * @var string
      */
-    public $bizType;
-
-    /**
-     * @var string
-     */
-    public $userDeviceId;
+    public $expiredEndDay;
 
     /**
      * @var string
@@ -39,17 +34,22 @@ class DescribeDeviceInfoRequest extends Model
     public $expiredStartDay;
 
     /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
-    public $expiredEndDay;
+    public $userDeviceId;
     protected $_name = [
-        'pageSize'        => 'PageSize',
+        'bizType'         => 'BizType',
         'currentPage'     => 'CurrentPage',
         'deviceId'        => 'DeviceId',
-        'bizType'         => 'BizType',
-        'userDeviceId'    => 'UserDeviceId',
-        'expiredStartDay' => 'ExpiredStartDay',
         'expiredEndDay'   => 'ExpiredEndDay',
+        'expiredStartDay' => 'ExpiredStartDay',
+        'pageSize'        => 'PageSize',
+        'userDeviceId'    => 'UserDeviceId',
     ];
 
     public function validate()
@@ -59,8 +59,8 @@ class DescribeDeviceInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -68,17 +68,17 @@ class DescribeDeviceInfoRequest extends Model
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
-        }
-        if (null !== $this->userDeviceId) {
-            $res['UserDeviceId'] = $this->userDeviceId;
+        if (null !== $this->expiredEndDay) {
+            $res['ExpiredEndDay'] = $this->expiredEndDay;
         }
         if (null !== $this->expiredStartDay) {
             $res['ExpiredStartDay'] = $this->expiredStartDay;
         }
-        if (null !== $this->expiredEndDay) {
-            $res['ExpiredEndDay'] = $this->expiredEndDay;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->userDeviceId) {
+            $res['UserDeviceId'] = $this->userDeviceId;
         }
 
         return $res;
@@ -92,8 +92,8 @@ class DescribeDeviceInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
@@ -101,17 +101,17 @@ class DescribeDeviceInfoRequest extends Model
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
-        }
-        if (isset($map['UserDeviceId'])) {
-            $model->userDeviceId = $map['UserDeviceId'];
+        if (isset($map['ExpiredEndDay'])) {
+            $model->expiredEndDay = $map['ExpiredEndDay'];
         }
         if (isset($map['ExpiredStartDay'])) {
             $model->expiredStartDay = $map['ExpiredStartDay'];
         }
-        if (isset($map['ExpiredEndDay'])) {
-            $model->expiredEndDay = $map['ExpiredEndDay'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['UserDeviceId'])) {
+            $model->userDeviceId = $map['UserDeviceId'];
         }
 
         return $model;

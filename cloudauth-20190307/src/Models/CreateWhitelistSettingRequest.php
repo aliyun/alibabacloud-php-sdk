@@ -11,22 +11,7 @@ class CreateWhitelistSettingRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $serviceCode;
-
-    /**
-     * @var int
-     */
-    public $sceneId;
+    public $certNo;
 
     /**
      * @var string
@@ -36,19 +21,34 @@ class CreateWhitelistSettingRequest extends Model
     /**
      * @var string
      */
-    public $certNo;
+    public $lang;
+
+    /**
+     * @var int
+     */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
+    public $serviceCode;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
 
     /**
      * @var int
      */
     public $validDay;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
-        'lang'        => 'Lang',
-        'serviceCode' => 'ServiceCode',
-        'sceneId'     => 'SceneId',
-        'certifyId'   => 'CertifyId',
         'certNo'      => 'CertNo',
+        'certifyId'   => 'CertifyId',
+        'lang'        => 'Lang',
+        'sceneId'     => 'SceneId',
+        'serviceCode' => 'ServiceCode',
+        'sourceIp'    => 'SourceIp',
         'validDay'    => 'ValidDay',
     ];
 
@@ -61,23 +61,23 @@ class CreateWhitelistSettingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->serviceCode) {
-            $res['ServiceCode'] = $this->serviceCode;
-        }
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
+        if (null !== $this->certNo) {
+            $res['CertNo'] = $this->certNo;
         }
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
         }
-        if (null !== $this->certNo) {
-            $res['CertNo'] = $this->certNo;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
+        }
+        if (null !== $this->serviceCode) {
+            $res['ServiceCode'] = $this->serviceCode;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->validDay) {
             $res['ValidDay'] = $this->validDay;
@@ -94,23 +94,23 @@ class CreateWhitelistSettingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['ServiceCode'])) {
-            $model->serviceCode = $map['ServiceCode'];
-        }
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
+        if (isset($map['CertNo'])) {
+            $model->certNo = $map['CertNo'];
         }
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
         }
-        if (isset($map['CertNo'])) {
-            $model->certNo = $map['CertNo'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
+        }
+        if (isset($map['ServiceCode'])) {
+            $model->serviceCode = $map['ServiceCode'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['ValidDay'])) {
             $model->validDay = $map['ValidDay'];

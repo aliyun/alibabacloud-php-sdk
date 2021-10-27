@@ -11,31 +11,31 @@ class smiling extends Model
     /**
      * @var float
      */
-    public $value;
+    public $threshold;
 
     /**
      * @var float
      */
-    public $threshold;
+    public $value;
     protected $_name = [
-        'value'     => 'Value',
         'threshold' => 'Threshold',
+        'value'     => 'Value',
     ];
 
     public function validate()
     {
-        Model::validateRequired('value', $this->value, true);
         Model::validateRequired('threshold', $this->threshold, true);
+        Model::validateRequired('value', $this->value, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class smiling extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

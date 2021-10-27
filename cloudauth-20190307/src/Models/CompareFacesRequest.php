@@ -11,11 +11,6 @@ class CompareFacesRequest extends Model
     /**
      * @var string
      */
-    public $targetImageType;
-
-    /**
-     * @var string
-     */
     public $sourceImageType;
 
     /**
@@ -26,11 +21,16 @@ class CompareFacesRequest extends Model
     /**
      * @var string
      */
+    public $targetImageType;
+
+    /**
+     * @var string
+     */
     public $targetImageValue;
     protected $_name = [
-        'targetImageType'  => 'TargetImageType',
         'sourceImageType'  => 'SourceImageType',
         'sourceImageValue' => 'SourceImageValue',
+        'targetImageType'  => 'TargetImageType',
         'targetImageValue' => 'TargetImageValue',
     ];
 
@@ -41,14 +41,14 @@ class CompareFacesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->targetImageType) {
-            $res['TargetImageType'] = $this->targetImageType;
-        }
         if (null !== $this->sourceImageType) {
             $res['SourceImageType'] = $this->sourceImageType;
         }
         if (null !== $this->sourceImageValue) {
             $res['SourceImageValue'] = $this->sourceImageValue;
+        }
+        if (null !== $this->targetImageType) {
+            $res['TargetImageType'] = $this->targetImageType;
         }
         if (null !== $this->targetImageValue) {
             $res['TargetImageValue'] = $this->targetImageValue;
@@ -65,14 +65,14 @@ class CompareFacesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TargetImageType'])) {
-            $model->targetImageType = $map['TargetImageType'];
-        }
         if (isset($map['SourceImageType'])) {
             $model->sourceImageType = $map['SourceImageType'];
         }
         if (isset($map['SourceImageValue'])) {
             $model->sourceImageValue = $map['SourceImageValue'];
+        }
+        if (isset($map['TargetImageType'])) {
+            $model->targetImageType = $map['TargetImageType'];
         }
         if (isset($map['TargetImageValue'])) {
             $model->targetImageValue = $map['TargetImageValue'];

@@ -11,7 +11,12 @@ class resultObject extends Model
     /**
      * @var string
      */
-    public $validationRetCode;
+    public $extParams;
+
+    /**
+     * @var string
+     */
+    public $hasNext;
 
     /**
      * @var string
@@ -31,36 +36,34 @@ class resultObject extends Model
     /**
      * @var string
      */
-    public $hasNext;
-
-    /**
-     * @var string
-     */
-    public $extParams;
+    public $validationRetCode;
     protected $_name = [
-        'validationRetCode' => 'ValidationRetCode',
+        'extParams'         => 'ExtParams',
+        'hasNext'           => 'HasNext',
         'productRetCode'    => 'ProductRetCode',
         'retCodeSub'        => 'RetCodeSub',
         'retMessageSub'     => 'RetMessageSub',
-        'hasNext'           => 'HasNext',
-        'extParams'         => 'ExtParams',
+        'validationRetCode' => 'ValidationRetCode',
     ];
 
     public function validate()
     {
-        Model::validateRequired('validationRetCode', $this->validationRetCode, true);
+        Model::validateRequired('extParams', $this->extParams, true);
+        Model::validateRequired('hasNext', $this->hasNext, true);
         Model::validateRequired('productRetCode', $this->productRetCode, true);
         Model::validateRequired('retCodeSub', $this->retCodeSub, true);
         Model::validateRequired('retMessageSub', $this->retMessageSub, true);
-        Model::validateRequired('hasNext', $this->hasNext, true);
-        Model::validateRequired('extParams', $this->extParams, true);
+        Model::validateRequired('validationRetCode', $this->validationRetCode, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->validationRetCode) {
-            $res['ValidationRetCode'] = $this->validationRetCode;
+        if (null !== $this->extParams) {
+            $res['ExtParams'] = $this->extParams;
+        }
+        if (null !== $this->hasNext) {
+            $res['HasNext'] = $this->hasNext;
         }
         if (null !== $this->productRetCode) {
             $res['ProductRetCode'] = $this->productRetCode;
@@ -71,11 +74,8 @@ class resultObject extends Model
         if (null !== $this->retMessageSub) {
             $res['RetMessageSub'] = $this->retMessageSub;
         }
-        if (null !== $this->hasNext) {
-            $res['HasNext'] = $this->hasNext;
-        }
-        if (null !== $this->extParams) {
-            $res['ExtParams'] = $this->extParams;
+        if (null !== $this->validationRetCode) {
+            $res['ValidationRetCode'] = $this->validationRetCode;
         }
 
         return $res;
@@ -89,8 +89,11 @@ class resultObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ValidationRetCode'])) {
-            $model->validationRetCode = $map['ValidationRetCode'];
+        if (isset($map['ExtParams'])) {
+            $model->extParams = $map['ExtParams'];
+        }
+        if (isset($map['HasNext'])) {
+            $model->hasNext = $map['HasNext'];
         }
         if (isset($map['ProductRetCode'])) {
             $model->productRetCode = $map['ProductRetCode'];
@@ -101,11 +104,8 @@ class resultObject extends Model
         if (isset($map['RetMessageSub'])) {
             $model->retMessageSub = $map['RetMessageSub'];
         }
-        if (isset($map['HasNext'])) {
-            $model->hasNext = $map['HasNext'];
-        }
-        if (isset($map['ExtParams'])) {
-            $model->extParams = $map['ExtParams'];
+        if (isset($map['ValidationRetCode'])) {
+            $model->validationRetCode = $map['ValidationRetCode'];
         }
 
         return $model;

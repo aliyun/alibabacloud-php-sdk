@@ -11,7 +11,7 @@ class CreateRPSDKRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $appUrl;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class CreateRPSDKRequest extends Model
     /**
      * @var string
      */
-    public $appUrl;
+    public $platform;
 
     /**
      * @var string
      */
-    public $platform;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'lang'     => 'Lang',
         'appUrl'   => 'AppUrl',
+        'lang'     => 'Lang',
         'platform' => 'Platform',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class CreateRPSDKRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->appUrl) {
+            $res['AppUrl'] = $this->appUrl;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->appUrl) {
-            $res['AppUrl'] = $this->appUrl;
-        }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class CreateRPSDKRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['AppUrl'])) {
+            $model->appUrl = $map['AppUrl'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['AppUrl'])) {
-            $model->appUrl = $map['AppUrl'];
-        }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

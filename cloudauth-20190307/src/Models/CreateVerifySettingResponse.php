@@ -11,7 +11,7 @@ class CreateVerifySettingResponse extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $bizName;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class CreateVerifySettingResponse extends Model
     /**
      * @var string
      */
-    public $bizName;
+    public $requestId;
 
     /**
      * @var string
@@ -33,18 +33,18 @@ class CreateVerifySettingResponse extends Model
      */
     public $stepList;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'bizType'   => 'BizType',
         'bizName'   => 'BizName',
+        'bizType'   => 'BizType',
+        'requestId' => 'RequestId',
         'solution'  => 'Solution',
         'stepList'  => 'StepList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('bizType', $this->bizType, true);
         Model::validateRequired('bizName', $this->bizName, true);
+        Model::validateRequired('bizType', $this->bizType, true);
+        Model::validateRequired('requestId', $this->requestId, true);
         Model::validateRequired('solution', $this->solution, true);
         Model::validateRequired('stepList', $this->stepList, true);
     }
@@ -52,14 +52,14 @@ class CreateVerifySettingResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->bizName) {
+            $res['BizName'] = $this->bizName;
         }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-        if (null !== $this->bizName) {
-            $res['BizName'] = $this->bizName;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->solution) {
             $res['Solution'] = $this->solution;
@@ -79,14 +79,14 @@ class CreateVerifySettingResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['BizName'])) {
+            $model->bizName = $map['BizName'];
         }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-        if (isset($map['BizName'])) {
-            $model->bizName = $map['BizName'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Solution'])) {
             $model->solution = $map['Solution'];

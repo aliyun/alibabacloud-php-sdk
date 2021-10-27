@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSdkUrlRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $id;
-
-    /**
      * @var bool
      */
     public $debug;
+
+    /**
+     * @var int
+     */
+    public $id;
     protected $_name = [
-        'id'    => 'Id',
         'debug' => 'Debug',
+        'id'    => 'Id',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeSdkUrlRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->debug) {
             $res['Debug'] = $this->debug;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeSdkUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['Debug'])) {
             $model->debug = $map['Debug'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

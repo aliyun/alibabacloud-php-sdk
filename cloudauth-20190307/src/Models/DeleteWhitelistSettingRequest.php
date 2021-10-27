@@ -11,7 +11,7 @@ class DeleteWhitelistSettingRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $ids;
 
     /**
      * @var string
@@ -26,25 +26,25 @@ class DeleteWhitelistSettingRequest extends Model
     /**
      * @var string
      */
-    public $ids;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
+        'ids'         => 'Ids',
         'lang'        => 'Lang',
         'serviceCode' => 'ServiceCode',
-        'ids'         => 'Ids',
+        'sourceIp'    => 'SourceIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('serviceCode', $this->serviceCode, true);
         Model::validateRequired('ids', $this->ids, true);
+        Model::validateRequired('serviceCode', $this->serviceCode, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->ids) {
+            $res['Ids'] = $this->ids;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -52,8 +52,8 @@ class DeleteWhitelistSettingRequest extends Model
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
-        if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -67,8 +67,8 @@ class DeleteWhitelistSettingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Ids'])) {
+            $model->ids = $map['Ids'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
@@ -76,8 +76,8 @@ class DeleteWhitelistSettingRequest extends Model
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }
-        if (isset($map['Ids'])) {
-            $model->ids = $map['Ids'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

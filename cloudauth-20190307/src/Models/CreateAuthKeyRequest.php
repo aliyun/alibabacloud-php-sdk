@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateAuthKeyRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $bizType;
+    public $authYears;
 
     /**
      * @var string
      */
-    public $userDeviceId;
+    public $bizType;
 
     /**
      * @var bool
@@ -24,14 +24,14 @@ class CreateAuthKeyRequest extends Model
     public $test;
 
     /**
-     * @var int
+     * @var string
      */
-    public $authYears;
+    public $userDeviceId;
     protected $_name = [
-        'bizType'      => 'BizType',
-        'userDeviceId' => 'UserDeviceId',
-        'test'         => 'Test',
         'authYears'    => 'AuthYears',
+        'bizType'      => 'BizType',
+        'test'         => 'Test',
+        'userDeviceId' => 'UserDeviceId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateAuthKeyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authYears) {
+            $res['AuthYears'] = $this->authYears;
+        }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
-        }
-        if (null !== $this->userDeviceId) {
-            $res['UserDeviceId'] = $this->userDeviceId;
         }
         if (null !== $this->test) {
             $res['Test'] = $this->test;
         }
-        if (null !== $this->authYears) {
-            $res['AuthYears'] = $this->authYears;
+        if (null !== $this->userDeviceId) {
+            $res['UserDeviceId'] = $this->userDeviceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateAuthKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthYears'])) {
+            $model->authYears = $map['AuthYears'];
+        }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
-        }
-        if (isset($map['UserDeviceId'])) {
-            $model->userDeviceId = $map['UserDeviceId'];
         }
         if (isset($map['Test'])) {
             $model->test = $map['Test'];
         }
-        if (isset($map['AuthYears'])) {
-            $model->authYears = $map['AuthYears'];
+        if (isset($map['UserDeviceId'])) {
+            $model->userDeviceId = $map['UserDeviceId'];
         }
 
         return $model;

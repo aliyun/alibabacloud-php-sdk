@@ -11,15 +11,15 @@ class DetectFaceAttributesRequest extends Model
     /**
      * @var string
      */
-    public $materialValue;
+    public $bizType;
 
     /**
      * @var string
      */
-    public $bizType;
+    public $materialValue;
     protected $_name = [
-        'materialValue' => 'MaterialValue',
         'bizType'       => 'BizType',
+        'materialValue' => 'MaterialValue',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DetectFaceAttributesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->materialValue) {
-            $res['MaterialValue'] = $this->materialValue;
-        }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+        if (null !== $this->materialValue) {
+            $res['MaterialValue'] = $this->materialValue;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DetectFaceAttributesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaterialValue'])) {
-            $model->materialValue = $map['MaterialValue'];
-        }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+        if (isset($map['MaterialValue'])) {
+            $model->materialValue = $map['MaterialValue'];
         }
 
         return $model;

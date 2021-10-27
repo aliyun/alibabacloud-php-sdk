@@ -11,16 +11,6 @@ use AlibabaCloud\Tea\Model;
 class faceAttributes extends Model
 {
     /**
-     * @var string
-     */
-    public $glasses;
-
-    /**
-     * @var string
-     */
-    public $facetype;
-
-    /**
      * @var float
      */
     public $blur;
@@ -29,6 +19,16 @@ class faceAttributes extends Model
      * @var float
      */
     public $facequal;
+
+    /**
+     * @var string
+     */
+    public $facetype;
+
+    /**
+     * @var string
+     */
+    public $glasses;
 
     /**
      * @var int
@@ -41,51 +41,51 @@ class faceAttributes extends Model
     public $respirator;
 
     /**
-     * @var smiling
-     */
-    public $smiling;
-
-    /**
      * @var headpose
      */
     public $headpose;
+
+    /**
+     * @var smiling
+     */
+    public $smiling;
     protected $_name = [
-        'glasses'    => 'Glasses',
-        'facetype'   => 'Facetype',
         'blur'       => 'Blur',
         'facequal'   => 'Facequal',
+        'facetype'   => 'Facetype',
+        'glasses'    => 'Glasses',
         'integrity'  => 'Integrity',
         'respirator' => 'Respirator',
-        'smiling'    => 'Smiling',
         'headpose'   => 'Headpose',
+        'smiling'    => 'Smiling',
     ];
 
     public function validate()
     {
-        Model::validateRequired('glasses', $this->glasses, true);
-        Model::validateRequired('facetype', $this->facetype, true);
         Model::validateRequired('blur', $this->blur, true);
         Model::validateRequired('facequal', $this->facequal, true);
+        Model::validateRequired('facetype', $this->facetype, true);
+        Model::validateRequired('glasses', $this->glasses, true);
         Model::validateRequired('integrity', $this->integrity, true);
         Model::validateRequired('respirator', $this->respirator, true);
-        Model::validateRequired('smiling', $this->smiling, true);
         Model::validateRequired('headpose', $this->headpose, true);
+        Model::validateRequired('smiling', $this->smiling, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->glasses) {
-            $res['Glasses'] = $this->glasses;
-        }
-        if (null !== $this->facetype) {
-            $res['Facetype'] = $this->facetype;
-        }
         if (null !== $this->blur) {
             $res['Blur'] = $this->blur;
         }
         if (null !== $this->facequal) {
             $res['Facequal'] = $this->facequal;
+        }
+        if (null !== $this->facetype) {
+            $res['Facetype'] = $this->facetype;
+        }
+        if (null !== $this->glasses) {
+            $res['Glasses'] = $this->glasses;
         }
         if (null !== $this->integrity) {
             $res['Integrity'] = $this->integrity;
@@ -93,11 +93,11 @@ class faceAttributes extends Model
         if (null !== $this->respirator) {
             $res['Respirator'] = $this->respirator;
         }
-        if (null !== $this->smiling) {
-            $res['Smiling'] = null !== $this->smiling ? $this->smiling->toMap() : null;
-        }
         if (null !== $this->headpose) {
             $res['Headpose'] = null !== $this->headpose ? $this->headpose->toMap() : null;
+        }
+        if (null !== $this->smiling) {
+            $res['Smiling'] = null !== $this->smiling ? $this->smiling->toMap() : null;
         }
 
         return $res;
@@ -111,17 +111,17 @@ class faceAttributes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Glasses'])) {
-            $model->glasses = $map['Glasses'];
-        }
-        if (isset($map['Facetype'])) {
-            $model->facetype = $map['Facetype'];
-        }
         if (isset($map['Blur'])) {
             $model->blur = $map['Blur'];
         }
         if (isset($map['Facequal'])) {
             $model->facequal = $map['Facequal'];
+        }
+        if (isset($map['Facetype'])) {
+            $model->facetype = $map['Facetype'];
+        }
+        if (isset($map['Glasses'])) {
+            $model->glasses = $map['Glasses'];
         }
         if (isset($map['Integrity'])) {
             $model->integrity = $map['Integrity'];
@@ -129,11 +129,11 @@ class faceAttributes extends Model
         if (isset($map['Respirator'])) {
             $model->respirator = $map['Respirator'];
         }
-        if (isset($map['Smiling'])) {
-            $model->smiling = smiling::fromMap($map['Smiling']);
-        }
         if (isset($map['Headpose'])) {
             $model->headpose = headpose::fromMap($map['Headpose']);
+        }
+        if (isset($map['Smiling'])) {
+            $model->smiling = smiling::fromMap($map['Smiling']);
         }
 
         return $model;
