@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class auctions extends Model
 {
     /**
-     * @var result
-     */
-    public $result;
-
-    /**
      * @var float
      */
     public $rankScore;
+
+    /**
+     * @var result
+     */
+    public $result;
     protected $_name = [
-        'result'    => 'Result',
         'rankScore' => 'RankScore',
+        'result'    => 'Result',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class auctions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
-        }
         if (null !== $this->rankScore) {
             $res['RankScore'] = $this->rankScore;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class auctions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Result'])) {
-            $model->result = result::fromMap($map['Result']);
-        }
         if (isset($map['RankScore'])) {
             $model->rankScore = $map['RankScore'];
+        }
+        if (isset($map['Result'])) {
+            $model->result = result::fromMap($map['Result']);
         }
 
         return $model;

@@ -11,21 +11,21 @@ class maxCommission extends Model
     /**
      * @var string
      */
-    public $maxCommissionRate;
-
-    /**
-     * @var string
-     */
     public $maxCommissionClickUrl;
 
     /**
      * @var string
      */
     public $maxCommissionCouponShareUrl;
+
+    /**
+     * @var string
+     */
+    public $maxCommissionRate;
     protected $_name = [
-        'maxCommissionRate'           => 'MaxCommissionRate',
         'maxCommissionClickUrl'       => 'MaxCommissionClickUrl',
         'maxCommissionCouponShareUrl' => 'MaxCommissionCouponShareUrl',
+        'maxCommissionRate'           => 'MaxCommissionRate',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class maxCommission extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxCommissionRate) {
-            $res['MaxCommissionRate'] = $this->maxCommissionRate;
-        }
         if (null !== $this->maxCommissionClickUrl) {
             $res['MaxCommissionClickUrl'] = $this->maxCommissionClickUrl;
         }
         if (null !== $this->maxCommissionCouponShareUrl) {
             $res['MaxCommissionCouponShareUrl'] = $this->maxCommissionCouponShareUrl;
+        }
+        if (null !== $this->maxCommissionRate) {
+            $res['MaxCommissionRate'] = $this->maxCommissionRate;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class maxCommission extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxCommissionRate'])) {
-            $model->maxCommissionRate = $map['MaxCommissionRate'];
-        }
         if (isset($map['MaxCommissionClickUrl'])) {
             $model->maxCommissionClickUrl = $map['MaxCommissionClickUrl'];
         }
         if (isset($map['MaxCommissionCouponShareUrl'])) {
             $model->maxCommissionCouponShareUrl = $map['MaxCommissionCouponShareUrl'];
+        }
+        if (isset($map['MaxCommissionRate'])) {
+            $model->maxCommissionRate = $map['MaxCommissionRate'];
         }
 
         return $model;
