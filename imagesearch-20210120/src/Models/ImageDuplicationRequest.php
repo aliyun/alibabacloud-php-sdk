@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ImageDuplicationRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $picUrlList;
-
-    /**
-     * @var string
-     */
-    public $picNumList;
-
-    /**
      * @var int
      */
     public $imageHeight;
@@ -34,16 +19,31 @@ class ImageDuplicationRequest extends Model
     public $imageWidth;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @var int
      */
     public $outputImageNum;
+
+    /**
+     * @var string
+     */
+    public $picNumList;
+
+    /**
+     * @var string
+     */
+    public $picUrlList;
     protected $_name = [
-        'instanceName'   => 'InstanceName',
-        'picUrlList'     => 'PicUrlList',
-        'picNumList'     => 'PicNumList',
         'imageHeight'    => 'ImageHeight',
         'imageWidth'     => 'ImageWidth',
+        'instanceName'   => 'InstanceName',
         'outputImageNum' => 'OutputImageNum',
+        'picNumList'     => 'PicNumList',
+        'picUrlList'     => 'PicUrlList',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ImageDuplicationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->picUrlList) {
-            $res['PicUrlList'] = $this->picUrlList;
-        }
-        if (null !== $this->picNumList) {
-            $res['PicNumList'] = $this->picNumList;
-        }
         if (null !== $this->imageHeight) {
             $res['ImageHeight'] = $this->imageHeight;
         }
         if (null !== $this->imageWidth) {
             $res['ImageWidth'] = $this->imageWidth;
         }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
         if (null !== $this->outputImageNum) {
             $res['OutputImageNum'] = $this->outputImageNum;
+        }
+        if (null !== $this->picNumList) {
+            $res['PicNumList'] = $this->picNumList;
+        }
+        if (null !== $this->picUrlList) {
+            $res['PicUrlList'] = $this->picUrlList;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ImageDuplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['PicUrlList'])) {
-            $model->picUrlList = $map['PicUrlList'];
-        }
-        if (isset($map['PicNumList'])) {
-            $model->picNumList = $map['PicNumList'];
-        }
         if (isset($map['ImageHeight'])) {
             $model->imageHeight = $map['ImageHeight'];
         }
         if (isset($map['ImageWidth'])) {
             $model->imageWidth = $map['ImageWidth'];
         }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
         if (isset($map['OutputImageNum'])) {
             $model->outputImageNum = $map['OutputImageNum'];
+        }
+        if (isset($map['PicNumList'])) {
+            $model->picNumList = $map['PicNumList'];
+        }
+        if (isset($map['PicUrlList'])) {
+            $model->picUrlList = $map['PicUrlList'];
         }
 
         return $model;

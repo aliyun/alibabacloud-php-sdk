@@ -12,20 +12,20 @@ class propertyResults extends Model
     /**
      * @var string
      */
-    public $propertyName;
+    public $propertyId;
 
     /**
      * @var string
      */
-    public $propertyId;
+    public $propertyName;
 
     /**
      * @var values[]
      */
     public $values;
     protected $_name = [
-        'propertyName' => 'PropertyName',
         'propertyId'   => 'PropertyId',
+        'propertyName' => 'PropertyName',
         'values'       => 'Values',
     ];
 
@@ -36,11 +36,11 @@ class propertyResults extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->propertyName) {
-            $res['PropertyName'] = $this->propertyName;
-        }
         if (null !== $this->propertyId) {
             $res['PropertyId'] = $this->propertyId;
+        }
+        if (null !== $this->propertyName) {
+            $res['PropertyName'] = $this->propertyName;
         }
         if (null !== $this->values) {
             $res['Values'] = [];
@@ -63,11 +63,11 @@ class propertyResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PropertyName'])) {
-            $model->propertyName = $map['PropertyName'];
-        }
         if (isset($map['PropertyId'])) {
             $model->propertyId = $map['PropertyId'];
+        }
+        if (isset($map['PropertyName'])) {
+            $model->propertyName = $map['PropertyName'];
         }
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {

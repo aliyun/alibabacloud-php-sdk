@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var result[]
-     */
-    public $result;
-
-    /**
      * @var string[]
      */
     public $regions;
+
+    /**
+     * @var result[]
+     */
+    public $result;
     protected $_name = [
-        'result'  => 'Result',
         'regions' => 'Regions',
+        'result'  => 'Result',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regions) {
+            $res['Regions'] = $this->regions;
+        }
         if (null !== $this->result) {
             $res['Result'] = [];
             if (null !== $this->result && \is_array($this->result)) {
@@ -38,9 +41,6 @@ class data extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->regions) {
-            $res['Regions'] = $this->regions;
         }
 
         return $res;
@@ -54,6 +54,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Regions'])) {
+            if (!empty($map['Regions'])) {
+                $model->regions = $map['Regions'];
+            }
+        }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
@@ -61,11 +66,6 @@ class data extends Model
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['Regions'])) {
-            if (!empty($map['Regions'])) {
-                $model->regions = $map['Regions'];
             }
         }
 

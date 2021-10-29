@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\ImageSearch\V20210120\Models;
 
-use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageCategoryResponseBody\data;
+use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageAmazonResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ImageCategoryResponseBody extends Model
+class ImageAmazonResponseBody extends Model
 {
     /**
      * @var int
@@ -70,7 +70,7 @@ class ImageCategoryResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ImageCategoryResponseBody
+     * @return ImageAmazonResponseBody
      */
     public static function fromMap($map = [])
     {

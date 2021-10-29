@@ -11,15 +11,15 @@ class result extends Model
     /**
      * @var string
      */
-    public $tag;
+    public $score;
 
     /**
      * @var string
      */
-    public $score;
+    public $tag;
     protected $_name = [
-        'tag'   => 'Tag',
         'score' => 'Score',
+        'tag'   => 'Tag',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

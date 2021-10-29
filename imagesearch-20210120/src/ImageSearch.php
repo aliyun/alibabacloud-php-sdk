@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\ImageSearch\V20210120\Models\CommodityTitleResponse;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\GeneralRecognitionAdvanceRequest;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\GeneralRecognitionRequest;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\GeneralRecognitionResponse;
+use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageAmazonRequest;
+use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageAmazonResponse;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageCategoryRequest;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageCategoryResponse;
 use AlibabaCloud\SDK\ImageSearch\V20210120\Models\ImageDuplicationRequest;
@@ -32,6 +34,7 @@ use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class ImageSearch extends OpenApiClient
@@ -68,31 +71,120 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param ImageCategoryRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param CommodityTitleRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return ImageCategoryResponse
+     * @return CommodityTitleResponse
      */
-    public function imageCategoryWithOptions($request, $runtime)
+    public function commodityTitleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CommodityTitle',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ImageCategoryResponse::fromMap($this->doRPCRequest('ImageCategory', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CommodityTitleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ImageCategoryRequest $request
+     * @param CommodityTitleRequest $request
      *
-     * @return ImageCategoryResponse
+     * @return CommodityTitleResponse
      */
-    public function imageCategory($request)
+    public function commodityTitle($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->imageCategoryWithOptions($request, $runtime);
+        return $this->commodityTitleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CommodityTitleAdvanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CommodityTitleResponse
+     */
+    public function commodityTitleAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ImageSearch',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $commodityTitleReq = new CommodityTitleRequest([]);
+        OpenApiUtilClient::convert($request, $commodityTitleReq);
+        if (!Utils::isUnset($request->picContentObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->picContentObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $commodityTitleReq->picContent = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->commodityTitleWithOptions($commodityTitleReq, $runtime);
     }
 
     /**
@@ -107,8 +199,19 @@ class ImageSearch extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GeneralRecognition',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GeneralRecognitionResponse::fromMap($this->doRPCRequest('GeneralRecognition', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GeneralRecognitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -202,31 +305,81 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param ImagePropertyRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ImageAmazonRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return ImagePropertyResponse
+     * @return ImageAmazonResponse
      */
-    public function imagePropertyWithOptions($request, $runtime)
+    public function imageAmazonWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ImageAmazon',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ImagePropertyResponse::fromMap($this->doRPCRequest('ImageProperty', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ImageAmazonResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ImagePropertyRequest $request
+     * @param ImageAmazonRequest $request
      *
-     * @return ImagePropertyResponse
+     * @return ImageAmazonResponse
      */
-    public function imageProperty($request)
+    public function imageAmazon($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->imagePropertyWithOptions($request, $runtime);
+        return $this->imageAmazonWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImageCategoryRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ImageCategoryResponse
+     */
+    public function imageCategoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ImageCategory',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImageCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImageCategoryRequest $request
+     *
+     * @return ImageCategoryResponse
+     */
+    public function imageCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->imageCategoryWithOptions($request, $runtime);
     }
 
     /**
@@ -241,8 +394,19 @@ class ImageSearch extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ImageDuplication',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ImageDuplicationResponse::fromMap($this->doRPCRequest('ImageDuplication', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ImageDuplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -258,6 +422,45 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
+     * @param ImagePropertyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ImagePropertyResponse
+     */
+    public function imagePropertyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ImageProperty',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImagePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImagePropertyRequest $request
+     *
+     * @return ImagePropertyResponse
+     */
+    public function imageProperty($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->imagePropertyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ImageSegmentationRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -269,8 +472,19 @@ class ImageSearch extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ImageSegmentation',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ImageSegmentationResponse::fromMap($this->doRPCRequest('ImageSegmentation', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ImageSegmentationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -361,111 +575,5 @@ class ImageSearch extends OpenApiClient
         }
 
         return $this->imageSegmentationWithOptions($imageSegmentationReq, $runtime);
-    }
-
-    /**
-     * @param CommodityTitleRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CommodityTitleResponse
-     */
-    public function commodityTitleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CommodityTitleResponse::fromMap($this->doRPCRequest('CommodityTitle', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CommodityTitleRequest $request
-     *
-     * @return CommodityTitleResponse
-     */
-    public function commodityTitle($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->commodityTitleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CommodityTitleAdvanceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CommodityTitleResponse
-     */
-    public function commodityTitleAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-        if (Utils::isUnset($credentialType)) {
-            $credentialType = 'access_key';
-        }
-        $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ImageSearch',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $commodityTitleReq = new CommodityTitleRequest([]);
-        OpenApiUtilClient::convert($request, $commodityTitleReq);
-        if (!Utils::isUnset($request->picContentObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
-                'content'     => $request->picContentObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $commodityTitleReq->picContent = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-        }
-
-        return $this->commodityTitleWithOptions($commodityTitleReq, $runtime);
     }
 }
