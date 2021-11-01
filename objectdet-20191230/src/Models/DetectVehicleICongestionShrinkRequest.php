@@ -18,16 +18,28 @@ class DetectVehicleICongestionShrinkRequest extends Model
     /**
      * @var string
      */
-    public $roadRegionsShrink;
+    public $originRequestId;
 
     /**
      * @var string
      */
     public $preRegionIntersectFeaturesShrink;
+
+    /**
+     * @var string
+     */
+    public $roadRegionsShrink;
+
+    /**
+     * @var string
+     */
+    public $streamArn;
     protected $_name = [
         'imageURL'                         => 'ImageURL',
-        'roadRegionsShrink'                => 'RoadRegions',
+        'originRequestId'                  => 'OriginRequestId',
         'preRegionIntersectFeaturesShrink' => 'PreRegionIntersectFeatures',
+        'roadRegionsShrink'                => 'RoadRegions',
+        'streamArn'                        => 'StreamArn',
     ];
 
     public function validate()
@@ -40,11 +52,17 @@ class DetectVehicleICongestionShrinkRequest extends Model
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
-        if (null !== $this->roadRegionsShrink) {
-            $res['RoadRegions'] = $this->roadRegionsShrink;
+        if (null !== $this->originRequestId) {
+            $res['OriginRequestId'] = $this->originRequestId;
         }
         if (null !== $this->preRegionIntersectFeaturesShrink) {
             $res['PreRegionIntersectFeatures'] = $this->preRegionIntersectFeaturesShrink;
+        }
+        if (null !== $this->roadRegionsShrink) {
+            $res['RoadRegions'] = $this->roadRegionsShrink;
+        }
+        if (null !== $this->streamArn) {
+            $res['StreamArn'] = $this->streamArn;
         }
 
         return $res;
@@ -61,11 +79,17 @@ class DetectVehicleICongestionShrinkRequest extends Model
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
-        if (isset($map['RoadRegions'])) {
-            $model->roadRegionsShrink = $map['RoadRegions'];
+        if (isset($map['OriginRequestId'])) {
+            $model->originRequestId = $map['OriginRequestId'];
         }
         if (isset($map['PreRegionIntersectFeatures'])) {
             $model->preRegionIntersectFeaturesShrink = $map['PreRegionIntersectFeatures'];
+        }
+        if (isset($map['RoadRegions'])) {
+            $model->roadRegionsShrink = $map['RoadRegions'];
+        }
+        if (isset($map['StreamArn'])) {
+            $model->streamArn = $map['StreamArn'];
         }
 
         return $model;

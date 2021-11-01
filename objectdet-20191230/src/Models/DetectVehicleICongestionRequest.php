@@ -18,18 +18,30 @@ class DetectVehicleICongestionRequest extends Model
     public $imageURL;
 
     /**
-     * @var roadRegions[]
+     * @var string
      */
-    public $roadRegions;
+    public $originRequestId;
 
     /**
      * @var preRegionIntersectFeatures[]
      */
     public $preRegionIntersectFeatures;
+
+    /**
+     * @var roadRegions[]
+     */
+    public $roadRegions;
+
+    /**
+     * @var string
+     */
+    public $streamArn;
     protected $_name = [
         'imageURL'                   => 'ImageURL',
-        'roadRegions'                => 'RoadRegions',
+        'originRequestId'            => 'OriginRequestId',
         'preRegionIntersectFeatures' => 'PreRegionIntersectFeatures',
+        'roadRegions'                => 'RoadRegions',
+        'streamArn'                  => 'StreamArn',
     ];
 
     public function validate()
@@ -42,14 +54,8 @@ class DetectVehicleICongestionRequest extends Model
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
-        if (null !== $this->roadRegions) {
-            $res['RoadRegions'] = [];
-            if (null !== $this->roadRegions && \is_array($this->roadRegions)) {
-                $n = 0;
-                foreach ($this->roadRegions as $item) {
-                    $res['RoadRegions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->originRequestId) {
+            $res['OriginRequestId'] = $this->originRequestId;
         }
         if (null !== $this->preRegionIntersectFeatures) {
             $res['PreRegionIntersectFeatures'] = [];
@@ -59,6 +65,18 @@ class DetectVehicleICongestionRequest extends Model
                     $res['PreRegionIntersectFeatures'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->roadRegions) {
+            $res['RoadRegions'] = [];
+            if (null !== $this->roadRegions && \is_array($this->roadRegions)) {
+                $n = 0;
+                foreach ($this->roadRegions as $item) {
+                    $res['RoadRegions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->streamArn) {
+            $res['StreamArn'] = $this->streamArn;
         }
 
         return $res;
@@ -75,14 +93,8 @@ class DetectVehicleICongestionRequest extends Model
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
-        if (isset($map['RoadRegions'])) {
-            if (!empty($map['RoadRegions'])) {
-                $model->roadRegions = [];
-                $n                  = 0;
-                foreach ($map['RoadRegions'] as $item) {
-                    $model->roadRegions[$n++] = null !== $item ? roadRegions::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['OriginRequestId'])) {
+            $model->originRequestId = $map['OriginRequestId'];
         }
         if (isset($map['PreRegionIntersectFeatures'])) {
             if (!empty($map['PreRegionIntersectFeatures'])) {
@@ -92,6 +104,18 @@ class DetectVehicleICongestionRequest extends Model
                     $model->preRegionIntersectFeatures[$n++] = null !== $item ? preRegionIntersectFeatures::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RoadRegions'])) {
+            if (!empty($map['RoadRegions'])) {
+                $model->roadRegions = [];
+                $n                  = 0;
+                foreach ($map['RoadRegions'] as $item) {
+                    $model->roadRegions[$n++] = null !== $item ? roadRegions::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['StreamArn'])) {
+            $model->streamArn = $map['StreamArn'];
         }
 
         return $model;

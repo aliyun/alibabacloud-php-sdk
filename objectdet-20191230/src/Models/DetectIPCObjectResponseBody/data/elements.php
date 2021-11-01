@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var float
-     */
-    public $score;
-
-    /**
      * @var int[]
      */
     public $box;
@@ -26,12 +16,22 @@ class elements extends Model
     /**
      * @var float
      */
+    public $score;
+
+    /**
+     * @var float
+     */
     public $targetRate;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'       => 'Type',
-        'score'      => 'Score',
         'box'        => 'Box',
+        'score'      => 'Score',
         'targetRate' => 'TargetRate',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class elements extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->box) {
+            $res['Box'] = $this->box;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
-        if (null !== $this->box) {
-            $res['Box'] = $this->box;
-        }
         if (null !== $this->targetRate) {
             $res['TargetRate'] = $this->targetRate;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -65,19 +65,19 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
-        }
         if (isset($map['Box'])) {
             if (!empty($map['Box'])) {
                 $model->box = $map['Box'];
             }
         }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
+        }
         if (isset($map['TargetRate'])) {
             $model->targetRate = $map['TargetRate'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

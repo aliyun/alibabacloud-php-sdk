@@ -17,16 +17,16 @@ class data extends Model
     /**
      * @var int
      */
-    public $width;
+    public $height;
 
     /**
      * @var int
      */
-    public $height;
+    public $width;
     protected $_name = [
         'detectObjectInfoList' => 'DetectObjectInfoList',
-        'width'                => 'Width',
         'height'               => 'Height',
+        'width'                => 'Width',
     ];
 
     public function validate()
@@ -45,11 +45,11 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

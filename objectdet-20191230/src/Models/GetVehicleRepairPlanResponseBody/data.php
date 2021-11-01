@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var repairParts[]
-     */
-    public $repairParts;
-
-    /**
      * @var string
      */
     public $frameNo;
+
+    /**
+     * @var repairParts[]
+     */
+    public $repairParts;
     protected $_name = [
-        'repairParts' => 'RepairParts',
         'frameNo'     => 'FrameNo',
+        'repairParts' => 'RepairParts',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->frameNo) {
+            $res['FrameNo'] = $this->frameNo;
+        }
         if (null !== $this->repairParts) {
             $res['RepairParts'] = [];
             if (null !== $this->repairParts && \is_array($this->repairParts)) {
@@ -38,9 +41,6 @@ class data extends Model
                     $res['RepairParts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->frameNo) {
-            $res['FrameNo'] = $this->frameNo;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FrameNo'])) {
+            $model->frameNo = $map['FrameNo'];
+        }
         if (isset($map['RepairParts'])) {
             if (!empty($map['RepairParts'])) {
                 $model->repairParts = [];
@@ -62,9 +65,6 @@ class data extends Model
                     $model->repairParts[$n++] = null !== $item ? repairParts::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['FrameNo'])) {
-            $model->frameNo = $map['FrameNo'];
         }
 
         return $model;

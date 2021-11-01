@@ -14,9 +14,9 @@ class elements extends Model
     public $boxes;
 
     /**
-     * @var float
+     * @var string
      */
-    public $score;
+    public $className;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class elements extends Model
     public $label;
 
     /**
-     * @var string
+     * @var float
      */
-    public $className;
+    public $score;
     protected $_name = [
         'boxes'     => 'Boxes',
-        'score'     => 'Score',
-        'label'     => 'Label',
         'className' => 'ClassName',
+        'label'     => 'Label',
+        'score'     => 'Score',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class elements extends Model
         if (null !== $this->boxes) {
             $res['Boxes'] = $this->boxes;
         }
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
+        if (null !== $this->className) {
+            $res['ClassName'] = $this->className;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
-        if (null !== $this->className) {
-            $res['ClassName'] = $this->className;
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
 
         return $res;
@@ -70,14 +70,14 @@ class elements extends Model
                 $model->boxes = $map['Boxes'];
             }
         }
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
+        if (isset($map['ClassName'])) {
+            $model->className = $map['ClassName'];
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
-        if (isset($map['ClassName'])) {
-            $model->className = $map['ClassName'];
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
 
         return $model;

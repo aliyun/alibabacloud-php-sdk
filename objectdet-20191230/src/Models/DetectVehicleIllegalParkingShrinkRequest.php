@@ -18,10 +18,22 @@ class DetectVehicleIllegalParkingShrinkRequest extends Model
     /**
      * @var string
      */
+    public $originRequestId;
+
+    /**
+     * @var string
+     */
     public $roadRegionsShrink;
+
+    /**
+     * @var string
+     */
+    public $streamArn;
     protected $_name = [
         'imageURL'          => 'ImageURL',
+        'originRequestId'   => 'OriginRequestId',
         'roadRegionsShrink' => 'RoadRegions',
+        'streamArn'         => 'StreamArn',
     ];
 
     public function validate()
@@ -34,8 +46,14 @@ class DetectVehicleIllegalParkingShrinkRequest extends Model
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+        if (null !== $this->originRequestId) {
+            $res['OriginRequestId'] = $this->originRequestId;
+        }
         if (null !== $this->roadRegionsShrink) {
             $res['RoadRegions'] = $this->roadRegionsShrink;
+        }
+        if (null !== $this->streamArn) {
+            $res['StreamArn'] = $this->streamArn;
         }
 
         return $res;
@@ -52,8 +70,14 @@ class DetectVehicleIllegalParkingShrinkRequest extends Model
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+        if (isset($map['OriginRequestId'])) {
+            $model->originRequestId = $map['OriginRequestId'];
+        }
         if (isset($map['RoadRegions'])) {
             $model->roadRegionsShrink = $map['RoadRegions'];
+        }
+        if (isset($map['StreamArn'])) {
+            $model->streamArn = $map['StreamArn'];
         }
 
         return $model;

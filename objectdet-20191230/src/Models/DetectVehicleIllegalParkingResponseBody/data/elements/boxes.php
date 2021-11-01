@@ -11,12 +11,12 @@ class boxes extends Model
     /**
      * @var int
      */
-    public $left;
+    public $bottom;
 
     /**
      * @var int
      */
-    public $top;
+    public $left;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class boxes extends Model
     /**
      * @var int
      */
-    public $bottom;
+    public $top;
     protected $_name = [
-        'left'   => 'Left',
-        'top'    => 'Top',
-        'right'  => 'Right',
         'bottom' => 'Bottom',
+        'left'   => 'Left',
+        'right'  => 'Right',
+        'top'    => 'Top',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class boxes extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bottom) {
+            $res['Bottom'] = $this->bottom;
+        }
         if (null !== $this->left) {
             $res['Left'] = $this->left;
-        }
-        if (null !== $this->top) {
-            $res['Top'] = $this->top;
         }
         if (null !== $this->right) {
             $res['Right'] = $this->right;
         }
-        if (null !== $this->bottom) {
-            $res['Bottom'] = $this->bottom;
+        if (null !== $this->top) {
+            $res['Top'] = $this->top;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class boxes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bottom'])) {
+            $model->bottom = $map['Bottom'];
+        }
         if (isset($map['Left'])) {
             $model->left = $map['Left'];
-        }
-        if (isset($map['Top'])) {
-            $model->top = $map['Top'];
         }
         if (isset($map['Right'])) {
             $model->right = $map['Right'];
         }
-        if (isset($map['Bottom'])) {
-            $model->bottom = $map['Bottom'];
+        if (isset($map['Top'])) {
+            $model->top = $map['Top'];
         }
 
         return $model;

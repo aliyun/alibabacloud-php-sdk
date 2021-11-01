@@ -11,20 +11,20 @@ class GetVehicleRepairPlanRequest extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $carNumberImage;
 
     /**
      * @var string
      */
-    public $carNumberImage;
+    public $taskId;
 
     /**
      * @var string
      */
     public $vinCodeImage;
     protected $_name = [
-        'taskId'         => 'TaskId',
         'carNumberImage' => 'CarNumberImage',
+        'taskId'         => 'TaskId',
         'vinCodeImage'   => 'VinCodeImage',
     ];
 
@@ -35,11 +35,11 @@ class GetVehicleRepairPlanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->carNumberImage) {
             $res['CarNumberImage'] = $this->carNumberImage;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->vinCodeImage) {
             $res['VinCodeImage'] = $this->vinCodeImage;
@@ -56,11 +56,11 @@ class GetVehicleRepairPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['CarNumberImage'])) {
             $model->carNumberImage = $map['CarNumberImage'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['VinCodeImage'])) {
             $model->vinCodeImage = $map['VinCodeImage'];

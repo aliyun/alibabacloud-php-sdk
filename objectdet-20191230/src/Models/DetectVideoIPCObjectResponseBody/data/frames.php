@@ -10,17 +10,19 @@ use AlibabaCloud\Tea\Model;
 class frames extends Model
 {
     /**
-     * @var int
-     */
-    public $time;
-
-    /**
      * @var elements[]
      */
     public $elements;
+
+    /**
+     * @description 视频帧时间，startTimestamp+视频帧的相对时间的值，单位毫秒，如果startTimestamp为空，则是相对时间
+     *
+     * @var int
+     */
+    public $time;
     protected $_name = [
-        'time'     => 'Time',
         'elements' => 'Elements',
+        'time'     => 'Time',
     ];
 
     public function validate()
@@ -30,9 +32,6 @@ class frames extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
         if (null !== $this->elements) {
             $res['Elements'] = [];
             if (null !== $this->elements && \is_array($this->elements)) {
@@ -41,6 +40,9 @@ class frames extends Model
                     $res['Elements'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -54,9 +56,6 @@ class frames extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
         if (isset($map['Elements'])) {
             if (!empty($map['Elements'])) {
                 $model->elements = [];
@@ -65,6 +64,9 @@ class frames extends Model
                     $model->elements[$n++] = null !== $item ? elements::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

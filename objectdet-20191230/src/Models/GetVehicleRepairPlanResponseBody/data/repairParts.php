@@ -11,42 +11,7 @@ class repairParts extends Model
     /**
      * @var string
      */
-    public $relationType;
-
-    /**
-     * @var string
-     */
-    public $partsStdCode;
-
-    /**
-     * @var bool
-     */
-    public $partNameMatch;
-
-    /**
-     * @var string
-     */
-    public $repairFee;
-
-    /**
-     * @var string
-     */
-    public $outStandardPartsName;
-
-    /**
-     * @var string
-     */
-    public $partsStdName;
-
-    /**
-     * @var string
-     */
-    public $repairTypeName;
-
-    /**
-     * @var string
-     */
-    public $repairType;
+    public $garageType;
 
     /**
      * @var bool
@@ -61,19 +26,54 @@ class repairParts extends Model
     /**
      * @var string
      */
-    public $garageType;
+    public $outStandardPartsName;
+
+    /**
+     * @var bool
+     */
+    public $partNameMatch;
+
+    /**
+     * @var string
+     */
+    public $partsStdCode;
+
+    /**
+     * @var string
+     */
+    public $partsStdName;
+
+    /**
+     * @var string
+     */
+    public $relationType;
+
+    /**
+     * @var string
+     */
+    public $repairFee;
+
+    /**
+     * @var string
+     */
+    public $repairType;
+
+    /**
+     * @var string
+     */
+    public $repairTypeName;
     protected $_name = [
-        'relationType'         => 'RelationType',
-        'partsStdCode'         => 'PartsStdCode',
-        'partNameMatch'        => 'PartNameMatch',
-        'repairFee'            => 'RepairFee',
-        'outStandardPartsName' => 'OutStandardPartsName',
-        'partsStdName'         => 'PartsStdName',
-        'repairTypeName'       => 'RepairTypeName',
-        'repairType'           => 'RepairType',
+        'garageType'           => 'GarageType',
         'oeMatch'              => 'OeMatch',
         'outStandardPartsId'   => 'OutStandardPartsId',
-        'garageType'           => 'GarageType',
+        'outStandardPartsName' => 'OutStandardPartsName',
+        'partNameMatch'        => 'PartNameMatch',
+        'partsStdCode'         => 'PartsStdCode',
+        'partsStdName'         => 'PartsStdName',
+        'relationType'         => 'RelationType',
+        'repairFee'            => 'RepairFee',
+        'repairType'           => 'RepairType',
+        'repairTypeName'       => 'RepairTypeName',
     ];
 
     public function validate()
@@ -83,29 +83,8 @@ class repairParts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->relationType) {
-            $res['RelationType'] = $this->relationType;
-        }
-        if (null !== $this->partsStdCode) {
-            $res['PartsStdCode'] = $this->partsStdCode;
-        }
-        if (null !== $this->partNameMatch) {
-            $res['PartNameMatch'] = $this->partNameMatch;
-        }
-        if (null !== $this->repairFee) {
-            $res['RepairFee'] = $this->repairFee;
-        }
-        if (null !== $this->outStandardPartsName) {
-            $res['OutStandardPartsName'] = $this->outStandardPartsName;
-        }
-        if (null !== $this->partsStdName) {
-            $res['PartsStdName'] = $this->partsStdName;
-        }
-        if (null !== $this->repairTypeName) {
-            $res['RepairTypeName'] = $this->repairTypeName;
-        }
-        if (null !== $this->repairType) {
-            $res['RepairType'] = $this->repairType;
+        if (null !== $this->garageType) {
+            $res['GarageType'] = $this->garageType;
         }
         if (null !== $this->oeMatch) {
             $res['OeMatch'] = $this->oeMatch;
@@ -113,8 +92,29 @@ class repairParts extends Model
         if (null !== $this->outStandardPartsId) {
             $res['OutStandardPartsId'] = $this->outStandardPartsId;
         }
-        if (null !== $this->garageType) {
-            $res['GarageType'] = $this->garageType;
+        if (null !== $this->outStandardPartsName) {
+            $res['OutStandardPartsName'] = $this->outStandardPartsName;
+        }
+        if (null !== $this->partNameMatch) {
+            $res['PartNameMatch'] = $this->partNameMatch;
+        }
+        if (null !== $this->partsStdCode) {
+            $res['PartsStdCode'] = $this->partsStdCode;
+        }
+        if (null !== $this->partsStdName) {
+            $res['PartsStdName'] = $this->partsStdName;
+        }
+        if (null !== $this->relationType) {
+            $res['RelationType'] = $this->relationType;
+        }
+        if (null !== $this->repairFee) {
+            $res['RepairFee'] = $this->repairFee;
+        }
+        if (null !== $this->repairType) {
+            $res['RepairType'] = $this->repairType;
+        }
+        if (null !== $this->repairTypeName) {
+            $res['RepairTypeName'] = $this->repairTypeName;
         }
 
         return $res;
@@ -128,29 +128,8 @@ class repairParts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RelationType'])) {
-            $model->relationType = $map['RelationType'];
-        }
-        if (isset($map['PartsStdCode'])) {
-            $model->partsStdCode = $map['PartsStdCode'];
-        }
-        if (isset($map['PartNameMatch'])) {
-            $model->partNameMatch = $map['PartNameMatch'];
-        }
-        if (isset($map['RepairFee'])) {
-            $model->repairFee = $map['RepairFee'];
-        }
-        if (isset($map['OutStandardPartsName'])) {
-            $model->outStandardPartsName = $map['OutStandardPartsName'];
-        }
-        if (isset($map['PartsStdName'])) {
-            $model->partsStdName = $map['PartsStdName'];
-        }
-        if (isset($map['RepairTypeName'])) {
-            $model->repairTypeName = $map['RepairTypeName'];
-        }
-        if (isset($map['RepairType'])) {
-            $model->repairType = $map['RepairType'];
+        if (isset($map['GarageType'])) {
+            $model->garageType = $map['GarageType'];
         }
         if (isset($map['OeMatch'])) {
             $model->oeMatch = $map['OeMatch'];
@@ -158,8 +137,29 @@ class repairParts extends Model
         if (isset($map['OutStandardPartsId'])) {
             $model->outStandardPartsId = $map['OutStandardPartsId'];
         }
-        if (isset($map['GarageType'])) {
-            $model->garageType = $map['GarageType'];
+        if (isset($map['OutStandardPartsName'])) {
+            $model->outStandardPartsName = $map['OutStandardPartsName'];
+        }
+        if (isset($map['PartNameMatch'])) {
+            $model->partNameMatch = $map['PartNameMatch'];
+        }
+        if (isset($map['PartsStdCode'])) {
+            $model->partsStdCode = $map['PartsStdCode'];
+        }
+        if (isset($map['PartsStdName'])) {
+            $model->partsStdName = $map['PartsStdName'];
+        }
+        if (isset($map['RelationType'])) {
+            $model->relationType = $map['RelationType'];
+        }
+        if (isset($map['RepairFee'])) {
+            $model->repairFee = $map['RepairFee'];
+        }
+        if (isset($map['RepairType'])) {
+            $model->repairType = $map['RepairType'];
+        }
+        if (isset($map['RepairTypeName'])) {
+            $model->repairTypeName = $map['RepairTypeName'];
         }
 
         return $model;

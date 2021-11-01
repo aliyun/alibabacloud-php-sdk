@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 视频文件的分辨率(像素)
+     * @description 视频帧的集合，未检测到目标的帧不列出
      *
-     * @var int
+     * @var frames[]
      */
-    public $width;
+    public $frames;
 
     /**
      * @description 视频文件的分辨率(像素)
@@ -24,15 +24,23 @@ class data extends Model
     public $height;
 
     /**
-     * @description 视频帧的集合，未检测到目标的帧不列出
+     * @description 输入文件信息
      *
-     * @var frames[]
+     * @var string
      */
-    public $frames;
+    public $inputFile;
+
+    /**
+     * @description 视频文件的分辨率(像素)
+     *
+     * @var int
+     */
+    public $width;
     protected $_name = [
-        'width'  => 'Width',
-        'height' => 'Height',
-        'frames' => 'Frames',
+        'frames'    => 'Frames',
+        'height'    => 'Height',
+        'inputFile' => 'InputFile',
+        'width'     => 'Width',
     ];
 
     public function validate()
@@ -42,12 +50,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
-        }
         if (null !== $this->frames) {
             $res['Frames'] = [];
             if (null !== $this->frames && \is_array($this->frames)) {
@@ -56,6 +58,15 @@ class data extends Model
                     $res['Frames'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
+        if (null !== $this->inputFile) {
+            $res['InputFile'] = $this->inputFile;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -69,12 +80,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
-        }
         if (isset($map['Frames'])) {
             if (!empty($map['Frames'])) {
                 $model->frames = [];
@@ -83,6 +88,15 @@ class data extends Model
                     $model->frames[$n++] = null !== $item ? frames::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
+        if (isset($map['InputFile'])) {
+            $model->inputFile = $map['InputFile'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;
