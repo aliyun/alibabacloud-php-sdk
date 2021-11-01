@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AddSubSceneRequest extends Model
 {
     /**
-     * @description 场景ID
-     *
-     * @var string
-     */
-    public $sceneId;
-
-    /**
      * @description 子场景名称
      *
      * @var string
      */
     public $name;
+
+    /**
+     * @description 场景ID
+     *
+     * @var string
+     */
+    public $sceneId;
     protected $_name = [
-        'sceneId' => 'SceneId',
         'name'    => 'Name',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class AddSubSceneRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class AddSubSceneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;

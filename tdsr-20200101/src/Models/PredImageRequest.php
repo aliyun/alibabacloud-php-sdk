@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PredImageRequest extends Model
 {
     /**
-     * @description 子场景ID
-     *
-     * @var string
-     */
-    public $subSceneId;
-
-    /**
-     * @description 是否门预测
+     * @description 是否垂直矫正
      *
      * @var bool
      */
-    public $detectDoor;
+    public $correctVertical;
 
     /**
      * @description 门数量(DetectDoor为false时，可为0)
@@ -30,16 +23,23 @@ class PredImageRequest extends Model
     public $countDetectDoor;
 
     /**
-     * @description 是否垂直矫正
+     * @description 是否门预测
      *
      * @var bool
      */
-    public $correctVertical;
+    public $detectDoor;
+
+    /**
+     * @description 子场景ID
+     *
+     * @var string
+     */
+    public $subSceneId;
     protected $_name = [
-        'subSceneId'      => 'SubSceneId',
-        'detectDoor'      => 'DetectDoor',
-        'countDetectDoor' => 'CountDetectDoor',
         'correctVertical' => 'CorrectVertical',
+        'countDetectDoor' => 'CountDetectDoor',
+        'detectDoor'      => 'DetectDoor',
+        'subSceneId'      => 'SubSceneId',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class PredImageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subSceneId) {
-            $res['SubSceneId'] = $this->subSceneId;
-        }
-        if (null !== $this->detectDoor) {
-            $res['DetectDoor'] = $this->detectDoor;
+        if (null !== $this->correctVertical) {
+            $res['CorrectVertical'] = $this->correctVertical;
         }
         if (null !== $this->countDetectDoor) {
             $res['CountDetectDoor'] = $this->countDetectDoor;
         }
-        if (null !== $this->correctVertical) {
-            $res['CorrectVertical'] = $this->correctVertical;
+        if (null !== $this->detectDoor) {
+            $res['DetectDoor'] = $this->detectDoor;
+        }
+        if (null !== $this->subSceneId) {
+            $res['SubSceneId'] = $this->subSceneId;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class PredImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubSceneId'])) {
-            $model->subSceneId = $map['SubSceneId'];
-        }
-        if (isset($map['DetectDoor'])) {
-            $model->detectDoor = $map['DetectDoor'];
+        if (isset($map['CorrectVertical'])) {
+            $model->correctVertical = $map['CorrectVertical'];
         }
         if (isset($map['CountDetectDoor'])) {
             $model->countDetectDoor = $map['CountDetectDoor'];
         }
-        if (isset($map['CorrectVertical'])) {
-            $model->correctVertical = $map['CorrectVertical'];
+        if (isset($map['DetectDoor'])) {
+            $model->detectDoor = $map['DetectDoor'];
+        }
+        if (isset($map['SubSceneId'])) {
+            $model->subSceneId = $map['SubSceneId'];
         }
 
         return $model;

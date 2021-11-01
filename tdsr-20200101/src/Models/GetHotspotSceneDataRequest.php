@@ -9,20 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetHotspotSceneDataRequest extends Model
 {
     /**
-     * @description 预览token
-     *
-     * @var string
-     */
-    public $previewToken;
-
-    /**
-     * @description 0 未发布， 1 已发布
-     *
-     * @var int
-     */
-    public $type;
-
-    /**
      * @description 自定义oss域名（可为cdn域名）
      *
      * @var string
@@ -35,11 +21,25 @@ class GetHotspotSceneDataRequest extends Model
      * @var bool
      */
     public $enabled;
+
+    /**
+     * @description 预览token
+     *
+     * @var string
+     */
+    public $previewToken;
+
+    /**
+     * @description 0 未发布， 1 已发布
+     *
+     * @var int
+     */
+    public $type;
     protected $_name = [
-        'previewToken' => 'PreviewToken',
-        'type'         => 'Type',
         'domain'       => 'Domain',
         'enabled'      => 'Enabled',
+        'previewToken' => 'PreviewToken',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class GetHotspotSceneDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->previewToken) {
-            $res['PreviewToken'] = $this->previewToken;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->previewToken) {
+            $res['PreviewToken'] = $this->previewToken;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class GetHotspotSceneDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PreviewToken'])) {
-            $model->previewToken = $map['PreviewToken'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['PreviewToken'])) {
+            $model->previewToken = $map['PreviewToken'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

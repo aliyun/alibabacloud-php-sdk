@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description html转译后的预览数据
-     *
-     * @var string
-     */
-    public $panoList;
-
-    /**
      * @description 模型地址
      *
      * @var string
      */
     public $modelPath;
+
+    /**
+     * @description html转译后的预览数据
+     *
+     * @var string
+     */
+    public $panoList;
 
     /**
      * @description 模型的贴图路径
@@ -36,8 +36,8 @@ class data extends Model
      */
     public $texturePanoPath;
     protected $_name = [
-        'panoList'         => 'PanoList',
         'modelPath'        => 'ModelPath',
+        'panoList'         => 'PanoList',
         'textureModelPath' => 'TextureModelPath',
         'texturePanoPath'  => 'TexturePanoPath',
     ];
@@ -49,11 +49,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->panoList) {
-            $res['PanoList'] = $this->panoList;
-        }
         if (null !== $this->modelPath) {
             $res['ModelPath'] = $this->modelPath;
+        }
+        if (null !== $this->panoList) {
+            $res['PanoList'] = $this->panoList;
         }
         if (null !== $this->textureModelPath) {
             $res['TextureModelPath'] = $this->textureModelPath;
@@ -73,11 +73,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PanoList'])) {
-            $model->panoList = $map['PanoList'];
-        }
         if (isset($map['ModelPath'])) {
             $model->modelPath = $map['ModelPath'];
+        }
+        if (isset($map['PanoList'])) {
+            $model->panoList = $map['PanoList'];
         }
         if (isset($map['TextureModelPath'])) {
             $model->textureModelPath = $map['TextureModelPath'];

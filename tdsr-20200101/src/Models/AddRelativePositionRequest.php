@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AddRelativePositionRequest extends Model
 {
     /**
-     * @description 场景ID
-     *
-     * @var string
-     */
-    public $sceneId;
-
-    /**
      * @description 相对位置信息
      *
      * @var string
      */
     public $relativePosition;
+
+    /**
+     * @description 场景ID
+     *
+     * @var string
+     */
+    public $sceneId;
     protected $_name = [
-        'sceneId'          => 'SceneId',
         'relativePosition' => 'RelativePosition',
+        'sceneId'          => 'SceneId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class AddRelativePositionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
-        }
         if (null !== $this->relativePosition) {
             $res['RelativePosition'] = $this->relativePosition;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class AddRelativePositionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
-        }
         if (isset($map['RelativePosition'])) {
             $model->relativePosition = $map['RelativePosition'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;

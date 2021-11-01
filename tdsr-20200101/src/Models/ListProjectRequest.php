@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListProjectRequest extends Model
 {
     /**
+     * @description 项目名称（使用name%搜索）
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
      * @description 页码
      *
      * @var int
@@ -21,17 +28,10 @@ class ListProjectRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @description 项目名称（使用name%搜索）
-     *
-     * @var string
-     */
-    public $name;
     protected $_name = [
+        'name'     => 'Name',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
-        'name'     => 'Name',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class ListProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class ListProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

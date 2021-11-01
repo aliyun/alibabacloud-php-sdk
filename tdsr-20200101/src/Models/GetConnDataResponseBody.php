@@ -10,39 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetConnDataResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description 返回码
      *
      * @var int
      */
     public $code;
-
-    /**
-     * @description 是否请求成功
-     *
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @description 错误消息
-     *
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @description 版本
-     *
-     * @var string
-     */
-    public $version;
 
     /**
      * @description 扩展信息
@@ -57,14 +29,42 @@ class GetConnDataResponseBody extends Model
      * @var list_[]
      */
     public $list;
+
+    /**
+     * @description 错误消息
+     *
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description 是否请求成功
+     *
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @description 版本
+     *
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'requestId' => 'RequestId',
         'code'      => 'Code',
-        'success'   => 'Success',
-        'message'   => 'Message',
-        'version'   => 'Version',
         'extend'    => 'Extend',
         'list'      => 'List',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
+        'version'   => 'Version',
     ];
 
     public function validate()
@@ -74,20 +74,8 @@ class GetConnDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
         if (null !== $this->extend) {
             $res['Extend'] = $this->extend;
@@ -101,6 +89,18 @@ class GetConnDataResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
 
         return $res;
     }
@@ -113,20 +113,8 @@ class GetConnDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
         if (isset($map['Extend'])) {
             $model->extend = $map['Extend'];
@@ -139,6 +127,18 @@ class GetConnDataResponseBody extends Model
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

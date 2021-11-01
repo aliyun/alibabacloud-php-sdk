@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateLayoutDataRequest extends Model
 {
     /**
-     * @description 子场景ID
-     *
-     * @var string
-     */
-    public $subSceneId;
-
-    /**
      * @description 标注数据
      *
      * @var string
      */
     public $layoutData;
+
+    /**
+     * @description 子场景ID
+     *
+     * @var string
+     */
+    public $subSceneId;
     protected $_name = [
-        'subSceneId' => 'SubSceneId',
         'layoutData' => 'LayoutData',
+        'subSceneId' => 'SubSceneId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class UpdateLayoutDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subSceneId) {
-            $res['SubSceneId'] = $this->subSceneId;
-        }
         if (null !== $this->layoutData) {
             $res['LayoutData'] = $this->layoutData;
+        }
+        if (null !== $this->subSceneId) {
+            $res['SubSceneId'] = $this->subSceneId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class UpdateLayoutDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubSceneId'])) {
-            $model->subSceneId = $map['SubSceneId'];
-        }
         if (isset($map['LayoutData'])) {
             $model->layoutData = $map['LayoutData'];
+        }
+        if (isset($map['SubSceneId'])) {
+            $model->subSceneId = $map['SubSceneId'];
         }
 
         return $model;

@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateSceneResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $sceneId;
-
-    /**
      * @var string
      */
-    public $requestId;
+    public $errMessage;
 
     /**
      * @var string
@@ -26,17 +21,22 @@ class CreateSceneResponseBody extends Model
     /**
      * @var string
      */
-    public $errMessage;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $sceneId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'sceneId'      => 'SceneId',
-        'requestId'    => 'RequestId',
-        'previewToken' => 'PreviewToken',
         'errMessage'   => 'ErrMessage',
+        'previewToken' => 'PreviewToken',
+        'requestId'    => 'RequestId',
+        'sceneId'      => 'SceneId',
         'success'      => 'Success',
     ];
 
@@ -47,17 +47,17 @@ class CreateSceneResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->errMessage) {
+            $res['ErrMessage'] = $this->errMessage;
         }
         if (null !== $this->previewToken) {
             $res['PreviewToken'] = $this->previewToken;
         }
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -74,17 +74,17 @@ class CreateSceneResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ErrMessage'])) {
+            $model->errMessage = $map['ErrMessage'];
         }
         if (isset($map['PreviewToken'])) {
             $model->previewToken = $map['PreviewToken'];
         }
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

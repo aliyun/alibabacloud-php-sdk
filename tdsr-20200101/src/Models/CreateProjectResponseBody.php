@@ -11,7 +11,7 @@ class CreateProjectResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $errMessage;
 
     /**
      * @var int
@@ -21,23 +21,23 @@ class CreateProjectResponseBody extends Model
     /**
      * @var string
      */
-    public $errMessage;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $name;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'id'         => 'Id',
         'errMessage' => 'ErrMessage',
-        'success'    => 'Success',
+        'id'         => 'Id',
         'name'       => 'Name',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateProjectResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->errMessage) {
+            $res['ErrMessage'] = $this->errMessage;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ErrMessage'])) {
+            $model->errMessage = $map['ErrMessage'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

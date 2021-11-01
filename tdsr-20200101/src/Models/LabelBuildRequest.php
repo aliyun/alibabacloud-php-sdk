@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class LabelBuildRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @description 场景ID
      *
      * @var string
      */
     public $sceneId;
-
-    /**
-     * @var string
-     */
-    public $mode;
     protected $_name = [
-        'sceneId' => 'SceneId',
         'mode'    => 'Mode',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class LabelBuildRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
-        }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class LabelBuildRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
-        }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;

@@ -161,255 +161,59 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param GetSingleConnDataRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetSingleConnDataResponse
-     */
-    public function getSingleConnDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSingleConnDataResponse::fromMap($this->doRPCRequest('GetSingleConnData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSingleConnDataRequest $request
-     *
-     * @return GetSingleConnDataResponse
-     */
-    public function getSingleConnData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSingleConnDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetTaskStatusRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetTaskStatusResponse
-     */
-    public function getTaskStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetTaskStatusResponse::fromMap($this->doRPCRequest('GetTaskStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetTaskStatusRequest $request
-     *
-     * @return GetTaskStatusResponse
-     */
-    public function getTaskStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getTaskStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param LinkImageRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return LinkImageResponse
-     */
-    public function linkImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return LinkImageResponse::fromMap($this->doRPCRequest('LinkImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param LinkImageRequest $request
-     *
-     * @return LinkImageResponse
-     */
-    public function linkImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->linkImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddSceneRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return AddSceneResponse
-     */
-    public function addSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddSceneResponse::fromMap($this->doRPCRequest('AddScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddSceneRequest $request
-     *
-     * @return AddSceneResponse
-     */
-    public function addScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateConnDataRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateConnDataResponse
-     */
-    public function updateConnDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateConnDataResponse::fromMap($this->doRPCRequest('UpdateConnData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateConnDataRequest $request
-     *
-     * @return UpdateConnDataResponse
-     */
-    public function updateConnData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateConnDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RectifyImageRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return RectifyImageResponse
-     */
-    public function rectifyImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RectifyImageResponse::fromMap($this->doRPCRequest('RectifyImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RectifyImageRequest $request
-     *
-     * @return RectifyImageResponse
-     */
-    public function rectifyImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->rectifyImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param LabelBuildRequest $request
+     * @param AddMosaicsRequest $request
      * @param RuntimeOptions    $runtime
      *
-     * @return LabelBuildResponse
+     * @return AddMosaicsResponse
      */
-    public function labelBuildWithOptions($request, $runtime)
+    public function addMosaicsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return LabelBuildResponse::fromMap($this->doRPCRequest('LabelBuild', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddMosaicsResponse::fromMap($this->doRPCRequest('AddMosaics', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param LabelBuildRequest $request
+     * @param AddMosaicsRequest $request
      *
-     * @return LabelBuildResponse
+     * @return AddMosaicsResponse
      */
-    public function labelBuild($request)
+    public function addMosaics($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->labelBuildWithOptions($request, $runtime);
+        return $this->addMosaicsWithOptions($request, $runtime);
     }
 
     /**
-     * @param DropSceneRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param AddProjectRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return DropSceneResponse
+     * @return AddProjectResponse
      */
-    public function dropSceneWithOptions($request, $runtime)
+    public function addProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DropSceneResponse::fromMap($this->doRPCRequest('DropScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddProjectResponse::fromMap($this->doRPCRequest('AddProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DropSceneRequest $request
+     * @param AddProjectRequest $request
      *
-     * @return DropSceneResponse
+     * @return AddProjectResponse
      */
-    public function dropScene($request)
+    public function addProject($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->dropSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OptimizeRightAngleRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return OptimizeRightAngleResponse
-     */
-    public function optimizeRightAngleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OptimizeRightAngleResponse::fromMap($this->doRPCRequest('OptimizeRightAngle', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OptimizeRightAngleRequest $request
-     *
-     * @return OptimizeRightAngleResponse
-     */
-    public function optimizeRightAngle($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->optimizeRightAngleWithOptions($request, $runtime);
+        return $this->addProjectWithOptions($request, $runtime);
     }
 
     /**
@@ -441,31 +245,115 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param DetailSceneRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param AddSceneRequest $request
+     * @param RuntimeOptions  $runtime
      *
-     * @return DetailSceneResponse
+     * @return AddSceneResponse
      */
-    public function detailSceneWithOptions($request, $runtime)
+    public function addSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DetailSceneResponse::fromMap($this->doRPCRequest('DetailScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddSceneResponse::fromMap($this->doRPCRequest('AddScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DetailSceneRequest $request
+     * @param AddSceneRequest $request
      *
-     * @return DetailSceneResponse
+     * @return AddSceneResponse
      */
-    public function detailScene($request)
+    public function addScene($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->detailSceneWithOptions($request, $runtime);
+        return $this->addSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddSubSceneRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddSubSceneResponse
+     */
+    public function addSubSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddSubSceneResponse::fromMap($this->doRPCRequest('AddSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddSubSceneRequest $request
+     *
+     * @return AddSubSceneResponse
+     */
+    public function addSubScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addSubSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckResourceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CheckResourceResponse
+     */
+    public function checkResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckResourceResponse::fromMap($this->doRPCRequest('CheckResource', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckResourceRequest $request
+     *
+     * @return CheckResourceResponse
+     */
+    public function checkResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateProjectResponse::fromMap($this->doRPCRequest('CreateProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectWithOptions($request, $runtime);
     }
 
     /**
@@ -525,202 +413,6 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param CheckResourceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CheckResourceResponse
-     */
-    public function checkResourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CheckResourceResponse::fromMap($this->doRPCRequest('CheckResource', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CheckResourceRequest $request
-     *
-     * @return CheckResourceResponse
-     */
-    public function checkResource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkResourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListSceneRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListSceneResponse
-     */
-    public function listSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListSceneResponse::fromMap($this->doRPCRequest('ListScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSceneRequest $request
-     *
-     * @return ListSceneResponse
-     */
-    public function listScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PublishHotspotRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return PublishHotspotResponse
-     */
-    public function publishHotspotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PublishHotspotResponse::fromMap($this->doRPCRequest('PublishHotspot', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PublishHotspotRequest $request
-     *
-     * @return PublishHotspotResponse
-     */
-    public function publishHotspot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->publishHotspotWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateSceneRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return UpdateSceneResponse
-     */
-    public function updateSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateSceneResponse::fromMap($this->doRPCRequest('UpdateScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateSceneRequest $request
-     *
-     * @return UpdateSceneResponse
-     */
-    public function updateScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateLayoutDataRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateLayoutDataResponse
-     */
-    public function updateLayoutDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateLayoutDataResponse::fromMap($this->doRPCRequest('UpdateLayoutData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateLayoutDataRequest $request
-     *
-     * @return UpdateLayoutDataResponse
-     */
-    public function updateLayoutData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateLayoutDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveHotspotTagRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return SaveHotspotTagResponse
-     */
-    public function saveHotspotTagWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SaveHotspotTagResponse::fromMap($this->doRPCRequest('SaveHotspotTag', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SaveHotspotTagRequest $request
-     *
-     * @return SaveHotspotTagResponse
-     */
-    public function saveHotspotTag($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveHotspotTagWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecoveryOriginImageRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RecoveryOriginImageResponse
-     */
-    public function recoveryOriginImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RecoveryOriginImageResponse::fromMap($this->doRPCRequest('RecoveryOriginImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecoveryOriginImageRequest $request
-     *
-     * @return RecoveryOriginImageResponse
-     */
-    public function recoveryOriginImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recoveryOriginImageWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -746,510 +438,6 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RectVerticalRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return RectVerticalResponse
-     */
-    public function rectVerticalWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RectVerticalResponse::fromMap($this->doRPCRequest('RectVertical', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RectVerticalRequest $request
-     *
-     * @return RectVerticalResponse
-     */
-    public function rectVertical($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->rectVerticalWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PredImageRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return PredImageResponse
-     */
-    public function predImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PredImageResponse::fromMap($this->doRPCRequest('PredImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PredImageRequest $request
-     *
-     * @return PredImageResponse
-     */
-    public function predImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->predImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetOssPolicyRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetOssPolicyResponse
-     */
-    public function getOssPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetOssPolicyResponse::fromMap($this->doRPCRequest('GetOssPolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetOssPolicyRequest $request
-     *
-     * @return GetOssPolicyResponse
-     */
-    public function getOssPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getOssPolicyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetConnDataRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetConnDataResponse
-     */
-    public function getConnDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetConnDataResponse::fromMap($this->doRPCRequest('GetConnData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetConnDataRequest $request
-     *
-     * @return GetConnDataResponse
-     */
-    public function getConnData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getConnDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RollbackSubSceneRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RollbackSubSceneResponse
-     */
-    public function rollbackSubSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RollbackSubSceneResponse::fromMap($this->doRPCRequest('RollbackSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RollbackSubSceneRequest $request
-     *
-     * @return RollbackSubSceneResponse
-     */
-    public function rollbackSubScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->rollbackSubSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TempPreviewStatusRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return TempPreviewStatusResponse
-     */
-    public function tempPreviewStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return TempPreviewStatusResponse::fromMap($this->doRPCRequest('TempPreviewStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param TempPreviewStatusRequest $request
-     *
-     * @return TempPreviewStatusResponse
-     */
-    public function tempPreviewStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->tempPreviewStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddProjectRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return AddProjectResponse
-     */
-    public function addProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddProjectResponse::fromMap($this->doRPCRequest('AddProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddProjectRequest $request
-     *
-     * @return AddProjectResponse
-     */
-    public function addProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetailSubSceneRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DetailSubSceneResponse
-     */
-    public function detailSubSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DetailSubSceneResponse::fromMap($this->doRPCRequest('DetailSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DetailSubSceneRequest $request
-     *
-     * @return DetailSubSceneResponse
-     */
-    public function detailSubScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detailSubSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListSubSceneRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListSubSceneResponse
-     */
-    public function listSubSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListSubSceneResponse::fromMap($this->doRPCRequest('ListSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSubSceneRequest $request
-     *
-     * @return ListSubSceneResponse
-     */
-    public function listSubScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSubSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateSubSceneRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateSubSceneResponse
-     */
-    public function updateSubSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateSubSceneResponse::fromMap($this->doRPCRequest('UpdateSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateSubSceneRequest $request
-     *
-     * @return UpdateSubSceneResponse
-     */
-    public function updateSubScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateSubSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetJobRequest  $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetJobResponse
-     */
-    public function getJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetJobResponse::fromMap($this->doRPCRequest('GetJob', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetJobRequest $request
-     *
-     * @return GetJobResponse
-     */
-    public function getJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateProjectRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateProjectResponse
-     */
-    public function createProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateProjectResponse::fromMap($this->doRPCRequest('CreateProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateProjectRequest $request
-     *
-     * @return CreateProjectResponse
-     */
-    public function createProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveHotspotConfigRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return SaveHotspotConfigResponse
-     */
-    public function saveHotspotConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SaveHotspotConfigResponse::fromMap($this->doRPCRequest('SaveHotspotConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SaveHotspotConfigRequest $request
-     *
-     * @return SaveHotspotConfigResponse
-     */
-    public function saveHotspotConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveHotspotConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetWindowConfigRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetWindowConfigResponse
-     */
-    public function getWindowConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetWindowConfigResponse::fromMap($this->doRPCRequest('GetWindowConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetWindowConfigRequest $request
-     *
-     * @return GetWindowConfigResponse
-     */
-    public function getWindowConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getWindowConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetHotspotConfigRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetHotspotConfigResponse
-     */
-    public function getHotspotConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetHotspotConfigResponse::fromMap($this->doRPCRequest('GetHotspotConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetHotspotConfigRequest $request
-     *
-     * @return GetHotspotConfigResponse
-     */
-    public function getHotspotConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getHotspotConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSceneBuildTaskStatusRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetSceneBuildTaskStatusResponse
-     */
-    public function getSceneBuildTaskStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSceneBuildTaskStatusResponse::fromMap($this->doRPCRequest('GetSceneBuildTaskStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSceneBuildTaskStatusRequest $request
-     *
-     * @return GetSceneBuildTaskStatusResponse
-     */
-    public function getSceneBuildTaskStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSceneBuildTaskStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TempPreviewRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return TempPreviewResponse
-     */
-    public function tempPreviewWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return TempPreviewResponse::fromMap($this->doRPCRequest('TempPreview', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param TempPreviewRequest $request
-     *
-     * @return TempPreviewResponse
-     */
-    public function tempPreview($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->tempPreviewWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PublishSceneRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return PublishSceneResponse
-     */
-    public function publishSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PublishSceneResponse::fromMap($this->doRPCRequest('PublishScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PublishSceneRequest $request
-     *
-     * @return PublishSceneResponse
-     */
-    public function publishScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->publishSceneWithOptions($request, $runtime);
     }
 
     /**
@@ -1281,87 +469,59 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param ListScenesRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param DetailSceneRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return ListScenesResponse
+     * @return DetailSceneResponse
      */
-    public function listScenesWithOptions($request, $runtime)
+    public function detailSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListScenesResponse::fromMap($this->doRPCRequest('ListScenes', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetailSceneResponse::fromMap($this->doRPCRequest('DetailScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListScenesRequest $request
+     * @param DetailSceneRequest $request
      *
-     * @return ListScenesResponse
+     * @return DetailSceneResponse
      */
-    public function listScenes($request)
+    public function detailScene($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listScenesWithOptions($request, $runtime);
+        return $this->detailSceneWithOptions($request, $runtime);
     }
 
     /**
-     * @param DropSubSceneRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param DetailSubSceneRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return DropSubSceneResponse
+     * @return DetailSubSceneResponse
      */
-    public function dropSubSceneWithOptions($request, $runtime)
+    public function detailSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DropSubSceneResponse::fromMap($this->doRPCRequest('DropSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetailSubSceneResponse::fromMap($this->doRPCRequest('DetailSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DropSubSceneRequest $request
+     * @param DetailSubSceneRequest $request
      *
-     * @return DropSubSceneResponse
+     * @return DetailSubSceneResponse
      */
-    public function dropSubScene($request)
+    public function detailSubScene($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->dropSubSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetHotspotTagRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetHotspotTagResponse
-     */
-    public function getHotspotTagWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetHotspotTagResponse::fromMap($this->doRPCRequest('GetHotspotTag', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetHotspotTagRequest $request
-     *
-     * @return GetHotspotTagResponse
-     */
-    public function getHotspotTag($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getHotspotTagWithOptions($request, $runtime);
+        return $this->detailSubSceneWithOptions($request, $runtime);
     }
 
     /**
@@ -1393,59 +553,115 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param ListProjectRequest $request
+     * @param DropSceneRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DropSceneResponse
+     */
+    public function dropSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DropSceneResponse::fromMap($this->doRPCRequest('DropScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DropSceneRequest $request
+     *
+     * @return DropSceneResponse
+     */
+    public function dropScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dropSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DropSubSceneRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DropSubSceneResponse
+     */
+    public function dropSubSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DropSubSceneResponse::fromMap($this->doRPCRequest('DropSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DropSubSceneRequest $request
+     *
+     * @return DropSubSceneResponse
+     */
+    public function dropSubScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dropSubSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetConnDataRequest $request
      * @param RuntimeOptions     $runtime
      *
-     * @return ListProjectResponse
+     * @return GetConnDataResponse
      */
-    public function listProjectWithOptions($request, $runtime)
+    public function getConnDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListProjectResponse::fromMap($this->doRPCRequest('ListProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConnDataResponse::fromMap($this->doRPCRequest('GetConnData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListProjectRequest $request
+     * @param GetConnDataRequest $request
      *
-     * @return ListProjectResponse
+     * @return GetConnDataResponse
      */
-    public function listProject($request)
+    public function getConnData($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listProjectWithOptions($request, $runtime);
+        return $this->getConnDataWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetOriginLayoutDataRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetHotspotConfigRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetOriginLayoutDataResponse
+     * @return GetHotspotConfigResponse
      */
-    public function getOriginLayoutDataWithOptions($request, $runtime)
+    public function getHotspotConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetOriginLayoutDataResponse::fromMap($this->doRPCRequest('GetOriginLayoutData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetHotspotConfigResponse::fromMap($this->doRPCRequest('GetHotspotConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetOriginLayoutDataRequest $request
+     * @param GetHotspotConfigRequest $request
      *
-     * @return GetOriginLayoutDataResponse
+     * @return GetHotspotConfigResponse
      */
-    public function getOriginLayoutData($request)
+    public function getHotspotConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getOriginLayoutDataWithOptions($request, $runtime);
+        return $this->getHotspotConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -1477,199 +693,143 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param AddMosaicsRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return AddMosaicsResponse
-     */
-    public function addMosaicsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddMosaicsResponse::fromMap($this->doRPCRequest('AddMosaics', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddMosaicsRequest $request
-     *
-     * @return AddMosaicsResponse
-     */
-    public function addMosaics($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addMosaicsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ScenePublishRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ScenePublishResponse
-     */
-    public function scenePublishWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ScenePublishResponse::fromMap($this->doRPCRequest('ScenePublish', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ScenePublishRequest $request
-     *
-     * @return ScenePublishResponse
-     */
-    public function scenePublish($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->scenePublishWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetRectifyImageRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetRectifyImageResponse
-     */
-    public function getRectifyImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetRectifyImageResponse::fromMap($this->doRPCRequest('GetRectifyImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetRectifyImageRequest $request
-     *
-     * @return GetRectifyImageResponse
-     */
-    public function getRectifyImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRectifyImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateProjectRequest $request
+     * @param GetHotspotTagRequest $request
      * @param RuntimeOptions       $runtime
      *
-     * @return UpdateProjectResponse
+     * @return GetHotspotTagResponse
      */
-    public function updateProjectWithOptions($request, $runtime)
+    public function getHotspotTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateProjectResponse::fromMap($this->doRPCRequest('UpdateProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetHotspotTagResponse::fromMap($this->doRPCRequest('GetHotspotTag', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateProjectRequest $request
+     * @param GetHotspotTagRequest $request
      *
-     * @return UpdateProjectResponse
+     * @return GetHotspotTagResponse
      */
-    public function updateProject($request)
+    public function getHotspotTag($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateProjectWithOptions($request, $runtime);
+        return $this->getHotspotTagWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetSubSceneTaskStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param GetJobRequest  $request
+     * @param RuntimeOptions $runtime
      *
-     * @return GetSubSceneTaskStatusResponse
+     * @return GetJobResponse
      */
-    public function getSubSceneTaskStatusWithOptions($request, $runtime)
+    public function getJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetSubSceneTaskStatusResponse::fromMap($this->doRPCRequest('GetSubSceneTaskStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetJobResponse::fromMap($this->doRPCRequest('GetJob', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetSubSceneTaskStatusRequest $request
+     * @param GetJobRequest $request
      *
-     * @return GetSubSceneTaskStatusResponse
+     * @return GetJobResponse
      */
-    public function getSubSceneTaskStatus($request)
+    public function getJob($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getSubSceneTaskStatusWithOptions($request, $runtime);
+        return $this->getJobWithOptions($request, $runtime);
     }
 
     /**
-     * @param PredictionWallLineRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param GetLayoutDataRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return PredictionWallLineResponse
+     * @return GetLayoutDataResponse
      */
-    public function predictionWallLineWithOptions($request, $runtime)
+    public function getLayoutDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return PredictionWallLineResponse::fromMap($this->doRPCRequest('PredictionWallLine', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLayoutDataResponse::fromMap($this->doRPCRequest('GetLayoutData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param PredictionWallLineRequest $request
+     * @param GetLayoutDataRequest $request
      *
-     * @return PredictionWallLineResponse
+     * @return GetLayoutDataResponse
      */
-    public function predictionWallLine($request)
+    public function getLayoutData($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->predictionWallLineWithOptions($request, $runtime);
+        return $this->getLayoutDataWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetScenePreviewInfoRequest $request
+     * @param GetOriginLayoutDataRequest $request
      * @param RuntimeOptions             $runtime
      *
-     * @return GetScenePreviewInfoResponse
+     * @return GetOriginLayoutDataResponse
      */
-    public function getScenePreviewInfoWithOptions($request, $runtime)
+    public function getOriginLayoutDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetScenePreviewInfoResponse::fromMap($this->doRPCRequest('GetScenePreviewInfo', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetOriginLayoutDataResponse::fromMap($this->doRPCRequest('GetOriginLayoutData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetScenePreviewInfoRequest $request
+     * @param GetOriginLayoutDataRequest $request
      *
-     * @return GetScenePreviewInfoResponse
+     * @return GetOriginLayoutDataResponse
      */
-    public function getScenePreviewInfo($request)
+    public function getOriginLayoutData($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getScenePreviewInfoWithOptions($request, $runtime);
+        return $this->getOriginLayoutDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOssPolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetOssPolicyResponse
+     */
+    public function getOssPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetOssPolicyResponse::fromMap($this->doRPCRequest('GetOssPolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetOssPolicyRequest $request
+     *
+     * @return GetOssPolicyResponse
+     */
+    public function getOssPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOssPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1701,58 +861,898 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param AddSubSceneRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param GetRectifyImageRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return AddSubSceneResponse
+     * @return GetRectifyImageResponse
      */
-    public function addSubSceneWithOptions($request, $runtime)
+    public function getRectifyImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return AddSubSceneResponse::fromMap($this->doRPCRequest('AddSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRectifyImageResponse::fromMap($this->doRPCRequest('GetRectifyImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param AddSubSceneRequest $request
+     * @param GetRectifyImageRequest $request
      *
-     * @return AddSubSceneResponse
+     * @return GetRectifyImageResponse
      */
-    public function addSubScene($request)
+    public function getRectifyImage($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->addSubSceneWithOptions($request, $runtime);
+        return $this->getRectifyImageWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetLayoutDataRequest $request
+     * @param GetSceneBuildTaskStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetSceneBuildTaskStatusResponse
+     */
+    public function getSceneBuildTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSceneBuildTaskStatusResponse::fromMap($this->doRPCRequest('GetSceneBuildTaskStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSceneBuildTaskStatusRequest $request
+     *
+     * @return GetSceneBuildTaskStatusResponse
+     */
+    public function getSceneBuildTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSceneBuildTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetScenePreviewInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetScenePreviewInfoResponse
+     */
+    public function getScenePreviewInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetScenePreviewInfoResponse::fromMap($this->doRPCRequest('GetScenePreviewInfo', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetScenePreviewInfoRequest $request
+     *
+     * @return GetScenePreviewInfoResponse
+     */
+    public function getScenePreviewInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getScenePreviewInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSingleConnDataRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetSingleConnDataResponse
+     */
+    public function getSingleConnDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSingleConnDataResponse::fromMap($this->doRPCRequest('GetSingleConnData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSingleConnDataRequest $request
+     *
+     * @return GetSingleConnDataResponse
+     */
+    public function getSingleConnData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSingleConnDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSubSceneTaskStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetSubSceneTaskStatusResponse
+     */
+    public function getSubSceneTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSubSceneTaskStatusResponse::fromMap($this->doRPCRequest('GetSubSceneTaskStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSubSceneTaskStatusRequest $request
+     *
+     * @return GetSubSceneTaskStatusResponse
+     */
+    public function getSubSceneTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSubSceneTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTaskStatusRequest $request
      * @param RuntimeOptions       $runtime
      *
-     * @return GetLayoutDataResponse
+     * @return GetTaskStatusResponse
      */
-    public function getLayoutDataWithOptions($request, $runtime)
+    public function getTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetLayoutDataResponse::fromMap($this->doRPCRequest('GetLayoutData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTaskStatusResponse::fromMap($this->doRPCRequest('GetTaskStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetLayoutDataRequest $request
+     * @param GetTaskStatusRequest $request
      *
-     * @return GetLayoutDataResponse
+     * @return GetTaskStatusResponse
      */
-    public function getLayoutData($request)
+    public function getTaskStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getLayoutDataWithOptions($request, $runtime);
+        return $this->getTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetWindowConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetWindowConfigResponse
+     */
+    public function getWindowConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetWindowConfigResponse::fromMap($this->doRPCRequest('GetWindowConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetWindowConfigRequest $request
+     *
+     * @return GetWindowConfigResponse
+     */
+    public function getWindowConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWindowConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param LabelBuildRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return LabelBuildResponse
+     */
+    public function labelBuildWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return LabelBuildResponse::fromMap($this->doRPCRequest('LabelBuild', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param LabelBuildRequest $request
+     *
+     * @return LabelBuildResponse
+     */
+    public function labelBuild($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->labelBuildWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param LinkImageRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return LinkImageResponse
+     */
+    public function linkImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return LinkImageResponse::fromMap($this->doRPCRequest('LinkImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param LinkImageRequest $request
+     *
+     * @return LinkImageResponse
+     */
+    public function linkImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->linkImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProjectRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListProjectResponse
+     */
+    public function listProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListProjectResponse::fromMap($this->doRPCRequest('ListProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListProjectRequest $request
+     *
+     * @return ListProjectResponse
+     */
+    public function listProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSceneRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListSceneResponse
+     */
+    public function listSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListSceneResponse::fromMap($this->doRPCRequest('ListScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListSceneRequest $request
+     *
+     * @return ListSceneResponse
+     */
+    public function listScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListScenesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListScenesResponse
+     */
+    public function listScenesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListScenesResponse::fromMap($this->doRPCRequest('ListScenes', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListScenesRequest $request
+     *
+     * @return ListScenesResponse
+     */
+    public function listScenes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listScenesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSubSceneRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListSubSceneResponse
+     */
+    public function listSubSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListSubSceneResponse::fromMap($this->doRPCRequest('ListSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListSubSceneRequest $request
+     *
+     * @return ListSubSceneResponse
+     */
+    public function listSubScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSubSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OptimizeRightAngleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return OptimizeRightAngleResponse
+     */
+    public function optimizeRightAngleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return OptimizeRightAngleResponse::fromMap($this->doRPCRequest('OptimizeRightAngle', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param OptimizeRightAngleRequest $request
+     *
+     * @return OptimizeRightAngleResponse
+     */
+    public function optimizeRightAngle($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->optimizeRightAngleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PredImageRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return PredImageResponse
+     */
+    public function predImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PredImageResponse::fromMap($this->doRPCRequest('PredImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PredImageRequest $request
+     *
+     * @return PredImageResponse
+     */
+    public function predImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->predImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PredictionWallLineRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PredictionWallLineResponse
+     */
+    public function predictionWallLineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PredictionWallLineResponse::fromMap($this->doRPCRequest('PredictionWallLine', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PredictionWallLineRequest $request
+     *
+     * @return PredictionWallLineResponse
+     */
+    public function predictionWallLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->predictionWallLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublishHotspotRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PublishHotspotResponse
+     */
+    public function publishHotspotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PublishHotspotResponse::fromMap($this->doRPCRequest('PublishHotspot', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PublishHotspotRequest $request
+     *
+     * @return PublishHotspotResponse
+     */
+    public function publishHotspot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishHotspotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublishSceneRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PublishSceneResponse
+     */
+    public function publishSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PublishSceneResponse::fromMap($this->doRPCRequest('PublishScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PublishSceneRequest $request
+     *
+     * @return PublishSceneResponse
+     */
+    public function publishScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecoveryOriginImageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecoveryOriginImageResponse
+     */
+    public function recoveryOriginImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecoveryOriginImageResponse::fromMap($this->doRPCRequest('RecoveryOriginImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecoveryOriginImageRequest $request
+     *
+     * @return RecoveryOriginImageResponse
+     */
+    public function recoveryOriginImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recoveryOriginImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RectVerticalRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RectVerticalResponse
+     */
+    public function rectVerticalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RectVerticalResponse::fromMap($this->doRPCRequest('RectVertical', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RectVerticalRequest $request
+     *
+     * @return RectVerticalResponse
+     */
+    public function rectVertical($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rectVerticalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RectifyImageRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RectifyImageResponse
+     */
+    public function rectifyImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RectifyImageResponse::fromMap($this->doRPCRequest('RectifyImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RectifyImageRequest $request
+     *
+     * @return RectifyImageResponse
+     */
+    public function rectifyImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rectifyImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RollbackSubSceneRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RollbackSubSceneResponse
+     */
+    public function rollbackSubSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RollbackSubSceneResponse::fromMap($this->doRPCRequest('RollbackSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RollbackSubSceneRequest $request
+     *
+     * @return RollbackSubSceneResponse
+     */
+    public function rollbackSubScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackSubSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveHotspotConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SaveHotspotConfigResponse
+     */
+    public function saveHotspotConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SaveHotspotConfigResponse::fromMap($this->doRPCRequest('SaveHotspotConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SaveHotspotConfigRequest $request
+     *
+     * @return SaveHotspotConfigResponse
+     */
+    public function saveHotspotConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveHotspotConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveHotspotTagRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SaveHotspotTagResponse
+     */
+    public function saveHotspotTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SaveHotspotTagResponse::fromMap($this->doRPCRequest('SaveHotspotTag', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SaveHotspotTagRequest $request
+     *
+     * @return SaveHotspotTagResponse
+     */
+    public function saveHotspotTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveHotspotTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ScenePublishRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ScenePublishResponse
+     */
+    public function scenePublishWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ScenePublishResponse::fromMap($this->doRPCRequest('ScenePublish', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ScenePublishRequest $request
+     *
+     * @return ScenePublishResponse
+     */
+    public function scenePublish($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->scenePublishWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TempPreviewRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return TempPreviewResponse
+     */
+    public function tempPreviewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TempPreviewResponse::fromMap($this->doRPCRequest('TempPreview', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TempPreviewRequest $request
+     *
+     * @return TempPreviewResponse
+     */
+    public function tempPreview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tempPreviewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TempPreviewStatusRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TempPreviewStatusResponse
+     */
+    public function tempPreviewStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TempPreviewStatusResponse::fromMap($this->doRPCRequest('TempPreviewStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TempPreviewStatusRequest $request
+     *
+     * @return TempPreviewStatusResponse
+     */
+    public function tempPreviewStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tempPreviewStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateConnDataRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateConnDataResponse
+     */
+    public function updateConnDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateConnDataResponse::fromMap($this->doRPCRequest('UpdateConnData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateConnDataRequest $request
+     *
+     * @return UpdateConnDataResponse
+     */
+    public function updateConnData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateConnDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateLayoutDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateLayoutDataResponse
+     */
+    public function updateLayoutDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateLayoutDataResponse::fromMap($this->doRPCRequest('UpdateLayoutData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateLayoutDataRequest $request
+     *
+     * @return UpdateLayoutDataResponse
+     */
+    public function updateLayoutData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLayoutDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateProjectResponse
+     */
+    public function updateProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateProjectResponse::fromMap($this->doRPCRequest('UpdateProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateProjectRequest $request
+     *
+     * @return UpdateProjectResponse
+     */
+    public function updateProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSceneRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateSceneResponse
+     */
+    public function updateSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateSceneResponse::fromMap($this->doRPCRequest('UpdateScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSceneRequest $request
+     *
+     * @return UpdateSceneResponse
+     */
+    public function updateScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSubSceneRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateSubSceneResponse
+     */
+    public function updateSubSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateSubSceneResponse::fromMap($this->doRPCRequest('UpdateSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSubSceneRequest $request
+     *
+     * @return UpdateSubSceneResponse
+     */
+    public function updateSubScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSubSceneWithOptions($request, $runtime);
     }
 }

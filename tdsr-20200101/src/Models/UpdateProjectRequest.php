@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectRequest extends Model
 {
     /**
+     * @description 业务Id
+     *
+     * @var string
+     */
+    public $businessId;
+
+    /**
      * @description 项目id
      *
      * @var string
@@ -21,17 +28,10 @@ class UpdateProjectRequest extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @description 业务Id
-     *
-     * @var string
-     */
-    public $businessId;
     protected $_name = [
+        'businessId' => 'BusinessId',
         'id'         => 'Id',
         'name'       => 'Name',
-        'businessId' => 'BusinessId',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class UpdateProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessId) {
+            $res['BusinessId'] = $this->businessId;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->businessId) {
-            $res['BusinessId'] = $this->businessId;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class UpdateProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessId'])) {
+            $model->businessId = $map['BusinessId'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['BusinessId'])) {
-            $model->businessId = $map['BusinessId'];
         }
 
         return $model;

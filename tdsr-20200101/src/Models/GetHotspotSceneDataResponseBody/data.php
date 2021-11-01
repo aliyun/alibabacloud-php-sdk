@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 3D模型：MODEL_3D 全景图片：PIC 全景视频：VIDEO
+     * @description 模型token（sgm token）
      *
      * @var string
      */
-    public $sceneType;
-
-    /**
-     * @description 预览token
-     *
-     * @var string
-     */
-    public $previewToken;
+    public $modelToken;
 
     /**
      * @description html转译后的预览数据，包含图片、子场景ID等信息
@@ -30,16 +23,23 @@ class data extends Model
     public $previewData;
 
     /**
-     * @description 模型token（sgm token）
+     * @description 预览token
      *
      * @var string
      */
-    public $modelToken;
+    public $previewToken;
+
+    /**
+     * @description 3D模型：MODEL_3D 全景图片：PIC 全景视频：VIDEO
+     *
+     * @var string
+     */
+    public $sceneType;
     protected $_name = [
-        'sceneType'    => 'SceneType',
-        'previewToken' => 'PreviewToken',
-        'previewData'  => 'PreviewData',
         'modelToken'   => 'ModelToken',
+        'previewData'  => 'PreviewData',
+        'previewToken' => 'PreviewToken',
+        'sceneType'    => 'SceneType',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sceneType) {
-            $res['SceneType'] = $this->sceneType;
-        }
-        if (null !== $this->previewToken) {
-            $res['PreviewToken'] = $this->previewToken;
+        if (null !== $this->modelToken) {
+            $res['ModelToken'] = $this->modelToken;
         }
         if (null !== $this->previewData) {
             $res['PreviewData'] = $this->previewData;
         }
-        if (null !== $this->modelToken) {
-            $res['ModelToken'] = $this->modelToken;
+        if (null !== $this->previewToken) {
+            $res['PreviewToken'] = $this->previewToken;
+        }
+        if (null !== $this->sceneType) {
+            $res['SceneType'] = $this->sceneType;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneType'])) {
-            $model->sceneType = $map['SceneType'];
-        }
-        if (isset($map['PreviewToken'])) {
-            $model->previewToken = $map['PreviewToken'];
+        if (isset($map['ModelToken'])) {
+            $model->modelToken = $map['ModelToken'];
         }
         if (isset($map['PreviewData'])) {
             $model->previewData = $map['PreviewData'];
         }
-        if (isset($map['ModelToken'])) {
-            $model->modelToken = $map['ModelToken'];
+        if (isset($map['PreviewToken'])) {
+            $model->previewToken = $map['PreviewToken'];
+        }
+        if (isset($map['SceneType'])) {
+            $model->sceneType = $map['SceneType'];
         }
 
         return $model;

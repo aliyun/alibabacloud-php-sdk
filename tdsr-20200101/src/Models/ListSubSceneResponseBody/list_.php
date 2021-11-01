@@ -9,32 +9,11 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description 子场景ID
+     * @description 2k基准图路径
      *
      * @var string
      */
-    public $id;
-
-    /**
-     * @description 子场景名称
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description 图片ID/视频ID
-     *
-     * @var string
-     */
-    public $resourceId;
-
-    /**
-     * @description 图片路径/视频路径
-     *
-     * @var string
-     */
-    public $url;
+    public $baseImageUrl;
 
     /**
      * @description 图片路径/视频封面路径
@@ -42,34 +21,6 @@ class list_ extends Model
      * @var string
      */
     public $coverUrl;
-
-    /**
-     * @description 子场景状态 1.未重建，      * 2.中间模型重建中，      * 3.中间模型重建完成，      * 4.待重建，      * 5.服务商重建中，      * 6.服务商重建完成，      * 7.已发布      * 8.发布中
-     *
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @description 创建时间
-     *
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
-     * @description 最后修改时间
-     *
-     * @var int
-     */
-    public $gmtModified;
-
-    /**
-     * @description 资源名称
-     *
-     * @var string
-     */
-    public $resourceName;
 
     /**
      * @description 切图的路径
@@ -86,6 +37,41 @@ class list_ extends Model
     public $deleted;
 
     /**
+     * @description 创建时间
+     *
+     * @var int
+     */
+    public $gmtCreate;
+
+    /**
+     * @description 最后修改时间
+     *
+     * @var int
+     */
+    public $gmtModified;
+
+    /**
+     * @description 子场景ID
+     *
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @description 标注数据
+     *
+     * @var string
+     */
+    public $layoutData;
+
+    /**
+     * @description 子场景名称
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
      * @description 原图地址
      *
      * @var string
@@ -93,25 +79,47 @@ class list_ extends Model
     public $originUrl;
 
     /**
-     * @description 2k基准图路径
+     * @description 图片ID/视频ID
      *
      * @var string
      */
-    public $baseImageUrl;
+    public $resourceId;
+
+    /**
+     * @description 资源名称
+     *
+     * @var string
+     */
+    public $resourceName;
+
+    /**
+     * @description 子场景状态 1.未重建，      * 2.中间模型重建中，      * 3.中间模型重建完成，      * 4.待重建，      * 5.服务商重建中，      * 6.服务商重建完成，      * 7.已发布      * 8.发布中
+     *
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @description 图片路径/视频路径
+     *
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'id'           => 'Id',
-        'name'         => 'Name',
-        'resourceId'   => 'ResourceId',
-        'url'          => 'Url',
+        'baseImageUrl' => 'BaseImageUrl',
         'coverUrl'     => 'CoverUrl',
-        'status'       => 'Status',
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
-        'resourceName' => 'ResourceName',
         'cubemapPath'  => 'CubemapPath',
         'deleted'      => 'Deleted',
+        'gmtCreate'    => 'GmtCreate',
+        'gmtModified'  => 'GmtModified',
+        'id'           => 'Id',
+        'layoutData'   => 'LayoutData',
+        'name'         => 'Name',
         'originUrl'    => 'OriginUrl',
-        'baseImageUrl' => 'BaseImageUrl',
+        'resourceId'   => 'ResourceId',
+        'resourceName' => 'ResourceName',
+        'status'       => 'Status',
+        'url'          => 'Url',
     ];
 
     public function validate()
@@ -121,32 +129,11 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->baseImageUrl) {
+            $res['BaseImageUrl'] = $this->baseImageUrl;
         }
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->resourceName) {
-            $res['ResourceName'] = $this->resourceName;
         }
         if (null !== $this->cubemapPath) {
             $res['CubemapPath'] = $this->cubemapPath;
@@ -154,11 +141,35 @@ class list_ extends Model
         if (null !== $this->deleted) {
             $res['Deleted'] = $this->deleted;
         }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->layoutData) {
+            $res['LayoutData'] = $this->layoutData;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->originUrl) {
             $res['OriginUrl'] = $this->originUrl;
         }
-        if (null !== $this->baseImageUrl) {
-            $res['BaseImageUrl'] = $this->baseImageUrl;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -172,32 +183,11 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['BaseImageUrl'])) {
+            $model->baseImageUrl = $map['BaseImageUrl'];
         }
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
-        if (isset($map['ResourceName'])) {
-            $model->resourceName = $map['ResourceName'];
         }
         if (isset($map['CubemapPath'])) {
             $model->cubemapPath = $map['CubemapPath'];
@@ -205,11 +195,35 @@ class list_ extends Model
         if (isset($map['Deleted'])) {
             $model->deleted = $map['Deleted'];
         }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['LayoutData'])) {
+            $model->layoutData = $map['LayoutData'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['OriginUrl'])) {
             $model->originUrl = $map['OriginUrl'];
         }
-        if (isset($map['BaseImageUrl'])) {
-            $model->baseImageUrl = $map['BaseImageUrl'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

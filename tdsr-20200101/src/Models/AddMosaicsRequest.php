@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AddMosaicsRequest extends Model
 {
     /**
-     * @description 子场景ID
-     *
-     * @var string
-     */
-    public $subSceneId;
-
-    /**
      * @description 马赛克位置数据
      *
      * @var string
      */
     public $markPosition;
+
+    /**
+     * @description 子场景ID
+     *
+     * @var string
+     */
+    public $subSceneId;
     protected $_name = [
-        'subSceneId'   => 'SubSceneId',
         'markPosition' => 'MarkPosition',
+        'subSceneId'   => 'SubSceneId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class AddMosaicsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subSceneId) {
-            $res['SubSceneId'] = $this->subSceneId;
-        }
         if (null !== $this->markPosition) {
             $res['MarkPosition'] = $this->markPosition;
+        }
+        if (null !== $this->subSceneId) {
+            $res['SubSceneId'] = $this->subSceneId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class AddMosaicsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubSceneId'])) {
-            $model->subSceneId = $map['SubSceneId'];
-        }
         if (isset($map['MarkPosition'])) {
             $model->markPosition = $map['MarkPosition'];
+        }
+        if (isset($map['SubSceneId'])) {
+            $model->subSceneId = $map['SubSceneId'];
         }
 
         return $model;

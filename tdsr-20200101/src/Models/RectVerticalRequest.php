@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class RectVerticalRequest extends Model
 {
     /**
+     * @description 需要预测的门的数量
+     *
+     * @var int
+     */
+    public $countDetectDoor;
+
+    /**
+     * @description 是否开启门预测
+     *
+     * @var bool
+     */
+    public $detectDoor;
+
+    /**
      * @description 子场景ID
      *
      * @var string
@@ -21,25 +35,11 @@ class RectVerticalRequest extends Model
      * @var string
      */
     public $verticalRect;
-
-    /**
-     * @description 是否开启门预测
-     *
-     * @var bool
-     */
-    public $detectDoor;
-
-    /**
-     * @description 需要预测的门的数量
-     *
-     * @var int
-     */
-    public $countDetectDoor;
     protected $_name = [
+        'countDetectDoor' => 'CountDetectDoor',
+        'detectDoor'      => 'DetectDoor',
         'subSceneId'      => 'SubSceneId',
         'verticalRect'    => 'VerticalRect',
-        'detectDoor'      => 'DetectDoor',
-        'countDetectDoor' => 'CountDetectDoor',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class RectVerticalRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->countDetectDoor) {
+            $res['CountDetectDoor'] = $this->countDetectDoor;
+        }
+        if (null !== $this->detectDoor) {
+            $res['DetectDoor'] = $this->detectDoor;
+        }
         if (null !== $this->subSceneId) {
             $res['SubSceneId'] = $this->subSceneId;
         }
         if (null !== $this->verticalRect) {
             $res['VerticalRect'] = $this->verticalRect;
-        }
-        if (null !== $this->detectDoor) {
-            $res['DetectDoor'] = $this->detectDoor;
-        }
-        if (null !== $this->countDetectDoor) {
-            $res['CountDetectDoor'] = $this->countDetectDoor;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class RectVerticalRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CountDetectDoor'])) {
+            $model->countDetectDoor = $map['CountDetectDoor'];
+        }
+        if (isset($map['DetectDoor'])) {
+            $model->detectDoor = $map['DetectDoor'];
+        }
         if (isset($map['SubSceneId'])) {
             $model->subSceneId = $map['SubSceneId'];
         }
         if (isset($map['VerticalRect'])) {
             $model->verticalRect = $map['VerticalRect'];
-        }
-        if (isset($map['DetectDoor'])) {
-            $model->detectDoor = $map['DetectDoor'];
-        }
-        if (isset($map['CountDetectDoor'])) {
-            $model->countDetectDoor = $map['CountDetectDoor'];
         }
 
         return $model;

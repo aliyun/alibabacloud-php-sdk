@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetSceneBuildTaskStatusResponseBody extends Model
 {
     /**
-     * @description 请求ID，与入参requestId对应
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description 返回码
      *
      * @var int
@@ -23,11 +16,25 @@ class GetSceneBuildTaskStatusResponseBody extends Model
     public $code;
 
     /**
-     * @description 是否请求成功
+     * @description 任务失败错误码
      *
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $errorCode;
+
+    /**
+     * @description 任务失败错误消息
+     *
+     * @var string
+     */
+    public $errorMsg;
+
+    /**
+     * @description 任务ID
+     *
+     * @var string
+     */
+    public $id;
 
     /**
      * @description 错误消息
@@ -37,11 +44,11 @@ class GetSceneBuildTaskStatusResponseBody extends Model
     public $message;
 
     /**
-     * @description 任务ID
+     * @description 请求ID，与入参requestId对应
      *
      * @var string
      */
-    public $id;
+    public $requestId;
 
     /**
      * @description 场景ID
@@ -58,36 +65,29 @@ class GetSceneBuildTaskStatusResponseBody extends Model
     public $status;
 
     /**
+     * @description 是否请求成功
+     *
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @description 墙线预测: wall_line  切图: cut_image  重建: build  直角优化：right_angle_optimization 其他：other
      *
      * @var string
      */
     public $type;
-
-    /**
-     * @description 任务失败错误码
-     *
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @description 任务失败错误消息
-     *
-     * @var string
-     */
-    public $errorMsg;
     protected $_name = [
-        'requestId' => 'RequestId',
         'code'      => 'Code',
-        'success'   => 'Success',
-        'message'   => 'Message',
-        'id'        => 'Id',
-        'sceneId'   => 'SceneId',
-        'status'    => 'Status',
-        'type'      => 'Type',
         'errorCode' => 'ErrorCode',
         'errorMsg'  => 'ErrorMsg',
+        'id'        => 'Id',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'sceneId'   => 'SceneId',
+        'status'    => 'Status',
+        'success'   => 'Success',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -97,20 +97,23 @@ class GetSceneBuildTaskStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMsg) {
+            $res['ErrorMsg'] = $this->errorMsg;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
@@ -118,14 +121,11 @@ class GetSceneBuildTaskStatusResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMsg) {
-            $res['ErrorMsg'] = $this->errorMsg;
         }
 
         return $res;
@@ -139,20 +139,23 @@ class GetSceneBuildTaskStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMsg'])) {
+            $model->errorMsg = $map['ErrorMsg'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
@@ -160,14 +163,11 @@ class GetSceneBuildTaskStatusResponseBody extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorMsg'])) {
-            $model->errorMsg = $map['ErrorMsg'];
         }
 
         return $model;

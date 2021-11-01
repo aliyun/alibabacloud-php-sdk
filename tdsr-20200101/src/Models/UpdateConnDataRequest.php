@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateConnDataRequest extends Model
 {
     /**
-     * @description 场景ID
-     *
-     * @var string
-     */
-    public $sceneId;
-
-    /**
      * @description 关联数据
      *
      * @var string
      */
     public $connData;
+
+    /**
+     * @description 场景ID
+     *
+     * @var string
+     */
+    public $sceneId;
     protected $_name = [
-        'sceneId'  => 'SceneId',
         'connData' => 'ConnData',
+        'sceneId'  => 'SceneId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class UpdateConnDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
-        }
         if (null !== $this->connData) {
             $res['ConnData'] = $this->connData;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class UpdateConnDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
-        }
         if (isset($map['ConnData'])) {
             $model->connData = $map['ConnData'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;

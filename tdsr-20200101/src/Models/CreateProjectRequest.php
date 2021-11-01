@@ -11,7 +11,7 @@ class CreateProjectRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $builderUserIdList;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class CreateProjectRequest extends Model
     /**
      * @var string
      */
-    public $builderUserIdList;
+    public $name;
     protected $_name = [
-        'name'               => 'Name',
+        'builderUserIdList'  => 'BuilderUserIdList',
         'businessId'         => 'BusinessId',
         'businessUserIdList' => 'BusinessUserIdList',
         'gatherUserIdList'   => 'GatherUserIdList',
-        'builderUserIdList'  => 'BuilderUserIdList',
+        'name'               => 'Name',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class CreateProjectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->builderUserIdList) {
+            $res['BuilderUserIdList'] = $this->builderUserIdList;
         }
         if (null !== $this->businessId) {
             $res['BusinessId'] = $this->businessId;
@@ -59,8 +59,8 @@ class CreateProjectRequest extends Model
         if (null !== $this->gatherUserIdList) {
             $res['GatherUserIdList'] = $this->gatherUserIdList;
         }
-        if (null !== $this->builderUserIdList) {
-            $res['BuilderUserIdList'] = $this->builderUserIdList;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class CreateProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['BuilderUserIdList'])) {
+            $model->builderUserIdList = $map['BuilderUserIdList'];
         }
         if (isset($map['BusinessId'])) {
             $model->businessId = $map['BusinessId'];
@@ -86,8 +86,8 @@ class CreateProjectRequest extends Model
         if (isset($map['GatherUserIdList'])) {
             $model->gatherUserIdList = $map['GatherUserIdList'];
         }
-        if (isset($map['BuilderUserIdList'])) {
-            $model->builderUserIdList = $map['BuilderUserIdList'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

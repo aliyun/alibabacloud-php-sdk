@@ -16,13 +16,6 @@ class ListSceneRequest extends Model
     public $name;
 
     /**
-     * @description 所有项目Id
-     *
-     * @var string
-     */
-    public $projectId;
-
-    /**
      * @description 当前页
      *
      * @var int
@@ -35,11 +28,18 @@ class ListSceneRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description 所有项目Id
+     *
+     * @var string
+     */
+    public $projectId;
     protected $_name = [
         'name'      => 'Name',
-        'projectId' => 'ProjectId',
         'pageNum'   => 'PageNum',
         'pageSize'  => 'PageSize',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class ListSceneRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -76,14 +76,14 @@ class ListSceneRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

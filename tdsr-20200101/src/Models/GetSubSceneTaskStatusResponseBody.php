@@ -10,13 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetSubSceneTaskStatusResponseBody extends Model
 {
     /**
-     * @description 请求ID，与入参requestId对应
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description 返回码
      *
      * @var int
@@ -24,11 +17,11 @@ class GetSubSceneTaskStatusResponseBody extends Model
     public $code;
 
     /**
-     * @description 是否请求成功
+     * @description 任务信息
      *
-     * @var bool
+     * @var list_[]
      */
-    public $success;
+    public $list;
 
     /**
      * @description 错误消息
@@ -38,17 +31,24 @@ class GetSubSceneTaskStatusResponseBody extends Model
     public $message;
 
     /**
-     * @description 任务信息
+     * @description 请求ID，与入参requestId对应
      *
-     * @var list_[]
+     * @var string
      */
-    public $list;
+    public $requestId;
+
+    /**
+     * @description 是否请求成功
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId' => 'RequestId',
         'code'      => 'Code',
-        'success'   => 'Success',
-        'message'   => 'Message',
         'list'      => 'List',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -58,17 +58,8 @@ class GetSubSceneTaskStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
         }
         if (null !== $this->list) {
             $res['List'] = [];
@@ -78,6 +69,15 @@ class GetSubSceneTaskStatusResponseBody extends Model
                     $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -91,17 +91,8 @@ class GetSubSceneTaskStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
         }
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
@@ -111,6 +102,15 @@ class GetSubSceneTaskStatusResponseBody extends Model
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

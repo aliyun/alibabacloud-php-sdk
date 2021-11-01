@@ -11,6 +11,16 @@ class GetHotspotTagRequest extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var bool
+     */
+    public $enabled;
+
+    /**
+     * @var string
+     */
     public $previewToken;
 
     /**
@@ -22,22 +32,12 @@ class GetHotspotTagRequest extends Model
      * @var string
      */
     public $type;
-
-    /**
-     * @var bool
-     */
-    public $enabled;
-
-    /**
-     * @var string
-     */
-    public $domain;
     protected $_name = [
+        'domain'       => 'Domain',
+        'enabled'      => 'Enabled',
         'previewToken' => 'PreviewToken',
         'subSceneUuid' => 'SubSceneUuid',
         'type'         => 'Type',
-        'enabled'      => 'Enabled',
-        'domain'       => 'Domain',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class GetHotspotTagRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
+        }
         if (null !== $this->previewToken) {
             $res['PreviewToken'] = $this->previewToken;
         }
@@ -55,12 +61,6 @@ class GetHotspotTagRequest extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class GetHotspotTagRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
         if (isset($map['PreviewToken'])) {
             $model->previewToken = $map['PreviewToken'];
         }
@@ -82,12 +88,6 @@ class GetHotspotTagRequest extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
         }
 
         return $model;

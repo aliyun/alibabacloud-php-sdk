@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetScenePreviewInfoRequest extends Model
 {
     /**
-     * @description 模型token
-     *
-     * @var string
-     */
-    public $modelToken;
-
-    /**
      * @description 自定义oss域名（可为cdn域名）
      *
      * @var string
@@ -28,10 +21,17 @@ class GetScenePreviewInfoRequest extends Model
      * @var bool
      */
     public $enabled;
+
+    /**
+     * @description 模型token
+     *
+     * @var string
+     */
+    public $modelToken;
     protected $_name = [
-        'modelToken' => 'ModelToken',
         'domain'     => 'Domain',
         'enabled'    => 'Enabled',
+        'modelToken' => 'ModelToken',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class GetScenePreviewInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modelToken) {
-            $res['ModelToken'] = $this->modelToken;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->modelToken) {
+            $res['ModelToken'] = $this->modelToken;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class GetScenePreviewInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModelToken'])) {
-            $model->modelToken = $map['ModelToken'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['ModelToken'])) {
+            $model->modelToken = $map['ModelToken'];
         }
 
         return $model;

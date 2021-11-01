@@ -9,48 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DetailProjectResponseBody extends Model
 {
     /**
-     * @description 请求ID，与入参requestId对应
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description 返回码
-     *
-     * @var int
-     */
-    public $code;
-
-    /**
-     * @description 是否请求成功
-     *
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @description 错误消息
-     *
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @description 项目ID
-     *
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @description 项目名称
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @description 业务ID
      *
      * @var int
@@ -63,6 +21,13 @@ class DetailProjectResponseBody extends Model
      * @var string
      */
     public $businessName;
+
+    /**
+     * @description 返回码
+     *
+     * @var int
+     */
+    public $code;
 
     /**
      * @description 创建时间
@@ -79,22 +44,57 @@ class DetailProjectResponseBody extends Model
     public $gmtModified;
 
     /**
+     * @description 项目ID
+     *
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @description 错误消息
+     *
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @description 项目名称
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description 请求ID，与入参requestId对应
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description 是否请求成功
+     *
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @description Token
      *
      * @var string
      */
     public $token;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'code'         => 'Code',
-        'success'      => 'Success',
-        'message'      => 'Message',
-        'id'           => 'Id',
-        'name'         => 'Name',
         'businessId'   => 'BusinessId',
         'businessName' => 'BusinessName',
+        'code'         => 'Code',
         'gmtCreate'    => 'GmtCreate',
         'gmtModified'  => 'GmtModified',
+        'id'           => 'Id',
+        'message'      => 'Message',
+        'name'         => 'Name',
+        'requestId'    => 'RequestId',
+        'success'      => 'Success',
         'token'        => 'Token',
     ];
 
@@ -105,35 +105,35 @@ class DetailProjectResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->businessId) {
             $res['BusinessId'] = $this->businessId;
         }
         if (null !== $this->businessName) {
             $res['BusinessName'] = $this->businessName;
         }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
@@ -150,35 +150,35 @@ class DetailProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['BusinessId'])) {
             $model->businessId = $map['BusinessId'];
         }
         if (isset($map['BusinessName'])) {
             $model->businessName = $map['BusinessName'];
         }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];

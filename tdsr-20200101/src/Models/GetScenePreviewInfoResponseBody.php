@@ -10,13 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetScenePreviewInfoResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description 返回码
      *
      * @var int
@@ -24,11 +17,9 @@ class GetScenePreviewInfoResponseBody extends Model
     public $code;
 
     /**
-     * @description 是否请求成功
-     *
-     * @var bool
+     * @var data
      */
-    public $success;
+    public $data;
 
     /**
      * @description 错误消息
@@ -38,15 +29,24 @@ class GetScenePreviewInfoResponseBody extends Model
     public $message;
 
     /**
-     * @var data
+     * @description Id of the request
+     *
+     * @var string
      */
-    public $data;
+    public $requestId;
+
+    /**
+     * @description 是否请求成功
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId' => 'RequestId',
         'code'      => 'Code',
-        'success'   => 'Success',
-        'message'   => 'Message',
         'data'      => 'Data',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class GetScenePreviewInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -83,20 +83,20 @@ class GetScenePreviewInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

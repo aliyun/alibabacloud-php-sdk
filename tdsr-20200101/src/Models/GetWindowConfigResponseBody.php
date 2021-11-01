@@ -16,6 +16,11 @@ class GetWindowConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $errMessage;
+
+    /**
+     * @var string
+     */
     public $objectString;
 
     /**
@@ -27,17 +32,12 @@ class GetWindowConfigResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errMessage;
     protected $_name = [
         'data'         => 'Data',
+        'errMessage'   => 'ErrMessage',
         'objectString' => 'ObjectString',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
-        'errMessage'   => 'ErrMessage',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class GetWindowConfigResponseBody extends Model
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+        if (null !== $this->errMessage) {
+            $res['ErrMessage'] = $this->errMessage;
+        }
         if (null !== $this->objectString) {
             $res['ObjectString'] = $this->objectString;
         }
@@ -58,9 +61,6 @@ class GetWindowConfigResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
         }
 
         return $res;
@@ -77,6 +77,9 @@ class GetWindowConfigResponseBody extends Model
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+        if (isset($map['ErrMessage'])) {
+            $model->errMessage = $map['ErrMessage'];
+        }
         if (isset($map['ObjectString'])) {
             $model->objectString = $map['ObjectString'];
         }
@@ -85,9 +88,6 @@ class GetWindowConfigResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
         }
 
         return $model;

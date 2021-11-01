@@ -11,12 +11,7 @@ class GetHotspotConfigRequest extends Model
     /**
      * @var string
      */
-    public $previewToken;
-
-    /**
-     * @var int
-     */
-    public $type;
+    public $domain;
 
     /**
      * @var bool
@@ -26,12 +21,17 @@ class GetHotspotConfigRequest extends Model
     /**
      * @var string
      */
-    public $domain;
+    public $previewToken;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
+        'domain'       => 'Domain',
+        'enabled'      => 'Enabled',
         'previewToken' => 'PreviewToken',
         'type'         => 'Type',
-        'enabled'      => 'Enabled',
-        'domain'       => 'Domain',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class GetHotspotConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
+        }
         if (null !== $this->previewToken) {
             $res['PreviewToken'] = $this->previewToken;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class GetHotspotConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
         if (isset($map['PreviewToken'])) {
             $model->previewToken = $map['PreviewToken'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
         }
 
         return $model;

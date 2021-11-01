@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class LinkImageRequest extends Model
 {
     /**
-     * @description 子场景ID
+     * @description 相机高度 单位 cm
      *
-     * @var string
+     * @var int
      */
-    public $subSceneId;
+    public $cameraHeight;
 
     /**
      * @description 图片或者视频名称xxx.jpg
@@ -23,23 +23,23 @@ class LinkImageRequest extends Model
     public $fileName;
 
     /**
-     * @description 相机高度 单位 cm
-     *
-     * @var int
-     */
-    public $cameraHeight;
-
-    /**
      * @description 平台标识，默认PC
      *
      * @var string
      */
     public $platform;
+
+    /**
+     * @description 子场景ID
+     *
+     * @var string
+     */
+    public $subSceneId;
     protected $_name = [
-        'subSceneId'   => 'SubSceneId',
-        'fileName'     => 'FileName',
         'cameraHeight' => 'CameraHeight',
+        'fileName'     => 'FileName',
         'platform'     => 'Platform',
+        'subSceneId'   => 'SubSceneId',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class LinkImageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subSceneId) {
-            $res['SubSceneId'] = $this->subSceneId;
+        if (null !== $this->cameraHeight) {
+            $res['CameraHeight'] = $this->cameraHeight;
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-        if (null !== $this->cameraHeight) {
-            $res['CameraHeight'] = $this->cameraHeight;
-        }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->subSceneId) {
+            $res['SubSceneId'] = $this->subSceneId;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class LinkImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubSceneId'])) {
-            $model->subSceneId = $map['SubSceneId'];
+        if (isset($map['CameraHeight'])) {
+            $model->cameraHeight = $map['CameraHeight'];
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
-        if (isset($map['CameraHeight'])) {
-            $model->cameraHeight = $map['CameraHeight'];
-        }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+        if (isset($map['SubSceneId'])) {
+            $model->subSceneId = $map['SubSceneId'];
         }
 
         return $model;

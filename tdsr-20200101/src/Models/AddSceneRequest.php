@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddSceneRequest extends Model
 {
     /**
-     * @description 场景类型 3D模型：MODEL_3D  全景图片：PIC  全景视频：VIDEO
-     *
-     * @var string
-     */
-    public $type;
-
-    /**
      * @description 场景名称
      *
      * @var string
@@ -28,10 +21,17 @@ class AddSceneRequest extends Model
      * @var string
      */
     public $projectId;
+
+    /**
+     * @description 场景类型 3D模型：MODEL_3D  全景图片：PIC  全景视频：VIDEO
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'      => 'Type',
         'name'      => 'Name',
         'projectId' => 'ProjectId',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class AddSceneRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class AddSceneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

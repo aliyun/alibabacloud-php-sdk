@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListSubSceneRequest extends Model
 {
     /**
-     * @description 场景ID
-     *
-     * @var string
-     */
-    public $sceneId;
-
-    /**
      * @description 页码
      *
      * @var int
@@ -28,10 +21,23 @@ class ListSubSceneRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description 场景ID
+     *
+     * @var string
+     */
+    public $sceneId;
+
+    /**
+     * @var bool
+     */
+    public $showLayoutData;
     protected $_name = [
-        'sceneId'  => 'SceneId',
-        'pageNum'  => 'PageNum',
-        'pageSize' => 'PageSize',
+        'pageNum'        => 'PageNum',
+        'pageSize'       => 'PageSize',
+        'sceneId'        => 'SceneId',
+        'showLayoutData' => 'ShowLayoutData',
     ];
 
     public function validate()
@@ -41,14 +47,17 @@ class ListSubSceneRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
+        }
+        if (null !== $this->showLayoutData) {
+            $res['ShowLayoutData'] = $this->showLayoutData;
         }
 
         return $res;
@@ -62,14 +71,17 @@ class ListSubSceneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
+        }
+        if (isset($map['ShowLayoutData'])) {
+            $model->showLayoutData = $map['ShowLayoutData'];
         }
 
         return $model;

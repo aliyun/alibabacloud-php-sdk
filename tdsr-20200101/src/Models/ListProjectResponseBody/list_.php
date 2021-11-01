@@ -9,20 +9,6 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description 项目ID
-     *
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @description 项目名称
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @description 业务ID
      *
      * @var int
@@ -44,11 +30,25 @@ class list_ extends Model
     public $createTime;
 
     /**
+     * @description 项目ID
+     *
+     * @var string
+     */
+    public $id;
+
+    /**
      * @description 最后修改时间
      *
      * @var int
      */
     public $modifiedTime;
+
+    /**
+     * @description 项目名称
+     *
+     * @var string
+     */
+    public $name;
 
     /**
      * @description Token
@@ -57,12 +57,12 @@ class list_ extends Model
      */
     public $token;
     protected $_name = [
-        'id'           => 'Id',
-        'name'         => 'Name',
         'businessId'   => 'BusinessId',
         'businessName' => 'BusinessName',
         'createTime'   => 'CreateTime',
+        'id'           => 'Id',
         'modifiedTime' => 'ModifiedTime',
+        'name'         => 'Name',
         'token'        => 'Token',
     ];
 
@@ -73,12 +73,6 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->businessId) {
             $res['BusinessId'] = $this->businessId;
         }
@@ -88,8 +82,14 @@ class list_ extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
@@ -106,12 +106,6 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['BusinessId'])) {
             $model->businessId = $map['BusinessId'];
         }
@@ -121,8 +115,14 @@ class list_ extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];

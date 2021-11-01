@@ -11,20 +11,20 @@ class DeleteProjectResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $errMessage;
 
     /**
      * @var string
      */
-    public $errMessage;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'errMessage' => 'ErrMessage',
+        'requestId'  => 'RequestId',
         'success'    => 'Success',
     ];
 
@@ -35,11 +35,11 @@ class DeleteProjectResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -56,11 +56,11 @@ class DeleteProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

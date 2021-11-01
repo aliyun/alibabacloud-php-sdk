@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class TempPreviewResponseBody extends Model
 {
     /**
-     * @description 请求ID，与入参requestId对应
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description 返回码
      *
      * @var int
@@ -23,11 +16,11 @@ class TempPreviewResponseBody extends Model
     public $code;
 
     /**
-     * @description 是否请求成功
+     * @description 任务ID
      *
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $key;
 
     /**
      * @description 错误消息
@@ -44,18 +37,25 @@ class TempPreviewResponseBody extends Model
     public $previewUrl;
 
     /**
-     * @description 任务ID
+     * @description 请求ID，与入参requestId对应
      *
      * @var string
      */
-    public $key;
+    public $requestId;
+
+    /**
+     * @description 是否请求成功
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'code'       => 'Code',
-        'success'    => 'Success',
+        'key'        => 'Key',
         'message'    => 'Message',
         'previewUrl' => 'PreviewUrl',
-        'key'        => 'Key',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
     ];
 
     public function validate()
@@ -65,14 +65,11 @@ class TempPreviewResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -80,8 +77,11 @@ class TempPreviewResponseBody extends Model
         if (null !== $this->previewUrl) {
             $res['PreviewUrl'] = $this->previewUrl;
         }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -95,14 +95,11 @@ class TempPreviewResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -110,8 +107,11 @@ class TempPreviewResponseBody extends Model
         if (isset($map['PreviewUrl'])) {
             $model->previewUrl = $map['PreviewUrl'];
         }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

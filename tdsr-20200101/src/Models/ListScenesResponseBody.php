@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListScenesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var data[]
      */
     public $data;
@@ -25,13 +20,18 @@ class ListScenesResponseBody extends Model
     public $errMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'data'       => 'Data',
         'errMessage' => 'ErrMessage',
+        'requestId'  => 'RequestId',
         'success'    => 'Success',
     ];
 
@@ -42,9 +42,6 @@ class ListScenesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->data) {
             $res['Data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -56,6 +53,9 @@ class ListScenesResponseBody extends Model
         }
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -72,9 +72,6 @@ class ListScenesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
@@ -86,6 +83,9 @@ class ListScenesResponseBody extends Model
         }
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

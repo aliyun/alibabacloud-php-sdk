@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class PredictionWallLineRequest extends Model
 {
     /**
-     * @description 图片地址
-     *
-     * @var string
-     */
-    public $url;
-
-    /**
      * @description 相机高度 单位 cm
      *
      * @var int
      */
     public $cameraHeight;
+
+    /**
+     * @description 图片地址
+     *
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'url'          => 'Url',
         'cameraHeight' => 'CameraHeight',
+        'url'          => 'Url',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class PredictionWallLineRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->cameraHeight) {
             $res['CameraHeight'] = $this->cameraHeight;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class PredictionWallLineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['CameraHeight'])) {
             $model->cameraHeight = $map['CameraHeight'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;
