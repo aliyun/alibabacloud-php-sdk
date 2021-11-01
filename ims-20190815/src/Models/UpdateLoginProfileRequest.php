@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateLoginProfileRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $userPrincipalName;
+    public $MFABindRequired;
 
     /**
      * @var string
@@ -24,32 +24,31 @@ class UpdateLoginProfileRequest extends Model
     public $passwordResetRequired;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $MFABindRequired;
+    public $status;
 
     /**
      * @var string
      */
-    public $status;
+    public $userPrincipalName;
     protected $_name = [
-        'userPrincipalName'     => 'UserPrincipalName',
+        'MFABindRequired'       => 'MFABindRequired',
         'password'              => 'Password',
         'passwordResetRequired' => 'PasswordResetRequired',
-        'MFABindRequired'       => 'MFABindRequired',
         'status'                => 'Status',
+        'userPrincipalName'     => 'UserPrincipalName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('userPrincipalName', $this->userPrincipalName, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userPrincipalName) {
-            $res['UserPrincipalName'] = $this->userPrincipalName;
+        if (null !== $this->MFABindRequired) {
+            $res['MFABindRequired'] = $this->MFABindRequired;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -57,11 +56,11 @@ class UpdateLoginProfileRequest extends Model
         if (null !== $this->passwordResetRequired) {
             $res['PasswordResetRequired'] = $this->passwordResetRequired;
         }
-        if (null !== $this->MFABindRequired) {
-            $res['MFABindRequired'] = $this->MFABindRequired;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->userPrincipalName) {
+            $res['UserPrincipalName'] = $this->userPrincipalName;
         }
 
         return $res;
@@ -75,8 +74,8 @@ class UpdateLoginProfileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserPrincipalName'])) {
-            $model->userPrincipalName = $map['UserPrincipalName'];
+        if (isset($map['MFABindRequired'])) {
+            $model->MFABindRequired = $map['MFABindRequired'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
@@ -84,11 +83,11 @@ class UpdateLoginProfileRequest extends Model
         if (isset($map['PasswordResetRequired'])) {
             $model->passwordResetRequired = $map['PasswordResetRequired'];
         }
-        if (isset($map['MFABindRequired'])) {
-            $model->MFABindRequired = $map['MFABindRequired'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['UserPrincipalName'])) {
+            $model->userPrincipalName = $map['UserPrincipalName'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class CreateGroupRequest extends Model
     /**
      * @var string
      */
-    public $displayName;
+    public $comments;
 
     /**
      * @var string
      */
-    public $comments;
+    public $displayName;
 
     /**
      * @var string
      */
     public $groupName;
     protected $_name = [
-        'displayName' => 'DisplayName',
         'comments'    => 'Comments',
+        'displayName' => 'DisplayName',
         'groupName'   => 'GroupName',
     ];
 
@@ -35,11 +35,11 @@ class CreateGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
+        }
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -56,11 +56,11 @@ class CreateGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
+        }
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

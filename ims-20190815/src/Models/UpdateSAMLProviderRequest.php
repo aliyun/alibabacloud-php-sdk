@@ -11,39 +11,38 @@ class UpdateSAMLProviderRequest extends Model
     /**
      * @var string
      */
-    public $SAMLProviderName;
-
-    /**
-     * @var string
-     */
     public $newDescription;
 
     /**
      * @var string
      */
     public $newEncodedSAMLMetadataDocument;
+
+    /**
+     * @var string
+     */
+    public $SAMLProviderName;
     protected $_name = [
-        'SAMLProviderName'               => 'SAMLProviderName',
         'newDescription'                 => 'NewDescription',
         'newEncodedSAMLMetadataDocument' => 'NewEncodedSAMLMetadataDocument',
+        'SAMLProviderName'               => 'SAMLProviderName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('SAMLProviderName', $this->SAMLProviderName, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->SAMLProviderName) {
-            $res['SAMLProviderName'] = $this->SAMLProviderName;
-        }
         if (null !== $this->newDescription) {
             $res['NewDescription'] = $this->newDescription;
         }
         if (null !== $this->newEncodedSAMLMetadataDocument) {
             $res['NewEncodedSAMLMetadataDocument'] = $this->newEncodedSAMLMetadataDocument;
+        }
+        if (null !== $this->SAMLProviderName) {
+            $res['SAMLProviderName'] = $this->SAMLProviderName;
         }
 
         return $res;
@@ -57,14 +56,14 @@ class UpdateSAMLProviderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SAMLProviderName'])) {
-            $model->SAMLProviderName = $map['SAMLProviderName'];
-        }
         if (isset($map['NewDescription'])) {
             $model->newDescription = $map['NewDescription'];
         }
         if (isset($map['NewEncodedSAMLMetadataDocument'])) {
             $model->newEncodedSAMLMetadataDocument = $map['NewEncodedSAMLMetadataDocument'];
+        }
+        if (isset($map['SAMLProviderName'])) {
+            $model->SAMLProviderName = $map['SAMLProviderName'];
         }
 
         return $model;

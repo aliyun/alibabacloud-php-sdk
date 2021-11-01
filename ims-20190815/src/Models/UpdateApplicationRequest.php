@@ -14,14 +14,19 @@ class UpdateApplicationRequest extends Model
     public $appId;
 
     /**
+     * @var int
+     */
+    public $newAccessTokenValidity;
+
+    /**
      * @var string
      */
     public $newDisplayName;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $newRedirectUris;
+    public $newIsMultiTenant;
 
     /**
      * @var string
@@ -29,14 +34,9 @@ class UpdateApplicationRequest extends Model
     public $newPredefinedScopes;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $newSecretRequired;
-
-    /**
-     * @var int
-     */
-    public $newAccessTokenValidity;
+    public $newRedirectUris;
 
     /**
      * @var int
@@ -46,21 +46,20 @@ class UpdateApplicationRequest extends Model
     /**
      * @var bool
      */
-    public $newIsMultiTenant;
+    public $newSecretRequired;
     protected $_name = [
         'appId'                   => 'AppId',
-        'newDisplayName'          => 'NewDisplayName',
-        'newRedirectUris'         => 'NewRedirectUris',
-        'newPredefinedScopes'     => 'NewPredefinedScopes',
-        'newSecretRequired'       => 'NewSecretRequired',
         'newAccessTokenValidity'  => 'NewAccessTokenValidity',
-        'newRefreshTokenValidity' => 'NewRefreshTokenValidity',
+        'newDisplayName'          => 'NewDisplayName',
         'newIsMultiTenant'        => 'NewIsMultiTenant',
+        'newPredefinedScopes'     => 'NewPredefinedScopes',
+        'newRedirectUris'         => 'NewRedirectUris',
+        'newRefreshTokenValidity' => 'NewRefreshTokenValidity',
+        'newSecretRequired'       => 'NewSecretRequired',
     ];
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
     }
 
     public function toMap()
@@ -69,26 +68,26 @@ class UpdateApplicationRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->newAccessTokenValidity) {
+            $res['NewAccessTokenValidity'] = $this->newAccessTokenValidity;
+        }
         if (null !== $this->newDisplayName) {
             $res['NewDisplayName'] = $this->newDisplayName;
         }
-        if (null !== $this->newRedirectUris) {
-            $res['NewRedirectUris'] = $this->newRedirectUris;
+        if (null !== $this->newIsMultiTenant) {
+            $res['NewIsMultiTenant'] = $this->newIsMultiTenant;
         }
         if (null !== $this->newPredefinedScopes) {
             $res['NewPredefinedScopes'] = $this->newPredefinedScopes;
         }
-        if (null !== $this->newSecretRequired) {
-            $res['NewSecretRequired'] = $this->newSecretRequired;
-        }
-        if (null !== $this->newAccessTokenValidity) {
-            $res['NewAccessTokenValidity'] = $this->newAccessTokenValidity;
+        if (null !== $this->newRedirectUris) {
+            $res['NewRedirectUris'] = $this->newRedirectUris;
         }
         if (null !== $this->newRefreshTokenValidity) {
             $res['NewRefreshTokenValidity'] = $this->newRefreshTokenValidity;
         }
-        if (null !== $this->newIsMultiTenant) {
-            $res['NewIsMultiTenant'] = $this->newIsMultiTenant;
+        if (null !== $this->newSecretRequired) {
+            $res['NewSecretRequired'] = $this->newSecretRequired;
         }
 
         return $res;
@@ -105,26 +104,26 @@ class UpdateApplicationRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['NewAccessTokenValidity'])) {
+            $model->newAccessTokenValidity = $map['NewAccessTokenValidity'];
+        }
         if (isset($map['NewDisplayName'])) {
             $model->newDisplayName = $map['NewDisplayName'];
         }
-        if (isset($map['NewRedirectUris'])) {
-            $model->newRedirectUris = $map['NewRedirectUris'];
+        if (isset($map['NewIsMultiTenant'])) {
+            $model->newIsMultiTenant = $map['NewIsMultiTenant'];
         }
         if (isset($map['NewPredefinedScopes'])) {
             $model->newPredefinedScopes = $map['NewPredefinedScopes'];
         }
-        if (isset($map['NewSecretRequired'])) {
-            $model->newSecretRequired = $map['NewSecretRequired'];
-        }
-        if (isset($map['NewAccessTokenValidity'])) {
-            $model->newAccessTokenValidity = $map['NewAccessTokenValidity'];
+        if (isset($map['NewRedirectUris'])) {
+            $model->newRedirectUris = $map['NewRedirectUris'];
         }
         if (isset($map['NewRefreshTokenValidity'])) {
             $model->newRefreshTokenValidity = $map['NewRefreshTokenValidity'];
         }
-        if (isset($map['NewIsMultiTenant'])) {
-            $model->newIsMultiTenant = $map['NewIsMultiTenant'];
+        if (isset($map['NewSecretRequired'])) {
+            $model->newSecretRequired = $map['NewSecretRequired'];
         }
 
         return $model;

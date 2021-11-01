@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\SDK\Ims\V20190815\Models\CreateVirtualMFADeviceResponse\virtualMFADevice;
 use AlibabaCloud\Tea\Model;
 
 class CreateVirtualMFADeviceResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var virtualMFADevice
+     * @var CreateVirtualMFADeviceResponseBody
      */
-    public $virtualMFADevice;
+    public $body;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'virtualMFADevice' => 'VirtualMFADevice',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('virtualMFADevice', $this->virtualMFADevice, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->virtualMFADevice) {
-            $res['VirtualMFADevice'] = null !== $this->virtualMFADevice ? $this->virtualMFADevice->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class CreateVirtualMFADeviceResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['VirtualMFADevice'])) {
-            $model->virtualMFADevice = virtualMFADevice::fromMap($map['VirtualMFADevice']);
+        if (isset($map['body'])) {
+            $model->body = CreateVirtualMFADeviceResponseBody::fromMap($map['body']);
         }
 
         return $model;

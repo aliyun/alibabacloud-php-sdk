@@ -11,30 +11,29 @@ class AddUserToGroupRequest extends Model
     /**
      * @var string
      */
-    public $userPrincipalName;
+    public $groupName;
 
     /**
      * @var string
      */
-    public $groupName;
+    public $userPrincipalName;
     protected $_name = [
-        'userPrincipalName' => 'UserPrincipalName',
         'groupName'         => 'GroupName',
+        'userPrincipalName' => 'UserPrincipalName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('userPrincipalName', $this->userPrincipalName, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userPrincipalName) {
-            $res['UserPrincipalName'] = $this->userPrincipalName;
-        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->userPrincipalName) {
+            $res['UserPrincipalName'] = $this->userPrincipalName;
         }
 
         return $res;
@@ -48,11 +47,11 @@ class AddUserToGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserPrincipalName'])) {
-            $model->userPrincipalName = $map['UserPrincipalName'];
-        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['UserPrincipalName'])) {
+            $model->userPrincipalName = $map['UserPrincipalName'];
         }
 
         return $model;

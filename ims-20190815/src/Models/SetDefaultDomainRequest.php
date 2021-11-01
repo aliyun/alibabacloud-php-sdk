@@ -18,7 +18,6 @@ class SetDefaultDomainRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('defaultDomainName', $this->defaultDomainName, true);
     }
 
     public function toMap()

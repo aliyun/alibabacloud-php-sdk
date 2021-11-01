@@ -11,17 +11,7 @@ class UpdateUserRequest extends Model
     /**
      * @var string
      */
-    public $userPrincipalName;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $newUserPrincipalName;
+    public $newComments;
 
     /**
      * @var string
@@ -31,25 +21,35 @@ class UpdateUserRequest extends Model
     /**
      * @var string
      */
-    public $newMobilePhone;
-
-    /**
-     * @var string
-     */
     public $newEmail;
 
     /**
      * @var string
      */
-    public $newComments;
+    public $newMobilePhone;
+
+    /**
+     * @var string
+     */
+    public $newUserPrincipalName;
+
+    /**
+     * @var string
+     */
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $userPrincipalName;
     protected $_name = [
-        'userPrincipalName'    => 'UserPrincipalName',
-        'userId'               => 'UserId',
-        'newUserPrincipalName' => 'NewUserPrincipalName',
-        'newDisplayName'       => 'NewDisplayName',
-        'newMobilePhone'       => 'NewMobilePhone',
-        'newEmail'             => 'NewEmail',
         'newComments'          => 'NewComments',
+        'newDisplayName'       => 'NewDisplayName',
+        'newEmail'             => 'NewEmail',
+        'newMobilePhone'       => 'NewMobilePhone',
+        'newUserPrincipalName' => 'NewUserPrincipalName',
+        'userId'               => 'UserId',
+        'userPrincipalName'    => 'UserPrincipalName',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class UpdateUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userPrincipalName) {
-            $res['UserPrincipalName'] = $this->userPrincipalName;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->newUserPrincipalName) {
-            $res['NewUserPrincipalName'] = $this->newUserPrincipalName;
+        if (null !== $this->newComments) {
+            $res['NewComments'] = $this->newComments;
         }
         if (null !== $this->newDisplayName) {
             $res['NewDisplayName'] = $this->newDisplayName;
         }
-        if (null !== $this->newMobilePhone) {
-            $res['NewMobilePhone'] = $this->newMobilePhone;
-        }
         if (null !== $this->newEmail) {
             $res['NewEmail'] = $this->newEmail;
         }
-        if (null !== $this->newComments) {
-            $res['NewComments'] = $this->newComments;
+        if (null !== $this->newMobilePhone) {
+            $res['NewMobilePhone'] = $this->newMobilePhone;
+        }
+        if (null !== $this->newUserPrincipalName) {
+            $res['NewUserPrincipalName'] = $this->newUserPrincipalName;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->userPrincipalName) {
+            $res['UserPrincipalName'] = $this->userPrincipalName;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class UpdateUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserPrincipalName'])) {
-            $model->userPrincipalName = $map['UserPrincipalName'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['NewUserPrincipalName'])) {
-            $model->newUserPrincipalName = $map['NewUserPrincipalName'];
+        if (isset($map['NewComments'])) {
+            $model->newComments = $map['NewComments'];
         }
         if (isset($map['NewDisplayName'])) {
             $model->newDisplayName = $map['NewDisplayName'];
         }
-        if (isset($map['NewMobilePhone'])) {
-            $model->newMobilePhone = $map['NewMobilePhone'];
-        }
         if (isset($map['NewEmail'])) {
             $model->newEmail = $map['NewEmail'];
         }
-        if (isset($map['NewComments'])) {
-            $model->newComments = $map['NewComments'];
+        if (isset($map['NewMobilePhone'])) {
+            $model->newMobilePhone = $map['NewMobilePhone'];
+        }
+        if (isset($map['NewUserPrincipalName'])) {
+            $model->newUserPrincipalName = $map['NewUserPrincipalName'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserPrincipalName'])) {
+            $model->userPrincipalName = $map['UserPrincipalName'];
         }
 
         return $model;

@@ -11,21 +11,21 @@ class SetUserSsoSettingsRequest extends Model
     /**
      * @var string
      */
+    public $auxiliaryDomain;
+
+    /**
+     * @var string
+     */
     public $metadataDocument;
 
     /**
      * @var bool
      */
     public $ssoEnabled;
-
-    /**
-     * @var string
-     */
-    public $auxiliaryDomain;
     protected $_name = [
+        'auxiliaryDomain'  => 'AuxiliaryDomain',
         'metadataDocument' => 'MetadataDocument',
         'ssoEnabled'       => 'SsoEnabled',
-        'auxiliaryDomain'  => 'AuxiliaryDomain',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SetUserSsoSettingsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->auxiliaryDomain) {
+            $res['AuxiliaryDomain'] = $this->auxiliaryDomain;
+        }
         if (null !== $this->metadataDocument) {
             $res['MetadataDocument'] = $this->metadataDocument;
         }
         if (null !== $this->ssoEnabled) {
             $res['SsoEnabled'] = $this->ssoEnabled;
-        }
-        if (null !== $this->auxiliaryDomain) {
-            $res['AuxiliaryDomain'] = $this->auxiliaryDomain;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SetUserSsoSettingsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuxiliaryDomain'])) {
+            $model->auxiliaryDomain = $map['AuxiliaryDomain'];
+        }
         if (isset($map['MetadataDocument'])) {
             $model->metadataDocument = $map['MetadataDocument'];
         }
         if (isset($map['SsoEnabled'])) {
             $model->ssoEnabled = $map['SsoEnabled'];
-        }
-        if (isset($map['AuxiliaryDomain'])) {
-            $model->auxiliaryDomain = $map['AuxiliaryDomain'];
         }
 
         return $model;

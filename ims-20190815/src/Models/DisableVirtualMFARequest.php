@@ -18,7 +18,6 @@ class DisableVirtualMFARequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('userPrincipalName', $this->userPrincipalName, true);
     }
 
     public function toMap()

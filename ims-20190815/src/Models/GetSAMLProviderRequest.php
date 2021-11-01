@@ -18,7 +18,6 @@ class GetSAMLProviderRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('SAMLProviderName', $this->SAMLProviderName, true);
     }
 
     public function toMap()

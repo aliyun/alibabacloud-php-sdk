@@ -11,39 +11,38 @@ class CreateSAMLProviderRequest extends Model
     /**
      * @var string
      */
-    public $SAMLProviderName;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
      * @var string
      */
     public $encodedSAMLMetadataDocument;
+
+    /**
+     * @var string
+     */
+    public $SAMLProviderName;
     protected $_name = [
-        'SAMLProviderName'            => 'SAMLProviderName',
         'description'                 => 'Description',
         'encodedSAMLMetadataDocument' => 'EncodedSAMLMetadataDocument',
+        'SAMLProviderName'            => 'SAMLProviderName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('SAMLProviderName', $this->SAMLProviderName, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->SAMLProviderName) {
-            $res['SAMLProviderName'] = $this->SAMLProviderName;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->encodedSAMLMetadataDocument) {
             $res['EncodedSAMLMetadataDocument'] = $this->encodedSAMLMetadataDocument;
+        }
+        if (null !== $this->SAMLProviderName) {
+            $res['SAMLProviderName'] = $this->SAMLProviderName;
         }
 
         return $res;
@@ -57,14 +56,14 @@ class CreateSAMLProviderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SAMLProviderName'])) {
-            $model->SAMLProviderName = $map['SAMLProviderName'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['EncodedSAMLMetadataDocument'])) {
             $model->encodedSAMLMetadataDocument = $map['EncodedSAMLMetadataDocument'];
+        }
+        if (isset($map['SAMLProviderName'])) {
+            $model->SAMLProviderName = $map['SAMLProviderName'];
         }
 
         return $model;

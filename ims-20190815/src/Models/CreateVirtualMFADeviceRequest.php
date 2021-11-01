@@ -18,7 +18,6 @@ class CreateVirtualMFADeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('virtualMFADeviceName', $this->virtualMFADeviceName, true);
     }
 
     public function toMap()

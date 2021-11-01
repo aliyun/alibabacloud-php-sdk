@@ -11,6 +11,11 @@ class UpdateGroupRequest extends Model
     /**
      * @var string
      */
+    public $groupName;
+
+    /**
+     * @var string
+     */
     public $newComments;
 
     /**
@@ -22,16 +27,11 @@ class UpdateGroupRequest extends Model
      * @var string
      */
     public $newGroupName;
-
-    /**
-     * @var string
-     */
-    public $groupName;
     protected $_name = [
+        'groupName'      => 'GroupName',
         'newComments'    => 'NewComments',
         'newDisplayName' => 'NewDisplayName',
         'newGroupName'   => 'NewGroupName',
-        'groupName'      => 'GroupName',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class UpdateGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
         if (null !== $this->newComments) {
             $res['NewComments'] = $this->newComments;
         }
@@ -49,9 +52,6 @@ class UpdateGroupRequest extends Model
         }
         if (null !== $this->newGroupName) {
             $res['NewGroupName'] = $this->newGroupName;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class UpdateGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
         if (isset($map['NewComments'])) {
             $model->newComments = $map['NewComments'];
         }
@@ -73,9 +76,6 @@ class UpdateGroupRequest extends Model
         }
         if (isset($map['NewGroupName'])) {
             $model->newGroupName = $map['NewGroupName'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
         }
 
         return $model;

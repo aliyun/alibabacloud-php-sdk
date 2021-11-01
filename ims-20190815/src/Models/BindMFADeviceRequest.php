@@ -11,48 +11,47 @@ class BindMFADeviceRequest extends Model
     /**
      * @var string
      */
-    public $serialNumber;
-
-    /**
-     * @var string
-     */
-    public $userPrincipalName;
-
-    /**
-     * @var string
-     */
     public $authenticationCode1;
 
     /**
      * @var string
      */
     public $authenticationCode2;
+
+    /**
+     * @var string
+     */
+    public $serialNumber;
+
+    /**
+     * @var string
+     */
+    public $userPrincipalName;
     protected $_name = [
-        'serialNumber'        => 'SerialNumber',
-        'userPrincipalName'   => 'UserPrincipalName',
         'authenticationCode1' => 'AuthenticationCode1',
         'authenticationCode2' => 'AuthenticationCode2',
+        'serialNumber'        => 'SerialNumber',
+        'userPrincipalName'   => 'UserPrincipalName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('userPrincipalName', $this->userPrincipalName, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serialNumber) {
-            $res['SerialNumber'] = $this->serialNumber;
-        }
-        if (null !== $this->userPrincipalName) {
-            $res['UserPrincipalName'] = $this->userPrincipalName;
-        }
         if (null !== $this->authenticationCode1) {
             $res['AuthenticationCode1'] = $this->authenticationCode1;
         }
         if (null !== $this->authenticationCode2) {
             $res['AuthenticationCode2'] = $this->authenticationCode2;
+        }
+        if (null !== $this->serialNumber) {
+            $res['SerialNumber'] = $this->serialNumber;
+        }
+        if (null !== $this->userPrincipalName) {
+            $res['UserPrincipalName'] = $this->userPrincipalName;
         }
 
         return $res;
@@ -66,17 +65,17 @@ class BindMFADeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SerialNumber'])) {
-            $model->serialNumber = $map['SerialNumber'];
-        }
-        if (isset($map['UserPrincipalName'])) {
-            $model->userPrincipalName = $map['UserPrincipalName'];
-        }
         if (isset($map['AuthenticationCode1'])) {
             $model->authenticationCode1 = $map['AuthenticationCode1'];
         }
         if (isset($map['AuthenticationCode2'])) {
             $model->authenticationCode2 = $map['AuthenticationCode2'];
+        }
+        if (isset($map['SerialNumber'])) {
+            $model->serialNumber = $map['SerialNumber'];
+        }
+        if (isset($map['UserPrincipalName'])) {
+            $model->userPrincipalName = $map['UserPrincipalName'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class GetUserRequest extends Model
     /**
      * @var string
      */
-    public $userPrincipalName;
+    public $userAccessKeyId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class GetUserRequest extends Model
     /**
      * @var string
      */
-    public $userAccessKeyId;
+    public $userPrincipalName;
     protected $_name = [
-        'userPrincipalName' => 'UserPrincipalName',
-        'userId'            => 'UserId',
         'userAccessKeyId'   => 'UserAccessKeyId',
+        'userId'            => 'UserId',
+        'userPrincipalName' => 'UserPrincipalName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userPrincipalName) {
-            $res['UserPrincipalName'] = $this->userPrincipalName;
+        if (null !== $this->userAccessKeyId) {
+            $res['UserAccessKeyId'] = $this->userAccessKeyId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
-        if (null !== $this->userAccessKeyId) {
-            $res['UserAccessKeyId'] = $this->userAccessKeyId;
+        if (null !== $this->userPrincipalName) {
+            $res['UserPrincipalName'] = $this->userPrincipalName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserPrincipalName'])) {
-            $model->userPrincipalName = $map['UserPrincipalName'];
+        if (isset($map['UserAccessKeyId'])) {
+            $model->userAccessKeyId = $map['UserAccessKeyId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
-        if (isset($map['UserAccessKeyId'])) {
-            $model->userAccessKeyId = $map['UserAccessKeyId'];
+        if (isset($map['UserPrincipalName'])) {
+            $model->userPrincipalName = $map['UserPrincipalName'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DeleteUserRequest extends Model
     /**
      * @var string
      */
-    public $userPrincipalName;
+    public $userId;
 
     /**
      * @var string
      */
-    public $userId;
+    public $userPrincipalName;
     protected $_name = [
-        'userPrincipalName' => 'UserPrincipalName',
         'userId'            => 'UserId',
+        'userPrincipalName' => 'UserPrincipalName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userPrincipalName) {
-            $res['UserPrincipalName'] = $this->userPrincipalName;
-        }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->userPrincipalName) {
+            $res['UserPrincipalName'] = $this->userPrincipalName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserPrincipalName'])) {
-            $model->userPrincipalName = $map['UserPrincipalName'];
-        }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserPrincipalName'])) {
+            $model->userPrincipalName = $map['UserPrincipalName'];
         }
 
         return $model;

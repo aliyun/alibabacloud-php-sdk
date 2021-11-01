@@ -24,7 +24,6 @@ class DeleteAccessKeyRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('userAccessKeyId', $this->userAccessKeyId, true);
     }
 
     public function toMap()

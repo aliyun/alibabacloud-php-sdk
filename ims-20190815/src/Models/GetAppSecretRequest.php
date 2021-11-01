@@ -24,8 +24,6 @@ class GetAppSecretRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('appSecretId', $this->appSecretId, true);
     }
 
     public function toMap()

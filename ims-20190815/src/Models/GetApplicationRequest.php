@@ -18,7 +18,6 @@ class GetApplicationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
     }
 
     public function toMap()

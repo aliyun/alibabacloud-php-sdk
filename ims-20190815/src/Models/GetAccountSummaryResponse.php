@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountSummaryResponse\summaryMap;
 use AlibabaCloud\Tea\Model;
 
 class GetAccountSummaryResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var summaryMap
+     * @var GetAccountSummaryResponseBody
      */
-    public $summaryMap;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'summaryMap' => 'SummaryMap',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('summaryMap', $this->summaryMap, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->summaryMap) {
-            $res['SummaryMap'] = null !== $this->summaryMap ? $this->summaryMap->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class GetAccountSummaryResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['SummaryMap'])) {
-            $model->summaryMap = summaryMap::fromMap($map['SummaryMap']);
+        if (isset($map['body'])) {
+            $model->body = GetAccountSummaryResponseBody::fromMap($map['body']);
         }
 
         return $model;
