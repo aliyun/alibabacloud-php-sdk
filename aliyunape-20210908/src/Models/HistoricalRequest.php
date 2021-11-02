@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class HistoricalRequest extends Model
 {
     /**
-     * @description UserId
+     * @description endTime
      *
-     * @var int
+     * @var string
      */
-    public $userId;
+    public $endTime;
 
     /**
      * @description 用户中心--我的订单--订单请求--实例名称：aliyunape_meteor12_public_cn-0ju2d2hh90b
@@ -23,18 +23,11 @@ class HistoricalRequest extends Model
     public $orderId;
 
     /**
-     * @description requestId
+     * @description pageNum
      *
-     * @var string
+     * @var int
      */
-    public $requestId;
-
-    /**
-     * @description 全国（入参单一站点）
-     *
-     * @var string
-     */
-    public $station;
+    public $pageNum;
 
     /**
      * @description pageSize
@@ -51,27 +44,18 @@ class HistoricalRequest extends Model
     public $startTime;
 
     /**
-     * @description endTime
+     * @description 全国（入参单一站点）
      *
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @description pageNum
-     *
-     * @var int
-     */
-    public $pageNum;
+    public $station;
     protected $_name = [
-        'userId'    => 'UserId',
+        'endTime'   => 'EndTime',
         'orderId'   => 'OrderId',
-        'requestId' => 'RequestId',
-        'station'   => 'Station',
+        'pageNum'   => 'PageNum',
         'pageSize'  => 'PageSize',
         'startTime' => 'StartTime',
-        'endTime'   => 'EndTime',
-        'pageNum'   => 'PageNum',
+        'station'   => 'Station',
     ];
 
     public function validate()
@@ -81,17 +65,14 @@ class HistoricalRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->station) {
-            $res['Station'] = $this->station;
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -99,11 +80,8 @@ class HistoricalRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->station) {
+            $res['Station'] = $this->station;
         }
 
         return $res;
@@ -117,17 +95,14 @@ class HistoricalRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Station'])) {
-            $model->station = $map['Station'];
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -135,11 +110,8 @@ class HistoricalRequest extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['Station'])) {
+            $model->station = $map['Station'];
         }
 
         return $model;

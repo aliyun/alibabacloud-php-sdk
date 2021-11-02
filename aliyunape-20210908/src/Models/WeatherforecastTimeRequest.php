@@ -9,34 +9,6 @@ use AlibabaCloud\Tea\Model;
 class WeatherforecastTimeRequest extends Model
 {
     /**
-     * @description UserId
-     *
-     * @var int
-     */
-    public $userId;
-
-    /**
-     * @description 用户中心--我的订单--订单请求--实例名称：aliyunape_meteor12_public_cn-0ju2d2hh90b
-     *
-     * @var string
-     */
-    public $orderId;
-
-    /**
-     * @description requestId
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description 经度，范围为（70°E~139.96°E）
-     *
-     * @var string
-     */
-    public $lon;
-
-    /**
      * @description 20210809090000
      *
      * @var string
@@ -49,13 +21,31 @@ class WeatherforecastTimeRequest extends Model
      * @var string
      */
     public $lat;
+
+    /**
+     * @description 经度，范围为（70°E~139.96°E）
+     *
+     * @var string
+     */
+    public $lon;
+
+    /**
+     * @description 用户中心--我的订单--订单请求--实例名称：aliyunape_meteor12_public_cn-0ju2d2hh90b
+     *
+     * @var string
+     */
+    public $orderId;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'userId'    => 'UserId',
-        'orderId'   => 'OrderId',
-        'requestId' => 'RequestId',
-        'lon'       => 'Lon',
-        'curHour'   => 'CurHour',
-        'lat'       => 'Lat',
+        'curHour'  => 'CurHour',
+        'lat'      => 'Lat',
+        'lon'      => 'Lon',
+        'orderId'  => 'OrderId',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
@@ -65,23 +55,20 @@ class WeatherforecastTimeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->lon) {
-            $res['Lon'] = $this->lon;
-        }
         if (null !== $this->curHour) {
             $res['CurHour'] = $this->curHour;
         }
         if (null !== $this->lat) {
             $res['Lat'] = $this->lat;
+        }
+        if (null !== $this->lon) {
+            $res['Lon'] = $this->lon;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -95,23 +82,20 @@ class WeatherforecastTimeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Lon'])) {
-            $model->lon = $map['Lon'];
-        }
         if (isset($map['CurHour'])) {
             $model->curHour = $map['CurHour'];
         }
         if (isset($map['Lat'])) {
             $model->lat = $map['Lat'];
+        }
+        if (isset($map['Lon'])) {
+            $model->lon = $map['Lon'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

@@ -9,25 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StationDayRequest extends Model
 {
     /**
-     * @description UserId
-     *
-     * @var int
-     */
-    public $userId;
-
-    /**
      * @description 用户中心--我的订单--订单请求--实例名称：aliyunape_meteor12_public_cn-0ju2d2hh90b
      *
      * @var string
      */
     public $orderId;
-
-    /**
-     * @description requestId
-     *
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @description 气象预测开始时间
@@ -43,9 +29,7 @@ class StationDayRequest extends Model
      */
     public $station;
     protected $_name = [
-        'userId'        => 'UserId',
         'orderId'       => 'OrderId',
-        'requestId'     => 'RequestId',
         'startForecast' => 'StartForecast',
         'station'       => 'Station',
     ];
@@ -57,14 +41,8 @@ class StationDayRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->startForecast) {
             $res['StartForecast'] = $this->startForecast;
@@ -84,14 +62,8 @@ class StationDayRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StartForecast'])) {
             $model->startForecast = $map['StartForecast'];

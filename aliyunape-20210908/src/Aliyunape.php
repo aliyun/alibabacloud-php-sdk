@@ -54,59 +54,31 @@ class Aliyunape extends OpenApiClient
     }
 
     /**
-     * @param WeathermonitorRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param HistoricalRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return WeathermonitorResponse
+     * @return HistoricalResponse
      */
-    public function weathermonitorWithOptions($request, $runtime)
+    public function historicalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return WeathermonitorResponse::fromMap($this->doRPCRequest('Weathermonitor', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return HistoricalResponse::fromMap($this->doRPCRequest('Historical', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param WeathermonitorRequest $request
+     * @param HistoricalRequest $request
      *
-     * @return WeathermonitorResponse
+     * @return HistoricalResponse
      */
-    public function weathermonitor($request)
+    public function historical($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->weathermonitorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param WeatherforecastTimeRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return WeatherforecastTimeResponse
-     */
-    public function weatherforecastTimeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return WeatherforecastTimeResponse::fromMap($this->doRPCRequest('WeatherforecastTime', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param WeatherforecastTimeRequest $request
-     *
-     * @return WeatherforecastTimeResponse
-     */
-    public function weatherforecastTime($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->weatherforecastTimeWithOptions($request, $runtime);
+        return $this->historicalWithOptions($request, $runtime);
     }
 
     /**
@@ -166,30 +138,58 @@ class Aliyunape extends OpenApiClient
     }
 
     /**
-     * @param HistoricalRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param WeatherforecastTimeRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return HistoricalResponse
+     * @return WeatherforecastTimeResponse
      */
-    public function historicalWithOptions($request, $runtime)
+    public function weatherforecastTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return HistoricalResponse::fromMap($this->doRPCRequest('Historical', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return WeatherforecastTimeResponse::fromMap($this->doRPCRequest('WeatherforecastTime', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param HistoricalRequest $request
+     * @param WeatherforecastTimeRequest $request
      *
-     * @return HistoricalResponse
+     * @return WeatherforecastTimeResponse
      */
-    public function historical($request)
+    public function weatherforecastTime($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->historicalWithOptions($request, $runtime);
+        return $this->weatherforecastTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param WeathermonitorRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return WeathermonitorResponse
+     */
+    public function weathermonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return WeathermonitorResponse::fromMap($this->doRPCRequest('Weathermonitor', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param WeathermonitorRequest $request
+     *
+     * @return WeathermonitorResponse
+     */
+    public function weathermonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->weathermonitorWithOptions($request, $runtime);
     }
 }
