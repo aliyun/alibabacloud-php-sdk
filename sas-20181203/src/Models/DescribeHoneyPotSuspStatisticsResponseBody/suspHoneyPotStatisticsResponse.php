@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class suspHoneyPotStatisticsResponse extends Model
 {
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @var string
      */
     public $type;
@@ -22,28 +37,13 @@ class suspHoneyPotStatisticsResponse extends Model
      * @var string
      */
     public $vpcName;
-
-    /**
-     * @var string
-     */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $count;
     protected $_name = [
+        'count'        => 'Count',
+        'instanceId'   => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'type'         => 'Type',
         'vpcId'        => 'VpcId',
         'vpcName'      => 'VpcName',
-        'instanceName' => 'InstanceName',
-        'instanceId'   => 'InstanceId',
-        'count'        => 'Count',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class suspHoneyPotStatisticsResponse extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -61,15 +70,6 @@ class suspHoneyPotStatisticsResponse extends Model
         }
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class suspHoneyPotStatisticsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
@@ -91,15 +100,6 @@ class suspHoneyPotStatisticsResponse extends Model
         }
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

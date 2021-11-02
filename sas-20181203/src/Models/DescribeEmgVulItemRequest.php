@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeEmgVulItemRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
      * @var string
      */
     public $lang;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -27,23 +37,13 @@ class DescribeEmgVulItemRequest extends Model
      * @var string
      */
     public $vulName;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
+        'currentPage' => 'CurrentPage',
         'lang'        => 'Lang',
+        'pageSize'    => 'PageSize',
         'riskStatus'  => 'RiskStatus',
         'scanType'    => 'ScanType',
         'vulName'     => 'VulName',
-        'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
     ];
 
     public function validate()
@@ -53,8 +53,14 @@ class DescribeEmgVulItemRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->riskStatus) {
             $res['RiskStatus'] = $this->riskStatus;
@@ -64,12 +70,6 @@ class DescribeEmgVulItemRequest extends Model
         }
         if (null !== $this->vulName) {
             $res['VulName'] = $this->vulName;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -83,8 +83,14 @@ class DescribeEmgVulItemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RiskStatus'])) {
             $model->riskStatus = $map['RiskStatus'];
@@ -94,12 +100,6 @@ class DescribeEmgVulItemRequest extends Model
         }
         if (isset($map['VulName'])) {
             $model->vulName = $map['VulName'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

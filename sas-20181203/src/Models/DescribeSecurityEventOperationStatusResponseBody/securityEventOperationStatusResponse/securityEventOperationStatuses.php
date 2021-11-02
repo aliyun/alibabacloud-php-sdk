@@ -11,7 +11,7 @@ class securityEventOperationStatuses extends Model
     /**
      * @var string
      */
-    public $status;
+    public $errorCode;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class securityEventOperationStatuses extends Model
     /**
      * @var string
      */
-    public $errorCode;
+    public $status;
     protected $_name = [
-        'status'          => 'Status',
-        'securityEventId' => 'SecurityEventId',
         'errorCode'       => 'ErrorCode',
+        'securityEventId' => 'SecurityEventId',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class securityEventOperationStatuses extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->securityEventId) {
             $res['SecurityEventId'] = $this->securityEventId;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class securityEventOperationStatuses extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['SecurityEventId'])) {
             $model->securityEventId = $map['SecurityEventId'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class GetVulStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $groupIdList;
 
     /**
      * @var string
      */
-    public $groupIdList;
+    public $sourceIp;
 
     /**
      * @var string
      */
     public $typeList;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
         'groupIdList' => 'GroupIdList',
+        'sourceIp'    => 'SourceIp',
         'typeList'    => 'TypeList',
     ];
 
@@ -35,11 +35,11 @@ class GetVulStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->groupIdList) {
             $res['GroupIdList'] = $this->groupIdList;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->typeList) {
             $res['TypeList'] = $this->typeList;
@@ -56,11 +56,11 @@ class GetVulStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['GroupIdList'])) {
             $model->groupIdList = $map['GroupIdList'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['TypeList'])) {
             $model->typeList = $map['TypeList'];

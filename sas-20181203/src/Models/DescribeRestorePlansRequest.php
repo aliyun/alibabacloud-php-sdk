@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestorePlansRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $currentPage;
 
     /**
      * @var string
@@ -31,18 +26,23 @@ class DescribeRestorePlansRequest extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
 
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
+        'currentPage'     => 'CurrentPage',
         'instanceName'    => 'InstanceName',
         'pageSize'        => 'PageSize',
-        'currentPage'     => 'CurrentPage',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
         'status'          => 'Status',
     ];
 
@@ -53,11 +53,8 @@ class DescribeRestorePlansRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -65,8 +62,11 @@ class DescribeRestorePlansRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -83,11 +83,8 @@ class DescribeRestorePlansRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
@@ -95,8 +92,11 @@ class DescribeRestorePlansRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

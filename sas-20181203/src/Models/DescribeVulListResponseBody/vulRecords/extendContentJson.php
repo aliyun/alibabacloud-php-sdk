@@ -13,37 +13,7 @@ class extendContentJson extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $ip;
-
-    /**
-     * @var int
-     */
-    public $primaryId;
-
-    /**
-     * @var string
-     */
-    public $os;
-
-    /**
-     * @var string
-     */
-    public $tag;
-
-    /**
-     * @var int
-     */
-    public $lastTs;
-
-    /**
-     * @var string
-     */
-    public $osRelease;
+    public $absolutePath;
 
     /**
      * @var string
@@ -53,7 +23,32 @@ class extendContentJson extends Model
     /**
      * @var string
      */
-    public $absolutePath;
+    public $ip;
+
+    /**
+     * @var int
+     */
+    public $lastTs;
+
+    /**
+     * @var necessity
+     */
+    public $necessity;
+
+    /**
+     * @var string
+     */
+    public $os;
+
+    /**
+     * @var string
+     */
+    public $osRelease;
+
+    /**
+     * @var int
+     */
+    public $primaryId;
 
     /**
      * @var rpmEntityList[]
@@ -61,27 +56,32 @@ class extendContentJson extends Model
     public $rpmEntityList;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $tag;
+
+    /**
      * @var string[]
      */
     public $cveList;
-
-    /**
-     * @var necessity
-     */
-    public $necessity;
     protected $_name = [
-        'status'        => 'Status',
-        'ip'            => 'Ip',
-        'primaryId'     => 'PrimaryId',
-        'os'            => 'Os',
-        'tag'           => 'Tag',
-        'lastTs'        => 'LastTs',
-        'osRelease'     => 'OsRelease',
-        'aliasName'     => 'AliasName',
         'absolutePath'  => 'AbsolutePath',
-        'rpmEntityList' => 'RpmEntityList',
-        'cveList'       => 'cveList',
+        'aliasName'     => 'AliasName',
+        'ip'            => 'Ip',
+        'lastTs'        => 'LastTs',
         'necessity'     => 'Necessity',
+        'os'            => 'Os',
+        'osRelease'     => 'OsRelease',
+        'primaryId'     => 'PrimaryId',
+        'rpmEntityList' => 'RpmEntityList',
+        'status'        => 'Status',
+        'tag'           => 'Tag',
+        'cveList'       => 'cveList',
     ];
 
     public function validate()
@@ -91,32 +91,29 @@ class extendContentJson extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
-        if (null !== $this->primaryId) {
-            $res['PrimaryId'] = $this->primaryId;
-        }
-        if (null !== $this->os) {
-            $res['Os'] = $this->os;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->lastTs) {
-            $res['LastTs'] = $this->lastTs;
-        }
-        if (null !== $this->osRelease) {
-            $res['OsRelease'] = $this->osRelease;
+        if (null !== $this->absolutePath) {
+            $res['AbsolutePath'] = $this->absolutePath;
         }
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
-        if (null !== $this->absolutePath) {
-            $res['AbsolutePath'] = $this->absolutePath;
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->lastTs) {
+            $res['LastTs'] = $this->lastTs;
+        }
+        if (null !== $this->necessity) {
+            $res['Necessity'] = null !== $this->necessity ? $this->necessity->toMap() : null;
+        }
+        if (null !== $this->os) {
+            $res['Os'] = $this->os;
+        }
+        if (null !== $this->osRelease) {
+            $res['OsRelease'] = $this->osRelease;
+        }
+        if (null !== $this->primaryId) {
+            $res['PrimaryId'] = $this->primaryId;
         }
         if (null !== $this->rpmEntityList) {
             $res['RpmEntityList'] = [];
@@ -127,11 +124,14 @@ class extendContentJson extends Model
                 }
             }
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
+        }
         if (null !== $this->cveList) {
             $res['cveList'] = $this->cveList;
-        }
-        if (null !== $this->necessity) {
-            $res['Necessity'] = null !== $this->necessity ? $this->necessity->toMap() : null;
         }
 
         return $res;
@@ -145,32 +145,29 @@ class extendContentJson extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
-        if (isset($map['PrimaryId'])) {
-            $model->primaryId = $map['PrimaryId'];
-        }
-        if (isset($map['Os'])) {
-            $model->os = $map['Os'];
-        }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
-        if (isset($map['LastTs'])) {
-            $model->lastTs = $map['LastTs'];
-        }
-        if (isset($map['OsRelease'])) {
-            $model->osRelease = $map['OsRelease'];
+        if (isset($map['AbsolutePath'])) {
+            $model->absolutePath = $map['AbsolutePath'];
         }
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
-        if (isset($map['AbsolutePath'])) {
-            $model->absolutePath = $map['AbsolutePath'];
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
+        }
+        if (isset($map['LastTs'])) {
+            $model->lastTs = $map['LastTs'];
+        }
+        if (isset($map['Necessity'])) {
+            $model->necessity = necessity::fromMap($map['Necessity']);
+        }
+        if (isset($map['Os'])) {
+            $model->os = $map['Os'];
+        }
+        if (isset($map['OsRelease'])) {
+            $model->osRelease = $map['OsRelease'];
+        }
+        if (isset($map['PrimaryId'])) {
+            $model->primaryId = $map['PrimaryId'];
         }
         if (isset($map['RpmEntityList'])) {
             if (!empty($map['RpmEntityList'])) {
@@ -181,13 +178,16 @@ class extendContentJson extends Model
                 }
             }
         }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
+        }
         if (isset($map['cveList'])) {
             if (!empty($map['cveList'])) {
                 $model->cveList = $map['cveList'];
             }
-        }
-        if (isset($map['Necessity'])) {
-            $model->necessity = necessity::fromMap($map['Necessity']);
         }
 
         return $model;

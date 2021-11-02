@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedMaliciousFilesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var groupedMaliciousFileResponse[]
      */
-    public $requestId;
+    public $groupedMaliciousFileResponse;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var groupedMaliciousFileResponse[]
+     * @var string
      */
-    public $groupedMaliciousFileResponse;
+    public $requestId;
     protected $_name = [
-        'requestId'                    => 'RequestId',
-        'pageInfo'                     => 'PageInfo',
         'groupedMaliciousFileResponse' => 'GroupedMaliciousFileResponse',
+        'pageInfo'                     => 'PageInfo',
+        'requestId'                    => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
         if (null !== $this->groupedMaliciousFileResponse) {
             $res['GroupedMaliciousFileResponse'] = [];
             if (null !== $this->groupedMaliciousFileResponse && \is_array($this->groupedMaliciousFileResponse)) {
@@ -51,6 +45,12 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
                     $res['GroupedMaliciousFileResponse'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
         if (isset($map['GroupedMaliciousFileResponse'])) {
             if (!empty($map['GroupedMaliciousFileResponse'])) {
                 $model->groupedMaliciousFileResponse = [];
@@ -78,6 +72,12 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
                     $model->groupedMaliciousFileResponse[$n++] = null !== $item ? groupedMaliciousFileResponse::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

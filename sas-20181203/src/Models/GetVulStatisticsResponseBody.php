@@ -16,22 +16,22 @@ class GetVulStatisticsResponseBody extends Model
     /**
      * @var int
      */
+    public $vulAsapSum;
+
+    /**
+     * @var int
+     */
     public $vulLaterSum;
 
     /**
      * @var int
      */
     public $vulNntfSum;
-
-    /**
-     * @var int
-     */
-    public $vulAsapSum;
     protected $_name = [
         'requestId'   => 'RequestId',
+        'vulAsapSum'  => 'VulAsapSum',
         'vulLaterSum' => 'VulLaterSum',
         'vulNntfSum'  => 'VulNntfSum',
-        'vulAsapSum'  => 'VulAsapSum',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class GetVulStatisticsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->vulAsapSum) {
+            $res['VulAsapSum'] = $this->vulAsapSum;
+        }
         if (null !== $this->vulLaterSum) {
             $res['VulLaterSum'] = $this->vulLaterSum;
         }
         if (null !== $this->vulNntfSum) {
             $res['VulNntfSum'] = $this->vulNntfSum;
-        }
-        if (null !== $this->vulAsapSum) {
-            $res['VulAsapSum'] = $this->vulAsapSum;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class GetVulStatisticsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['VulAsapSum'])) {
+            $model->vulAsapSum = $map['VulAsapSum'];
+        }
         if (isset($map['VulLaterSum'])) {
             $model->vulLaterSum = $map['VulLaterSum'];
         }
         if (isset($map['VulNntfSum'])) {
             $model->vulNntfSum = $map['VulNntfSum'];
-        }
-        if (isset($map['VulAsapSum'])) {
-            $model->vulAsapSum = $map['VulAsapSum'];
         }
 
         return $model;

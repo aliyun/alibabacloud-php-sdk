@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDingTalkResponseBody extends Model
 {
     /**
-     * @var string
+     * @var actionList[]
      */
-    public $requestId;
+    public $actionList;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribeDingTalkResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var actionList[]
+     * @var string
      */
-    public $actionList;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'pageInfo'   => 'PageInfo',
         'actionList' => 'ActionList',
+        'pageInfo'   => 'PageInfo',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class DescribeDingTalkResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
         if (null !== $this->actionList) {
             $res['ActionList'] = [];
             if (null !== $this->actionList && \is_array($this->actionList)) {
@@ -51,6 +45,12 @@ class DescribeDingTalkResponseBody extends Model
                     $res['ActionList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class DescribeDingTalkResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
         if (isset($map['ActionList'])) {
             if (!empty($map['ActionList'])) {
                 $model->actionList = [];
@@ -78,6 +72,12 @@ class DescribeDingTalkResponseBody extends Model
                     $model->actionList[$n++] = null !== $item ? actionList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

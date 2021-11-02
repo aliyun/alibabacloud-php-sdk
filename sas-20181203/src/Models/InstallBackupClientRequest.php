@@ -11,20 +11,20 @@ class InstallBackupClientRequest extends Model
     /**
      * @var string
      */
-    public $uuid;
+    public $policyVersion;
 
     /**
      * @var string
      */
-    public $policyVersion;
+    public $uuid;
 
     /**
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'uuid'          => 'Uuid',
         'policyVersion' => 'PolicyVersion',
+        'uuid'          => 'Uuid',
         'uuidList'      => 'UuidList',
     ];
 
@@ -35,11 +35,11 @@ class InstallBackupClientRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
@@ -56,11 +56,11 @@ class InstallBackupClientRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCronDetailRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $remark;
@@ -27,23 +37,13 @@ class DescribePropertyCronDetailRequest extends Model
      * @var string
      */
     public $uuid;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
+        'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
         'remark'      => 'Remark',
         'source'      => 'Source',
         'user'        => 'User',
         'uuid'        => 'Uuid',
-        'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
     ];
 
     public function validate()
@@ -53,6 +53,12 @@ class DescribePropertyCronDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -64,12 +70,6 @@ class DescribePropertyCronDetailRequest extends Model
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -83,6 +83,12 @@ class DescribePropertyCronDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
@@ -94,12 +100,6 @@ class DescribePropertyCronDetailRequest extends Model
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

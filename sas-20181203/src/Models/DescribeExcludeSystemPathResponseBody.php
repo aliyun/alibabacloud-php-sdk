@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeExcludeSystemPathResponseBody extends Model
 {
     /**
-     * @var string
+     * @var excludePaths[]
      */
-    public $requestId;
+    public $excludePaths;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribeExcludeSystemPathResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var excludePaths[]
+     * @var string
      */
-    public $excludePaths;
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'pageInfo'     => 'PageInfo',
         'excludePaths' => 'ExcludePaths',
+        'pageInfo'     => 'PageInfo',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class DescribeExcludeSystemPathResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
         if (null !== $this->excludePaths) {
             $res['ExcludePaths'] = [];
             if (null !== $this->excludePaths && \is_array($this->excludePaths)) {
@@ -51,6 +45,12 @@ class DescribeExcludeSystemPathResponseBody extends Model
                     $res['ExcludePaths'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class DescribeExcludeSystemPathResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
         if (isset($map['ExcludePaths'])) {
             if (!empty($map['ExcludePaths'])) {
                 $model->excludePaths = [];
@@ -78,6 +72,12 @@ class DescribeExcludeSystemPathResponseBody extends Model
                     $model->excludePaths[$n++] = null !== $item ? excludePaths::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

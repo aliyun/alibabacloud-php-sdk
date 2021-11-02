@@ -10,59 +10,24 @@ use AlibabaCloud\Tea\Model;
 class vulRecords extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
      * @var string
      */
-    public $type;
+    public $aliasName;
 
     /**
-     * @var int
+     * @var extendContentJson
      */
-    public $modifyTs;
-
-    /**
-     * @var string
-     */
-    public $internetIp;
+    public $extendContentJson;
 
     /**
      * @var int
      */
-    public $primaryId;
+    public $firstTs;
 
     /**
-     * @var string
+     * @var int
      */
-    public $tag;
-
-    /**
-     * @var string
-     */
-    public $instanceName;
-
-    /**
-     * @var bool
-     */
-    public $online;
-
-    /**
-     * @var string
-     */
-    public $osVersion;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $resultCode;
+    public $groupId;
 
     /**
      * @var string
@@ -72,7 +37,12 @@ class vulRecords extends Model
     /**
      * @var string
      */
-    public $related;
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $internetIp;
 
     /**
      * @var string
@@ -87,12 +57,37 @@ class vulRecords extends Model
     /**
      * @var int
      */
-    public $firstTs;
+    public $modifyTs;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
      */
     public $necessity;
+
+    /**
+     * @var bool
+     */
+    public $online;
+
+    /**
+     * @var string
+     */
+    public $osVersion;
+
+    /**
+     * @var int
+     */
+    public $primaryId;
+
+    /**
+     * @var string
+     */
+    public $related;
 
     /**
      * @var int
@@ -102,12 +97,7 @@ class vulRecords extends Model
     /**
      * @var string
      */
-    public $uuid;
-
-    /**
-     * @var int
-     */
-    public $groupId;
+    public $resultCode;
 
     /**
      * @var string
@@ -115,38 +105,48 @@ class vulRecords extends Model
     public $resultMessage;
 
     /**
-     * @var string
+     * @var int
      */
-    public $aliasName;
+    public $status;
 
     /**
-     * @var extendContentJson
+     * @var string
      */
-    public $extendContentJson;
+    public $tag;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'status'            => 'Status',
-        'type'              => 'Type',
-        'modifyTs'          => 'ModifyTs',
-        'internetIp'        => 'InternetIp',
-        'primaryId'         => 'PrimaryId',
-        'tag'               => 'Tag',
-        'instanceName'      => 'InstanceName',
-        'online'            => 'Online',
-        'osVersion'         => 'OsVersion',
-        'name'              => 'Name',
-        'resultCode'        => 'ResultCode',
-        'instanceId'        => 'InstanceId',
-        'related'           => 'Related',
-        'intranetIp'        => 'IntranetIp',
-        'lastTs'            => 'LastTs',
-        'firstTs'           => 'FirstTs',
-        'necessity'         => 'Necessity',
-        'repairTs'          => 'RepairTs',
-        'uuid'              => 'Uuid',
-        'groupId'           => 'GroupId',
-        'resultMessage'     => 'ResultMessage',
         'aliasName'         => 'AliasName',
         'extendContentJson' => 'ExtendContentJson',
+        'firstTs'           => 'FirstTs',
+        'groupId'           => 'GroupId',
+        'instanceId'        => 'InstanceId',
+        'instanceName'      => 'InstanceName',
+        'internetIp'        => 'InternetIp',
+        'intranetIp'        => 'IntranetIp',
+        'lastTs'            => 'LastTs',
+        'modifyTs'          => 'ModifyTs',
+        'name'              => 'Name',
+        'necessity'         => 'Necessity',
+        'online'            => 'Online',
+        'osVersion'         => 'OsVersion',
+        'primaryId'         => 'PrimaryId',
+        'related'           => 'Related',
+        'repairTs'          => 'RepairTs',
+        'resultCode'        => 'ResultCode',
+        'resultMessage'     => 'ResultMessage',
+        'status'            => 'Status',
+        'tag'               => 'Tag',
+        'type'              => 'Type',
+        'uuid'              => 'Uuid',
     ];
 
     public function validate()
@@ -156,44 +156,26 @@ class vulRecords extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->aliasName) {
+            $res['AliasName'] = $this->aliasName;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->extendContentJson) {
+            $res['ExtendContentJson'] = null !== $this->extendContentJson ? $this->extendContentJson->toMap() : null;
         }
-        if (null !== $this->modifyTs) {
-            $res['ModifyTs'] = $this->modifyTs;
+        if (null !== $this->firstTs) {
+            $res['FirstTs'] = $this->firstTs;
         }
-        if (null !== $this->internetIp) {
-            $res['InternetIp'] = $this->internetIp;
-        }
-        if (null !== $this->primaryId) {
-            $res['PrimaryId'] = $this->primaryId;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->online) {
-            $res['Online'] = $this->online;
-        }
-        if (null !== $this->osVersion) {
-            $res['OsVersion'] = $this->osVersion;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->resultCode) {
-            $res['ResultCode'] = $this->resultCode;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->related) {
-            $res['Related'] = $this->related;
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
         }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
@@ -201,29 +183,47 @@ class vulRecords extends Model
         if (null !== $this->lastTs) {
             $res['LastTs'] = $this->lastTs;
         }
-        if (null !== $this->firstTs) {
-            $res['FirstTs'] = $this->firstTs;
+        if (null !== $this->modifyTs) {
+            $res['ModifyTs'] = $this->modifyTs;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->necessity) {
             $res['Necessity'] = $this->necessity;
         }
+        if (null !== $this->online) {
+            $res['Online'] = $this->online;
+        }
+        if (null !== $this->osVersion) {
+            $res['OsVersion'] = $this->osVersion;
+        }
+        if (null !== $this->primaryId) {
+            $res['PrimaryId'] = $this->primaryId;
+        }
+        if (null !== $this->related) {
+            $res['Related'] = $this->related;
+        }
         if (null !== $this->repairTs) {
             $res['RepairTs'] = $this->repairTs;
         }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->resultCode) {
+            $res['ResultCode'] = $this->resultCode;
         }
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
-        if (null !== $this->aliasName) {
-            $res['AliasName'] = $this->aliasName;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->extendContentJson) {
-            $res['ExtendContentJson'] = null !== $this->extendContentJson ? $this->extendContentJson->toMap() : null;
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -237,44 +237,26 @@ class vulRecords extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AliasName'])) {
+            $model->aliasName = $map['AliasName'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['ExtendContentJson'])) {
+            $model->extendContentJson = extendContentJson::fromMap($map['ExtendContentJson']);
         }
-        if (isset($map['ModifyTs'])) {
-            $model->modifyTs = $map['ModifyTs'];
+        if (isset($map['FirstTs'])) {
+            $model->firstTs = $map['FirstTs'];
         }
-        if (isset($map['InternetIp'])) {
-            $model->internetIp = $map['InternetIp'];
-        }
-        if (isset($map['PrimaryId'])) {
-            $model->primaryId = $map['PrimaryId'];
-        }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['Online'])) {
-            $model->online = $map['Online'];
-        }
-        if (isset($map['OsVersion'])) {
-            $model->osVersion = $map['OsVersion'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['ResultCode'])) {
-            $model->resultCode = $map['ResultCode'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Related'])) {
-            $model->related = $map['Related'];
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
         }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
@@ -282,29 +264,47 @@ class vulRecords extends Model
         if (isset($map['LastTs'])) {
             $model->lastTs = $map['LastTs'];
         }
-        if (isset($map['FirstTs'])) {
-            $model->firstTs = $map['FirstTs'];
+        if (isset($map['ModifyTs'])) {
+            $model->modifyTs = $map['ModifyTs'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Necessity'])) {
             $model->necessity = $map['Necessity'];
         }
+        if (isset($map['Online'])) {
+            $model->online = $map['Online'];
+        }
+        if (isset($map['OsVersion'])) {
+            $model->osVersion = $map['OsVersion'];
+        }
+        if (isset($map['PrimaryId'])) {
+            $model->primaryId = $map['PrimaryId'];
+        }
+        if (isset($map['Related'])) {
+            $model->related = $map['Related'];
+        }
         if (isset($map['RepairTs'])) {
             $model->repairTs = $map['RepairTs'];
         }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['ResultCode'])) {
+            $model->resultCode = $map['ResultCode'];
         }
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }
-        if (isset($map['AliasName'])) {
-            $model->aliasName = $map['AliasName'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['ExtendContentJson'])) {
-            $model->extendContentJson = extendContentJson::fromMap($map['ExtendContentJson']);
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

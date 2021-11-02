@@ -12,12 +12,22 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
     /**
      * @var int
      */
+    public $count;
+
+    /**
+     * @var int
+     */
     public $currentPage;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var quaraFiles[]
+     */
+    public $quaraFiles;
 
     /**
      * @var string
@@ -28,23 +38,13 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $count;
-
-    /**
-     * @var quaraFiles[]
-     */
-    public $quaraFiles;
     protected $_name = [
+        'count'       => 'Count',
         'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
+        'quaraFiles'  => 'QuaraFiles',
         'requestId'   => 'RequestId',
         'totalCount'  => 'TotalCount',
-        'count'       => 'Count',
-        'quaraFiles'  => 'QuaraFiles',
     ];
 
     public function validate()
@@ -54,20 +54,14 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
         if (null !== $this->quaraFiles) {
             $res['QuaraFiles'] = [];
@@ -77,6 +71,12 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
                     $res['QuaraFiles'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -90,20 +90,14 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
         if (isset($map['QuaraFiles'])) {
             if (!empty($map['QuaraFiles'])) {
@@ -113,6 +107,12 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
                     $model->quaraFiles[$n++] = null !== $item ? quaraFiles::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

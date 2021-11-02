@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainListResponseBody extends Model
 {
     /**
-     * @var string
+     * @var domainListResponseList[]
      */
-    public $requestId;
+    public $domainListResponseList;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribeDomainListResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var domainListResponseList[]
+     * @var string
      */
-    public $domainListResponseList;
+    public $requestId;
     protected $_name = [
-        'requestId'              => 'RequestId',
-        'pageInfo'               => 'PageInfo',
         'domainListResponseList' => 'DomainListResponseList',
+        'pageInfo'               => 'PageInfo',
+        'requestId'              => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class DescribeDomainListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
         if (null !== $this->domainListResponseList) {
             $res['DomainListResponseList'] = [];
             if (null !== $this->domainListResponseList && \is_array($this->domainListResponseList)) {
@@ -51,6 +45,12 @@ class DescribeDomainListResponseBody extends Model
                     $res['DomainListResponseList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class DescribeDomainListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
         if (isset($map['DomainListResponseList'])) {
             if (!empty($map['DomainListResponseList'])) {
                 $model->domainListResponseList = [];
@@ -78,6 +72,12 @@ class DescribeDomainListResponseBody extends Model
                     $model->domainListResponseList[$n++] = null !== $item ? domainListResponseList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

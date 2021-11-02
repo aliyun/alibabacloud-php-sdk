@@ -15,18 +15,18 @@ class DescribeAllGroupsResponseBody extends Model
     public $count;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var groups[]
      */
     public $groups;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'count'     => 'Count',
-        'requestId' => 'RequestId',
         'groups'    => 'Groups',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class DescribeAllGroupsResponseBody extends Model
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->groups) {
             $res['Groups'] = [];
             if (null !== $this->groups && \is_array($this->groups)) {
@@ -50,6 +47,9 @@ class DescribeAllGroupsResponseBody extends Model
                     $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class DescribeAllGroupsResponseBody extends Model
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
                 $model->groups = [];
@@ -77,6 +74,9 @@ class DescribeAllGroupsResponseBody extends Model
                     $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

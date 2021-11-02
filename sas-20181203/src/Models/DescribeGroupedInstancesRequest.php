@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedInstancesRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $lang;
+    public $currentPage;
 
     /**
      * @var string
      */
-    public $criteria;
-
-    /**
-     * @var string
-     */
-    public $machineTypes;
+    public $fieldValue;
 
     /**
      * @var string
@@ -31,7 +26,12 @@ class DescribeGroupedInstancesRequest extends Model
     /**
      * @var string
      */
-    public $fieldValue;
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $machineTypes;
 
     /**
      * @var bool
@@ -42,20 +42,14 @@ class DescribeGroupedInstancesRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
     protected $_name = [
-        'lang'         => 'Lang',
-        'criteria'     => 'Criteria',
-        'machineTypes' => 'MachineTypes',
-        'groupField'   => 'GroupField',
+        'currentPage'  => 'CurrentPage',
         'fieldValue'   => 'FieldValue',
+        'groupField'   => 'GroupField',
+        'lang'         => 'Lang',
+        'machineTypes' => 'MachineTypes',
         'noPage'       => 'NoPage',
         'pageSize'     => 'PageSize',
-        'currentPage'  => 'CurrentPage',
     ];
 
     public function validate()
@@ -65,29 +59,26 @@ class DescribeGroupedInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->criteria) {
-            $res['Criteria'] = $this->criteria;
-        }
-        if (null !== $this->machineTypes) {
-            $res['MachineTypes'] = $this->machineTypes;
+        if (null !== $this->fieldValue) {
+            $res['FieldValue'] = $this->fieldValue;
         }
         if (null !== $this->groupField) {
             $res['GroupField'] = $this->groupField;
         }
-        if (null !== $this->fieldValue) {
-            $res['FieldValue'] = $this->fieldValue;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->machineTypes) {
+            $res['MachineTypes'] = $this->machineTypes;
         }
         if (null !== $this->noPage) {
             $res['NoPage'] = $this->noPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -101,29 +92,26 @@ class DescribeGroupedInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['Criteria'])) {
-            $model->criteria = $map['Criteria'];
-        }
-        if (isset($map['MachineTypes'])) {
-            $model->machineTypes = $map['MachineTypes'];
+        if (isset($map['FieldValue'])) {
+            $model->fieldValue = $map['FieldValue'];
         }
         if (isset($map['GroupField'])) {
             $model->groupField = $map['GroupField'];
         }
-        if (isset($map['FieldValue'])) {
-            $model->fieldValue = $map['FieldValue'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['MachineTypes'])) {
+            $model->machineTypes = $map['MachineTypes'];
         }
         if (isset($map['NoPage'])) {
             $model->noPage = $map['NoPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

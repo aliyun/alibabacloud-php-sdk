@@ -10,21 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $domain;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $vulCount;
-
-    /**
      * @var int
      */
     public $alarmCount;
@@ -32,19 +17,34 @@ class DescribeDomainDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $rootDomain;
+    public $domain;
 
     /**
      * @var domainDetailItems[]
      */
     public $domainDetailItems;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $rootDomain;
+
+    /**
+     * @var int
+     */
+    public $vulCount;
     protected $_name = [
-        'domain'            => 'Domain',
-        'requestId'         => 'RequestId',
-        'vulCount'          => 'VulCount',
         'alarmCount'        => 'AlarmCount',
-        'rootDomain'        => 'RootDomain',
+        'domain'            => 'Domain',
         'domainDetailItems' => 'DomainDetailItems',
+        'requestId'         => 'RequestId',
+        'rootDomain'        => 'RootDomain',
+        'vulCount'          => 'VulCount',
     ];
 
     public function validate()
@@ -54,20 +54,11 @@ class DescribeDomainDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->vulCount) {
-            $res['VulCount'] = $this->vulCount;
-        }
         if (null !== $this->alarmCount) {
             $res['AlarmCount'] = $this->alarmCount;
         }
-        if (null !== $this->rootDomain) {
-            $res['RootDomain'] = $this->rootDomain;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->domainDetailItems) {
             $res['DomainDetailItems'] = [];
@@ -77,6 +68,15 @@ class DescribeDomainDetailResponseBody extends Model
                     $res['DomainDetailItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->rootDomain) {
+            $res['RootDomain'] = $this->rootDomain;
+        }
+        if (null !== $this->vulCount) {
+            $res['VulCount'] = $this->vulCount;
         }
 
         return $res;
@@ -90,20 +90,11 @@ class DescribeDomainDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['VulCount'])) {
-            $model->vulCount = $map['VulCount'];
-        }
         if (isset($map['AlarmCount'])) {
             $model->alarmCount = $map['AlarmCount'];
         }
-        if (isset($map['RootDomain'])) {
-            $model->rootDomain = $map['RootDomain'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['DomainDetailItems'])) {
             if (!empty($map['DomainDetailItems'])) {
@@ -113,6 +104,15 @@ class DescribeDomainDetailResponseBody extends Model
                     $model->domainDetailItems[$n++] = null !== $item ? domainDetailItems::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RootDomain'])) {
+            $model->rootDomain = $map['RootDomain'];
+        }
+        if (isset($map['VulCount'])) {
+            $model->vulCount = $map['VulCount'];
         }
 
         return $model;

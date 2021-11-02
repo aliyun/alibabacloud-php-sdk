@@ -16,16 +16,16 @@ class ModifyPushAllTaskRequest extends Model
     /**
      * @var string
      */
-    public $uuids;
+    public $tasks;
 
     /**
      * @var string
      */
-    public $tasks;
+    public $uuids;
     protected $_name = [
         'sourceIp' => 'SourceIp',
-        'uuids'    => 'Uuids',
         'tasks'    => 'Tasks',
+        'uuids'    => 'Uuids',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ModifyPushAllTaskRequest extends Model
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
-        if (null !== $this->uuids) {
-            $res['Uuids'] = $this->uuids;
-        }
         if (null !== $this->tasks) {
             $res['Tasks'] = $this->tasks;
+        }
+        if (null !== $this->uuids) {
+            $res['Uuids'] = $this->uuids;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ModifyPushAllTaskRequest extends Model
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
-        if (isset($map['Uuids'])) {
-            $model->uuids = $map['Uuids'];
-        }
         if (isset($map['Tasks'])) {
             $model->tasks = $map['Tasks'];
+        }
+        if (isset($map['Uuids'])) {
+            $model->uuids = $map['Uuids'];
         }
 
         return $model;

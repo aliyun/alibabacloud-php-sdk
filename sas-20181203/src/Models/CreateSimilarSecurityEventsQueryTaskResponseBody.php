@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateSimilarSecurityEventsQueryTaskResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var createSimilarSecurityEventsQueryTaskResponse
      */
     public $createSimilarSecurityEventsQueryTaskResponse;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                                    => 'RequestId',
         'createSimilarSecurityEventsQueryTaskResponse' => 'CreateSimilarSecurityEventsQueryTaskResponse',
+        'requestId'                                    => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class CreateSimilarSecurityEventsQueryTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->createSimilarSecurityEventsQueryTaskResponse) {
             $res['CreateSimilarSecurityEventsQueryTaskResponse'] = null !== $this->createSimilarSecurityEventsQueryTaskResponse ? $this->createSimilarSecurityEventsQueryTaskResponse->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class CreateSimilarSecurityEventsQueryTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CreateSimilarSecurityEventsQueryTaskResponse'])) {
             $model->createSimilarSecurityEventsQueryTaskResponse = createSimilarSecurityEventsQueryTaskResponse::fromMap($map['CreateSimilarSecurityEventsQueryTaskResponse']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,6 +11,16 @@ use AlibabaCloud\Tea\Model;
 class exposedChains extends Model
 {
     /**
+     * @var allVulList[]
+     */
+    public $allVulList;
+
+    /**
+     * @var string
+     */
+    public $exposureComponent;
+
+    /**
      * @var string
      */
     public $exposureIp;
@@ -18,17 +28,7 @@ class exposedChains extends Model
     /**
      * @var string
      */
-    public $groupNo;
-
-    /**
-     * @var string
-     */
-    public $internetIp;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $exposurePort;
 
     /**
      * @var string
@@ -38,12 +38,37 @@ class exposedChains extends Model
     /**
      * @var string
      */
-    public $intranetIp;
+    public $exposureTypeId;
 
     /**
      * @var string
      */
-    public $exposureTypeId;
+    public $groupNo;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @var string
+     */
+    public $intranetIp;
+
+    /**
+     * @var realVulList[]
+     */
+    public $realVulList;
 
     /**
      * @var string
@@ -54,46 +79,21 @@ class exposedChains extends Model
      * @var string
      */
     public $uuid;
-
-    /**
-     * @var string
-     */
-    public $exposurePort;
-
-    /**
-     * @var string
-     */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $exposureComponent;
-
-    /**
-     * @var realVulList[]
-     */
-    public $realVulList;
-
-    /**
-     * @var allVulList[]
-     */
-    public $allVulList;
     protected $_name = [
+        'allVulList'        => 'AllVulList',
+        'exposureComponent' => 'ExposureComponent',
         'exposureIp'        => 'ExposureIp',
-        'groupNo'           => 'GroupNo',
-        'internetIp'        => 'InternetIp',
-        'instanceId'        => 'InstanceId',
+        'exposurePort'      => 'ExposurePort',
         'exposureType'      => 'ExposureType',
-        'intranetIp'        => 'IntranetIp',
         'exposureTypeId'    => 'ExposureTypeId',
+        'groupNo'           => 'GroupNo',
+        'instanceId'        => 'InstanceId',
+        'instanceName'      => 'InstanceName',
+        'internetIp'        => 'InternetIp',
+        'intranetIp'        => 'IntranetIp',
+        'realVulList'       => 'RealVulList',
         'regionId'          => 'RegionId',
         'uuid'              => 'Uuid',
-        'exposurePort'      => 'ExposurePort',
-        'instanceName'      => 'InstanceName',
-        'exposureComponent' => 'ExposureComponent',
-        'realVulList'       => 'RealVulList',
-        'allVulList'        => 'AllVulList',
     ];
 
     public function validate()
@@ -103,41 +103,44 @@ class exposedChains extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allVulList) {
+            $res['AllVulList'] = [];
+            if (null !== $this->allVulList && \is_array($this->allVulList)) {
+                $n = 0;
+                foreach ($this->allVulList as $item) {
+                    $res['AllVulList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->exposureComponent) {
+            $res['ExposureComponent'] = $this->exposureComponent;
+        }
         if (null !== $this->exposureIp) {
             $res['ExposureIp'] = $this->exposureIp;
-        }
-        if (null !== $this->groupNo) {
-            $res['GroupNo'] = $this->groupNo;
-        }
-        if (null !== $this->internetIp) {
-            $res['InternetIp'] = $this->internetIp;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->exposureType) {
-            $res['ExposureType'] = $this->exposureType;
-        }
-        if (null !== $this->intranetIp) {
-            $res['IntranetIp'] = $this->intranetIp;
-        }
-        if (null !== $this->exposureTypeId) {
-            $res['ExposureTypeId'] = $this->exposureTypeId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
         }
         if (null !== $this->exposurePort) {
             $res['ExposurePort'] = $this->exposurePort;
         }
+        if (null !== $this->exposureType) {
+            $res['ExposureType'] = $this->exposureType;
+        }
+        if (null !== $this->exposureTypeId) {
+            $res['ExposureTypeId'] = $this->exposureTypeId;
+        }
+        if (null !== $this->groupNo) {
+            $res['GroupNo'] = $this->groupNo;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->exposureComponent) {
-            $res['ExposureComponent'] = $this->exposureComponent;
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
         }
         if (null !== $this->realVulList) {
             $res['RealVulList'] = [];
@@ -148,14 +151,11 @@ class exposedChains extends Model
                 }
             }
         }
-        if (null !== $this->allVulList) {
-            $res['AllVulList'] = [];
-            if (null !== $this->allVulList && \is_array($this->allVulList)) {
-                $n = 0;
-                foreach ($this->allVulList as $item) {
-                    $res['AllVulList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -169,41 +169,44 @@ class exposedChains extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllVulList'])) {
+            if (!empty($map['AllVulList'])) {
+                $model->allVulList = [];
+                $n                 = 0;
+                foreach ($map['AllVulList'] as $item) {
+                    $model->allVulList[$n++] = null !== $item ? allVulList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ExposureComponent'])) {
+            $model->exposureComponent = $map['ExposureComponent'];
+        }
         if (isset($map['ExposureIp'])) {
             $model->exposureIp = $map['ExposureIp'];
-        }
-        if (isset($map['GroupNo'])) {
-            $model->groupNo = $map['GroupNo'];
-        }
-        if (isset($map['InternetIp'])) {
-            $model->internetIp = $map['InternetIp'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ExposureType'])) {
-            $model->exposureType = $map['ExposureType'];
-        }
-        if (isset($map['IntranetIp'])) {
-            $model->intranetIp = $map['IntranetIp'];
-        }
-        if (isset($map['ExposureTypeId'])) {
-            $model->exposureTypeId = $map['ExposureTypeId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
         }
         if (isset($map['ExposurePort'])) {
             $model->exposurePort = $map['ExposurePort'];
         }
+        if (isset($map['ExposureType'])) {
+            $model->exposureType = $map['ExposureType'];
+        }
+        if (isset($map['ExposureTypeId'])) {
+            $model->exposureTypeId = $map['ExposureTypeId'];
+        }
+        if (isset($map['GroupNo'])) {
+            $model->groupNo = $map['GroupNo'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['ExposureComponent'])) {
-            $model->exposureComponent = $map['ExposureComponent'];
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
         }
         if (isset($map['RealVulList'])) {
             if (!empty($map['RealVulList'])) {
@@ -214,14 +217,11 @@ class exposedChains extends Model
                 }
             }
         }
-        if (isset($map['AllVulList'])) {
-            if (!empty($map['AllVulList'])) {
-                $model->allVulList = [];
-                $n                 = 0;
-                foreach ($map['AllVulList'] as $item) {
-                    $model->allVulList[$n++] = null !== $item ? allVulList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class clients extends Model
     /**
      * @var string
      */
-    public $uuid;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $clientId;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class clients extends Model
     /**
      * @var string
      */
-    public $clientId;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'uuid'         => 'Uuid',
-        'instanceId'   => 'InstanceId',
-        'clientStatus' => 'ClientStatus',
         'clientId'     => 'ClientId',
+        'clientStatus' => 'ClientStatus',
+        'instanceId'   => 'InstanceId',
+        'uuid'         => 'Uuid',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class clients extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->clientId) {
+            $res['ClientId'] = $this->clientId;
         }
         if (null !== $this->clientStatus) {
             $res['ClientStatus'] = $this->clientStatus;
         }
-        if (null !== $this->clientId) {
-            $res['ClientId'] = $this->clientId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class clients extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['ClientId'])) {
+            $model->clientId = $map['ClientId'];
         }
         if (isset($map['ClientStatus'])) {
             $model->clientStatus = $map['ClientStatus'];
         }
-        if (isset($map['ClientId'])) {
-            $model->clientId = $map['ClientId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

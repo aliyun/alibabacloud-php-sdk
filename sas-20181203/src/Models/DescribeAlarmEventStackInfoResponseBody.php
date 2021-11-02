@@ -11,15 +11,15 @@ class DescribeAlarmEventStackInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $stackInfo;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $stackInfo;
     protected $_name = [
-        'stackInfo' => 'StackInfo',
         'requestId' => 'RequestId',
+        'stackInfo' => 'StackInfo',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeAlarmEventStackInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackInfo) {
-            $res['StackInfo'] = $this->stackInfo;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->stackInfo) {
+            $res['StackInfo'] = $this->stackInfo;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeAlarmEventStackInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackInfo'])) {
-            $model->stackInfo = $map['StackInfo'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StackInfo'])) {
+            $model->stackInfo = $map['StackInfo'];
         }
 
         return $model;

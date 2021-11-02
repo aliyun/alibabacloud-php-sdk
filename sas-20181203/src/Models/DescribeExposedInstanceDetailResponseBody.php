@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceDetailResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var exposedChains[]
      */
     public $exposedChains;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'exposedChains' => 'ExposedChains',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeExposedInstanceDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->exposedChains) {
             $res['ExposedChains'] = [];
             if (null !== $this->exposedChains && \is_array($this->exposedChains)) {
@@ -41,6 +38,9 @@ class DescribeExposedInstanceDetailResponseBody extends Model
                     $res['ExposedChains'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeExposedInstanceDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ExposedChains'])) {
             if (!empty($map['ExposedChains'])) {
                 $model->exposedChains = [];
@@ -65,6 +62,9 @@ class DescribeExposedInstanceDetailResponseBody extends Model
                     $model->exposedChains[$n++] = null !== $item ? exposedChains::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

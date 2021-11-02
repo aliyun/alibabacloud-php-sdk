@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPoliciesRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $name;
+    public $currentPage;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class DescribeBackupPoliciesRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $name;
 
     /**
      * @var int
@@ -29,15 +29,15 @@ class DescribeBackupPoliciesRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $status;
     protected $_name = [
-        'name'          => 'Name',
-        'machineRemark' => 'MachineRemark',
-        'status'        => 'Status',
-        'pageSize'      => 'PageSize',
         'currentPage'   => 'CurrentPage',
+        'machineRemark' => 'MachineRemark',
+        'name'          => 'Name',
+        'pageSize'      => 'PageSize',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeBackupPoliciesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->machineRemark) {
             $res['MachineRemark'] = $this->machineRemark;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeBackupPoliciesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['MachineRemark'])) {
             $model->machineRemark = $map['MachineRemark'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

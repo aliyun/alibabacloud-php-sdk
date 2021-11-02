@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class entityList extends Model
 {
     /**
-     * @var string
-     */
-    public $uuid;
-
-    /**
      * @var int
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class entityList extends Model
     /**
      * @var string
      */
-    public $instanceName;
+    public $intranetIp;
 
     /**
      * @var string
@@ -41,15 +41,15 @@ class entityList extends Model
     /**
      * @var string
      */
-    public $intranetIp;
+    public $uuid;
     protected $_name = [
-        'uuid'         => 'Uuid',
         'groupId'      => 'GroupId',
-        'internetIp'   => 'InternetIp',
         'instanceName' => 'InstanceName',
+        'internetIp'   => 'InternetIp',
+        'intranetIp'   => 'IntranetIp',
         'ip'           => 'Ip',
         'os'           => 'Os',
-        'intranetIp'   => 'IntranetIp',
+        'uuid'         => 'Uuid',
     ];
 
     public function validate()
@@ -59,17 +59,17 @@ class entityList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
@@ -77,8 +77,8 @@ class entityList extends Model
         if (null !== $this->os) {
             $res['Os'] = $this->os;
         }
-        if (null !== $this->intranetIp) {
-            $res['IntranetIp'] = $this->intranetIp;
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -92,17 +92,17 @@ class entityList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
@@ -110,8 +110,8 @@ class entityList extends Model
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
         }
-        if (isset($map['IntranetIp'])) {
-            $model->intranetIp = $map['IntranetIp'];
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

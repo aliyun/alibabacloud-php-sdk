@@ -11,15 +11,15 @@ class GetIncIOCsRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $date;
 
     /**
      * @var string
      */
-    public $date;
+    public $type;
     protected $_name = [
-        'type' => 'Type',
         'date' => 'Date',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetIncIOCsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->date) {
             $res['Date'] = $this->date;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetIncIOCsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

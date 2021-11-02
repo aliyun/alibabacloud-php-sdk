@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskCheckItemResultResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var pageContentResource
      */
     public $pageContentResource;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'pageContentResource' => 'PageContentResource',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeRiskCheckItemResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->pageContentResource) {
             $res['PageContentResource'] = null !== $this->pageContentResource ? $this->pageContentResource->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeRiskCheckItemResultResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PageContentResource'])) {
             $model->pageContentResource = pageContentResource::fromMap($map['PageContentResource']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

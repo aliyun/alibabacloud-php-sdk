@@ -11,21 +11,21 @@ class aegisCelintInstallResposeList extends Model
     /**
      * @var string
      */
-    public $uuid;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
      * @var int
      */
     public $recordId;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'uuid'       => 'Uuid',
         'instanceId' => 'InstanceId',
         'recordId'   => 'RecordId',
+        'uuid'       => 'Uuid',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class aegisCelintInstallResposeList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class aegisCelintInstallResposeList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

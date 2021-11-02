@@ -11,21 +11,21 @@ class DescribeInstallCaptchaResponseBody extends Model
     /**
      * @var string
      */
+    public $captchaCode;
+
+    /**
+     * @var string
+     */
     public $deadline;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $captchaCode;
     protected $_name = [
+        'captchaCode' => 'CaptchaCode',
         'deadline'    => 'Deadline',
         'requestId'   => 'RequestId',
-        'captchaCode' => 'CaptchaCode',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeInstallCaptchaResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->captchaCode) {
+            $res['CaptchaCode'] = $this->captchaCode;
+        }
         if (null !== $this->deadline) {
             $res['Deadline'] = $this->deadline;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->captchaCode) {
-            $res['CaptchaCode'] = $this->captchaCode;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeInstallCaptchaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CaptchaCode'])) {
+            $model->captchaCode = $map['CaptchaCode'];
+        }
         if (isset($map['Deadline'])) {
             $model->deadline = $map['Deadline'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['CaptchaCode'])) {
-            $model->captchaCode = $map['CaptchaCode'];
         }
 
         return $model;

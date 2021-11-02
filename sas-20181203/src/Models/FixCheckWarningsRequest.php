@@ -11,7 +11,7 @@ class FixCheckWarningsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $checkParams;
 
     /**
      * @var string
@@ -26,17 +26,17 @@ class FixCheckWarningsRequest extends Model
     /**
      * @var string
      */
-    public $checkParams;
+    public $sourceIp;
 
     /**
      * @var string
      */
     public $uuids;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
+        'checkParams' => 'CheckParams',
         'lang'        => 'Lang',
         'riskId'      => 'RiskId',
-        'checkParams' => 'CheckParams',
+        'sourceIp'    => 'SourceIp',
         'uuids'       => 'Uuids',
     ];
 
@@ -47,8 +47,8 @@ class FixCheckWarningsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->checkParams) {
+            $res['CheckParams'] = $this->checkParams;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -56,8 +56,8 @@ class FixCheckWarningsRequest extends Model
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
         }
-        if (null !== $this->checkParams) {
-            $res['CheckParams'] = $this->checkParams;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
@@ -74,8 +74,8 @@ class FixCheckWarningsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['CheckParams'])) {
+            $model->checkParams = $map['CheckParams'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
@@ -83,8 +83,8 @@ class FixCheckWarningsRequest extends Model
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];
         }
-        if (isset($map['CheckParams'])) {
-            $model->checkParams = $map['CheckParams'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];

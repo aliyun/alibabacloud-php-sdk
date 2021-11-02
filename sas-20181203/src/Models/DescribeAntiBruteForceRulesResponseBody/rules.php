@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $machineCount;
+    public $defaultRule;
 
     /**
      * @var bool
@@ -31,12 +31,12 @@ class rules extends Model
     /**
      * @var int
      */
-    public $span;
+    public $id;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $defaultRule;
+    public $machineCount;
 
     /**
      * @var string
@@ -46,21 +46,21 @@ class rules extends Model
     /**
      * @var int
      */
-    public $id;
+    public $span;
 
     /**
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'machineCount'    => 'MachineCount',
+        'defaultRule'     => 'DefaultRule',
         'enableSmartRule' => 'EnableSmartRule',
         'failCount'       => 'FailCount',
         'forbiddenTime'   => 'ForbiddenTime',
-        'span'            => 'Span',
-        'defaultRule'     => 'DefaultRule',
-        'name'            => 'Name',
         'id'              => 'Id',
+        'machineCount'    => 'MachineCount',
+        'name'            => 'Name',
+        'span'            => 'Span',
         'uuidList'        => 'UuidList',
     ];
 
@@ -71,8 +71,8 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->machineCount) {
-            $res['MachineCount'] = $this->machineCount;
+        if (null !== $this->defaultRule) {
+            $res['DefaultRule'] = $this->defaultRule;
         }
         if (null !== $this->enableSmartRule) {
             $res['EnableSmartRule'] = $this->enableSmartRule;
@@ -83,17 +83,17 @@ class rules extends Model
         if (null !== $this->forbiddenTime) {
             $res['ForbiddenTime'] = $this->forbiddenTime;
         }
-        if (null !== $this->span) {
-            $res['Span'] = $this->span;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
-        if (null !== $this->defaultRule) {
-            $res['DefaultRule'] = $this->defaultRule;
+        if (null !== $this->machineCount) {
+            $res['MachineCount'] = $this->machineCount;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->span) {
+            $res['Span'] = $this->span;
         }
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
@@ -110,8 +110,8 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MachineCount'])) {
-            $model->machineCount = $map['MachineCount'];
+        if (isset($map['DefaultRule'])) {
+            $model->defaultRule = $map['DefaultRule'];
         }
         if (isset($map['EnableSmartRule'])) {
             $model->enableSmartRule = $map['EnableSmartRule'];
@@ -122,17 +122,17 @@ class rules extends Model
         if (isset($map['ForbiddenTime'])) {
             $model->forbiddenTime = $map['ForbiddenTime'];
         }
-        if (isset($map['Span'])) {
-            $model->span = $map['Span'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
-        if (isset($map['DefaultRule'])) {
-            $model->defaultRule = $map['DefaultRule'];
+        if (isset($map['MachineCount'])) {
+            $model->machineCount = $map['MachineCount'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Span'])) {
+            $model->span = $map['Span'];
         }
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {

@@ -11,20 +11,20 @@ class groupedFileds extends Model
     /**
      * @var string
      */
-    public $name;
+    public $count;
 
     /**
      * @var string
      */
-    public $count;
+    public $name;
 
     /**
      * @var int
      */
     public $tagId;
     protected $_name = [
-        'name'  => 'Name',
         'count' => 'Count',
+        'name'  => 'Name',
         'tagId' => 'TagId',
     ];
 
@@ -35,11 +35,11 @@ class groupedFileds extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->tagId) {
             $res['TagId'] = $this->tagId;
@@ -56,11 +56,11 @@ class groupedFileds extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['TagId'])) {
             $model->tagId = $map['TagId'];

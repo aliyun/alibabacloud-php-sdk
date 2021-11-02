@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockConfigListResponseBody extends Model
 {
     /**
-     * @var int
+     * @var configList[]
      */
-    public $totalCount;
+    public $configList;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeWebLockConfigListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var configList[]
+     * @var int
      */
-    public $configList;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
         'configList' => 'ConfigList',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeWebLockConfigListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->configList) {
             $res['ConfigList'] = [];
             if (null !== $this->configList && \is_array($this->configList)) {
@@ -50,6 +44,12 @@ class DescribeWebLockConfigListResponseBody extends Model
                     $res['ConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeWebLockConfigListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
@@ -77,6 +71,12 @@ class DescribeWebLockConfigListResponseBody extends Model
                     $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -20,9 +20,9 @@ class ModifyStrategyResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var result
      */
-    public $totalCount;
+    public $result;
 
     /**
      * @var bool
@@ -30,15 +30,15 @@ class ModifyStrategyResponseBody extends Model
     public $success;
 
     /**
-     * @var result
+     * @var int
      */
-    public $result;
+    public $totalCount;
     protected $_name = [
         'httpStatusCode' => 'HttpStatusCode',
         'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
-        'success'        => 'Success',
         'result'         => 'Result',
+        'success'        => 'Success',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -54,14 +54,14 @@ class ModifyStrategyResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->result) {
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,14 +81,14 @@ class ModifyStrategyResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['Result'])) {
+            $model->result = result::fromMap($map['Result']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['Result'])) {
-            $model->result = result::fromMap($map['Result']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

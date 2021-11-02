@@ -11,27 +11,27 @@ class ModifyStrategyTargetRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $config;
 
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
     public $target;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
         'config'   => 'Config',
+        'sourceIp' => 'SourceIp',
         'target'   => 'Target',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyStrategyTargetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->target) {
             $res['Target'] = $this->target;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyStrategyTargetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

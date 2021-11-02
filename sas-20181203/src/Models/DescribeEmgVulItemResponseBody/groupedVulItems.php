@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class groupedVulItems extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
      * @var string
      */
-    public $type;
+    public $aliasName;
 
     /**
      * @var int
@@ -26,12 +21,12 @@ class groupedVulItems extends Model
     /**
      * @var int
      */
-    public $progress;
+    public $gmtPublish;
 
     /**
-     * @var int
+     * @var string
      */
-    public $gmtPublish;
+    public $name;
 
     /**
      * @var int
@@ -39,23 +34,28 @@ class groupedVulItems extends Model
     public $pendingCount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $aliasName;
+    public $progress;
+
+    /**
+     * @var int
+     */
+    public $status;
 
     /**
      * @var string
      */
-    public $name;
+    public $type;
     protected $_name = [
+        'aliasName'    => 'AliasName',
+        'gmtLastCheck' => 'GmtLastCheck',
+        'gmtPublish'   => 'GmtPublish',
+        'name'         => 'Name',
+        'pendingCount' => 'PendingCount',
+        'progress'     => 'Progress',
         'status'       => 'Status',
         'type'         => 'Type',
-        'gmtLastCheck' => 'GmtLastCheck',
-        'progress'     => 'Progress',
-        'gmtPublish'   => 'GmtPublish',
-        'pendingCount' => 'PendingCount',
-        'aliasName'    => 'AliasName',
-        'name'         => 'Name',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class groupedVulItems extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliasName) {
+            $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->gmtLastCheck) {
+            $res['GmtLastCheck'] = $this->gmtLastCheck;
+        }
+        if (null !== $this->gmtPublish) {
+            $res['GmtPublish'] = $this->gmtPublish;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->pendingCount) {
+            $res['PendingCount'] = $this->pendingCount;
+        }
+        if (null !== $this->progress) {
+            $res['Progress'] = $this->progress;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->gmtLastCheck) {
-            $res['GmtLastCheck'] = $this->gmtLastCheck;
-        }
-        if (null !== $this->progress) {
-            $res['Progress'] = $this->progress;
-        }
-        if (null !== $this->gmtPublish) {
-            $res['GmtPublish'] = $this->gmtPublish;
-        }
-        if (null !== $this->pendingCount) {
-            $res['PendingCount'] = $this->pendingCount;
-        }
-        if (null !== $this->aliasName) {
-            $res['AliasName'] = $this->aliasName;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class groupedVulItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliasName'])) {
+            $model->aliasName = $map['AliasName'];
+        }
+        if (isset($map['GmtLastCheck'])) {
+            $model->gmtLastCheck = $map['GmtLastCheck'];
+        }
+        if (isset($map['GmtPublish'])) {
+            $model->gmtPublish = $map['GmtPublish'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['PendingCount'])) {
+            $model->pendingCount = $map['PendingCount'];
+        }
+        if (isset($map['Progress'])) {
+            $model->progress = $map['Progress'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['GmtLastCheck'])) {
-            $model->gmtLastCheck = $map['GmtLastCheck'];
-        }
-        if (isset($map['Progress'])) {
-            $model->progress = $map['Progress'];
-        }
-        if (isset($map['GmtPublish'])) {
-            $model->gmtPublish = $map['GmtPublish'];
-        }
-        if (isset($map['PendingCount'])) {
-            $model->pendingCount = $map['PendingCount'];
-        }
-        if (isset($map['AliasName'])) {
-            $model->aliasName = $map['AliasName'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

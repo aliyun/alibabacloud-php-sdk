@@ -11,21 +11,6 @@ use AlibabaCloud\Tea\Model;
 class securityEventOperationsResponse extends Model
 {
     /**
-     * @var string
-     */
-    public $operationParams;
-
-    /**
-     * @var string
-     */
-    public $operationCode;
-
-    /**
-     * @var bool
-     */
-    public $userCanOperate;
-
-    /**
      * @var markField[]
      */
     public $markField;
@@ -34,12 +19,27 @@ class securityEventOperationsResponse extends Model
      * @var markFieldsSource[]
      */
     public $markFieldsSource;
+
+    /**
+     * @var string
+     */
+    public $operationCode;
+
+    /**
+     * @var string
+     */
+    public $operationParams;
+
+    /**
+     * @var bool
+     */
+    public $userCanOperate;
     protected $_name = [
-        'operationParams'  => 'OperationParams',
-        'operationCode'    => 'OperationCode',
-        'userCanOperate'   => 'UserCanOperate',
         'markField'        => 'MarkField',
         'markFieldsSource' => 'MarkFieldsSource',
+        'operationCode'    => 'OperationCode',
+        'operationParams'  => 'OperationParams',
+        'userCanOperate'   => 'UserCanOperate',
     ];
 
     public function validate()
@@ -49,15 +49,6 @@ class securityEventOperationsResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->operationParams) {
-            $res['OperationParams'] = $this->operationParams;
-        }
-        if (null !== $this->operationCode) {
-            $res['OperationCode'] = $this->operationCode;
-        }
-        if (null !== $this->userCanOperate) {
-            $res['UserCanOperate'] = $this->userCanOperate;
-        }
         if (null !== $this->markField) {
             $res['MarkField'] = [];
             if (null !== $this->markField && \is_array($this->markField)) {
@@ -76,6 +67,15 @@ class securityEventOperationsResponse extends Model
                 }
             }
         }
+        if (null !== $this->operationCode) {
+            $res['OperationCode'] = $this->operationCode;
+        }
+        if (null !== $this->operationParams) {
+            $res['OperationParams'] = $this->operationParams;
+        }
+        if (null !== $this->userCanOperate) {
+            $res['UserCanOperate'] = $this->userCanOperate;
+        }
 
         return $res;
     }
@@ -88,15 +88,6 @@ class securityEventOperationsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OperationParams'])) {
-            $model->operationParams = $map['OperationParams'];
-        }
-        if (isset($map['OperationCode'])) {
-            $model->operationCode = $map['OperationCode'];
-        }
-        if (isset($map['UserCanOperate'])) {
-            $model->userCanOperate = $map['UserCanOperate'];
-        }
         if (isset($map['MarkField'])) {
             if (!empty($map['MarkField'])) {
                 $model->markField = [];
@@ -114,6 +105,15 @@ class securityEventOperationsResponse extends Model
                     $model->markFieldsSource[$n++] = null !== $item ? markFieldsSource::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['OperationCode'])) {
+            $model->operationCode = $map['OperationCode'];
+        }
+        if (isset($map['OperationParams'])) {
+            $model->operationParams = $map['OperationParams'];
+        }
+        if (isset($map['UserCanOperate'])) {
+            $model->userCanOperate = $map['UserCanOperate'];
         }
 
         return $model;

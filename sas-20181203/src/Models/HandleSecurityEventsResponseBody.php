@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class HandleSecurityEventsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var handleSecurityEventsResponse
      */
     public $handleSecurityEventsResponse;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                    => 'RequestId',
         'handleSecurityEventsResponse' => 'HandleSecurityEventsResponse',
+        'requestId'                    => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class HandleSecurityEventsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->handleSecurityEventsResponse) {
             $res['HandleSecurityEventsResponse'] = null !== $this->handleSecurityEventsResponse ? $this->handleSecurityEventsResponse->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class HandleSecurityEventsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['HandleSecurityEventsResponse'])) {
             $model->handleSecurityEventsResponse = handleSecurityEventsResponse::fromMap($map['HandleSecurityEventsResponse']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

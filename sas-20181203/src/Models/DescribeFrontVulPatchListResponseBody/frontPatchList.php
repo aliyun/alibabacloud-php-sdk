@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class frontPatchList extends Model
 {
     /**
-     * @var string
-     */
-    public $uuid;
-
-    /**
      * @var patchList[]
      */
     public $patchList;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'uuid'      => 'Uuid',
         'patchList' => 'PatchList',
+        'uuid'      => 'Uuid',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class frontPatchList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->patchList) {
             $res['PatchList'] = [];
             if (null !== $this->patchList && \is_array($this->patchList)) {
@@ -41,6 +38,9 @@ class frontPatchList extends Model
                     $res['PatchList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class frontPatchList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['PatchList'])) {
             if (!empty($map['PatchList'])) {
                 $model->patchList = [];
@@ -65,6 +62,9 @@ class frontPatchList extends Model
                     $model->patchList[$n++] = null !== $item ? patchList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

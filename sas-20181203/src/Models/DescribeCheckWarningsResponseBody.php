@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningsResponseBody extends Model
 {
     /**
+     * @var checkWarnings[]
+     */
+    public $checkWarnings;
+
+    /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -28,23 +38,13 @@ class DescribeCheckWarningsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $count;
-
-    /**
-     * @var checkWarnings[]
-     */
-    public $checkWarnings;
     protected $_name = [
+        'checkWarnings' => 'CheckWarnings',
+        'count'         => 'Count',
         'currentPage'   => 'CurrentPage',
         'pageSize'      => 'PageSize',
         'requestId'     => 'RequestId',
         'totalCount'    => 'TotalCount',
-        'count'         => 'Count',
-        'checkWarnings' => 'CheckWarnings',
     ];
 
     public function validate()
@@ -54,6 +54,18 @@ class DescribeCheckWarningsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkWarnings) {
+            $res['CheckWarnings'] = [];
+            if (null !== $this->checkWarnings && \is_array($this->checkWarnings)) {
+                $n = 0;
+                foreach ($this->checkWarnings as $item) {
+                    $res['CheckWarnings'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -65,18 +77,6 @@ class DescribeCheckWarningsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
-        }
-        if (null !== $this->checkWarnings) {
-            $res['CheckWarnings'] = [];
-            if (null !== $this->checkWarnings && \is_array($this->checkWarnings)) {
-                $n = 0;
-                foreach ($this->checkWarnings as $item) {
-                    $res['CheckWarnings'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -90,6 +90,18 @@ class DescribeCheckWarningsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckWarnings'])) {
+            if (!empty($map['CheckWarnings'])) {
+                $model->checkWarnings = [];
+                $n                    = 0;
+                foreach ($map['CheckWarnings'] as $item) {
+                    $model->checkWarnings[$n++] = null !== $item ? checkWarnings::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -101,18 +113,6 @@ class DescribeCheckWarningsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
-        }
-        if (isset($map['CheckWarnings'])) {
-            if (!empty($map['CheckWarnings'])) {
-                $model->checkWarnings = [];
-                $n                    = 0;
-                foreach ($map['CheckWarnings'] as $item) {
-                    $model->checkWarnings[$n++] = null !== $item ? checkWarnings::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

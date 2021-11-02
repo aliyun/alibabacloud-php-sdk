@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class countByStatus extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status' => 'Status',
         'count'  => 'Count',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class countByStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class countByStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

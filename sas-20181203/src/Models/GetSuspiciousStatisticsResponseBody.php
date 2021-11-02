@@ -11,11 +11,6 @@ class GetSuspiciousStatisticsResponseBody extends Model
     /**
      * @var int
      */
-    public $suspiciousCount;
-
-    /**
-     * @var int
-     */
     public $remindCount;
 
     /**
@@ -31,12 +26,17 @@ class GetSuspiciousStatisticsResponseBody extends Model
     /**
      * @var int
      */
+    public $suspiciousCount;
+
+    /**
+     * @var int
+     */
     public $totalCount;
     protected $_name = [
-        'suspiciousCount' => 'SuspiciousCount',
         'remindCount'     => 'RemindCount',
         'requestId'       => 'RequestId',
         'seriousCount'    => 'SeriousCount',
+        'suspiciousCount' => 'SuspiciousCount',
         'totalCount'      => 'TotalCount',
     ];
 
@@ -47,9 +47,6 @@ class GetSuspiciousStatisticsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suspiciousCount) {
-            $res['SuspiciousCount'] = $this->suspiciousCount;
-        }
         if (null !== $this->remindCount) {
             $res['RemindCount'] = $this->remindCount;
         }
@@ -58,6 +55,9 @@ class GetSuspiciousStatisticsResponseBody extends Model
         }
         if (null !== $this->seriousCount) {
             $res['SeriousCount'] = $this->seriousCount;
+        }
+        if (null !== $this->suspiciousCount) {
+            $res['SuspiciousCount'] = $this->suspiciousCount;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -74,9 +74,6 @@ class GetSuspiciousStatisticsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SuspiciousCount'])) {
-            $model->suspiciousCount = $map['SuspiciousCount'];
-        }
         if (isset($map['RemindCount'])) {
             $model->remindCount = $map['RemindCount'];
         }
@@ -85,6 +82,9 @@ class GetSuspiciousStatisticsResponseBody extends Model
         }
         if (isset($map['SeriousCount'])) {
             $model->seriousCount = $map['SeriousCount'];
+        }
+        if (isset($map['SuspiciousCount'])) {
+            $model->suspiciousCount = $map['SuspiciousCount'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

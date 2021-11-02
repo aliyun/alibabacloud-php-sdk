@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockBindListResponseBody extends Model
 {
     /**
+     * @var bindList[]
+     */
+    public $bindList;
+
+    /**
      * @var int
      */
     public $currentPage;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -22,23 +32,13 @@ class DescribeWebLockBindListResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
     public $totalCount;
-
-    /**
-     * @var bindList[]
-     */
-    public $bindList;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'requestId'   => 'RequestId',
-        'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
         'bindList'    => 'BindList',
+        'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
+        'requestId'   => 'RequestId',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class DescribeWebLockBindListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->bindList) {
             $res['BindList'] = [];
             if (null !== $this->bindList && \is_array($this->bindList)) {
@@ -68,6 +56,18 @@ class DescribeWebLockBindListResponseBody extends Model
                     $res['BindList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class DescribeWebLockBindListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['BindList'])) {
             if (!empty($map['BindList'])) {
                 $model->bindList = [];
@@ -101,6 +89,18 @@ class DescribeWebLockBindListResponseBody extends Model
                     $model->bindList[$n++] = null !== $item ? bindList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

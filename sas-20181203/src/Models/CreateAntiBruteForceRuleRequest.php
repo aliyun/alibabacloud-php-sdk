@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAntiBruteForceRuleRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $sourceIp;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var int
-     */
-    public $span;
+    public $defaultRule;
 
     /**
      * @var int
@@ -39,22 +24,37 @@ class CreateAntiBruteForceRuleRequest extends Model
     public $forbiddenTime;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $defaultRule;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
+     * @var int
+     */
+    public $span;
 
     /**
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'name'            => 'Name',
-        'span'            => 'Span',
+        'defaultRule'     => 'DefaultRule',
         'failCount'       => 'FailCount',
         'forbiddenTime'   => 'ForbiddenTime',
-        'defaultRule'     => 'DefaultRule',
+        'name'            => 'Name',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
+        'span'            => 'Span',
         'uuidList'        => 'UuidList',
     ];
 
@@ -65,17 +65,8 @@ class CreateAntiBruteForceRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->span) {
-            $res['Span'] = $this->span;
+        if (null !== $this->defaultRule) {
+            $res['DefaultRule'] = $this->defaultRule;
         }
         if (null !== $this->failCount) {
             $res['FailCount'] = $this->failCount;
@@ -83,8 +74,17 @@ class CreateAntiBruteForceRuleRequest extends Model
         if (null !== $this->forbiddenTime) {
             $res['ForbiddenTime'] = $this->forbiddenTime;
         }
-        if (null !== $this->defaultRule) {
-            $res['DefaultRule'] = $this->defaultRule;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->span) {
+            $res['Span'] = $this->span;
         }
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
@@ -101,17 +101,8 @@ class CreateAntiBruteForceRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Span'])) {
-            $model->span = $map['Span'];
+        if (isset($map['DefaultRule'])) {
+            $model->defaultRule = $map['DefaultRule'];
         }
         if (isset($map['FailCount'])) {
             $model->failCount = $map['FailCount'];
@@ -119,8 +110,17 @@ class CreateAntiBruteForceRuleRequest extends Model
         if (isset($map['ForbiddenTime'])) {
             $model->forbiddenTime = $map['ForbiddenTime'];
         }
-        if (isset($map['DefaultRule'])) {
-            $model->defaultRule = $map['DefaultRule'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Span'])) {
+            $model->span = $map['Span'];
         }
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {

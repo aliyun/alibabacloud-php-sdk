@@ -15,14 +15,14 @@ class DescribeVulListResponseBody extends Model
     public $currentPage;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
@@ -35,8 +35,8 @@ class DescribeVulListResponseBody extends Model
     public $vulRecords;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'requestId'   => 'RequestId',
         'pageSize'    => 'PageSize',
+        'requestId'   => 'RequestId',
         'totalCount'  => 'TotalCount',
         'vulRecords'  => 'VulRecords',
     ];
@@ -51,11 +51,11 @@ class DescribeVulListResponseBody extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -84,11 +84,11 @@ class DescribeVulListResponseBody extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

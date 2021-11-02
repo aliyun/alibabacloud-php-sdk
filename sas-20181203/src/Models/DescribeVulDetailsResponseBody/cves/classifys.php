@@ -11,21 +11,21 @@ class classifys extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $classify;
 
     /**
      * @var string
      */
     public $demoVideoUrl;
+
+    /**
+     * @var string
+     */
+    public $description;
     protected $_name = [
-        'description'  => 'Description',
         'classify'     => 'Classify',
         'demoVideoUrl' => 'DemoVideoUrl',
+        'description'  => 'Description',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class classifys extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->classify) {
             $res['Classify'] = $this->classify;
         }
         if (null !== $this->demoVideoUrl) {
             $res['DemoVideoUrl'] = $this->demoVideoUrl;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class classifys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['Classify'])) {
             $model->classify = $map['Classify'];
         }
         if (isset($map['DemoVideoUrl'])) {
             $model->demoVideoUrl = $map['DemoVideoUrl'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         return $model;

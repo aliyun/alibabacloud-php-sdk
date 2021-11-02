@@ -9,39 +9,19 @@ use AlibabaCloud\Tea\Model;
 class pushTaskResultList extends Model
 {
     /**
-     * @var string
-     */
-    public $uuid;
-
-    /**
      * @var int
      */
     public $groupId;
 
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var string
      */
-    public $region;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $instanceName;
-
-    /**
-     * @var bool
-     */
-    public $online;
-
-    /**
-     * @var string
-     */
-    public $message;
 
     /**
      * @var string
@@ -51,23 +31,43 @@ class pushTaskResultList extends Model
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var bool
+     */
+    public $online;
+
+    /**
+     * @var string
+     */
     public $osVersion;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $region;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'uuid'         => 'Uuid',
         'groupId'      => 'GroupId',
-        'success'      => 'Success',
-        'region'       => 'Region',
-        'instanceName' => 'InstanceName',
-        'online'       => 'Online',
-        'message'      => 'Message',
-        'ip'           => 'Ip',
-        'osVersion'    => 'OsVersion',
         'instanceId'   => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'ip'           => 'Ip',
+        'message'      => 'Message',
+        'online'       => 'Online',
+        'osVersion'    => 'OsVersion',
+        'region'       => 'Region',
+        'success'      => 'Success',
+        'uuid'         => 'Uuid',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class pushTaskResultList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->online) {
-            $res['Online'] = $this->online;
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
+        if (null !== $this->online) {
+            $res['Online'] = $this->online;
         }
         if (null !== $this->osVersion) {
             $res['OsVersion'] = $this->osVersion;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class pushTaskResultList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['Online'])) {
-            $model->online = $map['Online'];
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
+        if (isset($map['Online'])) {
+            $model->online = $map['Online'];
         }
         if (isset($map['OsVersion'])) {
             $model->osVersion = $map['OsVersion'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

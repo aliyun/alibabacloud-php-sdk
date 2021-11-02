@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreJobsRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $status;
+    public $currentPage;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class DescribeRestoreJobsRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $status;
     protected $_name = [
-        'status'        => 'Status',
+        'currentPage'   => 'CurrentPage',
         'machineRemark' => 'MachineRemark',
         'pageSize'      => 'PageSize',
-        'currentPage'   => 'CurrentPage',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class DescribeRestoreJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->machineRemark) {
             $res['MachineRemark'] = $this->machineRemark;
@@ -50,8 +50,8 @@ class DescribeRestoreJobsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class DescribeRestoreJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['MachineRemark'])) {
             $model->machineRemark = $map['MachineRemark'];
@@ -74,8 +74,8 @@ class DescribeRestoreJobsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

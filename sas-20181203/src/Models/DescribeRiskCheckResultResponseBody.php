@@ -12,22 +12,17 @@ class DescribeRiskCheckResultResponseBody extends Model
     /**
      * @var int
      */
+    public $count;
+
+    /**
+     * @var int
+     */
     public $currentPage;
 
     /**
-     * @var string
+     * @var list_[]
      */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
+    public $list;
 
     /**
      * @var int
@@ -37,20 +32,25 @@ class DescribeRiskCheckResultResponseBody extends Model
     /**
      * @var int
      */
-    public $count;
+    public $pageSize;
 
     /**
-     * @var list_[]
+     * @var string
      */
-    public $list;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'requestId'   => 'RequestId',
-        'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
-        'pageCount'   => 'PageCount',
         'count'       => 'Count',
+        'currentPage' => 'CurrentPage',
         'list'        => 'List',
+        'pageCount'   => 'PageCount',
+        'pageSize'    => 'PageSize',
+        'requestId'   => 'RequestId',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -60,23 +60,11 @@ class DescribeRiskCheckResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->list) {
             $res['List'] = [];
@@ -86,6 +74,18 @@ class DescribeRiskCheckResultResponseBody extends Model
                     $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -99,23 +99,11 @@ class DescribeRiskCheckResultResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
@@ -125,6 +113,18 @@ class DescribeRiskCheckResultResponseBody extends Model
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

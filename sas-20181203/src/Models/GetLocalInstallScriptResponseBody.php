@@ -11,15 +11,15 @@ class GetLocalInstallScriptResponseBody extends Model
     /**
      * @var string
      */
-    public $script;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $script;
     protected $_name = [
-        'script'    => 'Script',
         'requestId' => 'RequestId',
+        'script'    => 'Script',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetLocalInstallScriptResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->script) {
-            $res['Script'] = $this->script;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->script) {
+            $res['Script'] = $this->script;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetLocalInstallScriptResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Script'])) {
-            $model->script = $map['Script'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Script'])) {
+            $model->script = $map['Script'];
         }
 
         return $model;

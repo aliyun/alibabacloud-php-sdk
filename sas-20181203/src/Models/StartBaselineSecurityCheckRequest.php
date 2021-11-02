@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class StartBaselineSecurityCheckRequest extends Model
 {
     /**
+     * @var int[]
+     */
+    public $itemIds;
+
+    /**
      * @var string
      */
-    public $sourceIp;
+    public $lang;
 
     /**
      * @var int
@@ -21,23 +26,18 @@ class StartBaselineSecurityCheckRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $sourceIp;
 
     /**
      * @var string
      */
     public $type;
-
-    /**
-     * @var int[]
-     */
-    public $itemIds;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'lang'            => 'Lang',
-        'type'            => 'Type',
         'itemIds'         => 'ItemIds',
+        'lang'            => 'Lang',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class StartBaselineSecurityCheckRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->itemIds) {
+            $res['ItemIds'] = $this->itemIds;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->itemIds) {
-            $res['ItemIds'] = $this->itemIds;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class StartBaselineSecurityCheckRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['ItemIds'])) {
             if (!empty($map['ItemIds'])) {
                 $model->itemIds = $map['ItemIds'];
             }
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

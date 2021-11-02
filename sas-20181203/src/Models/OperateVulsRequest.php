@@ -11,27 +11,27 @@ class OperateVulsRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $operateType;
 
     /**
      * @var string
      */
-    public $operateType;
-
-    /**
-     * @var string[]
-     */
-    public $vulNames;
+    public $type;
 
     /**
      * @var string[]
      */
     public $uuids;
+
+    /**
+     * @var string[]
+     */
+    public $vulNames;
     protected $_name = [
-        'type'        => 'Type',
         'operateType' => 'OperateType',
-        'vulNames'    => 'VulNames',
+        'type'        => 'Type',
         'uuids'       => 'Uuids',
+        'vulNames'    => 'VulNames',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class OperateVulsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
         }
-        if (null !== $this->vulNames) {
-            $res['VulNames'] = $this->vulNames;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
+        }
+        if (null !== $this->vulNames) {
+            $res['VulNames'] = $this->vulNames;
         }
 
         return $res;
@@ -65,20 +65,20 @@ class OperateVulsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];
         }
-        if (isset($map['VulNames'])) {
-            if (!empty($map['VulNames'])) {
-                $model->vulNames = $map['VulNames'];
-            }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['Uuids'])) {
             if (!empty($map['Uuids'])) {
                 $model->uuids = $map['Uuids'];
+            }
+        }
+        if (isset($map['VulNames'])) {
+            if (!empty($map['VulNames'])) {
+                $model->vulNames = $map['VulNames'];
             }
         }
 

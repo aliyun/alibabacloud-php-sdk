@@ -73,6 +73,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetSummaryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttackAnalysisDataRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttackAnalysisDataResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAutoDelConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupClientsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupClientsResponse;
@@ -151,14 +153,20 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedVulResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotAuthResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotSuspStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotSuspStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageFixTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageFixTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageGroupedVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageGroupedVulListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageInstancesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageScanAuthCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstallCaptchaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstallCaptchaResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstallCodesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstallCodesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceAntiBruteForceRulesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceAntiBruteForceRulesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsRequest;
@@ -248,6 +256,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTaskErrorLogRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTaskErrorLogResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupDatabaseRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupDatabaseResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPoliciesRequest;
@@ -275,6 +285,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulExportInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulExportInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulWhitelistRequest;
@@ -1463,6 +1475,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeAttackAnalysisDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeAttackAnalysisDataResponse
+     */
+    public function describeAttackAnalysisDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAttackAnalysisDataResponse::fromMap($this->doRPCRequest('DescribeAttackAnalysisData', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAttackAnalysisDataRequest $request
+     *
+     * @return DescribeAttackAnalysisDataResponse
+     */
+    public function describeAttackAnalysisData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAttackAnalysisDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeAutoDelConfigResponse
@@ -1759,34 +1799,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckWarningsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeCheckWarningsResponse
-     */
-    public function describeCheckWarningsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeCheckWarningsResponse::fromMap($this->doRPCRequest('DescribeCheckWarnings', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCheckWarningsRequest $request
-     *
-     * @return DescribeCheckWarningsResponse
-     */
-    public function describeCheckWarnings($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCheckWarningsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeCheckWarningSummaryRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1812,6 +1824,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCheckWarningSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCheckWarningsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeCheckWarningsResponse
+     */
+    public function describeCheckWarningsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCheckWarningsResponse::fromMap($this->doRPCRequest('DescribeCheckWarnings', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCheckWarningsRequest $request
+     *
+     * @return DescribeCheckWarningsResponse
+     */
+    public function describeCheckWarnings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCheckWarningsWithOptions($request, $runtime);
     }
 
     /**
@@ -2603,6 +2643,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeImageFixTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeImageFixTaskResponse
+     */
+    public function describeImageFixTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeImageFixTaskResponse::fromMap($this->doRPCRequest('DescribeImageFixTask', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImageFixTaskRequest $request
+     *
+     * @return DescribeImageFixTaskResponse
+     */
+    public function describeImageFixTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageFixTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeImageGroupedVulListRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2628,6 +2696,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeImageGroupedVulListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeImageInstancesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeImageInstancesResponse
+     */
+    public function describeImageInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeImageInstancesResponse::fromMap($this->doRPCRequest('DescribeImageInstances', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImageInstancesRequest $request
+     *
+     * @return DescribeImageInstancesResponse
+     */
+    public function describeImageInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -2728,6 +2824,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstallCaptchaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstallCodesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeInstallCodesResponse
+     */
+    public function describeInstallCodesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeInstallCodesResponse::fromMap($this->doRPCRequest('DescribeInstallCodes', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstallCodesRequest $request
+     *
+     * @return DescribeInstallCodesResponse
+     */
+    public function describeInstallCodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstallCodesWithOptions($request, $runtime);
     }
 
     /**
@@ -3565,34 +3689,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityEventOperationsRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeSecurityEventOperationsResponse
-     */
-    public function describeSecurityEventOperationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSecurityEventOperationsResponse::fromMap($this->doRPCRequest('DescribeSecurityEventOperations', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSecurityEventOperationsRequest $request
-     *
-     * @return DescribeSecurityEventOperationsResponse
-     */
-    public function describeSecurityEventOperations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSecurityEventOperationsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeSecurityEventOperationStatusRequest $request
      * @param RuntimeOptions                              $runtime
      *
@@ -3618,6 +3714,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSecurityEventOperationStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSecurityEventOperationsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeSecurityEventOperationsResponse
+     */
+    public function describeSecurityEventOperationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSecurityEventOperationsResponse::fromMap($this->doRPCRequest('DescribeSecurityEventOperations', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSecurityEventOperationsRequest $request
+     *
+     * @return DescribeSecurityEventOperationsResponse
+     */
+    public function describeSecurityEventOperations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecurityEventOperationsWithOptions($request, $runtime);
     }
 
     /**
@@ -3998,6 +4122,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSuspEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeTaskErrorLogRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeTaskErrorLogResponse
+     */
+    public function describeTaskErrorLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeTaskErrorLogResponse::fromMap($this->doRPCRequest('DescribeTaskErrorLog', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTaskErrorLogRequest $request
+     *
+     * @return DescribeTaskErrorLogResponse
+     */
+    public function describeTaskErrorLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTaskErrorLogWithOptions($request, $runtime);
     }
 
     /**
@@ -4419,6 +4571,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeVulExportInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeVulExportInfoResponse
+     */
+    public function describeVulExportInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVulExportInfoResponse::fromMap($this->doRPCRequest('DescribeVulExportInfo', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVulExportInfoRequest $request
+     *
+     * @return DescribeVulExportInfoResponse
+     */
+    public function describeVulExportInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVulExportInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVulListRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4665,34 +4845,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetIncIOCsRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetIncIOCsResponse
-     */
-    public function getIncIOCsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetIncIOCsResponse::fromMap($this->doRPCRequest('GetIncIOCs', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetIncIOCsRequest $request
-     *
-     * @return GetIncIOCsResponse
-     */
-    public function getIncIOCs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getIncIOCsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetIOCsRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -4718,6 +4870,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getIOCsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetIncIOCsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetIncIOCsResponse
+     */
+    public function getIncIOCsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetIncIOCsResponse::fromMap($this->doRPCRequest('GetIncIOCs', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetIncIOCsRequest $request
+     *
+     * @return GetIncIOCsResponse
+     */
+    public function getIncIOCs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIncIOCsWithOptions($request, $runtime);
     }
 
     /**

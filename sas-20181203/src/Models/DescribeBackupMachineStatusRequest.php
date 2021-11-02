@@ -16,16 +16,16 @@ class DescribeBackupMachineStatusRequest extends Model
     /**
      * @var string
      */
-    public $uuid;
+    public $policyVersion;
 
     /**
      * @var string
      */
-    public $policyVersion;
+    public $uuid;
     protected $_name = [
         'policyId'      => 'PolicyId',
-        'uuid'          => 'Uuid',
         'policyVersion' => 'PolicyVersion',
+        'uuid'          => 'Uuid',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeBackupMachineStatusRequest extends Model
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeBackupMachineStatusRequest extends Model
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

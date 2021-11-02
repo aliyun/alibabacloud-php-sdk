@@ -11,21 +11,21 @@ class vpcSwitchIdList extends Model
     /**
      * @var string
      */
+    public $vpcSwitchId;
+
+    /**
+     * @var string
+     */
     public $vpcSwitchName;
 
     /**
      * @var string
      */
     public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $vpcSwitchId;
     protected $_name = [
+        'vpcSwitchId'   => 'VpcSwitchId',
         'vpcSwitchName' => 'VpcSwitchName',
         'zoneId'        => 'ZoneId',
-        'vpcSwitchId'   => 'VpcSwitchId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class vpcSwitchIdList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->vpcSwitchId) {
+            $res['VpcSwitchId'] = $this->vpcSwitchId;
+        }
         if (null !== $this->vpcSwitchName) {
             $res['VpcSwitchName'] = $this->vpcSwitchName;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->vpcSwitchId) {
-            $res['VpcSwitchId'] = $this->vpcSwitchId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class vpcSwitchIdList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['VpcSwitchId'])) {
+            $model->vpcSwitchId = $map['VpcSwitchId'];
+        }
         if (isset($map['VpcSwitchName'])) {
             $model->vpcSwitchName = $map['VpcSwitchName'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['VpcSwitchId'])) {
-            $model->vpcSwitchId = $map['VpcSwitchId'];
         }
 
         return $model;

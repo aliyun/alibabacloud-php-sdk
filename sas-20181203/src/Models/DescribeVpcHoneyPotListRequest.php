@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcHoneyPotListRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @var bool
+     */
+    public $honeyPotExistence;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -22,28 +37,13 @@ class DescribeVpcHoneyPotListRequest extends Model
      * @var string
      */
     public $vpcRegionId;
-
-    /**
-     * @var bool
-     */
-    public $honeyPotExistence;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
     protected $_name = [
+        'currentPage'       => 'CurrentPage',
+        'honeyPotExistence' => 'HoneyPotExistence',
+        'pageSize'          => 'PageSize',
         'vpcId'             => 'VpcId',
         'vpcName'           => 'VpcName',
         'vpcRegionId'       => 'VpcRegionId',
-        'honeyPotExistence' => 'HoneyPotExistence',
-        'pageSize'          => 'PageSize',
-        'currentPage'       => 'CurrentPage',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class DescribeVpcHoneyPotListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->honeyPotExistence) {
+            $res['HoneyPotExistence'] = $this->honeyPotExistence;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -61,15 +70,6 @@ class DescribeVpcHoneyPotListRequest extends Model
         }
         if (null !== $this->vpcRegionId) {
             $res['VpcRegionId'] = $this->vpcRegionId;
-        }
-        if (null !== $this->honeyPotExistence) {
-            $res['HoneyPotExistence'] = $this->honeyPotExistence;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class DescribeVpcHoneyPotListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['HoneyPotExistence'])) {
+            $model->honeyPotExistence = $map['HoneyPotExistence'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
@@ -91,15 +100,6 @@ class DescribeVpcHoneyPotListRequest extends Model
         }
         if (isset($map['VpcRegionId'])) {
             $model->vpcRegionId = $map['VpcRegionId'];
-        }
-        if (isset($map['HoneyPotExistence'])) {
-            $model->honeyPotExistence = $map['HoneyPotExistence'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class backupFiles extends Model
     /**
      * @var string
      */
-    public $type;
+    public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $name;
+    public $size;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class backupFiles extends Model
     public $subtree;
 
     /**
-     * @var int
+     * @var string
      */
-    public $size;
+    public $type;
     protected $_name = [
-        'type'    => 'Type',
         'name'    => 'Name',
-        'subtree' => 'Subtree',
         'size'    => 'Size',
+        'subtree' => 'Subtree',
+        'type'    => 'Type',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class backupFiles extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
         if (null !== $this->subtree) {
             $res['Subtree'] = $this->subtree;
         }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class backupFiles extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
         if (isset($map['Subtree'])) {
             $model->subtree = $map['Subtree'];
         }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

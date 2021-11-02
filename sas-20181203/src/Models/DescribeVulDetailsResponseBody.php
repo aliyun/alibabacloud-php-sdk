@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulDetailsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var cves[]
      */
     public $cves;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'cves'      => 'Cves',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeVulDetailsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->cves) {
             $res['Cves'] = [];
             if (null !== $this->cves && \is_array($this->cves)) {
@@ -41,6 +38,9 @@ class DescribeVulDetailsResponseBody extends Model
                     $res['Cves'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeVulDetailsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Cves'])) {
             if (!empty($map['Cves'])) {
                 $model->cves = [];
@@ -65,6 +62,9 @@ class DescribeVulDetailsResponseBody extends Model
                     $model->cves[$n++] = null !== $item ? cves::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

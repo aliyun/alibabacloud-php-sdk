@@ -12,12 +12,12 @@ class DescribeUniRecoverableListResponseBody extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $count;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $currentPage;
 
     /**
      * @var string
@@ -30,27 +30,27 @@ class DescribeUniRecoverableListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $count;
-
-    /**
      * @var recoverableInfoList[]
      */
     public $recoverableInfoList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
+        'count'               => 'Count',
         'currentPage'         => 'CurrentPage',
-        'requestId'           => 'RequestId',
         'database'            => 'Database',
         'pageSize'            => 'PageSize',
-        'totalCount'          => 'TotalCount',
-        'count'               => 'Count',
         'recoverableInfoList' => 'RecoverableInfoList',
+        'requestId'           => 'RequestId',
+        'totalCount'          => 'TotalCount',
     ];
 
     public function validate()
@@ -60,23 +60,17 @@ class DescribeUniRecoverableListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
         if (null !== $this->recoverableInfoList) {
             $res['RecoverableInfoList'] = [];
@@ -86,6 +80,12 @@ class DescribeUniRecoverableListResponseBody extends Model
                     $res['RecoverableInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -99,23 +99,17 @@ class DescribeUniRecoverableListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
         if (isset($map['RecoverableInfoList'])) {
             if (!empty($map['RecoverableInfoList'])) {
@@ -125,6 +119,12 @@ class DescribeUniRecoverableListResponseBody extends Model
                     $model->recoverableInfoList[$n++] = null !== $item ? recoverableInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -14,18 +14,18 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
     public $from;
 
     /**
-     * @var string
-     */
-    public $statisticsKeyType;
-
-    /**
      * @var int
      */
     public $statisticsDays;
+
+    /**
+     * @var string
+     */
+    public $statisticsKeyType;
     protected $_name = [
         'from'              => 'From',
-        'statisticsKeyType' => 'StatisticsKeyType',
         'statisticsDays'    => 'StatisticsDays',
+        'statisticsKeyType' => 'StatisticsKeyType',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
-        if (null !== $this->statisticsKeyType) {
-            $res['StatisticsKeyType'] = $this->statisticsKeyType;
-        }
         if (null !== $this->statisticsDays) {
             $res['StatisticsDays'] = $this->statisticsDays;
+        }
+        if (null !== $this->statisticsKeyType) {
+            $res['StatisticsKeyType'] = $this->statisticsKeyType;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
-        if (isset($map['StatisticsKeyType'])) {
-            $model->statisticsKeyType = $map['StatisticsKeyType'];
-        }
         if (isset($map['StatisticsDays'])) {
             $model->statisticsDays = $map['StatisticsDays'];
+        }
+        if (isset($map['StatisticsKeyType'])) {
+            $model->statisticsKeyType = $map['StatisticsKeyType'];
         }
 
         return $model;

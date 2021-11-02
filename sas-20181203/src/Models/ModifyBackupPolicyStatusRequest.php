@@ -16,16 +16,16 @@ class ModifyBackupPolicyStatusRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $policyVersion;
 
     /**
      * @var string
      */
-    public $policyVersion;
+    public $status;
     protected $_name = [
         'id'            => 'Id',
-        'status'        => 'Status',
         'policyVersion' => 'PolicyVersion',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ModifyBackupPolicyStatusRequest extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ModifyBackupPolicyStatusRequest extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

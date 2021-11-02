@@ -12,27 +12,7 @@ class vpcHoneyPotDTOList extends Model
     /**
      * @var string
      */
-    public $vpcName;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $honeyPotEniInstanceId;
-
-    /**
-     * @var string
-     */
     public $cidrBlock;
-
-    /**
-     * @var string
-     */
-    public $vpcStatus;
 
     /**
      * @var int
@@ -42,7 +22,12 @@ class vpcHoneyPotDTOList extends Model
     /**
      * @var string
      */
-    public $honeyPotVpcSwitchId;
+    public $honeyPotEcsInstanceStatus;
+
+    /**
+     * @var string
+     */
+    public $honeyPotEniInstanceId;
 
     /**
      * @var bool
@@ -52,34 +37,49 @@ class vpcHoneyPotDTOList extends Model
     /**
      * @var string
      */
+    public $honeyPotInstanceStatus;
+
+    /**
+     * @var string
+     */
+    public $honeyPotVpcSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $vpcName;
+
+    /**
+     * @var string
+     */
     public $vpcRegionId;
 
     /**
      * @var string
      */
-    public $honeyPotEcsInstanceStatus;
-
-    /**
-     * @var string
-     */
-    public $honeyPotInstanceStatus;
+    public $vpcStatus;
 
     /**
      * @var vpcSwitchIdList[]
      */
     public $vpcSwitchIdList;
     protected $_name = [
-        'vpcName'                   => 'VpcName',
-        'vpcId'                     => 'VpcId',
-        'honeyPotEniInstanceId'     => 'HoneyPotEniInstanceId',
         'cidrBlock'                 => 'CidrBlock',
-        'vpcStatus'                 => 'VpcStatus',
         'createTime'                => 'CreateTime',
-        'honeyPotVpcSwitchId'       => 'HoneyPotVpcSwitchId',
-        'honeyPotExistence'         => 'HoneyPotExistence',
-        'vpcRegionId'               => 'VpcRegionId',
         'honeyPotEcsInstanceStatus' => 'HoneyPotEcsInstanceStatus',
+        'honeyPotEniInstanceId'     => 'HoneyPotEniInstanceId',
+        'honeyPotExistence'         => 'HoneyPotExistence',
         'honeyPotInstanceStatus'    => 'HoneyPotInstanceStatus',
+        'honeyPotVpcSwitchId'       => 'HoneyPotVpcSwitchId',
+        'vpcId'                     => 'VpcId',
+        'vpcName'                   => 'VpcName',
+        'vpcRegionId'               => 'VpcRegionId',
+        'vpcStatus'                 => 'VpcStatus',
         'vpcSwitchIdList'           => 'VpcSwitchIdList',
     ];
 
@@ -90,38 +90,38 @@ class vpcHoneyPotDTOList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcName) {
-            $res['VpcName'] = $this->vpcName;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->honeyPotEniInstanceId) {
-            $res['HoneyPotEniInstanceId'] = $this->honeyPotEniInstanceId;
-        }
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
-        }
-        if (null !== $this->vpcStatus) {
-            $res['VpcStatus'] = $this->vpcStatus;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->honeyPotVpcSwitchId) {
-            $res['HoneyPotVpcSwitchId'] = $this->honeyPotVpcSwitchId;
+        if (null !== $this->honeyPotEcsInstanceStatus) {
+            $res['HoneyPotEcsInstanceStatus'] = $this->honeyPotEcsInstanceStatus;
+        }
+        if (null !== $this->honeyPotEniInstanceId) {
+            $res['HoneyPotEniInstanceId'] = $this->honeyPotEniInstanceId;
         }
         if (null !== $this->honeyPotExistence) {
             $res['HoneyPotExistence'] = $this->honeyPotExistence;
         }
+        if (null !== $this->honeyPotInstanceStatus) {
+            $res['HoneyPotInstanceStatus'] = $this->honeyPotInstanceStatus;
+        }
+        if (null !== $this->honeyPotVpcSwitchId) {
+            $res['HoneyPotVpcSwitchId'] = $this->honeyPotVpcSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vpcName) {
+            $res['VpcName'] = $this->vpcName;
+        }
         if (null !== $this->vpcRegionId) {
             $res['VpcRegionId'] = $this->vpcRegionId;
         }
-        if (null !== $this->honeyPotEcsInstanceStatus) {
-            $res['HoneyPotEcsInstanceStatus'] = $this->honeyPotEcsInstanceStatus;
-        }
-        if (null !== $this->honeyPotInstanceStatus) {
-            $res['HoneyPotInstanceStatus'] = $this->honeyPotInstanceStatus;
+        if (null !== $this->vpcStatus) {
+            $res['VpcStatus'] = $this->vpcStatus;
         }
         if (null !== $this->vpcSwitchIdList) {
             $res['VpcSwitchIdList'] = [];
@@ -144,38 +144,38 @@ class vpcHoneyPotDTOList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcName'])) {
-            $model->vpcName = $map['VpcName'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['HoneyPotEniInstanceId'])) {
-            $model->honeyPotEniInstanceId = $map['HoneyPotEniInstanceId'];
-        }
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
-        }
-        if (isset($map['VpcStatus'])) {
-            $model->vpcStatus = $map['VpcStatus'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['HoneyPotVpcSwitchId'])) {
-            $model->honeyPotVpcSwitchId = $map['HoneyPotVpcSwitchId'];
+        if (isset($map['HoneyPotEcsInstanceStatus'])) {
+            $model->honeyPotEcsInstanceStatus = $map['HoneyPotEcsInstanceStatus'];
+        }
+        if (isset($map['HoneyPotEniInstanceId'])) {
+            $model->honeyPotEniInstanceId = $map['HoneyPotEniInstanceId'];
         }
         if (isset($map['HoneyPotExistence'])) {
             $model->honeyPotExistence = $map['HoneyPotExistence'];
         }
+        if (isset($map['HoneyPotInstanceStatus'])) {
+            $model->honeyPotInstanceStatus = $map['HoneyPotInstanceStatus'];
+        }
+        if (isset($map['HoneyPotVpcSwitchId'])) {
+            $model->honeyPotVpcSwitchId = $map['HoneyPotVpcSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VpcName'])) {
+            $model->vpcName = $map['VpcName'];
+        }
         if (isset($map['VpcRegionId'])) {
             $model->vpcRegionId = $map['VpcRegionId'];
         }
-        if (isset($map['HoneyPotEcsInstanceStatus'])) {
-            $model->honeyPotEcsInstanceStatus = $map['HoneyPotEcsInstanceStatus'];
-        }
-        if (isset($map['HoneyPotInstanceStatus'])) {
-            $model->honeyPotInstanceStatus = $map['HoneyPotInstanceStatus'];
+        if (isset($map['VpcStatus'])) {
+            $model->vpcStatus = $map['VpcStatus'];
         }
         if (isset($map['VpcSwitchIdList'])) {
             if (!empty($map['VpcSwitchIdList'])) {

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHoneyPotAuthResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $honeyPotAuthCount;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class DescribeHoneyPotAuthResponseBody extends Model
     public $honeyPotCount;
 
     /**
-     * @var int
+     * @var string
      */
-    public $honeyPotAuthCount;
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'honeyPotCount'     => 'HoneyPotCount',
         'honeyPotAuthCount' => 'HoneyPotAuthCount',
+        'honeyPotCount'     => 'HoneyPotCount',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeHoneyPotAuthResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->honeyPotAuthCount) {
+            $res['HoneyPotAuthCount'] = $this->honeyPotAuthCount;
         }
         if (null !== $this->honeyPotCount) {
             $res['HoneyPotCount'] = $this->honeyPotCount;
         }
-        if (null !== $this->honeyPotAuthCount) {
-            $res['HoneyPotAuthCount'] = $this->honeyPotAuthCount;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeHoneyPotAuthResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['HoneyPotAuthCount'])) {
+            $model->honeyPotAuthCount = $map['HoneyPotAuthCount'];
         }
         if (isset($map['HoneyPotCount'])) {
             $model->honeyPotCount = $map['HoneyPotCount'];
         }
-        if (isset($map['HoneyPotAuthCount'])) {
-            $model->honeyPotAuthCount = $map['HoneyPotAuthCount'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

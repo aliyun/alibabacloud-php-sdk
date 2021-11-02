@@ -11,15 +11,15 @@ class DescribeIpInfoRequest extends Model
     /**
      * @var string
      */
-    public $ip;
+    public $field;
 
     /**
      * @var string
      */
-    public $field;
+    public $ip;
     protected $_name = [
-        'ip'    => 'Ip',
         'field' => 'Field',
+        'ip'    => 'Ip',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeIpInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
         if (null !== $this->field) {
             $res['Field'] = $this->field;
+        }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeIpInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
+        }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
 
         return $model;

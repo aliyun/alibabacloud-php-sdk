@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class restorePlans extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
-    public $restorePoint;
-
-    /**
-     * @var int
-     */
-    public $updatedTime;
+    public $createdTime;
 
     /**
      * @var string
@@ -34,14 +24,9 @@ class restorePlans extends Model
     public $instanceName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $targetInstanceName;
-
-    /**
-     * @var string
-     */
-    public $targetDatabaseName;
+    public $policyId;
 
     /**
      * @var string
@@ -51,7 +36,17 @@ class restorePlans extends Model
     /**
      * @var int
      */
-    public $policyId;
+    public $restorePoint;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $targetDatabaseName;
 
     /**
      * @var string
@@ -59,21 +54,26 @@ class restorePlans extends Model
     public $targetInstanceId;
 
     /**
+     * @var string
+     */
+    public $targetInstanceName;
+
+    /**
      * @var int
      */
-    public $createdTime;
+    public $updatedTime;
     protected $_name = [
-        'status'             => 'Status',
-        'restorePoint'       => 'RestorePoint',
-        'updatedTime'        => 'UpdatedTime',
+        'createdTime'        => 'CreatedTime',
         'databaseName'       => 'DatabaseName',
         'instanceName'       => 'InstanceName',
-        'targetInstanceName' => 'TargetInstanceName',
-        'targetDatabaseName' => 'TargetDatabaseName',
-        'policyName'         => 'PolicyName',
         'policyId'           => 'PolicyId',
+        'policyName'         => 'PolicyName',
+        'restorePoint'       => 'RestorePoint',
+        'status'             => 'Status',
+        'targetDatabaseName' => 'TargetDatabaseName',
         'targetInstanceId'   => 'TargetInstanceId',
-        'createdTime'        => 'CreatedTime',
+        'targetInstanceName' => 'TargetInstanceName',
+        'updatedTime'        => 'UpdatedTime',
     ];
 
     public function validate()
@@ -83,14 +83,8 @@ class restorePlans extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->restorePoint) {
-            $res['RestorePoint'] = $this->restorePoint;
-        }
-        if (null !== $this->updatedTime) {
-            $res['UpdatedTime'] = $this->updatedTime;
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
         }
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
@@ -98,23 +92,29 @@ class restorePlans extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->targetInstanceName) {
-            $res['TargetInstanceName'] = $this->targetInstanceName;
-        }
-        if (null !== $this->targetDatabaseName) {
-            $res['TargetDatabaseName'] = $this->targetDatabaseName;
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
         }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
-        if (null !== $this->policyId) {
-            $res['PolicyId'] = $this->policyId;
+        if (null !== $this->restorePoint) {
+            $res['RestorePoint'] = $this->restorePoint;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->targetDatabaseName) {
+            $res['TargetDatabaseName'] = $this->targetDatabaseName;
         }
         if (null !== $this->targetInstanceId) {
             $res['TargetInstanceId'] = $this->targetInstanceId;
         }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
+        if (null !== $this->targetInstanceName) {
+            $res['TargetInstanceName'] = $this->targetInstanceName;
+        }
+        if (null !== $this->updatedTime) {
+            $res['UpdatedTime'] = $this->updatedTime;
         }
 
         return $res;
@@ -128,14 +128,8 @@ class restorePlans extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['RestorePoint'])) {
-            $model->restorePoint = $map['RestorePoint'];
-        }
-        if (isset($map['UpdatedTime'])) {
-            $model->updatedTime = $map['UpdatedTime'];
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
         }
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
@@ -143,23 +137,29 @@ class restorePlans extends Model
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['TargetInstanceName'])) {
-            $model->targetInstanceName = $map['TargetInstanceName'];
-        }
-        if (isset($map['TargetDatabaseName'])) {
-            $model->targetDatabaseName = $map['TargetDatabaseName'];
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
-        if (isset($map['PolicyId'])) {
-            $model->policyId = $map['PolicyId'];
+        if (isset($map['RestorePoint'])) {
+            $model->restorePoint = $map['RestorePoint'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TargetDatabaseName'])) {
+            $model->targetDatabaseName = $map['TargetDatabaseName'];
         }
         if (isset($map['TargetInstanceId'])) {
             $model->targetInstanceId = $map['TargetInstanceId'];
         }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
+        if (isset($map['TargetInstanceName'])) {
+            $model->targetInstanceName = $map['TargetInstanceName'];
+        }
+        if (isset($map['UpdatedTime'])) {
+            $model->updatedTime = $map['UpdatedTime'];
         }
 
         return $model;

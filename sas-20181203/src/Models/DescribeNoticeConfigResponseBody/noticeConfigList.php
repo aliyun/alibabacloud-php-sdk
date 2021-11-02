@@ -11,11 +11,6 @@ class noticeConfigList extends Model
     /**
      * @var int
      */
-    public $timeLimit;
-
-    /**
-     * @var int
-     */
     public $aliUid;
 
     /**
@@ -32,12 +27,17 @@ class noticeConfigList extends Model
      * @var int
      */
     public $route;
+
+    /**
+     * @var int
+     */
+    public $timeLimit;
     protected $_name = [
-        'timeLimit'   => 'TimeLimit',
         'aliUid'      => 'AliUid',
         'currentPage' => 'CurrentPage',
         'project'     => 'Project',
         'route'       => 'Route',
+        'timeLimit'   => 'TimeLimit',
     ];
 
     public function validate()
@@ -47,9 +47,6 @@ class noticeConfigList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeLimit) {
-            $res['TimeLimit'] = $this->timeLimit;
-        }
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
@@ -61,6 +58,9 @@ class noticeConfigList extends Model
         }
         if (null !== $this->route) {
             $res['Route'] = $this->route;
+        }
+        if (null !== $this->timeLimit) {
+            $res['TimeLimit'] = $this->timeLimit;
         }
 
         return $res;
@@ -74,9 +74,6 @@ class noticeConfigList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeLimit'])) {
-            $model->timeLimit = $map['TimeLimit'];
-        }
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
@@ -88,6 +85,9 @@ class noticeConfigList extends Model
         }
         if (isset($map['Route'])) {
             $model->route = $map['Route'];
+        }
+        if (isset($map['TimeLimit'])) {
+            $model->timeLimit = $map['TimeLimit'];
         }
 
         return $model;

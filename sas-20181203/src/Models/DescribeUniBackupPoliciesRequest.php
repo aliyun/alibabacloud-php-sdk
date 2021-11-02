@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniBackupPoliciesRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
+    public $currentPage;
 
     /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $pageSize;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class DescribeUniBackupPoliciesRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $resourceOwnerId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'policyName'      => 'PolicyName',
-        'pageSize'        => 'PageSize',
         'currentPage'     => 'CurrentPage',
+        'pageSize'        => 'PageSize',
+        'policyName'      => 'PolicyName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeUniBackupPoliciesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->policyName) {
-            $res['PolicyName'] = $this->policyName;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeUniBackupPoliciesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['PolicyName'])) {
-            $model->policyName = $map['PolicyName'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

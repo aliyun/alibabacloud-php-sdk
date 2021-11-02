@@ -12,20 +12,20 @@ class extendContentJson extends Model
     /**
      * @var string
      */
-    public $osRelease;
+    public $os;
 
     /**
      * @var string
      */
-    public $os;
+    public $osRelease;
 
     /**
      * @var rpmEntityList[]
      */
     public $rpmEntityList;
     protected $_name = [
-        'osRelease'     => 'OsRelease',
         'os'            => 'Os',
+        'osRelease'     => 'OsRelease',
         'rpmEntityList' => 'RpmEntityList',
     ];
 
@@ -36,11 +36,11 @@ class extendContentJson extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->osRelease) {
-            $res['OsRelease'] = $this->osRelease;
-        }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
+        }
+        if (null !== $this->osRelease) {
+            $res['OsRelease'] = $this->osRelease;
         }
         if (null !== $this->rpmEntityList) {
             $res['RpmEntityList'] = [];
@@ -63,11 +63,11 @@ class extendContentJson extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OsRelease'])) {
-            $model->osRelease = $map['OsRelease'];
-        }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
+        }
+        if (isset($map['OsRelease'])) {
+            $model->osRelease = $map['OsRelease'];
         }
         if (isset($map['RpmEntityList'])) {
             if (!empty($map['RpmEntityList'])) {

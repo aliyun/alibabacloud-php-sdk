@@ -12,6 +12,51 @@ class backupMachineStatus extends Model
     /**
      * @var string
      */
+    public $clientId;
+
+    /**
+     * @var string
+     */
+    public $clientStatus;
+
+    /**
+     * @var string
+     */
+    public $clientVersion;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var errorList[]
+     */
+    public $errorList;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $savedBackupCount;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -22,65 +67,20 @@ class backupMachineStatus extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $vaultId;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var int
-     */
-    public $savedBackupCount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $clientStatus;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $clientVersion;
-
-    /**
-     * @var string
-     */
-    public $clientId;
-
-    /**
-     * @var errorList[]
-     */
-    public $errorList;
     protected $_name = [
+        'clientId'         => 'ClientId',
+        'clientStatus'     => 'ClientStatus',
+        'clientVersion'    => 'ClientVersion',
+        'errorCode'        => 'ErrorCode',
+        'errorList'        => 'ErrorList',
+        'instanceId'       => 'InstanceId',
+        'regionId'         => 'RegionId',
+        'requestId'        => 'RequestId',
+        'savedBackupCount' => 'SavedBackupCount',
         'status'           => 'Status',
         'uuid'             => 'Uuid',
-        'requestId'        => 'RequestId',
         'vaultId'          => 'VaultId',
-        'errorCode'        => 'ErrorCode',
-        'savedBackupCount' => 'SavedBackupCount',
-        'instanceId'       => 'InstanceId',
-        'clientStatus'     => 'ClientStatus',
-        'regionId'         => 'RegionId',
-        'clientVersion'    => 'ClientVersion',
-        'clientId'         => 'ClientId',
-        'errorList'        => 'ErrorList',
     ];
 
     public function validate()
@@ -90,38 +90,17 @@ class backupMachineStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->vaultId) {
-            $res['VaultId'] = $this->vaultId;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->savedBackupCount) {
-            $res['SavedBackupCount'] = $this->savedBackupCount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->clientId) {
+            $res['ClientId'] = $this->clientId;
         }
         if (null !== $this->clientStatus) {
             $res['ClientStatus'] = $this->clientStatus;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientVersion) {
             $res['ClientVersion'] = $this->clientVersion;
         }
-        if (null !== $this->clientId) {
-            $res['ClientId'] = $this->clientId;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorList) {
             $res['ErrorList'] = [];
@@ -131,6 +110,27 @@ class backupMachineStatus extends Model
                     $res['ErrorList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->savedBackupCount) {
+            $res['SavedBackupCount'] = $this->savedBackupCount;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
+        }
+        if (null !== $this->vaultId) {
+            $res['VaultId'] = $this->vaultId;
         }
 
         return $res;
@@ -144,38 +144,17 @@ class backupMachineStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['VaultId'])) {
-            $model->vaultId = $map['VaultId'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['SavedBackupCount'])) {
-            $model->savedBackupCount = $map['SavedBackupCount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['ClientId'])) {
+            $model->clientId = $map['ClientId'];
         }
         if (isset($map['ClientStatus'])) {
             $model->clientStatus = $map['ClientStatus'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientVersion'])) {
             $model->clientVersion = $map['ClientVersion'];
         }
-        if (isset($map['ClientId'])) {
-            $model->clientId = $map['ClientId'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorList'])) {
             if (!empty($map['ErrorList'])) {
@@ -185,6 +164,27 @@ class backupMachineStatus extends Model
                     $model->errorList[$n++] = null !== $item ? errorList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SavedBackupCount'])) {
+            $model->savedBackupCount = $map['SavedBackupCount'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
+        }
+        if (isset($map['VaultId'])) {
+            $model->vaultId = $map['VaultId'];
         }
 
         return $model;

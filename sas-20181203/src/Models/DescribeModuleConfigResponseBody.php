@@ -12,7 +12,17 @@ class DescribeModuleConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $count;
+
+    /**
+     * @var int
+     */
     public $httpStatusCode;
+
+    /**
+     * @var moduleConfigList[]
+     */
+    public $moduleConfigList;
 
     /**
      * @var string
@@ -23,22 +33,12 @@ class DescribeModuleConfigResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $count;
-
-    /**
-     * @var moduleConfigList[]
-     */
-    public $moduleConfigList;
     protected $_name = [
+        'count'            => 'Count',
         'httpStatusCode'   => 'HttpStatusCode',
+        'moduleConfigList' => 'ModuleConfigList',
         'requestId'        => 'RequestId',
         'success'          => 'Success',
-        'count'            => 'Count',
-        'moduleConfigList' => 'ModuleConfigList',
     ];
 
     public function validate()
@@ -48,17 +48,11 @@ class DescribeModuleConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->moduleConfigList) {
             $res['ModuleConfigList'] = [];
@@ -68,6 +62,12 @@ class DescribeModuleConfigResponseBody extends Model
                     $res['ModuleConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -81,17 +81,11 @@ class DescribeModuleConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['ModuleConfigList'])) {
             if (!empty($map['ModuleConfigList'])) {
@@ -101,6 +95,12 @@ class DescribeModuleConfigResponseBody extends Model
                     $model->moduleConfigList[$n++] = null !== $item ? moduleConfigList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

@@ -11,7 +11,17 @@ class warningMachines extends Model
     /**
      * @var int
      */
-    public $status;
+    public $highWarningCount;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
 
     /**
      * @var string
@@ -21,37 +31,12 @@ class warningMachines extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $highWarningCount;
-
-    /**
-     * @var string
-     */
     public $intranetIp;
-
-    /**
-     * @var string
-     */
-    public $regionId;
 
     /**
      * @var int
      */
     public $lowWarningCount;
-
-    /**
-     * @var bool
-     */
-    public $portOpen;
-
-    /**
-     * @var string
-     */
-    public $uuid;
 
     /**
      * @var int
@@ -64,22 +49,37 @@ class warningMachines extends Model
     public $passCount;
 
     /**
+     * @var bool
+     */
+    public $portOpen;
+
+    /**
      * @var string
      */
-    public $instanceName;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'status'             => 'Status',
-        'internetIp'         => 'InternetIp',
-        'instanceId'         => 'InstanceId',
         'highWarningCount'   => 'HighWarningCount',
+        'instanceId'         => 'InstanceId',
+        'instanceName'       => 'InstanceName',
+        'internetIp'         => 'InternetIp',
         'intranetIp'         => 'IntranetIp',
-        'regionId'           => 'RegionId',
         'lowWarningCount'    => 'LowWarningCount',
-        'portOpen'           => 'PortOpen',
-        'uuid'               => 'Uuid',
         'mediumWarningCount' => 'MediumWarningCount',
         'passCount'          => 'PassCount',
-        'instanceName'       => 'InstanceName',
+        'portOpen'           => 'PortOpen',
+        'regionId'           => 'RegionId',
+        'status'             => 'Status',
+        'uuid'               => 'Uuid',
     ];
 
     public function validate()
@@ -89,32 +89,23 @@ class warningMachines extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->internetIp) {
-            $res['InternetIp'] = $this->internetIp;
+        if (null !== $this->highWarningCount) {
+            $res['HighWarningCount'] = $this->highWarningCount;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->highWarningCount) {
-            $res['HighWarningCount'] = $this->highWarningCount;
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
         }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->lowWarningCount) {
             $res['LowWarningCount'] = $this->lowWarningCount;
-        }
-        if (null !== $this->portOpen) {
-            $res['PortOpen'] = $this->portOpen;
-        }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
         }
         if (null !== $this->mediumWarningCount) {
             $res['MediumWarningCount'] = $this->mediumWarningCount;
@@ -122,8 +113,17 @@ class warningMachines extends Model
         if (null !== $this->passCount) {
             $res['PassCount'] = $this->passCount;
         }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->portOpen) {
+            $res['PortOpen'] = $this->portOpen;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -137,32 +137,23 @@ class warningMachines extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['InternetIp'])) {
-            $model->internetIp = $map['InternetIp'];
+        if (isset($map['HighWarningCount'])) {
+            $model->highWarningCount = $map['HighWarningCount'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['HighWarningCount'])) {
-            $model->highWarningCount = $map['HighWarningCount'];
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
         }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['LowWarningCount'])) {
             $model->lowWarningCount = $map['LowWarningCount'];
-        }
-        if (isset($map['PortOpen'])) {
-            $model->portOpen = $map['PortOpen'];
-        }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
         }
         if (isset($map['MediumWarningCount'])) {
             $model->mediumWarningCount = $map['MediumWarningCount'];
@@ -170,8 +161,17 @@ class warningMachines extends Model
         if (isset($map['PassCount'])) {
             $model->passCount = $map['PassCount'];
         }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['PortOpen'])) {
+            $model->portOpen = $map['PortOpen'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

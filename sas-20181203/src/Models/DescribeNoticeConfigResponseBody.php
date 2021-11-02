@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeNoticeConfigResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var noticeConfigList[]
      */
     public $noticeConfigList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'noticeConfigList' => 'NoticeConfigList',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeNoticeConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->noticeConfigList) {
             $res['NoticeConfigList'] = [];
             if (null !== $this->noticeConfigList && \is_array($this->noticeConfigList)) {
@@ -41,6 +38,9 @@ class DescribeNoticeConfigResponseBody extends Model
                     $res['NoticeConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeNoticeConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NoticeConfigList'])) {
             if (!empty($map['NoticeConfigList'])) {
                 $model->noticeConfigList = [];
@@ -65,6 +62,9 @@ class DescribeNoticeConfigResponseBody extends Model
                     $model->noticeConfigList[$n++] = null !== $item ? noticeConfigList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

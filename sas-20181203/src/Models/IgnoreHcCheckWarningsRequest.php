@@ -11,7 +11,7 @@ class IgnoreHcCheckWarningsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $checkIds;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class IgnoreHcCheckWarningsRequest extends Model
     /**
      * @var string
      */
-    public $checkIds;
+    public $reason;
 
     /**
      * @var string
@@ -29,21 +29,21 @@ class IgnoreHcCheckWarningsRequest extends Model
     public $riskId;
 
     /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
      * @var int
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $reason;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'checkWarningIds' => 'CheckWarningIds',
         'checkIds'        => 'CheckIds',
-        'riskId'          => 'RiskId',
-        'type'            => 'Type',
+        'checkWarningIds' => 'CheckWarningIds',
         'reason'          => 'Reason',
+        'riskId'          => 'RiskId',
+        'sourceIp'        => 'SourceIp',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class IgnoreHcCheckWarningsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->checkIds) {
+            $res['CheckIds'] = $this->checkIds;
         }
         if (null !== $this->checkWarningIds) {
             $res['CheckWarningIds'] = $this->checkWarningIds;
         }
-        if (null !== $this->checkIds) {
-            $res['CheckIds'] = $this->checkIds;
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
         }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->reason) {
-            $res['Reason'] = $this->reason;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class IgnoreHcCheckWarningsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['CheckIds'])) {
+            $model->checkIds = $map['CheckIds'];
         }
         if (isset($map['CheckWarningIds'])) {
             $model->checkWarningIds = $map['CheckWarningIds'];
         }
-        if (isset($map['CheckIds'])) {
-            $model->checkIds = $map['CheckIds'];
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];
         }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Reason'])) {
-            $model->reason = $map['Reason'];
         }
 
         return $model;

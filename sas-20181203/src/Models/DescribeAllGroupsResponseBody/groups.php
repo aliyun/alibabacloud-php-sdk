@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $groupName;
+    public $groupFlag;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class groups extends Model
     public $groupId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $groupFlag;
+    public $groupName;
     protected $_name = [
-        'groupName' => 'GroupName',
-        'groupId'   => 'GroupId',
         'groupFlag' => 'GroupFlag',
+        'groupId'   => 'GroupId',
+        'groupName' => 'GroupName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class groups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
+        if (null !== $this->groupFlag) {
+            $res['GroupFlag'] = $this->groupFlag;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->groupFlag) {
-            $res['GroupFlag'] = $this->groupFlag;
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class groups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
+        if (isset($map['GroupFlag'])) {
+            $model->groupFlag = $map['GroupFlag'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['GroupFlag'])) {
-            $model->groupFlag = $map['GroupFlag'];
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
 
         return $model;

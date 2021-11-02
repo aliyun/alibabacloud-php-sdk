@@ -11,7 +11,7 @@ class DescribeStrategyRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $customType;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class DescribeStrategyRequest extends Model
     /**
      * @var string
      */
-    public $strategyIds;
+    public $sourceIp;
 
     /**
      * @var string
      */
-    public $customType;
+    public $strategyIds;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
-        'lang'        => 'Lang',
-        'strategyIds' => 'StrategyIds',
         'customType'  => 'CustomType',
+        'lang'        => 'Lang',
+        'sourceIp'    => 'SourceIp',
+        'strategyIds' => 'StrategyIds',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeStrategyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->customType) {
+            $res['CustomType'] = $this->customType;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->strategyIds) {
             $res['StrategyIds'] = $this->strategyIds;
-        }
-        if (null !== $this->customType) {
-            $res['CustomType'] = $this->customType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeStrategyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['CustomType'])) {
+            $model->customType = $map['CustomType'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['StrategyIds'])) {
             $model->strategyIds = $map['StrategyIds'];
-        }
-        if (isset($map['CustomType'])) {
-            $model->customType = $map['CustomType'];
         }
 
         return $model;

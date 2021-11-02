@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainListRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $fuzzyDomain;
+    public $currentPage;
 
     /**
      * @var string
@@ -24,20 +19,25 @@ class DescribeDomainListRequest extends Model
     public $domainType;
 
     /**
+     * @var string
+     */
+    public $fuzzyDomain;
+
+    /**
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
-        'fuzzyDomain' => 'FuzzyDomain',
-        'domainType'  => 'DomainType',
-        'pageSize'    => 'PageSize',
         'currentPage' => 'CurrentPage',
+        'domainType'  => 'DomainType',
+        'fuzzyDomain' => 'FuzzyDomain',
+        'pageSize'    => 'PageSize',
+        'sourceIp'    => 'SourceIp',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeDomainListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->fuzzyDomain) {
-            $res['FuzzyDomain'] = $this->fuzzyDomain;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->domainType) {
             $res['DomainType'] = $this->domainType;
         }
+        if (null !== $this->fuzzyDomain) {
+            $res['FuzzyDomain'] = $this->fuzzyDomain;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeDomainListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['FuzzyDomain'])) {
-            $model->fuzzyDomain = $map['FuzzyDomain'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['DomainType'])) {
             $model->domainType = $map['DomainType'];
         }
+        if (isset($map['FuzzyDomain'])) {
+            $model->fuzzyDomain = $map['FuzzyDomain'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class pageInfo extends Model
     /**
      * @var int
      */
+    public $count;
+
+    /**
+     * @var int
+     */
     public $currentPage;
 
     /**
@@ -27,17 +32,12 @@ class pageInfo extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $count;
     protected $_name = [
+        'count'       => 'Count',
         'currentPage' => 'CurrentPage',
         'nextToken'   => 'NextToken',
         'pageSize'    => 'PageSize',
         'totalCount'  => 'TotalCount',
-        'count'       => 'Count',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class pageInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -58,9 +61,6 @@ class pageInfo extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class pageInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -85,9 +88,6 @@ class pageInfo extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

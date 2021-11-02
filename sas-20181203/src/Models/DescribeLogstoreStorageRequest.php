@@ -11,15 +11,15 @@ class DescribeLogstoreStorageRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $from;
 
     /**
      * @var string
      */
-    public $from;
+    public $lang;
     protected $_name = [
-        'lang' => 'Lang',
         'from' => 'From',
+        'lang' => 'Lang',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeLogstoreStorageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeLogstoreStorageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

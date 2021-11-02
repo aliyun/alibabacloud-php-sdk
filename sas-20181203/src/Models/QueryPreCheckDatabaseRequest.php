@@ -11,7 +11,7 @@ class QueryPreCheckDatabaseRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $instanceUuid;
 
     /**
      * @var int
@@ -21,22 +21,22 @@ class QueryPreCheckDatabaseRequest extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $sourceIp;
 
     /**
      * @var string
      */
-    public $instanceUuid;
+    public $taskId;
 
     /**
      * @var string
      */
     public $uniRegionId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'taskId'          => 'TaskId',
         'instanceUuid'    => 'InstanceUuid',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
+        'taskId'          => 'TaskId',
         'uniRegionId'     => 'UniRegionId',
     ];
 
@@ -47,17 +47,17 @@ class QueryPreCheckDatabaseRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->instanceUuid) {
+            $res['InstanceUuid'] = $this->instanceUuid;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->instanceUuid) {
-            $res['InstanceUuid'] = $this->instanceUuid;
         }
         if (null !== $this->uniRegionId) {
             $res['UniRegionId'] = $this->uniRegionId;
@@ -74,17 +74,17 @@ class QueryPreCheckDatabaseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['InstanceUuid'])) {
+            $model->instanceUuid = $map['InstanceUuid'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['InstanceUuid'])) {
-            $model->instanceUuid = $map['InstanceUuid'];
         }
         if (isset($map['UniRegionId'])) {
             $model->uniRegionId = $map['UniRegionId'];

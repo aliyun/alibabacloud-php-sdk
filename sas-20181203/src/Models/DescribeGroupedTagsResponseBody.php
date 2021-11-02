@@ -12,6 +12,16 @@ class DescribeGroupedTagsResponseBody extends Model
     /**
      * @var int
      */
+    public $count;
+
+    /**
+     * @var groupedFileds[]
+     */
+    public $groupedFileds;
+
+    /**
+     * @var int
+     */
     public $httpStatusCode;
 
     /**
@@ -23,22 +33,12 @@ class DescribeGroupedTagsResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $count;
-
-    /**
-     * @var groupedFileds[]
-     */
-    public $groupedFileds;
     protected $_name = [
+        'count'          => 'Count',
+        'groupedFileds'  => 'GroupedFileds',
         'httpStatusCode' => 'HttpStatusCode',
         'requestId'      => 'RequestId',
         'success'        => 'Success',
-        'count'          => 'Count',
-        'groupedFileds'  => 'GroupedFileds',
     ];
 
     public function validate()
@@ -48,15 +48,6 @@ class DescribeGroupedTagsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
@@ -68,6 +59,15 @@ class DescribeGroupedTagsResponseBody extends Model
                     $res['GroupedFileds'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -81,15 +81,6 @@ class DescribeGroupedTagsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
@@ -101,6 +92,15 @@ class DescribeGroupedTagsResponseBody extends Model
                     $model->groupedFileds[$n++] = null !== $item ? groupedFileds::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class CreateAssetResponseBody extends Model
     /**
      * @var string
      */
-    public $uuid;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $uuid;
     protected $_name = [
-        'uuid'      => 'Uuid',
         'requestId' => 'RequestId',
+        'uuid'      => 'Uuid',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateAssetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateAssetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

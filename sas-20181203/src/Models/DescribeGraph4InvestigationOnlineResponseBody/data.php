@@ -13,11 +13,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var vertexList[]
-     */
-    public $vertexList;
-
-    /**
      * @var edgeList[]
      */
     public $edgeList;
@@ -31,11 +26,16 @@ class data extends Model
      * @var relationTypeList[]
      */
     public $relationTypeList;
+
+    /**
+     * @var vertexList[]
+     */
+    public $vertexList;
     protected $_name = [
-        'vertexList'       => 'VertexList',
         'edgeList'         => 'EdgeList',
         'entityTypeList'   => 'EntityTypeList',
         'relationTypeList' => 'RelationTypeList',
+        'vertexList'       => 'VertexList',
     ];
 
     public function validate()
@@ -45,15 +45,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vertexList) {
-            $res['VertexList'] = [];
-            if (null !== $this->vertexList && \is_array($this->vertexList)) {
-                $n = 0;
-                foreach ($this->vertexList as $item) {
-                    $res['VertexList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->edgeList) {
             $res['EdgeList'] = [];
             if (null !== $this->edgeList && \is_array($this->edgeList)) {
@@ -81,6 +72,15 @@ class data extends Model
                 }
             }
         }
+        if (null !== $this->vertexList) {
+            $res['VertexList'] = [];
+            if (null !== $this->vertexList && \is_array($this->vertexList)) {
+                $n = 0;
+                foreach ($this->vertexList as $item) {
+                    $res['VertexList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -93,15 +93,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VertexList'])) {
-            if (!empty($map['VertexList'])) {
-                $model->vertexList = [];
-                $n                 = 0;
-                foreach ($map['VertexList'] as $item) {
-                    $model->vertexList[$n++] = null !== $item ? vertexList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['EdgeList'])) {
             if (!empty($map['EdgeList'])) {
                 $model->edgeList = [];
@@ -126,6 +117,15 @@ class data extends Model
                 $n                       = 0;
                 foreach ($map['RelationTypeList'] as $item) {
                     $model->relationTypeList[$n++] = null !== $item ? relationTypeList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['VertexList'])) {
+            if (!empty($map['VertexList'])) {
+                $model->vertexList = [];
+                $n                 = 0;
+                foreach ($map['VertexList'] as $item) {
+                    $model->vertexList[$n++] = null !== $item ? vertexList::fromMap($item) : $item;
                 }
             }
         }

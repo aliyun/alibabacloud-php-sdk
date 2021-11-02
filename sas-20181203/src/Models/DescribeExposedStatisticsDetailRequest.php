@@ -11,12 +11,12 @@ class DescribeExposedStatisticsDetailRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $currentPage;
 
     /**
      * @var int
      */
-    public $currentPage;
+    public $pageSize;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class DescribeExposedStatisticsDetailRequest extends Model
     /**
      * @var string
      */
-    public $statisticsTypeInstanceValue;
+    public $statisticsTypeGatewayType;
 
     /**
      * @var string
      */
-    public $statisticsTypeGatewayType;
+    public $statisticsTypeInstanceValue;
     protected $_name = [
-        'pageSize'                    => 'PageSize',
         'currentPage'                 => 'CurrentPage',
+        'pageSize'                    => 'PageSize',
         'statisticsType'              => 'StatisticsType',
-        'statisticsTypeInstanceValue' => 'StatisticsTypeInstanceValue',
         'statisticsTypeGatewayType'   => 'StatisticsTypeGatewayType',
+        'statisticsTypeInstanceValue' => 'StatisticsTypeInstanceValue',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeExposedStatisticsDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->statisticsType) {
             $res['StatisticsType'] = $this->statisticsType;
         }
-        if (null !== $this->statisticsTypeInstanceValue) {
-            $res['StatisticsTypeInstanceValue'] = $this->statisticsTypeInstanceValue;
-        }
         if (null !== $this->statisticsTypeGatewayType) {
             $res['StatisticsTypeGatewayType'] = $this->statisticsTypeGatewayType;
+        }
+        if (null !== $this->statisticsTypeInstanceValue) {
+            $res['StatisticsTypeInstanceValue'] = $this->statisticsTypeInstanceValue;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeExposedStatisticsDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['StatisticsType'])) {
             $model->statisticsType = $map['StatisticsType'];
         }
-        if (isset($map['StatisticsTypeInstanceValue'])) {
-            $model->statisticsTypeInstanceValue = $map['StatisticsTypeInstanceValue'];
-        }
         if (isset($map['StatisticsTypeGatewayType'])) {
             $model->statisticsTypeGatewayType = $map['StatisticsTypeGatewayType'];
+        }
+        if (isset($map['StatisticsTypeInstanceValue'])) {
+            $model->statisticsTypeInstanceValue = $map['StatisticsTypeInstanceValue'];
         }
 
         return $model;

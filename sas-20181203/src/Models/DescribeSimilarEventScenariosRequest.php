@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeSimilarEventScenariosRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -22,10 +17,15 @@ class DescribeSimilarEventScenariosRequest extends Model
      * @var int
      */
     public $securityEventId;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityEventId' => 'SecurityEventId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeSimilarEventScenariosRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->securityEventId) {
             $res['SecurityEventId'] = $this->securityEventId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeSimilarEventScenariosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['SecurityEventId'])) {
             $model->securityEventId = $map['SecurityEventId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

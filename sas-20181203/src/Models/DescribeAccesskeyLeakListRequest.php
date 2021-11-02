@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccesskeyLeakListRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $status;
+    public $currentPage;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -24,20 +29,15 @@ class DescribeAccesskeyLeakListRequest extends Model
     public $startTs;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
+        'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
         'query'       => 'Query',
         'startTs'     => 'StartTs',
-        'pageSize'    => 'PageSize',
-        'currentPage' => 'CurrentPage',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class DescribeAccesskeyLeakListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->query) {
             $res['Query'] = $this->query;
@@ -56,11 +59,8 @@ class DescribeAccesskeyLeakListRequest extends Model
         if (null !== $this->startTs) {
             $res['StartTs'] = $this->startTs;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class DescribeAccesskeyLeakListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
@@ -83,11 +86,8 @@ class DescribeAccesskeyLeakListRequest extends Model
         if (isset($map['StartTs'])) {
             $model->startTs = $map['StartTs'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

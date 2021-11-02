@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateAntiBruteForceRuleResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var createAntiBruteForceRule
      */
     public $createAntiBruteForceRule;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                => 'RequestId',
         'createAntiBruteForceRule' => 'CreateAntiBruteForceRule',
+        'requestId'                => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class CreateAntiBruteForceRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->createAntiBruteForceRule) {
             $res['CreateAntiBruteForceRule'] = null !== $this->createAntiBruteForceRule ? $this->createAntiBruteForceRule->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class CreateAntiBruteForceRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CreateAntiBruteForceRule'])) {
             $model->createAntiBruteForceRule = createAntiBruteForceRule::fromMap($map['CreateAntiBruteForceRule']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

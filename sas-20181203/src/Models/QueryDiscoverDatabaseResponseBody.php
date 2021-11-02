@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class QueryDiscoverDatabaseResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $taskProgress;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $taskProgress;
     protected $_name = [
-        'taskProgress' => 'TaskProgress',
         'requestId'    => 'RequestId',
+        'taskProgress' => 'TaskProgress',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QueryDiscoverDatabaseResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskProgress) {
-            $res['TaskProgress'] = $this->taskProgress;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->taskProgress) {
+            $res['TaskProgress'] = $this->taskProgress;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QueryDiscoverDatabaseResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskProgress'])) {
-            $model->taskProgress = $map['TaskProgress'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TaskProgress'])) {
+            $model->taskProgress = $map['TaskProgress'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class ModifyVulTargetConfigRequest extends Model
     /**
      * @var string
      */
+    public $config;
+
+    /**
+     * @var string
+     */
     public $sourceIp;
 
     /**
@@ -22,16 +27,11 @@ class ModifyVulTargetConfigRequest extends Model
      * @var string
      */
     public $uuid;
-
-    /**
-     * @var string
-     */
-    public $config;
     protected $_name = [
+        'config'   => 'Config',
         'sourceIp' => 'SourceIp',
         'type'     => 'Type',
         'uuid'     => 'Uuid',
-        'config'   => 'Config',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class ModifyVulTargetConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
+        }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -49,9 +52,6 @@ class ModifyVulTargetConfigRequest extends Model
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class ModifyVulTargetConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
+        }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
@@ -73,9 +76,6 @@ class ModifyVulTargetConfigRequest extends Model
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
         }
 
         return $model;

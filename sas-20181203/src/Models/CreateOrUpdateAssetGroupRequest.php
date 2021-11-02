@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateAssetGroupRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $uuids;
+    public $groupId;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class CreateOrUpdateAssetGroupRequest extends Model
     public $groupName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $groupId;
+    public $uuids;
     protected $_name = [
-        'uuids'     => 'Uuids',
-        'groupName' => 'GroupName',
         'groupId'   => 'GroupId',
+        'groupName' => 'GroupName',
+        'uuids'     => 'Uuids',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateOrUpdateAssetGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuids) {
-            $res['Uuids'] = $this->uuids;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->uuids) {
+            $res['Uuids'] = $this->uuids;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateOrUpdateAssetGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuids'])) {
-            $model->uuids = $map['Uuids'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['Uuids'])) {
+            $model->uuids = $map['Uuids'];
         }
 
         return $model;

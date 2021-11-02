@@ -9,39 +9,9 @@ use AlibabaCloud\Tea\Model;
 class suspEvents extends Model
 {
     /**
-     * @var bool
-     */
-    public $dealed;
-
-    /**
      * @var string
      */
-    public $stages;
-
-    /**
-     * @var string
-     */
-    public $internetIp;
-
-    /**
-     * @var int
-     */
-    public $suspiciousEventCount;
-
-    /**
-     * @var string
-     */
-    public $k8sClusterName;
-
-    /**
-     * @var string
-     */
-    public $containerImageId;
-
-    /**
-     * @var int
-     */
-    public $gmtModified;
+    public $alarmEventName;
 
     /**
      * @var string
@@ -51,7 +21,17 @@ class suspEvents extends Model
     /**
      * @var string
      */
+    public $alarmEventType;
+
+    /**
+     * @var string
+     */
     public $alarmUniqueInfo;
+
+    /**
+     * @var bool
+     */
+    public $canBeDealOnLine;
 
     /**
      * @var bool
@@ -61,27 +41,12 @@ class suspEvents extends Model
     /**
      * @var string
      */
-    public $appName;
-
-    /**
-     * @var string
-     */
-    public $securityEventIds;
-
-    /**
-     * @var string
-     */
-    public $k8sClusterId;
-
-    /**
-     * @var string
-     */
-    public $containerImageName;
+    public $dataSource;
 
     /**
      * @var bool
      */
-    public $canBeDealOnLine;
+    public $dealed;
 
     /**
      * @var string
@@ -89,34 +54,14 @@ class suspEvents extends Model
     public $description;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $containHwMode;
+    public $endTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $k8sNodeId;
-
-    /**
-     * @var string
-     */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $saleVersion;
-
-    /**
-     * @var string
-     */
-    public $operateErrorCode;
-
-    /**
-     * @var string
-     */
-    public $solution;
+    public $gmtModified;
 
     /**
      * @var bool
@@ -126,7 +71,32 @@ class suspEvents extends Model
     /**
      * @var string
      */
-    public $dataSource;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @var string
+     */
+    public $intranetIp;
+
+    /**
+     * @var string
+     */
+    public $level;
+
+    /**
+     * @var string
+     */
+    public $operateErrorCode;
 
     /**
      * @var int
@@ -136,22 +106,22 @@ class suspEvents extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $saleVersion;
 
     /**
      * @var string
      */
-    public $intranetIp;
-
-    /**
-     * @var int
-     */
-    public $endTime;
+    public $securityEventIds;
 
     /**
      * @var string
      */
-    public $uuid;
+    public $solution;
+
+    /**
+     * @var string
+     */
+    public $stages;
 
     /**
      * @var int
@@ -159,77 +129,41 @@ class suspEvents extends Model
     public $startTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $k8sPodName;
+    public $suspiciousEventCount;
 
     /**
      * @var string
      */
-    public $containerId;
-
-    /**
-     * @var string
-     */
-    public $alarmEventType;
-
-    /**
-     * @var string
-     */
-    public $k8sNamespace;
-
-    /**
-     * @var string
-     */
-    public $k8sNodeName;
-
-    /**
-     * @var string
-     */
-    public $alarmEventName;
-
-    /**
-     * @var string
-     */
-    public $level;
+    public $uuid;
     protected $_name = [
-        'dealed'                 => 'Dealed',
-        'stages'                 => 'Stages',
-        'internetIp'             => 'InternetIp',
-        'suspiciousEventCount'   => 'SuspiciousEventCount',
-        'k8sClusterName'         => 'K8sClusterName',
-        'containerImageId'       => 'ContainerImageId',
-        'gmtModified'            => 'GmtModified',
-        'alarmEventNameOriginal' => 'AlarmEventNameOriginal',
-        'alarmUniqueInfo'        => 'AlarmUniqueInfo',
-        'canCancelFault'         => 'CanCancelFault',
-        'appName'                => 'AppName',
-        'securityEventIds'       => 'SecurityEventIds',
-        'k8sClusterId'           => 'K8sClusterId',
-        'containerImageName'     => 'ContainerImageName',
-        'canBeDealOnLine'        => 'CanBeDealOnLine',
-        'description'            => 'Description',
-        'containHwMode'          => 'ContainHwMode',
-        'k8sNodeId'              => 'K8sNodeId',
-        'instanceName'           => 'InstanceName',
-        'saleVersion'            => 'SaleVersion',
-        'operateErrorCode'       => 'OperateErrorCode',
-        'solution'               => 'Solution',
-        'hasTraceInfo'           => 'HasTraceInfo',
-        'dataSource'             => 'DataSource',
-        'operateTime'            => 'OperateTime',
-        'instanceId'             => 'InstanceId',
-        'intranetIp'             => 'IntranetIp',
-        'endTime'                => 'EndTime',
-        'uuid'                   => 'Uuid',
-        'startTime'              => 'StartTime',
-        'k8sPodName'             => 'K8sPodName',
-        'containerId'            => 'ContainerId',
-        'alarmEventType'         => 'AlarmEventType',
-        'k8sNamespace'           => 'K8sNamespace',
-        'k8sNodeName'            => 'K8sNodeName',
         'alarmEventName'         => 'AlarmEventName',
+        'alarmEventNameOriginal' => 'AlarmEventNameOriginal',
+        'alarmEventType'         => 'AlarmEventType',
+        'alarmUniqueInfo'        => 'AlarmUniqueInfo',
+        'canBeDealOnLine'        => 'CanBeDealOnLine',
+        'canCancelFault'         => 'CanCancelFault',
+        'dataSource'             => 'DataSource',
+        'dealed'                 => 'Dealed',
+        'description'            => 'Description',
+        'endTime'                => 'EndTime',
+        'gmtModified'            => 'GmtModified',
+        'hasTraceInfo'           => 'HasTraceInfo',
+        'instanceId'             => 'InstanceId',
+        'instanceName'           => 'InstanceName',
+        'internetIp'             => 'InternetIp',
+        'intranetIp'             => 'IntranetIp',
         'level'                  => 'Level',
+        'operateErrorCode'       => 'OperateErrorCode',
+        'operateTime'            => 'OperateTime',
+        'saleVersion'            => 'SaleVersion',
+        'securityEventIds'       => 'SecurityEventIds',
+        'solution'               => 'Solution',
+        'stages'                 => 'Stages',
+        'startTime'              => 'StartTime',
+        'suspiciousEventCount'   => 'SuspiciousEventCount',
+        'uuid'                   => 'Uuid',
     ];
 
     public function validate()
@@ -239,116 +173,83 @@ class suspEvents extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dealed) {
-            $res['Dealed'] = $this->dealed;
-        }
-        if (null !== $this->stages) {
-            $res['Stages'] = $this->stages;
-        }
-        if (null !== $this->internetIp) {
-            $res['InternetIp'] = $this->internetIp;
-        }
-        if (null !== $this->suspiciousEventCount) {
-            $res['SuspiciousEventCount'] = $this->suspiciousEventCount;
-        }
-        if (null !== $this->k8sClusterName) {
-            $res['K8sClusterName'] = $this->k8sClusterName;
-        }
-        if (null !== $this->containerImageId) {
-            $res['ContainerImageId'] = $this->containerImageId;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
+        if (null !== $this->alarmEventName) {
+            $res['AlarmEventName'] = $this->alarmEventName;
         }
         if (null !== $this->alarmEventNameOriginal) {
             $res['AlarmEventNameOriginal'] = $this->alarmEventNameOriginal;
         }
+        if (null !== $this->alarmEventType) {
+            $res['AlarmEventType'] = $this->alarmEventType;
+        }
         if (null !== $this->alarmUniqueInfo) {
             $res['AlarmUniqueInfo'] = $this->alarmUniqueInfo;
-        }
-        if (null !== $this->canCancelFault) {
-            $res['CanCancelFault'] = $this->canCancelFault;
-        }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->securityEventIds) {
-            $res['SecurityEventIds'] = $this->securityEventIds;
-        }
-        if (null !== $this->k8sClusterId) {
-            $res['K8sClusterId'] = $this->k8sClusterId;
-        }
-        if (null !== $this->containerImageName) {
-            $res['ContainerImageName'] = $this->containerImageName;
         }
         if (null !== $this->canBeDealOnLine) {
             $res['CanBeDealOnLine'] = $this->canBeDealOnLine;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->containHwMode) {
-            $res['ContainHwMode'] = $this->containHwMode;
-        }
-        if (null !== $this->k8sNodeId) {
-            $res['K8sNodeId'] = $this->k8sNodeId;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->saleVersion) {
-            $res['SaleVersion'] = $this->saleVersion;
-        }
-        if (null !== $this->operateErrorCode) {
-            $res['OperateErrorCode'] = $this->operateErrorCode;
-        }
-        if (null !== $this->solution) {
-            $res['Solution'] = $this->solution;
-        }
-        if (null !== $this->hasTraceInfo) {
-            $res['HasTraceInfo'] = $this->hasTraceInfo;
+        if (null !== $this->canCancelFault) {
+            $res['CanCancelFault'] = $this->canCancelFault;
         }
         if (null !== $this->dataSource) {
             $res['DataSource'] = $this->dataSource;
         }
-        if (null !== $this->operateTime) {
-            $res['OperateTime'] = $this->operateTime;
+        if (null !== $this->dealed) {
+            $res['Dealed'] = $this->dealed;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->intranetIp) {
-            $res['IntranetIp'] = $this->intranetIp;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->hasTraceInfo) {
+            $res['HasTraceInfo'] = $this->hasTraceInfo;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
+        }
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
+        }
+        if (null !== $this->operateErrorCode) {
+            $res['OperateErrorCode'] = $this->operateErrorCode;
+        }
+        if (null !== $this->operateTime) {
+            $res['OperateTime'] = $this->operateTime;
+        }
+        if (null !== $this->saleVersion) {
+            $res['SaleVersion'] = $this->saleVersion;
+        }
+        if (null !== $this->securityEventIds) {
+            $res['SecurityEventIds'] = $this->securityEventIds;
+        }
+        if (null !== $this->solution) {
+            $res['Solution'] = $this->solution;
+        }
+        if (null !== $this->stages) {
+            $res['Stages'] = $this->stages;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->k8sPodName) {
-            $res['K8sPodName'] = $this->k8sPodName;
+        if (null !== $this->suspiciousEventCount) {
+            $res['SuspiciousEventCount'] = $this->suspiciousEventCount;
         }
-        if (null !== $this->containerId) {
-            $res['ContainerId'] = $this->containerId;
-        }
-        if (null !== $this->alarmEventType) {
-            $res['AlarmEventType'] = $this->alarmEventType;
-        }
-        if (null !== $this->k8sNamespace) {
-            $res['K8sNamespace'] = $this->k8sNamespace;
-        }
-        if (null !== $this->k8sNodeName) {
-            $res['K8sNodeName'] = $this->k8sNodeName;
-        }
-        if (null !== $this->alarmEventName) {
-            $res['AlarmEventName'] = $this->alarmEventName;
-        }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -362,116 +263,83 @@ class suspEvents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Dealed'])) {
-            $model->dealed = $map['Dealed'];
-        }
-        if (isset($map['Stages'])) {
-            $model->stages = $map['Stages'];
-        }
-        if (isset($map['InternetIp'])) {
-            $model->internetIp = $map['InternetIp'];
-        }
-        if (isset($map['SuspiciousEventCount'])) {
-            $model->suspiciousEventCount = $map['SuspiciousEventCount'];
-        }
-        if (isset($map['K8sClusterName'])) {
-            $model->k8sClusterName = $map['K8sClusterName'];
-        }
-        if (isset($map['ContainerImageId'])) {
-            $model->containerImageId = $map['ContainerImageId'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
+        if (isset($map['AlarmEventName'])) {
+            $model->alarmEventName = $map['AlarmEventName'];
         }
         if (isset($map['AlarmEventNameOriginal'])) {
             $model->alarmEventNameOriginal = $map['AlarmEventNameOriginal'];
         }
+        if (isset($map['AlarmEventType'])) {
+            $model->alarmEventType = $map['AlarmEventType'];
+        }
         if (isset($map['AlarmUniqueInfo'])) {
             $model->alarmUniqueInfo = $map['AlarmUniqueInfo'];
-        }
-        if (isset($map['CanCancelFault'])) {
-            $model->canCancelFault = $map['CanCancelFault'];
-        }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
-        if (isset($map['SecurityEventIds'])) {
-            $model->securityEventIds = $map['SecurityEventIds'];
-        }
-        if (isset($map['K8sClusterId'])) {
-            $model->k8sClusterId = $map['K8sClusterId'];
-        }
-        if (isset($map['ContainerImageName'])) {
-            $model->containerImageName = $map['ContainerImageName'];
         }
         if (isset($map['CanBeDealOnLine'])) {
             $model->canBeDealOnLine = $map['CanBeDealOnLine'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['ContainHwMode'])) {
-            $model->containHwMode = $map['ContainHwMode'];
-        }
-        if (isset($map['K8sNodeId'])) {
-            $model->k8sNodeId = $map['K8sNodeId'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['SaleVersion'])) {
-            $model->saleVersion = $map['SaleVersion'];
-        }
-        if (isset($map['OperateErrorCode'])) {
-            $model->operateErrorCode = $map['OperateErrorCode'];
-        }
-        if (isset($map['Solution'])) {
-            $model->solution = $map['Solution'];
-        }
-        if (isset($map['HasTraceInfo'])) {
-            $model->hasTraceInfo = $map['HasTraceInfo'];
+        if (isset($map['CanCancelFault'])) {
+            $model->canCancelFault = $map['CanCancelFault'];
         }
         if (isset($map['DataSource'])) {
             $model->dataSource = $map['DataSource'];
         }
-        if (isset($map['OperateTime'])) {
-            $model->operateTime = $map['OperateTime'];
+        if (isset($map['Dealed'])) {
+            $model->dealed = $map['Dealed'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['IntranetIp'])) {
-            $model->intranetIp = $map['IntranetIp'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['HasTraceInfo'])) {
+            $model->hasTraceInfo = $map['HasTraceInfo'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
+        }
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
+        }
+        if (isset($map['OperateErrorCode'])) {
+            $model->operateErrorCode = $map['OperateErrorCode'];
+        }
+        if (isset($map['OperateTime'])) {
+            $model->operateTime = $map['OperateTime'];
+        }
+        if (isset($map['SaleVersion'])) {
+            $model->saleVersion = $map['SaleVersion'];
+        }
+        if (isset($map['SecurityEventIds'])) {
+            $model->securityEventIds = $map['SecurityEventIds'];
+        }
+        if (isset($map['Solution'])) {
+            $model->solution = $map['Solution'];
+        }
+        if (isset($map['Stages'])) {
+            $model->stages = $map['Stages'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['K8sPodName'])) {
-            $model->k8sPodName = $map['K8sPodName'];
+        if (isset($map['SuspiciousEventCount'])) {
+            $model->suspiciousEventCount = $map['SuspiciousEventCount'];
         }
-        if (isset($map['ContainerId'])) {
-            $model->containerId = $map['ContainerId'];
-        }
-        if (isset($map['AlarmEventType'])) {
-            $model->alarmEventType = $map['AlarmEventType'];
-        }
-        if (isset($map['K8sNamespace'])) {
-            $model->k8sNamespace = $map['K8sNamespace'];
-        }
-        if (isset($map['K8sNodeName'])) {
-            $model->k8sNodeName = $map['K8sNodeName'];
-        }
-        if (isset($map['AlarmEventName'])) {
-            $model->alarmEventName = $map['AlarmEventName'];
-        }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

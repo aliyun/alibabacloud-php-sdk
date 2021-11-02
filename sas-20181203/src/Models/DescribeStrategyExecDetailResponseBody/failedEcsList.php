@@ -16,22 +16,28 @@ class failedEcsList extends Model
     /**
      * @var string
      */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @var string
+     */
     public $intranetIp;
 
     /**
      * @var string
      */
     public $reason;
-
-    /**
-     * @var string
-     */
-    public $instanceName;
     protected $_name = [
         'IP'           => 'IP',
+        'instanceName' => 'InstanceName',
+        'internetIp'   => 'InternetIp',
         'intranetIp'   => 'IntranetIp',
         'reason'       => 'Reason',
-        'instanceName' => 'InstanceName',
     ];
 
     public function validate()
@@ -44,14 +50,17 @@ class failedEcsList extends Model
         if (null !== $this->IP) {
             $res['IP'] = $this->IP;
         }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
+        }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
         }
 
         return $res;
@@ -68,14 +77,17 @@ class failedEcsList extends Model
         if (isset($map['IP'])) {
             $model->IP = $map['IP'];
         }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
+        }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
         }
 
         return $model;

@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupDirsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var backupDirs[]
      */
-    public $requestId;
+    public $backupDirs;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribeBackupDirsResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var backupDirs[]
+     * @var string
      */
-    public $backupDirs;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'pageInfo'   => 'PageInfo',
         'backupDirs' => 'BackupDirs',
+        'pageInfo'   => 'PageInfo',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class DescribeBackupDirsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
         if (null !== $this->backupDirs) {
             $res['BackupDirs'] = [];
             if (null !== $this->backupDirs && \is_array($this->backupDirs)) {
@@ -51,6 +45,12 @@ class DescribeBackupDirsResponseBody extends Model
                     $res['BackupDirs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class DescribeBackupDirsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
         if (isset($map['BackupDirs'])) {
             if (!empty($map['BackupDirs'])) {
                 $model->backupDirs = [];
@@ -78,6 +72,12 @@ class DescribeBackupDirsResponseBody extends Model
                     $model->backupDirs[$n++] = null !== $item ? backupDirs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class groupedVulItems extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
      * @var string
      */
-    public $type;
+    public $aliasName;
 
     /**
      * @var int
      */
-    public $nntfCount;
+    public $asapCount;
 
     /**
      * @var int
@@ -34,19 +29,9 @@ class groupedVulItems extends Model
     public $lastScanTime;
 
     /**
-     * @var string
-     */
-    public $tags;
-
-    /**
      * @var int
      */
     public $laterCount;
-
-    /**
-     * @var string
-     */
-    public $aliasName;
 
     /**
      * @var string
@@ -56,18 +41,33 @@ class groupedVulItems extends Model
     /**
      * @var int
      */
-    public $asapCount;
+    public $nntfCount;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'status'       => 'Status',
-        'type'         => 'Type',
-        'nntfCount'    => 'NntfCount',
+        'aliasName'    => 'AliasName',
+        'asapCount'    => 'AsapCount',
         'gmtLast'      => 'GmtLast',
         'lastScanTime' => 'LastScanTime',
-        'tags'         => 'Tags',
         'laterCount'   => 'LaterCount',
-        'aliasName'    => 'AliasName',
         'name'         => 'Name',
-        'asapCount'    => 'AsapCount',
+        'nntfCount'    => 'NntfCount',
+        'status'       => 'Status',
+        'tags'         => 'Tags',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -77,14 +77,11 @@ class groupedVulItems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->aliasName) {
+            $res['AliasName'] = $this->aliasName;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->nntfCount) {
-            $res['NntfCount'] = $this->nntfCount;
+        if (null !== $this->asapCount) {
+            $res['AsapCount'] = $this->asapCount;
         }
         if (null !== $this->gmtLast) {
             $res['GmtLast'] = $this->gmtLast;
@@ -92,20 +89,23 @@ class groupedVulItems extends Model
         if (null !== $this->lastScanTime) {
             $res['LastScanTime'] = $this->lastScanTime;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->laterCount) {
             $res['LaterCount'] = $this->laterCount;
-        }
-        if (null !== $this->aliasName) {
-            $res['AliasName'] = $this->aliasName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->asapCount) {
-            $res['AsapCount'] = $this->asapCount;
+        if (null !== $this->nntfCount) {
+            $res['NntfCount'] = $this->nntfCount;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -119,14 +119,11 @@ class groupedVulItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AliasName'])) {
+            $model->aliasName = $map['AliasName'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['NntfCount'])) {
-            $model->nntfCount = $map['NntfCount'];
+        if (isset($map['AsapCount'])) {
+            $model->asapCount = $map['AsapCount'];
         }
         if (isset($map['GmtLast'])) {
             $model->gmtLast = $map['GmtLast'];
@@ -134,20 +131,23 @@ class groupedVulItems extends Model
         if (isset($map['LastScanTime'])) {
             $model->lastScanTime = $map['LastScanTime'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
         if (isset($map['LaterCount'])) {
             $model->laterCount = $map['LaterCount'];
-        }
-        if (isset($map['AliasName'])) {
-            $model->aliasName = $map['AliasName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['AsapCount'])) {
-            $model->asapCount = $map['AsapCount'];
+        if (isset($map['NntfCount'])) {
+            $model->nntfCount = $map['NntfCount'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

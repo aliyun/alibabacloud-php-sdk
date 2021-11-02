@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAllEntityResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var entityList[]
      */
     public $entityList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'entityList' => 'EntityList',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeAllEntityResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->entityList) {
             $res['EntityList'] = [];
             if (null !== $this->entityList && \is_array($this->entityList)) {
@@ -41,6 +38,9 @@ class DescribeAllEntityResponseBody extends Model
                     $res['EntityList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeAllEntityResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['EntityList'])) {
             if (!empty($map['EntityList'])) {
                 $model->entityList = [];
@@ -65,6 +62,9 @@ class DescribeAllEntityResponseBody extends Model
                     $model->entityList[$n++] = null !== $item ? entityList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

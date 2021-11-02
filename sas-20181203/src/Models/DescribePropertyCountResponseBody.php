@@ -11,27 +11,7 @@ class DescribePropertyCountResponseBody extends Model
     /**
      * @var int
      */
-    public $process;
-
-    /**
-     * @var int
-     */
     public $autoRun;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $user;
-
-    /**
-     * @var int
-     */
-    public $software;
 
     /**
      * @var int
@@ -46,16 +26,36 @@ class DescribePropertyCountResponseBody extends Model
     /**
      * @var int
      */
+    public $process;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
     public $sca;
+
+    /**
+     * @var int
+     */
+    public $software;
+
+    /**
+     * @var int
+     */
+    public $user;
     protected $_name = [
-        'process'   => 'Process',
         'autoRun'   => 'AutoRun',
-        'requestId' => 'RequestId',
-        'user'      => 'User',
-        'software'  => 'Software',
         'cron'      => 'Cron',
         'port'      => 'Port',
+        'process'   => 'Process',
+        'requestId' => 'RequestId',
         'sca'       => 'Sca',
+        'software'  => 'Software',
+        'user'      => 'User',
     ];
 
     public function validate()
@@ -65,20 +65,8 @@ class DescribePropertyCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->process) {
-            $res['Process'] = $this->process;
-        }
         if (null !== $this->autoRun) {
             $res['AutoRun'] = $this->autoRun;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->user) {
-            $res['User'] = $this->user;
-        }
-        if (null !== $this->software) {
-            $res['Software'] = $this->software;
         }
         if (null !== $this->cron) {
             $res['Cron'] = $this->cron;
@@ -86,8 +74,20 @@ class DescribePropertyCountResponseBody extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+        if (null !== $this->process) {
+            $res['Process'] = $this->process;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->sca) {
             $res['Sca'] = $this->sca;
+        }
+        if (null !== $this->software) {
+            $res['Software'] = $this->software;
+        }
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
         }
 
         return $res;
@@ -101,20 +101,8 @@ class DescribePropertyCountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Process'])) {
-            $model->process = $map['Process'];
-        }
         if (isset($map['AutoRun'])) {
             $model->autoRun = $map['AutoRun'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['User'])) {
-            $model->user = $map['User'];
-        }
-        if (isset($map['Software'])) {
-            $model->software = $map['Software'];
         }
         if (isset($map['Cron'])) {
             $model->cron = $map['Cron'];
@@ -122,8 +110,20 @@ class DescribePropertyCountResponseBody extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+        if (isset($map['Process'])) {
+            $model->process = $map['Process'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Sca'])) {
             $model->sca = $map['Sca'];
+        }
+        if (isset($map['Software'])) {
+            $model->software = $map['Software'];
+        }
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
         }
 
         return $model;

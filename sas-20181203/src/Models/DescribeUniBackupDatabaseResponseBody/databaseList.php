@@ -11,7 +11,17 @@ class databaseList extends Model
     /**
      * @var string
      */
-    public $status;
+    public $agentStatus;
+
+    /**
+     * @var string
+     */
+    public $createdByProduct;
+
+    /**
+     * @var string
+     */
+    public $databaseName;
 
     /**
      * @var string
@@ -26,7 +36,7 @@ class databaseList extends Model
     /**
      * @var string
      */
-    public $databaseName;
+    public $instanceId;
 
     /**
      * @var string
@@ -39,16 +49,6 @@ class databaseList extends Model
     public $instanceUuid;
 
     /**
-     * @var string
-     */
-    public $createdByProduct;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var int
      */
     public $policyId;
@@ -56,18 +56,18 @@ class databaseList extends Model
     /**
      * @var string
      */
-    public $agentStatus;
+    public $status;
     protected $_name = [
-        'status'           => 'Status',
+        'agentStatus'      => 'AgentStatus',
+        'createdByProduct' => 'CreatedByProduct',
+        'databaseName'     => 'DatabaseName',
         'databaseType'     => 'DatabaseType',
         'databaseVersion'  => 'DatabaseVersion',
-        'databaseName'     => 'DatabaseName',
+        'instanceId'       => 'InstanceId',
         'instanceName'     => 'InstanceName',
         'instanceUuid'     => 'InstanceUuid',
-        'createdByProduct' => 'CreatedByProduct',
-        'instanceId'       => 'InstanceId',
         'policyId'         => 'PolicyId',
-        'agentStatus'      => 'AgentStatus',
+        'status'           => 'Status',
     ];
 
     public function validate()
@@ -77,8 +77,14 @@ class databaseList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->agentStatus) {
+            $res['AgentStatus'] = $this->agentStatus;
+        }
+        if (null !== $this->createdByProduct) {
+            $res['CreatedByProduct'] = $this->createdByProduct;
+        }
+        if (null !== $this->databaseName) {
+            $res['DatabaseName'] = $this->databaseName;
         }
         if (null !== $this->databaseType) {
             $res['DatabaseType'] = $this->databaseType;
@@ -86,8 +92,8 @@ class databaseList extends Model
         if (null !== $this->databaseVersion) {
             $res['DatabaseVersion'] = $this->databaseVersion;
         }
-        if (null !== $this->databaseName) {
-            $res['DatabaseName'] = $this->databaseName;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -95,17 +101,11 @@ class databaseList extends Model
         if (null !== $this->instanceUuid) {
             $res['InstanceUuid'] = $this->instanceUuid;
         }
-        if (null !== $this->createdByProduct) {
-            $res['CreatedByProduct'] = $this->createdByProduct;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
-        if (null !== $this->agentStatus) {
-            $res['AgentStatus'] = $this->agentStatus;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -119,8 +119,14 @@ class databaseList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AgentStatus'])) {
+            $model->agentStatus = $map['AgentStatus'];
+        }
+        if (isset($map['CreatedByProduct'])) {
+            $model->createdByProduct = $map['CreatedByProduct'];
+        }
+        if (isset($map['DatabaseName'])) {
+            $model->databaseName = $map['DatabaseName'];
         }
         if (isset($map['DatabaseType'])) {
             $model->databaseType = $map['DatabaseType'];
@@ -128,8 +134,8 @@ class databaseList extends Model
         if (isset($map['DatabaseVersion'])) {
             $model->databaseVersion = $map['DatabaseVersion'];
         }
-        if (isset($map['DatabaseName'])) {
-            $model->databaseName = $map['DatabaseName'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
@@ -137,17 +143,11 @@ class databaseList extends Model
         if (isset($map['InstanceUuid'])) {
             $model->instanceUuid = $map['InstanceUuid'];
         }
-        if (isset($map['CreatedByProduct'])) {
-            $model->createdByProduct = $map['CreatedByProduct'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
-        if (isset($map['AgentStatus'])) {
-            $model->agentStatus = $map['AgentStatus'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

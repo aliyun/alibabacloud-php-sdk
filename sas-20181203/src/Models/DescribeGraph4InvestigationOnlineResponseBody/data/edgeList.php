@@ -11,27 +11,17 @@ class edgeList extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $time;
-
-    /**
-     * @var string
-     */
     public $endId;
 
     /**
      * @var string
      */
-    public $startType;
+    public $endType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $endType;
+    public $id;
 
     /**
      * @var string
@@ -44,18 +34,28 @@ class edgeList extends Model
     public $startId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $startType;
+
+    /**
+     * @var string
+     */
+    public $time;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'      => 'Type',
-        'time'      => 'Time',
         'endId'     => 'EndId',
-        'startType' => 'StartType',
         'endType'   => 'EndType',
+        'id'        => 'Id',
         'name'      => 'Name',
         'startId'   => 'StartId',
-        'id'        => 'Id',
+        'startType' => 'StartType',
+        'time'      => 'Time',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -65,20 +65,14 @@ class edgeList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
         if (null !== $this->endId) {
             $res['EndId'] = $this->endId;
         }
-        if (null !== $this->startType) {
-            $res['StartType'] = $this->startType;
-        }
         if (null !== $this->endType) {
             $res['EndType'] = $this->endType;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -86,8 +80,14 @@ class edgeList extends Model
         if (null !== $this->startId) {
             $res['StartId'] = $this->startId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->startType) {
+            $res['StartType'] = $this->startType;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -101,20 +101,14 @@ class edgeList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
         if (isset($map['EndId'])) {
             $model->endId = $map['EndId'];
         }
-        if (isset($map['StartType'])) {
-            $model->startType = $map['StartType'];
-        }
         if (isset($map['EndType'])) {
             $model->endType = $map['EndType'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -122,8 +116,14 @@ class edgeList extends Model
         if (isset($map['StartId'])) {
             $model->startId = $map['StartId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['StartType'])) {
+            $model->startType = $map['StartType'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

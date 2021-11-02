@@ -11,15 +11,15 @@ class GetSuspiciousStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $groupIdList;
 
     /**
      * @var string
      */
-    public $groupIdList;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
         'groupIdList' => 'GroupIdList',
+        'sourceIp'    => 'SourceIp',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetSuspiciousStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->groupIdList) {
             $res['GroupIdList'] = $this->groupIdList;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetSuspiciousStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['GroupIdList'])) {
             $model->groupIdList = $map['GroupIdList'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniBackupDatabaseRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
      * @var string
      */
-    public $sourceIp;
+    public $databaseType;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $queryType;
 
     /**
      * @var int
@@ -21,40 +41,20 @@ class DescribeUniBackupDatabaseRequest extends Model
     /**
      * @var string
      */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $databaseType;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
-     * @var string
-     */
-    public $queryType;
+    public $sourceIp;
 
     /**
      * @var string
      */
     public $uniRegionId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'instanceName'    => 'InstanceName',
-        'databaseType'    => 'DatabaseType',
-        'pageSize'        => 'PageSize',
         'currentPage'     => 'CurrentPage',
+        'databaseType'    => 'DatabaseType',
+        'instanceName'    => 'InstanceName',
+        'pageSize'        => 'PageSize',
         'queryType'       => 'QueryType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
         'uniRegionId'     => 'UniRegionId',
     ];
 
@@ -65,26 +65,26 @@ class DescribeUniBackupDatabaseRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->databaseType) {
             $res['DatabaseType'] = $this->databaseType;
         }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->uniRegionId) {
             $res['UniRegionId'] = $this->uniRegionId;
@@ -101,26 +101,26 @@ class DescribeUniBackupDatabaseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['DatabaseType'])) {
             $model->databaseType = $map['DatabaseType'];
         }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['UniRegionId'])) {
             $model->uniRegionId = $map['UniRegionId'];

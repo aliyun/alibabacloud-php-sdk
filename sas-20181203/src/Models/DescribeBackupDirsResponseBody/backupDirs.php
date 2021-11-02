@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class backupDirs extends Model
 {
     /**
-     * @var string
-     */
-    public $source;
-
-    /**
      * @var int
      */
     public $backupJobId;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
-        'source'      => 'Source',
         'backupJobId' => 'BackupJobId',
+        'source'      => 'Source',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class backupDirs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
-        }
         if (null !== $this->backupJobId) {
             $res['BackupJobId'] = $this->backupJobId;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class backupDirs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
-        }
         if (isset($map['BackupJobId'])) {
             $model->backupJobId = $map['BackupJobId'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

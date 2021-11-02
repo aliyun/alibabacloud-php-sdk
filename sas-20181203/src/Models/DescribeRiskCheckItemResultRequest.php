@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskCheckItemResultRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
+    public $currentPage;
 
     /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $itemId;
 
     /**
      * @var string
@@ -26,24 +26,24 @@ class DescribeRiskCheckItemResultRequest extends Model
     /**
      * @var int
      */
-    public $itemId;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
-     * @var int
-     */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'lang'            => 'Lang',
-        'itemId'          => 'ItemId',
         'currentPage'     => 'CurrentPage',
+        'itemId'          => 'ItemId',
+        'lang'            => 'Lang',
         'pageSize'        => 'PageSize',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeRiskCheckItemResultRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeRiskCheckItemResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

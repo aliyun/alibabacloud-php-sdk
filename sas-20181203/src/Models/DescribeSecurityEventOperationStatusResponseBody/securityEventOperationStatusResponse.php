@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class securityEventOperationStatusResponse extends Model
 {
     /**
-     * @var string
-     */
-    public $taskStatus;
-
-    /**
      * @var securityEventOperationStatuses[]
      */
     public $securityEventOperationStatuses;
+
+    /**
+     * @var string
+     */
+    public $taskStatus;
     protected $_name = [
-        'taskStatus'                     => 'TaskStatus',
         'securityEventOperationStatuses' => 'SecurityEventOperationStatuses',
+        'taskStatus'                     => 'TaskStatus',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class securityEventOperationStatusResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
-        }
         if (null !== $this->securityEventOperationStatuses) {
             $res['SecurityEventOperationStatuses'] = [];
             if (null !== $this->securityEventOperationStatuses && \is_array($this->securityEventOperationStatuses)) {
@@ -41,6 +38,9 @@ class securityEventOperationStatusResponse extends Model
                     $res['SecurityEventOperationStatuses'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class securityEventOperationStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
-        }
         if (isset($map['SecurityEventOperationStatuses'])) {
             if (!empty($map['SecurityEventOperationStatuses'])) {
                 $model->securityEventOperationStatuses = [];
@@ -65,6 +62,9 @@ class securityEventOperationStatusResponse extends Model
                     $model->securityEventOperationStatuses[$n++] = null !== $item ? securityEventOperationStatuses::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
 
         return $model;

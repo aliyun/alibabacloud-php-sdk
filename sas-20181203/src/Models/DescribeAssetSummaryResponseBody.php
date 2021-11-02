@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetSummaryResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var assetsSummary
      */
     public $assetsSummary;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'assetsSummary' => 'AssetsSummary',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeAssetSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->assetsSummary) {
             $res['AssetsSummary'] = null !== $this->assetsSummary ? $this->assetsSummary->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeAssetSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AssetsSummary'])) {
             $model->assetsSummary = assetsSummary::fromMap($map['AssetsSummary']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

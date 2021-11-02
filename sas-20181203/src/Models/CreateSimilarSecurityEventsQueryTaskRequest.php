@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateSimilarSecurityEventsQueryTaskRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -27,11 +22,16 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
      * @var string
      */
     public $similarEventScenarioCode;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'                 => 'SourceIp',
         'resourceOwnerId'          => 'ResourceOwnerId',
         'securityEventId'          => 'SecurityEventId',
         'similarEventScenarioCode' => 'SimilarEventScenarioCode',
+        'sourceIp'                 => 'SourceIp',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -52,6 +49,9 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
         }
         if (null !== $this->similarEventScenarioCode) {
             $res['SimilarEventScenarioCode'] = $this->similarEventScenarioCode;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
@@ -76,6 +73,9 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
         }
         if (isset($map['SimilarEventScenarioCode'])) {
             $model->similarEventScenarioCode = $map['SimilarEventScenarioCode'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

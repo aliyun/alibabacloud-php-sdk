@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskListCheckResultRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $currentPage;
+
+    /**
+     * @var string[]
+     */
+    public $instanceIds;
 
     /**
      * @var string
@@ -26,24 +26,24 @@ class DescribeRiskListCheckResultRequest extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $pageSize;
 
     /**
      * @var int
      */
-    public $pageSize;
+    public $resourceOwnerId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $instanceIds;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'lang'            => 'Lang',
         'currentPage'     => 'CurrentPage',
-        'pageSize'        => 'PageSize',
         'instanceIds'     => 'InstanceIds',
+        'lang'            => 'Lang',
+        'pageSize'        => 'PageSize',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeRiskListCheckResultRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -83,25 +83,25 @@ class DescribeRiskListCheckResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = $map['InstanceIds'];
             }
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

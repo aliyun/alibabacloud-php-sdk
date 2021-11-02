@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class StartVirusScanTaskResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $scanTaskId;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $scanTaskId;
     protected $_name = [
-        'scanTaskId' => 'ScanTaskId',
         'requestId'  => 'RequestId',
+        'scanTaskId' => 'ScanTaskId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class StartVirusScanTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scanTaskId) {
-            $res['ScanTaskId'] = $this->scanTaskId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->scanTaskId) {
+            $res['ScanTaskId'] = $this->scanTaskId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class StartVirusScanTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScanTaskId'])) {
-            $model->scanTaskId = $map['ScanTaskId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ScanTaskId'])) {
+            $model->scanTaskId = $map['ScanTaskId'];
         }
 
         return $model;

@@ -13,11 +13,6 @@ class riskCheckSummary extends Model
     /**
      * @var int
      */
-    public $itemCount;
-
-    /**
-     * @var int
-     */
     public $affectedAssetCount;
 
     /**
@@ -28,12 +23,17 @@ class riskCheckSummary extends Model
     /**
      * @var int
      */
-    public $riskCount;
+    public $enabledRiskCount;
 
     /**
-     * @var float
+     * @var groups[]
      */
-    public $riskRate;
+    public $groups;
+
+    /**
+     * @var int
+     */
+    public $itemCount;
 
     /**
      * @var int
@@ -48,7 +48,7 @@ class riskCheckSummary extends Model
     /**
      * @var int
      */
-    public $enabledRiskCount;
+    public $riskCount;
 
     /**
      * @var riskLevelCount[]
@@ -56,20 +56,20 @@ class riskCheckSummary extends Model
     public $riskLevelCount;
 
     /**
-     * @var groups[]
+     * @var float
      */
-    public $groups;
+    public $riskRate;
     protected $_name = [
-        'itemCount'          => 'ItemCount',
         'affectedAssetCount' => 'AffectedAssetCount',
         'disabledRiskCount'  => 'DisabledRiskCount',
-        'riskCount'          => 'RiskCount',
-        'riskRate'           => 'RiskRate',
+        'enabledRiskCount'   => 'EnabledRiskCount',
+        'groups'             => 'Groups',
+        'itemCount'          => 'ItemCount',
         'previousCount'      => 'PreviousCount',
         'previousTime'       => 'PreviousTime',
-        'enabledRiskCount'   => 'EnabledRiskCount',
+        'riskCount'          => 'RiskCount',
         'riskLevelCount'     => 'RiskLevelCount',
-        'groups'             => 'Groups',
+        'riskRate'           => 'RiskRate',
     ];
 
     public function validate()
@@ -79,20 +79,26 @@ class riskCheckSummary extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->itemCount) {
-            $res['ItemCount'] = $this->itemCount;
-        }
         if (null !== $this->affectedAssetCount) {
             $res['AffectedAssetCount'] = $this->affectedAssetCount;
         }
         if (null !== $this->disabledRiskCount) {
             $res['DisabledRiskCount'] = $this->disabledRiskCount;
         }
-        if (null !== $this->riskCount) {
-            $res['RiskCount'] = $this->riskCount;
+        if (null !== $this->enabledRiskCount) {
+            $res['EnabledRiskCount'] = $this->enabledRiskCount;
         }
-        if (null !== $this->riskRate) {
-            $res['RiskRate'] = $this->riskRate;
+        if (null !== $this->groups) {
+            $res['Groups'] = [];
+            if (null !== $this->groups && \is_array($this->groups)) {
+                $n = 0;
+                foreach ($this->groups as $item) {
+                    $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->itemCount) {
+            $res['ItemCount'] = $this->itemCount;
         }
         if (null !== $this->previousCount) {
             $res['PreviousCount'] = $this->previousCount;
@@ -100,8 +106,8 @@ class riskCheckSummary extends Model
         if (null !== $this->previousTime) {
             $res['PreviousTime'] = $this->previousTime;
         }
-        if (null !== $this->enabledRiskCount) {
-            $res['EnabledRiskCount'] = $this->enabledRiskCount;
+        if (null !== $this->riskCount) {
+            $res['RiskCount'] = $this->riskCount;
         }
         if (null !== $this->riskLevelCount) {
             $res['RiskLevelCount'] = [];
@@ -112,14 +118,8 @@ class riskCheckSummary extends Model
                 }
             }
         }
-        if (null !== $this->groups) {
-            $res['Groups'] = [];
-            if (null !== $this->groups && \is_array($this->groups)) {
-                $n = 0;
-                foreach ($this->groups as $item) {
-                    $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->riskRate) {
+            $res['RiskRate'] = $this->riskRate;
         }
 
         return $res;
@@ -133,20 +133,26 @@ class riskCheckSummary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ItemCount'])) {
-            $model->itemCount = $map['ItemCount'];
-        }
         if (isset($map['AffectedAssetCount'])) {
             $model->affectedAssetCount = $map['AffectedAssetCount'];
         }
         if (isset($map['DisabledRiskCount'])) {
             $model->disabledRiskCount = $map['DisabledRiskCount'];
         }
-        if (isset($map['RiskCount'])) {
-            $model->riskCount = $map['RiskCount'];
+        if (isset($map['EnabledRiskCount'])) {
+            $model->enabledRiskCount = $map['EnabledRiskCount'];
         }
-        if (isset($map['RiskRate'])) {
-            $model->riskRate = $map['RiskRate'];
+        if (isset($map['Groups'])) {
+            if (!empty($map['Groups'])) {
+                $model->groups = [];
+                $n             = 0;
+                foreach ($map['Groups'] as $item) {
+                    $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ItemCount'])) {
+            $model->itemCount = $map['ItemCount'];
         }
         if (isset($map['PreviousCount'])) {
             $model->previousCount = $map['PreviousCount'];
@@ -154,8 +160,8 @@ class riskCheckSummary extends Model
         if (isset($map['PreviousTime'])) {
             $model->previousTime = $map['PreviousTime'];
         }
-        if (isset($map['EnabledRiskCount'])) {
-            $model->enabledRiskCount = $map['EnabledRiskCount'];
+        if (isset($map['RiskCount'])) {
+            $model->riskCount = $map['RiskCount'];
         }
         if (isset($map['RiskLevelCount'])) {
             if (!empty($map['RiskLevelCount'])) {
@@ -166,14 +172,8 @@ class riskCheckSummary extends Model
                 }
             }
         }
-        if (isset($map['Groups'])) {
-            if (!empty($map['Groups'])) {
-                $model->groups = [];
-                $n             = 0;
-                foreach ($map['Groups'] as $item) {
-                    $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['RiskRate'])) {
+            $model->riskRate = $map['RiskRate'];
         }
 
         return $model;

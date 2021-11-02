@@ -11,7 +11,7 @@ class ModifyNoticeConfigRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $project;
 
     /**
      * @var int
@@ -21,16 +21,16 @@ class ModifyNoticeConfigRequest extends Model
     /**
      * @var string
      */
-    public $project;
+    public $sourceIp;
 
     /**
      * @var int
      */
     public $timeLimit;
     protected $_name = [
-        'sourceIp'  => 'SourceIp',
-        'route'     => 'Route',
         'project'   => 'Project',
+        'route'     => 'Route',
+        'sourceIp'  => 'SourceIp',
         'timeLimit' => 'TimeLimit',
     ];
 
@@ -41,14 +41,14 @@ class ModifyNoticeConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
         if (null !== $this->route) {
             $res['Route'] = $this->route;
         }
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->timeLimit) {
             $res['TimeLimit'] = $this->timeLimit;
@@ -65,14 +65,14 @@ class ModifyNoticeConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
         if (isset($map['Route'])) {
             $model->route = $map['Route'];
         }
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['TimeLimit'])) {
             $model->timeLimit = $map['TimeLimit'];

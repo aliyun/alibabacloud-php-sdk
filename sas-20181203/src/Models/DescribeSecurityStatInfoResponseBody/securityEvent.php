@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class securityEvent extends Model
 {
     /**
+     * @var string[]
+     */
+    public $dateArray;
+
+    /**
+     * @var string[]
+     */
+    public $levelsOn;
+
+    /**
      * @var int
      */
-    public $suspiciousCount;
+    public $remindCount;
+
+    /**
+     * @var string[]
+     */
+    public $remindList;
 
     /**
      * @var int
@@ -19,9 +34,24 @@ class securityEvent extends Model
     public $seriousCount;
 
     /**
+     * @var string[]
+     */
+    public $seriousList;
+
+    /**
      * @var int
      */
-    public $remindCount;
+    public $suspiciousCount;
+
+    /**
+     * @var string[]
+     */
+    public $suspiciousList;
+
+    /**
+     * @var string[]
+     */
+    public $timeArray;
 
     /**
      * @var int
@@ -32,48 +62,18 @@ class securityEvent extends Model
      * @var string[]
      */
     public $valueArray;
-
-    /**
-     * @var string[]
-     */
-    public $timeArray;
-
-    /**
-     * @var string[]
-     */
-    public $remindList;
-
-    /**
-     * @var string[]
-     */
-    public $levelsOn;
-
-    /**
-     * @var string[]
-     */
-    public $dateArray;
-
-    /**
-     * @var string[]
-     */
-    public $suspiciousList;
-
-    /**
-     * @var string[]
-     */
-    public $seriousList;
     protected $_name = [
-        'suspiciousCount' => 'SuspiciousCount',
-        'seriousCount'    => 'SeriousCount',
+        'dateArray'       => 'DateArray',
+        'levelsOn'        => 'LevelsOn',
         'remindCount'     => 'RemindCount',
+        'remindList'      => 'RemindList',
+        'seriousCount'    => 'SeriousCount',
+        'seriousList'     => 'SeriousList',
+        'suspiciousCount' => 'SuspiciousCount',
+        'suspiciousList'  => 'SuspiciousList',
+        'timeArray'       => 'TimeArray',
         'totalCount'      => 'TotalCount',
         'valueArray'      => 'ValueArray',
-        'timeArray'       => 'TimeArray',
-        'remindList'      => 'RemindList',
-        'levelsOn'        => 'LevelsOn',
-        'dateArray'       => 'DateArray',
-        'suspiciousList'  => 'SuspiciousList',
-        'seriousList'     => 'SeriousList',
     ];
 
     public function validate()
@@ -83,38 +83,38 @@ class securityEvent extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suspiciousCount) {
-            $res['SuspiciousCount'] = $this->suspiciousCount;
+        if (null !== $this->dateArray) {
+            $res['DateArray'] = $this->dateArray;
+        }
+        if (null !== $this->levelsOn) {
+            $res['LevelsOn'] = $this->levelsOn;
+        }
+        if (null !== $this->remindCount) {
+            $res['RemindCount'] = $this->remindCount;
+        }
+        if (null !== $this->remindList) {
+            $res['RemindList'] = $this->remindList;
         }
         if (null !== $this->seriousCount) {
             $res['SeriousCount'] = $this->seriousCount;
         }
-        if (null !== $this->remindCount) {
-            $res['RemindCount'] = $this->remindCount;
+        if (null !== $this->seriousList) {
+            $res['SeriousList'] = $this->seriousList;
+        }
+        if (null !== $this->suspiciousCount) {
+            $res['SuspiciousCount'] = $this->suspiciousCount;
+        }
+        if (null !== $this->suspiciousList) {
+            $res['SuspiciousList'] = $this->suspiciousList;
+        }
+        if (null !== $this->timeArray) {
+            $res['TimeArray'] = $this->timeArray;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->valueArray) {
             $res['ValueArray'] = $this->valueArray;
-        }
-        if (null !== $this->timeArray) {
-            $res['TimeArray'] = $this->timeArray;
-        }
-        if (null !== $this->remindList) {
-            $res['RemindList'] = $this->remindList;
-        }
-        if (null !== $this->levelsOn) {
-            $res['LevelsOn'] = $this->levelsOn;
-        }
-        if (null !== $this->dateArray) {
-            $res['DateArray'] = $this->dateArray;
-        }
-        if (null !== $this->suspiciousList) {
-            $res['SuspiciousList'] = $this->suspiciousList;
-        }
-        if (null !== $this->seriousList) {
-            $res['SeriousList'] = $this->seriousList;
         }
 
         return $res;
@@ -128,31 +128,9 @@ class securityEvent extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SuspiciousCount'])) {
-            $model->suspiciousCount = $map['SuspiciousCount'];
-        }
-        if (isset($map['SeriousCount'])) {
-            $model->seriousCount = $map['SeriousCount'];
-        }
-        if (isset($map['RemindCount'])) {
-            $model->remindCount = $map['RemindCount'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['ValueArray'])) {
-            if (!empty($map['ValueArray'])) {
-                $model->valueArray = $map['ValueArray'];
-            }
-        }
-        if (isset($map['TimeArray'])) {
-            if (!empty($map['TimeArray'])) {
-                $model->timeArray = $map['TimeArray'];
-            }
-        }
-        if (isset($map['RemindList'])) {
-            if (!empty($map['RemindList'])) {
-                $model->remindList = $map['RemindList'];
+        if (isset($map['DateArray'])) {
+            if (!empty($map['DateArray'])) {
+                $model->dateArray = $map['DateArray'];
             }
         }
         if (isset($map['LevelsOn'])) {
@@ -160,19 +138,41 @@ class securityEvent extends Model
                 $model->levelsOn = $map['LevelsOn'];
             }
         }
-        if (isset($map['DateArray'])) {
-            if (!empty($map['DateArray'])) {
-                $model->dateArray = $map['DateArray'];
+        if (isset($map['RemindCount'])) {
+            $model->remindCount = $map['RemindCount'];
+        }
+        if (isset($map['RemindList'])) {
+            if (!empty($map['RemindList'])) {
+                $model->remindList = $map['RemindList'];
             }
+        }
+        if (isset($map['SeriousCount'])) {
+            $model->seriousCount = $map['SeriousCount'];
+        }
+        if (isset($map['SeriousList'])) {
+            if (!empty($map['SeriousList'])) {
+                $model->seriousList = $map['SeriousList'];
+            }
+        }
+        if (isset($map['SuspiciousCount'])) {
+            $model->suspiciousCount = $map['SuspiciousCount'];
         }
         if (isset($map['SuspiciousList'])) {
             if (!empty($map['SuspiciousList'])) {
                 $model->suspiciousList = $map['SuspiciousList'];
             }
         }
-        if (isset($map['SeriousList'])) {
-            if (!empty($map['SeriousList'])) {
-                $model->seriousList = $map['SeriousList'];
+        if (isset($map['TimeArray'])) {
+            if (!empty($map['TimeArray'])) {
+                $model->timeArray = $map['TimeArray'];
+            }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['ValueArray'])) {
+            if (!empty($map['ValueArray'])) {
+                $model->valueArray = $map['ValueArray'];
             }
         }
 

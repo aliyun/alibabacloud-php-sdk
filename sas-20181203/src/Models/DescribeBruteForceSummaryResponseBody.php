@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeBruteForceSummaryResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bruteForceSummary
      */
     public $bruteForceSummary;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'bruteForceSummary' => 'BruteForceSummary',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeBruteForceSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->bruteForceSummary) {
             $res['BruteForceSummary'] = null !== $this->bruteForceSummary ? $this->bruteForceSummary->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeBruteForceSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BruteForceSummary'])) {
             $model->bruteForceSummary = bruteForceSummary::fromMap($map['BruteForceSummary']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

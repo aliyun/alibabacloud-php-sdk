@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeFrontVulPatchListResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var frontPatchList[]
      */
     public $frontPatchList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'frontPatchList' => 'FrontPatchList',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeFrontVulPatchListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->frontPatchList) {
             $res['FrontPatchList'] = [];
             if (null !== $this->frontPatchList && \is_array($this->frontPatchList)) {
@@ -41,6 +38,9 @@ class DescribeFrontVulPatchListResponseBody extends Model
                     $res['FrontPatchList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeFrontVulPatchListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['FrontPatchList'])) {
             if (!empty($map['FrontPatchList'])) {
                 $model->frontPatchList = [];
@@ -65,6 +62,9 @@ class DescribeFrontVulPatchListResponseBody extends Model
                     $model->frontPatchList[$n++] = null !== $item ? frontPatchList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

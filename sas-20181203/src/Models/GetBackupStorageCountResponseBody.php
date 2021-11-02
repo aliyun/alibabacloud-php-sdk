@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetBackupStorageCountResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var backupStorageCount
      */
     public $backupStorageCount;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'          => 'RequestId',
         'backupStorageCount' => 'BackupStorageCount',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetBackupStorageCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->backupStorageCount) {
             $res['BackupStorageCount'] = null !== $this->backupStorageCount ? $this->backupStorageCount->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetBackupStorageCountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BackupStorageCount'])) {
             $model->backupStorageCount = backupStorageCount::fromMap($map['BackupStorageCount']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class riskCheckJobConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $daysOfWeek;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -17,15 +22,10 @@ class riskCheckJobConfig extends Model
      * @var int
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $daysOfWeek;
     protected $_name = [
+        'daysOfWeek' => 'DaysOfWeek',
         'endTime'    => 'EndTime',
         'startTime'  => 'StartTime',
-        'daysOfWeek' => 'DaysOfWeek',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class riskCheckJobConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->daysOfWeek) {
+            $res['DaysOfWeek'] = $this->daysOfWeek;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->daysOfWeek) {
-            $res['DaysOfWeek'] = $this->daysOfWeek;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class riskCheckJobConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DaysOfWeek'])) {
+            $model->daysOfWeek = $map['DaysOfWeek'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['DaysOfWeek'])) {
-            $model->daysOfWeek = $map['DaysOfWeek'];
         }
 
         return $model;

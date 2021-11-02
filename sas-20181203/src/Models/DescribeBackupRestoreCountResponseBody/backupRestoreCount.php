@@ -11,15 +11,15 @@ class backupRestoreCount extends Model
     /**
      * @var int
      */
-    public $total;
+    public $recovering;
 
     /**
      * @var int
      */
-    public $recovering;
+    public $total;
     protected $_name = [
-        'total'      => 'Total',
         'recovering' => 'Recovering',
+        'total'      => 'Total',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class backupRestoreCount extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->recovering) {
             $res['Recovering'] = $this->recovering;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class backupRestoreCount extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['Recovering'])) {
             $model->recovering = $map['Recovering'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

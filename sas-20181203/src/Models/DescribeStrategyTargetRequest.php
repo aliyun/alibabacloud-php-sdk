@@ -11,21 +11,21 @@ class DescribeStrategyTargetRequest extends Model
     /**
      * @var string
      */
+    public $config;
+
+    /**
+     * @var string
+     */
     public $sourceIp;
 
     /**
      * @var string
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $config;
     protected $_name = [
+        'config'   => 'Config',
         'sourceIp' => 'SourceIp',
         'type'     => 'Type',
-        'config'   => 'Config',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeStrategyTargetRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
+        }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeStrategyTargetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
+        }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
         }
 
         return $model;

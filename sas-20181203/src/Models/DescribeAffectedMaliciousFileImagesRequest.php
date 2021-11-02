@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeAffectedMaliciousFileImagesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $maliciousMd5;
-
-    /**
      * @var int
      */
     public $currentPage;
@@ -21,7 +16,17 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     /**
      * @var string
      */
-    public $pageSize;
+    public $imageDigest;
+
+    /**
+     * @var string
+     */
+    public $imageLayer;
+
+    /**
+     * @var string
+     */
+    public $imageTag;
 
     /**
      * @var string
@@ -31,17 +36,22 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     /**
      * @var string
      */
-    public $repoRegionId;
+    public $maliciousMd5;
 
     /**
      * @var string
      */
-    public $repoInstanceId;
+    public $pageSize;
 
     /**
      * @var string
      */
     public $repoId;
+
+    /**
+     * @var string
+     */
+    public $repoInstanceId;
 
     /**
      * @var string
@@ -56,30 +66,20 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     /**
      * @var string
      */
-    public $imageTag;
-
-    /**
-     * @var string
-     */
-    public $imageDigest;
-
-    /**
-     * @var string
-     */
-    public $imageLayer;
+    public $repoRegionId;
     protected $_name = [
-        'maliciousMd5'   => 'MaliciousMd5',
         'currentPage'    => 'CurrentPage',
-        'pageSize'       => 'PageSize',
-        'lang'           => 'Lang',
-        'repoRegionId'   => 'RepoRegionId',
-        'repoInstanceId' => 'RepoInstanceId',
-        'repoId'         => 'RepoId',
-        'repoName'       => 'RepoName',
-        'repoNamespace'  => 'RepoNamespace',
-        'imageTag'       => 'ImageTag',
         'imageDigest'    => 'ImageDigest',
         'imageLayer'     => 'ImageLayer',
+        'imageTag'       => 'ImageTag',
+        'lang'           => 'Lang',
+        'maliciousMd5'   => 'MaliciousMd5',
+        'pageSize'       => 'PageSize',
+        'repoId'         => 'RepoId',
+        'repoInstanceId' => 'RepoInstanceId',
+        'repoName'       => 'RepoName',
+        'repoNamespace'  => 'RepoNamespace',
+        'repoRegionId'   => 'RepoRegionId',
     ];
 
     public function validate()
@@ -89,26 +89,32 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maliciousMd5) {
-            $res['MaliciousMd5'] = $this->maliciousMd5;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->imageDigest) {
+            $res['ImageDigest'] = $this->imageDigest;
+        }
+        if (null !== $this->imageLayer) {
+            $res['ImageLayer'] = $this->imageLayer;
+        }
+        if (null !== $this->imageTag) {
+            $res['ImageTag'] = $this->imageTag;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->repoRegionId) {
-            $res['RepoRegionId'] = $this->repoRegionId;
+        if (null !== $this->maliciousMd5) {
+            $res['MaliciousMd5'] = $this->maliciousMd5;
         }
-        if (null !== $this->repoInstanceId) {
-            $res['RepoInstanceId'] = $this->repoInstanceId;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
+        }
+        if (null !== $this->repoInstanceId) {
+            $res['RepoInstanceId'] = $this->repoInstanceId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -116,14 +122,8 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
         if (null !== $this->repoNamespace) {
             $res['RepoNamespace'] = $this->repoNamespace;
         }
-        if (null !== $this->imageTag) {
-            $res['ImageTag'] = $this->imageTag;
-        }
-        if (null !== $this->imageDigest) {
-            $res['ImageDigest'] = $this->imageDigest;
-        }
-        if (null !== $this->imageLayer) {
-            $res['ImageLayer'] = $this->imageLayer;
+        if (null !== $this->repoRegionId) {
+            $res['RepoRegionId'] = $this->repoRegionId;
         }
 
         return $res;
@@ -137,26 +137,32 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaliciousMd5'])) {
-            $model->maliciousMd5 = $map['MaliciousMd5'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['ImageDigest'])) {
+            $model->imageDigest = $map['ImageDigest'];
+        }
+        if (isset($map['ImageLayer'])) {
+            $model->imageLayer = $map['ImageLayer'];
+        }
+        if (isset($map['ImageTag'])) {
+            $model->imageTag = $map['ImageTag'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['RepoRegionId'])) {
-            $model->repoRegionId = $map['RepoRegionId'];
+        if (isset($map['MaliciousMd5'])) {
+            $model->maliciousMd5 = $map['MaliciousMd5'];
         }
-        if (isset($map['RepoInstanceId'])) {
-            $model->repoInstanceId = $map['RepoInstanceId'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
+        }
+        if (isset($map['RepoInstanceId'])) {
+            $model->repoInstanceId = $map['RepoInstanceId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
@@ -164,14 +170,8 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
         if (isset($map['RepoNamespace'])) {
             $model->repoNamespace = $map['RepoNamespace'];
         }
-        if (isset($map['ImageTag'])) {
-            $model->imageTag = $map['ImageTag'];
-        }
-        if (isset($map['ImageDigest'])) {
-            $model->imageDigest = $map['ImageDigest'];
-        }
-        if (isset($map['ImageLayer'])) {
-            $model->imageLayer = $map['ImageLayer'];
+        if (isset($map['RepoRegionId'])) {
+            $model->repoRegionId = $map['RepoRegionId'];
         }
 
         return $model;

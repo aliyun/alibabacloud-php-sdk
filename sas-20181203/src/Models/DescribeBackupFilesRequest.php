@@ -11,7 +11,12 @@ class DescribeBackupFilesRequest extends Model
     /**
      * @var string
      */
-    public $uuid;
+    public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class DescribeBackupFilesRequest extends Model
     /**
      * @var string
      */
-    public $currentPage;
-
-    /**
-     * @var string
-     */
-    public $pageSize;
+    public $uuid;
     protected $_name = [
-        'uuid'         => 'Uuid',
-        'path'         => 'Path',
-        'snapshotHash' => 'SnapshotHash',
         'currentPage'  => 'CurrentPage',
         'pageSize'     => 'PageSize',
+        'path'         => 'Path',
+        'snapshotHash' => 'SnapshotHash',
+        'uuid'         => 'Uuid',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class DescribeBackupFilesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
@@ -56,11 +59,8 @@ class DescribeBackupFilesRequest extends Model
         if (null !== $this->snapshotHash) {
             $res['SnapshotHash'] = $this->snapshotHash;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class DescribeBackupFilesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
@@ -83,11 +86,8 @@ class DescribeBackupFilesRequest extends Model
         if (isset($map['SnapshotHash'])) {
             $model->snapshotHash = $map['SnapshotHash'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

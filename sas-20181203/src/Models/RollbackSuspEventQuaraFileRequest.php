@@ -11,7 +11,7 @@ class RollbackSuspEventQuaraFileRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $from;
 
     /**
      * @var int
@@ -21,11 +21,11 @@ class RollbackSuspEventQuaraFileRequest extends Model
     /**
      * @var string
      */
-    public $from;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
-        'quaraFileId' => 'QuaraFileId',
         'from'        => 'From',
+        'quaraFileId' => 'QuaraFileId',
+        'sourceIp'    => 'SourceIp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class RollbackSuspEventQuaraFileRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
         }
         if (null !== $this->quaraFileId) {
             $res['QuaraFileId'] = $this->quaraFileId;
         }
-        if (null !== $this->from) {
-            $res['From'] = $this->from;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class RollbackSuspEventQuaraFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
         }
         if (isset($map['QuaraFileId'])) {
             $model->quaraFileId = $map['QuaraFileId'];
         }
-        if (isset($map['From'])) {
-            $model->from = $map['From'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

@@ -11,41 +11,6 @@ class DescribeAlarmEventListRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $dealed;
-
-    /**
-     * @var string
-     */
-    public $from;
-
-    /**
-     * @var string
-     */
-    public $levels;
-
-    /**
-     * @var string
-     */
-    public $remark;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
     public $alarmEventName;
 
     /**
@@ -61,49 +26,60 @@ class DescribeAlarmEventListRequest extends Model
     /**
      * @var string
      */
-    public $pageSize;
+    public $dealed;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $from;
 
     /**
      * @var string
      */
-    public $containerFieldName;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $containerFieldValue;
+    public $lang;
 
     /**
      * @var string
      */
-    public $targetType;
+    public $levels;
 
     /**
      * @var string[]
      */
     public $operateErrorCodeList;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'             => 'SourceIp',
-        'lang'                 => 'Lang',
-        'dealed'               => 'Dealed',
-        'from'                 => 'From',
-        'levels'               => 'Levels',
-        'remark'               => 'Remark',
-        'groupId'              => 'GroupId',
         'alarmEventName'       => 'AlarmEventName',
         'alarmEventType'       => 'AlarmEventType',
         'currentPage'          => 'CurrentPage',
-        'pageSize'             => 'PageSize',
-        'clusterId'            => 'ClusterId',
-        'containerFieldName'   => 'ContainerFieldName',
-        'containerFieldValue'  => 'ContainerFieldValue',
-        'targetType'           => 'TargetType',
+        'dealed'               => 'Dealed',
+        'from'                 => 'From',
+        'groupId'              => 'GroupId',
+        'lang'                 => 'Lang',
+        'levels'               => 'Levels',
         'operateErrorCodeList' => 'OperateErrorCodeList',
+        'pageSize'             => 'PageSize',
+        'remark'               => 'Remark',
+        'sourceIp'             => 'SourceIp',
     ];
 
     public function validate()
@@ -113,27 +89,6 @@ class DescribeAlarmEventListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->dealed) {
-            $res['Dealed'] = $this->dealed;
-        }
-        if (null !== $this->from) {
-            $res['From'] = $this->from;
-        }
-        if (null !== $this->levels) {
-            $res['Levels'] = $this->levels;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->alarmEventName) {
             $res['AlarmEventName'] = $this->alarmEventName;
         }
@@ -143,23 +98,32 @@ class DescribeAlarmEventListRequest extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->dealed) {
+            $res['Dealed'] = $this->dealed;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
         }
-        if (null !== $this->containerFieldName) {
-            $res['ContainerFieldName'] = $this->containerFieldName;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->containerFieldValue) {
-            $res['ContainerFieldValue'] = $this->containerFieldValue;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
-        if (null !== $this->targetType) {
-            $res['TargetType'] = $this->targetType;
+        if (null !== $this->levels) {
+            $res['Levels'] = $this->levels;
         }
         if (null !== $this->operateErrorCodeList) {
             $res['OperateErrorCodeList'] = $this->operateErrorCodeList;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -173,27 +137,6 @@ class DescribeAlarmEventListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['Dealed'])) {
-            $model->dealed = $map['Dealed'];
-        }
-        if (isset($map['From'])) {
-            $model->from = $map['From'];
-        }
-        if (isset($map['Levels'])) {
-            $model->levels = $map['Levels'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['AlarmEventName'])) {
             $model->alarmEventName = $map['AlarmEventName'];
         }
@@ -203,25 +146,34 @@ class DescribeAlarmEventListRequest extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Dealed'])) {
+            $model->dealed = $map['Dealed'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
         }
-        if (isset($map['ContainerFieldName'])) {
-            $model->containerFieldName = $map['ContainerFieldName'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
-        if (isset($map['ContainerFieldValue'])) {
-            $model->containerFieldValue = $map['ContainerFieldValue'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
-        if (isset($map['TargetType'])) {
-            $model->targetType = $map['TargetType'];
+        if (isset($map['Levels'])) {
+            $model->levels = $map['Levels'];
         }
         if (isset($map['OperateErrorCodeList'])) {
             if (!empty($map['OperateErrorCodeList'])) {
                 $model->operateErrorCodeList = $map['OperateErrorCodeList'];
             }
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

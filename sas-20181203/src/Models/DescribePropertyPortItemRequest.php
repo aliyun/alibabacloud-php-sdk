@@ -9,29 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyPortItemRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $forceFlush;
-
-    /**
-     * @var string
-     */
-    public $port;
-
-    /**
      * @var int
      */
     public $currentPage;
 
     /**
+     * @var bool
+     */
+    public $forceFlush;
+
+    /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $port;
     protected $_name = [
-        'forceFlush'  => 'ForceFlush',
-        'port'        => 'Port',
         'currentPage' => 'CurrentPage',
+        'forceFlush'  => 'ForceFlush',
         'pageSize'    => 'PageSize',
+        'port'        => 'Port',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribePropertyPortItemRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->forceFlush) {
-            $res['ForceFlush'] = $this->forceFlush;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->forceFlush) {
+            $res['ForceFlush'] = $this->forceFlush;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribePropertyPortItemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ForceFlush'])) {
-            $model->forceFlush = $map['ForceFlush'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['ForceFlush'])) {
+            $model->forceFlush = $map['ForceFlush'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
 
         return $model;

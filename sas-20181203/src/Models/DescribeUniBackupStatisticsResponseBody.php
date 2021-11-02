@@ -11,7 +11,7 @@ class DescribeUniBackupStatisticsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalRestoreTaskCount;
+    public $protectedDatabaseCount;
 
     /**
      * @var string
@@ -21,29 +21,29 @@ class DescribeUniBackupStatisticsResponseBody extends Model
     /**
      * @var int
      */
-    public $unprotectedDatabaseCount;
-
-    /**
-     * @var int
-     */
     public $restoringTaskCount;
 
     /**
      * @var int
      */
-    public $protectedDatabaseCount;
+    public $totalRecoverableCount;
 
     /**
      * @var int
      */
-    public $totalRecoverableCount;
+    public $totalRestoreTaskCount;
+
+    /**
+     * @var int
+     */
+    public $unprotectedDatabaseCount;
     protected $_name = [
-        'totalRestoreTaskCount'    => 'TotalRestoreTaskCount',
-        'requestId'                => 'RequestId',
-        'unprotectedDatabaseCount' => 'UnprotectedDatabaseCount',
-        'restoringTaskCount'       => 'RestoringTaskCount',
         'protectedDatabaseCount'   => 'ProtectedDatabaseCount',
+        'requestId'                => 'RequestId',
+        'restoringTaskCount'       => 'RestoringTaskCount',
         'totalRecoverableCount'    => 'TotalRecoverableCount',
+        'totalRestoreTaskCount'    => 'TotalRestoreTaskCount',
+        'unprotectedDatabaseCount' => 'UnprotectedDatabaseCount',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeUniBackupStatisticsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalRestoreTaskCount) {
-            $res['TotalRestoreTaskCount'] = $this->totalRestoreTaskCount;
+        if (null !== $this->protectedDatabaseCount) {
+            $res['ProtectedDatabaseCount'] = $this->protectedDatabaseCount;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->unprotectedDatabaseCount) {
-            $res['UnprotectedDatabaseCount'] = $this->unprotectedDatabaseCount;
-        }
         if (null !== $this->restoringTaskCount) {
             $res['RestoringTaskCount'] = $this->restoringTaskCount;
         }
-        if (null !== $this->protectedDatabaseCount) {
-            $res['ProtectedDatabaseCount'] = $this->protectedDatabaseCount;
-        }
         if (null !== $this->totalRecoverableCount) {
             $res['TotalRecoverableCount'] = $this->totalRecoverableCount;
+        }
+        if (null !== $this->totalRestoreTaskCount) {
+            $res['TotalRestoreTaskCount'] = $this->totalRestoreTaskCount;
+        }
+        if (null !== $this->unprotectedDatabaseCount) {
+            $res['UnprotectedDatabaseCount'] = $this->unprotectedDatabaseCount;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeUniBackupStatisticsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalRestoreTaskCount'])) {
-            $model->totalRestoreTaskCount = $map['TotalRestoreTaskCount'];
+        if (isset($map['ProtectedDatabaseCount'])) {
+            $model->protectedDatabaseCount = $map['ProtectedDatabaseCount'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['UnprotectedDatabaseCount'])) {
-            $model->unprotectedDatabaseCount = $map['UnprotectedDatabaseCount'];
-        }
         if (isset($map['RestoringTaskCount'])) {
             $model->restoringTaskCount = $map['RestoringTaskCount'];
         }
-        if (isset($map['ProtectedDatabaseCount'])) {
-            $model->protectedDatabaseCount = $map['ProtectedDatabaseCount'];
-        }
         if (isset($map['TotalRecoverableCount'])) {
             $model->totalRecoverableCount = $map['TotalRecoverableCount'];
+        }
+        if (isset($map['TotalRestoreTaskCount'])) {
+            $model->totalRestoreTaskCount = $map['TotalRestoreTaskCount'];
+        }
+        if (isset($map['UnprotectedDatabaseCount'])) {
+            $model->unprotectedDatabaseCount = $map['UnprotectedDatabaseCount'];
         }
 
         return $model;

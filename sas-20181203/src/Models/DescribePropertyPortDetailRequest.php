@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyPortDetailRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $remark;
+    public $currentPage;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -26,24 +31,19 @@ class DescribePropertyPortDetailRequest extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $uuid;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
-        'remark'      => 'Remark',
-        'port'        => 'Port',
-        'procName'    => 'ProcName',
-        'uuid'        => 'Uuid',
         'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
+        'port'        => 'Port',
+        'procName'    => 'ProcName',
+        'remark'      => 'Remark',
+        'uuid'        => 'Uuid',
     ];
 
     public function validate()
@@ -53,8 +53,11 @@ class DescribePropertyPortDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -62,14 +65,11 @@ class DescribePropertyPortDetailRequest extends Model
         if (null !== $this->procName) {
             $res['ProcName'] = $this->procName;
         }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -83,8 +83,11 @@ class DescribePropertyPortDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
@@ -92,14 +95,11 @@ class DescribePropertyPortDetailRequest extends Model
         if (isset($map['ProcName'])) {
             $model->procName = $map['ProcName'];
         }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

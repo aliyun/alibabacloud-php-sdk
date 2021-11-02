@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUsageNewestResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
      * @var int
      */
     public $itemCount;
+
+    /**
+     * @var newestStatisticItems[]
+     */
+    public $newestStatisticItems;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class DescribePropertyUsageNewestResponseBody extends Model
     public $requestId;
 
     /**
-     * @var newestStatisticItems[]
+     * @var string
      */
-    public $newestStatisticItems;
+    public $type;
     protected $_name = [
-        'type'                 => 'Type',
         'itemCount'            => 'ItemCount',
-        'requestId'            => 'RequestId',
         'newestStatisticItems' => 'NewestStatisticItems',
+        'requestId'            => 'RequestId',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -42,14 +42,8 @@ class DescribePropertyUsageNewestResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->itemCount) {
             $res['ItemCount'] = $this->itemCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->newestStatisticItems) {
             $res['NewestStatisticItems'] = [];
@@ -59,6 +53,12 @@ class DescribePropertyUsageNewestResponseBody extends Model
                     $res['NewestStatisticItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -72,14 +72,8 @@ class DescribePropertyUsageNewestResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['ItemCount'])) {
             $model->itemCount = $map['ItemCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['NewestStatisticItems'])) {
             if (!empty($map['NewestStatisticItems'])) {
@@ -89,6 +83,12 @@ class DescribePropertyUsageNewestResponseBody extends Model
                     $model->newestStatisticItems[$n++] = null !== $item ? newestStatisticItems::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedRiskNumResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $exposedInstanceCount;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -17,15 +22,10 @@ class DescribeExposedRiskNumResponseBody extends Model
      * @var int
      */
     public $riskExposedInstanceCount;
-
-    /**
-     * @var int
-     */
-    public $exposedInstanceCount;
     protected $_name = [
+        'exposedInstanceCount'     => 'ExposedInstanceCount',
         'requestId'                => 'RequestId',
         'riskExposedInstanceCount' => 'RiskExposedInstanceCount',
-        'exposedInstanceCount'     => 'ExposedInstanceCount',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeExposedRiskNumResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->exposedInstanceCount) {
+            $res['ExposedInstanceCount'] = $this->exposedInstanceCount;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->riskExposedInstanceCount) {
             $res['RiskExposedInstanceCount'] = $this->riskExposedInstanceCount;
-        }
-        if (null !== $this->exposedInstanceCount) {
-            $res['ExposedInstanceCount'] = $this->exposedInstanceCount;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeExposedRiskNumResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExposedInstanceCount'])) {
+            $model->exposedInstanceCount = $map['ExposedInstanceCount'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['RiskExposedInstanceCount'])) {
             $model->riskExposedInstanceCount = $map['RiskExposedInstanceCount'];
-        }
-        if (isset($map['ExposedInstanceCount'])) {
-            $model->exposedInstanceCount = $map['ExposedInstanceCount'];
         }
 
         return $model;

@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUserDetailRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $isRoot;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $remark;
@@ -21,29 +36,14 @@ class DescribePropertyUserDetailRequest extends Model
     /**
      * @var string
      */
-    public $isRoot;
-
-    /**
-     * @var string
-     */
     public $uuid;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
+        'currentPage' => 'CurrentPage',
+        'isRoot'      => 'IsRoot',
+        'pageSize'    => 'PageSize',
         'remark'      => 'Remark',
         'user'        => 'User',
-        'isRoot'      => 'IsRoot',
         'uuid'        => 'Uuid',
-        'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribePropertyUserDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->isRoot) {
+            $res['IsRoot'] = $this->isRoot;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
         if (null !== $this->user) {
             $res['User'] = $this->user;
         }
-        if (null !== $this->isRoot) {
-            $res['IsRoot'] = $this->isRoot;
-        }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribePropertyUserDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['IsRoot'])) {
+            $model->isRoot = $map['IsRoot'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
         if (isset($map['User'])) {
             $model->user = $map['User'];
         }
-        if (isset($map['IsRoot'])) {
-            $model->isRoot = $map['IsRoot'];
-        }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

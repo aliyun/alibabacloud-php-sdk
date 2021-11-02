@@ -11,12 +11,12 @@ class HandleSecurityEventsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $markBatch;
 
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $markMissParam;
 
     /**
      * @var string
@@ -29,27 +29,27 @@ class HandleSecurityEventsRequest extends Model
     public $operationParams;
 
     /**
-     * @var string
+     * @var int
      */
-    public $markMissParam;
-
-    /**
-     * @var string
-     */
-    public $markBatch;
+    public $resourceOwnerId;
 
     /**
      * @var string[]
      */
     public $securityEventIds;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'         => 'SourceIp',
-        'resourceOwnerId'  => 'ResourceOwnerId',
+        'markBatch'        => 'MarkBatch',
+        'markMissParam'    => 'MarkMissParam',
         'operationCode'    => 'OperationCode',
         'operationParams'  => 'OperationParams',
-        'markMissParam'    => 'MarkMissParam',
-        'markBatch'        => 'MarkBatch',
+        'resourceOwnerId'  => 'ResourceOwnerId',
         'securityEventIds' => 'SecurityEventIds',
+        'sourceIp'         => 'SourceIp',
     ];
 
     public function validate()
@@ -59,11 +59,11 @@ class HandleSecurityEventsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->markBatch) {
+            $res['MarkBatch'] = $this->markBatch;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->markMissParam) {
+            $res['MarkMissParam'] = $this->markMissParam;
         }
         if (null !== $this->operationCode) {
             $res['OperationCode'] = $this->operationCode;
@@ -71,14 +71,14 @@ class HandleSecurityEventsRequest extends Model
         if (null !== $this->operationParams) {
             $res['OperationParams'] = $this->operationParams;
         }
-        if (null !== $this->markMissParam) {
-            $res['MarkMissParam'] = $this->markMissParam;
-        }
-        if (null !== $this->markBatch) {
-            $res['MarkBatch'] = $this->markBatch;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->securityEventIds) {
             $res['SecurityEventIds'] = $this->securityEventIds;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -92,11 +92,11 @@ class HandleSecurityEventsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['MarkBatch'])) {
+            $model->markBatch = $map['MarkBatch'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['MarkMissParam'])) {
+            $model->markMissParam = $map['MarkMissParam'];
         }
         if (isset($map['OperationCode'])) {
             $model->operationCode = $map['OperationCode'];
@@ -104,16 +104,16 @@ class HandleSecurityEventsRequest extends Model
         if (isset($map['OperationParams'])) {
             $model->operationParams = $map['OperationParams'];
         }
-        if (isset($map['MarkMissParam'])) {
-            $model->markMissParam = $map['MarkMissParam'];
-        }
-        if (isset($map['MarkBatch'])) {
-            $model->markBatch = $map['MarkBatch'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['SecurityEventIds'])) {
             if (!empty($map['SecurityEventIds'])) {
                 $model->securityEventIds = $map['SecurityEventIds'];
             }
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

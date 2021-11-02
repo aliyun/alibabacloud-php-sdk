@@ -11,12 +11,7 @@ class DescribeBackupDirsRequest extends Model
     /**
      * @var int
      */
-    public $policyId;
-
-    /**
-     * @var string
-     */
-    public $uuid;
+    public $currentPage;
 
     /**
      * @var int
@@ -26,12 +21,17 @@ class DescribeBackupDirsRequest extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $policyId;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
+        'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
         'policyId'    => 'PolicyId',
         'uuid'        => 'Uuid',
-        'pageSize'    => 'PageSize',
-        'currentPage' => 'CurrentPage',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeBackupDirsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeBackupDirsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

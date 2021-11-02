@@ -10,19 +10,44 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @var int
+     */
+    public $affectedCount;
+
+    /**
+     * @var int
+     */
+    public $checkTime;
+
+    /**
+     * @var int
+     */
+    public $itemId;
+
+    /**
+     * @var int
+     */
+    public $remainingTime;
+
+    /**
+     * @var string
+     */
+    public $repairStatus;
+
+    /**
+     * @var string
+     */
+    public $riskAssertType;
+
+    /**
+     * @var riskItemResources[]
+     */
+    public $riskItemResources;
+
+    /**
      * @var string
      */
     public $riskLevel;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $type;
 
     /**
      * @var int
@@ -32,37 +57,12 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $repairStatus;
-
-    /**
-     * @var int
-     */
-    public $remainingTime;
-
-    /**
-     * @var int
-     */
-    public $itemId;
-
-    /**
-     * @var string
-     */
     public $startStatus;
 
     /**
-     * @var int
-     */
-    public $affectedCount;
-
-    /**
      * @var string
      */
-    public $riskAssertType;
-
-    /**
-     * @var string
-     */
-    public $title;
+    public $status;
 
     /**
      * @var int
@@ -70,29 +70,29 @@ class list_ extends Model
     public $taskId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $checkTime;
+    public $title;
 
     /**
-     * @var riskItemResources[]
+     * @var string
      */
-    public $riskItemResources;
+    public $type;
     protected $_name = [
-        'riskLevel'         => 'RiskLevel',
-        'status'            => 'Status',
-        'type'              => 'Type',
-        'sort'              => 'Sort',
-        'repairStatus'      => 'RepairStatus',
-        'remainingTime'     => 'RemainingTime',
-        'itemId'            => 'ItemId',
-        'startStatus'       => 'StartStatus',
         'affectedCount'     => 'AffectedCount',
-        'riskAssertType'    => 'RiskAssertType',
-        'title'             => 'Title',
-        'taskId'            => 'TaskId',
         'checkTime'         => 'CheckTime',
+        'itemId'            => 'ItemId',
+        'remainingTime'     => 'RemainingTime',
+        'repairStatus'      => 'RepairStatus',
+        'riskAssertType'    => 'RiskAssertType',
         'riskItemResources' => 'RiskItemResources',
+        'riskLevel'         => 'RiskLevel',
+        'sort'              => 'Sort',
+        'startStatus'       => 'StartStatus',
+        'status'            => 'Status',
+        'taskId'            => 'TaskId',
+        'title'             => 'Title',
+        'type'              => 'Type',
     ];
 
     public function validate()
@@ -102,44 +102,23 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
+        if (null !== $this->affectedCount) {
+            $res['AffectedCount'] = $this->affectedCount;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->sort) {
-            $res['Sort'] = $this->sort;
-        }
-        if (null !== $this->repairStatus) {
-            $res['RepairStatus'] = $this->repairStatus;
-        }
-        if (null !== $this->remainingTime) {
-            $res['RemainingTime'] = $this->remainingTime;
+        if (null !== $this->checkTime) {
+            $res['CheckTime'] = $this->checkTime;
         }
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
         }
-        if (null !== $this->startStatus) {
-            $res['StartStatus'] = $this->startStatus;
+        if (null !== $this->remainingTime) {
+            $res['RemainingTime'] = $this->remainingTime;
         }
-        if (null !== $this->affectedCount) {
-            $res['AffectedCount'] = $this->affectedCount;
+        if (null !== $this->repairStatus) {
+            $res['RepairStatus'] = $this->repairStatus;
         }
         if (null !== $this->riskAssertType) {
             $res['RiskAssertType'] = $this->riskAssertType;
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->checkTime) {
-            $res['CheckTime'] = $this->checkTime;
         }
         if (null !== $this->riskItemResources) {
             $res['RiskItemResources'] = [];
@@ -149,6 +128,27 @@ class list_ extends Model
                     $res['RiskItemResources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
+        }
+        if (null !== $this->startStatus) {
+            $res['StartStatus'] = $this->startStatus;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -162,44 +162,23 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RiskLevel'])) {
-            $model->riskLevel = $map['RiskLevel'];
+        if (isset($map['AffectedCount'])) {
+            $model->affectedCount = $map['AffectedCount'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Sort'])) {
-            $model->sort = $map['Sort'];
-        }
-        if (isset($map['RepairStatus'])) {
-            $model->repairStatus = $map['RepairStatus'];
-        }
-        if (isset($map['RemainingTime'])) {
-            $model->remainingTime = $map['RemainingTime'];
+        if (isset($map['CheckTime'])) {
+            $model->checkTime = $map['CheckTime'];
         }
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
         }
-        if (isset($map['StartStatus'])) {
-            $model->startStatus = $map['StartStatus'];
+        if (isset($map['RemainingTime'])) {
+            $model->remainingTime = $map['RemainingTime'];
         }
-        if (isset($map['AffectedCount'])) {
-            $model->affectedCount = $map['AffectedCount'];
+        if (isset($map['RepairStatus'])) {
+            $model->repairStatus = $map['RepairStatus'];
         }
         if (isset($map['RiskAssertType'])) {
             $model->riskAssertType = $map['RiskAssertType'];
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['CheckTime'])) {
-            $model->checkTime = $map['CheckTime'];
         }
         if (isset($map['RiskItemResources'])) {
             if (!empty($map['RiskItemResources'])) {
@@ -209,6 +188,27 @@ class list_ extends Model
                     $model->riskItemResources[$n++] = null !== $item ? riskItemResources::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
+        }
+        if (isset($map['StartStatus'])) {
+            $model->startStatus = $map['StartStatus'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

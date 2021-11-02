@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class incPlan extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $planType;
+    public $days;
 
     /**
      * @var int
@@ -24,14 +19,19 @@ class incPlan extends Model
     public $interval;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $days;
+    public $planType;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'startTime' => 'StartTime',
-        'planType'  => 'PlanType',
-        'interval'  => 'Interval',
         'days'      => 'Days',
+        'interval'  => 'Interval',
+        'planType'  => 'PlanType',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class incPlan extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->planType) {
-            $res['PlanType'] = $this->planType;
+        if (null !== $this->days) {
+            $res['Days'] = $this->days;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
-        if (null !== $this->days) {
-            $res['Days'] = $this->days;
+        if (null !== $this->planType) {
+            $res['PlanType'] = $this->planType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -65,19 +65,19 @@ class incPlan extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['PlanType'])) {
-            $model->planType = $map['PlanType'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
-        }
         if (isset($map['Days'])) {
             if (!empty($map['Days'])) {
                 $model->days = $map['Days'];
             }
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
+        if (isset($map['PlanType'])) {
+            $model->planType = $map['PlanType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

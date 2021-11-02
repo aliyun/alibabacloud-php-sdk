@@ -11,27 +11,7 @@ class DescribeCloudCenterInstancesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $criteria;
-
-    /**
-     * @var string
-     */
-    public $machineTypes;
-
-    /**
-     * @var string
-     */
-    public $logicalExp;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
 
     /**
      * @var int
@@ -42,14 +22,34 @@ class DescribeCloudCenterInstancesRequest extends Model
      * @var int
      */
     public $importance;
+
+    /**
+     * @var string
+     */
+    public $logicalExp;
+
+    /**
+     * @var string
+     */
+    public $machineTypes;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
         'criteria'     => 'Criteria',
-        'machineTypes' => 'MachineTypes',
-        'logicalExp'   => 'LogicalExp',
-        'pageSize'     => 'PageSize',
         'currentPage'  => 'CurrentPage',
         'importance'   => 'Importance',
+        'logicalExp'   => 'LogicalExp',
+        'machineTypes' => 'MachineTypes',
+        'pageSize'     => 'PageSize',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DescribeCloudCenterInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
-        }
-        if (null !== $this->machineTypes) {
-            $res['MachineTypes'] = $this->machineTypes;
-        }
-        if (null !== $this->logicalExp) {
-            $res['LogicalExp'] = $this->logicalExp;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->importance) {
             $res['Importance'] = $this->importance;
+        }
+        if (null !== $this->logicalExp) {
+            $res['LogicalExp'] = $this->logicalExp;
+        }
+        if (null !== $this->machineTypes) {
+            $res['MachineTypes'] = $this->machineTypes;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DescribeCloudCenterInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
-        }
-        if (isset($map['MachineTypes'])) {
-            $model->machineTypes = $map['MachineTypes'];
-        }
-        if (isset($map['LogicalExp'])) {
-            $model->logicalExp = $map['LogicalExp'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['Importance'])) {
             $model->importance = $map['Importance'];
+        }
+        if (isset($map['LogicalExp'])) {
+            $model->logicalExp = $map['LogicalExp'];
+        }
+        if (isset($map['MachineTypes'])) {
+            $model->machineTypes = $map['MachineTypes'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

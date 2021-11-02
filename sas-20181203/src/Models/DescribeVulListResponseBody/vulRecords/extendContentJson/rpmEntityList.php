@@ -11,17 +11,12 @@ class rpmEntityList extends Model
     /**
      * @var string
      */
+    public $containerName;
+
+    /**
+     * @var string
+     */
     public $fullVersion;
-
-    /**
-     * @var string
-     */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $matchDetail;
 
     /**
      * @var string
@@ -31,12 +26,7 @@ class rpmEntityList extends Model
     /**
      * @var string
      */
-    public $path;
-
-    /**
-     * @var string
-     */
-    public $containerName;
+    public $matchDetail;
 
     /**
      * @var string
@@ -46,16 +36,26 @@ class rpmEntityList extends Model
     /**
      * @var string
      */
+    public $path;
+
+    /**
+     * @var string
+     */
     public $updateCmd;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'fullVersion'   => 'FullVersion',
-        'version'       => 'Version',
-        'matchDetail'   => 'MatchDetail',
-        'imageName'     => 'ImageName',
-        'path'          => 'Path',
         'containerName' => 'ContainerName',
+        'fullVersion'   => 'FullVersion',
+        'imageName'     => 'ImageName',
+        'matchDetail'   => 'MatchDetail',
         'name'          => 'Name',
+        'path'          => 'Path',
         'updateCmd'     => 'UpdateCmd',
+        'version'       => 'Version',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class rpmEntityList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
+        }
         if (null !== $this->fullVersion) {
             $res['FullVersion'] = $this->fullVersion;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->matchDetail) {
-            $res['MatchDetail'] = $this->matchDetail;
         }
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
-        if (null !== $this->containerName) {
-            $res['ContainerName'] = $this->containerName;
+        if (null !== $this->matchDetail) {
+            $res['MatchDetail'] = $this->matchDetail;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
         if (null !== $this->updateCmd) {
             $res['UpdateCmd'] = $this->updateCmd;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class rpmEntityList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
+        }
         if (isset($map['FullVersion'])) {
             $model->fullVersion = $map['FullVersion'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['MatchDetail'])) {
-            $model->matchDetail = $map['MatchDetail'];
         }
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
-        if (isset($map['ContainerName'])) {
-            $model->containerName = $map['ContainerName'];
+        if (isset($map['MatchDetail'])) {
+            $model->matchDetail = $map['MatchDetail'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
         if (isset($map['UpdateCmd'])) {
             $model->updateCmd = $map['UpdateCmd'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class OperateAgentClientInstallResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var aegisCelintInstallResposeList[]
      */
     public $aegisCelintInstallResposeList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                     => 'RequestId',
         'aegisCelintInstallResposeList' => 'AegisCelintInstallResposeList',
+        'requestId'                     => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class OperateAgentClientInstallResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->aegisCelintInstallResposeList) {
             $res['AegisCelintInstallResposeList'] = [];
             if (null !== $this->aegisCelintInstallResposeList && \is_array($this->aegisCelintInstallResposeList)) {
@@ -41,6 +38,9 @@ class OperateAgentClientInstallResponseBody extends Model
                     $res['AegisCelintInstallResposeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class OperateAgentClientInstallResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AegisCelintInstallResposeList'])) {
             if (!empty($map['AegisCelintInstallResposeList'])) {
                 $model->aegisCelintInstallResposeList = [];
@@ -65,6 +62,9 @@ class OperateAgentClientInstallResponseBody extends Model
                     $model->aegisCelintInstallResposeList[$n++] = null !== $item ? aegisCelintInstallResposeList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

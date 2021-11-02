@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupFilesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var backupFiles[]
      */
-    public $requestId;
+    public $backupFiles;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribeBackupFilesResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var backupFiles[]
+     * @var string
      */
-    public $backupFiles;
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'pageInfo'    => 'PageInfo',
         'backupFiles' => 'BackupFiles',
+        'pageInfo'    => 'PageInfo',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class DescribeBackupFilesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
         if (null !== $this->backupFiles) {
             $res['BackupFiles'] = [];
             if (null !== $this->backupFiles && \is_array($this->backupFiles)) {
@@ -51,6 +45,12 @@ class DescribeBackupFilesResponseBody extends Model
                     $res['BackupFiles'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class DescribeBackupFilesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
         if (isset($map['BackupFiles'])) {
             if (!empty($map['BackupFiles'])) {
                 $model->backupFiles = [];
@@ -78,6 +72,12 @@ class DescribeBackupFilesResponseBody extends Model
                     $model->backupFiles[$n++] = null !== $item ? backupFiles::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyExecDetailRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $sourceIp;
@@ -17,21 +27,11 @@ class DescribeStrategyExecDetailRequest extends Model
      * @var int
      */
     public $strategyId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
     protected $_name = [
+        'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
         'sourceIp'    => 'SourceIp',
         'strategyId'  => 'StrategyId',
-        'pageSize'    => 'PageSize',
-        'currentPage' => 'CurrentPage',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeStrategyExecDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeStrategyExecDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

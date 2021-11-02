@@ -11,17 +11,7 @@ class ModifyWebLockCreateConfigRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $uuid;
+    public $defenceMode;
 
     /**
      * @var string
@@ -36,7 +26,27 @@ class ModifyWebLockCreateConfigRequest extends Model
     /**
      * @var string
      */
+    public $exclusiveFile;
+
+    /**
+     * @var string
+     */
     public $exclusiveFileType;
+
+    /**
+     * @var string
+     */
+    public $inclusiveFile;
+
+    /**
+     * @var string
+     */
+    public $inclusiveFileType;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @var string
@@ -51,35 +61,25 @@ class ModifyWebLockCreateConfigRequest extends Model
     /**
      * @var string
      */
-    public $inclusiveFileType;
+    public $sourceIp;
 
     /**
      * @var string
      */
-    public $exclusiveFile;
-
-    /**
-     * @var string
-     */
-    public $inclusiveFile;
-
-    /**
-     * @var string
-     */
-    public $defenceMode;
+    public $uuid;
     protected $_name = [
-        'sourceIp'          => 'SourceIp',
-        'lang'              => 'Lang',
-        'uuid'              => 'Uuid',
+        'defenceMode'       => 'DefenceMode',
         'dir'               => 'Dir',
         'exclusiveDir'      => 'ExclusiveDir',
+        'exclusiveFile'     => 'ExclusiveFile',
         'exclusiveFileType' => 'ExclusiveFileType',
+        'inclusiveFile'     => 'InclusiveFile',
+        'inclusiveFileType' => 'InclusiveFileType',
+        'lang'              => 'Lang',
         'localBackupDir'    => 'LocalBackupDir',
         'mode'              => 'Mode',
-        'inclusiveFileType' => 'InclusiveFileType',
-        'exclusiveFile'     => 'ExclusiveFile',
-        'inclusiveFile'     => 'InclusiveFile',
-        'defenceMode'       => 'DefenceMode',
+        'sourceIp'          => 'SourceIp',
+        'uuid'              => 'Uuid',
     ];
 
     public function validate()
@@ -89,14 +89,8 @@ class ModifyWebLockCreateConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
+        if (null !== $this->defenceMode) {
+            $res['DefenceMode'] = $this->defenceMode;
         }
         if (null !== $this->dir) {
             $res['Dir'] = $this->dir;
@@ -104,8 +98,20 @@ class ModifyWebLockCreateConfigRequest extends Model
         if (null !== $this->exclusiveDir) {
             $res['ExclusiveDir'] = $this->exclusiveDir;
         }
+        if (null !== $this->exclusiveFile) {
+            $res['ExclusiveFile'] = $this->exclusiveFile;
+        }
         if (null !== $this->exclusiveFileType) {
             $res['ExclusiveFileType'] = $this->exclusiveFileType;
+        }
+        if (null !== $this->inclusiveFile) {
+            $res['InclusiveFile'] = $this->inclusiveFile;
+        }
+        if (null !== $this->inclusiveFileType) {
+            $res['InclusiveFileType'] = $this->inclusiveFileType;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->localBackupDir) {
             $res['LocalBackupDir'] = $this->localBackupDir;
@@ -113,17 +119,11 @@ class ModifyWebLockCreateConfigRequest extends Model
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-        if (null !== $this->inclusiveFileType) {
-            $res['InclusiveFileType'] = $this->inclusiveFileType;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
-        if (null !== $this->exclusiveFile) {
-            $res['ExclusiveFile'] = $this->exclusiveFile;
-        }
-        if (null !== $this->inclusiveFile) {
-            $res['InclusiveFile'] = $this->inclusiveFile;
-        }
-        if (null !== $this->defenceMode) {
-            $res['DefenceMode'] = $this->defenceMode;
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -137,14 +137,8 @@ class ModifyWebLockCreateConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
+        if (isset($map['DefenceMode'])) {
+            $model->defenceMode = $map['DefenceMode'];
         }
         if (isset($map['Dir'])) {
             $model->dir = $map['Dir'];
@@ -152,8 +146,20 @@ class ModifyWebLockCreateConfigRequest extends Model
         if (isset($map['ExclusiveDir'])) {
             $model->exclusiveDir = $map['ExclusiveDir'];
         }
+        if (isset($map['ExclusiveFile'])) {
+            $model->exclusiveFile = $map['ExclusiveFile'];
+        }
         if (isset($map['ExclusiveFileType'])) {
             $model->exclusiveFileType = $map['ExclusiveFileType'];
+        }
+        if (isset($map['InclusiveFile'])) {
+            $model->inclusiveFile = $map['InclusiveFile'];
+        }
+        if (isset($map['InclusiveFileType'])) {
+            $model->inclusiveFileType = $map['InclusiveFileType'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['LocalBackupDir'])) {
             $model->localBackupDir = $map['LocalBackupDir'];
@@ -161,17 +167,11 @@ class ModifyWebLockCreateConfigRequest extends Model
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-        if (isset($map['InclusiveFileType'])) {
-            $model->inclusiveFileType = $map['InclusiveFileType'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
-        if (isset($map['ExclusiveFile'])) {
-            $model->exclusiveFile = $map['ExclusiveFile'];
-        }
-        if (isset($map['InclusiveFile'])) {
-            $model->inclusiveFile = $map['InclusiveFile'];
-        }
-        if (isset($map['DefenceMode'])) {
-            $model->defenceMode = $map['DefenceMode'];
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

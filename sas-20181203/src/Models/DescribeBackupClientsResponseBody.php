@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupClientsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var clients[]
      */
     public $clients;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'clients'   => 'Clients',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeBackupClientsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clients) {
             $res['Clients'] = [];
             if (null !== $this->clients && \is_array($this->clients)) {
@@ -41,6 +38,9 @@ class DescribeBackupClientsResponseBody extends Model
                     $res['Clients'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeBackupClientsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Clients'])) {
             if (!empty($map['Clients'])) {
                 $model->clients = [];
@@ -65,6 +62,9 @@ class DescribeBackupClientsResponseBody extends Model
                     $model->clients[$n++] = null !== $item ? clients::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

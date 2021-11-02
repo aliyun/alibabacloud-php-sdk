@@ -13,7 +13,12 @@ class uniBackupPolicyDTO extends Model
     /**
      * @var string
      */
-    public $policyStatus;
+    public $accountName;
+
+    /**
+     * @var string
+     */
+    public $agentStatus;
 
     /**
      * @var string
@@ -21,14 +26,39 @@ class uniBackupPolicyDTO extends Model
     public $databaseType;
 
     /**
-     * @var int
+     * @var fullPlan
      */
-    public $uniBackUpCount;
+    public $fullPlan;
+
+    /**
+     * @var incPlan
+     */
+    public $incPlan;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var int
+     */
+    public $policyId;
+
+    /**
+     * @var string
+     */
+    public $policyName;
+
+    /**
+     * @var string
+     */
+    public $policyStatus;
 
     /**
      * @var int
@@ -41,53 +71,23 @@ class uniBackupPolicyDTO extends Model
     public $speedLimiter;
 
     /**
-     * @var string
-     */
-    public $policyName;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var int
      */
-    public $policyId;
-
-    /**
-     * @var string
-     */
-    public $agentStatus;
-
-    /**
-     * @var string
-     */
-    public $accountName;
-
-    /**
-     * @var fullPlan
-     */
-    public $fullPlan;
-
-    /**
-     * @var incPlan
-     */
-    public $incPlan;
+    public $uniBackUpCount;
     protected $_name = [
-        'policyStatus'   => 'PolicyStatus',
-        'databaseType'   => 'DatabaseType',
-        'uniBackUpCount' => 'UniBackUpCount',
-        'instanceName'   => 'InstanceName',
-        'retention'      => 'Retention',
-        'speedLimiter'   => 'SpeedLimiter',
-        'policyName'     => 'PolicyName',
-        'instanceId'     => 'InstanceId',
-        'policyId'       => 'PolicyId',
-        'agentStatus'    => 'AgentStatus',
         'accountName'    => 'AccountName',
+        'agentStatus'    => 'AgentStatus',
+        'databaseType'   => 'DatabaseType',
         'fullPlan'       => 'FullPlan',
         'incPlan'        => 'IncPlan',
+        'instanceId'     => 'InstanceId',
+        'instanceName'   => 'InstanceName',
+        'policyId'       => 'PolicyId',
+        'policyName'     => 'PolicyName',
+        'policyStatus'   => 'PolicyStatus',
+        'retention'      => 'Retention',
+        'speedLimiter'   => 'SpeedLimiter',
+        'uniBackUpCount' => 'UniBackUpCount',
     ];
 
     public function validate()
@@ -97,17 +97,35 @@ class uniBackupPolicyDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyStatus) {
-            $res['PolicyStatus'] = $this->policyStatus;
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->agentStatus) {
+            $res['AgentStatus'] = $this->agentStatus;
         }
         if (null !== $this->databaseType) {
             $res['DatabaseType'] = $this->databaseType;
         }
-        if (null !== $this->uniBackUpCount) {
-            $res['UniBackUpCount'] = $this->uniBackUpCount;
+        if (null !== $this->fullPlan) {
+            $res['FullPlan'] = null !== $this->fullPlan ? $this->fullPlan->toMap() : null;
+        }
+        if (null !== $this->incPlan) {
+            $res['IncPlan'] = null !== $this->incPlan ? $this->incPlan->toMap() : null;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
+        }
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
+        }
+        if (null !== $this->policyStatus) {
+            $res['PolicyStatus'] = $this->policyStatus;
         }
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
@@ -115,26 +133,8 @@ class uniBackupPolicyDTO extends Model
         if (null !== $this->speedLimiter) {
             $res['SpeedLimiter'] = $this->speedLimiter;
         }
-        if (null !== $this->policyName) {
-            $res['PolicyName'] = $this->policyName;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->policyId) {
-            $res['PolicyId'] = $this->policyId;
-        }
-        if (null !== $this->agentStatus) {
-            $res['AgentStatus'] = $this->agentStatus;
-        }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
-        if (null !== $this->fullPlan) {
-            $res['FullPlan'] = null !== $this->fullPlan ? $this->fullPlan->toMap() : null;
-        }
-        if (null !== $this->incPlan) {
-            $res['IncPlan'] = null !== $this->incPlan ? $this->incPlan->toMap() : null;
+        if (null !== $this->uniBackUpCount) {
+            $res['UniBackUpCount'] = $this->uniBackUpCount;
         }
 
         return $res;
@@ -148,17 +148,35 @@ class uniBackupPolicyDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyStatus'])) {
-            $model->policyStatus = $map['PolicyStatus'];
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['AgentStatus'])) {
+            $model->agentStatus = $map['AgentStatus'];
         }
         if (isset($map['DatabaseType'])) {
             $model->databaseType = $map['DatabaseType'];
         }
-        if (isset($map['UniBackUpCount'])) {
-            $model->uniBackUpCount = $map['UniBackUpCount'];
+        if (isset($map['FullPlan'])) {
+            $model->fullPlan = fullPlan::fromMap($map['FullPlan']);
+        }
+        if (isset($map['IncPlan'])) {
+            $model->incPlan = incPlan::fromMap($map['IncPlan']);
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
+        }
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
+        }
+        if (isset($map['PolicyStatus'])) {
+            $model->policyStatus = $map['PolicyStatus'];
         }
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
@@ -166,26 +184,8 @@ class uniBackupPolicyDTO extends Model
         if (isset($map['SpeedLimiter'])) {
             $model->speedLimiter = $map['SpeedLimiter'];
         }
-        if (isset($map['PolicyName'])) {
-            $model->policyName = $map['PolicyName'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['PolicyId'])) {
-            $model->policyId = $map['PolicyId'];
-        }
-        if (isset($map['AgentStatus'])) {
-            $model->agentStatus = $map['AgentStatus'];
-        }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
-        }
-        if (isset($map['FullPlan'])) {
-            $model->fullPlan = fullPlan::fromMap($map['FullPlan']);
-        }
-        if (isset($map['IncPlan'])) {
-            $model->incPlan = incPlan::fromMap($map['IncPlan']);
+        if (isset($map['UniBackUpCount'])) {
+            $model->uniBackUpCount = $map['UniBackUpCount'];
         }
 
         return $model;

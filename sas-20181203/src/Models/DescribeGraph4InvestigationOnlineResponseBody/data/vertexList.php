@@ -12,22 +12,22 @@ class vertexList extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $uuid;
-
-    /**
-     * @var string
-     */
-    public $time;
-
-    /**
-     * @var string
-     */
     public $aliuid;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var neighborList[]
+     */
+    public $neighborList;
 
     /**
      * @var string
@@ -42,33 +42,33 @@ class vertexList extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
     public $properties;
 
     /**
-     * @var neighborList[]
+     * @var string
      */
-    public $neighborList;
+    public $time;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'type'         => 'Type',
-        'uuid'         => 'Uuid',
-        'time'         => 'Time',
         'aliuid'       => 'Aliuid',
+        'id'           => 'Id',
+        'name'         => 'Name',
+        'neighborList' => 'NeighborList',
         'position'     => 'Position',
         'positionId'   => 'PositionId',
-        'name'         => 'Name',
-        'id'           => 'Id',
         'properties'   => 'Properties',
-        'neighborList' => 'NeighborList',
+        'time'         => 'Time',
+        'type'         => 'Type',
+        'uuid'         => 'Uuid',
     ];
 
     public function validate()
@@ -78,32 +78,14 @@ class vertexList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
         if (null !== $this->aliuid) {
             $res['Aliuid'] = $this->aliuid;
-        }
-        if (null !== $this->position) {
-            $res['Position'] = $this->position;
-        }
-        if (null !== $this->positionId) {
-            $res['PositionId'] = $this->positionId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->properties) {
-            $res['Properties'] = $this->properties;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->neighborList) {
             $res['NeighborList'] = [];
@@ -113,6 +95,24 @@ class vertexList extends Model
                     $res['NeighborList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->position) {
+            $res['Position'] = $this->position;
+        }
+        if (null !== $this->positionId) {
+            $res['PositionId'] = $this->positionId;
+        }
+        if (null !== $this->properties) {
+            $res['Properties'] = $this->properties;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -126,32 +126,14 @@ class vertexList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
         if (isset($map['Aliuid'])) {
             $model->aliuid = $map['Aliuid'];
-        }
-        if (isset($map['Position'])) {
-            $model->position = $map['Position'];
-        }
-        if (isset($map['PositionId'])) {
-            $model->positionId = $map['PositionId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Properties'])) {
-            $model->properties = $map['Properties'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['NeighborList'])) {
             if (!empty($map['NeighborList'])) {
@@ -161,6 +143,24 @@ class vertexList extends Model
                     $model->neighborList[$n++] = null !== $item ? neighborList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Position'])) {
+            $model->position = $map['Position'];
+        }
+        if (isset($map['PositionId'])) {
+            $model->positionId = $map['PositionId'];
+        }
+        if (isset($map['Properties'])) {
+            $model->properties = $map['Properties'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

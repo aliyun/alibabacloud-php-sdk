@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyProcItemRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
      * @var bool
      */
     public $forceFlush;
@@ -21,16 +26,11 @@ class DescribePropertyProcItemRequest extends Model
     /**
      * @var int
      */
-    public $currentPage;
-
-    /**
-     * @var int
-     */
     public $pageSize;
     protected $_name = [
+        'currentPage' => 'CurrentPage',
         'forceFlush'  => 'ForceFlush',
         'name'        => 'Name',
-        'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
     ];
 
@@ -41,14 +41,14 @@ class DescribePropertyProcItemRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->forceFlush) {
             $res['ForceFlush'] = $this->forceFlush;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -65,14 +65,14 @@ class DescribePropertyProcItemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['ForceFlush'])) {
             $model->forceFlush = $map['ForceFlush'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

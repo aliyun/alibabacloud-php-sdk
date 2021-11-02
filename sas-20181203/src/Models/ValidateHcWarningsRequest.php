@@ -11,20 +11,20 @@ class ValidateHcWarningsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $riskIds;
 
     /**
      * @var string
      */
-    public $riskIds;
+    public $sourceIp;
 
     /**
      * @var string
      */
     public $uuids;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
         'riskIds'  => 'RiskIds',
+        'sourceIp' => 'SourceIp',
         'uuids'    => 'Uuids',
     ];
 
@@ -35,11 +35,11 @@ class ValidateHcWarningsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->riskIds) {
             $res['RiskIds'] = $this->riskIds;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
@@ -56,11 +56,11 @@ class ValidateHcWarningsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['RiskIds'])) {
             $model->riskIds = $map['RiskIds'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];

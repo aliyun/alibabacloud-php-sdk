@@ -11,15 +11,15 @@ class ModifyVpcHoneyPotRequest extends Model
     /**
      * @var string
      */
-    public $vpcId;
+    public $honeyPotAction;
 
     /**
      * @var string
      */
-    public $honeyPotAction;
+    public $vpcId;
     protected $_name = [
-        'vpcId'          => 'VpcId',
         'honeyPotAction' => 'HoneyPotAction',
+        'vpcId'          => 'VpcId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ModifyVpcHoneyPotRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->honeyPotAction) {
             $res['HoneyPotAction'] = $this->honeyPotAction;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ModifyVpcHoneyPotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['HoneyPotAction'])) {
             $model->honeyPotAction = $map['HoneyPotAction'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

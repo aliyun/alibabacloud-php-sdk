@@ -11,12 +11,27 @@ class DescribePropertyProcDetailRequest extends Model
     /**
      * @var string
      */
-    public $remark;
+    public $cmdline;
+
+    /**
+     * @var int
+     */
+    public $currentPage;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $remark;
 
     /**
      * @var string
@@ -26,30 +41,15 @@ class DescribePropertyProcDetailRequest extends Model
     /**
      * @var string
      */
-    public $cmdline;
-
-    /**
-     * @var string
-     */
     public $uuid;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
-        'remark'      => 'Remark',
-        'name'        => 'Name',
-        'user'        => 'User',
         'cmdline'     => 'Cmdline',
-        'uuid'        => 'Uuid',
         'currentPage' => 'CurrentPage',
+        'name'        => 'Name',
         'pageSize'    => 'PageSize',
+        'remark'      => 'Remark',
+        'user'        => 'User',
+        'uuid'        => 'Uuid',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DescribePropertyProcDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->user) {
-            $res['User'] = $this->user;
-        }
         if (null !== $this->cmdline) {
             $res['Cmdline'] = $this->cmdline;
-        }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DescribePropertyProcDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['User'])) {
-            $model->user = $map['User'];
-        }
         if (isset($map['Cmdline'])) {
             $model->cmdline = $map['Cmdline'];
-        }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

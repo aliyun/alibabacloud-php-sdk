@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniBackupDatabaseResponseBody extends Model
 {
     /**
-     * @var string
+     * @var databaseList[]
      */
-    public $requestId;
+    public $databaseList;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribeUniBackupDatabaseResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var databaseList[]
+     * @var string
      */
-    public $databaseList;
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'pageInfo'     => 'PageInfo',
         'databaseList' => 'DatabaseList',
+        'pageInfo'     => 'PageInfo',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class DescribeUniBackupDatabaseResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
         if (null !== $this->databaseList) {
             $res['DatabaseList'] = [];
             if (null !== $this->databaseList && \is_array($this->databaseList)) {
@@ -51,6 +45,12 @@ class DescribeUniBackupDatabaseResponseBody extends Model
                     $res['DatabaseList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class DescribeUniBackupDatabaseResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
         if (isset($map['DatabaseList'])) {
             if (!empty($map['DatabaseList'])) {
                 $model->databaseList = [];
@@ -78,6 +72,12 @@ class DescribeUniBackupDatabaseResponseBody extends Model
                     $model->databaseList[$n++] = null !== $item ? databaseList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

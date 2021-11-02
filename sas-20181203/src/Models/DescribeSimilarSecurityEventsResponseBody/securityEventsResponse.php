@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class securityEventsResponse extends Model
 {
     /**
-     * @var int
-     */
-    public $lastTime;
-
-    /**
-     * @var string
-     */
-    public $uuid;
-
-    /**
      * @var string
      */
     public $eventName;
@@ -31,19 +21,29 @@ class securityEventsResponse extends Model
     /**
      * @var int
      */
-    public $securityEventId;
+    public $lastTime;
 
     /**
      * @var int
      */
     public $occurrenceTime;
+
+    /**
+     * @var int
+     */
+    public $securityEventId;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'lastTime'        => 'LastTime',
-        'uuid'            => 'Uuid',
         'eventName'       => 'EventName',
         'eventType'       => 'EventType',
-        'securityEventId' => 'SecurityEventId',
+        'lastTime'        => 'LastTime',
         'occurrenceTime'  => 'OccurrenceTime',
+        'securityEventId' => 'SecurityEventId',
+        'uuid'            => 'Uuid',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class securityEventsResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lastTime) {
-            $res['LastTime'] = $this->lastTime;
-        }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
         }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
-        if (null !== $this->securityEventId) {
-            $res['SecurityEventId'] = $this->securityEventId;
+        if (null !== $this->lastTime) {
+            $res['LastTime'] = $this->lastTime;
         }
         if (null !== $this->occurrenceTime) {
             $res['OccurrenceTime'] = $this->occurrenceTime;
+        }
+        if (null !== $this->securityEventId) {
+            $res['SecurityEventId'] = $this->securityEventId;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class securityEventsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LastTime'])) {
-            $model->lastTime = $map['LastTime'];
-        }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];
         }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
-        if (isset($map['SecurityEventId'])) {
-            $model->securityEventId = $map['SecurityEventId'];
+        if (isset($map['LastTime'])) {
+            $model->lastTime = $map['LastTime'];
         }
         if (isset($map['OccurrenceTime'])) {
             $model->occurrenceTime = $map['OccurrenceTime'];
+        }
+        if (isset($map['SecurityEventId'])) {
+            $model->securityEventId = $map['SecurityEventId'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

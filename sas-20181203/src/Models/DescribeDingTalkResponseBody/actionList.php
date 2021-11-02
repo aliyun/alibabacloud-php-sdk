@@ -9,29 +9,9 @@ use AlibabaCloud\Tea\Model;
 class actionList extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $configList;
-
-    /**
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
      * @var string
      */
     public $actionName;
-
-    /**
-     * @var string
-     */
-    public $url;
 
     /**
      * @var int
@@ -41,12 +21,17 @@ class actionList extends Model
     /**
      * @var string
      */
+    public $configList;
+
+    /**
+     * @var string
+     */
     public $dingTalkLang;
 
     /**
      * @var int
      */
-    public $intervalTime;
+    public $gmtCreate;
 
     /**
      * @var int
@@ -62,18 +47,33 @@ class actionList extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var int
+     */
+    public $intervalTime;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'status'       => 'Status',
-        'configList'   => 'ConfigList',
-        'gmtCreate'    => 'GmtCreate',
         'actionName'   => 'ActionName',
-        'url'          => 'Url',
         'aliUid'       => 'AliUid',
+        'configList'   => 'ConfigList',
         'dingTalkLang' => 'DingTalkLang',
-        'intervalTime' => 'IntervalTime',
+        'gmtCreate'    => 'GmtCreate',
         'gmtModified'  => 'GmtModified',
         'groupIdList'  => 'GroupIdList',
         'id'           => 'Id',
+        'intervalTime' => 'IntervalTime',
+        'status'       => 'Status',
+        'url'          => 'Url',
     ];
 
     public function validate()
@@ -83,29 +83,20 @@ class actionList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->configList) {
-            $res['ConfigList'] = $this->configList;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
         if (null !== $this->actionName) {
             $res['ActionName'] = $this->actionName;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
         }
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
+        if (null !== $this->configList) {
+            $res['ConfigList'] = $this->configList;
+        }
         if (null !== $this->dingTalkLang) {
             $res['DingTalkLang'] = $this->dingTalkLang;
         }
-        if (null !== $this->intervalTime) {
-            $res['IntervalTime'] = $this->intervalTime;
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
@@ -115,6 +106,15 @@ class actionList extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->intervalTime) {
+            $res['IntervalTime'] = $this->intervalTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -128,29 +128,20 @@ class actionList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ConfigList'])) {
-            $model->configList = $map['ConfigList'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
         if (isset($map['ActionName'])) {
             $model->actionName = $map['ActionName'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
         }
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
+        if (isset($map['ConfigList'])) {
+            $model->configList = $map['ConfigList'];
+        }
         if (isset($map['DingTalkLang'])) {
             $model->dingTalkLang = $map['DingTalkLang'];
         }
-        if (isset($map['IntervalTime'])) {
-            $model->intervalTime = $map['IntervalTime'];
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
@@ -160,6 +151,15 @@ class actionList extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['IntervalTime'])) {
+            $model->intervalTime = $map['IntervalTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

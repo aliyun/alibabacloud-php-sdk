@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class neighborList extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $type;
+    public $count;
 
     /**
      * @var bool
@@ -19,13 +19,13 @@ class neighborList extends Model
     public $hasMore;
 
     /**
-     * @var int
+     * @var string
      */
-    public $count;
+    public $type;
     protected $_name = [
-        'type'    => 'Type',
-        'hasMore' => 'HasMore',
         'count'   => 'Count',
+        'hasMore' => 'HasMore',
+        'type'    => 'Type',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class neighborList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->hasMore) {
             $res['HasMore'] = $this->hasMore;
         }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class neighborList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['HasMore'])) {
             $model->hasMore = $map['HasMore'];
         }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

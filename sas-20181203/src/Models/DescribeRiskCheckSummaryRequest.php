@@ -11,7 +11,12 @@ class DescribeRiskCheckSummaryRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $resourceDirectoryAccountId;
 
     /**
      * @var int
@@ -21,17 +26,12 @@ class DescribeRiskCheckSummaryRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $resourceDirectoryAccountId;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'                   => 'SourceIp',
-        'resourceOwnerId'            => 'ResourceOwnerId',
         'lang'                       => 'Lang',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'resourceOwnerId'            => 'ResourceOwnerId',
+        'sourceIp'                   => 'SourceIp',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeRiskCheckSummaryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeRiskCheckSummaryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

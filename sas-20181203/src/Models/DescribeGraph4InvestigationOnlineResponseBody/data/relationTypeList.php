@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class relationTypeList extends Model
 {
     /**
+     * @var int
+     */
+    public $directed;
+
+    /**
      * @var string
      */
-    public $showType;
+    public $id;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class relationTypeList extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var int
-     */
-    public $directed;
+    public $showType;
     protected $_name = [
-        'showType' => 'ShowType',
-        'name'     => 'Name',
-        'id'       => 'Id',
         'directed' => 'Directed',
+        'id'       => 'Id',
+        'name'     => 'Name',
+        'showType' => 'ShowType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class relationTypeList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->showType) {
-            $res['ShowType'] = $this->showType;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->directed) {
+            $res['Directed'] = $this->directed;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->directed) {
-            $res['Directed'] = $this->directed;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->showType) {
+            $res['ShowType'] = $this->showType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class relationTypeList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ShowType'])) {
-            $model->showType = $map['ShowType'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Directed'])) {
+            $model->directed = $map['Directed'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Directed'])) {
-            $model->directed = $map['Directed'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ShowType'])) {
+            $model->showType = $map['ShowType'];
         }
 
         return $model;

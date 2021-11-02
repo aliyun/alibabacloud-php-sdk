@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedContainerInstancesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var groupedContainerInstanceList[]
      */
-    public $requestId;
+    public $groupedContainerInstanceList;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var groupedContainerInstanceList[]
+     * @var string
      */
-    public $groupedContainerInstanceList;
+    public $requestId;
     protected $_name = [
-        'requestId'                    => 'RequestId',
-        'pageInfo'                     => 'PageInfo',
         'groupedContainerInstanceList' => 'GroupedContainerInstanceList',
+        'pageInfo'                     => 'PageInfo',
+        'requestId'                    => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
         if (null !== $this->groupedContainerInstanceList) {
             $res['GroupedContainerInstanceList'] = [];
             if (null !== $this->groupedContainerInstanceList && \is_array($this->groupedContainerInstanceList)) {
@@ -51,6 +45,12 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
                     $res['GroupedContainerInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
         if (isset($map['GroupedContainerInstanceList'])) {
             if (!empty($map['GroupedContainerInstanceList'])) {
                 $model->groupedContainerInstanceList = [];
@@ -78,6 +72,12 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
                     $model->groupedContainerInstanceList[$n++] = null !== $item ? groupedContainerInstanceList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

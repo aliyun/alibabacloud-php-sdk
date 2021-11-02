@@ -11,15 +11,15 @@ class patchList extends Model
     /**
      * @var string
      */
-    public $name;
+    public $aliasName;
 
     /**
      * @var string
      */
-    public $aliasName;
+    public $name;
     protected $_name = [
-        'name'      => 'Name',
         'aliasName' => 'AliasName',
+        'name'      => 'Name',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class patchList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class patchList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

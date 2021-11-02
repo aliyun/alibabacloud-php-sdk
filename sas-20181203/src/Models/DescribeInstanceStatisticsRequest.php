@@ -11,7 +11,7 @@ class DescribeInstanceStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $from;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class DescribeInstanceStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $uuid;
+    public $sourceIp;
 
     /**
      * @var string
      */
-    public $from;
+    public $uuid;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'lang'     => 'Lang',
-        'uuid'     => 'Uuid',
         'from'     => 'From',
+        'lang'     => 'Lang',
+        'sourceIp' => 'SourceIp',
+        'uuid'     => 'Uuid',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeInstanceStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->from) {
-            $res['From'] = $this->from;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeInstanceStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['From'])) {
-            $model->from = $map['From'];
         }
 
         return $model;

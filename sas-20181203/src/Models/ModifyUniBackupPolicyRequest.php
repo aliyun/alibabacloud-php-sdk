@@ -11,36 +11,6 @@ class ModifyUniBackupPolicyRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $policyId;
-
-    /**
-     * @var string
-     */
-    public $policyName;
-
-    /**
-     * @var int
-     */
-    public $retention;
-
-    /**
-     * @var int
-     */
-    public $speedLimiter;
-
-    /**
-     * @var string
-     */
     public $accountName;
 
     /**
@@ -59,21 +29,51 @@ class ModifyUniBackupPolicyRequest extends Model
     public $incPlan;
 
     /**
+     * @var int
+     */
+    public $policyId;
+
+    /**
+     * @var string
+     */
+    public $policyName;
+
+    /**
      * @var string
      */
     public $policyStatus;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $retention;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
+     * @var int
+     */
+    public $speedLimiter;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'policyId'        => 'PolicyId',
-        'policyName'      => 'PolicyName',
-        'retention'       => 'Retention',
-        'speedLimiter'    => 'SpeedLimiter',
         'accountName'     => 'AccountName',
         'accountPassword' => 'AccountPassword',
         'fullPlan'        => 'FullPlan',
         'incPlan'         => 'IncPlan',
+        'policyId'        => 'PolicyId',
+        'policyName'      => 'PolicyName',
         'policyStatus'    => 'PolicyStatus',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'retention'       => 'Retention',
+        'sourceIp'        => 'SourceIp',
+        'speedLimiter'    => 'SpeedLimiter',
     ];
 
     public function validate()
@@ -83,24 +83,6 @@ class ModifyUniBackupPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->policyId) {
-            $res['PolicyId'] = $this->policyId;
-        }
-        if (null !== $this->policyName) {
-            $res['PolicyName'] = $this->policyName;
-        }
-        if (null !== $this->retention) {
-            $res['Retention'] = $this->retention;
-        }
-        if (null !== $this->speedLimiter) {
-            $res['SpeedLimiter'] = $this->speedLimiter;
-        }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
@@ -113,8 +95,26 @@ class ModifyUniBackupPolicyRequest extends Model
         if (null !== $this->incPlan) {
             $res['IncPlan'] = $this->incPlan;
         }
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
+        }
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
+        }
         if (null !== $this->policyStatus) {
             $res['PolicyStatus'] = $this->policyStatus;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->retention) {
+            $res['Retention'] = $this->retention;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->speedLimiter) {
+            $res['SpeedLimiter'] = $this->speedLimiter;
         }
 
         return $res;
@@ -128,24 +128,6 @@ class ModifyUniBackupPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['PolicyId'])) {
-            $model->policyId = $map['PolicyId'];
-        }
-        if (isset($map['PolicyName'])) {
-            $model->policyName = $map['PolicyName'];
-        }
-        if (isset($map['Retention'])) {
-            $model->retention = $map['Retention'];
-        }
-        if (isset($map['SpeedLimiter'])) {
-            $model->speedLimiter = $map['SpeedLimiter'];
-        }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
@@ -158,8 +140,26 @@ class ModifyUniBackupPolicyRequest extends Model
         if (isset($map['IncPlan'])) {
             $model->incPlan = $map['IncPlan'];
         }
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
+        }
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
+        }
         if (isset($map['PolicyStatus'])) {
             $model->policyStatus = $map['PolicyStatus'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Retention'])) {
+            $model->retention = $map['Retention'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['SpeedLimiter'])) {
+            $model->speedLimiter = $map['SpeedLimiter'];
         }
 
         return $model;

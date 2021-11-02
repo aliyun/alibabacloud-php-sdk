@@ -21,17 +21,17 @@ class ModifyOperateVulRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $reason;
 
     /**
      * @var string
      */
-    public $reason;
+    public $type;
     protected $_name = [
         'info'        => 'Info',
         'operateType' => 'OperateType',
-        'type'        => 'Type',
         'reason'      => 'Reason',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class ModifyOperateVulRequest extends Model
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class ModifyOperateVulRequest extends Model
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

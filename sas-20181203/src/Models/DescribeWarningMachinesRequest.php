@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeWarningMachinesRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
+    public $currentPage;
 
     /**
      * @var string
@@ -24,21 +24,6 @@ class DescribeWarningMachinesRequest extends Model
     public $machineName;
 
     /**
-     * @var string
-     */
-    public $uuids;
-
-    /**
-     * @var int
-     */
-    public $riskId;
-
-    /**
-     * @var int
-     */
-    public $strategyId;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -46,16 +31,31 @@ class DescribeWarningMachinesRequest extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $riskId;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
+     * @var int
+     */
+    public $strategyId;
+
+    /**
+     * @var string
+     */
+    public $uuids;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
+        'currentPage' => 'CurrentPage',
         'lang'        => 'Lang',
         'machineName' => 'MachineName',
-        'uuids'       => 'Uuids',
-        'riskId'      => 'RiskId',
-        'strategyId'  => 'StrategyId',
         'pageSize'    => 'PageSize',
-        'currentPage' => 'CurrentPage',
+        'riskId'      => 'RiskId',
+        'sourceIp'    => 'SourceIp',
+        'strategyId'  => 'StrategyId',
+        'uuids'       => 'Uuids',
     ];
 
     public function validate()
@@ -65,8 +65,8 @@ class DescribeWarningMachinesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -74,20 +74,20 @@ class DescribeWarningMachinesRequest extends Model
         if (null !== $this->machineName) {
             $res['MachineName'] = $this->machineName;
         }
-        if (null !== $this->uuids) {
-            $res['Uuids'] = $this->uuids;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
         }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->uuids) {
+            $res['Uuids'] = $this->uuids;
         }
 
         return $res;
@@ -101,8 +101,8 @@ class DescribeWarningMachinesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
@@ -110,20 +110,20 @@ class DescribeWarningMachinesRequest extends Model
         if (isset($map['MachineName'])) {
             $model->machineName = $map['MachineName'];
         }
-        if (isset($map['Uuids'])) {
-            $model->uuids = $map['Uuids'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];
         }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['Uuids'])) {
+            $model->uuids = $map['Uuids'];
         }
 
         return $model;

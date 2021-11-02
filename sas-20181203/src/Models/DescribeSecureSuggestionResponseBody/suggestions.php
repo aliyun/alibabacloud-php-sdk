@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class suggestions extends Model
 {
     /**
+     * @var detail[]
+     */
+    public $detail;
+
+    /**
      * @var int
      */
     public $points;
@@ -18,15 +23,10 @@ class suggestions extends Model
      * @var string
      */
     public $suggestType;
-
-    /**
-     * @var detail[]
-     */
-    public $detail;
     protected $_name = [
+        'detail'      => 'Detail',
         'points'      => 'Points',
         'suggestType' => 'SuggestType',
-        'detail'      => 'Detail',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class suggestions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->points) {
-            $res['Points'] = $this->points;
-        }
-        if (null !== $this->suggestType) {
-            $res['SuggestType'] = $this->suggestType;
-        }
         if (null !== $this->detail) {
             $res['Detail'] = [];
             if (null !== $this->detail && \is_array($this->detail)) {
@@ -50,6 +44,12 @@ class suggestions extends Model
                     $res['Detail'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->points) {
+            $res['Points'] = $this->points;
+        }
+        if (null !== $this->suggestType) {
+            $res['SuggestType'] = $this->suggestType;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class suggestions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Points'])) {
-            $model->points = $map['Points'];
-        }
-        if (isset($map['SuggestType'])) {
-            $model->suggestType = $map['SuggestType'];
-        }
         if (isset($map['Detail'])) {
             if (!empty($map['Detail'])) {
                 $model->detail = [];
@@ -77,6 +71,12 @@ class suggestions extends Model
                     $model->detail[$n++] = null !== $item ? detail::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Points'])) {
+            $model->points = $map['Points'];
+        }
+        if (isset($map['SuggestType'])) {
+            $model->suggestType = $map['SuggestType'];
         }
 
         return $model;

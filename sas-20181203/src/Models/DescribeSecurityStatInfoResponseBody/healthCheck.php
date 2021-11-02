@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class healthCheck extends Model
 {
     /**
+     * @var string[]
+     */
+    public $dateArray;
+
+    /**
      * @var int
      */
     public $highCount;
+
+    /**
+     * @var string[]
+     */
+    public $highList;
+
+    /**
+     * @var string[]
+     */
+    public $levelsOn;
 
     /**
      * @var int
@@ -19,9 +34,9 @@ class healthCheck extends Model
     public $lowCount;
 
     /**
-     * @var int
+     * @var string[]
      */
-    public $totalCount;
+    public $lowList;
 
     /**
      * @var int
@@ -31,7 +46,7 @@ class healthCheck extends Model
     /**
      * @var string[]
      */
-    public $valueArray;
+    public $mediumList;
 
     /**
      * @var string[]
@@ -39,41 +54,26 @@ class healthCheck extends Model
     public $timeArray;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $levelsOn;
+    public $totalCount;
 
     /**
      * @var string[]
      */
-    public $lowList;
-
-    /**
-     * @var string[]
-     */
-    public $mediumList;
-
-    /**
-     * @var string[]
-     */
-    public $dateArray;
-
-    /**
-     * @var string[]
-     */
-    public $highList;
+    public $valueArray;
     protected $_name = [
-        'highCount'   => 'HighCount',
-        'lowCount'    => 'LowCount',
-        'totalCount'  => 'TotalCount',
-        'mediumCount' => 'MediumCount',
-        'valueArray'  => 'ValueArray',
-        'timeArray'   => 'TimeArray',
-        'levelsOn'    => 'LevelsOn',
-        'lowList'     => 'LowList',
-        'mediumList'  => 'MediumList',
         'dateArray'   => 'DateArray',
+        'highCount'   => 'HighCount',
         'highList'    => 'HighList',
+        'levelsOn'    => 'LevelsOn',
+        'lowCount'    => 'LowCount',
+        'lowList'     => 'LowList',
+        'mediumCount' => 'MediumCount',
+        'mediumList'  => 'MediumList',
+        'timeArray'   => 'TimeArray',
+        'totalCount'  => 'TotalCount',
+        'valueArray'  => 'ValueArray',
     ];
 
     public function validate()
@@ -83,38 +83,38 @@ class healthCheck extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dateArray) {
+            $res['DateArray'] = $this->dateArray;
+        }
         if (null !== $this->highCount) {
             $res['HighCount'] = $this->highCount;
         }
-        if (null !== $this->lowCount) {
-            $res['LowCount'] = $this->lowCount;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->mediumCount) {
-            $res['MediumCount'] = $this->mediumCount;
-        }
-        if (null !== $this->valueArray) {
-            $res['ValueArray'] = $this->valueArray;
-        }
-        if (null !== $this->timeArray) {
-            $res['TimeArray'] = $this->timeArray;
+        if (null !== $this->highList) {
+            $res['HighList'] = $this->highList;
         }
         if (null !== $this->levelsOn) {
             $res['LevelsOn'] = $this->levelsOn;
         }
+        if (null !== $this->lowCount) {
+            $res['LowCount'] = $this->lowCount;
+        }
         if (null !== $this->lowList) {
             $res['LowList'] = $this->lowList;
+        }
+        if (null !== $this->mediumCount) {
+            $res['MediumCount'] = $this->mediumCount;
         }
         if (null !== $this->mediumList) {
             $res['MediumList'] = $this->mediumList;
         }
-        if (null !== $this->dateArray) {
-            $res['DateArray'] = $this->dateArray;
+        if (null !== $this->timeArray) {
+            $res['TimeArray'] = $this->timeArray;
         }
-        if (null !== $this->highList) {
-            $res['HighList'] = $this->highList;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->valueArray) {
+            $res['ValueArray'] = $this->valueArray;
         }
 
         return $res;
@@ -128,26 +128,17 @@ class healthCheck extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DateArray'])) {
+            if (!empty($map['DateArray'])) {
+                $model->dateArray = $map['DateArray'];
+            }
+        }
         if (isset($map['HighCount'])) {
             $model->highCount = $map['HighCount'];
         }
-        if (isset($map['LowCount'])) {
-            $model->lowCount = $map['LowCount'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['MediumCount'])) {
-            $model->mediumCount = $map['MediumCount'];
-        }
-        if (isset($map['ValueArray'])) {
-            if (!empty($map['ValueArray'])) {
-                $model->valueArray = $map['ValueArray'];
-            }
-        }
-        if (isset($map['TimeArray'])) {
-            if (!empty($map['TimeArray'])) {
-                $model->timeArray = $map['TimeArray'];
+        if (isset($map['HighList'])) {
+            if (!empty($map['HighList'])) {
+                $model->highList = $map['HighList'];
             }
         }
         if (isset($map['LevelsOn'])) {
@@ -155,24 +146,33 @@ class healthCheck extends Model
                 $model->levelsOn = $map['LevelsOn'];
             }
         }
+        if (isset($map['LowCount'])) {
+            $model->lowCount = $map['LowCount'];
+        }
         if (isset($map['LowList'])) {
             if (!empty($map['LowList'])) {
                 $model->lowList = $map['LowList'];
             }
+        }
+        if (isset($map['MediumCount'])) {
+            $model->mediumCount = $map['MediumCount'];
         }
         if (isset($map['MediumList'])) {
             if (!empty($map['MediumList'])) {
                 $model->mediumList = $map['MediumList'];
             }
         }
-        if (isset($map['DateArray'])) {
-            if (!empty($map['DateArray'])) {
-                $model->dateArray = $map['DateArray'];
+        if (isset($map['TimeArray'])) {
+            if (!empty($map['TimeArray'])) {
+                $model->timeArray = $map['TimeArray'];
             }
         }
-        if (isset($map['HighList'])) {
-            if (!empty($map['HighList'])) {
-                $model->highList = $map['HighList'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['ValueArray'])) {
+            if (!empty($map['ValueArray'])) {
+                $model->valueArray = $map['ValueArray'];
             }
         }
 

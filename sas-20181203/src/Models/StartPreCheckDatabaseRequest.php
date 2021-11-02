@@ -11,7 +11,12 @@ class StartPreCheckDatabaseRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $databaseType;
+
+    /**
+     * @var string
+     */
+    public $instanceUuid;
 
     /**
      * @var int
@@ -21,23 +26,18 @@ class StartPreCheckDatabaseRequest extends Model
     /**
      * @var string
      */
-    public $databaseType;
+    public $sourceIp;
 
     /**
      * @var string
      */
     public $uniRegionId;
-
-    /**
-     * @var string
-     */
-    public $instanceUuid;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
         'databaseType'    => 'DatabaseType',
-        'uniRegionId'     => 'UniRegionId',
         'instanceUuid'    => 'InstanceUuid',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
+        'uniRegionId'     => 'UniRegionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class StartPreCheckDatabaseRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->databaseType) {
+            $res['DatabaseType'] = $this->databaseType;
+        }
+        if (null !== $this->instanceUuid) {
+            $res['InstanceUuid'] = $this->instanceUuid;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->databaseType) {
-            $res['DatabaseType'] = $this->databaseType;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->uniRegionId) {
             $res['UniRegionId'] = $this->uniRegionId;
-        }
-        if (null !== $this->instanceUuid) {
-            $res['InstanceUuid'] = $this->instanceUuid;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class StartPreCheckDatabaseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['DatabaseType'])) {
+            $model->databaseType = $map['DatabaseType'];
+        }
+        if (isset($map['InstanceUuid'])) {
+            $model->instanceUuid = $map['InstanceUuid'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['DatabaseType'])) {
-            $model->databaseType = $map['DatabaseType'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['UniRegionId'])) {
             $model->uniRegionId = $map['UniRegionId'];
-        }
-        if (isset($map['InstanceUuid'])) {
-            $model->instanceUuid = $map['InstanceUuid'];
         }
 
         return $model;

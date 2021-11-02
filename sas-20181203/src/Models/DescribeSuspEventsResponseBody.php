@@ -12,6 +12,11 @@ class DescribeSuspEventsResponseBody extends Model
     /**
      * @var int
      */
+    public $count;
+
+    /**
+     * @var int
+     */
     public $currentPage;
 
     /**
@@ -25,26 +30,21 @@ class DescribeSuspEventsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $count;
-
-    /**
      * @var suspEvents[]
      */
     public $suspEvents;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
+        'count'       => 'Count',
         'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
         'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
-        'count'       => 'Count',
         'suspEvents'  => 'SuspEvents',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -54,6 +54,9 @@ class DescribeSuspEventsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -63,12 +66,6 @@ class DescribeSuspEventsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
-        }
         if (null !== $this->suspEvents) {
             $res['SuspEvents'] = [];
             if (null !== $this->suspEvents && \is_array($this->suspEvents)) {
@@ -77,6 +74,9 @@ class DescribeSuspEventsResponseBody extends Model
                     $res['SuspEvents'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -90,6 +90,9 @@ class DescribeSuspEventsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -99,12 +102,6 @@ class DescribeSuspEventsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
-        }
         if (isset($map['SuspEvents'])) {
             if (!empty($map['SuspEvents'])) {
                 $model->suspEvents = [];
@@ -113,6 +110,9 @@ class DescribeSuspEventsResponseBody extends Model
                     $model->suspEvents[$n++] = null !== $item ? suspEvents::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

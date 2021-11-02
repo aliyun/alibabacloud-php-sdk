@@ -31,19 +31,19 @@ class CreateAssetRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $osName;
 
     /**
      * @var string
      */
-    public $osName;
+    public $status;
     protected $_name = [
         'instanceName' => 'InstanceName',
         'internetIp'   => 'InternetIp',
         'intranetIp'   => 'IntranetIp',
         'os'           => 'Os',
-        'status'       => 'Status',
         'osName'       => 'OsName',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -65,11 +65,11 @@ class CreateAssetRequest extends Model
         if (null !== $this->os) {
             $res['Os'] = $this->os;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->osName) {
             $res['OsName'] = $this->osName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -95,11 +95,11 @@ class CreateAssetRequest extends Model
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['OsName'])) {
             $model->osName = $map['OsName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

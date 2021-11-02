@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDingTalkRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $ruleActionName;
+    public $currentPage;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class DescribeDingTalkRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $ruleActionName;
     protected $_name = [
-        'ruleActionName' => 'RuleActionName',
-        'pageSize'       => 'PageSize',
         'currentPage'    => 'CurrentPage',
+        'pageSize'       => 'PageSize',
+        'ruleActionName' => 'RuleActionName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeDingTalkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleActionName) {
-            $res['RuleActionName'] = $this->ruleActionName;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->ruleActionName) {
+            $res['RuleActionName'] = $this->ruleActionName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeDingTalkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleActionName'])) {
-            $model->ruleActionName = $map['RuleActionName'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['RuleActionName'])) {
+            $model->ruleActionName = $map['RuleActionName'];
         }
 
         return $model;

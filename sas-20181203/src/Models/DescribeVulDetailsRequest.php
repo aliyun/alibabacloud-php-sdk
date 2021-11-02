@@ -11,12 +11,12 @@ class DescribeVulDetailsRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $aliasName;
 
     /**
      * @var string
      */
-    public $type;
+    public $lang;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DescribeVulDetailsRequest extends Model
     /**
      * @var string
      */
-    public $aliasName;
+    public $type;
     protected $_name = [
-        'lang'      => 'Lang',
-        'type'      => 'Type',
-        'name'      => 'Name',
         'aliasName' => 'AliasName',
+        'lang'      => 'Lang',
+        'name'      => 'Name',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeVulDetailsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliasName) {
+            $res['AliasName'] = $this->aliasName;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->aliasName) {
-            $res['AliasName'] = $this->aliasName;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeVulDetailsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliasName'])) {
+            $model->aliasName = $map['AliasName'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['AliasName'])) {
-            $model->aliasName = $map['AliasName'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DescribeFieldStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $machineTypes;
 
     /**
      * @var string
      */
-    public $machineTypes;
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
         'machineTypes' => 'MachineTypes',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeFieldStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->machineTypes) {
             $res['MachineTypes'] = $this->machineTypes;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeFieldStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['MachineTypes'])) {
             $model->machineTypes = $map['MachineTypes'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

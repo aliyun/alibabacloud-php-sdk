@@ -11,7 +11,7 @@ class DescribeUserBaselineAuthorizationRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $lang;
 
     /**
      * @var int
@@ -21,11 +21,11 @@ class DescribeUserBaselineAuthorizationRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
         'lang'            => 'Lang',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeUserBaselineAuthorizationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeUserBaselineAuthorizationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

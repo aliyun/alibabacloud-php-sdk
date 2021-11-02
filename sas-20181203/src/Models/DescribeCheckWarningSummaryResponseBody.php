@@ -12,6 +12,11 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     /**
      * @var int
      */
+    public $count;
+
+    /**
+     * @var int
+     */
     public $currentPage;
 
     /**
@@ -30,20 +35,15 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     public $totalCount;
 
     /**
-     * @var int
-     */
-    public $count;
-
-    /**
      * @var warningSummarys[]
      */
     public $warningSummarys;
     protected $_name = [
+        'count'           => 'Count',
         'currentPage'     => 'CurrentPage',
         'pageSize'        => 'PageSize',
         'requestId'       => 'RequestId',
         'totalCount'      => 'TotalCount',
-        'count'           => 'Count',
         'warningSummarys' => 'WarningSummarys',
     ];
 
@@ -54,6 +54,9 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -65,9 +68,6 @@ class DescribeCheckWarningSummaryResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
         if (null !== $this->warningSummarys) {
             $res['WarningSummarys'] = [];
@@ -90,6 +90,9 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -101,9 +104,6 @@ class DescribeCheckWarningSummaryResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
         if (isset($map['WarningSummarys'])) {
             if (!empty($map['WarningSummarys'])) {

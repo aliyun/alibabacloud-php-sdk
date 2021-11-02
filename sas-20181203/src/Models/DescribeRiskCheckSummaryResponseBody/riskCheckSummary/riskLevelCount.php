@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class riskLevelCount extends Model
 {
     /**
-     * @var string
-     */
-    public $key;
-
-    /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $key;
     protected $_name = [
-        'key'   => 'Key',
         'count' => 'Count',
+        'key'   => 'Key',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class riskLevelCount extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class riskLevelCount extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
 
         return $model;

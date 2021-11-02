@@ -16,28 +16,28 @@ class entityTypeList extends Model
     /**
      * @var string
      */
-    public $displayOrder;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $displayIcon;
 
     /**
      * @var string
      */
+    public $displayOrder;
+
+    /**
+     * @var string
+     */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
         'displayColor' => 'DisplayColor',
-        'displayOrder' => 'DisplayOrder',
-        'name'         => 'Name',
         'displayIcon'  => 'DisplayIcon',
+        'displayOrder' => 'DisplayOrder',
         'id'           => 'Id',
+        'name'         => 'Name',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class entityTypeList extends Model
         if (null !== $this->displayColor) {
             $res['DisplayColor'] = $this->displayColor;
         }
-        if (null !== $this->displayOrder) {
-            $res['DisplayOrder'] = $this->displayOrder;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->displayIcon) {
             $res['DisplayIcon'] = $this->displayIcon;
         }
+        if (null !== $this->displayOrder) {
+            $res['DisplayOrder'] = $this->displayOrder;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class entityTypeList extends Model
         if (isset($map['DisplayColor'])) {
             $model->displayColor = $map['DisplayColor'];
         }
-        if (isset($map['DisplayOrder'])) {
-            $model->displayOrder = $map['DisplayOrder'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['DisplayIcon'])) {
             $model->displayIcon = $map['DisplayIcon'];
         }
+        if (isset($map['DisplayOrder'])) {
+            $model->displayOrder = $map['DisplayOrder'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class OperationSuspEventsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $accessCode;
 
     /**
      * @var string
      */
-    public $accessCode;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'accessCode' => 'AccessCode',
+        'requestId'  => 'RequestId',
         'success'    => 'Success',
     ];
 
@@ -35,11 +35,11 @@ class OperationSuspEventsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->accessCode) {
             $res['AccessCode'] = $this->accessCode;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -56,11 +56,11 @@ class OperationSuspEventsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AccessCode'])) {
             $model->accessCode = $map['AccessCode'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

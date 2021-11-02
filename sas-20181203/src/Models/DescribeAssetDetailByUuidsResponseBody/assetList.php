@@ -11,12 +11,37 @@ class assetList extends Model
     /**
      * @var string
      */
+    public $assetType;
+
+    /**
+     * @var string
+     */
+    public $clientStatus;
+
+    /**
+     * @var int
+     */
+    public $flag;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
     public $internetIp;
 
     /**
      * @var string
      */
-    public $osName;
+    public $intranetIp;
 
     /**
      * @var string
@@ -31,27 +56,12 @@ class assetList extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $osName;
 
     /**
      * @var string
      */
-    public $clientStatus;
-
-    /**
-     * @var string
-     */
-    public $vpcInstanceId;
-
-    /**
-     * @var string
-     */
-    public $intranetIp;
-
-    /**
-     * @var string
-     */
-    public $assetType;
+    public $region;
 
     /**
      * @var string
@@ -61,43 +71,33 @@ class assetList extends Model
     /**
      * @var string
      */
-    public $uuid;
-
-    /**
-     * @var int
-     */
-    public $flag;
-
-    /**
-     * @var string
-     */
     public $regionName;
 
     /**
      * @var string
      */
-    public $instanceName;
+    public $uuid;
 
     /**
      * @var string
      */
-    public $region;
+    public $vpcInstanceId;
     protected $_name = [
+        'assetType'     => 'AssetType',
+        'clientStatus'  => 'ClientStatus',
+        'flag'          => 'Flag',
+        'instanceId'    => 'InstanceId',
+        'instanceName'  => 'InstanceName',
         'internetIp'    => 'InternetIp',
-        'osName'        => 'OsName',
+        'intranetIp'    => 'IntranetIp',
         'ip'            => 'Ip',
         'os'            => 'Os',
-        'instanceId'    => 'InstanceId',
-        'clientStatus'  => 'ClientStatus',
-        'vpcInstanceId' => 'VpcInstanceId',
-        'intranetIp'    => 'IntranetIp',
-        'assetType'     => 'AssetType',
-        'regionId'      => 'RegionId',
-        'uuid'          => 'Uuid',
-        'flag'          => 'Flag',
-        'regionName'    => 'RegionName',
-        'instanceName'  => 'InstanceName',
+        'osName'        => 'OsName',
         'region'        => 'Region',
+        'regionId'      => 'RegionId',
+        'regionName'    => 'RegionName',
+        'uuid'          => 'Uuid',
+        'vpcInstanceId' => 'VpcInstanceId',
     ];
 
     public function validate()
@@ -107,11 +107,26 @@ class assetList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->assetType) {
+            $res['AssetType'] = $this->assetType;
+        }
+        if (null !== $this->clientStatus) {
+            $res['ClientStatus'] = $this->clientStatus;
+        }
+        if (null !== $this->flag) {
+            $res['Flag'] = $this->flag;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
-        if (null !== $this->osName) {
-            $res['OsName'] = $this->osName;
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
@@ -119,38 +134,23 @@ class assetList extends Model
         if (null !== $this->os) {
             $res['Os'] = $this->os;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->osName) {
+            $res['OsName'] = $this->osName;
         }
-        if (null !== $this->clientStatus) {
-            $res['ClientStatus'] = $this->clientStatus;
-        }
-        if (null !== $this->vpcInstanceId) {
-            $res['VpcInstanceId'] = $this->vpcInstanceId;
-        }
-        if (null !== $this->intranetIp) {
-            $res['IntranetIp'] = $this->intranetIp;
-        }
-        if (null !== $this->assetType) {
-            $res['AssetType'] = $this->assetType;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->flag) {
-            $res['Flag'] = $this->flag;
-        }
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
+        if (null !== $this->vpcInstanceId) {
+            $res['VpcInstanceId'] = $this->vpcInstanceId;
         }
 
         return $res;
@@ -164,11 +164,26 @@ class assetList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetType'])) {
+            $model->assetType = $map['AssetType'];
+        }
+        if (isset($map['ClientStatus'])) {
+            $model->clientStatus = $map['ClientStatus'];
+        }
+        if (isset($map['Flag'])) {
+            $model->flag = $map['Flag'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
-        if (isset($map['OsName'])) {
-            $model->osName = $map['OsName'];
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
@@ -176,38 +191,23 @@ class assetList extends Model
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['OsName'])) {
+            $model->osName = $map['OsName'];
         }
-        if (isset($map['ClientStatus'])) {
-            $model->clientStatus = $map['ClientStatus'];
-        }
-        if (isset($map['VpcInstanceId'])) {
-            $model->vpcInstanceId = $map['VpcInstanceId'];
-        }
-        if (isset($map['IntranetIp'])) {
-            $model->intranetIp = $map['IntranetIp'];
-        }
-        if (isset($map['AssetType'])) {
-            $model->assetType = $map['AssetType'];
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['Flag'])) {
-            $model->flag = $map['Flag'];
-        }
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
         }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
+        if (isset($map['VpcInstanceId'])) {
+            $model->vpcInstanceId = $map['VpcInstanceId'];
         }
 
         return $model;

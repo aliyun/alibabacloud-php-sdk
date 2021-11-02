@@ -11,15 +11,15 @@ class DescribeExcludeSystemPathRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $currentPage;
 
     /**
      * @var int
      */
-    public $currentPage;
+    public $pageSize;
     protected $_name = [
-        'pageSize'    => 'PageSize',
         'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeExcludeSystemPathRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeExcludeSystemPathRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

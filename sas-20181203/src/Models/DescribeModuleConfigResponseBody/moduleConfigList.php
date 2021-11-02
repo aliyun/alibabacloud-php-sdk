@@ -12,21 +12,21 @@ class moduleConfigList extends Model
     /**
      * @var string
      */
-    public $moduleName;
-
-    /**
-     * @var string
-     */
     public $configName;
 
     /**
      * @var items[]
      */
     public $items;
+
+    /**
+     * @var string
+     */
+    public $moduleName;
     protected $_name = [
-        'moduleName' => 'ModuleName',
         'configName' => 'ConfigName',
         'items'      => 'Items',
+        'moduleName' => 'ModuleName',
     ];
 
     public function validate()
@@ -36,9 +36,6 @@ class moduleConfigList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->moduleName) {
-            $res['ModuleName'] = $this->moduleName;
-        }
         if (null !== $this->configName) {
             $res['ConfigName'] = $this->configName;
         }
@@ -50,6 +47,9 @@ class moduleConfigList extends Model
                     $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->moduleName) {
+            $res['ModuleName'] = $this->moduleName;
         }
 
         return $res;
@@ -63,9 +63,6 @@ class moduleConfigList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModuleName'])) {
-            $model->moduleName = $map['ModuleName'];
-        }
         if (isset($map['ConfigName'])) {
             $model->configName = $map['ConfigName'];
         }
@@ -77,6 +74,9 @@ class moduleConfigList extends Model
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ModuleName'])) {
+            $model->moduleName = $map['ModuleName'];
         }
 
         return $model;

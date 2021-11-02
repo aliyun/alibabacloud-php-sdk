@@ -11,7 +11,7 @@ class groupedMaliciousFileResponse extends Model
     /**
      * @var int
      */
-    public $status;
+    public $firstScanTimestamp;
 
     /**
      * @var int
@@ -26,7 +26,7 @@ class groupedMaliciousFileResponse extends Model
     /**
      * @var string
      */
-    public $maliciousName;
+    public $level;
 
     /**
      * @var string
@@ -34,22 +34,22 @@ class groupedMaliciousFileResponse extends Model
     public $maliciousMd5;
 
     /**
-     * @var int
-     */
-    public $firstScanTimestamp;
-
-    /**
      * @var string
      */
-    public $level;
+    public $maliciousName;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'              => 'Status',
+        'firstScanTimestamp'  => 'FirstScanTimestamp',
         'imageCount'          => 'ImageCount',
         'latestScanTimestamp' => 'LatestScanTimestamp',
-        'maliciousName'       => 'MaliciousName',
-        'maliciousMd5'        => 'MaliciousMd5',
-        'firstScanTimestamp'  => 'FirstScanTimestamp',
         'level'               => 'Level',
+        'maliciousMd5'        => 'MaliciousMd5',
+        'maliciousName'       => 'MaliciousName',
+        'status'              => 'Status',
     ];
 
     public function validate()
@@ -59,8 +59,8 @@ class groupedMaliciousFileResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->firstScanTimestamp) {
+            $res['FirstScanTimestamp'] = $this->firstScanTimestamp;
         }
         if (null !== $this->imageCount) {
             $res['ImageCount'] = $this->imageCount;
@@ -68,17 +68,17 @@ class groupedMaliciousFileResponse extends Model
         if (null !== $this->latestScanTimestamp) {
             $res['LatestScanTimestamp'] = $this->latestScanTimestamp;
         }
-        if (null !== $this->maliciousName) {
-            $res['MaliciousName'] = $this->maliciousName;
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
         if (null !== $this->maliciousMd5) {
             $res['MaliciousMd5'] = $this->maliciousMd5;
         }
-        if (null !== $this->firstScanTimestamp) {
-            $res['FirstScanTimestamp'] = $this->firstScanTimestamp;
+        if (null !== $this->maliciousName) {
+            $res['MaliciousName'] = $this->maliciousName;
         }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,8 +92,8 @@ class groupedMaliciousFileResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['FirstScanTimestamp'])) {
+            $model->firstScanTimestamp = $map['FirstScanTimestamp'];
         }
         if (isset($map['ImageCount'])) {
             $model->imageCount = $map['ImageCount'];
@@ -101,17 +101,17 @@ class groupedMaliciousFileResponse extends Model
         if (isset($map['LatestScanTimestamp'])) {
             $model->latestScanTimestamp = $map['LatestScanTimestamp'];
         }
-        if (isset($map['MaliciousName'])) {
-            $model->maliciousName = $map['MaliciousName'];
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
         if (isset($map['MaliciousMd5'])) {
             $model->maliciousMd5 = $map['MaliciousMd5'];
         }
-        if (isset($map['FirstScanTimestamp'])) {
-            $model->firstScanTimestamp = $map['FirstScanTimestamp'];
+        if (isset($map['MaliciousName'])) {
+            $model->maliciousName = $map['MaliciousName'];
         }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

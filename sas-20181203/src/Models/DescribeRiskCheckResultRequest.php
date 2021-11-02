@@ -11,22 +11,7 @@ class DescribeRiskCheckResultRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var int
-     */
-    public $groupId;
+    public $assetType;
 
     /**
      * @var int
@@ -34,19 +19,19 @@ class DescribeRiskCheckResultRequest extends Model
     public $currentPage;
 
     /**
-     * @var string
+     * @var int
      */
-    public $riskLevel;
+    public $groupId;
+
+    /**
+     * @var string[]
+     */
+    public $itemIds;
 
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $assetType;
+    public $lang;
 
     /**
      * @var string
@@ -64,22 +49,37 @@ class DescribeRiskCheckResultRequest extends Model
     public $queryFlag;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $itemIds;
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'lang'            => 'Lang',
-        'groupId'         => 'GroupId',
-        'currentPage'     => 'CurrentPage',
-        'riskLevel'       => 'RiskLevel',
-        'status'          => 'Status',
         'assetType'       => 'AssetType',
+        'currentPage'     => 'CurrentPage',
+        'groupId'         => 'GroupId',
+        'itemIds'         => 'ItemIds',
+        'lang'            => 'Lang',
         'name'            => 'Name',
         'pageSize'        => 'PageSize',
         'queryFlag'       => 'QueryFlag',
-        'itemIds'         => 'ItemIds',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'riskLevel'       => 'RiskLevel',
+        'sourceIp'        => 'SourceIp',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -89,29 +89,20 @@ class DescribeRiskCheckResultRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->assetType) {
+            $res['AssetType'] = $this->assetType;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->itemIds) {
+            $res['ItemIds'] = $this->itemIds;
         }
-        if (null !== $this->assetType) {
-            $res['AssetType'] = $this->assetType;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -122,8 +113,17 @@ class DescribeRiskCheckResultRequest extends Model
         if (null !== $this->queryFlag) {
             $res['QueryFlag'] = $this->queryFlag;
         }
-        if (null !== $this->itemIds) {
-            $res['ItemIds'] = $this->itemIds;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -137,29 +137,22 @@ class DescribeRiskCheckResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['AssetType'])) {
+            $model->assetType = $map['AssetType'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['RiskLevel'])) {
-            $model->riskLevel = $map['RiskLevel'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ItemIds'])) {
+            if (!empty($map['ItemIds'])) {
+                $model->itemIds = $map['ItemIds'];
+            }
         }
-        if (isset($map['AssetType'])) {
-            $model->assetType = $map['AssetType'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -170,10 +163,17 @@ class DescribeRiskCheckResultRequest extends Model
         if (isset($map['QueryFlag'])) {
             $model->queryFlag = $map['QueryFlag'];
         }
-        if (isset($map['ItemIds'])) {
-            if (!empty($map['ItemIds'])) {
-                $model->itemIds = $map['ItemIds'];
-            }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -11,21 +11,21 @@ class ModifyCreateVulWhitelistRequest extends Model
     /**
      * @var string
      */
-    public $whitelist;
-
-    /**
-     * @var string
-     */
     public $reason;
 
     /**
      * @var string
      */
     public $targetInfo;
+
+    /**
+     * @var string
+     */
+    public $whitelist;
     protected $_name = [
-        'whitelist'  => 'Whitelist',
         'reason'     => 'Reason',
         'targetInfo' => 'TargetInfo',
+        'whitelist'  => 'Whitelist',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ModifyCreateVulWhitelistRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->whitelist) {
-            $res['Whitelist'] = $this->whitelist;
-        }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
         if (null !== $this->targetInfo) {
             $res['TargetInfo'] = $this->targetInfo;
+        }
+        if (null !== $this->whitelist) {
+            $res['Whitelist'] = $this->whitelist;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ModifyCreateVulWhitelistRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Whitelist'])) {
-            $model->whitelist = $map['Whitelist'];
-        }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
         if (isset($map['TargetInfo'])) {
             $model->targetInfo = $map['TargetInfo'];
+        }
+        if (isset($map['Whitelist'])) {
+            $model->whitelist = $map['Whitelist'];
         }
 
         return $model;

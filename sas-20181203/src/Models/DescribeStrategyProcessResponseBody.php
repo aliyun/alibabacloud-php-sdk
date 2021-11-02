@@ -14,14 +14,14 @@ class DescribeStrategyProcessResponseBody extends Model
     public $execStatus;
 
     /**
-     * @var int
+     * @var string
      */
-    public $processRate;
+    public $passRate;
 
     /**
      * @var int
      */
-    public $strategyId;
+    public $processRate;
 
     /**
      * @var string
@@ -29,15 +29,15 @@ class DescribeStrategyProcessResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $passRate;
+    public $strategyId;
     protected $_name = [
         'execStatus'  => 'ExecStatus',
-        'processRate' => 'ProcessRate',
-        'strategyId'  => 'StrategyId',
-        'requestId'   => 'RequestId',
         'passRate'    => 'PassRate',
+        'processRate' => 'ProcessRate',
+        'requestId'   => 'RequestId',
+        'strategyId'  => 'StrategyId',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class DescribeStrategyProcessResponseBody extends Model
         if (null !== $this->execStatus) {
             $res['ExecStatus'] = $this->execStatus;
         }
+        if (null !== $this->passRate) {
+            $res['PassRate'] = $this->passRate;
+        }
         if (null !== $this->processRate) {
             $res['ProcessRate'] = $this->processRate;
-        }
-        if (null !== $this->strategyId) {
-            $res['StrategyId'] = $this->strategyId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->passRate) {
-            $res['PassRate'] = $this->passRate;
+        if (null !== $this->strategyId) {
+            $res['StrategyId'] = $this->strategyId;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class DescribeStrategyProcessResponseBody extends Model
         if (isset($map['ExecStatus'])) {
             $model->execStatus = $map['ExecStatus'];
         }
+        if (isset($map['PassRate'])) {
+            $model->passRate = $map['PassRate'];
+        }
         if (isset($map['ProcessRate'])) {
             $model->processRate = $map['ProcessRate'];
-        }
-        if (isset($map['StrategyId'])) {
-            $model->strategyId = $map['StrategyId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PassRate'])) {
-            $model->passRate = $map['PassRate'];
+        if (isset($map['StrategyId'])) {
+            $model->strategyId = $map['StrategyId'];
         }
 
         return $model;

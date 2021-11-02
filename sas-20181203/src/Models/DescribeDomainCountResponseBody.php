@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCountResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $rootDomainsCount;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $rootDomainsCount;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class DescribeDomainCountResponseBody extends Model
      */
     public $totalDomainsCount;
     protected $_name = [
-        'rootDomainsCount'  => 'RootDomainsCount',
         'requestId'         => 'RequestId',
+        'rootDomainsCount'  => 'RootDomainsCount',
         'subDomainsCount'   => 'SubDomainsCount',
         'totalDomainsCount' => 'TotalDomainsCount',
     ];
@@ -41,11 +41,11 @@ class DescribeDomainCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rootDomainsCount) {
-            $res['RootDomainsCount'] = $this->rootDomainsCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->rootDomainsCount) {
+            $res['RootDomainsCount'] = $this->rootDomainsCount;
         }
         if (null !== $this->subDomainsCount) {
             $res['SubDomainsCount'] = $this->subDomainsCount;
@@ -65,11 +65,11 @@ class DescribeDomainCountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RootDomainsCount'])) {
-            $model->rootDomainsCount = $map['RootDomainsCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RootDomainsCount'])) {
+            $model->rootDomainsCount = $map['RootDomainsCount'];
         }
         if (isset($map['SubDomainsCount'])) {
             $model->subDomainsCount = $map['SubDomainsCount'];

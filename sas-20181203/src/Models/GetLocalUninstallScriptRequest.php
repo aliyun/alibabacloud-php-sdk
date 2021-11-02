@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetLocalUninstallScriptRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $internalNetwork;
+
+    /**
      * @var string
      */
     public $platformType;
@@ -17,15 +22,10 @@ class GetLocalUninstallScriptRequest extends Model
      * @var string
      */
     public $uuid;
-
-    /**
-     * @var bool
-     */
-    public $internalNetwork;
     protected $_name = [
+        'internalNetwork' => 'InternalNetwork',
         'platformType'    => 'PlatformType',
         'uuid'            => 'Uuid',
-        'internalNetwork' => 'InternalNetwork',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetLocalUninstallScriptRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->internalNetwork) {
+            $res['InternalNetwork'] = $this->internalNetwork;
+        }
         if (null !== $this->platformType) {
             $res['PlatformType'] = $this->platformType;
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->internalNetwork) {
-            $res['InternalNetwork'] = $this->internalNetwork;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetLocalUninstallScriptRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InternalNetwork'])) {
+            $model->internalNetwork = $map['InternalNetwork'];
+        }
         if (isset($map['PlatformType'])) {
             $model->platformType = $map['PlatformType'];
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['InternalNetwork'])) {
-            $model->internalNetwork = $map['InternalNetwork'];
         }
 
         return $model;

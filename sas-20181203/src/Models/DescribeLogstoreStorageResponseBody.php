@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogstoreStorageResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $used;
-
-    /**
-     * @var int
-     */
-    public $ttl;
-
-    /**
      * @var string
      */
     public $logstore;
+
+    /**
+     * @var int
+     */
+    public $preserve;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class DescribeLogstoreStorageResponseBody extends Model
     /**
      * @var int
      */
-    public $preserve;
+    public $ttl;
+
+    /**
+     * @var int
+     */
+    public $used;
     protected $_name = [
-        'used'      => 'Used',
-        'ttl'       => 'Ttl',
         'logstore'  => 'Logstore',
-        'requestId' => 'RequestId',
         'preserve'  => 'Preserve',
+        'requestId' => 'RequestId',
+        'ttl'       => 'Ttl',
+        'used'      => 'Used',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeLogstoreStorageResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->used) {
-            $res['Used'] = $this->used;
-        }
-        if (null !== $this->ttl) {
-            $res['Ttl'] = $this->ttl;
-        }
         if (null !== $this->logstore) {
             $res['Logstore'] = $this->logstore;
+        }
+        if (null !== $this->preserve) {
+            $res['Preserve'] = $this->preserve;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->preserve) {
-            $res['Preserve'] = $this->preserve;
+        if (null !== $this->ttl) {
+            $res['Ttl'] = $this->ttl;
+        }
+        if (null !== $this->used) {
+            $res['Used'] = $this->used;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeLogstoreStorageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Used'])) {
-            $model->used = $map['Used'];
-        }
-        if (isset($map['Ttl'])) {
-            $model->ttl = $map['Ttl'];
-        }
         if (isset($map['Logstore'])) {
             $model->logstore = $map['Logstore'];
+        }
+        if (isset($map['Preserve'])) {
+            $model->preserve = $map['Preserve'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Preserve'])) {
-            $model->preserve = $map['Preserve'];
+        if (isset($map['Ttl'])) {
+            $model->ttl = $map['Ttl'];
+        }
+        if (isset($map['Used'])) {
+            $model->used = $map['Used'];
         }
 
         return $model;

@@ -16,27 +16,7 @@ class instances extends Model
     /**
      * @var string
      */
-    public $unProtectedInstanceCount;
-
-    /**
-     * @var string
-     */
     public $fieldAliasName;
-
-    /**
-     * @var string
-     */
-    public $instanceCount;
-
-    /**
-     * @var int
-     */
-    public $fieldId;
-
-    /**
-     * @var string
-     */
-    public $riskInstanceCount;
 
     /**
      * @var int
@@ -44,18 +24,26 @@ class instances extends Model
     public $groupFlag;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $groupPath;
+    public $instanceCount;
+
+    /**
+     * @var string
+     */
+    public $riskInstanceCount;
+
+    /**
+     * @var string
+     */
+    public $unProtectedInstanceCount;
     protected $_name = [
         'asapVulInstanceCount'     => 'AsapVulInstanceCount',
-        'unProtectedInstanceCount' => 'UnProtectedInstanceCount',
         'fieldAliasName'           => 'FieldAliasName',
-        'instanceCount'            => 'InstanceCount',
-        'fieldId'                  => 'FieldId',
-        'riskInstanceCount'        => 'RiskInstanceCount',
         'groupFlag'                => 'GroupFlag',
-        'groupPath'                => 'GroupPath',
+        'instanceCount'            => 'InstanceCount',
+        'riskInstanceCount'        => 'RiskInstanceCount',
+        'unProtectedInstanceCount' => 'UnProtectedInstanceCount',
     ];
 
     public function validate()
@@ -68,26 +56,20 @@ class instances extends Model
         if (null !== $this->asapVulInstanceCount) {
             $res['AsapVulInstanceCount'] = $this->asapVulInstanceCount;
         }
-        if (null !== $this->unProtectedInstanceCount) {
-            $res['UnProtectedInstanceCount'] = $this->unProtectedInstanceCount;
-        }
         if (null !== $this->fieldAliasName) {
             $res['FieldAliasName'] = $this->fieldAliasName;
-        }
-        if (null !== $this->instanceCount) {
-            $res['InstanceCount'] = $this->instanceCount;
-        }
-        if (null !== $this->fieldId) {
-            $res['FieldId'] = $this->fieldId;
-        }
-        if (null !== $this->riskInstanceCount) {
-            $res['RiskInstanceCount'] = $this->riskInstanceCount;
         }
         if (null !== $this->groupFlag) {
             $res['GroupFlag'] = $this->groupFlag;
         }
-        if (null !== $this->groupPath) {
-            $res['GroupPath'] = $this->groupPath;
+        if (null !== $this->instanceCount) {
+            $res['InstanceCount'] = $this->instanceCount;
+        }
+        if (null !== $this->riskInstanceCount) {
+            $res['RiskInstanceCount'] = $this->riskInstanceCount;
+        }
+        if (null !== $this->unProtectedInstanceCount) {
+            $res['UnProtectedInstanceCount'] = $this->unProtectedInstanceCount;
         }
 
         return $res;
@@ -104,28 +86,20 @@ class instances extends Model
         if (isset($map['AsapVulInstanceCount'])) {
             $model->asapVulInstanceCount = $map['AsapVulInstanceCount'];
         }
-        if (isset($map['UnProtectedInstanceCount'])) {
-            $model->unProtectedInstanceCount = $map['UnProtectedInstanceCount'];
-        }
         if (isset($map['FieldAliasName'])) {
             $model->fieldAliasName = $map['FieldAliasName'];
-        }
-        if (isset($map['InstanceCount'])) {
-            $model->instanceCount = $map['InstanceCount'];
-        }
-        if (isset($map['FieldId'])) {
-            $model->fieldId = $map['FieldId'];
-        }
-        if (isset($map['RiskInstanceCount'])) {
-            $model->riskInstanceCount = $map['RiskInstanceCount'];
         }
         if (isset($map['GroupFlag'])) {
             $model->groupFlag = $map['GroupFlag'];
         }
-        if (isset($map['GroupPath'])) {
-            if (!empty($map['GroupPath'])) {
-                $model->groupPath = $map['GroupPath'];
-            }
+        if (isset($map['InstanceCount'])) {
+            $model->instanceCount = $map['InstanceCount'];
+        }
+        if (isset($map['RiskInstanceCount'])) {
+            $model->riskInstanceCount = $map['RiskInstanceCount'];
+        }
+        if (isset($map['UnProtectedInstanceCount'])) {
+            $model->unProtectedInstanceCount = $map['UnProtectedInstanceCount'];
         }
 
         return $model;

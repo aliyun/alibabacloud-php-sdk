@@ -12,27 +12,12 @@ class cves extends Model
     /**
      * @var string
      */
-    public $summary;
+    public $classify;
 
     /**
-     * @var string
+     * @var classifys[]
      */
-    public $complexity;
-
-    /**
-     * @var string
-     */
-    public $product;
-
-    /**
-     * @var int
-     */
-    public $pocCreateTime;
-
-    /**
-     * @var string
-     */
-    public $cveId;
+    public $classifys;
 
     /**
      * @var string
@@ -42,52 +27,7 @@ class cves extends Model
     /**
      * @var string
      */
-    public $reference;
-
-    /**
-     * @var string
-     */
-    public $cvssScore;
-
-    /**
-     * @var string
-     */
-    public $vendor;
-
-    /**
-     * @var int
-     */
-    public $pocDisclosureTime;
-
-    /**
-     * @var string
-     */
-    public $classify;
-
-    /**
-     * @var string
-     */
-    public $cvssVector;
-
-    /**
-     * @var string
-     */
-    public $vulLevel;
-
-    /**
-     * @var int
-     */
-    public $releaseTime;
-
-    /**
-     * @var string
-     */
-    public $title;
-
-    /**
-     * @var string
-     */
-    public $solution;
+    public $complexity;
 
     /**
      * @var string
@@ -97,32 +37,92 @@ class cves extends Model
     /**
      * @var string
      */
+    public $cveId;
+
+    /**
+     * @var string
+     */
+    public $cvssScore;
+
+    /**
+     * @var string
+     */
+    public $cvssVector;
+
+    /**
+     * @var string
+     */
     public $poc;
 
     /**
-     * @var classifys[]
+     * @var int
      */
-    public $classifys;
+    public $pocCreateTime;
+
+    /**
+     * @var int
+     */
+    public $pocDisclosureTime;
+
+    /**
+     * @var string
+     */
+    public $product;
+
+    /**
+     * @var string
+     */
+    public $reference;
+
+    /**
+     * @var int
+     */
+    public $releaseTime;
+
+    /**
+     * @var string
+     */
+    public $solution;
+
+    /**
+     * @var string
+     */
+    public $summary;
+
+    /**
+     * @var string
+     */
+    public $title;
+
+    /**
+     * @var string
+     */
+    public $vendor;
+
+    /**
+     * @var string
+     */
+    public $vulLevel;
     protected $_name = [
-        'summary'           => 'Summary',
-        'complexity'        => 'Complexity',
-        'product'           => 'Product',
-        'pocCreateTime'     => 'PocCreateTime',
-        'cveId'             => 'CveId',
-        'cnvdId'            => 'CnvdId',
-        'reference'         => 'Reference',
-        'cvssScore'         => 'CvssScore',
-        'vendor'            => 'Vendor',
-        'pocDisclosureTime' => 'PocDisclosureTime',
         'classify'          => 'Classify',
-        'cvssVector'        => 'CvssVector',
-        'vulLevel'          => 'VulLevel',
-        'releaseTime'       => 'ReleaseTime',
-        'title'             => 'Title',
-        'solution'          => 'Solution',
-        'content'           => 'Content',
-        'poc'               => 'Poc',
         'classifys'         => 'Classifys',
+        'cnvdId'            => 'CnvdId',
+        'complexity'        => 'Complexity',
+        'content'           => 'Content',
+        'cveId'             => 'CveId',
+        'cvssScore'         => 'CvssScore',
+        'cvssVector'        => 'CvssVector',
+        'poc'               => 'Poc',
+        'pocCreateTime'     => 'PocCreateTime',
+        'pocDisclosureTime' => 'PocDisclosureTime',
+        'product'           => 'Product',
+        'reference'         => 'Reference',
+        'releaseTime'       => 'ReleaseTime',
+        'solution'          => 'Solution',
+        'summary'           => 'Summary',
+        'title'             => 'Title',
+        'vendor'            => 'Vendor',
+        'vulLevel'          => 'VulLevel',
     ];
 
     public function validate()
@@ -132,59 +132,8 @@ class cves extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->summary) {
-            $res['Summary'] = $this->summary;
-        }
-        if (null !== $this->complexity) {
-            $res['Complexity'] = $this->complexity;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
-        if (null !== $this->pocCreateTime) {
-            $res['PocCreateTime'] = $this->pocCreateTime;
-        }
-        if (null !== $this->cveId) {
-            $res['CveId'] = $this->cveId;
-        }
-        if (null !== $this->cnvdId) {
-            $res['CnvdId'] = $this->cnvdId;
-        }
-        if (null !== $this->reference) {
-            $res['Reference'] = $this->reference;
-        }
-        if (null !== $this->cvssScore) {
-            $res['CvssScore'] = $this->cvssScore;
-        }
-        if (null !== $this->vendor) {
-            $res['Vendor'] = $this->vendor;
-        }
-        if (null !== $this->pocDisclosureTime) {
-            $res['PocDisclosureTime'] = $this->pocDisclosureTime;
-        }
         if (null !== $this->classify) {
             $res['Classify'] = $this->classify;
-        }
-        if (null !== $this->cvssVector) {
-            $res['CvssVector'] = $this->cvssVector;
-        }
-        if (null !== $this->vulLevel) {
-            $res['VulLevel'] = $this->vulLevel;
-        }
-        if (null !== $this->releaseTime) {
-            $res['ReleaseTime'] = $this->releaseTime;
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->solution) {
-            $res['Solution'] = $this->solution;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
-        if (null !== $this->poc) {
-            $res['Poc'] = $this->poc;
         }
         if (null !== $this->classifys) {
             $res['Classifys'] = [];
@@ -194,6 +143,57 @@ class cves extends Model
                     $res['Classifys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->cnvdId) {
+            $res['CnvdId'] = $this->cnvdId;
+        }
+        if (null !== $this->complexity) {
+            $res['Complexity'] = $this->complexity;
+        }
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
+        if (null !== $this->cveId) {
+            $res['CveId'] = $this->cveId;
+        }
+        if (null !== $this->cvssScore) {
+            $res['CvssScore'] = $this->cvssScore;
+        }
+        if (null !== $this->cvssVector) {
+            $res['CvssVector'] = $this->cvssVector;
+        }
+        if (null !== $this->poc) {
+            $res['Poc'] = $this->poc;
+        }
+        if (null !== $this->pocCreateTime) {
+            $res['PocCreateTime'] = $this->pocCreateTime;
+        }
+        if (null !== $this->pocDisclosureTime) {
+            $res['PocDisclosureTime'] = $this->pocDisclosureTime;
+        }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
+        }
+        if (null !== $this->reference) {
+            $res['Reference'] = $this->reference;
+        }
+        if (null !== $this->releaseTime) {
+            $res['ReleaseTime'] = $this->releaseTime;
+        }
+        if (null !== $this->solution) {
+            $res['Solution'] = $this->solution;
+        }
+        if (null !== $this->summary) {
+            $res['Summary'] = $this->summary;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
+        if (null !== $this->vendor) {
+            $res['Vendor'] = $this->vendor;
+        }
+        if (null !== $this->vulLevel) {
+            $res['VulLevel'] = $this->vulLevel;
         }
 
         return $res;
@@ -207,59 +207,8 @@ class cves extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Summary'])) {
-            $model->summary = $map['Summary'];
-        }
-        if (isset($map['Complexity'])) {
-            $model->complexity = $map['Complexity'];
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
-        if (isset($map['PocCreateTime'])) {
-            $model->pocCreateTime = $map['PocCreateTime'];
-        }
-        if (isset($map['CveId'])) {
-            $model->cveId = $map['CveId'];
-        }
-        if (isset($map['CnvdId'])) {
-            $model->cnvdId = $map['CnvdId'];
-        }
-        if (isset($map['Reference'])) {
-            $model->reference = $map['Reference'];
-        }
-        if (isset($map['CvssScore'])) {
-            $model->cvssScore = $map['CvssScore'];
-        }
-        if (isset($map['Vendor'])) {
-            $model->vendor = $map['Vendor'];
-        }
-        if (isset($map['PocDisclosureTime'])) {
-            $model->pocDisclosureTime = $map['PocDisclosureTime'];
-        }
         if (isset($map['Classify'])) {
             $model->classify = $map['Classify'];
-        }
-        if (isset($map['CvssVector'])) {
-            $model->cvssVector = $map['CvssVector'];
-        }
-        if (isset($map['VulLevel'])) {
-            $model->vulLevel = $map['VulLevel'];
-        }
-        if (isset($map['ReleaseTime'])) {
-            $model->releaseTime = $map['ReleaseTime'];
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['Solution'])) {
-            $model->solution = $map['Solution'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
-        if (isset($map['Poc'])) {
-            $model->poc = $map['Poc'];
         }
         if (isset($map['Classifys'])) {
             if (!empty($map['Classifys'])) {
@@ -269,6 +218,57 @@ class cves extends Model
                     $model->classifys[$n++] = null !== $item ? classifys::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CnvdId'])) {
+            $model->cnvdId = $map['CnvdId'];
+        }
+        if (isset($map['Complexity'])) {
+            $model->complexity = $map['Complexity'];
+        }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
+        if (isset($map['CveId'])) {
+            $model->cveId = $map['CveId'];
+        }
+        if (isset($map['CvssScore'])) {
+            $model->cvssScore = $map['CvssScore'];
+        }
+        if (isset($map['CvssVector'])) {
+            $model->cvssVector = $map['CvssVector'];
+        }
+        if (isset($map['Poc'])) {
+            $model->poc = $map['Poc'];
+        }
+        if (isset($map['PocCreateTime'])) {
+            $model->pocCreateTime = $map['PocCreateTime'];
+        }
+        if (isset($map['PocDisclosureTime'])) {
+            $model->pocDisclosureTime = $map['PocDisclosureTime'];
+        }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
+        }
+        if (isset($map['Reference'])) {
+            $model->reference = $map['Reference'];
+        }
+        if (isset($map['ReleaseTime'])) {
+            $model->releaseTime = $map['ReleaseTime'];
+        }
+        if (isset($map['Solution'])) {
+            $model->solution = $map['Solution'];
+        }
+        if (isset($map['Summary'])) {
+            $model->summary = $map['Summary'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
+        if (isset($map['Vendor'])) {
+            $model->vendor = $map['Vendor'];
+        }
+        if (isset($map['VulLevel'])) {
+            $model->vulLevel = $map['VulLevel'];
         }
 
         return $model;

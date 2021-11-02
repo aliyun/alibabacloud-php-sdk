@@ -11,7 +11,17 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @var string
      */
-    public $uuid;
+    public $apiVersion;
+
+    /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $isAliYunEcs;
 
     /**
      * @var string
@@ -26,7 +36,7 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @var string
      */
-    public $statusList;
+    public $nextToken;
 
     /**
      * @var int
@@ -34,34 +44,24 @@ class DescribeSnapshotsRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $statusList;
 
     /**
      * @var string
      */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $apiVersion;
-
-    /**
-     * @var string
-     */
-    public $isAliYunEcs;
+    public $uuid;
     protected $_name = [
-        'uuid'          => 'Uuid',
+        'apiVersion'    => 'ApiVersion',
+        'currentPage'   => 'CurrentPage',
+        'isAliYunEcs'   => 'IsAliYunEcs',
         'machineRegion' => 'MachineRegion',
         'machineRemark' => 'MachineRemark',
-        'statusList'    => 'StatusList',
-        'pageSize'      => 'PageSize',
-        'currentPage'   => 'CurrentPage',
         'nextToken'     => 'NextToken',
-        'apiVersion'    => 'ApiVersion',
-        'isAliYunEcs'   => 'IsAliYunEcs',
+        'pageSize'      => 'PageSize',
+        'statusList'    => 'StatusList',
+        'uuid'          => 'Uuid',
     ];
 
     public function validate()
@@ -71,8 +71,14 @@ class DescribeSnapshotsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
+        if (null !== $this->apiVersion) {
+            $res['ApiVersion'] = $this->apiVersion;
+        }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->isAliYunEcs) {
+            $res['IsAliYunEcs'] = $this->isAliYunEcs;
         }
         if (null !== $this->machineRegion) {
             $res['MachineRegion'] = $this->machineRegion;
@@ -80,23 +86,17 @@ class DescribeSnapshotsRequest extends Model
         if (null !== $this->machineRemark) {
             $res['MachineRemark'] = $this->machineRemark;
         }
-        if (null !== $this->statusList) {
-            $res['StatusList'] = $this->statusList;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->statusList) {
+            $res['StatusList'] = $this->statusList;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->apiVersion) {
-            $res['ApiVersion'] = $this->apiVersion;
-        }
-        if (null !== $this->isAliYunEcs) {
-            $res['IsAliYunEcs'] = $this->isAliYunEcs;
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -110,8 +110,14 @@ class DescribeSnapshotsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
+        if (isset($map['ApiVersion'])) {
+            $model->apiVersion = $map['ApiVersion'];
+        }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['IsAliYunEcs'])) {
+            $model->isAliYunEcs = $map['IsAliYunEcs'];
         }
         if (isset($map['MachineRegion'])) {
             $model->machineRegion = $map['MachineRegion'];
@@ -119,23 +125,17 @@ class DescribeSnapshotsRequest extends Model
         if (isset($map['MachineRemark'])) {
             $model->machineRemark = $map['MachineRemark'];
         }
-        if (isset($map['StatusList'])) {
-            $model->statusList = $map['StatusList'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['StatusList'])) {
+            $model->statusList = $map['StatusList'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['ApiVersion'])) {
-            $model->apiVersion = $map['ApiVersion'];
-        }
-        if (isset($map['IsAliYunEcs'])) {
-            $model->isAliYunEcs = $map['IsAliYunEcs'];
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

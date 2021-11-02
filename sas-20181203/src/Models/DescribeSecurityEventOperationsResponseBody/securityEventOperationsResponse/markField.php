@@ -11,7 +11,7 @@ class markField extends Model
     /**
      * @var string
      */
-    public $markMisType;
+    public $filedAliasName;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class markField extends Model
     /**
      * @var string
      */
-    public $filedAliasName;
+    public $markMisType;
 
     /**
      * @var string
@@ -33,9 +33,9 @@ class markField extends Model
      */
     public $supportedMisType;
     protected $_name = [
-        'markMisType'      => 'MarkMisType',
-        'filedName'        => 'FiledName',
         'filedAliasName'   => 'FiledAliasName',
+        'filedName'        => 'FiledName',
+        'markMisType'      => 'MarkMisType',
         'markMisValue'     => 'MarkMisValue',
         'supportedMisType' => 'SupportedMisType',
     ];
@@ -47,14 +47,14 @@ class markField extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->markMisType) {
-            $res['MarkMisType'] = $this->markMisType;
+        if (null !== $this->filedAliasName) {
+            $res['FiledAliasName'] = $this->filedAliasName;
         }
         if (null !== $this->filedName) {
             $res['FiledName'] = $this->filedName;
         }
-        if (null !== $this->filedAliasName) {
-            $res['FiledAliasName'] = $this->filedAliasName;
+        if (null !== $this->markMisType) {
+            $res['MarkMisType'] = $this->markMisType;
         }
         if (null !== $this->markMisValue) {
             $res['MarkMisValue'] = $this->markMisValue;
@@ -74,14 +74,14 @@ class markField extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MarkMisType'])) {
-            $model->markMisType = $map['MarkMisType'];
+        if (isset($map['FiledAliasName'])) {
+            $model->filedAliasName = $map['FiledAliasName'];
         }
         if (isset($map['FiledName'])) {
             $model->filedName = $map['FiledName'];
         }
-        if (isset($map['FiledAliasName'])) {
-            $model->filedAliasName = $map['FiledAliasName'];
+        if (isset($map['MarkMisType'])) {
+            $model->markMisType = $map['MarkMisType'];
         }
         if (isset($map['MarkMisValue'])) {
             $model->markMisValue = $map['MarkMisValue'];

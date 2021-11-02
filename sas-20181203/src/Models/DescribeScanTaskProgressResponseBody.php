@@ -11,21 +11,21 @@ class DescribeScanTaskProgressResponseBody extends Model
     /**
      * @var string
      */
-    public $targetInfo;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var string
      */
     public $scanTaskProgress;
+
+    /**
+     * @var string
+     */
+    public $targetInfo;
     protected $_name = [
-        'targetInfo'       => 'TargetInfo',
         'requestId'        => 'RequestId',
         'scanTaskProgress' => 'ScanTaskProgress',
+        'targetInfo'       => 'TargetInfo',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeScanTaskProgressResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->targetInfo) {
-            $res['TargetInfo'] = $this->targetInfo;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->scanTaskProgress) {
             $res['ScanTaskProgress'] = $this->scanTaskProgress;
+        }
+        if (null !== $this->targetInfo) {
+            $res['TargetInfo'] = $this->targetInfo;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeScanTaskProgressResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TargetInfo'])) {
-            $model->targetInfo = $map['TargetInfo'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['ScanTaskProgress'])) {
             $model->scanTaskProgress = $map['ScanTaskProgress'];
+        }
+        if (isset($map['TargetInfo'])) {
+            $model->targetInfo = $map['TargetInfo'];
         }
 
         return $model;

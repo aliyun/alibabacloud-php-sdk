@@ -11,17 +11,7 @@ class HandleSimilarSecurityEventsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $taskId;
+    public $markMissParam;
 
     /**
      * @var string
@@ -34,16 +24,26 @@ class HandleSimilarSecurityEventsRequest extends Model
     public $operationParams;
 
     /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
-    public $markMissParam;
+    public $sourceIp;
+
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'taskId'          => 'TaskId',
+        'markMissParam'   => 'MarkMissParam',
         'operationCode'   => 'OperationCode',
         'operationParams' => 'OperationParams',
-        'markMissParam'   => 'MarkMissParam',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
+        'taskId'          => 'TaskId',
     ];
 
     public function validate()
@@ -53,14 +53,8 @@ class HandleSimilarSecurityEventsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->markMissParam) {
+            $res['MarkMissParam'] = $this->markMissParam;
         }
         if (null !== $this->operationCode) {
             $res['OperationCode'] = $this->operationCode;
@@ -68,8 +62,14 @@ class HandleSimilarSecurityEventsRequest extends Model
         if (null !== $this->operationParams) {
             $res['OperationParams'] = $this->operationParams;
         }
-        if (null !== $this->markMissParam) {
-            $res['MarkMissParam'] = $this->markMissParam;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -83,14 +83,8 @@ class HandleSimilarSecurityEventsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['MarkMissParam'])) {
+            $model->markMissParam = $map['MarkMissParam'];
         }
         if (isset($map['OperationCode'])) {
             $model->operationCode = $map['OperationCode'];
@@ -98,8 +92,14 @@ class HandleSimilarSecurityEventsRequest extends Model
         if (isset($map['OperationParams'])) {
             $model->operationParams = $map['OperationParams'];
         }
-        if (isset($map['MarkMissParam'])) {
-            $model->markMissParam = $map['MarkMissParam'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

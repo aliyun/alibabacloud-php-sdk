@@ -11,22 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcHoneyPotListResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var pageInfo
      */
     public $pageInfo;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var vpcHoneyPotDTOList[]
      */
     public $vpcHoneyPotDTOList;
     protected $_name = [
-        'requestId'          => 'RequestId',
         'pageInfo'           => 'PageInfo',
+        'requestId'          => 'RequestId',
         'vpcHoneyPotDTOList' => 'VpcHoneyPotDTOList',
     ];
 
@@ -37,11 +37,11 @@ class DescribeVpcHoneyPotListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->pageInfo) {
             $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->vpcHoneyPotDTOList) {
             $res['VpcHoneyPotDTOList'] = [];
@@ -64,11 +64,11 @@ class DescribeVpcHoneyPotListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['VpcHoneyPotDTOList'])) {
             if (!empty($map['VpcHoneyPotDTOList'])) {

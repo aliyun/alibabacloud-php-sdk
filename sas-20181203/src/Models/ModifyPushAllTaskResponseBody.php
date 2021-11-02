@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyPushAllTaskResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var pushTaskRsp
      */
     public $pushTaskRsp;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'pushTaskRsp' => 'PushTaskRsp',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ModifyPushAllTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->pushTaskRsp) {
             $res['PushTaskRsp'] = null !== $this->pushTaskRsp ? $this->pushTaskRsp->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ModifyPushAllTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PushTaskRsp'])) {
             $model->pushTaskRsp = pushTaskRsp::fromMap($map['PushTaskRsp']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DescribeVersionConfigRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $resourceDirectoryAccountId;
 
     /**
      * @var string
      */
-    public $resourceDirectoryAccountId;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'                   => 'SourceIp',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'sourceIp'                   => 'SourceIp',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeVersionConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeVersionConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

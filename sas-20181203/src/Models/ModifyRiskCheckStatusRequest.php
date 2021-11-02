@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyRiskCheckStatusRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $itemId;
 
     /**
      * @var string
@@ -26,24 +21,29 @@ class ModifyRiskCheckStatusRequest extends Model
     /**
      * @var int
      */
-    public $itemId;
+    public $resourceOwnerId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $taskId;
+    public $sourceIp;
 
     /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'lang'            => 'Lang',
         'itemId'          => 'ItemId',
-        'taskId'          => 'TaskId',
+        'lang'            => 'Lang',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
         'status'          => 'Status',
+        'taskId'          => 'TaskId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ModifyRiskCheckStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ModifyRiskCheckStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

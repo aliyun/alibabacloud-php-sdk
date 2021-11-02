@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupPolicyMachineRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $uuid;
-
-    /**
      * @var int
      */
     public $policyId;
@@ -24,13 +19,18 @@ class DeleteBackupPolicyMachineRequest extends Model
     public $policyVersion;
 
     /**
+     * @var string
+     */
+    public $uuid;
+
+    /**
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'uuid'          => 'Uuid',
         'policyId'      => 'PolicyId',
         'policyVersion' => 'PolicyVersion',
+        'uuid'          => 'Uuid',
         'uuidList'      => 'UuidList',
     ];
 
@@ -41,14 +41,14 @@ class DeleteBackupPolicyMachineRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
@@ -65,14 +65,14 @@ class DeleteBackupPolicyMachineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {

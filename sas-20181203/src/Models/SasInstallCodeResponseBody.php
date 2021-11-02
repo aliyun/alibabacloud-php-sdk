@@ -11,15 +11,15 @@ class SasInstallCodeResponseBody extends Model
     /**
      * @var string
      */
-    public $data;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $data;
     protected $_name = [
-        'data'      => 'data',
         'requestId' => 'RequestId',
+        'data'      => 'data',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class SasInstallCodeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['data'] = $this->data;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->data) {
+            $res['data'] = $this->data;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class SasInstallCodeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['data'])) {
-            $model->data = $map['data'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['data'])) {
+            $model->data = $map['data'];
         }
 
         return $model;

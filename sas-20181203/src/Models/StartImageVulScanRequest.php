@@ -11,32 +11,12 @@ class StartImageVulScanRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $imageDigest;
 
     /**
      * @var string
      */
-    public $repoRegionId;
-
-    /**
-     * @var string
-     */
-    public $repoInstanceId;
-
-    /**
-     * @var string
-     */
-    public $repoId;
-
-    /**
-     * @var string
-     */
-    public $repName;
-
-    /**
-     * @var string
-     */
-    public $repoNamespace;
+    public $imageLayer;
 
     /**
      * @var string
@@ -46,28 +26,48 @@ class StartImageVulScanRequest extends Model
     /**
      * @var string
      */
-    public $imageDigest;
-
-    /**
-     * @var string
-     */
-    public $imageLayer;
+    public $lang;
 
     /**
      * @var string[]
      */
     public $registryTypes;
+
+    /**
+     * @var string
+     */
+    public $repName;
+
+    /**
+     * @var string
+     */
+    public $repoId;
+
+    /**
+     * @var string
+     */
+    public $repoInstanceId;
+
+    /**
+     * @var string
+     */
+    public $repoNamespace;
+
+    /**
+     * @var string
+     */
+    public $repoRegionId;
     protected $_name = [
-        'lang'           => 'Lang',
-        'repoRegionId'   => 'RepoRegionId',
-        'repoInstanceId' => 'RepoInstanceId',
-        'repoId'         => 'RepoId',
-        'repName'        => 'RepName',
-        'repoNamespace'  => 'RepoNamespace',
-        'imageTag'       => 'ImageTag',
         'imageDigest'    => 'ImageDigest',
         'imageLayer'     => 'ImageLayer',
+        'imageTag'       => 'ImageTag',
+        'lang'           => 'Lang',
         'registryTypes'  => 'RegistryTypes',
+        'repName'        => 'RepName',
+        'repoId'         => 'RepoId',
+        'repoInstanceId' => 'RepoInstanceId',
+        'repoNamespace'  => 'RepoNamespace',
+        'repoRegionId'   => 'RepoRegionId',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class StartImageVulScanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->repoRegionId) {
-            $res['RepoRegionId'] = $this->repoRegionId;
-        }
-        if (null !== $this->repoInstanceId) {
-            $res['RepoInstanceId'] = $this->repoInstanceId;
-        }
-        if (null !== $this->repoId) {
-            $res['RepoId'] = $this->repoId;
-        }
-        if (null !== $this->repName) {
-            $res['RepName'] = $this->repName;
-        }
-        if (null !== $this->repoNamespace) {
-            $res['RepoNamespace'] = $this->repoNamespace;
-        }
-        if (null !== $this->imageTag) {
-            $res['ImageTag'] = $this->imageTag;
-        }
         if (null !== $this->imageDigest) {
             $res['ImageDigest'] = $this->imageDigest;
         }
         if (null !== $this->imageLayer) {
             $res['ImageLayer'] = $this->imageLayer;
         }
+        if (null !== $this->imageTag) {
+            $res['ImageTag'] = $this->imageTag;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->registryTypes) {
             $res['RegistryTypes'] = $this->registryTypes;
+        }
+        if (null !== $this->repName) {
+            $res['RepName'] = $this->repName;
+        }
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
+        }
+        if (null !== $this->repoInstanceId) {
+            $res['RepoInstanceId'] = $this->repoInstanceId;
+        }
+        if (null !== $this->repoNamespace) {
+            $res['RepoNamespace'] = $this->repoNamespace;
+        }
+        if (null !== $this->repoRegionId) {
+            $res['RepoRegionId'] = $this->repoRegionId;
         }
 
         return $res;
@@ -119,37 +119,37 @@ class StartImageVulScanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['RepoRegionId'])) {
-            $model->repoRegionId = $map['RepoRegionId'];
-        }
-        if (isset($map['RepoInstanceId'])) {
-            $model->repoInstanceId = $map['RepoInstanceId'];
-        }
-        if (isset($map['RepoId'])) {
-            $model->repoId = $map['RepoId'];
-        }
-        if (isset($map['RepName'])) {
-            $model->repName = $map['RepName'];
-        }
-        if (isset($map['RepoNamespace'])) {
-            $model->repoNamespace = $map['RepoNamespace'];
-        }
-        if (isset($map['ImageTag'])) {
-            $model->imageTag = $map['ImageTag'];
-        }
         if (isset($map['ImageDigest'])) {
             $model->imageDigest = $map['ImageDigest'];
         }
         if (isset($map['ImageLayer'])) {
             $model->imageLayer = $map['ImageLayer'];
         }
+        if (isset($map['ImageTag'])) {
+            $model->imageTag = $map['ImageTag'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['RegistryTypes'])) {
             if (!empty($map['RegistryTypes'])) {
                 $model->registryTypes = $map['RegistryTypes'];
             }
+        }
+        if (isset($map['RepName'])) {
+            $model->repName = $map['RepName'];
+        }
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
+        }
+        if (isset($map['RepoInstanceId'])) {
+            $model->repoInstanceId = $map['RepoInstanceId'];
+        }
+        if (isset($map['RepoNamespace'])) {
+            $model->repoNamespace = $map['RepoNamespace'];
+        }
+        if (isset($map['RepoRegionId'])) {
+            $model->repoRegionId = $map['RepoRegionId'];
         }
 
         return $model;

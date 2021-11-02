@@ -9,24 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningsRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
+    public $checkId;
+
+    /**
+     * @var int
+     */
+    public $currentPage;
 
     /**
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $uuid;
-
-    /**
-     * @var int
-     */
-    public $riskId;
 
     /**
      * @var int
@@ -36,20 +31,25 @@ class DescribeCheckWarningsRequest extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $riskId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $checkId;
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
-        'lang'        => 'Lang',
-        'uuid'        => 'Uuid',
-        'riskId'      => 'RiskId',
-        'pageSize'    => 'PageSize',
-        'currentPage' => 'CurrentPage',
         'checkId'     => 'CheckId',
+        'currentPage' => 'CurrentPage',
+        'lang'        => 'Lang',
+        'pageSize'    => 'PageSize',
+        'riskId'      => 'RiskId',
+        'sourceIp'    => 'SourceIp',
+        'uuid'        => 'Uuid',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DescribeCheckWarningsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->riskId) {
-            $res['RiskId'] = $this->riskId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->checkId) {
+            $res['CheckId'] = $this->checkId;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->checkId) {
-            $res['CheckId'] = $this->checkId;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->riskId) {
+            $res['RiskId'] = $this->riskId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DescribeCheckWarningsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['RiskId'])) {
-            $model->riskId = $map['RiskId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['CheckId'])) {
+            $model->checkId = $map['CheckId'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['CheckId'])) {
-            $model->checkId = $map['CheckId'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RiskId'])) {
+            $model->riskId = $map['RiskId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

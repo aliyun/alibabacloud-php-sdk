@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CheckSecurityEventIdRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $uuid;
-
-    /**
      * @var string[]
      */
     public $securityEventIds;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'uuid'             => 'Uuid',
         'securityEventIds' => 'SecurityEventIds',
+        'uuid'             => 'Uuid',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CheckSecurityEventIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->securityEventIds) {
             $res['SecurityEventIds'] = $this->securityEventIds;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -47,13 +47,13 @@ class CheckSecurityEventIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['SecurityEventIds'])) {
             if (!empty($map['SecurityEventIds'])) {
                 $model->securityEventIds = $map['SecurityEventIds'];
             }
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

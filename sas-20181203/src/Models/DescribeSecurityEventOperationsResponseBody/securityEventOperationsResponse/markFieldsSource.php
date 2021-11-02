@@ -11,12 +11,12 @@ class markFieldsSource extends Model
     /**
      * @var string
      */
-    public $filedName;
+    public $filedAliasName;
 
     /**
      * @var string
      */
-    public $filedAliasName;
+    public $filedName;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class markFieldsSource extends Model
      */
     public $supportedMisType;
     protected $_name = [
-        'filedName'        => 'FiledName',
         'filedAliasName'   => 'FiledAliasName',
+        'filedName'        => 'FiledName',
         'markMisValue'     => 'MarkMisValue',
         'supportedMisType' => 'SupportedMisType',
     ];
@@ -41,11 +41,11 @@ class markFieldsSource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->filedName) {
-            $res['FiledName'] = $this->filedName;
-        }
         if (null !== $this->filedAliasName) {
             $res['FiledAliasName'] = $this->filedAliasName;
+        }
+        if (null !== $this->filedName) {
+            $res['FiledName'] = $this->filedName;
         }
         if (null !== $this->markMisValue) {
             $res['MarkMisValue'] = $this->markMisValue;
@@ -65,11 +65,11 @@ class markFieldsSource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FiledName'])) {
-            $model->filedName = $map['FiledName'];
-        }
         if (isset($map['FiledAliasName'])) {
             $model->filedAliasName = $map['FiledAliasName'];
+        }
+        if (isset($map['FiledName'])) {
+            $model->filedName = $map['FiledName'];
         }
         if (isset($map['MarkMisValue'])) {
             $model->markMisValue = $map['MarkMisValue'];

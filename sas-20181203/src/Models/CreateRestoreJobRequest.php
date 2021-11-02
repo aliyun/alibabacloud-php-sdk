@@ -11,12 +11,7 @@ class CreateRestoreJobRequest extends Model
     /**
      * @var string
      */
-    public $uuid;
-
-    /**
-     * @var string
-     */
-    public $snapshotId;
+    public $includes;
 
     /**
      * @var string
@@ -26,17 +21,7 @@ class CreateRestoreJobRequest extends Model
     /**
      * @var string
      */
-    public $target;
-
-    /**
-     * @var string
-     */
-    public $sourceType;
-
-    /**
-     * @var string
-     */
-    public $vaultId;
+    public $snapshotId;
 
     /**
      * @var string
@@ -46,16 +31,31 @@ class CreateRestoreJobRequest extends Model
     /**
      * @var string
      */
-    public $includes;
+    public $sourceType;
+
+    /**
+     * @var string
+     */
+    public $target;
+
+    /**
+     * @var string
+     */
+    public $uuid;
+
+    /**
+     * @var string
+     */
+    public $vaultId;
     protected $_name = [
-        'uuid'            => 'Uuid',
-        'snapshotId'      => 'SnapshotId',
-        'snapshotHash'    => 'SnapshotHash',
-        'target'          => 'Target',
-        'sourceType'      => 'SourceType',
-        'vaultId'         => 'VaultId',
-        'snapshotVersion' => 'SnapshotVersion',
         'includes'        => 'Includes',
+        'snapshotHash'    => 'SnapshotHash',
+        'snapshotId'      => 'SnapshotId',
+        'snapshotVersion' => 'SnapshotVersion',
+        'sourceType'      => 'SourceType',
+        'target'          => 'Target',
+        'uuid'            => 'Uuid',
+        'vaultId'         => 'VaultId',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class CreateRestoreJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->snapshotId) {
-            $res['SnapshotId'] = $this->snapshotId;
+        if (null !== $this->includes) {
+            $res['Includes'] = $this->includes;
         }
         if (null !== $this->snapshotHash) {
             $res['SnapshotHash'] = $this->snapshotHash;
         }
-        if (null !== $this->target) {
-            $res['Target'] = $this->target;
-        }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
-        }
-        if (null !== $this->vaultId) {
-            $res['VaultId'] = $this->vaultId;
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
         if (null !== $this->snapshotVersion) {
             $res['SnapshotVersion'] = $this->snapshotVersion;
         }
-        if (null !== $this->includes) {
-            $res['Includes'] = $this->includes;
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->target) {
+            $res['Target'] = $this->target;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
+        }
+        if (null !== $this->vaultId) {
+            $res['VaultId'] = $this->vaultId;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class CreateRestoreJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['SnapshotId'])) {
-            $model->snapshotId = $map['SnapshotId'];
+        if (isset($map['Includes'])) {
+            $model->includes = $map['Includes'];
         }
         if (isset($map['SnapshotHash'])) {
             $model->snapshotHash = $map['SnapshotHash'];
         }
-        if (isset($map['Target'])) {
-            $model->target = $map['Target'];
-        }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
-        }
-        if (isset($map['VaultId'])) {
-            $model->vaultId = $map['VaultId'];
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
         if (isset($map['SnapshotVersion'])) {
             $model->snapshotVersion = $map['SnapshotVersion'];
         }
-        if (isset($map['Includes'])) {
-            $model->includes = $map['Includes'];
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['Target'])) {
+            $model->target = $map['Target'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
+        }
+        if (isset($map['VaultId'])) {
+            $model->vaultId = $map['VaultId'];
         }
 
         return $model;

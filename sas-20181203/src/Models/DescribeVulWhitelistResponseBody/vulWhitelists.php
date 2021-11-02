@@ -11,17 +11,12 @@ class vulWhitelists extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $targetInfo;
-
-    /**
-     * @var string
-     */
     public $aliasName;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -36,14 +31,19 @@ class vulWhitelists extends Model
     /**
      * @var string
      */
-    public $id;
+    public $targetInfo;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'       => 'Type',
-        'targetInfo' => 'TargetInfo',
         'aliasName'  => 'AliasName',
+        'id'         => 'Id',
         'name'       => 'Name',
         'reason'     => 'Reason',
-        'id'         => 'Id',
+        'targetInfo' => 'TargetInfo',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -53,14 +53,11 @@ class vulWhitelists extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->targetInfo) {
-            $res['TargetInfo'] = $this->targetInfo;
-        }
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -68,8 +65,11 @@ class vulWhitelists extends Model
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->targetInfo) {
+            $res['TargetInfo'] = $this->targetInfo;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,14 +83,11 @@ class vulWhitelists extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['TargetInfo'])) {
-            $model->targetInfo = $map['TargetInfo'];
-        }
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -98,8 +95,11 @@ class vulWhitelists extends Model
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['TargetInfo'])) {
+            $model->targetInfo = $map['TargetInfo'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

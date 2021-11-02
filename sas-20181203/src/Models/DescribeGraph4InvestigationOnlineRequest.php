@@ -11,17 +11,7 @@ class DescribeGraph4InvestigationOnlineRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $namespace;
-
-    /**
-     * @var string
-     */
-    public $vertexId;
+    public $anomalyId;
 
     /**
      * @var string
@@ -31,7 +21,17 @@ class DescribeGraph4InvestigationOnlineRequest extends Model
     /**
      * @var string
      */
-    public $anomalyId;
+    public $direction;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $namespace;
 
     /**
      * @var int
@@ -41,15 +41,15 @@ class DescribeGraph4InvestigationOnlineRequest extends Model
     /**
      * @var string
      */
-    public $direction;
+    public $vertexId;
     protected $_name = [
+        'anomalyId'   => 'AnomalyId',
+        'anomalyUuid' => 'AnomalyUuid',
+        'direction'   => 'Direction',
         'lang'        => 'Lang',
         'namespace'   => 'Namespace',
-        'vertexId'    => 'VertexId',
-        'anomalyUuid' => 'AnomalyUuid',
-        'anomalyId'   => 'AnomalyId',
         'pathLength'  => 'PathLength',
-        'direction'   => 'Direction',
+        'vertexId'    => 'VertexId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DescribeGraph4InvestigationOnlineRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->anomalyId) {
+            $res['AnomalyId'] = $this->anomalyId;
+        }
+        if (null !== $this->anomalyUuid) {
+            $res['AnomalyUuid'] = $this->anomalyUuid;
+        }
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-        if (null !== $this->vertexId) {
-            $res['VertexId'] = $this->vertexId;
-        }
-        if (null !== $this->anomalyUuid) {
-            $res['AnomalyUuid'] = $this->anomalyUuid;
-        }
-        if (null !== $this->anomalyId) {
-            $res['AnomalyId'] = $this->anomalyId;
-        }
         if (null !== $this->pathLength) {
             $res['PathLength'] = $this->pathLength;
         }
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
+        if (null !== $this->vertexId) {
+            $res['VertexId'] = $this->vertexId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DescribeGraph4InvestigationOnlineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnomalyId'])) {
+            $model->anomalyId = $map['AnomalyId'];
+        }
+        if (isset($map['AnomalyUuid'])) {
+            $model->anomalyUuid = $map['AnomalyUuid'];
+        }
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-        if (isset($map['VertexId'])) {
-            $model->vertexId = $map['VertexId'];
-        }
-        if (isset($map['AnomalyUuid'])) {
-            $model->anomalyUuid = $map['AnomalyUuid'];
-        }
-        if (isset($map['AnomalyId'])) {
-            $model->anomalyId = $map['AnomalyId'];
-        }
         if (isset($map['PathLength'])) {
             $model->pathLength = $map['PathLength'];
         }
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
+        if (isset($map['VertexId'])) {
+            $model->vertexId = $map['VertexId'];
         }
 
         return $model;

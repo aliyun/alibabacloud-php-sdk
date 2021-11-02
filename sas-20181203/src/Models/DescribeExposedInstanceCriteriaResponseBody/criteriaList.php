@@ -11,20 +11,20 @@ class criteriaList extends Model
     /**
      * @var string
      */
-    public $type;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $type;
 
     /**
      * @var string
      */
     public $values;
     protected $_name = [
-        'type'   => 'Type',
         'name'   => 'Name',
+        'type'   => 'Type',
         'values' => 'Values',
     ];
 
@@ -35,11 +35,11 @@ class criteriaList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->values) {
             $res['Values'] = $this->values;
@@ -56,11 +56,11 @@ class criteriaList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['Values'])) {
             $model->values = $map['Values'];

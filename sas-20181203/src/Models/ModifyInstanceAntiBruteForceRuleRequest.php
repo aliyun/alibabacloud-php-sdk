@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAntiBruteForceRuleRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
+    public $newRuleId;
 
     /**
      * @var int
@@ -21,17 +21,17 @@ class ModifyInstanceAntiBruteForceRuleRequest extends Model
     /**
      * @var string
      */
-    public $uuid;
+    public $sourceIp;
 
     /**
-     * @var int
+     * @var string
      */
-    public $newRuleId;
+    public $uuid;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'uuid'            => 'Uuid',
         'newRuleId'       => 'NewRuleId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp'        => 'SourceIp',
+        'uuid'            => 'Uuid',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyInstanceAntiBruteForceRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->newRuleId) {
+            $res['NewRuleId'] = $this->newRuleId;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->newRuleId) {
-            $res['NewRuleId'] = $this->newRuleId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyInstanceAntiBruteForceRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['NewRuleId'])) {
+            $model->newRuleId = $map['NewRuleId'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['NewRuleId'])) {
-            $model->newRuleId = $map['NewRuleId'];
         }
 
         return $model;
