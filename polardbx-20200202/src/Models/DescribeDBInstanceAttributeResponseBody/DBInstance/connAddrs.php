@@ -14,7 +14,7 @@ class connAddrs extends Model
     public $connectionString;
 
     /**
-     * @var string
+     * @var int
      */
     public $port;
 
@@ -32,12 +32,18 @@ class connAddrs extends Model
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcInstanceId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
         'port'             => 'Port',
         'type'             => 'Type',
         'VPCId'            => 'VPCId',
         'vSwitchId'        => 'VSwitchId',
+        'vpcInstanceId'    => 'VpcInstanceId',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class connAddrs extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcInstanceId) {
+            $res['VpcInstanceId'] = $this->vpcInstanceId;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class connAddrs extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcInstanceId'])) {
+            $model->vpcInstanceId = $map['VpcInstanceId'];
         }
 
         return $model;
