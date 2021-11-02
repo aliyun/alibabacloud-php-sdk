@@ -11,21 +11,21 @@ class SetAuditSecurityIpRequest extends Model
     /**
      * @var string
      */
-    public $securityGroupName;
-
-    /**
-     * @var string
-     */
     public $ips;
 
     /**
      * @var string
      */
     public $operateMode;
+
+    /**
+     * @var string
+     */
+    public $securityGroupName;
     protected $_name = [
-        'securityGroupName' => 'SecurityGroupName',
         'ips'               => 'Ips',
         'operateMode'       => 'OperateMode',
+        'securityGroupName' => 'SecurityGroupName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SetAuditSecurityIpRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityGroupName) {
-            $res['SecurityGroupName'] = $this->securityGroupName;
-        }
         if (null !== $this->ips) {
             $res['Ips'] = $this->ips;
         }
         if (null !== $this->operateMode) {
             $res['OperateMode'] = $this->operateMode;
+        }
+        if (null !== $this->securityGroupName) {
+            $res['SecurityGroupName'] = $this->securityGroupName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SetAuditSecurityIpRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityGroupName'])) {
-            $model->securityGroupName = $map['SecurityGroupName'];
-        }
         if (isset($map['Ips'])) {
             $model->ips = $map['Ips'];
         }
         if (isset($map['OperateMode'])) {
             $model->operateMode = $map['OperateMode'];
+        }
+        if (isset($map['SecurityGroupName'])) {
+            $model->securityGroupName = $map['SecurityGroupName'];
         }
 
         return $model;

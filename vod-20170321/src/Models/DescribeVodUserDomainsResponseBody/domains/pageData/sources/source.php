@@ -11,12 +11,7 @@ class source extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $priority;
+    public $content;
 
     /**
      * @var int
@@ -26,12 +21,17 @@ class source extends Model
     /**
      * @var string
      */
-    public $content;
+    public $priority;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'     => 'Type',
-        'priority' => 'Priority',
-        'port'     => 'Port',
         'content'  => 'Content',
+        'port'     => 'Port',
+        'priority' => 'Priority',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class source extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class source extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

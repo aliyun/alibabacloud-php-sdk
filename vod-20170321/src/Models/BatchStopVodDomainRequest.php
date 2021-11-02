@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BatchStopVodDomainRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $domainNames;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -17,15 +22,10 @@ class BatchStopVodDomainRequest extends Model
      * @var string
      */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $domainNames;
     protected $_name = [
+        'domainNames'   => 'DomainNames',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'domainNames'   => 'DomainNames',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class BatchStopVodDomainRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainNames) {
+            $res['DomainNames'] = $this->domainNames;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->domainNames) {
-            $res['DomainNames'] = $this->domainNames;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class BatchStopVodDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainNames'])) {
+            $model->domainNames = $map['DomainNames'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['DomainNames'])) {
-            $model->domainNames = $map['DomainNames'];
         }
 
         return $model;

@@ -21,17 +21,17 @@ class CreateUploadVideoResponseBody extends Model
     /**
      * @var string
      */
-    public $videoId;
+    public $uploadAuth;
 
     /**
      * @var string
      */
-    public $uploadAuth;
+    public $videoId;
     protected $_name = [
         'requestId'     => 'RequestId',
         'uploadAddress' => 'UploadAddress',
-        'videoId'       => 'VideoId',
         'uploadAuth'    => 'UploadAuth',
+        'videoId'       => 'VideoId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class CreateUploadVideoResponseBody extends Model
         if (null !== $this->uploadAddress) {
             $res['UploadAddress'] = $this->uploadAddress;
         }
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
-        }
         if (null !== $this->uploadAuth) {
             $res['UploadAuth'] = $this->uploadAuth;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class CreateUploadVideoResponseBody extends Model
         if (isset($map['UploadAddress'])) {
             $model->uploadAddress = $map['UploadAddress'];
         }
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
-        }
         if (isset($map['UploadAuth'])) {
             $model->uploadAuth = $map['UploadAuth'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
         }
 
         return $model;

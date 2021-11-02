@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class SearchEditingProjectResponseBody extends Model
 {
     /**
-     * @var int
+     * @var projectList
      */
-    public $total;
+    public $projectList;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class SearchEditingProjectResponseBody extends Model
     public $requestId;
 
     /**
-     * @var projectList
+     * @var int
      */
-    public $projectList;
+    public $total;
     protected $_name = [
-        'total'       => 'Total',
-        'requestId'   => 'RequestId',
         'projectList' => 'ProjectList',
+        'requestId'   => 'RequestId',
+        'total'       => 'Total',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class SearchEditingProjectResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
+        if (null !== $this->projectList) {
+            $res['ProjectList'] = null !== $this->projectList ? $this->projectList->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->projectList) {
-            $res['ProjectList'] = null !== $this->projectList ? $this->projectList->toMap() : null;
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class SearchEditingProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
+        if (isset($map['ProjectList'])) {
+            $model->projectList = projectList::fromMap($map['ProjectList']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ProjectList'])) {
-            $model->projectList = projectList::fromMap($map['ProjectList']);
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

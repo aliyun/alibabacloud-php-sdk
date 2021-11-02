@@ -15,17 +15,7 @@ class mediaAuditResult extends Model
     /**
      * @var string
      */
-    public $suggestion;
-
-    /**
-     * @var string
-     */
     public $abnormalModules;
-
-    /**
-     * @var string
-     */
-    public $label;
 
     /**
      * @var audioResult[]
@@ -38,6 +28,16 @@ class mediaAuditResult extends Model
     public $imageResult;
 
     /**
+     * @var string
+     */
+    public $label;
+
+    /**
+     * @var string
+     */
+    public $suggestion;
+
+    /**
      * @var textResult[]
      */
     public $textResult;
@@ -47,11 +47,11 @@ class mediaAuditResult extends Model
      */
     public $videoResult;
     protected $_name = [
-        'suggestion'      => 'Suggestion',
         'abnormalModules' => 'AbnormalModules',
-        'label'           => 'Label',
         'audioResult'     => 'AudioResult',
         'imageResult'     => 'ImageResult',
+        'label'           => 'Label',
+        'suggestion'      => 'Suggestion',
         'textResult'      => 'TextResult',
         'videoResult'     => 'VideoResult',
     ];
@@ -63,14 +63,8 @@ class mediaAuditResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
-        }
         if (null !== $this->abnormalModules) {
             $res['AbnormalModules'] = $this->abnormalModules;
-        }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
         }
         if (null !== $this->audioResult) {
             $res['AudioResult'] = [];
@@ -89,6 +83,12 @@ class mediaAuditResult extends Model
                     $res['ImageResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
         }
         if (null !== $this->textResult) {
             $res['TextResult'] = [];
@@ -114,14 +114,8 @@ class mediaAuditResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
-        }
         if (isset($map['AbnormalModules'])) {
             $model->abnormalModules = $map['AbnormalModules'];
-        }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
         }
         if (isset($map['AudioResult'])) {
             if (!empty($map['AudioResult'])) {
@@ -140,6 +134,12 @@ class mediaAuditResult extends Model
                     $model->imageResult[$n++] = null !== $item ? imageResult::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
         if (isset($map['TextResult'])) {
             if (!empty($map['TextResult'])) {

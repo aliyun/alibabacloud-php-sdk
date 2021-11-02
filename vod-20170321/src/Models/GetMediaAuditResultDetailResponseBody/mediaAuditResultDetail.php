@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class mediaAuditResultDetail extends Model
 {
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
      * @var list_[]
      */
     public $list;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
-        'total' => 'Total',
         'list'  => 'List',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class mediaAuditResultDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->list) {
             $res['List'] = [];
             if (null !== $this->list && \is_array($this->list)) {
@@ -41,6 +38,9 @@ class mediaAuditResultDetail extends Model
                     $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class mediaAuditResultDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
@@ -65,6 +62,9 @@ class mediaAuditResultDetail extends Model
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

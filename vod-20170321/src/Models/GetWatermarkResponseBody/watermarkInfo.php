@@ -11,17 +11,12 @@ class watermarkInfo extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
     public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $isDefault;
 
     /**
      * @var string
@@ -31,12 +26,7 @@ class watermarkInfo extends Model
     /**
      * @var string
      */
-    public $appId;
-
-    /**
-     * @var string
-     */
-    public $watermarkConfig;
+    public $isDefault;
 
     /**
      * @var string
@@ -46,15 +36,25 @@ class watermarkInfo extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $watermarkConfig;
+
+    /**
+     * @var string
+     */
     public $watermarkId;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
-        'type'            => 'Type',
-        'isDefault'       => 'IsDefault',
-        'fileUrl'         => 'FileUrl',
         'appId'           => 'AppId',
-        'watermarkConfig' => 'WatermarkConfig',
+        'creationTime'    => 'CreationTime',
+        'fileUrl'         => 'FileUrl',
+        'isDefault'       => 'IsDefault',
         'name'            => 'Name',
+        'type'            => 'Type',
+        'watermarkConfig' => 'WatermarkConfig',
         'watermarkId'     => 'WatermarkId',
     ];
 
@@ -65,26 +65,26 @@ class watermarkInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
-        }
-        if (null !== $this->watermarkConfig) {
-            $res['WatermarkConfig'] = $this->watermarkConfig;
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->watermarkConfig) {
+            $res['WatermarkConfig'] = $this->watermarkConfig;
         }
         if (null !== $this->watermarkId) {
             $res['WatermarkId'] = $this->watermarkId;
@@ -101,26 +101,26 @@ class watermarkInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
-        }
-        if (isset($map['WatermarkConfig'])) {
-            $model->watermarkConfig = $map['WatermarkConfig'];
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['WatermarkConfig'])) {
+            $model->watermarkConfig = $map['WatermarkConfig'];
         }
         if (isset($map['WatermarkId'])) {
             $model->watermarkId = $map['WatermarkId'];

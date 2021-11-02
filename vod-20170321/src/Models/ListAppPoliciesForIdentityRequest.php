@@ -11,7 +11,7 @@ class ListAppPoliciesForIdentityRequest extends Model
     /**
      * @var string
      */
-    public $identityType;
+    public $appId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class ListAppPoliciesForIdentityRequest extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $identityType;
     protected $_name = [
-        'identityType' => 'IdentityType',
-        'identityName' => 'IdentityName',
         'appId'        => 'AppId',
+        'identityName' => 'IdentityName',
+        'identityType' => 'IdentityType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListAppPoliciesForIdentityRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->identityType) {
-            $res['IdentityType'] = $this->identityType;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->identityName) {
             $res['IdentityName'] = $this->identityName;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->identityType) {
+            $res['IdentityType'] = $this->identityType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListAppPoliciesForIdentityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IdentityType'])) {
-            $model->identityType = $map['IdentityType'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['IdentityName'])) {
             $model->identityName = $map['IdentityName'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['IdentityType'])) {
+            $model->identityType = $map['IdentityType'];
         }
 
         return $model;

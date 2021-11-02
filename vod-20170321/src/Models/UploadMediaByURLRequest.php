@@ -11,12 +11,7 @@ class UploadMediaByURLRequest extends Model
     /**
      * @var string
      */
-    public $uploadURLs;
-
-    /**
-     * @var string
-     */
-    public $templateGroupId;
+    public $appId;
 
     /**
      * @var string
@@ -26,7 +21,17 @@ class UploadMediaByURLRequest extends Model
     /**
      * @var string
      */
+    public $templateGroupId;
+
+    /**
+     * @var string
+     */
     public $uploadMetadatas;
+
+    /**
+     * @var string
+     */
+    public $uploadURLs;
 
     /**
      * @var string
@@ -36,19 +41,14 @@ class UploadMediaByURLRequest extends Model
     /**
      * @var string
      */
-    public $appId;
-
-    /**
-     * @var string
-     */
     public $workflowId;
     protected $_name = [
-        'uploadURLs'      => 'UploadURLs',
-        'templateGroupId' => 'TemplateGroupId',
-        'storageLocation' => 'StorageLocation',
-        'uploadMetadatas' => 'UploadMetadatas',
-        'userData'        => 'UserData',
         'appId'           => 'AppId',
+        'storageLocation' => 'StorageLocation',
+        'templateGroupId' => 'TemplateGroupId',
+        'uploadMetadatas' => 'UploadMetadatas',
+        'uploadURLs'      => 'UploadURLs',
+        'userData'        => 'UserData',
         'workflowId'      => 'WorkflowId',
     ];
 
@@ -59,23 +59,23 @@ class UploadMediaByURLRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uploadURLs) {
-            $res['UploadURLs'] = $this->uploadURLs;
-        }
-        if (null !== $this->templateGroupId) {
-            $res['TemplateGroupId'] = $this->templateGroupId;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->storageLocation) {
             $res['StorageLocation'] = $this->storageLocation;
         }
+        if (null !== $this->templateGroupId) {
+            $res['TemplateGroupId'] = $this->templateGroupId;
+        }
         if (null !== $this->uploadMetadatas) {
             $res['UploadMetadatas'] = $this->uploadMetadatas;
         }
+        if (null !== $this->uploadURLs) {
+            $res['UploadURLs'] = $this->uploadURLs;
+        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
         }
         if (null !== $this->workflowId) {
             $res['WorkflowId'] = $this->workflowId;
@@ -92,23 +92,23 @@ class UploadMediaByURLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UploadURLs'])) {
-            $model->uploadURLs = $map['UploadURLs'];
-        }
-        if (isset($map['TemplateGroupId'])) {
-            $model->templateGroupId = $map['TemplateGroupId'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['StorageLocation'])) {
             $model->storageLocation = $map['StorageLocation'];
         }
+        if (isset($map['TemplateGroupId'])) {
+            $model->templateGroupId = $map['TemplateGroupId'];
+        }
         if (isset($map['UploadMetadatas'])) {
             $model->uploadMetadatas = $map['UploadMetadatas'];
         }
+        if (isset($map['UploadURLs'])) {
+            $model->uploadURLs = $map['UploadURLs'];
+        }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
         }
         if (isset($map['WorkflowId'])) {
             $model->workflowId = $map['WorkflowId'];

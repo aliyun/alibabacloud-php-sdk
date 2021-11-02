@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodAIDataRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $startTime;
+    public $AIType;
 
     /**
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class DescribeVodAIDataRequest extends Model
     /**
      * @var string
      */
-    public $AIType;
+    public $startTime;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
-        'startTime' => 'StartTime',
-        'endTime'   => 'EndTime',
-        'region'    => 'Region',
         'AIType'    => 'AIType',
+        'endTime'   => 'EndTime',
+        'ownerId'   => 'OwnerId',
+        'region'    => 'Region',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeVodAIDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->AIType) {
+            $res['AIType'] = $this->AIType;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->AIType) {
-            $res['AIType'] = $this->AIType;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeVodAIDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['AIType'])) {
+            $model->AIType = $map['AIType'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-        if (isset($map['AIType'])) {
-            $model->AIType = $map['AIType'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

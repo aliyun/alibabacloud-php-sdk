@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class GetCategoriesResponseBody extends Model
 {
     /**
-     * @var int
+     * @var category
      */
-    public $subTotal;
+    public $category;
 
     /**
      * @var string
@@ -21,19 +21,19 @@ class GetCategoriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var category
-     */
-    public $category;
-
-    /**
      * @var subCategories
      */
     public $subCategories;
+
+    /**
+     * @var int
+     */
+    public $subTotal;
     protected $_name = [
-        'subTotal'      => 'SubTotal',
-        'requestId'     => 'RequestId',
         'category'      => 'Category',
+        'requestId'     => 'RequestId',
         'subCategories' => 'SubCategories',
+        'subTotal'      => 'SubTotal',
     ];
 
     public function validate()
@@ -43,17 +43,17 @@ class GetCategoriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subTotal) {
-            $res['SubTotal'] = $this->subTotal;
+        if (null !== $this->category) {
+            $res['Category'] = null !== $this->category ? $this->category->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->category) {
-            $res['Category'] = null !== $this->category ? $this->category->toMap() : null;
-        }
         if (null !== $this->subCategories) {
             $res['SubCategories'] = null !== $this->subCategories ? $this->subCategories->toMap() : null;
+        }
+        if (null !== $this->subTotal) {
+            $res['SubTotal'] = $this->subTotal;
         }
 
         return $res;
@@ -67,17 +67,17 @@ class GetCategoriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubTotal'])) {
-            $model->subTotal = $map['SubTotal'];
+        if (isset($map['Category'])) {
+            $model->category = category::fromMap($map['Category']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Category'])) {
-            $model->category = category::fromMap($map['Category']);
-        }
         if (isset($map['SubCategories'])) {
             $model->subCategories = subCategories::fromMap($map['SubCategories']);
+        }
+        if (isset($map['SubTotal'])) {
+            $model->subTotal = $map['SubTotal'];
         }
 
         return $model;

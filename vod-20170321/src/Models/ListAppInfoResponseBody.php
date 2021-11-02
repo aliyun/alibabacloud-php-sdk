@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListAppInfoResponseBody extends Model
 {
     /**
-     * @var int
+     * @var appInfoList[]
      */
-    public $total;
+    public $appInfoList;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class ListAppInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @var appInfoList[]
+     * @var int
      */
-    public $appInfoList;
+    public $total;
     protected $_name = [
-        'total'       => 'Total',
-        'requestId'   => 'RequestId',
         'appInfoList' => 'AppInfoList',
+        'requestId'   => 'RequestId',
+        'total'       => 'Total',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class ListAppInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->appInfoList) {
             $res['AppInfoList'] = [];
             if (null !== $this->appInfoList && \is_array($this->appInfoList)) {
@@ -50,6 +44,12 @@ class ListAppInfoResponseBody extends Model
                     $res['AppInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class ListAppInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AppInfoList'])) {
             if (!empty($map['AppInfoList'])) {
                 $model->appInfoList = [];
@@ -77,6 +71,12 @@ class ListAppInfoResponseBody extends Model
                     $model->appInfoList[$n++] = null !== $item ? appInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

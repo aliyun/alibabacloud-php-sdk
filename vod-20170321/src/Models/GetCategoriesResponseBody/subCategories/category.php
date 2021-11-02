@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class category extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $type;
+    public $cateId;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class category extends Model
     /**
      * @var int
      */
-    public $parentId;
+    public $level;
 
     /**
      * @var int
      */
-    public $cateId;
+    public $parentId;
 
     /**
      * @var int
@@ -34,16 +34,16 @@ class category extends Model
     public $subTotal;
 
     /**
-     * @var int
+     * @var string
      */
-    public $level;
+    public $type;
     protected $_name = [
-        'type'     => 'Type',
-        'cateName' => 'CateName',
-        'parentId' => 'ParentId',
         'cateId'   => 'CateId',
-        'subTotal' => 'SubTotal',
+        'cateName' => 'CateName',
         'level'    => 'Level',
+        'parentId' => 'ParentId',
+        'subTotal' => 'SubTotal',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class category extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->cateId) {
+            $res['CateId'] = $this->cateId;
         }
         if (null !== $this->cateName) {
             $res['CateName'] = $this->cateName;
         }
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
+        }
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
-        }
-        if (null !== $this->cateId) {
-            $res['CateId'] = $this->cateId;
         }
         if (null !== $this->subTotal) {
             $res['SubTotal'] = $this->subTotal;
         }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class category extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['CateId'])) {
+            $model->cateId = $map['CateId'];
         }
         if (isset($map['CateName'])) {
             $model->cateName = $map['CateName'];
         }
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
+        }
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
-        }
-        if (isset($map['CateId'])) {
-            $model->cateId = $map['CateId'];
         }
         if (isset($map['SubTotal'])) {
             $model->subTotal = $map['SubTotal'];
         }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

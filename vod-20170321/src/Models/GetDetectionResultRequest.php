@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDetectionResultRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $jobId;
-
-    /**
-     * @var string
-     */
-    public $status;
+    public $countByPage;
 
     /**
      * @var bool
@@ -24,20 +19,25 @@ class GetDetectionResultRequest extends Model
     public $desensitization;
 
     /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
      * @var int
      */
     public $page;
 
     /**
-     * @var int
+     * @var string
      */
-    public $countByPage;
+    public $status;
     protected $_name = [
-        'jobId'           => 'JobId',
-        'status'          => 'Status',
-        'desensitization' => 'Desensitization',
-        'page'            => 'Page',
         'countByPage'     => 'CountByPage',
+        'desensitization' => 'Desensitization',
+        'jobId'           => 'JobId',
+        'page'            => 'Page',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GetDetectionResultRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->countByPage) {
+            $res['CountByPage'] = $this->countByPage;
         }
         if (null !== $this->desensitization) {
             $res['Desensitization'] = $this->desensitization;
         }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
-        if (null !== $this->countByPage) {
-            $res['CountByPage'] = $this->countByPage;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GetDetectionResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CountByPage'])) {
+            $model->countByPage = $map['CountByPage'];
         }
         if (isset($map['Desensitization'])) {
             $model->desensitization = $map['Desensitization'];
         }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
-        if (isset($map['CountByPage'])) {
-            $model->countByPage = $map['CountByPage'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

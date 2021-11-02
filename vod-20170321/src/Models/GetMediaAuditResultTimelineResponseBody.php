@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditResultTimelineResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var mediaAuditResultTimeline
      */
     public $mediaAuditResultTimeline;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                => 'RequestId',
         'mediaAuditResultTimeline' => 'MediaAuditResultTimeline',
+        'requestId'                => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetMediaAuditResultTimelineResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->mediaAuditResultTimeline) {
             $res['MediaAuditResultTimeline'] = null !== $this->mediaAuditResultTimeline ? $this->mediaAuditResultTimeline->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetMediaAuditResultTimelineResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MediaAuditResultTimeline'])) {
             $model->mediaAuditResultTimeline = mediaAuditResultTimeline::fromMap($map['MediaAuditResultTimeline']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

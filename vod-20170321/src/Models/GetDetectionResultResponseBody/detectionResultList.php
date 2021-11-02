@@ -11,21 +11,6 @@ class detectionResultList extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $platform;
-
-    /**
-     * @var string
-     */
-    public $contentType;
-
-    /**
-     * @var string
-     */
     public $collectionTitle;
 
     /**
@@ -36,26 +21,41 @@ class detectionResultList extends Model
     /**
      * @var string
      */
+    public $contentType;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
      * @var string
      */
-    public $uploader;
+    public $modifyTime;
 
     /**
      * @var string
      */
-    public $modifyTime;
+    public $platform;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $uploader;
     protected $_name = [
-        'status'          => 'Status',
-        'platform'        => 'Platform',
-        'contentType'     => 'ContentType',
         'collectionTitle' => 'CollectionTitle',
         'collectionUrl'   => 'CollectionUrl',
+        'contentType'     => 'ContentType',
         'createTime'      => 'CreateTime',
-        'uploader'        => 'Uploader',
         'modifyTime'      => 'ModifyTime',
+        'platform'        => 'Platform',
+        'status'          => 'Status',
+        'uploader'        => 'Uploader',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class detectionResultList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->platform) {
-            $res['Platform'] = $this->platform;
-        }
-        if (null !== $this->contentType) {
-            $res['ContentType'] = $this->contentType;
-        }
         if (null !== $this->collectionTitle) {
             $res['CollectionTitle'] = $this->collectionTitle;
         }
         if (null !== $this->collectionUrl) {
             $res['CollectionUrl'] = $this->collectionUrl;
         }
+        if (null !== $this->contentType) {
+            $res['ContentType'] = $this->contentType;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->uploader) {
-            $res['Uploader'] = $this->uploader;
-        }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->uploader) {
+            $res['Uploader'] = $this->uploader;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class detectionResultList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Platform'])) {
-            $model->platform = $map['Platform'];
-        }
-        if (isset($map['ContentType'])) {
-            $model->contentType = $map['ContentType'];
-        }
         if (isset($map['CollectionTitle'])) {
             $model->collectionTitle = $map['CollectionTitle'];
         }
         if (isset($map['CollectionUrl'])) {
             $model->collectionUrl = $map['CollectionUrl'];
         }
+        if (isset($map['ContentType'])) {
+            $model->contentType = $map['ContentType'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['Uploader'])) {
-            $model->uploader = $map['Uploader'];
-        }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Uploader'])) {
+            $model->uploader = $map['Uploader'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListAIImageInfoResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var AIImageInfoList[]
      */
     public $AIImageInfoList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'AIImageInfoList' => 'AIImageInfoList',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListAIImageInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->AIImageInfoList) {
             $res['AIImageInfoList'] = [];
             if (null !== $this->AIImageInfoList && \is_array($this->AIImageInfoList)) {
@@ -41,6 +38,9 @@ class ListAIImageInfoResponseBody extends Model
                     $res['AIImageInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListAIImageInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AIImageInfoList'])) {
             if (!empty($map['AIImageInfoList'])) {
                 $model->AIImageInfoList = [];
@@ -65,6 +62,9 @@ class ListAIImageInfoResponseBody extends Model
                     $model->AIImageInfoList[$n++] = null !== $item ? AIImageInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

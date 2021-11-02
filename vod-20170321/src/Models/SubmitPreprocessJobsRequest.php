@@ -11,15 +11,15 @@ class SubmitPreprocessJobsRequest extends Model
     /**
      * @var string
      */
-    public $videoId;
+    public $preprocessType;
 
     /**
      * @var string
      */
-    public $preprocessType;
+    public $videoId;
     protected $_name = [
-        'videoId'        => 'VideoId',
         'preprocessType' => 'PreprocessType',
+        'videoId'        => 'VideoId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class SubmitPreprocessJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
-        }
         if (null !== $this->preprocessType) {
             $res['PreprocessType'] = $this->preprocessType;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class SubmitPreprocessJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
-        }
         if (isset($map['PreprocessType'])) {
             $model->preprocessType = $map['PreprocessType'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
         }
 
         return $model;

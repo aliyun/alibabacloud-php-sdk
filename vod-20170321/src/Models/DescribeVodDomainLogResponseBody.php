@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainLogResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var domainLogDetails
      */
     public $domainLogDetails;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'domainLogDetails' => 'DomainLogDetails',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeVodDomainLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainLogDetails) {
             $res['DomainLogDetails'] = null !== $this->domainLogDetails ? $this->domainLogDetails->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeVodDomainLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainLogDetails'])) {
             $model->domainLogDetails = domainLogDetails::fromMap($map['DomainLogDetails']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

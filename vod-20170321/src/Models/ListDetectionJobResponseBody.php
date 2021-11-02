@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListDetectionJobResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var detectionJobList[]
      */
     public $detectionJobList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'detectionJobList' => 'DetectionJobList',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListDetectionJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->detectionJobList) {
             $res['DetectionJobList'] = [];
             if (null !== $this->detectionJobList && \is_array($this->detectionJobList)) {
@@ -41,6 +38,9 @@ class ListDetectionJobResponseBody extends Model
                     $res['DetectionJobList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListDetectionJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DetectionJobList'])) {
             if (!empty($map['DetectionJobList'])) {
                 $model->detectionJobList = [];
@@ -65,6 +62,9 @@ class ListDetectionJobResponseBody extends Model
                     $model->detectionJobList[$n++] = null !== $item ? detectionJobList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

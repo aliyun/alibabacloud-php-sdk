@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class videoDNA extends Model
 {
     /**
+     * @var detail[]
+     */
+    public $detail;
+
+    /**
      * @var string
      */
     public $primaryKey;
@@ -18,15 +23,10 @@ class videoDNA extends Model
      * @var string
      */
     public $similarity;
-
-    /**
-     * @var detail[]
-     */
-    public $detail;
     protected $_name = [
+        'detail'     => 'Detail',
         'primaryKey' => 'PrimaryKey',
         'similarity' => 'Similarity',
-        'detail'     => 'Detail',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class videoDNA extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->primaryKey) {
-            $res['PrimaryKey'] = $this->primaryKey;
-        }
-        if (null !== $this->similarity) {
-            $res['Similarity'] = $this->similarity;
-        }
         if (null !== $this->detail) {
             $res['Detail'] = [];
             if (null !== $this->detail && \is_array($this->detail)) {
@@ -50,6 +44,12 @@ class videoDNA extends Model
                     $res['Detail'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->primaryKey) {
+            $res['PrimaryKey'] = $this->primaryKey;
+        }
+        if (null !== $this->similarity) {
+            $res['Similarity'] = $this->similarity;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class videoDNA extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrimaryKey'])) {
-            $model->primaryKey = $map['PrimaryKey'];
-        }
-        if (isset($map['Similarity'])) {
-            $model->similarity = $map['Similarity'];
-        }
         if (isset($map['Detail'])) {
             if (!empty($map['Detail'])) {
                 $model->detail = [];
@@ -77,6 +71,12 @@ class videoDNA extends Model
                     $model->detail[$n++] = null !== $item ? detail::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PrimaryKey'])) {
+            $model->primaryKey = $map['PrimaryKey'];
+        }
+        if (isset($map['Similarity'])) {
+            $model->similarity = $map['Similarity'];
         }
 
         return $model;

@@ -16,7 +16,7 @@ class GetVideoListRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $endTime;
 
     /**
      * @var int
@@ -41,7 +41,7 @@ class GetVideoListRequest extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $status;
 
     /**
      * @var string
@@ -49,12 +49,12 @@ class GetVideoListRequest extends Model
     public $storageLocation;
     protected $_name = [
         'cateId'          => 'CateId',
-        'status'          => 'Status',
+        'endTime'         => 'EndTime',
         'pageNo'          => 'PageNo',
         'pageSize'        => 'PageSize',
         'sortBy'          => 'SortBy',
         'startTime'       => 'StartTime',
-        'endTime'         => 'EndTime',
+        'status'          => 'Status',
         'storageLocation' => 'StorageLocation',
     ];
 
@@ -68,8 +68,8 @@ class GetVideoListRequest extends Model
         if (null !== $this->cateId) {
             $res['CateId'] = $this->cateId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
@@ -83,8 +83,8 @@ class GetVideoListRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->storageLocation) {
             $res['StorageLocation'] = $this->storageLocation;
@@ -104,8 +104,8 @@ class GetVideoListRequest extends Model
         if (isset($map['CateId'])) {
             $model->cateId = $map['CateId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
@@ -119,8 +119,8 @@ class GetVideoListRequest extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['StorageLocation'])) {
             $model->storageLocation = $map['StorageLocation'];

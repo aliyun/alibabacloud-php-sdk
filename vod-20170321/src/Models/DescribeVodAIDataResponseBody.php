@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodAIDataResponseBody extends Model
 {
     /**
+     * @var AIData
+     */
+    public $AIData;
+
+    /**
      * @var string
      */
     public $dataInterval;
@@ -18,15 +23,10 @@ class DescribeVodAIDataResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var AIData
-     */
-    public $AIData;
     protected $_name = [
+        'AIData'       => 'AIData',
         'dataInterval' => 'DataInterval',
         'requestId'    => 'RequestId',
-        'AIData'       => 'AIData',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeVodAIDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->AIData) {
+            $res['AIData'] = null !== $this->AIData ? $this->AIData->toMap() : null;
+        }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->AIData) {
-            $res['AIData'] = null !== $this->AIData ? $this->AIData->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeVodAIDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AIData'])) {
+            $model->AIData = AIData::fromMap($map['AIData']);
+        }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['AIData'])) {
-            $model->AIData = AIData::fromMap($map['AIData']);
         }
 
         return $model;

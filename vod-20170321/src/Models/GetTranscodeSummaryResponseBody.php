@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetTranscodeSummaryResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string[]
      */
     public $nonExistVideoIds;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var transcodeSummaryList[]
      */
     public $transcodeSummaryList;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'nonExistVideoIds'     => 'NonExistVideoIds',
+        'requestId'            => 'RequestId',
         'transcodeSummaryList' => 'TranscodeSummaryList',
     ];
 
@@ -36,11 +36,11 @@ class GetTranscodeSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nonExistVideoIds) {
             $res['NonExistVideoIds'] = $this->nonExistVideoIds;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->transcodeSummaryList) {
             $res['TranscodeSummaryList'] = [];
@@ -63,13 +63,13 @@ class GetTranscodeSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NonExistVideoIds'])) {
             if (!empty($map['NonExistVideoIds'])) {
                 $model->nonExistVideoIds = $map['NonExistVideoIds'];
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TranscodeSummaryList'])) {
             if (!empty($map['TranscodeSummaryList'])) {

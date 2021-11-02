@@ -11,21 +11,21 @@ class ProduceEditingProjectVideoResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $mediaId;
 
     /**
      * @var string
      */
     public $projectId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'mediaId'   => 'MediaId',
         'projectId' => 'ProjectId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ProduceEditingProjectVideoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ProduceEditingProjectVideoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

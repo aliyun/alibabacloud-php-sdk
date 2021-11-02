@@ -12,12 +12,12 @@ class transcodeTask extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $completeTime;
 
     /**
      * @var string
      */
-    public $trigger;
+    public $creationTime;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class transcodeTask extends Model
     public $taskStatus;
 
     /**
-     * @var string
+     * @var transcodeJobInfoList[]
      */
-    public $videoId;
+    public $transcodeJobInfoList;
 
     /**
      * @var string
      */
-    public $completeTime;
+    public $transcodeTaskId;
 
     /**
      * @var string
@@ -42,21 +42,21 @@ class transcodeTask extends Model
     /**
      * @var string
      */
-    public $transcodeTaskId;
+    public $trigger;
 
     /**
-     * @var transcodeJobInfoList[]
+     * @var string
      */
-    public $transcodeJobInfoList;
+    public $videoId;
     protected $_name = [
-        'creationTime'             => 'CreationTime',
-        'trigger'                  => 'Trigger',
-        'taskStatus'               => 'TaskStatus',
-        'videoId'                  => 'VideoId',
         'completeTime'             => 'CompleteTime',
-        'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
-        'transcodeTaskId'          => 'TranscodeTaskId',
+        'creationTime'             => 'CreationTime',
+        'taskStatus'               => 'TaskStatus',
         'transcodeJobInfoList'     => 'TranscodeJobInfoList',
+        'transcodeTaskId'          => 'TranscodeTaskId',
+        'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
+        'trigger'                  => 'Trigger',
+        'videoId'                  => 'VideoId',
     ];
 
     public function validate()
@@ -66,26 +66,14 @@ class transcodeTask extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->trigger) {
-            $res['Trigger'] = $this->trigger;
-        }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
-        }
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
-        }
         if (null !== $this->completeTime) {
             $res['CompleteTime'] = $this->completeTime;
         }
-        if (null !== $this->transcodeTemplateGroupId) {
-            $res['TranscodeTemplateGroupId'] = $this->transcodeTemplateGroupId;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->transcodeTaskId) {
-            $res['TranscodeTaskId'] = $this->transcodeTaskId;
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
         if (null !== $this->transcodeJobInfoList) {
             $res['TranscodeJobInfoList'] = [];
@@ -95,6 +83,18 @@ class transcodeTask extends Model
                     $res['TranscodeJobInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->transcodeTaskId) {
+            $res['TranscodeTaskId'] = $this->transcodeTaskId;
+        }
+        if (null !== $this->transcodeTemplateGroupId) {
+            $res['TranscodeTemplateGroupId'] = $this->transcodeTemplateGroupId;
+        }
+        if (null !== $this->trigger) {
+            $res['Trigger'] = $this->trigger;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -108,26 +108,14 @@ class transcodeTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Trigger'])) {
-            $model->trigger = $map['Trigger'];
-        }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
-        }
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
-        }
         if (isset($map['CompleteTime'])) {
             $model->completeTime = $map['CompleteTime'];
         }
-        if (isset($map['TranscodeTemplateGroupId'])) {
-            $model->transcodeTemplateGroupId = $map['TranscodeTemplateGroupId'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['TranscodeTaskId'])) {
-            $model->transcodeTaskId = $map['TranscodeTaskId'];
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
         if (isset($map['TranscodeJobInfoList'])) {
             if (!empty($map['TranscodeJobInfoList'])) {
@@ -137,6 +125,18 @@ class transcodeTask extends Model
                     $model->transcodeJobInfoList[$n++] = null !== $item ? transcodeJobInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TranscodeTaskId'])) {
+            $model->transcodeTaskId = $map['TranscodeTaskId'];
+        }
+        if (isset($map['TranscodeTemplateGroupId'])) {
+            $model->transcodeTemplateGroupId = $map['TranscodeTemplateGroupId'];
+        }
+        if (isset($map['Trigger'])) {
+            $model->trigger = $map['Trigger'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
         }
 
         return $model;

@@ -11,21 +11,21 @@ class UpdateAITemplateRequest extends Model
     /**
      * @var string
      */
+    public $templateConfig;
+
+    /**
+     * @var string
+     */
     public $templateId;
 
     /**
      * @var string
      */
     public $templateName;
-
-    /**
-     * @var string
-     */
-    public $templateConfig;
     protected $_name = [
+        'templateConfig' => 'TemplateConfig',
         'templateId'     => 'TemplateId',
         'templateName'   => 'TemplateName',
-        'templateConfig' => 'TemplateConfig',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateAITemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->templateConfig) {
+            $res['TemplateConfig'] = $this->templateConfig;
+        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->templateConfig) {
-            $res['TemplateConfig'] = $this->templateConfig;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateAITemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TemplateConfig'])) {
+            $model->templateConfig = $map['TemplateConfig'];
+        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['TemplateConfig'])) {
-            $model->templateConfig = $map['TemplateConfig'];
         }
 
         return $model;

@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetVodDomainCertificateRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $securityToken;
+    public $certName;
 
     /**
      * @var string
@@ -24,9 +19,14 @@ class SetVodDomainCertificateRequest extends Model
     public $domainName;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
-    public $certName;
+    public $SSLPri;
 
     /**
      * @var string
@@ -41,15 +41,15 @@ class SetVodDomainCertificateRequest extends Model
     /**
      * @var string
      */
-    public $SSLPri;
+    public $securityToken;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'securityToken' => 'SecurityToken',
-        'domainName'    => 'DomainName',
         'certName'      => 'CertName',
+        'domainName'    => 'DomainName',
+        'ownerId'       => 'OwnerId',
+        'SSLPri'        => 'SSLPri',
         'SSLProtocol'   => 'SSLProtocol',
         'SSLPub'        => 'SSLPub',
-        'SSLPri'        => 'SSLPri',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -59,17 +59,17 @@ class SetVodDomainCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->certName) {
+            $res['CertName'] = $this->certName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->certName) {
-            $res['CertName'] = $this->certName;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->SSLPri) {
+            $res['SSLPri'] = $this->SSLPri;
         }
         if (null !== $this->SSLProtocol) {
             $res['SSLProtocol'] = $this->SSLProtocol;
@@ -77,8 +77,8 @@ class SetVodDomainCertificateRequest extends Model
         if (null !== $this->SSLPub) {
             $res['SSLPub'] = $this->SSLPub;
         }
-        if (null !== $this->SSLPri) {
-            $res['SSLPri'] = $this->SSLPri;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -92,17 +92,17 @@ class SetVodDomainCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['CertName'])) {
+            $model->certName = $map['CertName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['CertName'])) {
-            $model->certName = $map['CertName'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SSLPri'])) {
+            $model->SSLPri = $map['SSLPri'];
         }
         if (isset($map['SSLProtocol'])) {
             $model->SSLProtocol = $map['SSLProtocol'];
@@ -110,8 +110,8 @@ class SetVodDomainCertificateRequest extends Model
         if (isset($map['SSLPub'])) {
             $model->SSLPub = $map['SSLPub'];
         }
-        if (isset($map['SSLPri'])) {
-            $model->SSLPri = $map['SSLPri'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

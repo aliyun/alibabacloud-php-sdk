@@ -11,15 +11,15 @@ class DeleteDynamicImageRequest extends Model
     /**
      * @var string
      */
-    public $videoId;
+    public $dynamicImageIds;
 
     /**
      * @var string
      */
-    public $dynamicImageIds;
+    public $videoId;
     protected $_name = [
-        'videoId'         => 'VideoId',
         'dynamicImageIds' => 'DynamicImageIds',
+        'videoId'         => 'VideoId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteDynamicImageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
-        }
         if (null !== $this->dynamicImageIds) {
             $res['DynamicImageIds'] = $this->dynamicImageIds;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteDynamicImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
-        }
         if (isset($map['DynamicImageIds'])) {
             $model->dynamicImageIds = $map['DynamicImageIds'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
         }
 
         return $model;

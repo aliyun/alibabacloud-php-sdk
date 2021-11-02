@@ -11,7 +11,17 @@ class SetMessageCallbackRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $appId;
+
+    /**
+     * @var string
+     */
+    public $authKey;
+
+    /**
+     * @var string
+     */
+    public $authSwitch;
 
     /**
      * @var string
@@ -31,16 +41,6 @@ class SetMessageCallbackRequest extends Model
     /**
      * @var string
      */
-    public $authSwitch;
-
-    /**
-     * @var string
-     */
-    public $authKey;
-
-    /**
-     * @var string
-     */
     public $mnsEndpoint;
 
     /**
@@ -51,17 +51,17 @@ class SetMessageCallbackRequest extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $ownerAccount;
     protected $_name = [
-        'ownerAccount'  => 'OwnerAccount',
+        'appId'         => 'AppId',
+        'authKey'       => 'AuthKey',
+        'authSwitch'    => 'AuthSwitch',
         'callbackType'  => 'CallbackType',
         'callbackURL'   => 'CallbackURL',
         'eventTypeList' => 'EventTypeList',
-        'authSwitch'    => 'AuthSwitch',
-        'authKey'       => 'AuthKey',
         'mnsEndpoint'   => 'MnsEndpoint',
         'mnsQueueName'  => 'MnsQueueName',
-        'appId'         => 'AppId',
+        'ownerAccount'  => 'OwnerAccount',
     ];
 
     public function validate()
@@ -71,8 +71,14 @@ class SetMessageCallbackRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->authKey) {
+            $res['AuthKey'] = $this->authKey;
+        }
+        if (null !== $this->authSwitch) {
+            $res['AuthSwitch'] = $this->authSwitch;
         }
         if (null !== $this->callbackType) {
             $res['CallbackType'] = $this->callbackType;
@@ -83,20 +89,14 @@ class SetMessageCallbackRequest extends Model
         if (null !== $this->eventTypeList) {
             $res['EventTypeList'] = $this->eventTypeList;
         }
-        if (null !== $this->authSwitch) {
-            $res['AuthSwitch'] = $this->authSwitch;
-        }
-        if (null !== $this->authKey) {
-            $res['AuthKey'] = $this->authKey;
-        }
         if (null !== $this->mnsEndpoint) {
             $res['MnsEndpoint'] = $this->mnsEndpoint;
         }
         if (null !== $this->mnsQueueName) {
             $res['MnsQueueName'] = $this->mnsQueueName;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -110,8 +110,14 @@ class SetMessageCallbackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
+        if (isset($map['AuthKey'])) {
+            $model->authKey = $map['AuthKey'];
+        }
+        if (isset($map['AuthSwitch'])) {
+            $model->authSwitch = $map['AuthSwitch'];
         }
         if (isset($map['CallbackType'])) {
             $model->callbackType = $map['CallbackType'];
@@ -122,20 +128,14 @@ class SetMessageCallbackRequest extends Model
         if (isset($map['EventTypeList'])) {
             $model->eventTypeList = $map['EventTypeList'];
         }
-        if (isset($map['AuthSwitch'])) {
-            $model->authSwitch = $map['AuthSwitch'];
-        }
-        if (isset($map['AuthKey'])) {
-            $model->authKey = $map['AuthKey'];
-        }
         if (isset($map['MnsEndpoint'])) {
             $model->mnsEndpoint = $map['MnsEndpoint'];
         }
         if (isset($map['MnsQueueName'])) {
             $model->mnsQueueName = $map['MnsQueueName'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

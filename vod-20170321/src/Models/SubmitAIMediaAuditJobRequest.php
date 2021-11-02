@@ -11,7 +11,17 @@ class SubmitAIMediaAuditJobRequest extends Model
     /**
      * @var string
      */
+    public $mediaAuditConfiguration;
+
+    /**
+     * @var string
+     */
     public $mediaId;
+
+    /**
+     * @var string
+     */
+    public $mediaType;
 
     /**
      * @var string
@@ -22,22 +32,12 @@ class SubmitAIMediaAuditJobRequest extends Model
      * @var string
      */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $mediaType;
-
-    /**
-     * @var string
-     */
-    public $mediaAuditConfiguration;
     protected $_name = [
+        'mediaAuditConfiguration' => 'MediaAuditConfiguration',
         'mediaId'                 => 'MediaId',
+        'mediaType'               => 'MediaType',
         'templateId'              => 'TemplateId',
         'userData'                => 'UserData',
-        'mediaType'               => 'MediaType',
-        'mediaAuditConfiguration' => 'MediaAuditConfiguration',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class SubmitAIMediaAuditJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mediaAuditConfiguration) {
+            $res['MediaAuditConfiguration'] = $this->mediaAuditConfiguration;
+        }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
+        }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->mediaType) {
-            $res['MediaType'] = $this->mediaType;
-        }
-        if (null !== $this->mediaAuditConfiguration) {
-            $res['MediaAuditConfiguration'] = $this->mediaAuditConfiguration;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class SubmitAIMediaAuditJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MediaAuditConfiguration'])) {
+            $model->mediaAuditConfiguration = $map['MediaAuditConfiguration'];
+        }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
+        }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['MediaType'])) {
-            $model->mediaType = $map['MediaType'];
-        }
-        if (isset($map['MediaAuditConfiguration'])) {
-            $model->mediaAuditConfiguration = $map['MediaAuditConfiguration'];
         }
 
         return $model;

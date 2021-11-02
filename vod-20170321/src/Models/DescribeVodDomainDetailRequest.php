@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainDetailRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -17,15 +22,10 @@ class DescribeVodDomainDetailRequest extends Model
      * @var string
      */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $domainName;
     protected $_name = [
+        'domainName'    => 'DomainName',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'domainName'    => 'DomainName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeVodDomainDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeVodDomainDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
         }
 
         return $model;

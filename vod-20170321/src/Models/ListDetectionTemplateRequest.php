@@ -11,15 +11,15 @@ class ListDetectionTemplateRequest extends Model
     /**
      * @var string
      */
-    public $templateName;
+    public $period;
 
     /**
      * @var string
      */
-    public $period;
+    public $templateName;
     protected $_name = [
-        'templateName' => 'TemplateName',
         'period'       => 'Period',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListDetectionTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
-        }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListDetectionTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
-        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

@@ -11,7 +11,17 @@ class topPlayVideoStatis extends Model
     /**
      * @var string
      */
+    public $playDuration;
+
+    /**
+     * @var string
+     */
     public $title;
+
+    /**
+     * @var string
+     */
+    public $UV;
 
     /**
      * @var string
@@ -21,23 +31,13 @@ class topPlayVideoStatis extends Model
     /**
      * @var string
      */
-    public $playDuration;
-
-    /**
-     * @var string
-     */
     public $videoId;
-
-    /**
-     * @var string
-     */
-    public $UV;
     protected $_name = [
-        'title'        => 'Title',
-        'VV'           => 'VV',
         'playDuration' => 'PlayDuration',
-        'videoId'      => 'VideoId',
+        'title'        => 'Title',
         'UV'           => 'UV',
+        'VV'           => 'VV',
+        'videoId'      => 'VideoId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class topPlayVideoStatis extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->playDuration) {
+            $res['PlayDuration'] = $this->playDuration;
+        }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->UV) {
+            $res['UV'] = $this->UV;
         }
         if (null !== $this->VV) {
             $res['VV'] = $this->VV;
         }
-        if (null !== $this->playDuration) {
-            $res['PlayDuration'] = $this->playDuration;
-        }
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
-        }
-        if (null !== $this->UV) {
-            $res['UV'] = $this->UV;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class topPlayVideoStatis extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PlayDuration'])) {
+            $model->playDuration = $map['PlayDuration'];
+        }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['UV'])) {
+            $model->UV = $map['UV'];
         }
         if (isset($map['VV'])) {
             $model->VV = $map['VV'];
         }
-        if (isset($map['PlayDuration'])) {
-            $model->playDuration = $map['PlayDuration'];
-        }
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
-        }
-        if (isset($map['UV'])) {
-            $model->UV = $map['UV'];
         }
 
         return $model;

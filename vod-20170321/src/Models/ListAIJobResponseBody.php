@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class ListAIJobResponseBody extends Model
 {
     /**
-     * @var string
+     * @var AIJobList
      */
-    public $requestId;
+    public $AIJobList;
 
     /**
      * @var nonExistAIJobIds
@@ -21,13 +21,13 @@ class ListAIJobResponseBody extends Model
     public $nonExistAIJobIds;
 
     /**
-     * @var AIJobList
+     * @var string
      */
-    public $AIJobList;
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'nonExistAIJobIds' => 'NonExistAIJobIds',
         'AIJobList'        => 'AIJobList',
+        'nonExistAIJobIds' => 'NonExistAIJobIds',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class ListAIJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->AIJobList) {
+            $res['AIJobList'] = null !== $this->AIJobList ? $this->AIJobList->toMap() : null;
         }
         if (null !== $this->nonExistAIJobIds) {
             $res['NonExistAIJobIds'] = null !== $this->nonExistAIJobIds ? $this->nonExistAIJobIds->toMap() : null;
         }
-        if (null !== $this->AIJobList) {
-            $res['AIJobList'] = null !== $this->AIJobList ? $this->AIJobList->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class ListAIJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['AIJobList'])) {
+            $model->AIJobList = AIJobList::fromMap($map['AIJobList']);
         }
         if (isset($map['NonExistAIJobIds'])) {
             $model->nonExistAIJobIds = nonExistAIJobIds::fromMap($map['NonExistAIJobIds']);
         }
-        if (isset($map['AIJobList'])) {
-            $model->AIJobList = AIJobList::fromMap($map['AIJobList']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

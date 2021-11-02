@@ -16,16 +16,16 @@ class UpdateWatermarkRequest extends Model
     /**
      * @var string
      */
-    public $watermarkId;
+    public $watermarkConfig;
 
     /**
      * @var string
      */
-    public $watermarkConfig;
+    public $watermarkId;
     protected $_name = [
         'name'            => 'Name',
-        'watermarkId'     => 'WatermarkId',
         'watermarkConfig' => 'WatermarkConfig',
+        'watermarkId'     => 'WatermarkId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class UpdateWatermarkRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->watermarkId) {
-            $res['WatermarkId'] = $this->watermarkId;
-        }
         if (null !== $this->watermarkConfig) {
             $res['WatermarkConfig'] = $this->watermarkConfig;
+        }
+        if (null !== $this->watermarkId) {
+            $res['WatermarkId'] = $this->watermarkId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class UpdateWatermarkRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['WatermarkId'])) {
-            $model->watermarkId = $map['WatermarkId'];
-        }
         if (isset($map['WatermarkConfig'])) {
             $model->watermarkConfig = $map['WatermarkConfig'];
+        }
+        if (isset($map['WatermarkId'])) {
+            $model->watermarkId = $map['WatermarkId'];
         }
 
         return $model;

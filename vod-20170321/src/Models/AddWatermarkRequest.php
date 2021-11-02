@@ -11,17 +11,7 @@ class AddWatermarkRequest extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $watermarkConfig;
+    public $appId;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class AddWatermarkRequest extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $watermarkConfig;
     protected $_name = [
-        'type'            => 'Type',
-        'name'            => 'Name',
-        'watermarkConfig' => 'WatermarkConfig',
-        'fileUrl'         => 'FileUrl',
         'appId'           => 'AppId',
+        'fileUrl'         => 'FileUrl',
+        'name'            => 'Name',
+        'type'            => 'Type',
+        'watermarkConfig' => 'WatermarkConfig',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class AddWatermarkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->watermarkConfig) {
-            $res['WatermarkConfig'] = $this->watermarkConfig;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->watermarkConfig) {
+            $res['WatermarkConfig'] = $this->watermarkConfig;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class AddWatermarkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['WatermarkConfig'])) {
-            $model->watermarkConfig = $map['WatermarkConfig'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['WatermarkConfig'])) {
+            $model->watermarkConfig = $map['WatermarkConfig'];
         }
 
         return $model;

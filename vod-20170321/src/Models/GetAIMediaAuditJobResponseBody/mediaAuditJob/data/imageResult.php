@@ -12,12 +12,12 @@ class imageResult extends Model
     /**
      * @var string
      */
-    public $type;
+    public $label;
 
     /**
-     * @var string
+     * @var result[]
      */
-    public $url;
+    public $result;
 
     /**
      * @var string
@@ -27,18 +27,18 @@ class imageResult extends Model
     /**
      * @var string
      */
-    public $label;
+    public $type;
 
     /**
-     * @var result[]
+     * @var string
      */
-    public $result;
+    public $url;
     protected $_name = [
-        'type'       => 'Type',
-        'url'        => 'Url',
-        'suggestion' => 'Suggestion',
         'label'      => 'Label',
         'result'     => 'Result',
+        'suggestion' => 'Suggestion',
+        'type'       => 'Type',
+        'url'        => 'Url',
     ];
 
     public function validate()
@@ -48,15 +48,6 @@ class imageResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
-        }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
@@ -68,6 +59,15 @@ class imageResult extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -81,15 +81,6 @@ class imageResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
-        }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
@@ -101,6 +92,15 @@ class imageResult extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

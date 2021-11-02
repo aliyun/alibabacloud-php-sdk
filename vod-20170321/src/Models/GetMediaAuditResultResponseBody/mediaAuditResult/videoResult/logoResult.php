@@ -13,12 +13,12 @@ class logoResult extends Model
     /**
      * @var string
      */
-    public $suggestion;
+    public $averageScore;
 
     /**
-     * @var string
+     * @var counterList[]
      */
-    public $averageScore;
+    public $counterList;
 
     /**
      * @var string
@@ -31,20 +31,20 @@ class logoResult extends Model
     public $maxScore;
 
     /**
-     * @var counterList[]
+     * @var string
      */
-    public $counterList;
+    public $suggestion;
 
     /**
      * @var topList[]
      */
     public $topList;
     protected $_name = [
-        'suggestion'   => 'Suggestion',
         'averageScore' => 'AverageScore',
+        'counterList'  => 'CounterList',
         'label'        => 'Label',
         'maxScore'     => 'MaxScore',
-        'counterList'  => 'CounterList',
+        'suggestion'   => 'Suggestion',
         'topList'      => 'TopList',
     ];
 
@@ -55,17 +55,8 @@ class logoResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
-        }
         if (null !== $this->averageScore) {
             $res['AverageScore'] = $this->averageScore;
-        }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
-        }
-        if (null !== $this->maxScore) {
-            $res['MaxScore'] = $this->maxScore;
         }
         if (null !== $this->counterList) {
             $res['CounterList'] = [];
@@ -75,6 +66,15 @@ class logoResult extends Model
                     $res['CounterList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
+        if (null !== $this->maxScore) {
+            $res['MaxScore'] = $this->maxScore;
+        }
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
         }
         if (null !== $this->topList) {
             $res['TopList'] = [];
@@ -97,17 +97,8 @@ class logoResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
-        }
         if (isset($map['AverageScore'])) {
             $model->averageScore = $map['AverageScore'];
-        }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
-        }
-        if (isset($map['MaxScore'])) {
-            $model->maxScore = $map['MaxScore'];
         }
         if (isset($map['CounterList'])) {
             if (!empty($map['CounterList'])) {
@@ -117,6 +108,15 @@ class logoResult extends Model
                     $model->counterList[$n++] = null !== $item ? counterList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
+        if (isset($map['MaxScore'])) {
+            $model->maxScore = $map['MaxScore'];
+        }
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
         if (isset($map['TopList'])) {
             if (!empty($map['TopList'])) {

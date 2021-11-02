@@ -26,20 +26,20 @@ class userPlayStatisTotal extends Model
     public $playRange;
 
     /**
-     * @var VV
-     */
-    public $VV;
-
-    /**
      * @var UV
      */
     public $UV;
+
+    /**
+     * @var VV
+     */
+    public $VV;
     protected $_name = [
         'date'         => 'Date',
         'playDuration' => 'PlayDuration',
         'playRange'    => 'PlayRange',
-        'VV'           => 'VV',
         'UV'           => 'UV',
+        'VV'           => 'VV',
     ];
 
     public function validate()
@@ -58,11 +58,11 @@ class userPlayStatisTotal extends Model
         if (null !== $this->playRange) {
             $res['PlayRange'] = $this->playRange;
         }
-        if (null !== $this->VV) {
-            $res['VV'] = null !== $this->VV ? $this->VV->toMap() : null;
-        }
         if (null !== $this->UV) {
             $res['UV'] = null !== $this->UV ? $this->UV->toMap() : null;
+        }
+        if (null !== $this->VV) {
+            $res['VV'] = null !== $this->VV ? $this->VV->toMap() : null;
         }
 
         return $res;
@@ -85,11 +85,11 @@ class userPlayStatisTotal extends Model
         if (isset($map['PlayRange'])) {
             $model->playRange = $map['PlayRange'];
         }
-        if (isset($map['VV'])) {
-            $model->VV = VV::fromMap($map['VV']);
-        }
         if (isset($map['UV'])) {
             $model->UV = UV::fromMap($map['UV']);
+        }
+        if (isset($map['VV'])) {
+            $model->VV = VV::fromMap($map['VV']);
         }
 
         return $model;

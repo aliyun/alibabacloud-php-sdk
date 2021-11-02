@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetDetectionJobResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var detectionJob
      */
     public $detectionJob;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'detectionJob' => 'DetectionJob',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetDetectionJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->detectionJob) {
             $res['DetectionJob'] = null !== $this->detectionJob ? $this->detectionJob->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetDetectionJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DetectionJob'])) {
             $model->detectionJob = detectionJob::fromMap($map['DetectionJob']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

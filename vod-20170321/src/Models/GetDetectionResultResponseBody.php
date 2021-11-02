@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetDetectionResultResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var detectionResultList[]
      */
     public $detectionResultList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'detectionResultList' => 'DetectionResultList',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class GetDetectionResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->detectionResultList) {
             $res['DetectionResultList'] = [];
             if (null !== $this->detectionResultList && \is_array($this->detectionResultList)) {
@@ -41,6 +38,9 @@ class GetDetectionResultResponseBody extends Model
                     $res['DetectionResultList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class GetDetectionResultResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DetectionResultList'])) {
             if (!empty($map['DetectionResultList'])) {
                 $model->detectionResultList = [];
@@ -65,6 +62,9 @@ class GetDetectionResultResponseBody extends Model
                     $model->detectionResultList[$n++] = null !== $item ? detectionResultList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -14,6 +14,11 @@ class list_ extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $label;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -22,16 +27,11 @@ class list_ extends Model
      * @var string
      */
     public $text;
-
-    /**
-     * @var string
-     */
-    public $label;
     protected $_name = [
         'endTime'   => 'EndTime',
+        'label'     => 'Label',
         'startTime' => 'StartTime',
         'text'      => 'Text',
-        'label'     => 'Label',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class list_ extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
-        }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class list_ extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
-        }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
         }
 
         return $model;

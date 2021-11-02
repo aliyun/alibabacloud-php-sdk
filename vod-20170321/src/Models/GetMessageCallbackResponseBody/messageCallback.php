@@ -11,6 +11,21 @@ class messageCallback extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
+    public $authKey;
+
+    /**
+     * @var string
+     */
+    public $authSwitch;
+
+    /**
+     * @var string
+     */
     public $callbackType;
 
     /**
@@ -26,36 +41,21 @@ class messageCallback extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $mnsEndpoint;
 
     /**
      * @var string
      */
     public $mnsQueueName;
-
-    /**
-     * @var string
-     */
-    public $authKey;
-
-    /**
-     * @var string
-     */
-    public $authSwitch;
-
-    /**
-     * @var string
-     */
-    public $mnsEndpoint;
     protected $_name = [
+        'appId'         => 'AppId',
+        'authKey'       => 'AuthKey',
+        'authSwitch'    => 'AuthSwitch',
         'callbackType'  => 'CallbackType',
         'callbackURL'   => 'CallbackURL',
         'eventTypeList' => 'EventTypeList',
-        'appId'         => 'AppId',
-        'mnsQueueName'  => 'MnsQueueName',
-        'authKey'       => 'AuthKey',
-        'authSwitch'    => 'AuthSwitch',
         'mnsEndpoint'   => 'MnsEndpoint',
+        'mnsQueueName'  => 'MnsQueueName',
     ];
 
     public function validate()
@@ -65,6 +65,15 @@ class messageCallback extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->authKey) {
+            $res['AuthKey'] = $this->authKey;
+        }
+        if (null !== $this->authSwitch) {
+            $res['AuthSwitch'] = $this->authSwitch;
+        }
         if (null !== $this->callbackType) {
             $res['CallbackType'] = $this->callbackType;
         }
@@ -74,20 +83,11 @@ class messageCallback extends Model
         if (null !== $this->eventTypeList) {
             $res['EventTypeList'] = $this->eventTypeList;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->mnsEndpoint) {
+            $res['MnsEndpoint'] = $this->mnsEndpoint;
         }
         if (null !== $this->mnsQueueName) {
             $res['MnsQueueName'] = $this->mnsQueueName;
-        }
-        if (null !== $this->authKey) {
-            $res['AuthKey'] = $this->authKey;
-        }
-        if (null !== $this->authSwitch) {
-            $res['AuthSwitch'] = $this->authSwitch;
-        }
-        if (null !== $this->mnsEndpoint) {
-            $res['MnsEndpoint'] = $this->mnsEndpoint;
         }
 
         return $res;
@@ -101,6 +101,15 @@ class messageCallback extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
+        if (isset($map['AuthKey'])) {
+            $model->authKey = $map['AuthKey'];
+        }
+        if (isset($map['AuthSwitch'])) {
+            $model->authSwitch = $map['AuthSwitch'];
+        }
         if (isset($map['CallbackType'])) {
             $model->callbackType = $map['CallbackType'];
         }
@@ -110,20 +119,11 @@ class messageCallback extends Model
         if (isset($map['EventTypeList'])) {
             $model->eventTypeList = $map['EventTypeList'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['MnsEndpoint'])) {
+            $model->mnsEndpoint = $map['MnsEndpoint'];
         }
         if (isset($map['MnsQueueName'])) {
             $model->mnsQueueName = $map['MnsQueueName'];
-        }
-        if (isset($map['AuthKey'])) {
-            $model->authKey = $map['AuthKey'];
-        }
-        if (isset($map['AuthSwitch'])) {
-            $model->authSwitch = $map['AuthSwitch'];
-        }
-        if (isset($map['MnsEndpoint'])) {
-            $model->mnsEndpoint = $map['MnsEndpoint'];
         }
 
         return $model;

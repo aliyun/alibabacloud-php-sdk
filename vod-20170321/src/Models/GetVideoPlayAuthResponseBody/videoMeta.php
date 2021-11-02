@@ -11,12 +11,17 @@ class videoMeta extends Model
     /**
      * @var string
      */
-    public $status;
+    public $coverURL;
 
     /**
      * @var float
      */
     public $duration;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var string
@@ -27,17 +32,12 @@ class videoMeta extends Model
      * @var string
      */
     public $videoId;
-
-    /**
-     * @var string
-     */
-    public $coverURL;
     protected $_name = [
-        'status'   => 'Status',
+        'coverURL' => 'CoverURL',
         'duration' => 'Duration',
+        'status'   => 'Status',
         'title'    => 'Title',
         'videoId'  => 'VideoId',
-        'coverURL' => 'CoverURL',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class videoMeta extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->coverURL) {
+            $res['CoverURL'] = $this->coverURL;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
-        }
-        if (null !== $this->coverURL) {
-            $res['CoverURL'] = $this->coverURL;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class videoMeta extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CoverURL'])) {
+            $model->coverURL = $map['CoverURL'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
-        }
-        if (isset($map['CoverURL'])) {
-            $model->coverURL = $map['CoverURL'];
         }
 
         return $model;

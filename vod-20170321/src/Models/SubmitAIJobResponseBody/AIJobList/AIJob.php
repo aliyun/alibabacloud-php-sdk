@@ -11,21 +11,21 @@ class AIJob extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $jobId;
 
     /**
      * @var string
      */
     public $mediaId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'    => 'Type',
         'jobId'   => 'JobId',
         'mediaId' => 'MediaId',
+        'type'    => 'Type',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AIJob extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AIJob extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

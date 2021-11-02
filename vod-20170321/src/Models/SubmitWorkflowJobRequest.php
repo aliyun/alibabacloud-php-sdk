@@ -11,15 +11,15 @@ class SubmitWorkflowJobRequest extends Model
     /**
      * @var string
      */
-    public $workflowId;
+    public $mediaId;
 
     /**
      * @var string
      */
-    public $mediaId;
+    public $workflowId;
     protected $_name = [
-        'workflowId' => 'WorkflowId',
         'mediaId'    => 'MediaId',
+        'workflowId' => 'WorkflowId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class SubmitWorkflowJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workflowId) {
-            $res['WorkflowId'] = $this->workflowId;
-        }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
+        }
+        if (null !== $this->workflowId) {
+            $res['WorkflowId'] = $this->workflowId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class SubmitWorkflowJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkflowId'])) {
-            $model->workflowId = $map['WorkflowId'];
-        }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
+        }
+        if (isset($map['WorkflowId'])) {
+            $model->workflowId = $map['WorkflowId'];
         }
 
         return $model;

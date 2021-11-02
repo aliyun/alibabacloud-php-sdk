@@ -11,12 +11,7 @@ class UpdateDetectionTemplateRequest extends Model
     /**
      * @var string
      */
-    public $templateId;
-
-    /**
-     * @var string
-     */
-    public $templateName;
+    public $period;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class UpdateDetectionTemplateRequest extends Model
     /**
      * @var string
      */
-    public $period;
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateName;
     protected $_name = [
+        'period'       => 'Period',
+        'platform'     => 'Platform',
         'templateId'   => 'TemplateId',
         'templateName' => 'TemplateName',
-        'platform'     => 'Platform',
-        'period'       => 'Period',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpdateDetectionTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
+        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->platform) {
-            $res['Platform'] = $this->platform;
-        }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpdateDetectionTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
+        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['Platform'])) {
-            $model->platform = $map['Platform'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
         }
 
         return $model;

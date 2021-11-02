@@ -12,7 +12,7 @@ class transcodeJobInfoList extends Model
     /**
      * @var string
      */
-    public $definition;
+    public $completeTime;
 
     /**
      * @var string
@@ -22,12 +22,7 @@ class transcodeJobInfoList extends Model
     /**
      * @var string
      */
-    public $inputFileUrl;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
+    public $definition;
 
     /**
      * @var string
@@ -37,12 +32,17 @@ class transcodeJobInfoList extends Model
     /**
      * @var string
      */
-    public $completeTime;
+    public $errorMessage;
 
     /**
-     * @var int
+     * @var string
      */
-    public $transcodeProgress;
+    public $inputFileUrl;
+
+    /**
+     * @var outputFile
+     */
+    public $outputFile;
 
     /**
      * @var string
@@ -52,35 +52,35 @@ class transcodeJobInfoList extends Model
     /**
      * @var string
      */
+    public $transcodeJobId;
+
+    /**
+     * @var string
+     */
     public $transcodeJobStatus;
+
+    /**
+     * @var int
+     */
+    public $transcodeProgress;
 
     /**
      * @var string
      */
     public $transcodeTemplateId;
-
-    /**
-     * @var string
-     */
-    public $transcodeJobId;
-
-    /**
-     * @var outputFile
-     */
-    public $outputFile;
     protected $_name = [
-        'definition'          => 'Definition',
-        'creationTime'        => 'CreationTime',
-        'inputFileUrl'        => 'InputFileUrl',
-        'errorMessage'        => 'ErrorMessage',
-        'errorCode'           => 'ErrorCode',
         'completeTime'        => 'CompleteTime',
-        'transcodeProgress'   => 'TranscodeProgress',
-        'priority'            => 'Priority',
-        'transcodeJobStatus'  => 'TranscodeJobStatus',
-        'transcodeTemplateId' => 'TranscodeTemplateId',
-        'transcodeJobId'      => 'TranscodeJobId',
+        'creationTime'        => 'CreationTime',
+        'definition'          => 'Definition',
+        'errorCode'           => 'ErrorCode',
+        'errorMessage'        => 'ErrorMessage',
+        'inputFileUrl'        => 'InputFileUrl',
         'outputFile'          => 'OutputFile',
+        'priority'            => 'Priority',
+        'transcodeJobId'      => 'TranscodeJobId',
+        'transcodeJobStatus'  => 'TranscodeJobStatus',
+        'transcodeProgress'   => 'TranscodeProgress',
+        'transcodeTemplateId' => 'TranscodeTemplateId',
     ];
 
     public function validate()
@@ -90,41 +90,41 @@ class transcodeJobInfoList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->definition) {
-            $res['Definition'] = $this->definition;
+        if (null !== $this->completeTime) {
+            $res['CompleteTime'] = $this->completeTime;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->inputFileUrl) {
-            $res['InputFileUrl'] = $this->inputFileUrl;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
+        if (null !== $this->definition) {
+            $res['Definition'] = $this->definition;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-        if (null !== $this->completeTime) {
-            $res['CompleteTime'] = $this->completeTime;
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->transcodeProgress) {
-            $res['TranscodeProgress'] = $this->transcodeProgress;
+        if (null !== $this->inputFileUrl) {
+            $res['InputFileUrl'] = $this->inputFileUrl;
+        }
+        if (null !== $this->outputFile) {
+            $res['OutputFile'] = null !== $this->outputFile ? $this->outputFile->toMap() : null;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-        if (null !== $this->transcodeJobStatus) {
-            $res['TranscodeJobStatus'] = $this->transcodeJobStatus;
-        }
-        if (null !== $this->transcodeTemplateId) {
-            $res['TranscodeTemplateId'] = $this->transcodeTemplateId;
-        }
         if (null !== $this->transcodeJobId) {
             $res['TranscodeJobId'] = $this->transcodeJobId;
         }
-        if (null !== $this->outputFile) {
-            $res['OutputFile'] = null !== $this->outputFile ? $this->outputFile->toMap() : null;
+        if (null !== $this->transcodeJobStatus) {
+            $res['TranscodeJobStatus'] = $this->transcodeJobStatus;
+        }
+        if (null !== $this->transcodeProgress) {
+            $res['TranscodeProgress'] = $this->transcodeProgress;
+        }
+        if (null !== $this->transcodeTemplateId) {
+            $res['TranscodeTemplateId'] = $this->transcodeTemplateId;
         }
 
         return $res;
@@ -138,41 +138,41 @@ class transcodeJobInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Definition'])) {
-            $model->definition = $map['Definition'];
+        if (isset($map['CompleteTime'])) {
+            $model->completeTime = $map['CompleteTime'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['InputFileUrl'])) {
-            $model->inputFileUrl = $map['InputFileUrl'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
+        if (isset($map['Definition'])) {
+            $model->definition = $map['Definition'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-        if (isset($map['CompleteTime'])) {
-            $model->completeTime = $map['CompleteTime'];
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['TranscodeProgress'])) {
-            $model->transcodeProgress = $map['TranscodeProgress'];
+        if (isset($map['InputFileUrl'])) {
+            $model->inputFileUrl = $map['InputFileUrl'];
+        }
+        if (isset($map['OutputFile'])) {
+            $model->outputFile = outputFile::fromMap($map['OutputFile']);
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-        if (isset($map['TranscodeJobStatus'])) {
-            $model->transcodeJobStatus = $map['TranscodeJobStatus'];
-        }
-        if (isset($map['TranscodeTemplateId'])) {
-            $model->transcodeTemplateId = $map['TranscodeTemplateId'];
-        }
         if (isset($map['TranscodeJobId'])) {
             $model->transcodeJobId = $map['TranscodeJobId'];
         }
-        if (isset($map['OutputFile'])) {
-            $model->outputFile = outputFile::fromMap($map['OutputFile']);
+        if (isset($map['TranscodeJobStatus'])) {
+            $model->transcodeJobStatus = $map['TranscodeJobStatus'];
+        }
+        if (isset($map['TranscodeProgress'])) {
+            $model->transcodeProgress = $map['TranscodeProgress'];
+        }
+        if (isset($map['TranscodeTemplateId'])) {
+            $model->transcodeTemplateId = $map['TranscodeTemplateId'];
         }
 
         return $model;

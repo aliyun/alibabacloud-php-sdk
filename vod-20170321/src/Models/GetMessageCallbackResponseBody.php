@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetMessageCallbackResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var messageCallback
      */
     public $messageCallback;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'messageCallback' => 'MessageCallback',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetMessageCallbackResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->messageCallback) {
             $res['MessageCallback'] = null !== $this->messageCallback ? $this->messageCallback->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetMessageCallbackResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MessageCallback'])) {
             $model->messageCallback = messageCallback::fromMap($map['MessageCallback']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

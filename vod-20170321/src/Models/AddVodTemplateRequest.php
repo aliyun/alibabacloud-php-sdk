@@ -11,12 +11,12 @@ class AddVodTemplateRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $appId;
 
     /**
      * @var string
      */
-    public $templateType;
+    public $name;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class AddVodTemplateRequest extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $templateType;
     protected $_name = [
-        'name'           => 'Name',
-        'templateType'   => 'TemplateType',
-        'templateConfig' => 'TemplateConfig',
         'appId'          => 'AppId',
+        'name'           => 'Name',
+        'templateConfig' => 'TemplateConfig',
+        'templateType'   => 'TemplateType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class AddVodTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->templateType) {
-            $res['TemplateType'] = $this->templateType;
         }
         if (null !== $this->templateConfig) {
             $res['TemplateConfig'] = $this->templateConfig;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class AddVodTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['TemplateType'])) {
-            $model->templateType = $map['TemplateType'];
         }
         if (isset($map['TemplateConfig'])) {
             $model->templateConfig = $map['TemplateConfig'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

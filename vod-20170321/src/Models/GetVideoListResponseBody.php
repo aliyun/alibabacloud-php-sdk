@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetVideoListResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $total;
 
     /**
      * @var videoList
      */
     public $videoList;
     protected $_name = [
-        'total'     => 'Total',
         'requestId' => 'RequestId',
+        'total'     => 'Total',
         'videoList' => 'VideoList',
     ];
 
@@ -36,11 +36,11 @@ class GetVideoListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
         if (null !== $this->videoList) {
             $res['VideoList'] = null !== $this->videoList ? $this->videoList->toMap() : null;
@@ -57,11 +57,11 @@ class GetVideoListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
         if (isset($map['VideoList'])) {
             $model->videoList = videoList::fromMap($map['VideoList']);

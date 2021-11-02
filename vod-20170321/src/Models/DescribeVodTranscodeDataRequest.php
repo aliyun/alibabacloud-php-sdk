@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodTranscodeDataRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $interval;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -31,25 +31,25 @@ class DescribeVodTranscodeDataRequest extends Model
     /**
      * @var string
      */
-    public $interval;
+    public $specification;
+
+    /**
+     * @var string
+     */
+    public $startTime;
 
     /**
      * @var string
      */
     public $storage;
-
-    /**
-     * @var string
-     */
-    public $specification;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'startTime'     => 'StartTime',
         'endTime'       => 'EndTime',
-        'region'        => 'Region',
         'interval'      => 'Interval',
-        'storage'       => 'Storage',
+        'ownerId'       => 'OwnerId',
+        'region'        => 'Region',
         'specification' => 'Specification',
+        'startTime'     => 'StartTime',
+        'storage'       => 'Storage',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DescribeVodTranscodeDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
-        if (null !== $this->storage) {
-            $res['Storage'] = $this->storage;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
         if (null !== $this->specification) {
             $res['Specification'] = $this->specification;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->storage) {
+            $res['Storage'] = $this->storage;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DescribeVodTranscodeDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
-        if (isset($map['Storage'])) {
-            $model->storage = $map['Storage'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
         if (isset($map['Specification'])) {
             $model->specification = $map['Specification'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Storage'])) {
+            $model->storage = $map['Storage'];
         }
 
         return $model;

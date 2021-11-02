@@ -16,7 +16,7 @@ class project extends Model
     /**
      * @var string
      */
-    public $status;
+    public $description;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class project extends Model
     /**
      * @var string
      */
-    public $description;
+    public $projectId;
 
     /**
      * @var string
      */
-    public $projectId;
+    public $status;
 
     /**
      * @var string
@@ -39,10 +39,10 @@ class project extends Model
     public $title;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'status'       => 'Status',
-        'modifiedTime' => 'ModifiedTime',
         'description'  => 'Description',
+        'modifiedTime' => 'ModifiedTime',
         'projectId'    => 'ProjectId',
+        'status'       => 'Status',
         'title'        => 'Title',
     ];
 
@@ -56,17 +56,17 @@ class project extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -86,17 +86,17 @@ class project extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

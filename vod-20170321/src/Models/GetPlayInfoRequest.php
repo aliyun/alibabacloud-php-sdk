@@ -11,12 +11,7 @@ class GetPlayInfoRequest extends Model
     /**
      * @var string
      */
-    public $videoId;
-
-    /**
-     * @var string
-     */
-    public $formats;
+    public $additionType;
 
     /**
      * @var int
@@ -26,27 +21,17 @@ class GetPlayInfoRequest extends Model
     /**
      * @var string
      */
-    public $outputType;
-
-    /**
-     * @var string
-     */
-    public $streamType;
-
-    /**
-     * @var string
-     */
-    public $reAuthInfo;
-
-    /**
-     * @var string
-     */
     public $definition;
 
     /**
      * @var string
      */
-    public $resultType;
+    public $formats;
+
+    /**
+     * @var string
+     */
+    public $outputType;
 
     /**
      * @var string
@@ -56,18 +41,33 @@ class GetPlayInfoRequest extends Model
     /**
      * @var string
      */
-    public $additionType;
+    public $reAuthInfo;
+
+    /**
+     * @var string
+     */
+    public $resultType;
+
+    /**
+     * @var string
+     */
+    public $streamType;
+
+    /**
+     * @var string
+     */
+    public $videoId;
     protected $_name = [
-        'videoId'      => 'VideoId',
-        'formats'      => 'Formats',
-        'authTimeout'  => 'AuthTimeout',
-        'outputType'   => 'OutputType',
-        'streamType'   => 'StreamType',
-        'reAuthInfo'   => 'ReAuthInfo',
-        'definition'   => 'Definition',
-        'resultType'   => 'ResultType',
-        'playConfig'   => 'PlayConfig',
         'additionType' => 'AdditionType',
+        'authTimeout'  => 'AuthTimeout',
+        'definition'   => 'Definition',
+        'formats'      => 'Formats',
+        'outputType'   => 'OutputType',
+        'playConfig'   => 'PlayConfig',
+        'reAuthInfo'   => 'ReAuthInfo',
+        'resultType'   => 'ResultType',
+        'streamType'   => 'StreamType',
+        'videoId'      => 'VideoId',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class GetPlayInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
-        }
-        if (null !== $this->formats) {
-            $res['Formats'] = $this->formats;
+        if (null !== $this->additionType) {
+            $res['AdditionType'] = $this->additionType;
         }
         if (null !== $this->authTimeout) {
             $res['AuthTimeout'] = $this->authTimeout;
         }
-        if (null !== $this->outputType) {
-            $res['OutputType'] = $this->outputType;
-        }
-        if (null !== $this->streamType) {
-            $res['StreamType'] = $this->streamType;
-        }
-        if (null !== $this->reAuthInfo) {
-            $res['ReAuthInfo'] = $this->reAuthInfo;
-        }
         if (null !== $this->definition) {
             $res['Definition'] = $this->definition;
         }
-        if (null !== $this->resultType) {
-            $res['ResultType'] = $this->resultType;
+        if (null !== $this->formats) {
+            $res['Formats'] = $this->formats;
+        }
+        if (null !== $this->outputType) {
+            $res['OutputType'] = $this->outputType;
         }
         if (null !== $this->playConfig) {
             $res['PlayConfig'] = $this->playConfig;
         }
-        if (null !== $this->additionType) {
-            $res['AdditionType'] = $this->additionType;
+        if (null !== $this->reAuthInfo) {
+            $res['ReAuthInfo'] = $this->reAuthInfo;
+        }
+        if (null !== $this->resultType) {
+            $res['ResultType'] = $this->resultType;
+        }
+        if (null !== $this->streamType) {
+            $res['StreamType'] = $this->streamType;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class GetPlayInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
-        }
-        if (isset($map['Formats'])) {
-            $model->formats = $map['Formats'];
+        if (isset($map['AdditionType'])) {
+            $model->additionType = $map['AdditionType'];
         }
         if (isset($map['AuthTimeout'])) {
             $model->authTimeout = $map['AuthTimeout'];
         }
-        if (isset($map['OutputType'])) {
-            $model->outputType = $map['OutputType'];
-        }
-        if (isset($map['StreamType'])) {
-            $model->streamType = $map['StreamType'];
-        }
-        if (isset($map['ReAuthInfo'])) {
-            $model->reAuthInfo = $map['ReAuthInfo'];
-        }
         if (isset($map['Definition'])) {
             $model->definition = $map['Definition'];
         }
-        if (isset($map['ResultType'])) {
-            $model->resultType = $map['ResultType'];
+        if (isset($map['Formats'])) {
+            $model->formats = $map['Formats'];
+        }
+        if (isset($map['OutputType'])) {
+            $model->outputType = $map['OutputType'];
         }
         if (isset($map['PlayConfig'])) {
             $model->playConfig = $map['PlayConfig'];
         }
-        if (isset($map['AdditionType'])) {
-            $model->additionType = $map['AdditionType'];
+        if (isset($map['ReAuthInfo'])) {
+            $model->reAuthInfo = $map['ReAuthInfo'];
+        }
+        if (isset($map['ResultType'])) {
+            $model->resultType = $map['ResultType'];
+        }
+        if (isset($map['StreamType'])) {
+            $model->streamType = $map['StreamType'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
         }
 
         return $model;

@@ -11,21 +11,21 @@ class DeleteMultipartUploadRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
     public $mediaId;
 
     /**
      * @var string
      */
     public $mediaType;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
     protected $_name = [
-        'ownerAccount' => 'OwnerAccount',
         'mediaId'      => 'MediaId',
         'mediaType'    => 'MediaType',
+        'ownerAccount' => 'OwnerAccount',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteMultipartUploadRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteMultipartUploadRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

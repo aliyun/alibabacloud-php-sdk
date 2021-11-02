@@ -14,14 +14,9 @@ class detectionTemplateList extends Model
     public $createTime;
 
     /**
-     * @var int
-     */
-    public $userId;
-
-    /**
      * @var string
      */
-    public $templateName;
+    public $modifyTime;
 
     /**
      * @var string
@@ -41,15 +36,20 @@ class detectionTemplateList extends Model
     /**
      * @var string
      */
-    public $modifyTime;
+    public $templateName;
+
+    /**
+     * @var int
+     */
+    public $userId;
     protected $_name = [
         'createTime'   => 'CreateTime',
-        'userId'       => 'UserId',
-        'templateName' => 'TemplateName',
+        'modifyTime'   => 'ModifyTime',
         'period'       => 'Period',
         'platform'     => 'Platform',
         'templateId'   => 'TemplateId',
-        'modifyTime'   => 'ModifyTime',
+        'templateName' => 'TemplateName',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -62,11 +62,8 @@ class detectionTemplateList extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -77,8 +74,11 @@ class detectionTemplateList extends Model
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -95,11 +95,8 @@ class detectionTemplateList extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
@@ -110,8 +107,11 @@ class detectionTemplateList extends Model
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

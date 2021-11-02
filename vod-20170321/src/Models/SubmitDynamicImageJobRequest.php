@@ -11,21 +11,21 @@ class SubmitDynamicImageJobRequest extends Model
     /**
      * @var string
      */
-    public $videoId;
-
-    /**
-     * @var string
-     */
     public $dynamicImageTemplateId;
 
     /**
      * @var string
      */
     public $overrideParams;
+
+    /**
+     * @var string
+     */
+    public $videoId;
     protected $_name = [
-        'videoId'                => 'VideoId',
         'dynamicImageTemplateId' => 'DynamicImageTemplateId',
         'overrideParams'         => 'OverrideParams',
+        'videoId'                => 'VideoId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SubmitDynamicImageJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
-        }
         if (null !== $this->dynamicImageTemplateId) {
             $res['DynamicImageTemplateId'] = $this->dynamicImageTemplateId;
         }
         if (null !== $this->overrideParams) {
             $res['OverrideParams'] = $this->overrideParams;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SubmitDynamicImageJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
-        }
         if (isset($map['DynamicImageTemplateId'])) {
             $model->dynamicImageTemplateId = $map['DynamicImageTemplateId'];
         }
         if (isset($map['OverrideParams'])) {
             $model->overrideParams = $map['OverrideParams'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
         }
 
         return $model;

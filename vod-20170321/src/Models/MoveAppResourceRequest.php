@@ -11,7 +11,7 @@ class MoveAppResourceRequest extends Model
     /**
      * @var string
      */
-    public $targetAppId;
+    public $resourceIds;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class MoveAppResourceRequest extends Model
     /**
      * @var string
      */
-    public $resourceIds;
+    public $targetAppId;
     protected $_name = [
-        'targetAppId'  => 'TargetAppId',
-        'resourceType' => 'ResourceType',
         'resourceIds'  => 'ResourceIds',
+        'resourceType' => 'ResourceType',
+        'targetAppId'  => 'TargetAppId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class MoveAppResourceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->targetAppId) {
-            $res['TargetAppId'] = $this->targetAppId;
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = $this->resourceIds;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->resourceIds) {
-            $res['ResourceIds'] = $this->resourceIds;
+        if (null !== $this->targetAppId) {
+            $res['TargetAppId'] = $this->targetAppId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class MoveAppResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TargetAppId'])) {
-            $model->targetAppId = $map['TargetAppId'];
+        if (isset($map['ResourceIds'])) {
+            $model->resourceIds = $map['ResourceIds'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['ResourceIds'])) {
-            $model->resourceIds = $map['ResourceIds'];
+        if (isset($map['TargetAppId'])) {
+            $model->targetAppId = $map['TargetAppId'];
         }
 
         return $model;

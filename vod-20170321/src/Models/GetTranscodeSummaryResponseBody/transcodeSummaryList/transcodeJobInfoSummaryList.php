@@ -11,37 +11,7 @@ class transcodeJobInfoSummaryList extends Model
     /**
      * @var string
      */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $height;
-
-    /**
-     * @var int
-     */
-    public $transcodeProgress;
-
-    /**
-     * @var string
-     */
-    public $transcodeTemplateId;
-
-    /**
-     * @var string
-     */
     public $bitrate;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
 
     /**
      * @var string
@@ -51,7 +21,7 @@ class transcodeJobInfoSummaryList extends Model
     /**
      * @var string
      */
-    public $width;
+    public $creationTime;
 
     /**
      * @var string
@@ -61,12 +31,12 @@ class transcodeJobInfoSummaryList extends Model
     /**
      * @var string
      */
-    public $fps;
+    public $errorCode;
 
     /**
      * @var string
      */
-    public $transcodeJobStatus;
+    public $errorMessage;
 
     /**
      * @var int
@@ -79,25 +49,55 @@ class transcodeJobInfoSummaryList extends Model
     public $format;
 
     /**
+     * @var string
+     */
+    public $fps;
+
+    /**
+     * @var string
+     */
+    public $height;
+
+    /**
+     * @var string
+     */
+    public $transcodeJobStatus;
+
+    /**
+     * @var int
+     */
+    public $transcodeProgress;
+
+    /**
+     * @var string
+     */
+    public $transcodeTemplateId;
+
+    /**
      * @var string[]
      */
     public $watermarkIdList;
+
+    /**
+     * @var string
+     */
+    public $width;
     protected $_name = [
-        'creationTime'        => 'CreationTime',
-        'errorMessage'        => 'ErrorMessage',
-        'height'              => 'Height',
-        'transcodeProgress'   => 'TranscodeProgress',
-        'transcodeTemplateId' => 'TranscodeTemplateId',
         'bitrate'             => 'Bitrate',
-        'errorCode'           => 'ErrorCode',
         'completeTime'        => 'CompleteTime',
-        'width'               => 'Width',
+        'creationTime'        => 'CreationTime',
         'duration'            => 'Duration',
-        'fps'                 => 'Fps',
-        'transcodeJobStatus'  => 'TranscodeJobStatus',
+        'errorCode'           => 'ErrorCode',
+        'errorMessage'        => 'ErrorMessage',
         'filesize'            => 'Filesize',
         'format'              => 'Format',
+        'fps'                 => 'Fps',
+        'height'              => 'Height',
+        'transcodeJobStatus'  => 'TranscodeJobStatus',
+        'transcodeProgress'   => 'TranscodeProgress',
+        'transcodeTemplateId' => 'TranscodeTemplateId',
         'watermarkIdList'     => 'WatermarkIdList',
+        'width'               => 'Width',
     ];
 
     public function validate()
@@ -107,41 +107,23 @@ class transcodeJobInfoSummaryList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
-        }
-        if (null !== $this->transcodeProgress) {
-            $res['TranscodeProgress'] = $this->transcodeProgress;
-        }
-        if (null !== $this->transcodeTemplateId) {
-            $res['TranscodeTemplateId'] = $this->transcodeTemplateId;
-        }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->completeTime) {
             $res['CompleteTime'] = $this->completeTime;
         }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-        if (null !== $this->fps) {
-            $res['Fps'] = $this->fps;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
-        if (null !== $this->transcodeJobStatus) {
-            $res['TranscodeJobStatus'] = $this->transcodeJobStatus;
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->filesize) {
             $res['Filesize'] = $this->filesize;
@@ -149,8 +131,26 @@ class transcodeJobInfoSummaryList extends Model
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
+        if (null !== $this->fps) {
+            $res['Fps'] = $this->fps;
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
+        if (null !== $this->transcodeJobStatus) {
+            $res['TranscodeJobStatus'] = $this->transcodeJobStatus;
+        }
+        if (null !== $this->transcodeProgress) {
+            $res['TranscodeProgress'] = $this->transcodeProgress;
+        }
+        if (null !== $this->transcodeTemplateId) {
+            $res['TranscodeTemplateId'] = $this->transcodeTemplateId;
+        }
         if (null !== $this->watermarkIdList) {
             $res['WatermarkIdList'] = $this->watermarkIdList;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -164,41 +164,23 @@ class transcodeJobInfoSummaryList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
-        }
-        if (isset($map['TranscodeProgress'])) {
-            $model->transcodeProgress = $map['TranscodeProgress'];
-        }
-        if (isset($map['TranscodeTemplateId'])) {
-            $model->transcodeTemplateId = $map['TranscodeTemplateId'];
-        }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['CompleteTime'])) {
             $model->completeTime = $map['CompleteTime'];
         }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-        if (isset($map['Fps'])) {
-            $model->fps = $map['Fps'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
-        if (isset($map['TranscodeJobStatus'])) {
-            $model->transcodeJobStatus = $map['TranscodeJobStatus'];
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['Filesize'])) {
             $model->filesize = $map['Filesize'];
@@ -206,10 +188,28 @@ class transcodeJobInfoSummaryList extends Model
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }
+        if (isset($map['Fps'])) {
+            $model->fps = $map['Fps'];
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
+        if (isset($map['TranscodeJobStatus'])) {
+            $model->transcodeJobStatus = $map['TranscodeJobStatus'];
+        }
+        if (isset($map['TranscodeProgress'])) {
+            $model->transcodeProgress = $map['TranscodeProgress'];
+        }
+        if (isset($map['TranscodeTemplateId'])) {
+            $model->transcodeTemplateId = $map['TranscodeTemplateId'];
+        }
         if (isset($map['WatermarkIdList'])) {
             if (!empty($map['WatermarkIdList'])) {
                 $model->watermarkIdList = $map['WatermarkIdList'];
             }
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

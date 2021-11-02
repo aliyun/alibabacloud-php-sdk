@@ -11,6 +11,16 @@ class CreateUploadVideoRequest extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var int
+     */
+    public $cateId;
+
+    /**
+     * @var string
+     */
     public $coverURL;
 
     /**
@@ -31,12 +41,7 @@ class CreateUploadVideoRequest extends Model
     /**
      * @var string
      */
-    public $title;
-
-    /**
-     * @var int
-     */
-    public $cateId;
+    public $storageLocation;
 
     /**
      * @var string
@@ -46,40 +51,35 @@ class CreateUploadVideoRequest extends Model
     /**
      * @var string
      */
-    public $userData;
-
-    /**
-     * @var string
-     */
     public $templateGroupId;
 
     /**
      * @var string
      */
+    public $title;
+
+    /**
+     * @var string
+     */
+    public $userData;
+
+    /**
+     * @var string
+     */
     public $workflowId;
-
-    /**
-     * @var string
-     */
-    public $storageLocation;
-
-    /**
-     * @var string
-     */
-    public $appId;
     protected $_name = [
+        'appId'           => 'AppId',
+        'cateId'          => 'CateId',
         'coverURL'        => 'CoverURL',
         'description'     => 'Description',
         'fileName'        => 'FileName',
         'fileSize'        => 'FileSize',
-        'title'           => 'Title',
-        'cateId'          => 'CateId',
-        'tags'            => 'Tags',
-        'userData'        => 'UserData',
-        'templateGroupId' => 'TemplateGroupId',
-        'workflowId'      => 'WorkflowId',
         'storageLocation' => 'StorageLocation',
-        'appId'           => 'AppId',
+        'tags'            => 'Tags',
+        'templateGroupId' => 'TemplateGroupId',
+        'title'           => 'Title',
+        'userData'        => 'UserData',
+        'workflowId'      => 'WorkflowId',
     ];
 
     public function validate()
@@ -89,6 +89,12 @@ class CreateUploadVideoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->cateId) {
+            $res['CateId'] = $this->cateId;
+        }
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
         }
@@ -101,29 +107,23 @@ class CreateUploadVideoRequest extends Model
         if (null !== $this->fileSize) {
             $res['FileSize'] = $this->fileSize;
         }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->cateId) {
-            $res['CateId'] = $this->cateId;
+        if (null !== $this->storageLocation) {
+            $res['StorageLocation'] = $this->storageLocation;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
         if (null !== $this->templateGroupId) {
             $res['TemplateGroupId'] = $this->templateGroupId;
         }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
+        }
         if (null !== $this->workflowId) {
             $res['WorkflowId'] = $this->workflowId;
-        }
-        if (null !== $this->storageLocation) {
-            $res['StorageLocation'] = $this->storageLocation;
-        }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
         }
 
         return $res;
@@ -137,6 +137,12 @@ class CreateUploadVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
+        if (isset($map['CateId'])) {
+            $model->cateId = $map['CateId'];
+        }
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
         }
@@ -149,29 +155,23 @@ class CreateUploadVideoRequest extends Model
         if (isset($map['FileSize'])) {
             $model->fileSize = $map['FileSize'];
         }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['CateId'])) {
-            $model->cateId = $map['CateId'];
+        if (isset($map['StorageLocation'])) {
+            $model->storageLocation = $map['StorageLocation'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
         if (isset($map['TemplateGroupId'])) {
             $model->templateGroupId = $map['TemplateGroupId'];
         }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
+        }
         if (isset($map['WorkflowId'])) {
             $model->workflowId = $map['WorkflowId'];
-        }
-        if (isset($map['StorageLocation'])) {
-            $model->storageLocation = $map['StorageLocation'];
-        }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
         }
 
         return $model;

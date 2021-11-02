@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteMezzaninesResponseBody extends Model
 {
     /**
+     * @var string[]
+     */
+    public $nonExistVideoIds;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -17,15 +22,10 @@ class DeleteMezzaninesResponseBody extends Model
      * @var string[]
      */
     public $unRemoveableVideoIds;
-
-    /**
-     * @var string[]
-     */
-    public $nonExistVideoIds;
     protected $_name = [
+        'nonExistVideoIds'     => 'NonExistVideoIds',
         'requestId'            => 'RequestId',
         'unRemoveableVideoIds' => 'UnRemoveableVideoIds',
-        'nonExistVideoIds'     => 'NonExistVideoIds',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteMezzaninesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nonExistVideoIds) {
+            $res['NonExistVideoIds'] = $this->nonExistVideoIds;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->unRemoveableVideoIds) {
             $res['UnRemoveableVideoIds'] = $this->unRemoveableVideoIds;
-        }
-        if (null !== $this->nonExistVideoIds) {
-            $res['NonExistVideoIds'] = $this->nonExistVideoIds;
         }
 
         return $res;
@@ -56,17 +56,17 @@ class DeleteMezzaninesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NonExistVideoIds'])) {
+            if (!empty($map['NonExistVideoIds'])) {
+                $model->nonExistVideoIds = $map['NonExistVideoIds'];
+            }
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['UnRemoveableVideoIds'])) {
             if (!empty($map['UnRemoveableVideoIds'])) {
                 $model->unRemoveableVideoIds = $map['UnRemoveableVideoIds'];
-            }
-        }
-        if (isset($map['NonExistVideoIds'])) {
-            if (!empty($map['NonExistVideoIds'])) {
-                $model->nonExistVideoIds = $map['NonExistVideoIds'];
             }
         }
 

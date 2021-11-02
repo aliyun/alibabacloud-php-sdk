@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SubmitPreprocessJobsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var preprocessJobs
      */
     public $preprocessJobs;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'preprocessJobs' => 'PreprocessJobs',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class SubmitPreprocessJobsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->preprocessJobs) {
             $res['PreprocessJobs'] = null !== $this->preprocessJobs ? $this->preprocessJobs->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class SubmitPreprocessJobsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PreprocessJobs'])) {
             $model->preprocessJobs = preprocessJobs::fromMap($map['PreprocessJobs']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

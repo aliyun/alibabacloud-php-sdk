@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetAuditHistoryRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $videoId;
-
-    /**
      * @var int
      */
     public $pageNo;
@@ -27,11 +22,16 @@ class GetAuditHistoryRequest extends Model
      * @var string
      */
     public $sortBy;
+
+    /**
+     * @var string
+     */
+    public $videoId;
     protected $_name = [
-        'videoId'  => 'VideoId',
         'pageNo'   => 'PageNo',
         'pageSize' => 'PageSize',
         'sortBy'   => 'SortBy',
+        'videoId'  => 'VideoId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class GetAuditHistoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
-        }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
@@ -52,6 +49,9 @@ class GetAuditHistoryRequest extends Model
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class GetAuditHistoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
-        }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
@@ -76,6 +73,9 @@ class GetAuditHistoryRequest extends Model
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
         }
 
         return $model;

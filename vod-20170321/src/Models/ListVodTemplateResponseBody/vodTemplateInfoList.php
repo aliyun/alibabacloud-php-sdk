@@ -11,6 +11,11 @@ class vodTemplateInfoList extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
     public $creationTime;
 
     /**
@@ -21,7 +26,17 @@ class vodTemplateInfoList extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $modifyTime;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $templateConfig;
 
     /**
      * @var string
@@ -32,30 +47,15 @@ class vodTemplateInfoList extends Model
      * @var string
      */
     public $vodTemplateId;
-
-    /**
-     * @var string
-     */
-    public $templateConfig;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $modifyTime;
     protected $_name = [
+        'appId'          => 'AppId',
         'creationTime'   => 'CreationTime',
         'isDefault'      => 'IsDefault',
-        'appId'          => 'AppId',
+        'modifyTime'     => 'ModifyTime',
+        'name'           => 'Name',
+        'templateConfig' => 'TemplateConfig',
         'templateType'   => 'TemplateType',
         'vodTemplateId'  => 'VodTemplateId',
-        'templateConfig' => 'TemplateConfig',
-        'name'           => 'Name',
-        'modifyTime'     => 'ModifyTime',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class vodTemplateInfoList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->templateConfig) {
+            $res['TemplateConfig'] = $this->templateConfig;
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
         if (null !== $this->vodTemplateId) {
             $res['VodTemplateId'] = $this->vodTemplateId;
-        }
-        if (null !== $this->templateConfig) {
-            $res['TemplateConfig'] = $this->templateConfig;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class vodTemplateInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['TemplateConfig'])) {
+            $model->templateConfig = $map['TemplateConfig'];
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
         }
         if (isset($map['VodTemplateId'])) {
             $model->vodTemplateId = $map['VodTemplateId'];
-        }
-        if (isset($map['TemplateConfig'])) {
-            $model->templateConfig = $map['TemplateConfig'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
         }
 
         return $model;

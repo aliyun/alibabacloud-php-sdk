@@ -11,17 +11,12 @@ class URLUploadInfoList extends Model
     /**
      * @var string
      */
+    public $completeTime;
+
+    /**
+     * @var string
+     */
     public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
 
     /**
      * @var string
@@ -31,7 +26,12 @@ class URLUploadInfoList extends Model
     /**
      * @var string
      */
-    public $completeTime;
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
+    public $fileSize;
 
     /**
      * @var string
@@ -41,7 +41,12 @@ class URLUploadInfoList extends Model
     /**
      * @var string
      */
-    public $userData;
+    public $mediaId;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var string
@@ -51,23 +56,18 @@ class URLUploadInfoList extends Model
     /**
      * @var string
      */
-    public $mediaId;
-
-    /**
-     * @var string
-     */
-    public $fileSize;
+    public $userData;
     protected $_name = [
-        'creationTime' => 'CreationTime',
-        'status'       => 'Status',
-        'errorMessage' => 'ErrorMessage',
-        'errorCode'    => 'ErrorCode',
         'completeTime' => 'CompleteTime',
-        'jobId'        => 'JobId',
-        'userData'     => 'UserData',
-        'uploadURL'    => 'UploadURL',
-        'mediaId'      => 'MediaId',
+        'creationTime' => 'CreationTime',
+        'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'fileSize'     => 'FileSize',
+        'jobId'        => 'JobId',
+        'mediaId'      => 'MediaId',
+        'status'       => 'Status',
+        'uploadURL'    => 'UploadURL',
+        'userData'     => 'UserData',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class URLUploadInfoList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->completeTime) {
+            $res['CompleteTime'] = $this->completeTime;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-        if (null !== $this->completeTime) {
-            $res['CompleteTime'] = $this->completeTime;
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->fileSize) {
+            $res['FileSize'] = $this->fileSize;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->uploadURL) {
             $res['UploadURL'] = $this->uploadURL;
         }
-        if (null !== $this->mediaId) {
-            $res['MediaId'] = $this->mediaId;
-        }
-        if (null !== $this->fileSize) {
-            $res['FileSize'] = $this->fileSize;
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class URLUploadInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CompleteTime'])) {
+            $model->completeTime = $map['CompleteTime'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-        if (isset($map['CompleteTime'])) {
-            $model->completeTime = $map['CompleteTime'];
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['FileSize'])) {
+            $model->fileSize = $map['FileSize'];
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['UploadURL'])) {
             $model->uploadURL = $map['UploadURL'];
         }
-        if (isset($map['MediaId'])) {
-            $model->mediaId = $map['MediaId'];
-        }
-        if (isset($map['FileSize'])) {
-            $model->fileSize = $map['FileSize'];
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

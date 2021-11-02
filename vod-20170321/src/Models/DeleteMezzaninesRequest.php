@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteMezzaninesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $videoIds;
-
-    /**
      * @var bool
      */
     public $force;
+
+    /**
+     * @var string
+     */
+    public $videoIds;
     protected $_name = [
-        'videoIds' => 'VideoIds',
         'force'    => 'Force',
+        'videoIds' => 'VideoIds',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteMezzaninesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoIds) {
-            $res['VideoIds'] = $this->videoIds;
-        }
         if (null !== $this->force) {
             $res['Force'] = $this->force;
+        }
+        if (null !== $this->videoIds) {
+            $res['VideoIds'] = $this->videoIds;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteMezzaninesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoIds'])) {
-            $model->videoIds = $map['VideoIds'];
-        }
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
+        }
+        if (isset($map['VideoIds'])) {
+            $model->videoIds = $map['VideoIds'];
         }
 
         return $model;

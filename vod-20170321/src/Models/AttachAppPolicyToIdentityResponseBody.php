@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AttachAppPolicyToIdentityResponseBody extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $failedPolicyNames;
 
     /**
      * @var string[]
@@ -19,13 +19,13 @@ class AttachAppPolicyToIdentityResponseBody extends Model
     public $nonExistPolicyNames;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $failedPolicyNames;
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
-        'nonExistPolicyNames' => 'NonExistPolicyNames',
         'failedPolicyNames'   => 'FailedPolicyNames',
+        'nonExistPolicyNames' => 'NonExistPolicyNames',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AttachAppPolicyToIdentityResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->failedPolicyNames) {
+            $res['FailedPolicyNames'] = $this->failedPolicyNames;
         }
         if (null !== $this->nonExistPolicyNames) {
             $res['NonExistPolicyNames'] = $this->nonExistPolicyNames;
         }
-        if (null !== $this->failedPolicyNames) {
-            $res['FailedPolicyNames'] = $this->failedPolicyNames;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,18 +56,18 @@ class AttachAppPolicyToIdentityResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['FailedPolicyNames'])) {
+            if (!empty($map['FailedPolicyNames'])) {
+                $model->failedPolicyNames = $map['FailedPolicyNames'];
+            }
         }
         if (isset($map['NonExistPolicyNames'])) {
             if (!empty($map['NonExistPolicyNames'])) {
                 $model->nonExistPolicyNames = $map['NonExistPolicyNames'];
             }
         }
-        if (isset($map['FailedPolicyNames'])) {
-            if (!empty($map['FailedPolicyNames'])) {
-                $model->failedPolicyNames = $map['FailedPolicyNames'];
-            }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

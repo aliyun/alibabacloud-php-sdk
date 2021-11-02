@@ -12,17 +12,17 @@ class transcodeSummaryList extends Model
     /**
      * @var string
      */
+    public $completeTime;
+
+    /**
+     * @var string
+     */
     public $creationTime;
 
     /**
-     * @var string
+     * @var transcodeJobInfoSummaryList[]
      */
-    public $videoId;
-
-    /**
-     * @var string
-     */
-    public $completeTime;
+    public $transcodeJobInfoSummaryList;
 
     /**
      * @var string
@@ -35,16 +35,16 @@ class transcodeSummaryList extends Model
     public $transcodeTemplateGroupId;
 
     /**
-     * @var transcodeJobInfoSummaryList[]
+     * @var string
      */
-    public $transcodeJobInfoSummaryList;
+    public $videoId;
     protected $_name = [
-        'creationTime'                => 'CreationTime',
-        'videoId'                     => 'VideoId',
         'completeTime'                => 'CompleteTime',
+        'creationTime'                => 'CreationTime',
+        'transcodeJobInfoSummaryList' => 'TranscodeJobInfoSummaryList',
         'transcodeStatus'             => 'TranscodeStatus',
         'transcodeTemplateGroupId'    => 'TranscodeTemplateGroupId',
-        'transcodeJobInfoSummaryList' => 'TranscodeJobInfoSummaryList',
+        'videoId'                     => 'VideoId',
     ];
 
     public function validate()
@@ -54,20 +54,11 @@ class transcodeSummaryList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
-        }
         if (null !== $this->completeTime) {
             $res['CompleteTime'] = $this->completeTime;
         }
-        if (null !== $this->transcodeStatus) {
-            $res['TranscodeStatus'] = $this->transcodeStatus;
-        }
-        if (null !== $this->transcodeTemplateGroupId) {
-            $res['TranscodeTemplateGroupId'] = $this->transcodeTemplateGroupId;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->transcodeJobInfoSummaryList) {
             $res['TranscodeJobInfoSummaryList'] = [];
@@ -77,6 +68,15 @@ class transcodeSummaryList extends Model
                     $res['TranscodeJobInfoSummaryList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->transcodeStatus) {
+            $res['TranscodeStatus'] = $this->transcodeStatus;
+        }
+        if (null !== $this->transcodeTemplateGroupId) {
+            $res['TranscodeTemplateGroupId'] = $this->transcodeTemplateGroupId;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -90,20 +90,11 @@ class transcodeSummaryList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
-        }
         if (isset($map['CompleteTime'])) {
             $model->completeTime = $map['CompleteTime'];
         }
-        if (isset($map['TranscodeStatus'])) {
-            $model->transcodeStatus = $map['TranscodeStatus'];
-        }
-        if (isset($map['TranscodeTemplateGroupId'])) {
-            $model->transcodeTemplateGroupId = $map['TranscodeTemplateGroupId'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['TranscodeJobInfoSummaryList'])) {
             if (!empty($map['TranscodeJobInfoSummaryList'])) {
@@ -113,6 +104,15 @@ class transcodeSummaryList extends Model
                     $model->transcodeJobInfoSummaryList[$n++] = null !== $item ? transcodeJobInfoSummaryList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TranscodeStatus'])) {
+            $model->transcodeStatus = $map['TranscodeStatus'];
+        }
+        if (isset($map['TranscodeTemplateGroupId'])) {
+            $model->transcodeTemplateGroupId = $map['TranscodeTemplateGroupId'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordVideoResponseBody extends Model
 {
     /**
-     * @var int
+     * @var liveRecordVideoList
      */
-    public $total;
+    public $liveRecordVideoList;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class ListLiveRecordVideoResponseBody extends Model
     public $requestId;
 
     /**
-     * @var liveRecordVideoList
+     * @var int
      */
-    public $liveRecordVideoList;
+    public $total;
     protected $_name = [
-        'total'               => 'Total',
-        'requestId'           => 'RequestId',
         'liveRecordVideoList' => 'LiveRecordVideoList',
+        'requestId'           => 'RequestId',
+        'total'               => 'Total',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class ListLiveRecordVideoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
+        if (null !== $this->liveRecordVideoList) {
+            $res['LiveRecordVideoList'] = null !== $this->liveRecordVideoList ? $this->liveRecordVideoList->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->liveRecordVideoList) {
-            $res['LiveRecordVideoList'] = null !== $this->liveRecordVideoList ? $this->liveRecordVideoList->toMap() : null;
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class ListLiveRecordVideoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
+        if (isset($map['LiveRecordVideoList'])) {
+            $model->liveRecordVideoList = liveRecordVideoList::fromMap($map['LiveRecordVideoList']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['LiveRecordVideoList'])) {
-            $model->liveRecordVideoList = liveRecordVideoList::fromMap($map['LiveRecordVideoList']);
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

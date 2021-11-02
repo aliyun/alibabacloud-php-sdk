@@ -11,21 +11,21 @@ class ListLetterSendJobRequest extends Model
     /**
      * @var string
      */
+    public $detectionId;
+
+    /**
+     * @var string
+     */
     public $templateId;
 
     /**
      * @var string
      */
     public $toAddress;
-
-    /**
-     * @var string
-     */
-    public $detectionId;
     protected $_name = [
+        'detectionId' => 'DetectionId',
         'templateId'  => 'TemplateId',
         'toAddress'   => 'ToAddress',
-        'detectionId' => 'DetectionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListLetterSendJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->detectionId) {
+            $res['DetectionId'] = $this->detectionId;
+        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->toAddress) {
             $res['ToAddress'] = $this->toAddress;
-        }
-        if (null !== $this->detectionId) {
-            $res['DetectionId'] = $this->detectionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListLetterSendJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DetectionId'])) {
+            $model->detectionId = $map['DetectionId'];
+        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
         if (isset($map['ToAddress'])) {
             $model->toAddress = $map['ToAddress'];
-        }
-        if (isset($map['DetectionId'])) {
-            $model->detectionId = $map['DetectionId'];
         }
 
         return $model;

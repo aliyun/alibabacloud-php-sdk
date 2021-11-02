@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListAppPoliciesForIdentityResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var appPolicyList[]
      */
     public $appPolicyList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'appPolicyList' => 'AppPolicyList',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListAppPoliciesForIdentityResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->appPolicyList) {
             $res['AppPolicyList'] = [];
             if (null !== $this->appPolicyList && \is_array($this->appPolicyList)) {
@@ -41,6 +38,9 @@ class ListAppPoliciesForIdentityResponseBody extends Model
                     $res['AppPolicyList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListAppPoliciesForIdentityResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AppPolicyList'])) {
             if (!empty($map['AppPolicyList'])) {
                 $model->appPolicyList = [];
@@ -65,6 +62,9 @@ class ListAppPoliciesForIdentityResponseBody extends Model
                     $model->appPolicyList[$n++] = null !== $item ? appPolicyList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

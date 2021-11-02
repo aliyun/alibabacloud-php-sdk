@@ -11,15 +11,15 @@ class ListVodTemplateRequest extends Model
     /**
      * @var string
      */
-    public $templateType;
+    public $appId;
 
     /**
      * @var string
      */
-    public $appId;
+    public $templateType;
     protected $_name = [
-        'templateType' => 'TemplateType',
         'appId'        => 'AppId',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListVodTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateType) {
-            $res['TemplateType'] = $this->templateType;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListVodTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateType'])) {
-            $model->templateType = $map['TemplateType'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

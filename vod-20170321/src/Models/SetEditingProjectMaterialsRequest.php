@@ -11,17 +11,7 @@ class SetEditingProjectMaterialsRequest extends Model
     /**
      * @var string
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
+    public $materialIds;
 
     /**
      * @var string
@@ -31,19 +21,29 @@ class SetEditingProjectMaterialsRequest extends Model
     /**
      * @var string
      */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
      * @var string
      */
-    public $materialIds;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'ownerAccount'         => 'OwnerAccount',
-        'projectId'            => 'ProjectId',
         'materialIds'          => 'MaterialIds',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'projectId'            => 'ProjectId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class SetEditingProjectMaterialsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->materialIds) {
+            $res['MaterialIds'] = $this->materialIds;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->materialIds) {
-            $res['MaterialIds'] = $this->materialIds;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class SetEditingProjectMaterialsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['MaterialIds'])) {
+            $model->materialIds = $map['MaterialIds'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['MaterialIds'])) {
-            $model->materialIds = $map['MaterialIds'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

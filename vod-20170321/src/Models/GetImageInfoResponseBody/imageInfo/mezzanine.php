@@ -11,7 +11,17 @@ class mezzanine extends Model
     /**
      * @var string
      */
+    public $fileSize;
+
+    /**
+     * @var string
+     */
     public $fileURL;
+
+    /**
+     * @var int
+     */
+    public $height;
 
     /**
      * @var string
@@ -22,22 +32,12 @@ class mezzanine extends Model
      * @var int
      */
     public $width;
-
-    /**
-     * @var int
-     */
-    public $height;
-
-    /**
-     * @var string
-     */
-    public $fileSize;
     protected $_name = [
+        'fileSize'         => 'FileSize',
         'fileURL'          => 'FileURL',
+        'height'           => 'Height',
         'originalFileName' => 'OriginalFileName',
         'width'            => 'Width',
-        'height'           => 'Height',
-        'fileSize'         => 'FileSize',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class mezzanine extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileSize) {
+            $res['FileSize'] = $this->fileSize;
+        }
         if (null !== $this->fileURL) {
             $res['FileURL'] = $this->fileURL;
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
         }
         if (null !== $this->originalFileName) {
             $res['OriginalFileName'] = $this->originalFileName;
         }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
-        }
-        if (null !== $this->fileSize) {
-            $res['FileSize'] = $this->fileSize;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class mezzanine extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileSize'])) {
+            $model->fileSize = $map['FileSize'];
+        }
         if (isset($map['FileURL'])) {
             $model->fileURL = $map['FileURL'];
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
         }
         if (isset($map['OriginalFileName'])) {
             $model->originalFileName = $map['OriginalFileName'];
         }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
-        }
-        if (isset($map['FileSize'])) {
-            $model->fileSize = $map['FileSize'];
         }
 
         return $model;

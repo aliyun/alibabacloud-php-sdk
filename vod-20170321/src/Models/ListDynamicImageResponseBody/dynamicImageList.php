@@ -16,42 +16,7 @@ class dynamicImageList extends Model
     /**
      * @var string
      */
-    public $fileURL;
-
-    /**
-     * @var string
-     */
-    public $videoId;
-
-    /**
-     * @var string
-     */
-    public $width;
-
-    /**
-     * @var string
-     */
-    public $jobId;
-
-    /**
-     * @var string
-     */
-    public $height;
-
-    /**
-     * @var string
-     */
-    public $fps;
-
-    /**
-     * @var string
-     */
     public $duration;
-
-    /**
-     * @var string
-     */
-    public $format;
 
     /**
      * @var string
@@ -62,18 +27,53 @@ class dynamicImageList extends Model
      * @var string
      */
     public $fileSize;
+
+    /**
+     * @var string
+     */
+    public $fileURL;
+
+    /**
+     * @var string
+     */
+    public $format;
+
+    /**
+     * @var string
+     */
+    public $fps;
+
+    /**
+     * @var string
+     */
+    public $height;
+
+    /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @var string
+     */
+    public $videoId;
+
+    /**
+     * @var string
+     */
+    public $width;
     protected $_name = [
         'creationTime'   => 'CreationTime',
-        'fileURL'        => 'FileURL',
-        'videoId'        => 'VideoId',
-        'width'          => 'Width',
-        'jobId'          => 'JobId',
-        'height'         => 'Height',
-        'fps'            => 'Fps',
         'duration'       => 'Duration',
-        'format'         => 'Format',
         'dynamicImageId' => 'DynamicImageId',
         'fileSize'       => 'FileSize',
+        'fileURL'        => 'FileURL',
+        'format'         => 'Format',
+        'fps'            => 'Fps',
+        'height'         => 'Height',
+        'jobId'          => 'JobId',
+        'videoId'        => 'VideoId',
+        'width'          => 'Width',
     ];
 
     public function validate()
@@ -86,35 +86,35 @@ class dynamicImageList extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->fileURL) {
-            $res['FileURL'] = $this->fileURL;
-        }
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
-        }
-        if (null !== $this->fps) {
-            $res['Fps'] = $this->fps;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->format) {
-            $res['Format'] = $this->format;
         }
         if (null !== $this->dynamicImageId) {
             $res['DynamicImageId'] = $this->dynamicImageId;
         }
         if (null !== $this->fileSize) {
             $res['FileSize'] = $this->fileSize;
+        }
+        if (null !== $this->fileURL) {
+            $res['FileURL'] = $this->fileURL;
+        }
+        if (null !== $this->format) {
+            $res['Format'] = $this->format;
+        }
+        if (null !== $this->fps) {
+            $res['Fps'] = $this->fps;
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -131,35 +131,35 @@ class dynamicImageList extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['FileURL'])) {
-            $model->fileURL = $map['FileURL'];
-        }
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
-        }
-        if (isset($map['Fps'])) {
-            $model->fps = $map['Fps'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
-        }
-        if (isset($map['Format'])) {
-            $model->format = $map['Format'];
         }
         if (isset($map['DynamicImageId'])) {
             $model->dynamicImageId = $map['DynamicImageId'];
         }
         if (isset($map['FileSize'])) {
             $model->fileSize = $map['FileSize'];
+        }
+        if (isset($map['FileURL'])) {
+            $model->fileURL = $map['FileURL'];
+        }
+        if (isset($map['Format'])) {
+            $model->format = $map['Format'];
+        }
+        if (isset($map['Fps'])) {
+            $model->fps = $map['Fps'];
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

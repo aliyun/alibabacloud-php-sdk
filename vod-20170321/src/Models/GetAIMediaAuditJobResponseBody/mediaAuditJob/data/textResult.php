@@ -11,17 +11,7 @@ class textResult extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $suggestion;
-
-    /**
-     * @var string
-     */
-    public $score;
+    public $content;
 
     /**
      * @var string
@@ -31,19 +21,29 @@ class textResult extends Model
     /**
      * @var string
      */
-    public $content;
+    public $scene;
 
     /**
      * @var string
      */
-    public $scene;
+    public $score;
+
+    /**
+     * @var string
+     */
+    public $suggestion;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'       => 'Type',
-        'suggestion' => 'Suggestion',
-        'score'      => 'Score',
-        'label'      => 'Label',
         'content'    => 'Content',
+        'label'      => 'Label',
         'scene'      => 'Scene',
+        'score'      => 'Score',
+        'suggestion' => 'Suggestion',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class textResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
-        }
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
+        }
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class textResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
-        }
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
+        }
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

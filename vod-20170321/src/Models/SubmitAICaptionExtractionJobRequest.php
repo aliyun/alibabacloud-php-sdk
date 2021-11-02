@@ -11,7 +11,7 @@ class SubmitAICaptionExtractionJobRequest extends Model
     /**
      * @var string
      */
-    public $videoId;
+    public $AIPipelineId;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class SubmitAICaptionExtractionJobRequest extends Model
     /**
      * @var string
      */
-    public $AIPipelineId;
+    public $userData;
 
     /**
      * @var string
      */
-    public $userData;
+    public $videoId;
     protected $_name = [
-        'videoId'      => 'VideoId',
-        'jobConfig'    => 'JobConfig',
         'AIPipelineId' => 'AIPipelineId',
+        'jobConfig'    => 'JobConfig',
         'userData'     => 'UserData',
+        'videoId'      => 'VideoId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class SubmitAICaptionExtractionJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
+        if (null !== $this->AIPipelineId) {
+            $res['AIPipelineId'] = $this->AIPipelineId;
         }
         if (null !== $this->jobConfig) {
             $res['JobConfig'] = $this->jobConfig;
         }
-        if (null !== $this->AIPipelineId) {
-            $res['AIPipelineId'] = $this->AIPipelineId;
-        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class SubmitAICaptionExtractionJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
+        if (isset($map['AIPipelineId'])) {
+            $model->AIPipelineId = $map['AIPipelineId'];
         }
         if (isset($map['JobConfig'])) {
             $model->jobConfig = $map['JobConfig'];
         }
-        if (isset($map['AIPipelineId'])) {
-            $model->AIPipelineId = $map['AIPipelineId'];
-        }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
         }
 
         return $model;

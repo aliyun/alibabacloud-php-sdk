@@ -11,12 +11,12 @@ class AddTranscodeTemplateGroupRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $appId;
 
     /**
      * @var string
      */
-    public $transcodeTemplateList;
+    public $name;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class AddTranscodeTemplateGroupRequest extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $transcodeTemplateList;
     protected $_name = [
-        'name'                     => 'Name',
-        'transcodeTemplateList'    => 'TranscodeTemplateList',
-        'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
         'appId'                    => 'AppId',
+        'name'                     => 'Name',
+        'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
+        'transcodeTemplateList'    => 'TranscodeTemplateList',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class AddTranscodeTemplateGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->transcodeTemplateList) {
-            $res['TranscodeTemplateList'] = $this->transcodeTemplateList;
         }
         if (null !== $this->transcodeTemplateGroupId) {
             $res['TranscodeTemplateGroupId'] = $this->transcodeTemplateGroupId;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->transcodeTemplateList) {
+            $res['TranscodeTemplateList'] = $this->transcodeTemplateList;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class AddTranscodeTemplateGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['TranscodeTemplateList'])) {
-            $model->transcodeTemplateList = $map['TranscodeTemplateList'];
         }
         if (isset($map['TranscodeTemplateGroupId'])) {
             $model->transcodeTemplateGroupId = $map['TranscodeTemplateGroupId'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['TranscodeTemplateList'])) {
+            $model->transcodeTemplateList = $map['TranscodeTemplateList'];
         }
 
         return $model;

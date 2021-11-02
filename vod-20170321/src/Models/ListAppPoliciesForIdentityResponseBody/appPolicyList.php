@@ -11,6 +11,11 @@ class appPolicyList extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
     public $creationTime;
 
     /**
@@ -21,12 +26,7 @@ class appPolicyList extends Model
     /**
      * @var string
      */
-    public $appId;
-
-    /**
-     * @var string
-     */
-    public $policyValue;
+    public $modificationTime;
 
     /**
      * @var string
@@ -36,20 +36,20 @@ class appPolicyList extends Model
     /**
      * @var string
      */
-    public $modificationTime;
+    public $policyType;
 
     /**
      * @var string
      */
-    public $policyType;
+    public $policyValue;
     protected $_name = [
+        'appId'            => 'AppId',
         'creationTime'     => 'CreationTime',
         'description'      => 'Description',
-        'appId'            => 'AppId',
-        'policyValue'      => 'PolicyValue',
-        'policyName'       => 'PolicyName',
         'modificationTime' => 'ModificationTime',
+        'policyName'       => 'PolicyName',
         'policyType'       => 'PolicyType',
+        'policyValue'      => 'PolicyValue',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class appPolicyList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
-        }
-        if (null !== $this->policyValue) {
-            $res['PolicyValue'] = $this->policyValue;
+        if (null !== $this->modificationTime) {
+            $res['ModificationTime'] = $this->modificationTime;
         }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
-        if (null !== $this->modificationTime) {
-            $res['ModificationTime'] = $this->modificationTime;
-        }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
+        }
+        if (null !== $this->policyValue) {
+            $res['PolicyValue'] = $this->policyValue;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class appPolicyList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
-        }
-        if (isset($map['PolicyValue'])) {
-            $model->policyValue = $map['PolicyValue'];
+        if (isset($map['ModificationTime'])) {
+            $model->modificationTime = $map['ModificationTime'];
         }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
-        if (isset($map['ModificationTime'])) {
-            $model->modificationTime = $map['ModificationTime'];
-        }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
+        }
+        if (isset($map['PolicyValue'])) {
+            $model->policyValue = $map['PolicyValue'];
         }
 
         return $model;

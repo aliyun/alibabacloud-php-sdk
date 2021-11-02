@@ -21,17 +21,7 @@ class vodTemplateInfo extends Model
     /**
      * @var string
      */
-    public $templateType;
-
-    /**
-     * @var string
-     */
-    public $vodTemplateId;
-
-    /**
-     * @var string
-     */
-    public $templateConfig;
+    public $modifyTime;
 
     /**
      * @var string
@@ -41,15 +31,25 @@ class vodTemplateInfo extends Model
     /**
      * @var string
      */
-    public $modifyTime;
+    public $templateConfig;
+
+    /**
+     * @var string
+     */
+    public $templateType;
+
+    /**
+     * @var string
+     */
+    public $vodTemplateId;
     protected $_name = [
         'creationTime'   => 'CreationTime',
         'isDefault'      => 'IsDefault',
+        'modifyTime'     => 'ModifyTime',
+        'name'           => 'Name',
+        'templateConfig' => 'TemplateConfig',
         'templateType'   => 'TemplateType',
         'vodTemplateId'  => 'VodTemplateId',
-        'templateConfig' => 'TemplateConfig',
-        'name'           => 'Name',
-        'modifyTime'     => 'ModifyTime',
     ];
 
     public function validate()
@@ -65,20 +65,20 @@ class vodTemplateInfo extends Model
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->templateConfig) {
+            $res['TemplateConfig'] = $this->templateConfig;
+        }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
         if (null !== $this->vodTemplateId) {
             $res['VodTemplateId'] = $this->vodTemplateId;
-        }
-        if (null !== $this->templateConfig) {
-            $res['TemplateConfig'] = $this->templateConfig;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
         }
 
         return $res;
@@ -98,20 +98,20 @@ class vodTemplateInfo extends Model
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['TemplateConfig'])) {
+            $model->templateConfig = $map['TemplateConfig'];
+        }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
         }
         if (isset($map['VodTemplateId'])) {
             $model->vodTemplateId = $map['VodTemplateId'];
-        }
-        if (isset($map['TemplateConfig'])) {
-            $model->templateConfig = $map['TemplateConfig'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
         }
 
         return $model;

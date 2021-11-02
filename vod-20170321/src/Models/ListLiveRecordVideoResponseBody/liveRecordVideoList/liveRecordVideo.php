@@ -17,12 +17,12 @@ class liveRecordVideo extends Model
     /**
      * @var string
      */
-    public $playlistId;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $streamName;
+    public $playlistId;
 
     /**
      * @var string
@@ -37,7 +37,7 @@ class liveRecordVideo extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $streamName;
 
     /**
      * @var video
@@ -45,11 +45,11 @@ class liveRecordVideo extends Model
     public $video;
     protected $_name = [
         'appName'         => 'AppName',
+        'domainName'      => 'DomainName',
         'playlistId'      => 'PlaylistId',
-        'streamName'      => 'StreamName',
         'recordEndTime'   => 'RecordEndTime',
         'recordStartTime' => 'RecordStartTime',
-        'domainName'      => 'DomainName',
+        'streamName'      => 'StreamName',
         'video'           => 'Video',
     ];
 
@@ -63,11 +63,11 @@ class liveRecordVideo extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->playlistId) {
             $res['PlaylistId'] = $this->playlistId;
-        }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
         }
         if (null !== $this->recordEndTime) {
             $res['RecordEndTime'] = $this->recordEndTime;
@@ -75,8 +75,8 @@ class liveRecordVideo extends Model
         if (null !== $this->recordStartTime) {
             $res['RecordStartTime'] = $this->recordStartTime;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
         if (null !== $this->video) {
             $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
@@ -96,11 +96,11 @@ class liveRecordVideo extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['PlaylistId'])) {
             $model->playlistId = $map['PlaylistId'];
-        }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
         }
         if (isset($map['RecordEndTime'])) {
             $model->recordEndTime = $map['RecordEndTime'];
@@ -108,8 +108,8 @@ class liveRecordVideo extends Model
         if (isset($map['RecordStartTime'])) {
             $model->recordStartTime = $map['RecordStartTime'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
         if (isset($map['Video'])) {
             $model->video = video::fromMap($map['Video']);

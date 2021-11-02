@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class counterList extends Model
 {
     /**
-     * @var string
-     */
-    public $label;
-
-    /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $label;
     protected $_name = [
-        'label' => 'Label',
         'count' => 'Count',
+        'label' => 'Label',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class counterList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class counterList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
 
         return $model;

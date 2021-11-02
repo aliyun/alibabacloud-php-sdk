@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AIDataItem extends Model
 {
     /**
-     * @var string
-     */
-    public $timeStamp;
-
-    /**
      * @var data
      */
     public $data;
+
+    /**
+     * @var string
+     */
+    public $timeStamp;
     protected $_name = [
-        'timeStamp' => 'TimeStamp',
         'data'      => 'Data',
+        'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class AIDataItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class AIDataItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
         }
 
         return $model;

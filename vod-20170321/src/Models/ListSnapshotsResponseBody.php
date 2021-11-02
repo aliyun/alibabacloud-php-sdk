@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var mediaSnapshot
      */
     public $mediaSnapshot;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'mediaSnapshot' => 'MediaSnapshot',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ListSnapshotsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->mediaSnapshot) {
             $res['MediaSnapshot'] = null !== $this->mediaSnapshot ? $this->mediaSnapshot->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ListSnapshotsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MediaSnapshot'])) {
             $model->mediaSnapshot = mediaSnapshot::fromMap($map['MediaSnapshot']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

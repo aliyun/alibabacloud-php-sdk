@@ -11,15 +11,15 @@ class DeleteMessageCallbackRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $appId;
 
     /**
      * @var string
      */
-    public $appId;
+    public $ownerAccount;
     protected $_name = [
-        'ownerAccount' => 'OwnerAccount',
         'appId'        => 'AppId',
+        'ownerAccount' => 'OwnerAccount',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteMessageCallbackRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteMessageCallbackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

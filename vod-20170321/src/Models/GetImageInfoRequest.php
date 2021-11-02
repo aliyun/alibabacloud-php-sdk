@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetImageInfoRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $imageId;
-
-    /**
      * @var int
      */
     public $authTimeout;
@@ -21,10 +16,15 @@ class GetImageInfoRequest extends Model
     /**
      * @var string
      */
+    public $imageId;
+
+    /**
+     * @var string
+     */
     public $outputType;
     protected $_name = [
-        'imageId'     => 'ImageId',
         'authTimeout' => 'AuthTimeout',
+        'imageId'     => 'ImageId',
         'outputType'  => 'OutputType',
     ];
 
@@ -35,11 +35,11 @@ class GetImageInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
-        }
         if (null !== $this->authTimeout) {
             $res['AuthTimeout'] = $this->authTimeout;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
@@ -56,11 +56,11 @@ class GetImageInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
-        }
         if (isset($map['AuthTimeout'])) {
             $model->authTimeout = $map['AuthTimeout'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];

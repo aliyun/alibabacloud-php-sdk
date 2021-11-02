@@ -11,15 +11,15 @@ class uploadJobs extends Model
     /**
      * @var string
      */
-    public $sourceURL;
+    public $jobId;
 
     /**
      * @var string
      */
-    public $jobId;
+    public $sourceURL;
     protected $_name = [
-        'sourceURL' => 'SourceURL',
         'jobId'     => 'JobId',
+        'sourceURL' => 'SourceURL',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class uploadJobs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceURL) {
-            $res['SourceURL'] = $this->sourceURL;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->sourceURL) {
+            $res['SourceURL'] = $this->sourceURL;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class uploadJobs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceURL'])) {
-            $model->sourceURL = $map['SourceURL'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['SourceURL'])) {
+            $model->sourceURL = $map['SourceURL'];
         }
 
         return $model;

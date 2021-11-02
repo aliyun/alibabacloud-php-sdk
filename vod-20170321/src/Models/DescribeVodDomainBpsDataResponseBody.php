@@ -10,19 +10,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainBpsDataResponseBody extends Model
 {
     /**
+     * @var bpsDataPerInterval
+     */
+    public $bpsDataPerInterval;
+
+    /**
+     * @var string
+     */
+    public $dataInterval;
+
+    /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var string
      */
     public $endTime;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @var string
@@ -37,26 +42,21 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $dataInterval;
-
-    /**
-     * @var bpsDataPerInterval
-     */
-    public $bpsDataPerInterval;
+    public $startTime;
     protected $_name = [
+        'bpsDataPerInterval' => 'BpsDataPerInterval',
+        'dataInterval'       => 'DataInterval',
+        'domainName'         => 'DomainName',
         'endTime'            => 'EndTime',
-        'startTime'          => 'StartTime',
-        'requestId'          => 'RequestId',
         'ispNameEn'          => 'IspNameEn',
         'locationNameEn'     => 'LocationNameEn',
-        'domainName'         => 'DomainName',
-        'dataInterval'       => 'DataInterval',
-        'bpsDataPerInterval' => 'BpsDataPerInterval',
+        'requestId'          => 'RequestId',
+        'startTime'          => 'StartTime',
     ];
 
     public function validate()
@@ -66,14 +66,17 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bpsDataPerInterval) {
+            $res['BpsDataPerInterval'] = null !== $this->bpsDataPerInterval ? $this->bpsDataPerInterval->toMap() : null;
+        }
+        if (null !== $this->dataInterval) {
+            $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->ispNameEn) {
             $res['IspNameEn'] = $this->ispNameEn;
@@ -81,14 +84,11 @@ class DescribeVodDomainBpsDataResponseBody extends Model
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->dataInterval) {
-            $res['DataInterval'] = $this->dataInterval;
-        }
-        if (null !== $this->bpsDataPerInterval) {
-            $res['BpsDataPerInterval'] = null !== $this->bpsDataPerInterval ? $this->bpsDataPerInterval->toMap() : null;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -102,14 +102,17 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BpsDataPerInterval'])) {
+            $model->bpsDataPerInterval = bpsDataPerInterval::fromMap($map['BpsDataPerInterval']);
+        }
+        if (isset($map['DataInterval'])) {
+            $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['IspNameEn'])) {
             $model->ispNameEn = $map['IspNameEn'];
@@ -117,14 +120,11 @@ class DescribeVodDomainBpsDataResponseBody extends Model
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DataInterval'])) {
-            $model->dataInterval = $map['DataInterval'];
-        }
-        if (isset($map['BpsDataPerInterval'])) {
-            $model->bpsDataPerInterval = bpsDataPerInterval::fromMap($map['BpsDataPerInterval']);
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

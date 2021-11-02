@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class registeredMediaList extends Model
 {
     /**
-     * @var bool
-     */
-    public $newRegister;
-
-    /**
      * @var string
      */
     public $fileURL;
@@ -22,10 +17,15 @@ class registeredMediaList extends Model
      * @var string
      */
     public $mediaId;
+
+    /**
+     * @var bool
+     */
+    public $newRegister;
     protected $_name = [
-        'newRegister' => 'NewRegister',
         'fileURL'     => 'FileURL',
         'mediaId'     => 'MediaId',
+        'newRegister' => 'NewRegister',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class registeredMediaList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->newRegister) {
-            $res['NewRegister'] = $this->newRegister;
-        }
         if (null !== $this->fileURL) {
             $res['FileURL'] = $this->fileURL;
         }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
+        }
+        if (null !== $this->newRegister) {
+            $res['NewRegister'] = $this->newRegister;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class registeredMediaList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NewRegister'])) {
-            $model->newRegister = $map['NewRegister'];
-        }
         if (isset($map['FileURL'])) {
             $model->fileURL = $map['FileURL'];
         }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
+        }
+        if (isset($map['NewRegister'])) {
+            $model->newRegister = $map['NewRegister'];
         }
 
         return $model;

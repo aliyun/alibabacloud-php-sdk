@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListLetterSendJobResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var letterJobList[]
      */
     public $letterJobList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'letterJobList' => 'LetterJobList',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListLetterSendJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->letterJobList) {
             $res['LetterJobList'] = [];
             if (null !== $this->letterJobList && \is_array($this->letterJobList)) {
@@ -41,6 +38,9 @@ class ListLetterSendJobResponseBody extends Model
                     $res['LetterJobList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListLetterSendJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LetterJobList'])) {
             if (!empty($map['LetterJobList'])) {
                 $model->letterJobList = [];
@@ -65,6 +62,9 @@ class ListLetterSendJobResponseBody extends Model
                     $model->letterJobList[$n++] = null !== $item ? letterJobList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

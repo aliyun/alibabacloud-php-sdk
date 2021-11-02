@@ -11,7 +11,7 @@ class ListLiveRecordVideoRequest extends Model
     /**
      * @var string
      */
-    public $streamName;
+    public $appName;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class ListLiveRecordVideoRequest extends Model
     /**
      * @var string
      */
-    public $appName;
+    public $endTime;
 
     /**
      * @var int
@@ -46,16 +46,16 @@ class ListLiveRecordVideoRequest extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $streamName;
     protected $_name = [
-        'streamName' => 'StreamName',
-        'domainName' => 'DomainName',
         'appName'    => 'AppName',
+        'domainName' => 'DomainName',
+        'endTime'    => 'EndTime',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
         'sortBy'     => 'SortBy',
         'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
+        'streamName' => 'StreamName',
     ];
 
     public function validate()
@@ -65,14 +65,14 @@ class ListLiveRecordVideoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
@@ -86,8 +86,8 @@ class ListLiveRecordVideoRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -101,14 +101,14 @@ class ListLiveRecordVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
@@ -122,8 +122,8 @@ class ListLiveRecordVideoRequest extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

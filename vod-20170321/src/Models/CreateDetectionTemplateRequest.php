@@ -11,7 +11,7 @@ class CreateDetectionTemplateRequest extends Model
     /**
      * @var string
      */
-    public $templateName;
+    public $period;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class CreateDetectionTemplateRequest extends Model
     /**
      * @var string
      */
-    public $period;
+    public $templateName;
     protected $_name = [
-        'templateName' => 'TemplateName',
-        'platform'     => 'Platform',
         'period'       => 'Period',
+        'platform'     => 'Platform',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateDetectionTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateDetectionTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

@@ -11,37 +11,7 @@ class UpdateEditingProjectRequest extends Model
     /**
      * @var string
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $title;
-
-    /**
-     * @var string
-     */
-    public $timeline;
+    public $coverURL;
 
     /**
      * @var string
@@ -51,17 +21,47 @@ class UpdateEditingProjectRequest extends Model
     /**
      * @var string
      */
-    public $coverURL;
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $timeline;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'ownerAccount'         => 'OwnerAccount',
-        'projectId'            => 'ProjectId',
-        'title'                => 'Title',
-        'timeline'             => 'Timeline',
-        'description'          => 'Description',
         'coverURL'             => 'CoverURL',
+        'description'          => 'Description',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'projectId'            => 'ProjectId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'timeline'             => 'Timeline',
+        'title'                => 'Title',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class UpdateEditingProjectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->timeline) {
-            $res['Timeline'] = $this->timeline;
+        if (null !== $this->coverURL) {
+            $res['CoverURL'] = $this->coverURL;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->coverURL) {
-            $res['CoverURL'] = $this->coverURL;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->timeline) {
+            $res['Timeline'] = $this->timeline;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class UpdateEditingProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['Timeline'])) {
-            $model->timeline = $map['Timeline'];
+        if (isset($map['CoverURL'])) {
+            $model->coverURL = $map['CoverURL'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['CoverURL'])) {
-            $model->coverURL = $map['CoverURL'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Timeline'])) {
+            $model->timeline = $map['Timeline'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

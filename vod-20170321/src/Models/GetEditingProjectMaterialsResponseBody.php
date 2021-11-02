@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetEditingProjectMaterialsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var materialList
      */
     public $materialList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'materialList' => 'MaterialList',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetEditingProjectMaterialsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->materialList) {
             $res['MaterialList'] = null !== $this->materialList ? $this->materialList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetEditingProjectMaterialsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MaterialList'])) {
             $model->materialList = materialList::fromMap($map['MaterialList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

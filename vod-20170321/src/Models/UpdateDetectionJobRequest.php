@@ -11,12 +11,7 @@ class UpdateDetectionJobRequest extends Model
     /**
      * @var string
      */
-    public $jobId;
-
-    /**
-     * @var string
-     */
-    public $copyrightStatus;
+    public $beginTime;
 
     /**
      * @var string
@@ -36,7 +31,17 @@ class UpdateDetectionJobRequest extends Model
     /**
      * @var string
      */
-    public $whiteListUrls;
+    public $copyrightStatus;
+
+    /**
+     * @var int
+     */
+    public $duration;
+
+    /**
+     * @var string
+     */
+    public $jobId;
 
     /**
      * @var string
@@ -46,22 +51,17 @@ class UpdateDetectionJobRequest extends Model
     /**
      * @var string
      */
-    public $beginTime;
-
-    /**
-     * @var int
-     */
-    public $duration;
+    public $whiteListUrls;
     protected $_name = [
-        'jobId'              => 'JobId',
-        'copyrightStatus'    => 'CopyrightStatus',
+        'beginTime'          => 'BeginTime',
         'copyrightBeginTime' => 'CopyrightBeginTime',
         'copyrightEndTime'   => 'CopyrightEndTime',
         'copyrightFile'      => 'CopyrightFile',
-        'whiteListUrls'      => 'WhiteListUrls',
-        'templateId'         => 'TemplateId',
-        'beginTime'          => 'BeginTime',
+        'copyrightStatus'    => 'CopyrightStatus',
         'duration'           => 'Duration',
+        'jobId'              => 'JobId',
+        'templateId'         => 'TemplateId',
+        'whiteListUrls'      => 'WhiteListUrls',
     ];
 
     public function validate()
@@ -71,11 +71,8 @@ class UpdateDetectionJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->copyrightStatus) {
-            $res['CopyrightStatus'] = $this->copyrightStatus;
+        if (null !== $this->beginTime) {
+            $res['BeginTime'] = $this->beginTime;
         }
         if (null !== $this->copyrightBeginTime) {
             $res['CopyrightBeginTime'] = $this->copyrightBeginTime;
@@ -86,17 +83,20 @@ class UpdateDetectionJobRequest extends Model
         if (null !== $this->copyrightFile) {
             $res['CopyrightFile'] = $this->copyrightFile;
         }
-        if (null !== $this->whiteListUrls) {
-            $res['WhiteListUrls'] = $this->whiteListUrls;
+        if (null !== $this->copyrightStatus) {
+            $res['CopyrightStatus'] = $this->copyrightStatus;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->beginTime) {
-            $res['BeginTime'] = $this->beginTime;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->whiteListUrls) {
+            $res['WhiteListUrls'] = $this->whiteListUrls;
         }
 
         return $res;
@@ -110,11 +110,8 @@ class UpdateDetectionJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['CopyrightStatus'])) {
-            $model->copyrightStatus = $map['CopyrightStatus'];
+        if (isset($map['BeginTime'])) {
+            $model->beginTime = $map['BeginTime'];
         }
         if (isset($map['CopyrightBeginTime'])) {
             $model->copyrightBeginTime = $map['CopyrightBeginTime'];
@@ -125,17 +122,20 @@ class UpdateDetectionJobRequest extends Model
         if (isset($map['CopyrightFile'])) {
             $model->copyrightFile = $map['CopyrightFile'];
         }
-        if (isset($map['WhiteListUrls'])) {
-            $model->whiteListUrls = $map['WhiteListUrls'];
+        if (isset($map['CopyrightStatus'])) {
+            $model->copyrightStatus = $map['CopyrightStatus'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['BeginTime'])) {
-            $model->beginTime = $map['BeginTime'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['WhiteListUrls'])) {
+            $model->whiteListUrls = $map['WhiteListUrls'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class GetMezzanineInfoRequest extends Model
     /**
      * @var string
      */
-    public $videoId;
+    public $additionType;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class GetMezzanineInfoRequest extends Model
     /**
      * @var string
      */
-    public $additionType;
+    public $videoId;
     protected $_name = [
-        'videoId'      => 'VideoId',
+        'additionType' => 'AdditionType',
         'authTimeout'  => 'AuthTimeout',
         'outputType'   => 'OutputType',
-        'additionType' => 'AdditionType',
+        'videoId'      => 'VideoId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class GetMezzanineInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
+        if (null !== $this->additionType) {
+            $res['AdditionType'] = $this->additionType;
         }
         if (null !== $this->authTimeout) {
             $res['AuthTimeout'] = $this->authTimeout;
@@ -50,8 +50,8 @@ class GetMezzanineInfoRequest extends Model
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
         }
-        if (null !== $this->additionType) {
-            $res['AdditionType'] = $this->additionType;
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class GetMezzanineInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
+        if (isset($map['AdditionType'])) {
+            $model->additionType = $map['AdditionType'];
         }
         if (isset($map['AuthTimeout'])) {
             $model->authTimeout = $map['AuthTimeout'];
@@ -74,8 +74,8 @@ class GetMezzanineInfoRequest extends Model
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];
         }
-        if (isset($map['AdditionType'])) {
-            $model->additionType = $map['AdditionType'];
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetAuditHistoryResponseBody extends Model
 {
     /**
-     * @var string
+     * @var histories[]
      */
-    public $status;
+    public $histories;
 
     /**
      * @var string
@@ -20,19 +20,19 @@ class GetAuditHistoryResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var int
      */
     public $total;
-
-    /**
-     * @var histories[]
-     */
-    public $histories;
     protected $_name = [
-        'status'    => 'Status',
-        'requestId' => 'RequestId',
-        'total'     => 'Total',
         'histories' => 'Histories',
+        'requestId' => 'RequestId',
+        'status'    => 'Status',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class GetAuditHistoryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->histories) {
             $res['Histories'] = [];
             if (null !== $this->histories && \is_array($this->histories)) {
@@ -59,6 +50,15 @@ class GetAuditHistoryResponseBody extends Model
                     $res['Histories'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class GetAuditHistoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['Histories'])) {
             if (!empty($map['Histories'])) {
                 $model->histories = [];
@@ -89,6 +80,15 @@ class GetAuditHistoryResponseBody extends Model
                     $model->histories[$n++] = null !== $item ? histories::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

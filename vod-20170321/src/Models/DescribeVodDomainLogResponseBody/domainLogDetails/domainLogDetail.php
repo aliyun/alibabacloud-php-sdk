@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class domainLogDetail extends Model
 {
     /**
-     * @var int
-     */
-    public $logCount;
-
-    /**
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var int
+     */
+    public $logCount;
 
     /**
      * @var logInfos
@@ -30,8 +30,8 @@ class domainLogDetail extends Model
      */
     public $pageInfos;
     protected $_name = [
-        'logCount'   => 'LogCount',
         'domainName' => 'DomainName',
+        'logCount'   => 'LogCount',
         'logInfos'   => 'LogInfos',
         'pageInfos'  => 'PageInfos',
     ];
@@ -43,11 +43,11 @@ class domainLogDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logCount) {
-            $res['LogCount'] = $this->logCount;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->logCount) {
+            $res['LogCount'] = $this->logCount;
         }
         if (null !== $this->logInfos) {
             $res['LogInfos'] = null !== $this->logInfos ? $this->logInfos->toMap() : null;
@@ -67,11 +67,11 @@ class domainLogDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogCount'])) {
-            $model->logCount = $map['LogCount'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['LogCount'])) {
+            $model->logCount = $map['LogCount'];
         }
         if (isset($map['LogInfos'])) {
             $model->logInfos = logInfos::fromMap($map['LogInfos']);

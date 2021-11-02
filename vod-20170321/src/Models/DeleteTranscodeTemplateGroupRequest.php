@@ -11,21 +11,21 @@ class DeleteTranscodeTemplateGroupRequest extends Model
     /**
      * @var string
      */
+    public $forceDelGroup;
+
+    /**
+     * @var string
+     */
     public $transcodeTemplateGroupId;
 
     /**
      * @var string
      */
     public $transcodeTemplateIds;
-
-    /**
-     * @var string
-     */
-    public $forceDelGroup;
     protected $_name = [
+        'forceDelGroup'            => 'ForceDelGroup',
         'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
         'transcodeTemplateIds'     => 'TranscodeTemplateIds',
-        'forceDelGroup'            => 'ForceDelGroup',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteTranscodeTemplateGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->forceDelGroup) {
+            $res['ForceDelGroup'] = $this->forceDelGroup;
+        }
         if (null !== $this->transcodeTemplateGroupId) {
             $res['TranscodeTemplateGroupId'] = $this->transcodeTemplateGroupId;
         }
         if (null !== $this->transcodeTemplateIds) {
             $res['TranscodeTemplateIds'] = $this->transcodeTemplateIds;
-        }
-        if (null !== $this->forceDelGroup) {
-            $res['ForceDelGroup'] = $this->forceDelGroup;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteTranscodeTemplateGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ForceDelGroup'])) {
+            $model->forceDelGroup = $map['ForceDelGroup'];
+        }
         if (isset($map['TranscodeTemplateGroupId'])) {
             $model->transcodeTemplateGroupId = $map['TranscodeTemplateGroupId'];
         }
         if (isset($map['TranscodeTemplateIds'])) {
             $model->transcodeTemplateIds = $map['TranscodeTemplateIds'];
-        }
-        if (isset($map['ForceDelGroup'])) {
-            $model->forceDelGroup = $map['ForceDelGroup'];
         }
 
         return $model;

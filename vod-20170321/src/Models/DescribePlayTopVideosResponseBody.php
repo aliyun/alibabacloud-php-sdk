@@ -15,30 +15,30 @@ class DescribePlayTopVideosResponseBody extends Model
     public $pageNo;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $totalNum;
+    public $requestId;
 
     /**
      * @var topPlayVideos
      */
     public $topPlayVideos;
+
+    /**
+     * @var int
+     */
+    public $totalNum;
     protected $_name = [
         'pageNo'        => 'PageNo',
-        'requestId'     => 'RequestId',
         'pageSize'      => 'PageSize',
-        'totalNum'      => 'TotalNum',
+        'requestId'     => 'RequestId',
         'topPlayVideos' => 'TopPlayVideos',
+        'totalNum'      => 'TotalNum',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class DescribePlayTopVideosResponseBody extends Model
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->topPlayVideos) {
             $res['TopPlayVideos'] = null !== $this->topPlayVideos ? $this->topPlayVideos->toMap() : null;
+        }
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class DescribePlayTopVideosResponseBody extends Model
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TopPlayVideos'])) {
             $model->topPlayVideos = topPlayVideos::fromMap($map['TopPlayVideos']);
+        }
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
         }
 
         return $model;

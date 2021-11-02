@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateCategoryRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $cateName;
-
-    /**
      * @var int
      */
     public $cateId;
+
+    /**
+     * @var string
+     */
+    public $cateName;
     protected $_name = [
-        'cateName' => 'CateName',
         'cateId'   => 'CateId',
+        'cateName' => 'CateName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateCategoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cateName) {
-            $res['CateName'] = $this->cateName;
-        }
         if (null !== $this->cateId) {
             $res['CateId'] = $this->cateId;
+        }
+        if (null !== $this->cateName) {
+            $res['CateName'] = $this->cateName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateCategoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CateName'])) {
-            $model->cateName = $map['CateName'];
-        }
         if (isset($map['CateId'])) {
             $model->cateId = $map['CateId'];
+        }
+        if (isset($map['CateName'])) {
+            $model->cateName = $map['CateName'];
         }
 
         return $model;

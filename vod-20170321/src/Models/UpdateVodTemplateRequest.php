@@ -11,21 +11,21 @@ class UpdateVodTemplateRequest extends Model
     /**
      * @var string
      */
-    public $vodTemplateId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
      * @var string
      */
     public $templateConfig;
+
+    /**
+     * @var string
+     */
+    public $vodTemplateId;
     protected $_name = [
-        'vodTemplateId'  => 'VodTemplateId',
         'name'           => 'Name',
         'templateConfig' => 'TemplateConfig',
+        'vodTemplateId'  => 'VodTemplateId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateVodTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vodTemplateId) {
-            $res['VodTemplateId'] = $this->vodTemplateId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->templateConfig) {
             $res['TemplateConfig'] = $this->templateConfig;
+        }
+        if (null !== $this->vodTemplateId) {
+            $res['VodTemplateId'] = $this->vodTemplateId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateVodTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VodTemplateId'])) {
-            $model->vodTemplateId = $map['VodTemplateId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['TemplateConfig'])) {
             $model->templateConfig = $map['TemplateConfig'];
+        }
+        if (isset($map['VodTemplateId'])) {
+            $model->vodTemplateId = $map['VodTemplateId'];
         }
 
         return $model;

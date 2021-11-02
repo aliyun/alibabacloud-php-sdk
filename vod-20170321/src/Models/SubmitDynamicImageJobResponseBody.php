@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SubmitDynamicImageJobResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var dynamicImageJob
      */
     public $dynamicImageJob;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'dynamicImageJob' => 'DynamicImageJob',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class SubmitDynamicImageJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dynamicImageJob) {
             $res['DynamicImageJob'] = null !== $this->dynamicImageJob ? $this->dynamicImageJob->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class SubmitDynamicImageJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DynamicImageJob'])) {
             $model->dynamicImageJob = dynamicImageJob::fromMap($map['DynamicImageJob']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

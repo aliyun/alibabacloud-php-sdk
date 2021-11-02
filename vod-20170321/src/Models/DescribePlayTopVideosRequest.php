@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayTopVideosRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $bizDate;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class DescribePlayTopVideosRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'bizDate'  => 'BizDate',
+        'ownerId'  => 'OwnerId',
         'pageNo'   => 'PageNo',
         'pageSize' => 'PageSize',
     ];
@@ -41,11 +41,11 @@ class DescribePlayTopVideosRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
@@ -65,11 +65,11 @@ class DescribePlayTopVideosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];

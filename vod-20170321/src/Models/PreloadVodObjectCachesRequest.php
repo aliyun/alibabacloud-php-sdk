@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PreloadVodObjectCachesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $objectPath;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -17,15 +22,10 @@ class PreloadVodObjectCachesRequest extends Model
      * @var string
      */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $objectPath;
     protected $_name = [
+        'objectPath'    => 'ObjectPath',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'objectPath'    => 'ObjectPath',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class PreloadVodObjectCachesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->objectPath) {
+            $res['ObjectPath'] = $this->objectPath;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->objectPath) {
-            $res['ObjectPath'] = $this->objectPath;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class PreloadVodObjectCachesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ObjectPath'])) {
+            $model->objectPath = $map['ObjectPath'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['ObjectPath'])) {
-            $model->objectPath = $map['ObjectPath'];
         }
 
         return $model;

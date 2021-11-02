@@ -21,17 +21,7 @@ class templateInfo extends Model
     /**
      * @var string
      */
-    public $templateType;
-
-    /**
-     * @var string
-     */
-    public $templateConfig;
-
-    /**
-     * @var string
-     */
-    public $templateName;
+    public $modifyTime;
 
     /**
      * @var string
@@ -41,21 +31,31 @@ class templateInfo extends Model
     /**
      * @var string
      */
+    public $templateConfig;
+
+    /**
+     * @var string
+     */
     public $templateId;
 
     /**
      * @var string
      */
-    public $modifyTime;
+    public $templateName;
+
+    /**
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
         'creationTime'   => 'CreationTime',
         'isDefault'      => 'IsDefault',
-        'templateType'   => 'TemplateType',
-        'templateConfig' => 'TemplateConfig',
-        'templateName'   => 'TemplateName',
-        'source'         => 'Source',
-        'templateId'     => 'TemplateId',
         'modifyTime'     => 'ModifyTime',
+        'source'         => 'Source',
+        'templateConfig' => 'TemplateConfig',
+        'templateId'     => 'TemplateId',
+        'templateName'   => 'TemplateName',
+        'templateType'   => 'TemplateType',
     ];
 
     public function validate()
@@ -71,23 +71,23 @@ class templateInfo extends Model
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
-        if (null !== $this->templateType) {
-            $res['TemplateType'] = $this->templateType;
-        }
-        if (null !== $this->templateConfig) {
-            $res['TemplateConfig'] = $this->templateConfig;
-        }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+        if (null !== $this->templateConfig) {
+            $res['TemplateConfig'] = $this->templateConfig;
+        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -107,23 +107,23 @@ class templateInfo extends Model
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
-        if (isset($map['TemplateType'])) {
-            $model->templateType = $map['TemplateType'];
-        }
-        if (isset($map['TemplateConfig'])) {
-            $model->templateConfig = $map['TemplateConfig'];
-        }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+        if (isset($map['TemplateConfig'])) {
+            $model->templateConfig = $map['TemplateConfig'];
+        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

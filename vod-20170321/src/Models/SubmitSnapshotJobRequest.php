@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SubmitSnapshotJobRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $videoId;
-
-    /**
      * @var int
      */
-    public $specifiedOffsetTime;
-
-    /**
-     * @var string
-     */
-    public $width;
+    public $count;
 
     /**
      * @var string
@@ -31,12 +21,17 @@ class SubmitSnapshotJobRequest extends Model
     /**
      * @var int
      */
-    public $count;
+    public $interval;
+
+    /**
+     * @var string
+     */
+    public $snapshotTemplateId;
 
     /**
      * @var int
      */
-    public $interval;
+    public $specifiedOffsetTime;
 
     /**
      * @var string
@@ -46,22 +41,27 @@ class SubmitSnapshotJobRequest extends Model
     /**
      * @var string
      */
-    public $snapshotTemplateId;
+    public $userData;
 
     /**
      * @var string
      */
-    public $userData;
+    public $videoId;
+
+    /**
+     * @var string
+     */
+    public $width;
     protected $_name = [
-        'videoId'              => 'VideoId',
-        'specifiedOffsetTime'  => 'SpecifiedOffsetTime',
-        'width'                => 'Width',
-        'height'               => 'Height',
         'count'                => 'Count',
+        'height'               => 'Height',
         'interval'             => 'Interval',
-        'spriteSnapshotConfig' => 'SpriteSnapshotConfig',
         'snapshotTemplateId'   => 'SnapshotTemplateId',
+        'specifiedOffsetTime'  => 'SpecifiedOffsetTime',
+        'spriteSnapshotConfig' => 'SpriteSnapshotConfig',
         'userData'             => 'UserData',
+        'videoId'              => 'VideoId',
+        'width'                => 'Width',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class SubmitSnapshotJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
-        }
-        if (null !== $this->specifiedOffsetTime) {
-            $res['SpecifiedOffsetTime'] = $this->specifiedOffsetTime;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
-        }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->spriteSnapshotConfig) {
-            $res['SpriteSnapshotConfig'] = $this->spriteSnapshotConfig;
         }
         if (null !== $this->snapshotTemplateId) {
             $res['SnapshotTemplateId'] = $this->snapshotTemplateId;
         }
+        if (null !== $this->specifiedOffsetTime) {
+            $res['SpecifiedOffsetTime'] = $this->specifiedOffsetTime;
+        }
+        if (null !== $this->spriteSnapshotConfig) {
+            $res['SpriteSnapshotConfig'] = $this->spriteSnapshotConfig;
+        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class SubmitSnapshotJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
-        }
-        if (isset($map['SpecifiedOffsetTime'])) {
-            $model->specifiedOffsetTime = $map['SpecifiedOffsetTime'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
-        }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
-        }
-        if (isset($map['SpriteSnapshotConfig'])) {
-            $model->spriteSnapshotConfig = $map['SpriteSnapshotConfig'];
         }
         if (isset($map['SnapshotTemplateId'])) {
             $model->snapshotTemplateId = $map['SnapshotTemplateId'];
         }
+        if (isset($map['SpecifiedOffsetTime'])) {
+            $model->specifiedOffsetTime = $map['SpecifiedOffsetTime'];
+        }
+        if (isset($map['SpriteSnapshotConfig'])) {
+            $model->spriteSnapshotConfig = $map['SpriteSnapshotConfig'];
+        }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

@@ -11,7 +11,12 @@ class AIJob extends Model
     /**
      * @var string
      */
-    public $status;
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $fpDBId;
 
     /**
      * @var string
@@ -21,7 +26,7 @@ class AIJob extends Model
     /**
      * @var string
      */
-    public $code;
+    public $mediaId;
 
     /**
      * @var string
@@ -31,19 +36,14 @@ class AIJob extends Model
     /**
      * @var string
      */
-    public $mediaId;
-
-    /**
-     * @var string
-     */
-    public $fpDBId;
+    public $status;
     protected $_name = [
-        'status'  => 'Status',
-        'jobId'   => 'JobId',
         'code'    => 'Code',
-        'message' => 'Message',
-        'mediaId' => 'MediaId',
         'fpDBId'  => 'FpDBId',
+        'jobId'   => 'JobId',
+        'mediaId' => 'MediaId',
+        'message' => 'Message',
+        'status'  => 'Status',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class AIJob extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->fpDBId) {
+            $res['FpDBId'] = $this->fpDBId;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->mediaId) {
-            $res['MediaId'] = $this->mediaId;
-        }
-        if (null !== $this->fpDBId) {
-            $res['FpDBId'] = $this->fpDBId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class AIJob extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['FpDBId'])) {
+            $model->fpDBId = $map['FpDBId'];
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['MediaId'])) {
-            $model->mediaId = $map['MediaId'];
-        }
-        if (isset($map['FpDBId'])) {
-            $model->fpDBId = $map['FpDBId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

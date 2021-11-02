@@ -17,28 +17,28 @@ class mediaSnapshot extends Model
     /**
      * @var string
      */
-    public $regular;
-
-    /**
-     * @var int
-     */
-    public $total;
+    public $jobId;
 
     /**
      * @var string
      */
-    public $jobId;
+    public $regular;
 
     /**
      * @var snapshots
      */
     public $snapshots;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'regular'      => 'Regular',
-        'total'        => 'Total',
         'jobId'        => 'JobId',
+        'regular'      => 'Regular',
         'snapshots'    => 'Snapshots',
+        'total'        => 'Total',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class mediaSnapshot extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->regular) {
-            $res['Regular'] = $this->regular;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+        if (null !== $this->regular) {
+            $res['Regular'] = $this->regular;
+        }
         if (null !== $this->snapshots) {
             $res['Snapshots'] = null !== $this->snapshots ? $this->snapshots->toMap() : null;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class mediaSnapshot extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['Regular'])) {
-            $model->regular = $map['Regular'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+        if (isset($map['Regular'])) {
+            $model->regular = $map['Regular'];
+        }
         if (isset($map['Snapshots'])) {
             $model->snapshots = snapshots::fromMap($map['Snapshots']);
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

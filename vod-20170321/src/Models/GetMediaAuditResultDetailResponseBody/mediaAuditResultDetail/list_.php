@@ -11,12 +11,32 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $terrorismScore;
+    public $adLabel;
 
     /**
      * @var string
      */
-    public $adLabel;
+    public $adScore;
+
+    /**
+     * @var string
+     */
+    public $liveLabel;
+
+    /**
+     * @var string
+     */
+    public $liveScore;
+
+    /**
+     * @var string
+     */
+    public $logoLabel;
+
+    /**
+     * @var string
+     */
+    public $logoScore;
 
     /**
      * @var string
@@ -31,12 +51,12 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $liveLabel;
+    public $terrorismLabel;
 
     /**
      * @var string
      */
-    public $url;
+    public $terrorismScore;
 
     /**
      * @var string
@@ -46,40 +66,20 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $adScore;
-
-    /**
-     * @var string
-     */
-    public $liveScore;
-
-    /**
-     * @var string
-     */
-    public $logoScore;
-
-    /**
-     * @var string
-     */
-    public $logoLabel;
-
-    /**
-     * @var string
-     */
-    public $terrorismLabel;
+    public $url;
     protected $_name = [
-        'terrorismScore' => 'TerrorismScore',
         'adLabel'        => 'AdLabel',
+        'adScore'        => 'AdScore',
+        'liveLabel'      => 'LiveLabel',
+        'liveScore'      => 'LiveScore',
+        'logoLabel'      => 'LogoLabel',
+        'logoScore'      => 'LogoScore',
         'pornLabel'      => 'PornLabel',
         'pornScore'      => 'PornScore',
-        'liveLabel'      => 'LiveLabel',
-        'url'            => 'Url',
-        'timestamp'      => 'Timestamp',
-        'adScore'        => 'AdScore',
-        'liveScore'      => 'LiveScore',
-        'logoScore'      => 'LogoScore',
-        'logoLabel'      => 'LogoLabel',
         'terrorismLabel' => 'TerrorismLabel',
+        'terrorismScore' => 'TerrorismScore',
+        'timestamp'      => 'Timestamp',
+        'url'            => 'Url',
     ];
 
     public function validate()
@@ -89,11 +89,23 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->terrorismScore) {
-            $res['TerrorismScore'] = $this->terrorismScore;
-        }
         if (null !== $this->adLabel) {
             $res['AdLabel'] = $this->adLabel;
+        }
+        if (null !== $this->adScore) {
+            $res['AdScore'] = $this->adScore;
+        }
+        if (null !== $this->liveLabel) {
+            $res['LiveLabel'] = $this->liveLabel;
+        }
+        if (null !== $this->liveScore) {
+            $res['LiveScore'] = $this->liveScore;
+        }
+        if (null !== $this->logoLabel) {
+            $res['LogoLabel'] = $this->logoLabel;
+        }
+        if (null !== $this->logoScore) {
+            $res['LogoScore'] = $this->logoScore;
         }
         if (null !== $this->pornLabel) {
             $res['PornLabel'] = $this->pornLabel;
@@ -101,29 +113,17 @@ class list_ extends Model
         if (null !== $this->pornScore) {
             $res['PornScore'] = $this->pornScore;
         }
-        if (null !== $this->liveLabel) {
-            $res['LiveLabel'] = $this->liveLabel;
+        if (null !== $this->terrorismLabel) {
+            $res['TerrorismLabel'] = $this->terrorismLabel;
         }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->terrorismScore) {
+            $res['TerrorismScore'] = $this->terrorismScore;
         }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
-        if (null !== $this->adScore) {
-            $res['AdScore'] = $this->adScore;
-        }
-        if (null !== $this->liveScore) {
-            $res['LiveScore'] = $this->liveScore;
-        }
-        if (null !== $this->logoScore) {
-            $res['LogoScore'] = $this->logoScore;
-        }
-        if (null !== $this->logoLabel) {
-            $res['LogoLabel'] = $this->logoLabel;
-        }
-        if (null !== $this->terrorismLabel) {
-            $res['TerrorismLabel'] = $this->terrorismLabel;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -137,11 +137,23 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TerrorismScore'])) {
-            $model->terrorismScore = $map['TerrorismScore'];
-        }
         if (isset($map['AdLabel'])) {
             $model->adLabel = $map['AdLabel'];
+        }
+        if (isset($map['AdScore'])) {
+            $model->adScore = $map['AdScore'];
+        }
+        if (isset($map['LiveLabel'])) {
+            $model->liveLabel = $map['LiveLabel'];
+        }
+        if (isset($map['LiveScore'])) {
+            $model->liveScore = $map['LiveScore'];
+        }
+        if (isset($map['LogoLabel'])) {
+            $model->logoLabel = $map['LogoLabel'];
+        }
+        if (isset($map['LogoScore'])) {
+            $model->logoScore = $map['LogoScore'];
         }
         if (isset($map['PornLabel'])) {
             $model->pornLabel = $map['PornLabel'];
@@ -149,29 +161,17 @@ class list_ extends Model
         if (isset($map['PornScore'])) {
             $model->pornScore = $map['PornScore'];
         }
-        if (isset($map['LiveLabel'])) {
-            $model->liveLabel = $map['LiveLabel'];
+        if (isset($map['TerrorismLabel'])) {
+            $model->terrorismLabel = $map['TerrorismLabel'];
         }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['TerrorismScore'])) {
+            $model->terrorismScore = $map['TerrorismScore'];
         }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
-        if (isset($map['AdScore'])) {
-            $model->adScore = $map['AdScore'];
-        }
-        if (isset($map['LiveScore'])) {
-            $model->liveScore = $map['LiveScore'];
-        }
-        if (isset($map['LogoScore'])) {
-            $model->logoScore = $map['LogoScore'];
-        }
-        if (isset($map['LogoLabel'])) {
-            $model->logoLabel = $map['LogoLabel'];
-        }
-        if (isset($map['TerrorismLabel'])) {
-            $model->terrorismLabel = $map['TerrorismLabel'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

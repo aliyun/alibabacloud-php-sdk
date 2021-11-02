@@ -10,26 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodUserDomainsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
      * @var string
      */
     public $domainName;
@@ -37,25 +17,45 @@ class DescribeVodUserDomainsRequest extends Model
     /**
      * @var string
      */
-    public $domainStatus;
+    public $domainSearchType;
 
     /**
      * @var string
      */
-    public $domainSearchType;
+    public $domainStatus;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'ownerId'          => 'OwnerId',
-        'securityToken'    => 'SecurityToken',
-        'pageSize'         => 'PageSize',
-        'pageNumber'       => 'PageNumber',
         'domainName'       => 'DomainName',
-        'domainStatus'     => 'DomainStatus',
         'domainSearchType' => 'DomainSearchType',
+        'domainStatus'     => 'DomainStatus',
+        'ownerId'          => 'OwnerId',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'securityToken'    => 'SecurityToken',
         'tag'              => 'Tag',
     ];
 
@@ -66,26 +66,26 @@ class DescribeVodUserDomainsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->domainSearchType) {
+            $res['DomainSearchType'] = $this->domainSearchType;
         }
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
         }
-        if (null !== $this->domainSearchType) {
-            $res['DomainSearchType'] = $this->domainSearchType;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -108,26 +108,26 @@ class DescribeVodUserDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['DomainSearchType'])) {
+            $model->domainSearchType = $map['DomainSearchType'];
         }
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
         }
-        if (isset($map['DomainSearchType'])) {
-            $model->domainSearchType = $map['DomainSearchType'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
