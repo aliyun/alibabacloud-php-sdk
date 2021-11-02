@@ -42,12 +42,20 @@ class SendCommentShrinkRequest extends Model
      * @var string
      */
     public $senderId;
+
+    /**
+     * @description 弹幕消息发送者的昵称。
+     *
+     * @var string
+     */
+    public $senderNick;
     protected $_name = [
         'appId'           => 'AppId',
         'content'         => 'Content',
         'extensionShrink' => 'Extension',
         'roomId'          => 'RoomId',
         'senderId'        => 'SenderId',
+        'senderNick'      => 'SenderNick',
     ];
 
     public function validate()
@@ -71,6 +79,9 @@ class SendCommentShrinkRequest extends Model
         }
         if (null !== $this->senderId) {
             $res['SenderId'] = $this->senderId;
+        }
+        if (null !== $this->senderNick) {
+            $res['SenderNick'] = $this->senderNick;
         }
 
         return $res;
@@ -98,6 +109,9 @@ class SendCommentShrinkRequest extends Model
         }
         if (isset($map['SenderId'])) {
             $model->senderId = $map['SenderId'];
+        }
+        if (isset($map['SenderNick'])) {
+            $model->senderNick = $map['SenderNick'];
         }
 
         return $model;
