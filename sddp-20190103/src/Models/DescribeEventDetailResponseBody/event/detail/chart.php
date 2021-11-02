@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class chart extends Model
 {
     /**
-     * @var string
+     * @var data
      */
-    public $type;
+    public $data;
 
     /**
      * @var string
      */
     public $label;
+
+    /**
+     * @var string
+     */
+    public $type;
 
     /**
      * @var string
@@ -28,17 +33,12 @@ class chart extends Model
      * @var string
      */
     public $YLabel;
-
-    /**
-     * @var data
-     */
-    public $data;
     protected $_name = [
-        'type'   => 'Type',
+        'data'   => 'Data',
         'label'  => 'Label',
+        'type'   => 'Type',
         'XLabel' => 'XLabel',
         'YLabel' => 'YLabel',
-        'data'   => 'Data',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class chart extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->XLabel) {
             $res['XLabel'] = $this->XLabel;
         }
         if (null !== $this->YLabel) {
             $res['YLabel'] = $this->YLabel;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class chart extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['XLabel'])) {
             $model->XLabel = $map['XLabel'];
         }
         if (isset($map['YLabel'])) {
             $model->YLabel = $map['YLabel'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

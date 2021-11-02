@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Sddp\V20190103;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateConfigRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateConfigResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateDataLimitRequest;
@@ -18,6 +17,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteDataLimitRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteDataLimitResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteRuleRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteRuleResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeCategoryTemplateRuleListRequest;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeCategoryTemplateRuleListResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeColumnsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeColumnsResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeConfigsRequest;
@@ -81,7 +82,6 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\StopMaskingProcessResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
-use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Sddp extends OpenApiClient
@@ -129,28 +129,11 @@ class Sddp extends OpenApiClient
     public function createConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Code']        = $request->code;
-        $query['Description'] = $request->description;
-        $query['Lang']        = $request->lang;
-        $query['Value']       = $request->value;
-        $req                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateConfig',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateConfigResponse::fromMap($this->doRPCRequest('CreateConfig', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -174,37 +157,11 @@ class Sddp extends OpenApiClient
     public function createDataLimitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AuditStatus']     = $request->auditStatus;
-        $query['AutoScan']        = $request->autoScan;
-        $query['EngineType']      = $request->engineType;
-        $query['EventStatus']     = $request->eventStatus;
-        $query['Lang']            = $request->lang;
-        $query['LogStoreDay']     = $request->logStoreDay;
-        $query['OcrStatus']       = $request->ocrStatus;
-        $query['ParentId']        = $request->parentId;
-        $query['Password']        = $request->password;
-        $query['Port']            = $request->port;
-        $query['ResourceType']    = $request->resourceType;
-        $query['ServiceRegionId'] = $request->serviceRegionId;
-        $query['UserName']        = $request->userName;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDataLimit',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataLimitResponse::fromMap($this->doRPCRequest('CreateDataLimit', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -228,38 +185,11 @@ class Sddp extends OpenApiClient
     public function createRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['Category']        = $request->category;
-        $query['Content']         = $request->content;
-        $query['ContentCategory'] = $request->contentCategory;
-        $query['Description']     = $request->description;
-        $query['Lang']            = $request->lang;
-        $query['Name']            = $request->name;
-        $query['ProductCode']     = $request->productCode;
-        $query['ProductId']       = $request->productId;
-        $query['RiskLevelId']     = $request->riskLevelId;
-        $query['RuleType']        = $request->ruleType;
-        $query['StatExpress']     = $request->statExpress;
-        $query['Status']          = $request->status;
-        $query['Target']          = $request->target;
-        $query['WarnLevel']       = $request->warnLevel;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateRule',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRuleResponse::fromMap($this->doRPCRequest('CreateRule', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -283,34 +213,11 @@ class Sddp extends OpenApiClient
     public function createScanTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['DataLimitId']      = $request->dataLimitId;
-        $query['IntervalDay']      = $request->intervalDay;
-        $query['OssScanPath']      = $request->ossScanPath;
-        $query['ResourceType']     = $request->resourceType;
-        $query['RunHour']          = $request->runHour;
-        $query['RunMinute']        = $request->runMinute;
-        $query['ScanRange']        = $request->scanRange;
-        $query['ScanRangeContent'] = $request->scanRangeContent;
-        $query['TaskName']         = $request->taskName;
-        $query['TaskUserName']     = $request->taskUserName;
-        $req                       = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateScanTask',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return CreateScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateScanTaskResponse::fromMap($this->doRPCRequest('CreateScanTask', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -334,26 +241,11 @@ class Sddp extends OpenApiClient
     public function deleteDataLimitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Id']   = $request->id;
-        $query['Lang'] = $request->lang;
-        $req           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDataLimit',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataLimitResponse::fromMap($this->doRPCRequest('DeleteDataLimit', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -377,26 +269,11 @@ class Sddp extends OpenApiClient
     public function deleteRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Id']   = $request->id;
-        $query['Lang'] = $request->lang;
-        $req           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteRule',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRuleResponse::fromMap($this->doRPCRequest('DeleteRule', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -412,6 +289,34 @@ class Sddp extends OpenApiClient
     }
 
     /**
+     * @param DescribeCategoryTemplateRuleListRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeCategoryTemplateRuleListResponse
+     */
+    public function describeCategoryTemplateRuleListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCategoryTemplateRuleListResponse::fromMap($this->doRPCRequest('DescribeCategoryTemplateRuleList', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCategoryTemplateRuleListRequest $request
+     *
+     * @return DescribeCategoryTemplateRuleListResponse
+     */
+    public function describeCategoryTemplateRuleList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCategoryTemplateRuleListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeColumnsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -420,37 +325,11 @@ class Sddp extends OpenApiClient
     public function describeColumnsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['CurrentPage']   = $request->currentPage;
-        $query['InstanceId']    = $request->instanceId;
-        $query['InstanceName']  = $request->instanceName;
-        $query['Lang']          = $request->lang;
-        $query['Name']          = $request->name;
-        $query['PageSize']      = $request->pageSize;
-        $query['ProductCode']   = $request->productCode;
-        $query['RiskLevelId']   = $request->riskLevelId;
-        $query['RuleId']        = $request->ruleId;
-        $query['RuleName']      = $request->ruleName;
-        $query['SensLevelName'] = $request->sensLevelName;
-        $query['TableId']       = $request->tableId;
-        $query['TableName']     = $request->tableName;
-        $req                    = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeColumns',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeColumnsResponse::fromMap($this->doRPCRequest('DescribeColumns', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -474,25 +353,11 @@ class Sddp extends OpenApiClient
     public function describeConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Lang'] = $request->lang;
-        $req           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeConfigs',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeConfigsResponse::fromMap($this->doRPCRequest('DescribeConfigs', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -516,31 +381,11 @@ class Sddp extends OpenApiClient
     public function describeDataAssetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['CurrentPage'] = $request->currentPage;
-        $query['Lang']        = $request->lang;
-        $query['Name']        = $request->name;
-        $query['PageSize']    = $request->pageSize;
-        $query['RangeId']     = $request->rangeId;
-        $query['RiskLevels']  = $request->riskLevels;
-        $query['RuleId']      = $request->ruleId;
-        $req                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDataAssets',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDataAssetsResponse::fromMap($this->doRPCRequest('DescribeDataAssets', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -564,27 +409,11 @@ class Sddp extends OpenApiClient
     public function describeDataLimitDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Id']          = $request->id;
-        $query['Lang']        = $request->lang;
-        $query['NetworkType'] = $request->networkType;
-        $req                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDataLimitDetail',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDataLimitDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDataLimitDetailResponse::fromMap($this->doRPCRequest('DescribeDataLimitDetail', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -608,27 +437,11 @@ class Sddp extends OpenApiClient
     public function describeDataLimitSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Lang']         = $request->lang;
-        $query['ParentId']     = $request->parentId;
-        $query['ResourceType'] = $request->resourceType;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDataLimitSet',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDataLimitSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDataLimitSetResponse::fromMap($this->doRPCRequest('DescribeDataLimitSet', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -652,37 +465,11 @@ class Sddp extends OpenApiClient
     public function describeDataLimitsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AuditStatus']     = $request->auditStatus;
-        $query['CheckStatus']     = $request->checkStatus;
-        $query['CurrentPage']     = $request->currentPage;
-        $query['DatamaskStatus']  = $request->datamaskStatus;
-        $query['Enable']          = $request->enable;
-        $query['EndTime']         = $request->endTime;
-        $query['EngineType']      = $request->engineType;
-        $query['Lang']            = $request->lang;
-        $query['PageSize']        = $request->pageSize;
-        $query['ParentId']        = $request->parentId;
-        $query['ResourceType']    = $request->resourceType;
-        $query['ServiceRegionId'] = $request->serviceRegionId;
-        $query['StartTime']       = $request->startTime;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDataLimits',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDataLimitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDataLimitsResponse::fromMap($this->doRPCRequest('DescribeDataLimits', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -706,35 +493,11 @@ class Sddp extends OpenApiClient
     public function describeDataMaskingRunHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['CurrentPage']   = $request->currentPage;
-        $query['DstType']       = $request->dstType;
-        $query['EndTime']       = $request->endTime;
-        $query['Lang']          = $request->lang;
-        $query['MainProcessId'] = $request->mainProcessId;
-        $query['PageSize']      = $request->pageSize;
-        $query['SrcTableName']  = $request->srcTableName;
-        $query['SrcType']       = $request->srcType;
-        $query['StartTime']     = $request->startTime;
-        $query['Status']        = $request->status;
-        $query['TaskId']        = $request->taskId;
-        $req                    = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDataMaskingRunHistory',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDataMaskingRunHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDataMaskingRunHistoryResponse::fromMap($this->doRPCRequest('DescribeDataMaskingRunHistory', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -758,31 +521,11 @@ class Sddp extends OpenApiClient
     public function describeDataMaskingTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['CurrentPage'] = $request->currentPage;
-        $query['DstType']     = $request->dstType;
-        $query['EndTime']     = $request->endTime;
-        $query['Lang']        = $request->lang;
-        $query['PageSize']    = $request->pageSize;
-        $query['SearchKey']   = $request->searchKey;
-        $query['StartTime']   = $request->startTime;
-        $req                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDataMaskingTasks',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeDataMaskingTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDataMaskingTasksResponse::fromMap($this->doRPCRequest('DescribeDataMaskingTasks', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -806,26 +549,11 @@ class Sddp extends OpenApiClient
     public function describeEventDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Id']   = $request->id;
-        $query['Lang'] = $request->lang;
-        $req           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeEventDetail',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEventDetailResponse::fromMap($this->doRPCRequest('DescribeEventDetail', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -849,28 +577,11 @@ class Sddp extends OpenApiClient
     public function describeEventTypesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Lang']         = $request->lang;
-        $query['ParentTypeId'] = $request->parentTypeId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['Status']       = $request->status;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeEventTypes',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEventTypesResponse::fromMap($this->doRPCRequest('DescribeEventTypes', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -894,39 +605,11 @@ class Sddp extends OpenApiClient
     public function describeEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['CurrentPage']       = $request->currentPage;
-        $query['DealUserId']        = $request->dealUserId;
-        $query['EndTime']           = $request->endTime;
-        $query['Id']                = $request->id;
-        $query['InstanceName']      = $request->instanceName;
-        $query['Lang']              = $request->lang;
-        $query['PageSize']          = $request->pageSize;
-        $query['ProductCode']       = $request->productCode;
-        $query['StartTime']         = $request->startTime;
-        $query['Status']            = $request->status;
-        $query['SubTypeCode']       = $request->subTypeCode;
-        $query['TargetProductCode'] = $request->targetProductCode;
-        $query['TypeCode']          = $request->typeCode;
-        $query['UserId']            = $request->userId;
-        $query['UserName']          = $request->userName;
-        $req                        = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeEvents',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEventsResponse::fromMap($this->doRPCRequest('DescribeEvents', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -950,31 +633,11 @@ class Sddp extends OpenApiClient
     public function describeInstanceSourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['CurrentPage']     = $request->currentPage;
-        $query['EngineType']      = $request->engineType;
-        $query['InstanceId']      = $request->instanceId;
-        $query['Lang']            = $request->lang;
-        $query['PageSize']        = $request->pageSize;
-        $query['ProductId']       = $request->productId;
-        $query['ServiceRegionId'] = $request->serviceRegionId;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstanceSources',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeInstanceSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceSourcesResponse::fromMap($this->doRPCRequest('DescribeInstanceSources', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -998,34 +661,11 @@ class Sddp extends OpenApiClient
     public function describeInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['CurrentPage']     = $request->currentPage;
-        $query['FeatureType']     = $request->featureType;
-        $query['Lang']            = $request->lang;
-        $query['Name']            = $request->name;
-        $query['PageSize']        = $request->pageSize;
-        $query['ProductCode']     = $request->productCode;
-        $query['ProductId']       = $request->productId;
-        $query['RiskLevelId']     = $request->riskLevelId;
-        $query['RuleId']          = $request->ruleId;
-        $query['ServiceRegionId'] = $request->serviceRegionId;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstances',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstancesResponse::fromMap($this->doRPCRequest('DescribeInstances', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1049,26 +689,11 @@ class Sddp extends OpenApiClient
     public function describeOssObjectDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Id']   = $request->id;
-        $query['Lang'] = $request->lang;
-        $req           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeOssObjectDetail',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeOssObjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeOssObjectDetailResponse::fromMap($this->doRPCRequest('DescribeOssObjectDetail', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1092,34 +717,11 @@ class Sddp extends OpenApiClient
     public function describeOssObjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['CurrentPage']       = $request->currentPage;
-        $query['InstanceId']        = $request->instanceId;
-        $query['Lang']              = $request->lang;
-        $query['LastScanTimeEnd']   = $request->lastScanTimeEnd;
-        $query['LastScanTimeStart'] = $request->lastScanTimeStart;
-        $query['Name']              = $request->name;
-        $query['PageSize']          = $request->pageSize;
-        $query['RiskLevelId']       = $request->riskLevelId;
-        $query['RuleId']            = $request->ruleId;
-        $query['ServiceRegionId']   = $request->serviceRegionId;
-        $req                        = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeOssObjects',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeOssObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeOssObjectsResponse::fromMap($this->doRPCRequest('DescribeOssObjects', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1143,32 +745,11 @@ class Sddp extends OpenApiClient
     public function describePackagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['CurrentPage'] = $request->currentPage;
-        $query['InstanceId']  = $request->instanceId;
-        $query['Lang']        = $request->lang;
-        $query['Name']        = $request->name;
-        $query['PageSize']    = $request->pageSize;
-        $query['ProductId']   = $request->productId;
-        $query['RiskLevelId'] = $request->riskLevelId;
-        $query['RuleId']      = $request->ruleId;
-        $req                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePackages',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribePackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePackagesResponse::fromMap($this->doRPCRequest('DescribePackages', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1192,25 +773,11 @@ class Sddp extends OpenApiClient
     public function describeRiskLevelsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Lang'] = $request->lang;
-        $req           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRiskLevels',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeRiskLevelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRiskLevelsResponse::fromMap($this->doRPCRequest('DescribeRiskLevels', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1234,39 +801,11 @@ class Sddp extends OpenApiClient
     public function describeRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['Category']          = $request->category;
-        $query['ContentCategory']   = $request->contentCategory;
-        $query['CurrentPage']       = $request->currentPage;
-        $query['CustomType']        = $request->customType;
-        $query['GroupId']           = $request->groupId;
-        $query['KeywordCompatible'] = $request->keywordCompatible;
-        $query['Lang']              = $request->lang;
-        $query['Name']              = $request->name;
-        $query['PageSize']          = $request->pageSize;
-        $query['ProductCode']       = $request->productCode;
-        $query['ProductId']         = $request->productId;
-        $query['RiskLevelId']       = $request->riskLevelId;
-        $query['RuleType']          = $request->ruleType;
-        $query['Status']            = $request->status;
-        $query['WarnLevel']         = $request->warnLevel;
-        $req                        = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRules',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRulesResponse::fromMap($this->doRPCRequest('DescribeRules', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1290,35 +829,11 @@ class Sddp extends OpenApiClient
     public function describeTablesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['CurrentPage']     = $request->currentPage;
-        $query['InstanceId']      = $request->instanceId;
-        $query['Lang']            = $request->lang;
-        $query['Name']            = $request->name;
-        $query['PackageId']       = $request->packageId;
-        $query['PageSize']        = $request->pageSize;
-        $query['ProductCode']     = $request->productCode;
-        $query['ProductId']       = $request->productId;
-        $query['RiskLevelId']     = $request->riskLevelId;
-        $query['RuleId']          = $request->ruleId;
-        $query['ServiceRegionId'] = $request->serviceRegionId;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeTables',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTablesResponse::fromMap($this->doRPCRequest('DescribeTables', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1342,25 +857,11 @@ class Sddp extends OpenApiClient
     public function describeUserStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Lang'] = $request->lang;
-        $req           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeUserStatus',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserStatusResponse::fromMap($this->doRPCRequest('DescribeUserStatus', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1384,26 +885,11 @@ class Sddp extends OpenApiClient
     public function disableUserConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Code'] = $request->code;
-        $query['Lang'] = $request->lang;
-        $req           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DisableUserConfig',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DisableUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableUserConfigResponse::fromMap($this->doRPCRequest('DisableUserConfig', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1427,26 +913,11 @@ class Sddp extends OpenApiClient
     public function execDatamaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Data']       = $request->data;
-        $query['TemplateId'] = $request->templateId;
-        $req                 = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ExecDatamask',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ExecDatamaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecDatamaskResponse::fromMap($this->doRPCRequest('ExecDatamask', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1470,26 +941,11 @@ class Sddp extends OpenApiClient
     public function manualTriggerMaskingProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Id']   = $request->id;
-        $query['Lang'] = $request->lang;
-        $req           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ManualTriggerMaskingProcess',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ManualTriggerMaskingProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ManualTriggerMaskingProcessResponse::fromMap($this->doRPCRequest('ManualTriggerMaskingProcess', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1513,36 +969,11 @@ class Sddp extends OpenApiClient
     public function modifyDataLimitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AuditStatus']     = $request->auditStatus;
-        $query['AutoScan']        = $request->autoScan;
-        $query['EngineType']      = $request->engineType;
-        $query['Id']              = $request->id;
-        $query['Lang']            = $request->lang;
-        $query['LogStoreDay']     = $request->logStoreDay;
-        $query['ModifyPassword']  = $request->modifyPassword;
-        $query['Password']        = $request->password;
-        $query['Port']            = $request->port;
-        $query['ResourceType']    = $request->resourceType;
-        $query['ServiceRegionId'] = $request->serviceRegionId;
-        $query['UserName']        = $request->userName;
-        $req                      = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDataLimit',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDataLimitResponse::fromMap($this->doRPCRequest('ModifyDataLimit', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1566,27 +997,11 @@ class Sddp extends OpenApiClient
     public function modifyDefaultLevelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DefaultId']    = $request->defaultId;
-        $query['Lang']         = $request->lang;
-        $query['SensitiveIds'] = $request->sensitiveIds;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDefaultLevel',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDefaultLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDefaultLevelResponse::fromMap($this->doRPCRequest('ModifyDefaultLevel', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1610,29 +1025,11 @@ class Sddp extends OpenApiClient
     public function modifyEventStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Backed']     = $request->backed;
-        $query['DealReason'] = $request->dealReason;
-        $query['Id']         = $request->id;
-        $query['Lang']       = $request->lang;
-        $query['Status']     = $request->status;
-        $req                 = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyEventStatus',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyEventStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyEventStatusResponse::fromMap($this->doRPCRequest('ModifyEventStatus', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1656,26 +1053,11 @@ class Sddp extends OpenApiClient
     public function modifyEventTypeStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Lang']       = $request->lang;
-        $query['SubTypeIds'] = $request->subTypeIds;
-        $req                 = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyEventTypeStatus',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyEventTypeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyEventTypeStatusResponse::fromMap($this->doRPCRequest('ModifyEventTypeStatus', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1699,36 +1081,11 @@ class Sddp extends OpenApiClient
     public function modifyRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Category']    = $request->category;
-        $query['Content']     = $request->content;
-        $query['CustomType']  = $request->customType;
-        $query['Id']          = $request->id;
-        $query['Lang']        = $request->lang;
-        $query['Name']        = $request->name;
-        $query['ProductCode'] = $request->productCode;
-        $query['ProductId']   = $request->productId;
-        $query['RiskLevelId'] = $request->riskLevelId;
-        $query['RuleType']    = $request->ruleType;
-        $query['StatExpress'] = $request->statExpress;
-        $query['WarnLevel']   = $request->warnLevel;
-        $req                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyRule',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyRuleResponse::fromMap($this->doRPCRequest('ModifyRule', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1752,28 +1109,11 @@ class Sddp extends OpenApiClient
     public function modifyRuleStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['Id']     = $request->id;
-        $query['Ids']    = $request->ids;
-        $query['Lang']   = $request->lang;
-        $query['Status'] = $request->status;
-        $req             = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyRuleStatus',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return ModifyRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyRuleStatusResponse::fromMap($this->doRPCRequest('ModifyRuleStatus', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1797,26 +1137,11 @@ class Sddp extends OpenApiClient
     public function stopMaskingProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Id']   = $request->id;
-        $query['Lang'] = $request->lang;
-        $req           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'StopMaskingProcess',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return StopMaskingProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopMaskingProcessResponse::fromMap($this->doRPCRequest('StopMaskingProcess', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**

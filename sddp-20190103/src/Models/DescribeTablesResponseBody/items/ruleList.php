@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ruleList extends Model
 {
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var string
      */
     public $name;
@@ -17,15 +22,10 @@ class ruleList extends Model
      * @var int
      */
     public $riskLevelId;
-
-    /**
-     * @var int
-     */
-    public $count;
     protected $_name = [
+        'count'       => 'Count',
         'name'        => 'Name',
         'riskLevelId' => 'RiskLevelId',
-        'count'       => 'Count',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ruleList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->riskLevelId) {
             $res['RiskLevelId'] = $this->riskLevelId;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ruleList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['RiskLevelId'])) {
             $model->riskLevelId = $map['RiskLevelId'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

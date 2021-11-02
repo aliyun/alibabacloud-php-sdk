@@ -21,11 +21,6 @@ class ModifyRuleRequest extends Model
     /**
      * @var int
      */
-    public $customType;
-
-    /**
-     * @var int
-     */
     public $id;
 
     /**
@@ -59,18 +54,12 @@ class ModifyRuleRequest extends Model
     public $ruleType;
 
     /**
-     * @var string
-     */
-    public $statExpress;
-
-    /**
      * @var int
      */
     public $warnLevel;
     protected $_name = [
         'category'    => 'Category',
         'content'     => 'Content',
-        'customType'  => 'CustomType',
         'id'          => 'Id',
         'lang'        => 'Lang',
         'name'        => 'Name',
@@ -78,7 +67,6 @@ class ModifyRuleRequest extends Model
         'productId'   => 'ProductId',
         'riskLevelId' => 'RiskLevelId',
         'ruleType'    => 'RuleType',
-        'statExpress' => 'StatExpress',
         'warnLevel'   => 'WarnLevel',
     ];
 
@@ -94,9 +82,6 @@ class ModifyRuleRequest extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
-        }
-        if (null !== $this->customType) {
-            $res['CustomType'] = $this->customType;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -119,9 +104,6 @@ class ModifyRuleRequest extends Model
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
-        if (null !== $this->statExpress) {
-            $res['StatExpress'] = $this->statExpress;
-        }
         if (null !== $this->warnLevel) {
             $res['WarnLevel'] = $this->warnLevel;
         }
@@ -143,9 +125,6 @@ class ModifyRuleRequest extends Model
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-        if (isset($map['CustomType'])) {
-            $model->customType = $map['CustomType'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -166,9 +145,6 @@ class ModifyRuleRequest extends Model
         }
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
-        }
-        if (isset($map['StatExpress'])) {
-            $model->statExpress = $map['StatExpress'];
         }
         if (isset($map['WarnLevel'])) {
             $model->warnLevel = $map['WarnLevel'];

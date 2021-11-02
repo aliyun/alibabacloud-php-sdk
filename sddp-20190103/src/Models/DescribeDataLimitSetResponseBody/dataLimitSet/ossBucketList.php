@@ -11,15 +11,15 @@ class ossBucketList extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $bucketName;
 
     /**
      * @var string
      */
-    public $bucketName;
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'bucketName' => 'BucketName',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ossBucketList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ossBucketList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

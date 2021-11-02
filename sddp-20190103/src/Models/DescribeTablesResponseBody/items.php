@@ -15,9 +15,69 @@ class items extends Model
     public $creationTime;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $instanceDescription;
+
+    /**
+     * @var int
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var string
      */
     public $owner;
+
+    /**
+     * @var string
+     */
+    public $productCode;
+
+    /**
+     * @var string
+     */
+    public $productId;
+
+    /**
+     * @var int
+     */
+    public $riskLevelId;
+
+    /**
+     * @var string
+     */
+    public $riskLevelName;
+
+    /**
+     * @var ruleList[]
+     */
+    public $ruleList;
+
+    /**
+     * @var bool
+     */
+    public $sensitive;
+
+    /**
+     * @var int
+     */
+    public $sensitiveCount;
 
     /**
      * @var string
@@ -32,85 +92,25 @@ class items extends Model
     /**
      * @var int
      */
-    public $riskLevelId;
-
-    /**
-     * @var string
-     */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $productId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var int
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
     public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $instanceDescription;
-
-    /**
-     * @var bool
-     */
-    public $sensitive;
-
-    /**
-     * @var string
-     */
-    public $riskLevelName;
-
-    /**
-     * @var int
-     */
-    public $sensitiveCount;
-
-    /**
-     * @var int
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $productCode;
-
-    /**
-     * @var ruleList[]
-     */
-    public $ruleList;
     protected $_name = [
         'creationTime'        => 'CreationTime',
+        'id'                  => 'Id',
+        'instanceDescription' => 'InstanceDescription',
+        'instanceId'          => 'InstanceId',
+        'instanceName'        => 'InstanceName',
+        'name'                => 'Name',
         'owner'               => 'Owner',
+        'productCode'         => 'ProductCode',
+        'productId'           => 'ProductId',
+        'riskLevelId'         => 'RiskLevelId',
+        'riskLevelName'       => 'RiskLevelName',
+        'ruleList'            => 'RuleList',
+        'sensitive'           => 'Sensitive',
+        'sensitiveCount'      => 'SensitiveCount',
         'sensitiveRatio'      => 'SensitiveRatio',
         'tenantName'          => 'TenantName',
-        'riskLevelId'         => 'RiskLevelId',
-        'instanceName'        => 'InstanceName',
-        'productId'           => 'ProductId',
-        'name'                => 'Name',
-        'instanceId'          => 'InstanceId',
         'totalCount'          => 'TotalCount',
-        'instanceDescription' => 'InstanceDescription',
-        'sensitive'           => 'Sensitive',
-        'riskLevelName'       => 'RiskLevelName',
-        'sensitiveCount'      => 'SensitiveCount',
-        'id'                  => 'Id',
-        'productCode'         => 'ProductCode',
-        'ruleList'            => 'RuleList',
     ];
 
     public function validate()
@@ -123,50 +123,35 @@ class items extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-        if (null !== $this->sensitiveRatio) {
-            $res['SensitiveRatio'] = $this->sensitiveRatio;
-        }
-        if (null !== $this->tenantName) {
-            $res['TenantName'] = $this->tenantName;
-        }
-        if (null !== $this->riskLevelId) {
-            $res['RiskLevelId'] = $this->riskLevelId;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->productId) {
-            $res['ProductId'] = $this->productId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->instanceDescription) {
             $res['InstanceDescription'] = $this->instanceDescription;
         }
-        if (null !== $this->sensitive) {
-            $res['Sensitive'] = $this->sensitive;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->riskLevelName) {
-            $res['RiskLevelName'] = $this->riskLevelName;
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->sensitiveCount) {
-            $res['SensitiveCount'] = $this->sensitiveCount;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->productId) {
+            $res['ProductId'] = $this->productId;
+        }
+        if (null !== $this->riskLevelId) {
+            $res['RiskLevelId'] = $this->riskLevelId;
+        }
+        if (null !== $this->riskLevelName) {
+            $res['RiskLevelName'] = $this->riskLevelName;
         }
         if (null !== $this->ruleList) {
             $res['RuleList'] = [];
@@ -176,6 +161,21 @@ class items extends Model
                     $res['RuleList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->sensitive) {
+            $res['Sensitive'] = $this->sensitive;
+        }
+        if (null !== $this->sensitiveCount) {
+            $res['SensitiveCount'] = $this->sensitiveCount;
+        }
+        if (null !== $this->sensitiveRatio) {
+            $res['SensitiveRatio'] = $this->sensitiveRatio;
+        }
+        if (null !== $this->tenantName) {
+            $res['TenantName'] = $this->tenantName;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -192,50 +192,35 @@ class items extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-        if (isset($map['SensitiveRatio'])) {
-            $model->sensitiveRatio = $map['SensitiveRatio'];
-        }
-        if (isset($map['TenantName'])) {
-            $model->tenantName = $map['TenantName'];
-        }
-        if (isset($map['RiskLevelId'])) {
-            $model->riskLevelId = $map['RiskLevelId'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['ProductId'])) {
-            $model->productId = $map['ProductId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['InstanceDescription'])) {
             $model->instanceDescription = $map['InstanceDescription'];
         }
-        if (isset($map['Sensitive'])) {
-            $model->sensitive = $map['Sensitive'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RiskLevelName'])) {
-            $model->riskLevelName = $map['RiskLevelName'];
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['SensitiveCount'])) {
-            $model->sensitiveCount = $map['SensitiveCount'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['ProductId'])) {
+            $model->productId = $map['ProductId'];
+        }
+        if (isset($map['RiskLevelId'])) {
+            $model->riskLevelId = $map['RiskLevelId'];
+        }
+        if (isset($map['RiskLevelName'])) {
+            $model->riskLevelName = $map['RiskLevelName'];
         }
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
@@ -245,6 +230,21 @@ class items extends Model
                     $model->ruleList[$n++] = null !== $item ? ruleList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Sensitive'])) {
+            $model->sensitive = $map['Sensitive'];
+        }
+        if (isset($map['SensitiveCount'])) {
+            $model->sensitiveCount = $map['SensitiveCount'];
+        }
+        if (isset($map['SensitiveRatio'])) {
+            $model->sensitiveRatio = $map['SensitiveRatio'];
+        }
+        if (isset($map['TenantName'])) {
+            $model->tenantName = $map['TenantName'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -11,11 +11,6 @@ class riskLevelList extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -24,13 +19,18 @@ class riskLevelList extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $referenceNum;
     protected $_name = [
-        'name'         => 'Name',
         'description'  => 'Description',
         'id'           => 'Id',
+        'name'         => 'Name',
         'referenceNum' => 'ReferenceNum',
     ];
 
@@ -41,14 +41,14 @@ class riskLevelList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->referenceNum) {
             $res['ReferenceNum'] = $this->referenceNum;
@@ -65,14 +65,14 @@ class riskLevelList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['ReferenceNum'])) {
             $model->referenceNum = $map['ReferenceNum'];

@@ -16,11 +16,6 @@ class configList extends Model
     /**
      * @var string
      */
-    public $value;
-
-    /**
-     * @var string
-     */
     public $defaultValue;
 
     /**
@@ -32,12 +27,17 @@ class configList extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
         'code'         => 'Code',
-        'value'        => 'Value',
         'defaultValue' => 'DefaultValue',
         'description'  => 'Description',
         'id'           => 'Id',
+        'value'        => 'Value',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class configList extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->defaultValue) {
             $res['DefaultValue'] = $this->defaultValue;
         }
@@ -61,6 +58,9 @@ class configList extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class configList extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['DefaultValue'])) {
             $model->defaultValue = $map['DefaultValue'];
         }
@@ -88,6 +85,9 @@ class configList extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

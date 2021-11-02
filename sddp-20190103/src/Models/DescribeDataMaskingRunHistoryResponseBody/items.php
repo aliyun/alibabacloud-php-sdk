@@ -11,22 +11,47 @@ class items extends Model
     /**
      * @var int
      */
-    public $status;
+    public $conflictCount;
 
     /**
      * @var int
      */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $srcType;
+    public $dstType;
 
     /**
      * @var string
      */
-    public $srcTableName;
+    public $dstTypeCode;
+
+    /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $failCode;
+
+    /**
+     * @var string
+     */
+    public $failMsg;
+
+    /**
+     * @var int
+     */
+    public $hasDownloadFile;
+
+    /**
+     * @var int
+     */
+    public $hasSubProcess;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @var int
@@ -41,57 +66,17 @@ class items extends Model
     /**
      * @var int
      */
-    public $dstType;
-
-    /**
-     * @var string
-     */
-    public $failMsg;
-
-    /**
-     * @var string
-     */
-    public $failCode;
-
-    /**
-     * @var int
-     */
-    public $conflictCount;
-
-    /**
-     * @var string
-     */
-    public $dstTypeCode;
-
-    /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
     public $runIndex;
 
     /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $hasSubProcess;
-
-    /**
-     * @var int
-     */
-    public $hasDownloadFile;
-
-    /**
      * @var string
      */
-    public $taskId;
+    public $srcTableName;
+
+    /**
+     * @var int
+     */
+    public $srcType;
 
     /**
      * @var string
@@ -101,27 +86,42 @@ class items extends Model
     /**
      * @var int
      */
-    public $id;
+    public $startTime;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
-        'status'          => 'Status',
-        'type'            => 'Type',
-        'srcType'         => 'SrcType',
-        'srcTableName'    => 'SrcTableName',
-        'maskingCount'    => 'MaskingCount',
-        'percentage'      => 'Percentage',
-        'dstType'         => 'DstType',
-        'failMsg'         => 'FailMsg',
-        'failCode'        => 'FailCode',
         'conflictCount'   => 'ConflictCount',
+        'dstType'         => 'DstType',
         'dstTypeCode'     => 'DstTypeCode',
         'endTime'         => 'EndTime',
-        'runIndex'        => 'RunIndex',
-        'startTime'       => 'StartTime',
-        'hasSubProcess'   => 'HasSubProcess',
+        'failCode'        => 'FailCode',
+        'failMsg'         => 'FailMsg',
         'hasDownloadFile' => 'HasDownloadFile',
-        'taskId'          => 'TaskId',
-        'srcTypeCode'     => 'SrcTypeCode',
+        'hasSubProcess'   => 'HasSubProcess',
         'id'              => 'Id',
+        'maskingCount'    => 'MaskingCount',
+        'percentage'      => 'Percentage',
+        'runIndex'        => 'RunIndex',
+        'srcTableName'    => 'SrcTableName',
+        'srcType'         => 'SrcType',
+        'srcTypeCode'     => 'SrcTypeCode',
+        'startTime'       => 'StartTime',
+        'status'          => 'Status',
+        'taskId'          => 'TaskId',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -131,35 +131,11 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->srcType) {
-            $res['SrcType'] = $this->srcType;
-        }
-        if (null !== $this->srcTableName) {
-            $res['SrcTableName'] = $this->srcTableName;
-        }
-        if (null !== $this->maskingCount) {
-            $res['MaskingCount'] = $this->maskingCount;
-        }
-        if (null !== $this->percentage) {
-            $res['Percentage'] = $this->percentage;
+        if (null !== $this->conflictCount) {
+            $res['ConflictCount'] = $this->conflictCount;
         }
         if (null !== $this->dstType) {
             $res['DstType'] = $this->dstType;
-        }
-        if (null !== $this->failMsg) {
-            $res['FailMsg'] = $this->failMsg;
-        }
-        if (null !== $this->failCode) {
-            $res['FailCode'] = $this->failCode;
-        }
-        if (null !== $this->conflictCount) {
-            $res['ConflictCount'] = $this->conflictCount;
         }
         if (null !== $this->dstTypeCode) {
             $res['DstTypeCode'] = $this->dstTypeCode;
@@ -167,26 +143,50 @@ class items extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->runIndex) {
-            $res['RunIndex'] = $this->runIndex;
+        if (null !== $this->failCode) {
+            $res['FailCode'] = $this->failCode;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->hasSubProcess) {
-            $res['HasSubProcess'] = $this->hasSubProcess;
+        if (null !== $this->failMsg) {
+            $res['FailMsg'] = $this->failMsg;
         }
         if (null !== $this->hasDownloadFile) {
             $res['HasDownloadFile'] = $this->hasDownloadFile;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->hasSubProcess) {
+            $res['HasSubProcess'] = $this->hasSubProcess;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->maskingCount) {
+            $res['MaskingCount'] = $this->maskingCount;
+        }
+        if (null !== $this->percentage) {
+            $res['Percentage'] = $this->percentage;
+        }
+        if (null !== $this->runIndex) {
+            $res['RunIndex'] = $this->runIndex;
+        }
+        if (null !== $this->srcTableName) {
+            $res['SrcTableName'] = $this->srcTableName;
+        }
+        if (null !== $this->srcType) {
+            $res['SrcType'] = $this->srcType;
         }
         if (null !== $this->srcTypeCode) {
             $res['SrcTypeCode'] = $this->srcTypeCode;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -200,35 +200,11 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['SrcType'])) {
-            $model->srcType = $map['SrcType'];
-        }
-        if (isset($map['SrcTableName'])) {
-            $model->srcTableName = $map['SrcTableName'];
-        }
-        if (isset($map['MaskingCount'])) {
-            $model->maskingCount = $map['MaskingCount'];
-        }
-        if (isset($map['Percentage'])) {
-            $model->percentage = $map['Percentage'];
+        if (isset($map['ConflictCount'])) {
+            $model->conflictCount = $map['ConflictCount'];
         }
         if (isset($map['DstType'])) {
             $model->dstType = $map['DstType'];
-        }
-        if (isset($map['FailMsg'])) {
-            $model->failMsg = $map['FailMsg'];
-        }
-        if (isset($map['FailCode'])) {
-            $model->failCode = $map['FailCode'];
-        }
-        if (isset($map['ConflictCount'])) {
-            $model->conflictCount = $map['ConflictCount'];
         }
         if (isset($map['DstTypeCode'])) {
             $model->dstTypeCode = $map['DstTypeCode'];
@@ -236,26 +212,50 @@ class items extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['RunIndex'])) {
-            $model->runIndex = $map['RunIndex'];
+        if (isset($map['FailCode'])) {
+            $model->failCode = $map['FailCode'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['HasSubProcess'])) {
-            $model->hasSubProcess = $map['HasSubProcess'];
+        if (isset($map['FailMsg'])) {
+            $model->failMsg = $map['FailMsg'];
         }
         if (isset($map['HasDownloadFile'])) {
             $model->hasDownloadFile = $map['HasDownloadFile'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['HasSubProcess'])) {
+            $model->hasSubProcess = $map['HasSubProcess'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['MaskingCount'])) {
+            $model->maskingCount = $map['MaskingCount'];
+        }
+        if (isset($map['Percentage'])) {
+            $model->percentage = $map['Percentage'];
+        }
+        if (isset($map['RunIndex'])) {
+            $model->runIndex = $map['RunIndex'];
+        }
+        if (isset($map['SrcTableName'])) {
+            $model->srcTableName = $map['SrcTableName'];
+        }
+        if (isset($map['SrcType'])) {
+            $model->srcType = $map['SrcType'];
         }
         if (isset($map['SrcTypeCode'])) {
             $model->srcTypeCode = $map['SrcTypeCode'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

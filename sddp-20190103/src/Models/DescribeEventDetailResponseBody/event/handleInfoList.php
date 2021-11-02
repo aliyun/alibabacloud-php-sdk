@@ -9,24 +9,19 @@ use AlibabaCloud\Tea\Model;
 class handleInfoList extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $enableTime;
-
-    /**
-     * @var int
-     */
-    public $handlerValue;
+    public $currentValue;
 
     /**
      * @var int
      */
     public $disableTime;
+
+    /**
+     * @var int
+     */
+    public $enableTime;
 
     /**
      * @var string
@@ -39,23 +34,28 @@ class handleInfoList extends Model
     public $handlerType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $currentValue;
+    public $handlerValue;
 
     /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
-        'enableTime'   => 'EnableTime',
-        'handlerValue' => 'HandlerValue',
+        'currentValue' => 'CurrentValue',
         'disableTime'  => 'DisableTime',
+        'enableTime'   => 'EnableTime',
         'handlerName'  => 'HandlerName',
         'handlerType'  => 'HandlerType',
-        'currentValue' => 'CurrentValue',
+        'handlerValue' => 'HandlerValue',
         'id'           => 'Id',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -65,17 +65,14 @@ class handleInfoList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->enableTime) {
-            $res['EnableTime'] = $this->enableTime;
-        }
-        if (null !== $this->handlerValue) {
-            $res['HandlerValue'] = $this->handlerValue;
+        if (null !== $this->currentValue) {
+            $res['CurrentValue'] = $this->currentValue;
         }
         if (null !== $this->disableTime) {
             $res['DisableTime'] = $this->disableTime;
+        }
+        if (null !== $this->enableTime) {
+            $res['EnableTime'] = $this->enableTime;
         }
         if (null !== $this->handlerName) {
             $res['HandlerName'] = $this->handlerName;
@@ -83,11 +80,14 @@ class handleInfoList extends Model
         if (null !== $this->handlerType) {
             $res['HandlerType'] = $this->handlerType;
         }
-        if (null !== $this->currentValue) {
-            $res['CurrentValue'] = $this->currentValue;
+        if (null !== $this->handlerValue) {
+            $res['HandlerValue'] = $this->handlerValue;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -101,17 +101,14 @@ class handleInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['EnableTime'])) {
-            $model->enableTime = $map['EnableTime'];
-        }
-        if (isset($map['HandlerValue'])) {
-            $model->handlerValue = $map['HandlerValue'];
+        if (isset($map['CurrentValue'])) {
+            $model->currentValue = $map['CurrentValue'];
         }
         if (isset($map['DisableTime'])) {
             $model->disableTime = $map['DisableTime'];
+        }
+        if (isset($map['EnableTime'])) {
+            $model->enableTime = $map['EnableTime'];
         }
         if (isset($map['HandlerName'])) {
             $model->handlerName = $map['HandlerName'];
@@ -119,11 +116,14 @@ class handleInfoList extends Model
         if (isset($map['HandlerType'])) {
             $model->handlerType = $map['HandlerType'];
         }
-        if (isset($map['CurrentValue'])) {
-            $model->currentValue = $map['CurrentValue'];
+        if (isset($map['HandlerValue'])) {
+            $model->handlerValue = $map['HandlerValue'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

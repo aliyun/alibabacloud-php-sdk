@@ -11,17 +11,7 @@ class ruleList extends Model
     /**
      * @var string
      */
-    public $riskLevelName;
-
-    /**
-     * @var string
-     */
     public $categoryName;
-
-    /**
-     * @var int
-     */
-    public $riskLevelId;
 
     /**
      * @var int
@@ -29,14 +19,24 @@ class ruleList extends Model
     public $count;
 
     /**
+     * @var int
+     */
+    public $riskLevelId;
+
+    /**
+     * @var string
+     */
+    public $riskLevelName;
+
+    /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'riskLevelName' => 'RiskLevelName',
         'categoryName'  => 'CategoryName',
-        'riskLevelId'   => 'RiskLevelId',
         'count'         => 'Count',
+        'riskLevelId'   => 'RiskLevelId',
+        'riskLevelName' => 'RiskLevelName',
         'ruleName'      => 'RuleName',
     ];
 
@@ -47,17 +47,17 @@ class ruleList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->riskLevelName) {
-            $res['RiskLevelName'] = $this->riskLevelName;
-        }
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->riskLevelId) {
             $res['RiskLevelId'] = $this->riskLevelId;
         }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
+        if (null !== $this->riskLevelName) {
+            $res['RiskLevelName'] = $this->riskLevelName;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -74,17 +74,17 @@ class ruleList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RiskLevelName'])) {
-            $model->riskLevelName = $map['RiskLevelName'];
-        }
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['RiskLevelId'])) {
             $model->riskLevelId = $map['RiskLevelId'];
         }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
+        if (isset($map['RiskLevelName'])) {
+            $model->riskLevelName = $map['RiskLevelName'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];

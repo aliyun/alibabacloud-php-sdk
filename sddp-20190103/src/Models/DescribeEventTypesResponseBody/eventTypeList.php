@@ -20,14 +20,14 @@ class eventTypeList extends Model
     public $description;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var subTypeList[]
@@ -36,8 +36,8 @@ class eventTypeList extends Model
     protected $_name = [
         'code'        => 'Code',
         'description' => 'Description',
-        'name'        => 'Name',
         'id'          => 'Id',
+        'name'        => 'Name',
         'subTypeList' => 'SubTypeList',
     ];
 
@@ -54,11 +54,11 @@ class eventTypeList extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->subTypeList) {
             $res['SubTypeList'] = [];
@@ -87,11 +87,11 @@ class eventTypeList extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['SubTypeList'])) {
             if (!empty($map['SubTypeList'])) {

@@ -14,19 +14,9 @@ class items extends Model
     public $creationTime;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $sensitive;
-
-    /**
-     * @var string
-     */
-    public $owner;
-
-    /**
-     * @var string
-     */
-    public $riskLevelName;
+    public $id;
 
     /**
      * @var int
@@ -34,14 +24,29 @@ class items extends Model
     public $instanceId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $owner;
+
+    /**
+     * @var int
+     */
+    public $riskLevelId;
+
+    /**
+     * @var string
+     */
+    public $riskLevelName;
+
+    /**
+     * @var bool
+     */
+    public $sensitive;
 
     /**
      * @var int
@@ -51,23 +56,18 @@ class items extends Model
     /**
      * @var int
      */
-    public $riskLevelId;
-
-    /**
-     * @var int
-     */
-    public $id;
+    public $totalCount;
     protected $_name = [
         'creationTime'   => 'CreationTime',
-        'sensitive'      => 'Sensitive',
-        'owner'          => 'Owner',
-        'riskLevelName'  => 'RiskLevelName',
-        'instanceId'     => 'InstanceId',
-        'totalCount'     => 'TotalCount',
-        'name'           => 'Name',
-        'sensitiveCount' => 'SensitiveCount',
-        'riskLevelId'    => 'RiskLevelId',
         'id'             => 'Id',
+        'instanceId'     => 'InstanceId',
+        'name'           => 'Name',
+        'owner'          => 'Owner',
+        'riskLevelId'    => 'RiskLevelId',
+        'riskLevelName'  => 'RiskLevelName',
+        'sensitive'      => 'Sensitive',
+        'sensitiveCount' => 'SensitiveCount',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -80,32 +80,32 @@ class items extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->sensitive) {
-            $res['Sensitive'] = $this->sensitive;
-        }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-        if (null !== $this->riskLevelName) {
-            $res['RiskLevelName'] = $this->riskLevelName;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->sensitiveCount) {
-            $res['SensitiveCount'] = $this->sensitiveCount;
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
         if (null !== $this->riskLevelId) {
             $res['RiskLevelId'] = $this->riskLevelId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->riskLevelName) {
+            $res['RiskLevelName'] = $this->riskLevelName;
+        }
+        if (null !== $this->sensitive) {
+            $res['Sensitive'] = $this->sensitive;
+        }
+        if (null !== $this->sensitiveCount) {
+            $res['SensitiveCount'] = $this->sensitiveCount;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -122,32 +122,32 @@ class items extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['Sensitive'])) {
-            $model->sensitive = $map['Sensitive'];
-        }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-        if (isset($map['RiskLevelName'])) {
-            $model->riskLevelName = $map['RiskLevelName'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['SensitiveCount'])) {
-            $model->sensitiveCount = $map['SensitiveCount'];
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
         if (isset($map['RiskLevelId'])) {
             $model->riskLevelId = $map['RiskLevelId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['RiskLevelName'])) {
+            $model->riskLevelName = $map['RiskLevelName'];
+        }
+        if (isset($map['Sensitive'])) {
+            $model->sensitive = $map['Sensitive'];
+        }
+        if (isset($map['SensitiveCount'])) {
+            $model->sensitiveCount = $map['SensitiveCount'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

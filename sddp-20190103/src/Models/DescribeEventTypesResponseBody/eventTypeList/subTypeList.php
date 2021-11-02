@@ -9,34 +9,9 @@ use AlibabaCloud\Tea\Model;
 class subTypeList extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $configContentType;
-
-    /**
-     * @var int
-     */
-    public $eventHitCount;
-
-    /**
-     * @var string
-     */
-    public $configValue;
-
-    /**
-     * @var string
-     */
-    public $configCode;
+    public $adaptedProduct;
 
     /**
      * @var string
@@ -46,7 +21,37 @@ class subTypeList extends Model
     /**
      * @var string
      */
+    public $configCode;
+
+    /**
+     * @var int
+     */
+    public $configContentType;
+
+    /**
+     * @var string
+     */
     public $configDescription;
+
+    /**
+     * @var string
+     */
+    public $configValue;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var int
+     */
+    public $eventHitCount;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @var string
@@ -54,26 +59,21 @@ class subTypeList extends Model
     public $name;
 
     /**
-     * @var string
-     */
-    public $adaptedProduct;
-
-    /**
      * @var int
      */
-    public $id;
+    public $status;
     protected $_name = [
-        'status'            => 'Status',
-        'description'       => 'Description',
-        'configContentType' => 'ConfigContentType',
-        'eventHitCount'     => 'EventHitCount',
-        'configValue'       => 'ConfigValue',
-        'configCode'        => 'ConfigCode',
-        'code'              => 'Code',
-        'configDescription' => 'ConfigDescription',
-        'name'              => 'Name',
         'adaptedProduct'    => 'AdaptedProduct',
+        'code'              => 'Code',
+        'configCode'        => 'ConfigCode',
+        'configContentType' => 'ConfigContentType',
+        'configDescription' => 'ConfigDescription',
+        'configValue'       => 'ConfigValue',
+        'description'       => 'Description',
+        'eventHitCount'     => 'EventHitCount',
         'id'                => 'Id',
+        'name'              => 'Name',
+        'status'            => 'Status',
     ];
 
     public function validate()
@@ -83,38 +83,38 @@ class subTypeList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->configContentType) {
-            $res['ConfigContentType'] = $this->configContentType;
-        }
-        if (null !== $this->eventHitCount) {
-            $res['EventHitCount'] = $this->eventHitCount;
-        }
-        if (null !== $this->configValue) {
-            $res['ConfigValue'] = $this->configValue;
-        }
-        if (null !== $this->configCode) {
-            $res['ConfigCode'] = $this->configCode;
+        if (null !== $this->adaptedProduct) {
+            $res['AdaptedProduct'] = $this->adaptedProduct;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->configCode) {
+            $res['ConfigCode'] = $this->configCode;
+        }
+        if (null !== $this->configContentType) {
+            $res['ConfigContentType'] = $this->configContentType;
+        }
         if (null !== $this->configDescription) {
             $res['ConfigDescription'] = $this->configDescription;
+        }
+        if (null !== $this->configValue) {
+            $res['ConfigValue'] = $this->configValue;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->eventHitCount) {
+            $res['EventHitCount'] = $this->eventHitCount;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->adaptedProduct) {
-            $res['AdaptedProduct'] = $this->adaptedProduct;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -128,38 +128,38 @@ class subTypeList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['ConfigContentType'])) {
-            $model->configContentType = $map['ConfigContentType'];
-        }
-        if (isset($map['EventHitCount'])) {
-            $model->eventHitCount = $map['EventHitCount'];
-        }
-        if (isset($map['ConfigValue'])) {
-            $model->configValue = $map['ConfigValue'];
-        }
-        if (isset($map['ConfigCode'])) {
-            $model->configCode = $map['ConfigCode'];
+        if (isset($map['AdaptedProduct'])) {
+            $model->adaptedProduct = $map['AdaptedProduct'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['ConfigCode'])) {
+            $model->configCode = $map['ConfigCode'];
+        }
+        if (isset($map['ConfigContentType'])) {
+            $model->configContentType = $map['ConfigContentType'];
+        }
         if (isset($map['ConfigDescription'])) {
             $model->configDescription = $map['ConfigDescription'];
+        }
+        if (isset($map['ConfigValue'])) {
+            $model->configValue = $map['ConfigValue'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['EventHitCount'])) {
+            $model->eventHitCount = $map['EventHitCount'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['AdaptedProduct'])) {
-            $model->adaptedProduct = $map['AdaptedProduct'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
