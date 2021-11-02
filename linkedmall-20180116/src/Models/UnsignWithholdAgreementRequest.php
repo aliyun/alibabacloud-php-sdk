@@ -11,7 +11,7 @@ class UnsignWithholdAgreementRequest extends Model
     /**
      * @var string
      */
-    public $outRequestNo;
+    public $agreementNo;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class UnsignWithholdAgreementRequest extends Model
     /**
      * @var string
      */
-    public $agreementNo;
+    public $outRequestNo;
     protected $_name = [
-        'outRequestNo'        => 'OutRequestNo',
+        'agreementNo'         => 'AgreementNo',
         'externalAgreementNo' => 'ExternalAgreementNo',
         'merchantId'          => 'MerchantId',
-        'agreementNo'         => 'AgreementNo',
+        'outRequestNo'        => 'OutRequestNo',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class UnsignWithholdAgreementRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->outRequestNo) {
-            $res['OutRequestNo'] = $this->outRequestNo;
+        if (null !== $this->agreementNo) {
+            $res['AgreementNo'] = $this->agreementNo;
         }
         if (null !== $this->externalAgreementNo) {
             $res['ExternalAgreementNo'] = $this->externalAgreementNo;
@@ -50,8 +50,8 @@ class UnsignWithholdAgreementRequest extends Model
         if (null !== $this->merchantId) {
             $res['MerchantId'] = $this->merchantId;
         }
-        if (null !== $this->agreementNo) {
-            $res['AgreementNo'] = $this->agreementNo;
+        if (null !== $this->outRequestNo) {
+            $res['OutRequestNo'] = $this->outRequestNo;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class UnsignWithholdAgreementRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OutRequestNo'])) {
-            $model->outRequestNo = $map['OutRequestNo'];
+        if (isset($map['AgreementNo'])) {
+            $model->agreementNo = $map['AgreementNo'];
         }
         if (isset($map['ExternalAgreementNo'])) {
             $model->externalAgreementNo = $map['ExternalAgreementNo'];
@@ -74,8 +74,8 @@ class UnsignWithholdAgreementRequest extends Model
         if (isset($map['MerchantId'])) {
             $model->merchantId = $map['MerchantId'];
         }
-        if (isset($map['AgreementNo'])) {
-            $model->agreementNo = $map['AgreementNo'];
+        if (isset($map['OutRequestNo'])) {
+            $model->outRequestNo = $map['OutRequestNo'];
         }
 
         return $model;

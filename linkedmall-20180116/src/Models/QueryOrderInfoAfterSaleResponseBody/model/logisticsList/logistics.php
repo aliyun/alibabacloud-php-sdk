@@ -16,22 +16,22 @@ class logistics extends Model
     /**
      * @var string
      */
+    public $logisticsCompanyName;
+
+    /**
+     * @var string
+     */
     public $logisticsNo;
 
     /**
      * @var string
      */
     public $logisticsStatus;
-
-    /**
-     * @var string
-     */
-    public $logisticsCompanyName;
     protected $_name = [
         'logisticsCompanyCode' => 'LogisticsCompanyCode',
+        'logisticsCompanyName' => 'LogisticsCompanyName',
         'logisticsNo'          => 'LogisticsNo',
         'logisticsStatus'      => 'LogisticsStatus',
-        'logisticsCompanyName' => 'LogisticsCompanyName',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class logistics extends Model
         if (null !== $this->logisticsCompanyCode) {
             $res['LogisticsCompanyCode'] = $this->logisticsCompanyCode;
         }
+        if (null !== $this->logisticsCompanyName) {
+            $res['LogisticsCompanyName'] = $this->logisticsCompanyName;
+        }
         if (null !== $this->logisticsNo) {
             $res['LogisticsNo'] = $this->logisticsNo;
         }
         if (null !== $this->logisticsStatus) {
             $res['LogisticsStatus'] = $this->logisticsStatus;
-        }
-        if (null !== $this->logisticsCompanyName) {
-            $res['LogisticsCompanyName'] = $this->logisticsCompanyName;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class logistics extends Model
         if (isset($map['LogisticsCompanyCode'])) {
             $model->logisticsCompanyCode = $map['LogisticsCompanyCode'];
         }
+        if (isset($map['LogisticsCompanyName'])) {
+            $model->logisticsCompanyName = $map['LogisticsCompanyName'];
+        }
         if (isset($map['LogisticsNo'])) {
             $model->logisticsNo = $map['LogisticsNo'];
         }
         if (isset($map['LogisticsStatus'])) {
             $model->logisticsStatus = $map['LogisticsStatus'];
-        }
-        if (isset($map['LogisticsCompanyName'])) {
-            $model->logisticsCompanyName = $map['LogisticsCompanyName'];
         }
 
         return $model;

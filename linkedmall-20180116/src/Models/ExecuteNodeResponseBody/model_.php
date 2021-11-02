@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
-     * @var mixed[]
-     */
-    public $responseData;
-
-    /**
      * @var string
      */
     public $processInstanceId;
+
+    /**
+     * @var mixed[]
+     */
+    public $responseData;
     protected $_name = [
-        'responseData'      => 'ResponseData',
         'processInstanceId' => 'ProcessInstanceId',
+        'responseData'      => 'ResponseData',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class model_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->responseData) {
-            $res['ResponseData'] = $this->responseData;
-        }
         if (null !== $this->processInstanceId) {
             $res['ProcessInstanceId'] = $this->processInstanceId;
+        }
+        if (null !== $this->responseData) {
+            $res['ResponseData'] = $this->responseData;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class model_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResponseData'])) {
-            $model->responseData = $map['ResponseData'];
-        }
         if (isset($map['ProcessInstanceId'])) {
             $model->processInstanceId = $map['ProcessInstanceId'];
+        }
+        if (isset($map['ResponseData'])) {
+            $model->responseData = $map['ResponseData'];
         }
 
         return $model;

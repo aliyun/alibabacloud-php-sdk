@@ -11,6 +11,11 @@ class CancelOrderRequest extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var string
+     */
     public $bizId;
 
     /**
@@ -26,11 +31,6 @@ class CancelOrderRequest extends Model
     /**
      * @var string
      */
-    public $accountType;
-
-    /**
-     * @var string
-     */
     public $thirdPartyUserId;
 
     /**
@@ -38,10 +38,10 @@ class CancelOrderRequest extends Model
      */
     public $useAnonymousTbAccount;
     protected $_name = [
+        'accountType'           => 'AccountType',
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
         'lmOrderId'             => 'LmOrderId',
-        'accountType'           => 'AccountType',
         'thirdPartyUserId'      => 'ThirdPartyUserId',
         'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
@@ -53,6 +53,9 @@ class CancelOrderRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
@@ -61,9 +64,6 @@ class CancelOrderRequest extends Model
         }
         if (null !== $this->lmOrderId) {
             $res['LmOrderId'] = $this->lmOrderId;
-        }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
         }
         if (null !== $this->thirdPartyUserId) {
             $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
@@ -83,6 +83,9 @@ class CancelOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
@@ -91,9 +94,6 @@ class CancelOrderRequest extends Model
         }
         if (isset($map['LmOrderId'])) {
             $model->lmOrderId = $map['LmOrderId'];
-        }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
         }
         if (isset($map['ThirdPartyUserId'])) {
             $model->thirdPartyUserId = $map['ThirdPartyUserId'];

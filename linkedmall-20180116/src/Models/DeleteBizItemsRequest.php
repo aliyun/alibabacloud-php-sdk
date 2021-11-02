@@ -14,18 +14,18 @@ class DeleteBizItemsRequest extends Model
     public $bizId;
 
     /**
-     * @var string
-     */
-    public $subBizId;
-
-    /**
      * @var int[]
      */
     public $itemIdList;
+
+    /**
+     * @var string
+     */
+    public $subBizId;
     protected $_name = [
         'bizId'      => 'BizId',
-        'subBizId'   => 'SubBizId',
         'itemIdList' => 'ItemIdList',
+        'subBizId'   => 'SubBizId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteBizItemsRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->subBizId) {
-            $res['SubBizId'] = $this->subBizId;
-        }
         if (null !== $this->itemIdList) {
             $res['ItemIdList'] = $this->itemIdList;
+        }
+        if (null !== $this->subBizId) {
+            $res['SubBizId'] = $this->subBizId;
         }
 
         return $res;
@@ -59,13 +59,13 @@ class DeleteBizItemsRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['SubBizId'])) {
-            $model->subBizId = $map['SubBizId'];
-        }
         if (isset($map['ItemIdList'])) {
             if (!empty($map['ItemIdList'])) {
                 $model->itemIdList = $map['ItemIdList'];
             }
+        }
+        if (isset($map['SubBizId'])) {
+            $model->subBizId = $map['SubBizId'];
         }
 
         return $model;

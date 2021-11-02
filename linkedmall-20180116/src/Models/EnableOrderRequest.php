@@ -11,6 +11,11 @@ class EnableOrderRequest extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var string
+     */
     public $bizId;
 
     /**
@@ -21,7 +26,7 @@ class EnableOrderRequest extends Model
     /**
      * @var string
      */
-    public $outTradeId;
+    public $extJson;
 
     /**
      * @var string
@@ -31,12 +36,7 @@ class EnableOrderRequest extends Model
     /**
      * @var string
      */
-    public $extJson;
-
-    /**
-     * @var bool
-     */
-    public $useAnonymousTbAccount;
+    public $outTradeId;
 
     /**
      * @var string
@@ -44,18 +44,18 @@ class EnableOrderRequest extends Model
     public $thirdPartyUserId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $accountType;
+    public $useAnonymousTbAccount;
     protected $_name = [
+        'accountType'           => 'AccountType',
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
-        'outTradeId'            => 'OutTradeId',
-        'lmOrderId'             => 'LmOrderId',
         'extJson'               => 'ExtJson',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
+        'lmOrderId'             => 'LmOrderId',
+        'outTradeId'            => 'OutTradeId',
         'thirdPartyUserId'      => 'ThirdPartyUserId',
-        'accountType'           => 'AccountType',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class EnableOrderRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
-        if (null !== $this->outTradeId) {
-            $res['OutTradeId'] = $this->outTradeId;
+        if (null !== $this->extJson) {
+            $res['ExtJson'] = $this->extJson;
         }
         if (null !== $this->lmOrderId) {
             $res['LmOrderId'] = $this->lmOrderId;
         }
-        if (null !== $this->extJson) {
-            $res['ExtJson'] = $this->extJson;
-        }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
+        if (null !== $this->outTradeId) {
+            $res['OutTradeId'] = $this->outTradeId;
         }
         if (null !== $this->thirdPartyUserId) {
             $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
         }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class EnableOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
-        if (isset($map['OutTradeId'])) {
-            $model->outTradeId = $map['OutTradeId'];
+        if (isset($map['ExtJson'])) {
+            $model->extJson = $map['ExtJson'];
         }
         if (isset($map['LmOrderId'])) {
             $model->lmOrderId = $map['LmOrderId'];
         }
-        if (isset($map['ExtJson'])) {
-            $model->extJson = $map['ExtJson'];
-        }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
+        if (isset($map['OutTradeId'])) {
+            $model->outTradeId = $map['OutTradeId'];
         }
         if (isset($map['ThirdPartyUserId'])) {
             $model->thirdPartyUserId = $map['ThirdPartyUserId'];
         }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

@@ -12,6 +12,11 @@ class CreateOrderV2Request extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var string
+     */
     public $bizId;
 
     /**
@@ -22,27 +27,7 @@ class CreateOrderV2Request extends Model
     /**
      * @var string
      */
-    public $outTradeId;
-
-    /**
-     * @var int
-     */
-    public $itemId;
-
-    /**
-     * @var int
-     */
-    public $quantity;
-
-    /**
-     * @var int
-     */
-    public $totalAmount;
-
-    /**
-     * @var string
-     */
-    public $extJson;
+    public $buyerMessageMap;
 
     /**
      * @var string
@@ -50,24 +35,19 @@ class CreateOrderV2Request extends Model
     public $deliveryAddress;
 
     /**
+     * @var string
+     */
+    public $extJson;
+
+    /**
      * @var int
      */
-    public $orderExpireTime;
+    public $itemId;
 
     /**
-     * @var bool
+     * @var itemList[]
      */
-    public $useAnonymousTbAccount;
-
-    /**
-     * @var string
-     */
-    public $thirdPartyUserId;
-
-    /**
-     * @var string
-     */
-    public $accountType;
+    public $itemList;
 
     /**
      * @var string
@@ -75,30 +55,50 @@ class CreateOrderV2Request extends Model
     public $lmItemId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $buyerMessageMap;
+    public $orderExpireTime;
 
     /**
-     * @var itemList[]
+     * @var string
      */
-    public $itemList;
+    public $outTradeId;
+
+    /**
+     * @var int
+     */
+    public $quantity;
+
+    /**
+     * @var string
+     */
+    public $thirdPartyUserId;
+
+    /**
+     * @var int
+     */
+    public $totalAmount;
+
+    /**
+     * @var bool
+     */
+    public $useAnonymousTbAccount;
     protected $_name = [
+        'accountType'           => 'AccountType',
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
-        'outTradeId'            => 'OutTradeId',
-        'itemId'                => 'ItemId',
-        'quantity'              => 'Quantity',
-        'totalAmount'           => 'TotalAmount',
-        'extJson'               => 'ExtJson',
-        'deliveryAddress'       => 'DeliveryAddress',
-        'orderExpireTime'       => 'OrderExpireTime',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
-        'thirdPartyUserId'      => 'ThirdPartyUserId',
-        'accountType'           => 'AccountType',
-        'lmItemId'              => 'LmItemId',
         'buyerMessageMap'       => 'BuyerMessageMap',
+        'deliveryAddress'       => 'DeliveryAddress',
+        'extJson'               => 'ExtJson',
+        'itemId'                => 'ItemId',
         'itemList'              => 'ItemList',
+        'lmItemId'              => 'LmItemId',
+        'orderExpireTime'       => 'OrderExpireTime',
+        'outTradeId'            => 'OutTradeId',
+        'quantity'              => 'Quantity',
+        'thirdPartyUserId'      => 'ThirdPartyUserId',
+        'totalAmount'           => 'TotalAmount',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -108,47 +108,26 @@ class CreateOrderV2Request extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
-        if (null !== $this->outTradeId) {
-            $res['OutTradeId'] = $this->outTradeId;
-        }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
-        }
-        if (null !== $this->quantity) {
-            $res['Quantity'] = $this->quantity;
-        }
-        if (null !== $this->totalAmount) {
-            $res['TotalAmount'] = $this->totalAmount;
-        }
-        if (null !== $this->extJson) {
-            $res['ExtJson'] = $this->extJson;
+        if (null !== $this->buyerMessageMap) {
+            $res['BuyerMessageMap'] = $this->buyerMessageMap;
         }
         if (null !== $this->deliveryAddress) {
             $res['DeliveryAddress'] = $this->deliveryAddress;
         }
-        if (null !== $this->orderExpireTime) {
-            $res['OrderExpireTime'] = $this->orderExpireTime;
+        if (null !== $this->extJson) {
+            $res['ExtJson'] = $this->extJson;
         }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
-        }
-        if (null !== $this->thirdPartyUserId) {
-            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
-        }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
-        }
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
-        }
-        if (null !== $this->buyerMessageMap) {
-            $res['BuyerMessageMap'] = $this->buyerMessageMap;
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->itemList) {
             $res['ItemList'] = [];
@@ -158,6 +137,27 @@ class CreateOrderV2Request extends Model
                     $res['ItemList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->orderExpireTime) {
+            $res['OrderExpireTime'] = $this->orderExpireTime;
+        }
+        if (null !== $this->outTradeId) {
+            $res['OutTradeId'] = $this->outTradeId;
+        }
+        if (null !== $this->quantity) {
+            $res['Quantity'] = $this->quantity;
+        }
+        if (null !== $this->thirdPartyUserId) {
+            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
+        }
+        if (null !== $this->totalAmount) {
+            $res['TotalAmount'] = $this->totalAmount;
+        }
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -171,47 +171,26 @@ class CreateOrderV2Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
-        if (isset($map['OutTradeId'])) {
-            $model->outTradeId = $map['OutTradeId'];
-        }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
-        }
-        if (isset($map['Quantity'])) {
-            $model->quantity = $map['Quantity'];
-        }
-        if (isset($map['TotalAmount'])) {
-            $model->totalAmount = $map['TotalAmount'];
-        }
-        if (isset($map['ExtJson'])) {
-            $model->extJson = $map['ExtJson'];
+        if (isset($map['BuyerMessageMap'])) {
+            $model->buyerMessageMap = $map['BuyerMessageMap'];
         }
         if (isset($map['DeliveryAddress'])) {
             $model->deliveryAddress = $map['DeliveryAddress'];
         }
-        if (isset($map['OrderExpireTime'])) {
-            $model->orderExpireTime = $map['OrderExpireTime'];
+        if (isset($map['ExtJson'])) {
+            $model->extJson = $map['ExtJson'];
         }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
-        }
-        if (isset($map['ThirdPartyUserId'])) {
-            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
-        }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
-        }
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
-        }
-        if (isset($map['BuyerMessageMap'])) {
-            $model->buyerMessageMap = $map['BuyerMessageMap'];
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['ItemList'])) {
             if (!empty($map['ItemList'])) {
@@ -221,6 +200,27 @@ class CreateOrderV2Request extends Model
                     $model->itemList[$n++] = null !== $item ? itemList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['OrderExpireTime'])) {
+            $model->orderExpireTime = $map['OrderExpireTime'];
+        }
+        if (isset($map['OutTradeId'])) {
+            $model->outTradeId = $map['OutTradeId'];
+        }
+        if (isset($map['Quantity'])) {
+            $model->quantity = $map['Quantity'];
+        }
+        if (isset($map['ThirdPartyUserId'])) {
+            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
+        }
+        if (isset($map['TotalAmount'])) {
+            $model->totalAmount = $map['TotalAmount'];
+        }
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

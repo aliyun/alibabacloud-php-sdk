@@ -11,27 +11,7 @@ class lmActivityItemSkuModel extends Model
     /**
      * @var int
      */
-    public $reservedPrice;
-
-    /**
-     * @var string
-     */
-    public $tips;
-
-    /**
-     * @var string
-     */
-    public $lmItemId;
-
-    /**
-     * @var int
-     */
-    public $skuId;
-
-    /**
-     * @var int
-     */
-    public $lmActivityId;
+    public $activityPrice;
 
     /**
      * @var string
@@ -49,31 +29,51 @@ class lmActivityItemSkuModel extends Model
     public $itemId;
 
     /**
+     * @var int
+     */
+    public $lmActivityId;
+
+    /**
+     * @var string
+     */
+    public $lmItemId;
+
+    /**
+     * @var int
+     */
+    public $reservedPrice;
+
+    /**
+     * @var int
+     */
+    public $skuId;
+
+    /**
      * @var string
      */
     public $skuPicUrl;
 
     /**
-     * @var int
+     * @var string
      */
-    public $activityPrice;
+    public $skuTitle;
 
     /**
      * @var string
      */
-    public $skuTitle;
+    public $tips;
     protected $_name = [
-        'reservedPrice'  => 'ReservedPrice',
-        'tips'           => 'Tips',
-        'lmItemId'       => 'LmItemId',
-        'skuId'          => 'SkuId',
-        'lmActivityId'   => 'LmActivityId',
+        'activityPrice'  => 'ActivityPrice',
         'activityStatus' => 'ActivityStatus',
         'bizId'          => 'BizId',
         'itemId'         => 'ItemId',
+        'lmActivityId'   => 'LmActivityId',
+        'lmItemId'       => 'LmItemId',
+        'reservedPrice'  => 'ReservedPrice',
+        'skuId'          => 'SkuId',
         'skuPicUrl'      => 'SkuPicUrl',
-        'activityPrice'  => 'ActivityPrice',
         'skuTitle'       => 'SkuTitle',
+        'tips'           => 'Tips',
     ];
 
     public function validate()
@@ -83,20 +83,8 @@ class lmActivityItemSkuModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->reservedPrice) {
-            $res['ReservedPrice'] = $this->reservedPrice;
-        }
-        if (null !== $this->tips) {
-            $res['Tips'] = $this->tips;
-        }
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
-        }
-        if (null !== $this->skuId) {
-            $res['SkuId'] = $this->skuId;
-        }
-        if (null !== $this->lmActivityId) {
-            $res['LmActivityId'] = $this->lmActivityId;
+        if (null !== $this->activityPrice) {
+            $res['ActivityPrice'] = $this->activityPrice;
         }
         if (null !== $this->activityStatus) {
             $res['ActivityStatus'] = $this->activityStatus;
@@ -107,14 +95,26 @@ class lmActivityItemSkuModel extends Model
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
         }
+        if (null !== $this->lmActivityId) {
+            $res['LmActivityId'] = $this->lmActivityId;
+        }
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->reservedPrice) {
+            $res['ReservedPrice'] = $this->reservedPrice;
+        }
+        if (null !== $this->skuId) {
+            $res['SkuId'] = $this->skuId;
+        }
         if (null !== $this->skuPicUrl) {
             $res['SkuPicUrl'] = $this->skuPicUrl;
         }
-        if (null !== $this->activityPrice) {
-            $res['ActivityPrice'] = $this->activityPrice;
-        }
         if (null !== $this->skuTitle) {
             $res['SkuTitle'] = $this->skuTitle;
+        }
+        if (null !== $this->tips) {
+            $res['Tips'] = $this->tips;
         }
 
         return $res;
@@ -128,20 +128,8 @@ class lmActivityItemSkuModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReservedPrice'])) {
-            $model->reservedPrice = $map['ReservedPrice'];
-        }
-        if (isset($map['Tips'])) {
-            $model->tips = $map['Tips'];
-        }
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
-        }
-        if (isset($map['SkuId'])) {
-            $model->skuId = $map['SkuId'];
-        }
-        if (isset($map['LmActivityId'])) {
-            $model->lmActivityId = $map['LmActivityId'];
+        if (isset($map['ActivityPrice'])) {
+            $model->activityPrice = $map['ActivityPrice'];
         }
         if (isset($map['ActivityStatus'])) {
             $model->activityStatus = $map['ActivityStatus'];
@@ -152,14 +140,26 @@ class lmActivityItemSkuModel extends Model
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
         }
+        if (isset($map['LmActivityId'])) {
+            $model->lmActivityId = $map['LmActivityId'];
+        }
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['ReservedPrice'])) {
+            $model->reservedPrice = $map['ReservedPrice'];
+        }
+        if (isset($map['SkuId'])) {
+            $model->skuId = $map['SkuId'];
+        }
         if (isset($map['SkuPicUrl'])) {
             $model->skuPicUrl = $map['SkuPicUrl'];
         }
-        if (isset($map['ActivityPrice'])) {
-            $model->activityPrice = $map['ActivityPrice'];
-        }
         if (isset($map['SkuTitle'])) {
             $model->skuTitle = $map['SkuTitle'];
+        }
+        if (isset($map['Tips'])) {
+            $model->tips = $map['Tips'];
         }
 
         return $model;

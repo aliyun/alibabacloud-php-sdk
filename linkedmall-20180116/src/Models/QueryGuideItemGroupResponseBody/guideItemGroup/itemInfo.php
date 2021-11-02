@@ -11,12 +11,7 @@ class itemInfo extends Model
     /**
      * @var int
      */
-    public $priceCent;
-
-    /**
-     * @var string
-     */
-    public $mainPicUrl;
+    public $itemId;
 
     /**
      * @var string
@@ -26,17 +21,22 @@ class itemInfo extends Model
     /**
      * @var string
      */
+    public $itemUrl;
+
+    /**
+     * @var string
+     */
     public $lmItemId;
+
+    /**
+     * @var string
+     */
+    public $mainPicUrl;
 
     /**
      * @var int
      */
     public $pointPrice;
-
-    /**
-     * @var int
-     */
-    public $itemId;
 
     /**
      * @var int
@@ -49,25 +49,25 @@ class itemInfo extends Model
     public $pointsAmount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $reservePrice;
+    public $priceCent;
 
     /**
      * @var string
      */
-    public $itemUrl;
+    public $reservePrice;
     protected $_name = [
-        'priceCent'    => 'PriceCent',
-        'mainPicUrl'   => 'MainPicUrl',
-        'itemTitle'    => 'ItemTitle',
-        'lmItemId'     => 'LmItemId',
-        'pointPrice'   => 'PointPrice',
         'itemId'       => 'ItemId',
+        'itemTitle'    => 'ItemTitle',
+        'itemUrl'      => 'ItemUrl',
+        'lmItemId'     => 'LmItemId',
+        'mainPicUrl'   => 'MainPicUrl',
+        'pointPrice'   => 'PointPrice',
         'points'       => 'Points',
         'pointsAmount' => 'PointsAmount',
+        'priceCent'    => 'PriceCent',
         'reservePrice' => 'ReservePrice',
-        'itemUrl'      => 'ItemUrl',
     ];
 
     public function validate()
@@ -77,23 +77,23 @@ class itemInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->priceCent) {
-            $res['PriceCent'] = $this->priceCent;
-        }
-        if (null !== $this->mainPicUrl) {
-            $res['MainPicUrl'] = $this->mainPicUrl;
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->itemTitle) {
             $res['ItemTitle'] = $this->itemTitle;
         }
+        if (null !== $this->itemUrl) {
+            $res['ItemUrl'] = $this->itemUrl;
+        }
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
         }
+        if (null !== $this->mainPicUrl) {
+            $res['MainPicUrl'] = $this->mainPicUrl;
+        }
         if (null !== $this->pointPrice) {
             $res['PointPrice'] = $this->pointPrice;
-        }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->points) {
             $res['Points'] = $this->points;
@@ -101,11 +101,11 @@ class itemInfo extends Model
         if (null !== $this->pointsAmount) {
             $res['PointsAmount'] = $this->pointsAmount;
         }
+        if (null !== $this->priceCent) {
+            $res['PriceCent'] = $this->priceCent;
+        }
         if (null !== $this->reservePrice) {
             $res['ReservePrice'] = $this->reservePrice;
-        }
-        if (null !== $this->itemUrl) {
-            $res['ItemUrl'] = $this->itemUrl;
         }
 
         return $res;
@@ -119,23 +119,23 @@ class itemInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PriceCent'])) {
-            $model->priceCent = $map['PriceCent'];
-        }
-        if (isset($map['MainPicUrl'])) {
-            $model->mainPicUrl = $map['MainPicUrl'];
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['ItemTitle'])) {
             $model->itemTitle = $map['ItemTitle'];
         }
+        if (isset($map['ItemUrl'])) {
+            $model->itemUrl = $map['ItemUrl'];
+        }
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];
         }
+        if (isset($map['MainPicUrl'])) {
+            $model->mainPicUrl = $map['MainPicUrl'];
+        }
         if (isset($map['PointPrice'])) {
             $model->pointPrice = $map['PointPrice'];
-        }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
         }
         if (isset($map['Points'])) {
             $model->points = $map['Points'];
@@ -143,11 +143,11 @@ class itemInfo extends Model
         if (isset($map['PointsAmount'])) {
             $model->pointsAmount = $map['PointsAmount'];
         }
+        if (isset($map['PriceCent'])) {
+            $model->priceCent = $map['PriceCent'];
+        }
         if (isset($map['ReservePrice'])) {
             $model->reservePrice = $map['ReservePrice'];
-        }
-        if (isset($map['ItemUrl'])) {
-            $model->itemUrl = $map['ItemUrl'];
         }
 
         return $model;

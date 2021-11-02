@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class commissionModels extends Model
 {
     /**
-     * @var int
-     */
-    public $lmOrderId;
-
-    /**
      * @var commissionInfo
      */
     public $commissionInfo;
+
+    /**
+     * @var int
+     */
+    public $lmOrderId;
     protected $_name = [
-        'lmOrderId'      => 'LmOrderId',
         'commissionInfo' => 'CommissionInfo',
+        'lmOrderId'      => 'LmOrderId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class commissionModels extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lmOrderId) {
-            $res['LmOrderId'] = $this->lmOrderId;
-        }
         if (null !== $this->commissionInfo) {
             $res['CommissionInfo'] = null !== $this->commissionInfo ? $this->commissionInfo->toMap() : null;
+        }
+        if (null !== $this->lmOrderId) {
+            $res['LmOrderId'] = $this->lmOrderId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class commissionModels extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LmOrderId'])) {
-            $model->lmOrderId = $map['LmOrderId'];
-        }
         if (isset($map['CommissionInfo'])) {
             $model->commissionInfo = commissionInfo::fromMap($map['CommissionInfo']);
+        }
+        if (isset($map['LmOrderId'])) {
+            $model->lmOrderId = $map['LmOrderId'];
         }
 
         return $model;

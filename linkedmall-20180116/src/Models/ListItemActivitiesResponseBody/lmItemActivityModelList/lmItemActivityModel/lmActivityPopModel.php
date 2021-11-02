@@ -11,12 +11,7 @@ class lmActivityPopModel extends Model
     /**
      * @var string
      */
-    public $subBizCode;
-
-    /**
-     * @var string
-     */
-    public $endDate;
+    public $bizId;
 
     /**
      * @var string
@@ -26,17 +21,7 @@ class lmActivityPopModel extends Model
     /**
      * @var string
      */
-    public $bizId;
-
-    /**
-     * @var string
-     */
-    public $startDate;
-
-    /**
-     * @var string
-     */
-    public $title;
+    public $endDate;
 
     /**
      * @var mixed[]
@@ -47,15 +32,30 @@ class lmActivityPopModel extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $startDate;
+
+    /**
+     * @var string
+     */
+    public $subBizCode;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
-        'subBizCode'  => 'SubBizCode',
-        'endDate'     => 'EndDate',
-        'displayDate' => 'DisplayDate',
         'bizId'       => 'BizId',
-        'startDate'   => 'StartDate',
-        'title'       => 'Title',
+        'displayDate' => 'DisplayDate',
+        'endDate'     => 'EndDate',
         'extInfo'     => 'ExtInfo',
         'id'          => 'Id',
+        'startDate'   => 'StartDate',
+        'subBizCode'  => 'SubBizCode',
+        'title'       => 'Title',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class lmActivityPopModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subBizCode) {
-            $res['SubBizCode'] = $this->subBizCode;
-        }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
         if (null !== $this->displayDate) {
             $res['DisplayDate'] = $this->displayDate;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
-        }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
         }
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
+        }
+        if (null !== $this->subBizCode) {
+            $res['SubBizCode'] = $this->subBizCode;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class lmActivityPopModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubBizCode'])) {
-            $model->subBizCode = $map['SubBizCode'];
-        }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
         if (isset($map['DisplayDate'])) {
             $model->displayDate = $map['DisplayDate'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
-        }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
         }
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
+        }
+        if (isset($map['SubBizCode'])) {
+            $model->subBizCode = $map['SubBizCode'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

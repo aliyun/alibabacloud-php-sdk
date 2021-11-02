@@ -11,34 +11,9 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
-     * @var string
+     * @var activities
      */
-    public $picUrl;
-
-    /**
-     * @var int
-     */
-    public $totalSoldQuantity;
-
-    /**
-     * @var string
-     */
-    public $itemTitle;
-
-    /**
-     * @var int
-     */
-    public $maxAllowedCount;
-
-    /**
-     * @var int
-     */
-    public $sellerId;
-
-    /**
-     * @var string
-     */
-    public $lmItemId;
+    public $activities;
 
     /**
      * @var int
@@ -51,9 +26,24 @@ class item extends Model
     public $itemId;
 
     /**
+     * @var string
+     */
+    public $itemTitle;
+
+    /**
+     * @var string
+     */
+    public $lmItemId;
+
+    /**
      * @var int
      */
-    public $reservePrice;
+    public $maxAllowedCount;
+
+    /**
+     * @var string
+     */
+    public $picUrl;
 
     /**
      * @var int
@@ -61,9 +51,14 @@ class item extends Model
     public $quantity;
 
     /**
-     * @var string
+     * @var int
      */
-    public $taobaoShopName;
+    public $reservePrice;
+
+    /**
+     * @var int
+     */
+    public $sellerId;
 
     /**
      * @var skuList
@@ -71,23 +66,28 @@ class item extends Model
     public $skuList;
 
     /**
-     * @var activities
+     * @var string
      */
-    public $activities;
+    public $taobaoShopName;
+
+    /**
+     * @var int
+     */
+    public $totalSoldQuantity;
     protected $_name = [
-        'picUrl'            => 'PicUrl',
-        'totalSoldQuantity' => 'TotalSoldQuantity',
-        'itemTitle'         => 'ItemTitle',
-        'maxAllowedCount'   => 'MaxAllowedCount',
-        'sellerId'          => 'SellerId',
-        'lmItemId'          => 'LmItemId',
+        'activities'        => 'Activities',
         'categoryId'        => 'CategoryId',
         'itemId'            => 'ItemId',
-        'reservePrice'      => 'ReservePrice',
+        'itemTitle'         => 'ItemTitle',
+        'lmItemId'          => 'LmItemId',
+        'maxAllowedCount'   => 'MaxAllowedCount',
+        'picUrl'            => 'PicUrl',
         'quantity'          => 'Quantity',
-        'taobaoShopName'    => 'TaobaoShopName',
+        'reservePrice'      => 'ReservePrice',
+        'sellerId'          => 'SellerId',
         'skuList'           => 'SkuList',
-        'activities'        => 'Activities',
+        'taobaoShopName'    => 'TaobaoShopName',
+        'totalSoldQuantity' => 'TotalSoldQuantity',
     ];
 
     public function validate()
@@ -97,23 +97,8 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->picUrl) {
-            $res['PicUrl'] = $this->picUrl;
-        }
-        if (null !== $this->totalSoldQuantity) {
-            $res['TotalSoldQuantity'] = $this->totalSoldQuantity;
-        }
-        if (null !== $this->itemTitle) {
-            $res['ItemTitle'] = $this->itemTitle;
-        }
-        if (null !== $this->maxAllowedCount) {
-            $res['MaxAllowedCount'] = $this->maxAllowedCount;
-        }
-        if (null !== $this->sellerId) {
-            $res['SellerId'] = $this->sellerId;
-        }
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
+        if (null !== $this->activities) {
+            $res['Activities'] = null !== $this->activities ? $this->activities->toMap() : null;
         }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
@@ -121,20 +106,35 @@ class item extends Model
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
         }
-        if (null !== $this->reservePrice) {
-            $res['ReservePrice'] = $this->reservePrice;
+        if (null !== $this->itemTitle) {
+            $res['ItemTitle'] = $this->itemTitle;
+        }
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->maxAllowedCount) {
+            $res['MaxAllowedCount'] = $this->maxAllowedCount;
+        }
+        if (null !== $this->picUrl) {
+            $res['PicUrl'] = $this->picUrl;
         }
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
         }
-        if (null !== $this->taobaoShopName) {
-            $res['TaobaoShopName'] = $this->taobaoShopName;
+        if (null !== $this->reservePrice) {
+            $res['ReservePrice'] = $this->reservePrice;
+        }
+        if (null !== $this->sellerId) {
+            $res['SellerId'] = $this->sellerId;
         }
         if (null !== $this->skuList) {
             $res['SkuList'] = null !== $this->skuList ? $this->skuList->toMap() : null;
         }
-        if (null !== $this->activities) {
-            $res['Activities'] = null !== $this->activities ? $this->activities->toMap() : null;
+        if (null !== $this->taobaoShopName) {
+            $res['TaobaoShopName'] = $this->taobaoShopName;
+        }
+        if (null !== $this->totalSoldQuantity) {
+            $res['TotalSoldQuantity'] = $this->totalSoldQuantity;
         }
 
         return $res;
@@ -148,23 +148,8 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PicUrl'])) {
-            $model->picUrl = $map['PicUrl'];
-        }
-        if (isset($map['TotalSoldQuantity'])) {
-            $model->totalSoldQuantity = $map['TotalSoldQuantity'];
-        }
-        if (isset($map['ItemTitle'])) {
-            $model->itemTitle = $map['ItemTitle'];
-        }
-        if (isset($map['MaxAllowedCount'])) {
-            $model->maxAllowedCount = $map['MaxAllowedCount'];
-        }
-        if (isset($map['SellerId'])) {
-            $model->sellerId = $map['SellerId'];
-        }
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
+        if (isset($map['Activities'])) {
+            $model->activities = activities::fromMap($map['Activities']);
         }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
@@ -172,20 +157,35 @@ class item extends Model
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
         }
-        if (isset($map['ReservePrice'])) {
-            $model->reservePrice = $map['ReservePrice'];
+        if (isset($map['ItemTitle'])) {
+            $model->itemTitle = $map['ItemTitle'];
+        }
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['MaxAllowedCount'])) {
+            $model->maxAllowedCount = $map['MaxAllowedCount'];
+        }
+        if (isset($map['PicUrl'])) {
+            $model->picUrl = $map['PicUrl'];
         }
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
         }
-        if (isset($map['TaobaoShopName'])) {
-            $model->taobaoShopName = $map['TaobaoShopName'];
+        if (isset($map['ReservePrice'])) {
+            $model->reservePrice = $map['ReservePrice'];
+        }
+        if (isset($map['SellerId'])) {
+            $model->sellerId = $map['SellerId'];
         }
         if (isset($map['SkuList'])) {
             $model->skuList = skuList::fromMap($map['SkuList']);
         }
-        if (isset($map['Activities'])) {
-            $model->activities = activities::fromMap($map['Activities']);
+        if (isset($map['TaobaoShopName'])) {
+            $model->taobaoShopName = $map['TaobaoShopName'];
+        }
+        if (isset($map['TotalSoldQuantity'])) {
+            $model->totalSoldQuantity = $map['TotalSoldQuantity'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class movieTicket extends Model
     /**
      * @var string
      */
+    public $returnMessage;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -22,16 +27,11 @@ class movieTicket extends Model
      * @var string
      */
     public $ticketContents;
-
-    /**
-     * @var string
-     */
-    public $returnMessage;
     protected $_name = [
+        'returnMessage'  => 'ReturnMessage',
         'status'         => 'Status',
         'tbOrderId'      => 'TbOrderId',
         'ticketContents' => 'TicketContents',
-        'returnMessage'  => 'ReturnMessage',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class movieTicket extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->returnMessage) {
+            $res['ReturnMessage'] = $this->returnMessage;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -49,9 +52,6 @@ class movieTicket extends Model
         }
         if (null !== $this->ticketContents) {
             $res['TicketContents'] = $this->ticketContents;
-        }
-        if (null !== $this->returnMessage) {
-            $res['ReturnMessage'] = $this->returnMessage;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class movieTicket extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ReturnMessage'])) {
+            $model->returnMessage = $map['ReturnMessage'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
@@ -73,9 +76,6 @@ class movieTicket extends Model
         }
         if (isset($map['TicketContents'])) {
             $model->ticketContents = $map['TicketContents'];
-        }
-        if (isset($map['ReturnMessage'])) {
-            $model->returnMessage = $map['ReturnMessage'];
         }
 
         return $model;

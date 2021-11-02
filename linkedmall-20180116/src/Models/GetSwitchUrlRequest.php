@@ -21,23 +21,23 @@ class GetSwitchUrlRequest extends Model
     /**
      * @var string
      */
+    public $thirdPartyUserId;
+
+    /**
+     * @var string
+     */
     public $url;
 
     /**
      * @var bool
      */
     public $useAnonymousTbAccount;
-
-    /**
-     * @var string
-     */
-    public $thirdPartyUserId;
     protected $_name = [
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
+        'thirdPartyUserId'      => 'ThirdPartyUserId',
         'url'                   => 'Url',
         'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
-        'thirdPartyUserId'      => 'ThirdPartyUserId',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class GetSwitchUrlRequest extends Model
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
+        if (null !== $this->thirdPartyUserId) {
+            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
+        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
         if (null !== $this->useAnonymousTbAccount) {
             $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
-        }
-        if (null !== $this->thirdPartyUserId) {
-            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class GetSwitchUrlRequest extends Model
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
+        if (isset($map['ThirdPartyUserId'])) {
+            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
+        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
         if (isset($map['UseAnonymousTbAccount'])) {
             $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
-        }
-        if (isset($map['ThirdPartyUserId'])) {
-            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
         }
 
         return $model;

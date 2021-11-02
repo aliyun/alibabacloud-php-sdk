@@ -15,6 +15,11 @@ class QueryOrderIdByPayIdResponseBody extends Model
     public $code;
 
     /**
+     * @var lmOrderIds
+     */
+    public $lmOrderIds;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class QueryOrderIdByPayIdResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var lmOrderIds
-     */
-    public $lmOrderIds;
     protected $_name = [
         'code'       => 'Code',
+        'lmOrderIds' => 'LmOrderIds',
         'message'    => 'Message',
         'requestId'  => 'RequestId',
-        'lmOrderIds' => 'LmOrderIds',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class QueryOrderIdByPayIdResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->lmOrderIds) {
+            $res['LmOrderIds'] = null !== $this->lmOrderIds ? $this->lmOrderIds->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->lmOrderIds) {
-            $res['LmOrderIds'] = null !== $this->lmOrderIds ? $this->lmOrderIds->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class QueryOrderIdByPayIdResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['LmOrderIds'])) {
+            $model->lmOrderIds = lmOrderIds::fromMap($map['LmOrderIds']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LmOrderIds'])) {
-            $model->lmOrderIds = lmOrderIds::fromMap($map['LmOrderIds']);
         }
 
         return $model;

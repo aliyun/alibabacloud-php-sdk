@@ -14,11 +14,6 @@ class bizMessage extends Model
     public $contentMapJson;
 
     /**
-     * @var string
-     */
-    public $pubTime;
-
-    /**
      * @var int
      */
     public $dataId;
@@ -26,11 +21,16 @@ class bizMessage extends Model
     /**
      * @var string
      */
+    public $pubTime;
+
+    /**
+     * @var string
+     */
     public $topic;
     protected $_name = [
         'contentMapJson' => 'ContentMapJson',
-        'pubTime'        => 'PubTime',
         'dataId'         => 'DataId',
+        'pubTime'        => 'PubTime',
         'topic'          => 'Topic',
     ];
 
@@ -44,11 +44,11 @@ class bizMessage extends Model
         if (null !== $this->contentMapJson) {
             $res['ContentMapJson'] = $this->contentMapJson;
         }
-        if (null !== $this->pubTime) {
-            $res['PubTime'] = $this->pubTime;
-        }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
+        }
+        if (null !== $this->pubTime) {
+            $res['PubTime'] = $this->pubTime;
         }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
@@ -68,11 +68,11 @@ class bizMessage extends Model
         if (isset($map['ContentMapJson'])) {
             $model->contentMapJson = $map['ContentMapJson'];
         }
-        if (isset($map['PubTime'])) {
-            $model->pubTime = $map['PubTime'];
-        }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
+        }
+        if (isset($map['PubTime'])) {
+            $model->pubTime = $map['PubTime'];
         }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];

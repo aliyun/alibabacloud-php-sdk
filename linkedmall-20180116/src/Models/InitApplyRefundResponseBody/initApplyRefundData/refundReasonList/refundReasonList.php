@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class refundReasonList extends Model
 {
     /**
+     * @var bool
+     */
+    public $proofRequired;
+
+    /**
      * @var int
      */
     public $reasonTextId;
@@ -21,16 +26,11 @@ class refundReasonList extends Model
     /**
      * @var bool
      */
-    public $proofRequired;
-
-    /**
-     * @var bool
-     */
     public $refundDescRequired;
     protected $_name = [
+        'proofRequired'      => 'ProofRequired',
         'reasonTextId'       => 'ReasonTextId',
         'reasonTips'         => 'ReasonTips',
-        'proofRequired'      => 'ProofRequired',
         'refundDescRequired' => 'RefundDescRequired',
     ];
 
@@ -41,14 +41,14 @@ class refundReasonList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->proofRequired) {
+            $res['ProofRequired'] = $this->proofRequired;
+        }
         if (null !== $this->reasonTextId) {
             $res['ReasonTextId'] = $this->reasonTextId;
         }
         if (null !== $this->reasonTips) {
             $res['ReasonTips'] = $this->reasonTips;
-        }
-        if (null !== $this->proofRequired) {
-            $res['ProofRequired'] = $this->proofRequired;
         }
         if (null !== $this->refundDescRequired) {
             $res['RefundDescRequired'] = $this->refundDescRequired;
@@ -65,14 +65,14 @@ class refundReasonList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ProofRequired'])) {
+            $model->proofRequired = $map['ProofRequired'];
+        }
         if (isset($map['ReasonTextId'])) {
             $model->reasonTextId = $map['ReasonTextId'];
         }
         if (isset($map['ReasonTips'])) {
             $model->reasonTips = $map['ReasonTips'];
-        }
-        if (isset($map['ProofRequired'])) {
-            $model->proofRequired = $map['ProofRequired'];
         }
         if (isset($map['RefundDescRequired'])) {
             $model->refundDescRequired = $map['RefundDescRequired'];

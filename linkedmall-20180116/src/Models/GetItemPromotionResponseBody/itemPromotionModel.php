@@ -14,24 +14,14 @@ class itemPromotionModel extends Model
     public $endTime;
 
     /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
      * @var mixed[]
      */
-    public $skuPromotion;
+    public $extInfo;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $promotionFlag;
-
-    /**
-     * @var string
-     */
-    public $promotionName;
+    public $itemId;
 
     /**
      * @var string
@@ -44,9 +34,9 @@ class itemPromotionModel extends Model
     public $promotionDesc;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $itemId;
+    public $promotionFlag;
 
     /**
      * @var string
@@ -54,20 +44,30 @@ class itemPromotionModel extends Model
     public $promotionId;
 
     /**
+     * @var string
+     */
+    public $promotionName;
+
+    /**
      * @var mixed[]
      */
-    public $extInfo;
+    public $skuPromotion;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'endTime'       => 'EndTime',
-        'startTime'     => 'StartTime',
-        'skuPromotion'  => 'SkuPromotion',
-        'promotionFlag' => 'PromotionFlag',
-        'promotionName' => 'PromotionName',
+        'extInfo'       => 'ExtInfo',
+        'itemId'        => 'ItemId',
         'lmItemId'      => 'LmItemId',
         'promotionDesc' => 'PromotionDesc',
-        'itemId'        => 'ItemId',
+        'promotionFlag' => 'PromotionFlag',
         'promotionId'   => 'PromotionId',
-        'extInfo'       => 'ExtInfo',
+        'promotionName' => 'PromotionName',
+        'skuPromotion'  => 'SkuPromotion',
+        'startTime'     => 'StartTime',
     ];
 
     public function validate()
@@ -80,17 +80,11 @@ class itemPromotionModel extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
         }
-        if (null !== $this->skuPromotion) {
-            $res['SkuPromotion'] = $this->skuPromotion;
-        }
-        if (null !== $this->promotionFlag) {
-            $res['PromotionFlag'] = $this->promotionFlag;
-        }
-        if (null !== $this->promotionName) {
-            $res['PromotionName'] = $this->promotionName;
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
@@ -98,14 +92,20 @@ class itemPromotionModel extends Model
         if (null !== $this->promotionDesc) {
             $res['PromotionDesc'] = $this->promotionDesc;
         }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
+        if (null !== $this->promotionFlag) {
+            $res['PromotionFlag'] = $this->promotionFlag;
         }
         if (null !== $this->promotionId) {
             $res['PromotionId'] = $this->promotionId;
         }
-        if (null !== $this->extInfo) {
-            $res['ExtInfo'] = $this->extInfo;
+        if (null !== $this->promotionName) {
+            $res['PromotionName'] = $this->promotionName;
+        }
+        if (null !== $this->skuPromotion) {
+            $res['SkuPromotion'] = $this->skuPromotion;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -122,17 +122,11 @@ class itemPromotionModel extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
         }
-        if (isset($map['SkuPromotion'])) {
-            $model->skuPromotion = $map['SkuPromotion'];
-        }
-        if (isset($map['PromotionFlag'])) {
-            $model->promotionFlag = $map['PromotionFlag'];
-        }
-        if (isset($map['PromotionName'])) {
-            $model->promotionName = $map['PromotionName'];
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];
@@ -140,14 +134,20 @@ class itemPromotionModel extends Model
         if (isset($map['PromotionDesc'])) {
             $model->promotionDesc = $map['PromotionDesc'];
         }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
+        if (isset($map['PromotionFlag'])) {
+            $model->promotionFlag = $map['PromotionFlag'];
         }
         if (isset($map['PromotionId'])) {
             $model->promotionId = $map['PromotionId'];
         }
-        if (isset($map['ExtInfo'])) {
-            $model->extInfo = $map['ExtInfo'];
+        if (isset($map['PromotionName'])) {
+            $model->promotionName = $map['PromotionName'];
+        }
+        if (isset($map['SkuPromotion'])) {
+            $model->skuPromotion = $map['SkuPromotion'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

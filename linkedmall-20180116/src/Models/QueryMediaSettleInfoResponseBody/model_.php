@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
-     * @var int
+     * @var mediaSettleInfoList[]
      */
-    public $pageSize;
+    public $mediaSettleInfoList;
 
     /**
      * @var int
@@ -22,17 +22,17 @@ class model_ extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageSize;
 
     /**
-     * @var mediaSettleInfoList[]
+     * @var int
      */
-    public $mediaSettleInfoList;
+    public $totalCount;
     protected $_name = [
-        'pageSize'            => 'PageSize',
-        'pageNumber'          => 'PageNumber',
-        'totalCount'          => 'TotalCount',
         'mediaSettleInfoList' => 'MediaSettleInfoList',
+        'pageNumber'          => 'PageNumber',
+        'pageSize'            => 'PageSize',
+        'totalCount'          => 'TotalCount',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class model_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->mediaSettleInfoList) {
             $res['MediaSettleInfoList'] = [];
             if (null !== $this->mediaSettleInfoList && \is_array($this->mediaSettleInfoList)) {
@@ -59,6 +50,15 @@ class model_ extends Model
                     $res['MediaSettleInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class model_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['MediaSettleInfoList'])) {
             if (!empty($map['MediaSettleInfoList'])) {
                 $model->mediaSettleInfoList = [];
@@ -89,6 +80,15 @@ class model_ extends Model
                     $model->mediaSettleInfoList[$n++] = null !== $item ? mediaSettleInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

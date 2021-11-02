@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class sku extends Model
 {
     /**
-     * @var int
-     */
-    public $skuId;
-
-    /**
      * @var inventory
      */
     public $inventory;
+
+    /**
+     * @var int
+     */
+    public $skuId;
     protected $_name = [
-        'skuId'     => 'SkuId',
         'inventory' => 'Inventory',
+        'skuId'     => 'SkuId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class sku extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skuId) {
-            $res['SkuId'] = $this->skuId;
-        }
         if (null !== $this->inventory) {
             $res['Inventory'] = null !== $this->inventory ? $this->inventory->toMap() : null;
+        }
+        if (null !== $this->skuId) {
+            $res['SkuId'] = $this->skuId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class sku extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkuId'])) {
-            $model->skuId = $map['SkuId'];
-        }
         if (isset($map['Inventory'])) {
             $model->inventory = inventory::fromMap($map['Inventory']);
+        }
+        if (isset($map['SkuId'])) {
+            $model->skuId = $map['SkuId'];
         }
 
         return $model;

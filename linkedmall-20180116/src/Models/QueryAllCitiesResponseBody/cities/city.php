@@ -16,7 +16,7 @@ class city extends Model
     /**
      * @var int
      */
-    public $parentId;
+    public $id;
 
     /**
      * @var string
@@ -24,20 +24,20 @@ class city extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $parentId;
+
+    /**
      * @var string
      */
     public $pinYin;
-
-    /**
-     * @var int
-     */
-    public $id;
     protected $_name = [
         'cityCode' => 'CityCode',
-        'parentId' => 'ParentId',
-        'name'     => 'Name',
-        'pinYin'   => 'PinYin',
         'id'       => 'Id',
+        'name'     => 'Name',
+        'parentId' => 'ParentId',
+        'pinYin'   => 'PinYin',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class city extends Model
         if (null !== $this->cityCode) {
             $res['CityCode'] = $this->cityCode;
         }
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
+        }
         if (null !== $this->pinYin) {
             $res['PinYin'] = $this->pinYin;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class city extends Model
         if (isset($map['CityCode'])) {
             $model->cityCode = $map['CityCode'];
         }
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
+        }
         if (isset($map['PinYin'])) {
             $model->pinYin = $map['PinYin'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

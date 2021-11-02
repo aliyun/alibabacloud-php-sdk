@@ -16,12 +16,12 @@ class QueryUnfinishedSessions4ItemsShrinkRequest extends Model
     /**
      * @var string
      */
-    public $lmItemIdsShrink;
+    public $itemIdsShrink;
 
     /**
      * @var string
      */
-    public $itemIdsShrink;
+    public $lmItemIdsShrink;
 
     /**
      * @var int
@@ -29,8 +29,8 @@ class QueryUnfinishedSessions4ItemsShrinkRequest extends Model
     public $queryTime;
     protected $_name = [
         'bizId'           => 'BizId',
-        'lmItemIdsShrink' => 'LmItemIds',
         'itemIdsShrink'   => 'ItemIds',
+        'lmItemIdsShrink' => 'LmItemIds',
         'queryTime'       => 'QueryTime',
     ];
 
@@ -44,11 +44,11 @@ class QueryUnfinishedSessions4ItemsShrinkRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->lmItemIdsShrink) {
-            $res['LmItemIds'] = $this->lmItemIdsShrink;
-        }
         if (null !== $this->itemIdsShrink) {
             $res['ItemIds'] = $this->itemIdsShrink;
+        }
+        if (null !== $this->lmItemIdsShrink) {
+            $res['LmItemIds'] = $this->lmItemIdsShrink;
         }
         if (null !== $this->queryTime) {
             $res['QueryTime'] = $this->queryTime;
@@ -68,11 +68,11 @@ class QueryUnfinishedSessions4ItemsShrinkRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['LmItemIds'])) {
-            $model->lmItemIdsShrink = $map['LmItemIds'];
-        }
         if (isset($map['ItemIds'])) {
             $model->itemIdsShrink = $map['ItemIds'];
+        }
+        if (isset($map['LmItemIds'])) {
+            $model->lmItemIdsShrink = $map['LmItemIds'];
         }
         if (isset($map['QueryTime'])) {
             $model->queryTime = $map['QueryTime'];

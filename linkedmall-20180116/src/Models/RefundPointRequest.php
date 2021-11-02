@@ -16,11 +16,6 @@ class RefundPointRequest extends Model
     /**
      * @var string
      */
-    public $sellerId;
-
-    /**
-     * @var string
-     */
     public $lmOrderId;
 
     /**
@@ -29,21 +24,26 @@ class RefundPointRequest extends Model
     public $reason;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $useAnonymousTbAccount;
+    public $sellerId;
 
     /**
      * @var string
      */
     public $thirdPartyUserId;
+
+    /**
+     * @var bool
+     */
+    public $useAnonymousTbAccount;
     protected $_name = [
         'bizId'                 => 'BizId',
-        'sellerId'              => 'SellerId',
         'lmOrderId'             => 'LmOrderId',
         'reason'                => 'Reason',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
+        'sellerId'              => 'SellerId',
         'thirdPartyUserId'      => 'ThirdPartyUserId',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class RefundPointRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->sellerId) {
-            $res['SellerId'] = $this->sellerId;
-        }
         if (null !== $this->lmOrderId) {
             $res['LmOrderId'] = $this->lmOrderId;
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
+        if (null !== $this->sellerId) {
+            $res['SellerId'] = $this->sellerId;
         }
         if (null !== $this->thirdPartyUserId) {
             $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
+        }
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class RefundPointRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['SellerId'])) {
-            $model->sellerId = $map['SellerId'];
-        }
         if (isset($map['LmOrderId'])) {
             $model->lmOrderId = $map['LmOrderId'];
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
+        if (isset($map['SellerId'])) {
+            $model->sellerId = $map['SellerId'];
         }
         if (isset($map['ThirdPartyUserId'])) {
             $model->thirdPartyUserId = $map['ThirdPartyUserId'];
+        }
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

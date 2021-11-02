@@ -11,12 +11,7 @@ class loginResult extends Model
     /**
      * @var string
      */
-    public $returnUrl;
-
-    /**
-     * @var string
-     */
-    public $bizUserName;
+    public $bizId;
 
     /**
      * @var string
@@ -26,12 +21,7 @@ class loginResult extends Model
     /**
      * @var string
      */
-    public $bizId;
-
-    /**
-     * @var int
-     */
-    public $lmUserId;
+    public $bizUserName;
 
     /**
      * @var mixed[]
@@ -39,16 +29,26 @@ class loginResult extends Model
     public $extInfo;
 
     /**
+     * @var int
+     */
+    public $lmUserId;
+
+    /**
+     * @var string
+     */
+    public $returnUrl;
+
+    /**
      * @var string[]
      */
     public $subBizId;
     protected $_name = [
-        'returnUrl'   => 'ReturnUrl',
-        'bizUserName' => 'BizUserName',
-        'bizUid'      => 'BizUid',
         'bizId'       => 'BizId',
-        'lmUserId'    => 'LmUserId',
+        'bizUid'      => 'BizUid',
+        'bizUserName' => 'BizUserName',
         'extInfo'     => 'ExtInfo',
+        'lmUserId'    => 'LmUserId',
+        'returnUrl'   => 'ReturnUrl',
         'subBizId'    => 'SubBizId',
     ];
 
@@ -59,23 +59,23 @@ class loginResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->returnUrl) {
-            $res['ReturnUrl'] = $this->returnUrl;
-        }
-        if (null !== $this->bizUserName) {
-            $res['BizUserName'] = $this->bizUserName;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
+        if (null !== $this->bizUserName) {
+            $res['BizUserName'] = $this->bizUserName;
+        }
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
         }
         if (null !== $this->lmUserId) {
             $res['LmUserId'] = $this->lmUserId;
         }
-        if (null !== $this->extInfo) {
-            $res['ExtInfo'] = $this->extInfo;
+        if (null !== $this->returnUrl) {
+            $res['ReturnUrl'] = $this->returnUrl;
         }
         if (null !== $this->subBizId) {
             $res['SubBizId'] = $this->subBizId;
@@ -92,23 +92,23 @@ class loginResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReturnUrl'])) {
-            $model->returnUrl = $map['ReturnUrl'];
-        }
-        if (isset($map['BizUserName'])) {
-            $model->bizUserName = $map['BizUserName'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
+        if (isset($map['BizUserName'])) {
+            $model->bizUserName = $map['BizUserName'];
+        }
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
         }
         if (isset($map['LmUserId'])) {
             $model->lmUserId = $map['LmUserId'];
         }
-        if (isset($map['ExtInfo'])) {
-            $model->extInfo = $map['ExtInfo'];
+        if (isset($map['ReturnUrl'])) {
+            $model->returnUrl = $map['ReturnUrl'];
         }
         if (isset($map['SubBizId'])) {
             if (!empty($map['SubBizId'])) {

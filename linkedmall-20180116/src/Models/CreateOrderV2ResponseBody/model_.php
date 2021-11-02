@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
-     * @var string
-     */
-    public $redirectUrl;
-
-    /**
      * @var lmOrderList
      */
     public $lmOrderList;
+
+    /**
+     * @var orderIds
+     */
+    public $orderIds;
 
     /**
      * @var payTradeIds
@@ -27,14 +27,14 @@ class model_ extends Model
     public $payTradeIds;
 
     /**
-     * @var orderIds
+     * @var string
      */
-    public $orderIds;
+    public $redirectUrl;
     protected $_name = [
-        'redirectUrl' => 'RedirectUrl',
         'lmOrderList' => 'LmOrderList',
-        'payTradeIds' => 'PayTradeIds',
         'orderIds'    => 'OrderIds',
+        'payTradeIds' => 'PayTradeIds',
+        'redirectUrl' => 'RedirectUrl',
     ];
 
     public function validate()
@@ -44,17 +44,17 @@ class model_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->redirectUrl) {
-            $res['RedirectUrl'] = $this->redirectUrl;
-        }
         if (null !== $this->lmOrderList) {
             $res['LmOrderList'] = null !== $this->lmOrderList ? $this->lmOrderList->toMap() : null;
+        }
+        if (null !== $this->orderIds) {
+            $res['OrderIds'] = null !== $this->orderIds ? $this->orderIds->toMap() : null;
         }
         if (null !== $this->payTradeIds) {
             $res['PayTradeIds'] = null !== $this->payTradeIds ? $this->payTradeIds->toMap() : null;
         }
-        if (null !== $this->orderIds) {
-            $res['OrderIds'] = null !== $this->orderIds ? $this->orderIds->toMap() : null;
+        if (null !== $this->redirectUrl) {
+            $res['RedirectUrl'] = $this->redirectUrl;
         }
 
         return $res;
@@ -68,17 +68,17 @@ class model_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RedirectUrl'])) {
-            $model->redirectUrl = $map['RedirectUrl'];
-        }
         if (isset($map['LmOrderList'])) {
             $model->lmOrderList = lmOrderList::fromMap($map['LmOrderList']);
+        }
+        if (isset($map['OrderIds'])) {
+            $model->orderIds = orderIds::fromMap($map['OrderIds']);
         }
         if (isset($map['PayTradeIds'])) {
             $model->payTradeIds = payTradeIds::fromMap($map['PayTradeIds']);
         }
-        if (isset($map['OrderIds'])) {
-            $model->orderIds = orderIds::fromMap($map['OrderIds']);
+        if (isset($map['RedirectUrl'])) {
+            $model->redirectUrl = $map['RedirectUrl'];
         }
 
         return $model;

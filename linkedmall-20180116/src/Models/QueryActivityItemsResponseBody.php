@@ -12,12 +12,12 @@ class QueryActivityItemsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $code;
 
     /**
-     * @var string
+     * @var lmActivityItemModelList
      */
-    public $code;
+    public $lmActivityItemModelList;
 
     /**
      * @var string
@@ -35,22 +35,22 @@ class QueryActivityItemsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var lmActivityItemModelList
-     */
-    public $lmActivityItemModelList;
     protected $_name = [
-        'requestId'               => 'RequestId',
         'code'                    => 'Code',
+        'lmActivityItemModelList' => 'LmActivityItemModelList',
         'message'                 => 'Message',
         'pageNumber'              => 'PageNumber',
         'pageSize'                => 'PageSize',
+        'requestId'               => 'RequestId',
         'totalCount'              => 'TotalCount',
-        'lmActivityItemModelList' => 'LmActivityItemModelList',
     ];
 
     public function validate()
@@ -60,11 +60,11 @@ class QueryActivityItemsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->lmActivityItemModelList) {
+            $res['LmActivityItemModelList'] = null !== $this->lmActivityItemModelList ? $this->lmActivityItemModelList->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -75,11 +75,11 @@ class QueryActivityItemsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->lmActivityItemModelList) {
-            $res['LmActivityItemModelList'] = null !== $this->lmActivityItemModelList ? $this->lmActivityItemModelList->toMap() : null;
         }
 
         return $res;
@@ -93,11 +93,11 @@ class QueryActivityItemsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['LmActivityItemModelList'])) {
+            $model->lmActivityItemModelList = lmActivityItemModelList::fromMap($map['LmActivityItemModelList']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -108,11 +108,11 @@ class QueryActivityItemsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['LmActivityItemModelList'])) {
-            $model->lmActivityItemModelList = lmActivityItemModelList::fromMap($map['LmActivityItemModelList']);
         }
 
         return $model;

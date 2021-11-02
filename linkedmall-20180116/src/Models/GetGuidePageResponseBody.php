@@ -20,19 +20,19 @@ class GetGuidePageResponseBody extends Model
     public $message;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var miniShopInfo[]
      */
     public $miniShopInfo;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'code'         => 'Code',
         'message'      => 'Message',
-        'requestId'    => 'RequestId',
         'miniShopInfo' => 'MiniShopInfo',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class GetGuidePageResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->miniShopInfo) {
             $res['MiniShopInfo'] = [];
             if (null !== $this->miniShopInfo && \is_array($this->miniShopInfo)) {
@@ -59,6 +56,9 @@ class GetGuidePageResponseBody extends Model
                     $res['MiniShopInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class GetGuidePageResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MiniShopInfo'])) {
             if (!empty($map['MiniShopInfo'])) {
                 $model->miniShopInfo = [];
@@ -89,6 +86,9 @@ class GetGuidePageResponseBody extends Model
                     $model->miniShopInfo[$n++] = null !== $item ? miniShopInfo::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

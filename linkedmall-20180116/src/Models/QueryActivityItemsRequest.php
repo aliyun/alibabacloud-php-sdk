@@ -16,22 +16,22 @@ class QueryActivityItemsRequest extends Model
     /**
      * @var int
      */
+    public $lmActivityId;
+
+    /**
+     * @var int
+     */
     public $pageNumber;
 
     /**
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $lmActivityId;
     protected $_name = [
         'bizId'        => 'BizId',
+        'lmActivityId' => 'LmActivityId',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
-        'lmActivityId' => 'LmActivityId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class QueryActivityItemsRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+        if (null !== $this->lmActivityId) {
+            $res['LmActivityId'] = $this->lmActivityId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->lmActivityId) {
-            $res['LmActivityId'] = $this->lmActivityId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class QueryActivityItemsRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+        if (isset($map['LmActivityId'])) {
+            $model->lmActivityId = $map['LmActivityId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['LmActivityId'])) {
-            $model->lmActivityId = $map['LmActivityId'];
         }
 
         return $model;

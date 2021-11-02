@@ -15,6 +15,11 @@ class ModifyBasicAndBizItemsResponseBody extends Model
     public $code;
 
     /**
+     * @var failedItemList
+     */
+    public $failedItemList;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class ModifyBasicAndBizItemsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var failedItemList
-     */
-    public $failedItemList;
     protected $_name = [
         'code'           => 'Code',
+        'failedItemList' => 'FailedItemList',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'failedItemList' => 'FailedItemList',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class ModifyBasicAndBizItemsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->failedItemList) {
+            $res['FailedItemList'] = null !== $this->failedItemList ? $this->failedItemList->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->failedItemList) {
-            $res['FailedItemList'] = null !== $this->failedItemList ? $this->failedItemList->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class ModifyBasicAndBizItemsResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['FailedItemList'])) {
+            $model->failedItemList = failedItemList::fromMap($map['FailedItemList']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['FailedItemList'])) {
-            $model->failedItemList = failedItemList::fromMap($map['FailedItemList']);
         }
 
         return $model;

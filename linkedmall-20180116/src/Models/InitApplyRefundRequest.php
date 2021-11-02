@@ -11,6 +11,16 @@ class InitApplyRefundRequest extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var int
+     */
+    public $bizClaimType;
+
+    /**
+     * @var string
+     */
     public $bizId;
 
     /**
@@ -19,24 +29,14 @@ class InitApplyRefundRequest extends Model
     public $bizUid;
 
     /**
-     * @var string
-     */
-    public $subLmOrderId;
-
-    /**
-     * @var int
-     */
-    public $bizClaimType;
-
-    /**
      * @var int
      */
     public $goodsStatus;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $useAnonymousTbAccount;
+    public $subLmOrderId;
 
     /**
      * @var string
@@ -44,18 +44,18 @@ class InitApplyRefundRequest extends Model
     public $thirdPartyUserId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $accountType;
+    public $useAnonymousTbAccount;
     protected $_name = [
+        'accountType'           => 'AccountType',
+        'bizClaimType'          => 'BizClaimType',
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
-        'subLmOrderId'          => 'SubLmOrderId',
-        'bizClaimType'          => 'BizClaimType',
         'goodsStatus'           => 'GoodsStatus',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
+        'subLmOrderId'          => 'SubLmOrderId',
         'thirdPartyUserId'      => 'ThirdPartyUserId',
-        'accountType'           => 'AccountType',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class InitApplyRefundRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+        if (null !== $this->bizClaimType) {
+            $res['BizClaimType'] = $this->bizClaimType;
+        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
-        if (null !== $this->subLmOrderId) {
-            $res['SubLmOrderId'] = $this->subLmOrderId;
-        }
-        if (null !== $this->bizClaimType) {
-            $res['BizClaimType'] = $this->bizClaimType;
-        }
         if (null !== $this->goodsStatus) {
             $res['GoodsStatus'] = $this->goodsStatus;
         }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
+        if (null !== $this->subLmOrderId) {
+            $res['SubLmOrderId'] = $this->subLmOrderId;
         }
         if (null !== $this->thirdPartyUserId) {
             $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
         }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class InitApplyRefundRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+        if (isset($map['BizClaimType'])) {
+            $model->bizClaimType = $map['BizClaimType'];
+        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
-        if (isset($map['SubLmOrderId'])) {
-            $model->subLmOrderId = $map['SubLmOrderId'];
-        }
-        if (isset($map['BizClaimType'])) {
-            $model->bizClaimType = $map['BizClaimType'];
-        }
         if (isset($map['GoodsStatus'])) {
             $model->goodsStatus = $map['GoodsStatus'];
         }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
+        if (isset($map['SubLmOrderId'])) {
+            $model->subLmOrderId = $map['SubLmOrderId'];
         }
         if (isset($map['ThirdPartyUserId'])) {
             $model->thirdPartyUserId = $map['ThirdPartyUserId'];
         }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

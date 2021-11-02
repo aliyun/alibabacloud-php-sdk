@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class goods extends Model
 {
     /**
-     * @var int
-     */
-    public $itemId;
-
-    /**
      * @var string
      */
     public $goodName;
@@ -21,10 +16,15 @@ class goods extends Model
     /**
      * @var int
      */
+    public $itemId;
+
+    /**
+     * @var int
+     */
     public $quantity;
     protected $_name = [
-        'itemId'   => 'ItemId',
         'goodName' => 'GoodName',
+        'itemId'   => 'ItemId',
         'quantity' => 'Quantity',
     ];
 
@@ -35,11 +35,11 @@ class goods extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
-        }
         if (null !== $this->goodName) {
             $res['GoodName'] = $this->goodName;
+        }
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
@@ -56,11 +56,11 @@ class goods extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
-        }
         if (isset($map['GoodName'])) {
             $model->goodName = $map['GoodName'];
+        }
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];

@@ -11,15 +11,15 @@ class withholdSignResponse extends Model
     /**
      * @var string
      */
-    public $pageUrl;
+    public $outRequestNo;
 
     /**
      * @var string
      */
-    public $outRequestNo;
+    public $pageUrl;
     protected $_name = [
-        'pageUrl'      => 'PageUrl',
         'outRequestNo' => 'OutRequestNo',
+        'pageUrl'      => 'PageUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class withholdSignResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageUrl) {
-            $res['PageUrl'] = $this->pageUrl;
-        }
         if (null !== $this->outRequestNo) {
             $res['OutRequestNo'] = $this->outRequestNo;
+        }
+        if (null !== $this->pageUrl) {
+            $res['PageUrl'] = $this->pageUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class withholdSignResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageUrl'])) {
-            $model->pageUrl = $map['PageUrl'];
-        }
         if (isset($map['OutRequestNo'])) {
             $model->outRequestNo = $map['OutRequestNo'];
+        }
+        if (isset($map['PageUrl'])) {
+            $model->pageUrl = $map['PageUrl'];
         }
 
         return $model;

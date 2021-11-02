@@ -11,12 +11,12 @@ class QueryGuideItemGroupWithOutInventoryRequest extends Model
     /**
      * @var string
      */
-    public $groupId;
+    public $bizId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $groupId;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class QueryGuideItemGroupWithOutInventoryRequest extends Model
     public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $bizId;
+    public $pageSize;
     protected $_name = [
-        'groupId'    => 'GroupId',
-        'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
         'bizId'      => 'BizId',
+        'groupId'    => 'GroupId',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class QueryGuideItemGroupWithOutInventoryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class QueryGuideItemGroupWithOutInventoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

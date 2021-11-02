@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class lmItemActivitySessionModel extends Model
 {
     /**
-     * @var string
-     */
-    public $lmItemId;
-
-    /**
      * @var int
      */
     public $itemId;
@@ -23,10 +18,15 @@ class lmItemActivitySessionModel extends Model
      * @var lmActivitySessionModel
      */
     public $lmActivitySessionModel;
+
+    /**
+     * @var string
+     */
+    public $lmItemId;
     protected $_name = [
-        'lmItemId'               => 'LmItemId',
         'itemId'                 => 'ItemId',
         'lmActivitySessionModel' => 'LmActivitySessionModel',
+        'lmItemId'               => 'LmItemId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class lmItemActivitySessionModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
-        }
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->lmActivitySessionModel) {
             $res['LmActivitySessionModel'] = null !== $this->lmActivitySessionModel ? $this->lmActivitySessionModel->toMap() : null;
+        }
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class lmItemActivitySessionModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
-        }
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
         }
         if (isset($map['LmActivitySessionModel'])) {
             $model->lmActivitySessionModel = lmActivitySessionModel::fromMap($map['LmActivitySessionModel']);
+        }
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
         }
 
         return $model;

@@ -16,12 +16,12 @@ class ModifyOrderDeliveryAddressRequest extends Model
     /**
      * @var string
      */
-    public $extJson;
+    public $deliveryAddress;
 
     /**
      * @var string
      */
-    public $deliveryAddress;
+    public $extJson;
 
     /**
      * @var int
@@ -29,8 +29,8 @@ class ModifyOrderDeliveryAddressRequest extends Model
     public $lmOrderId;
     protected $_name = [
         'bizId'           => 'BizId',
-        'extJson'         => 'ExtJson',
         'deliveryAddress' => 'DeliveryAddress',
+        'extJson'         => 'ExtJson',
         'lmOrderId'       => 'LmOrderId',
     ];
 
@@ -44,11 +44,11 @@ class ModifyOrderDeliveryAddressRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->extJson) {
-            $res['ExtJson'] = $this->extJson;
-        }
         if (null !== $this->deliveryAddress) {
             $res['DeliveryAddress'] = $this->deliveryAddress;
+        }
+        if (null !== $this->extJson) {
+            $res['ExtJson'] = $this->extJson;
         }
         if (null !== $this->lmOrderId) {
             $res['LmOrderId'] = $this->lmOrderId;
@@ -68,11 +68,11 @@ class ModifyOrderDeliveryAddressRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['ExtJson'])) {
-            $model->extJson = $map['ExtJson'];
-        }
         if (isset($map['DeliveryAddress'])) {
             $model->deliveryAddress = $map['DeliveryAddress'];
+        }
+        if (isset($map['ExtJson'])) {
+            $model->extJson = $map['ExtJson'];
         }
         if (isset($map['LmOrderId'])) {
             $model->lmOrderId = $map['LmOrderId'];

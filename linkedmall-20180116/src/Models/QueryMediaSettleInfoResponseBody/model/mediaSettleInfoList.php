@@ -11,37 +11,32 @@ class mediaSettleInfoList extends Model
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $mediaSettleAmount;
-
-    /**
-     * @var string
-     */
-    public $settleNo;
-
-    /**
-     * @var string
-     */
-    public $settleStatus;
-
-    /**
-     * @var string
-     */
     public $channelId;
 
     /**
      * @var string
      */
+    public $createDate;
+
+    /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $extInfo;
+
+    /**
+     * @var string
+     */
     public $mediaName;
+
+    /**
+     * @var string
+     */
+    public $mediaSettleAmount;
 
     /**
      * @var string
@@ -56,24 +51,29 @@ class mediaSettleInfoList extends Model
     /**
      * @var string
      */
-    public $createDate;
+    public $settleNo;
 
     /**
      * @var string
      */
-    public $extInfo;
+    public $settleStatus;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'endTime'             => 'EndTime',
-        'startTime'           => 'StartTime',
-        'mediaSettleAmount'   => 'MediaSettleAmount',
-        'settleNo'            => 'SettleNo',
-        'settleStatus'        => 'SettleStatus',
         'channelId'           => 'ChannelId',
+        'createDate'          => 'CreateDate',
+        'endTime'             => 'EndTime',
+        'extInfo'             => 'ExtInfo',
         'mediaName'           => 'MediaName',
+        'mediaSettleAmount'   => 'MediaSettleAmount',
         'mediaSettleDetailId' => 'MediaSettleDetailId',
         'modifiedDate'        => 'ModifiedDate',
-        'createDate'          => 'CreateDate',
-        'extInfo'             => 'ExtInfo',
+        'settleNo'            => 'SettleNo',
+        'settleStatus'        => 'SettleStatus',
+        'startTime'           => 'StartTime',
     ];
 
     public function validate()
@@ -83,26 +83,23 @@ class mediaSettleInfoList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->mediaSettleAmount) {
-            $res['MediaSettleAmount'] = $this->mediaSettleAmount;
-        }
-        if (null !== $this->settleNo) {
-            $res['SettleNo'] = $this->settleNo;
-        }
-        if (null !== $this->settleStatus) {
-            $res['SettleStatus'] = $this->settleStatus;
-        }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+        if (null !== $this->createDate) {
+            $res['CreateDate'] = $this->createDate;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
+        }
         if (null !== $this->mediaName) {
             $res['MediaName'] = $this->mediaName;
+        }
+        if (null !== $this->mediaSettleAmount) {
+            $res['MediaSettleAmount'] = $this->mediaSettleAmount;
         }
         if (null !== $this->mediaSettleDetailId) {
             $res['MediaSettleDetailId'] = $this->mediaSettleDetailId;
@@ -110,11 +107,14 @@ class mediaSettleInfoList extends Model
         if (null !== $this->modifiedDate) {
             $res['ModifiedDate'] = $this->modifiedDate;
         }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
+        if (null !== $this->settleNo) {
+            $res['SettleNo'] = $this->settleNo;
         }
-        if (null !== $this->extInfo) {
-            $res['ExtInfo'] = $this->extInfo;
+        if (null !== $this->settleStatus) {
+            $res['SettleStatus'] = $this->settleStatus;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -128,26 +128,23 @@ class mediaSettleInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['MediaSettleAmount'])) {
-            $model->mediaSettleAmount = $map['MediaSettleAmount'];
-        }
-        if (isset($map['SettleNo'])) {
-            $model->settleNo = $map['SettleNo'];
-        }
-        if (isset($map['SettleStatus'])) {
-            $model->settleStatus = $map['SettleStatus'];
-        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+        if (isset($map['CreateDate'])) {
+            $model->createDate = $map['CreateDate'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
+        }
         if (isset($map['MediaName'])) {
             $model->mediaName = $map['MediaName'];
+        }
+        if (isset($map['MediaSettleAmount'])) {
+            $model->mediaSettleAmount = $map['MediaSettleAmount'];
         }
         if (isset($map['MediaSettleDetailId'])) {
             $model->mediaSettleDetailId = $map['MediaSettleDetailId'];
@@ -155,11 +152,14 @@ class mediaSettleInfoList extends Model
         if (isset($map['ModifiedDate'])) {
             $model->modifiedDate = $map['ModifiedDate'];
         }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
+        if (isset($map['SettleNo'])) {
+            $model->settleNo = $map['SettleNo'];
         }
-        if (isset($map['ExtInfo'])) {
-            $model->extInfo = $map['ExtInfo'];
+        if (isset($map['SettleStatus'])) {
+            $model->settleStatus = $map['SettleStatus'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

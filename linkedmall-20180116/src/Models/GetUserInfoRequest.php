@@ -11,27 +11,27 @@ class GetUserInfoRequest extends Model
     /**
      * @var string
      */
-    public $bizId;
-
-    /**
-     * @var string
-     */
-    public $userFlag;
-
-    /**
-     * @var string
-     */
     public $appName;
 
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $queryJson;
+
+    /**
+     * @var string
+     */
+    public $userFlag;
     protected $_name = [
-        'bizId'     => 'BizId',
-        'userFlag'  => 'UserFlag',
         'appName'   => 'AppName',
+        'bizId'     => 'BizId',
         'queryJson' => 'QueryJson',
+        'userFlag'  => 'UserFlag',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class GetUserInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
-        }
-        if (null !== $this->userFlag) {
-            $res['UserFlag'] = $this->userFlag;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
         if (null !== $this->queryJson) {
             $res['QueryJson'] = $this->queryJson;
+        }
+        if (null !== $this->userFlag) {
+            $res['UserFlag'] = $this->userFlag;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class GetUserInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
-        }
-        if (isset($map['UserFlag'])) {
-            $model->userFlag = $map['UserFlag'];
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
         if (isset($map['QueryJson'])) {
             $model->queryJson = $map['QueryJson'];
+        }
+        if (isset($map['UserFlag'])) {
+            $model->userFlag = $map['UserFlag'];
         }
 
         return $model;

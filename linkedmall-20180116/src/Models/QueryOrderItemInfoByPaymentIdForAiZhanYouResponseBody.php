@@ -15,6 +15,11 @@ class QueryOrderItemInfoByPaymentIdForAiZhanYouResponseBody extends Model
     public $code;
 
     /**
+     * @var lmOrderList
+     */
+    public $lmOrderList;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class QueryOrderItemInfoByPaymentIdForAiZhanYouResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var lmOrderList
-     */
-    public $lmOrderList;
     protected $_name = [
         'code'        => 'Code',
+        'lmOrderList' => 'LmOrderList',
         'message'     => 'Message',
         'requestId'   => 'RequestId',
-        'lmOrderList' => 'LmOrderList',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class QueryOrderItemInfoByPaymentIdForAiZhanYouResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->lmOrderList) {
+            $res['LmOrderList'] = null !== $this->lmOrderList ? $this->lmOrderList->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->lmOrderList) {
-            $res['LmOrderList'] = null !== $this->lmOrderList ? $this->lmOrderList->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class QueryOrderItemInfoByPaymentIdForAiZhanYouResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['LmOrderList'])) {
+            $model->lmOrderList = lmOrderList::fromMap($map['LmOrderList']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LmOrderList'])) {
-            $model->lmOrderList = lmOrderList::fromMap($map['LmOrderList']);
         }
 
         return $model;

@@ -24,20 +24,20 @@ class QueryOrderDetailInnerRequest extends Model
     public $filterOption;
 
     /**
-     * @var bool
-     */
-    public $useAnonymousTbAccount;
-
-    /**
      * @var string
      */
     public $thirdPartyUserId;
+
+    /**
+     * @var bool
+     */
+    public $useAnonymousTbAccount;
     protected $_name = [
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
         'filterOption'          => 'FilterOption',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
         'thirdPartyUserId'      => 'ThirdPartyUserId',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class QueryOrderDetailInnerRequest extends Model
         if (null !== $this->filterOption) {
             $res['FilterOption'] = $this->filterOption;
         }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
-        }
         if (null !== $this->thirdPartyUserId) {
             $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
+        }
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class QueryOrderDetailInnerRequest extends Model
         if (isset($map['FilterOption'])) {
             $model->filterOption = $map['FilterOption'];
         }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
-        }
         if (isset($map['ThirdPartyUserId'])) {
             $model->thirdPartyUserId = $map['ThirdPartyUserId'];
+        }
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

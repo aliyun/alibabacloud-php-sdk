@@ -16,16 +16,16 @@ class RemoveMessagesRequest extends Model
     /**
      * @var string
      */
-    public $messageIds;
+    public $extJson;
 
     /**
      * @var string
      */
-    public $extJson;
+    public $messageIds;
     protected $_name = [
         'bizId'      => 'BizId',
-        'messageIds' => 'MessageIds',
         'extJson'    => 'ExtJson',
+        'messageIds' => 'MessageIds',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class RemoveMessagesRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->messageIds) {
-            $res['MessageIds'] = $this->messageIds;
-        }
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
+        }
+        if (null !== $this->messageIds) {
+            $res['MessageIds'] = $this->messageIds;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class RemoveMessagesRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['MessageIds'])) {
-            $model->messageIds = $map['MessageIds'];
-        }
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
+        }
+        if (isset($map['MessageIds'])) {
+            $model->messageIds = $map['MessageIds'];
         }
 
         return $model;

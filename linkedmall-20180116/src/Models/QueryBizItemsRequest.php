@@ -14,9 +14,9 @@ class QueryBizItemsRequest extends Model
     public $bizId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $subBizId;
+    public $pageNumber;
 
     /**
      * @var int
@@ -24,9 +24,9 @@ class QueryBizItemsRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $subBizId;
 
     /**
      * @var string
@@ -34,9 +34,9 @@ class QueryBizItemsRequest extends Model
     public $userId;
     protected $_name = [
         'bizId'      => 'BizId',
-        'subBizId'   => 'SubBizId',
-        'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'subBizId'   => 'SubBizId',
         'userId'     => 'UserId',
     ];
 
@@ -50,14 +50,14 @@ class QueryBizItemsRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->subBizId) {
-            $res['SubBizId'] = $this->subBizId;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->subBizId) {
+            $res['SubBizId'] = $this->subBizId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -77,14 +77,14 @@ class QueryBizItemsRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['SubBizId'])) {
-            $model->subBizId = $map['SubBizId'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['SubBizId'])) {
+            $model->subBizId = $map['SubBizId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

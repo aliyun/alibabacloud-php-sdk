@@ -15,6 +15,11 @@ class QueryBizItemsWithActivityResponseBody extends Model
     public $code;
 
     /**
+     * @var itemList
+     */
+    public $itemList;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class QueryBizItemsWithActivityResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var itemList
-     */
-    public $itemList;
     protected $_name = [
         'code'      => 'Code',
+        'itemList'  => 'ItemList',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'itemList'  => 'ItemList',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class QueryBizItemsWithActivityResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->itemList) {
+            $res['ItemList'] = null !== $this->itemList ? $this->itemList->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->itemList) {
-            $res['ItemList'] = null !== $this->itemList ? $this->itemList->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class QueryBizItemsWithActivityResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['ItemList'])) {
+            $model->itemList = itemList::fromMap($map['ItemList']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ItemList'])) {
-            $model->itemList = itemList::fromMap($map['ItemList']);
         }
 
         return $model;

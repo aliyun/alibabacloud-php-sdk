@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class activitySessionItem extends Model
 {
     /**
-     * @var int
+     * @var activitySessionItemSkuList
      */
-    public $sessionQuantity;
+    public $activitySessionItemSkuList;
 
     /**
      * @var int
@@ -25,14 +25,14 @@ class activitySessionItem extends Model
     public $saleableQuantity;
 
     /**
-     * @var activitySessionItemSkuList
+     * @var int
      */
-    public $activitySessionItemSkuList;
+    public $sessionQuantity;
     protected $_name = [
-        'sessionQuantity'            => 'SessionQuantity',
+        'activitySessionItemSkuList' => 'ActivitySessionItemSkuList',
         'limitQuantityForPerson'     => 'LimitQuantityForPerson',
         'saleableQuantity'           => 'SaleableQuantity',
-        'activitySessionItemSkuList' => 'ActivitySessionItemSkuList',
+        'sessionQuantity'            => 'SessionQuantity',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class activitySessionItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sessionQuantity) {
-            $res['SessionQuantity'] = $this->sessionQuantity;
+        if (null !== $this->activitySessionItemSkuList) {
+            $res['ActivitySessionItemSkuList'] = null !== $this->activitySessionItemSkuList ? $this->activitySessionItemSkuList->toMap() : null;
         }
         if (null !== $this->limitQuantityForPerson) {
             $res['LimitQuantityForPerson'] = $this->limitQuantityForPerson;
@@ -51,8 +51,8 @@ class activitySessionItem extends Model
         if (null !== $this->saleableQuantity) {
             $res['SaleableQuantity'] = $this->saleableQuantity;
         }
-        if (null !== $this->activitySessionItemSkuList) {
-            $res['ActivitySessionItemSkuList'] = null !== $this->activitySessionItemSkuList ? $this->activitySessionItemSkuList->toMap() : null;
+        if (null !== $this->sessionQuantity) {
+            $res['SessionQuantity'] = $this->sessionQuantity;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class activitySessionItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SessionQuantity'])) {
-            $model->sessionQuantity = $map['SessionQuantity'];
+        if (isset($map['ActivitySessionItemSkuList'])) {
+            $model->activitySessionItemSkuList = activitySessionItemSkuList::fromMap($map['ActivitySessionItemSkuList']);
         }
         if (isset($map['LimitQuantityForPerson'])) {
             $model->limitQuantityForPerson = $map['LimitQuantityForPerson'];
@@ -75,8 +75,8 @@ class activitySessionItem extends Model
         if (isset($map['SaleableQuantity'])) {
             $model->saleableQuantity = $map['SaleableQuantity'];
         }
-        if (isset($map['ActivitySessionItemSkuList'])) {
-            $model->activitySessionItemSkuList = activitySessionItemSkuList::fromMap($map['ActivitySessionItemSkuList']);
+        if (isset($map['SessionQuantity'])) {
+            $model->sessionQuantity = $map['SessionQuantity'];
         }
 
         return $model;

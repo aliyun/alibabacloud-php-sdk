@@ -11,17 +11,17 @@ class GetCustomServiceUrlRequest extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var string
+     */
     public $bizId;
 
     /**
      * @var string
      */
     public $bizUid;
-
-    /**
-     * @var string
-     */
-    public $sellerId;
 
     /**
      * @var string
@@ -34,9 +34,9 @@ class GetCustomServiceUrlRequest extends Model
     public $nick;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $useAnonymousTbAccount;
+    public $sellerId;
 
     /**
      * @var string
@@ -44,18 +44,18 @@ class GetCustomServiceUrlRequest extends Model
     public $thirdPartyUserId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $accountType;
+    public $useAnonymousTbAccount;
     protected $_name = [
+        'accountType'           => 'AccountType',
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
-        'sellerId'              => 'SellerId',
         'cuid'                  => 'Cuid',
         'nick'                  => 'Nick',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
+        'sellerId'              => 'SellerId',
         'thirdPartyUserId'      => 'ThirdPartyUserId',
-        'accountType'           => 'AccountType',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -65,14 +65,14 @@ class GetCustomServiceUrlRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
-        }
-        if (null !== $this->sellerId) {
-            $res['SellerId'] = $this->sellerId;
         }
         if (null !== $this->cuid) {
             $res['Cuid'] = $this->cuid;
@@ -80,14 +80,14 @@ class GetCustomServiceUrlRequest extends Model
         if (null !== $this->nick) {
             $res['Nick'] = $this->nick;
         }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
+        if (null !== $this->sellerId) {
+            $res['SellerId'] = $this->sellerId;
         }
         if (null !== $this->thirdPartyUserId) {
             $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
         }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -101,14 +101,14 @@ class GetCustomServiceUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
-        }
-        if (isset($map['SellerId'])) {
-            $model->sellerId = $map['SellerId'];
         }
         if (isset($map['Cuid'])) {
             $model->cuid = $map['Cuid'];
@@ -116,14 +116,14 @@ class GetCustomServiceUrlRequest extends Model
         if (isset($map['Nick'])) {
             $model->nick = $map['Nick'];
         }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
+        if (isset($map['SellerId'])) {
+            $model->sellerId = $map['SellerId'];
         }
         if (isset($map['ThirdPartyUserId'])) {
             $model->thirdPartyUserId = $map['ThirdPartyUserId'];
         }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

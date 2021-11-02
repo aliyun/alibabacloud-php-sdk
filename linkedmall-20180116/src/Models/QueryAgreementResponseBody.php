@@ -20,19 +20,19 @@ class QueryAgreementResponseBody extends Model
     public $message;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var queryAgreementResponse
      */
     public $queryAgreementResponse;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'code'                   => 'Code',
         'message'                => 'Message',
-        'requestId'              => 'RequestId',
         'queryAgreementResponse' => 'QueryAgreementResponse',
+        'requestId'              => 'RequestId',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class QueryAgreementResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->queryAgreementResponse) {
             $res['QueryAgreementResponse'] = null !== $this->queryAgreementResponse ? $this->queryAgreementResponse->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class QueryAgreementResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['QueryAgreementResponse'])) {
             $model->queryAgreementResponse = queryAgreementResponse::fromMap($map['QueryAgreementResponse']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

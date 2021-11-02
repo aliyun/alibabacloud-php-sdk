@@ -12,27 +12,12 @@ class ApplyRefundRequest extends Model
     /**
      * @var string
      */
-    public $bizId;
-
-    /**
-     * @var string
-     */
-    public $bizUid;
-
-    /**
-     * @var string
-     */
-    public $subLmOrderId;
+    public $accountType;
 
     /**
      * @var int
      */
-    public $bizClaimType;
-
-    /**
-     * @var int
-     */
-    public $applyRefundFee;
+    public $applyReasonTextId;
 
     /**
      * @var int
@@ -42,12 +27,22 @@ class ApplyRefundRequest extends Model
     /**
      * @var int
      */
-    public $applyReasonTextId;
+    public $applyRefundFee;
+
+    /**
+     * @var int
+     */
+    public $bizClaimType;
 
     /**
      * @var string
      */
-    public $leaveMessage;
+    public $bizId;
+
+    /**
+     * @var string
+     */
+    public $bizUid;
 
     /**
      * @var int
@@ -55,9 +50,19 @@ class ApplyRefundRequest extends Model
     public $goodsStatus;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $useAnonymousTbAccount;
+    public $leaveMessage;
+
+    /**
+     * @var leavePictureList[]
+     */
+    public $leavePictureList;
+
+    /**
+     * @var string
+     */
+    public $subLmOrderId;
 
     /**
      * @var string
@@ -65,28 +70,23 @@ class ApplyRefundRequest extends Model
     public $thirdPartyUserId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $accountType;
-
-    /**
-     * @var leavePictureList[]
-     */
-    public $leavePictureList;
+    public $useAnonymousTbAccount;
     protected $_name = [
+        'accountType'           => 'AccountType',
+        'applyReasonTextId'     => 'ApplyReasonTextId',
+        'applyRefundCount'      => 'ApplyRefundCount',
+        'applyRefundFee'        => 'ApplyRefundFee',
+        'bizClaimType'          => 'BizClaimType',
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
-        'subLmOrderId'          => 'SubLmOrderId',
-        'bizClaimType'          => 'BizClaimType',
-        'applyRefundFee'        => 'ApplyRefundFee',
-        'applyRefundCount'      => 'ApplyRefundCount',
-        'applyReasonTextId'     => 'ApplyReasonTextId',
-        'leaveMessage'          => 'LeaveMessage',
         'goodsStatus'           => 'GoodsStatus',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
-        'thirdPartyUserId'      => 'ThirdPartyUserId',
-        'accountType'           => 'AccountType',
+        'leaveMessage'          => 'LeaveMessage',
         'leavePictureList'      => 'LeavePictureList',
+        'subLmOrderId'          => 'SubLmOrderId',
+        'thirdPartyUserId'      => 'ThirdPartyUserId',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -96,41 +96,32 @@ class ApplyRefundRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+        if (null !== $this->applyReasonTextId) {
+            $res['ApplyReasonTextId'] = $this->applyReasonTextId;
+        }
+        if (null !== $this->applyRefundCount) {
+            $res['ApplyRefundCount'] = $this->applyRefundCount;
+        }
+        if (null !== $this->applyRefundFee) {
+            $res['ApplyRefundFee'] = $this->applyRefundFee;
+        }
+        if (null !== $this->bizClaimType) {
+            $res['BizClaimType'] = $this->bizClaimType;
+        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
-        if (null !== $this->subLmOrderId) {
-            $res['SubLmOrderId'] = $this->subLmOrderId;
-        }
-        if (null !== $this->bizClaimType) {
-            $res['BizClaimType'] = $this->bizClaimType;
-        }
-        if (null !== $this->applyRefundFee) {
-            $res['ApplyRefundFee'] = $this->applyRefundFee;
-        }
-        if (null !== $this->applyRefundCount) {
-            $res['ApplyRefundCount'] = $this->applyRefundCount;
-        }
-        if (null !== $this->applyReasonTextId) {
-            $res['ApplyReasonTextId'] = $this->applyReasonTextId;
-        }
-        if (null !== $this->leaveMessage) {
-            $res['LeaveMessage'] = $this->leaveMessage;
-        }
         if (null !== $this->goodsStatus) {
             $res['GoodsStatus'] = $this->goodsStatus;
         }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
-        }
-        if (null !== $this->thirdPartyUserId) {
-            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
-        }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
+        if (null !== $this->leaveMessage) {
+            $res['LeaveMessage'] = $this->leaveMessage;
         }
         if (null !== $this->leavePictureList) {
             $res['LeavePictureList'] = [];
@@ -140,6 +131,15 @@ class ApplyRefundRequest extends Model
                     $res['LeavePictureList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->subLmOrderId) {
+            $res['SubLmOrderId'] = $this->subLmOrderId;
+        }
+        if (null !== $this->thirdPartyUserId) {
+            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
+        }
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -153,41 +153,32 @@ class ApplyRefundRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+        if (isset($map['ApplyReasonTextId'])) {
+            $model->applyReasonTextId = $map['ApplyReasonTextId'];
+        }
+        if (isset($map['ApplyRefundCount'])) {
+            $model->applyRefundCount = $map['ApplyRefundCount'];
+        }
+        if (isset($map['ApplyRefundFee'])) {
+            $model->applyRefundFee = $map['ApplyRefundFee'];
+        }
+        if (isset($map['BizClaimType'])) {
+            $model->bizClaimType = $map['BizClaimType'];
+        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
-        if (isset($map['SubLmOrderId'])) {
-            $model->subLmOrderId = $map['SubLmOrderId'];
-        }
-        if (isset($map['BizClaimType'])) {
-            $model->bizClaimType = $map['BizClaimType'];
-        }
-        if (isset($map['ApplyRefundFee'])) {
-            $model->applyRefundFee = $map['ApplyRefundFee'];
-        }
-        if (isset($map['ApplyRefundCount'])) {
-            $model->applyRefundCount = $map['ApplyRefundCount'];
-        }
-        if (isset($map['ApplyReasonTextId'])) {
-            $model->applyReasonTextId = $map['ApplyReasonTextId'];
-        }
-        if (isset($map['LeaveMessage'])) {
-            $model->leaveMessage = $map['LeaveMessage'];
-        }
         if (isset($map['GoodsStatus'])) {
             $model->goodsStatus = $map['GoodsStatus'];
         }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
-        }
-        if (isset($map['ThirdPartyUserId'])) {
-            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
-        }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
+        if (isset($map['LeaveMessage'])) {
+            $model->leaveMessage = $map['LeaveMessage'];
         }
         if (isset($map['LeavePictureList'])) {
             if (!empty($map['LeavePictureList'])) {
@@ -197,6 +188,15 @@ class ApplyRefundRequest extends Model
                     $model->leavePictureList[$n++] = null !== $item ? leavePictureList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SubLmOrderId'])) {
+            $model->subLmOrderId = $map['SubLmOrderId'];
+        }
+        if (isset($map['ThirdPartyUserId'])) {
+            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
+        }
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

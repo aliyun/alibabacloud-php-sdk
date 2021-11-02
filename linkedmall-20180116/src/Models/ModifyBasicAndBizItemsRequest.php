@@ -15,18 +15,18 @@ class ModifyBasicAndBizItemsRequest extends Model
     public $bizId;
 
     /**
-     * @var string
-     */
-    public $subBizId;
-
-    /**
      * @var itemList[]
      */
     public $itemList;
+
+    /**
+     * @var string
+     */
+    public $subBizId;
     protected $_name = [
         'bizId'    => 'BizId',
-        'subBizId' => 'SubBizId',
         'itemList' => 'ItemList',
+        'subBizId' => 'SubBizId',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class ModifyBasicAndBizItemsRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->subBizId) {
-            $res['SubBizId'] = $this->subBizId;
-        }
         if (null !== $this->itemList) {
             $res['ItemList'] = [];
             if (null !== $this->itemList && \is_array($this->itemList)) {
@@ -50,6 +47,9 @@ class ModifyBasicAndBizItemsRequest extends Model
                     $res['ItemList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->subBizId) {
+            $res['SubBizId'] = $this->subBizId;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class ModifyBasicAndBizItemsRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['SubBizId'])) {
-            $model->subBizId = $map['SubBizId'];
-        }
         if (isset($map['ItemList'])) {
             if (!empty($map['ItemList'])) {
                 $model->itemList = [];
@@ -77,6 +74,9 @@ class ModifyBasicAndBizItemsRequest extends Model
                     $model->itemList[$n++] = null !== $item ? itemList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SubBizId'])) {
+            $model->subBizId = $map['SubBizId'];
         }
 
         return $model;

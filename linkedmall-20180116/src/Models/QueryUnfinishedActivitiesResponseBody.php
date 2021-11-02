@@ -12,12 +12,12 @@ class QueryUnfinishedActivitiesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $code;
 
     /**
-     * @var string
+     * @var lmActivityModelExtList
      */
-    public $code;
+    public $lmActivityModelExtList;
 
     /**
      * @var string
@@ -27,30 +27,30 @@ class QueryUnfinishedActivitiesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
     public $pageNumber;
 
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageSize;
 
     /**
-     * @var lmActivityModelExtList
+     * @var string
      */
-    public $lmActivityModelExtList;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'requestId'              => 'RequestId',
         'code'                   => 'Code',
-        'message'                => 'Message',
-        'pageSize'               => 'PageSize',
-        'pageNumber'             => 'PageNumber',
-        'totalCount'             => 'TotalCount',
         'lmActivityModelExtList' => 'LmActivityModelExtList',
+        'message'                => 'Message',
+        'pageNumber'             => 'PageNumber',
+        'pageSize'               => 'PageSize',
+        'requestId'              => 'RequestId',
+        'totalCount'             => 'TotalCount',
     ];
 
     public function validate()
@@ -60,26 +60,26 @@ class QueryUnfinishedActivitiesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->lmActivityModelExtList) {
+            $res['LmActivityModelExtList'] = null !== $this->lmActivityModelExtList ? $this->lmActivityModelExtList->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->lmActivityModelExtList) {
-            $res['LmActivityModelExtList'] = null !== $this->lmActivityModelExtList ? $this->lmActivityModelExtList->toMap() : null;
         }
 
         return $res;
@@ -93,26 +93,26 @@ class QueryUnfinishedActivitiesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['LmActivityModelExtList'])) {
+            $model->lmActivityModelExtList = lmActivityModelExtList::fromMap($map['LmActivityModelExtList']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['LmActivityModelExtList'])) {
-            $model->lmActivityModelExtList = lmActivityModelExtList::fromMap($map['LmActivityModelExtList']);
         }
 
         return $model;

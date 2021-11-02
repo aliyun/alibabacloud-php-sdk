@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class AddItemLimitRuleRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $beginTime;
+
+    /**
      * @var string
      */
     public $bizId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $subBizCode;
+    public $endTime;
+
+    /**
+     * @var int
+     */
+    public $itemId;
 
     /**
      * @var int
@@ -31,37 +41,27 @@ class AddItemLimitRuleRequest extends Model
     /**
      * @var int
      */
-    public $itemId;
+    public $ruleType;
+
+    /**
+     * @var string
+     */
+    public $subBizCode;
 
     /**
      * @var int
      */
     public $upperNum;
-
-    /**
-     * @var int
-     */
-    public $ruleType;
-
-    /**
-     * @var int
-     */
-    public $beginTime;
-
-    /**
-     * @var int
-     */
-    public $endTime;
     protected $_name = [
+        'beginTime'    => 'BeginTime',
         'bizId'        => 'BizId',
-        'subBizCode'   => 'SubBizCode',
+        'endTime'      => 'EndTime',
+        'itemId'       => 'ItemId',
         'lmActivityId' => 'LmActivityId',
         'lmItemId'     => 'LmItemId',
-        'itemId'       => 'ItemId',
-        'upperNum'     => 'UpperNum',
         'ruleType'     => 'RuleType',
-        'beginTime'    => 'BeginTime',
-        'endTime'      => 'EndTime',
+        'subBizCode'   => 'SubBizCode',
+        'upperNum'     => 'UpperNum',
     ];
 
     public function validate()
@@ -71,11 +71,17 @@ class AddItemLimitRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->beginTime) {
+            $res['BeginTime'] = $this->beginTime;
+        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->subBizCode) {
-            $res['SubBizCode'] = $this->subBizCode;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->lmActivityId) {
             $res['LmActivityId'] = $this->lmActivityId;
@@ -83,20 +89,14 @@ class AddItemLimitRuleRequest extends Model
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
         }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
-        }
-        if (null !== $this->upperNum) {
-            $res['UpperNum'] = $this->upperNum;
-        }
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
-        if (null !== $this->beginTime) {
-            $res['BeginTime'] = $this->beginTime;
+        if (null !== $this->subBizCode) {
+            $res['SubBizCode'] = $this->subBizCode;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->upperNum) {
+            $res['UpperNum'] = $this->upperNum;
         }
 
         return $res;
@@ -110,11 +110,17 @@ class AddItemLimitRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BeginTime'])) {
+            $model->beginTime = $map['BeginTime'];
+        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['SubBizCode'])) {
-            $model->subBizCode = $map['SubBizCode'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['LmActivityId'])) {
             $model->lmActivityId = $map['LmActivityId'];
@@ -122,20 +128,14 @@ class AddItemLimitRuleRequest extends Model
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];
         }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
-        }
-        if (isset($map['UpperNum'])) {
-            $model->upperNum = $map['UpperNum'];
-        }
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }
-        if (isset($map['BeginTime'])) {
-            $model->beginTime = $map['BeginTime'];
+        if (isset($map['SubBizCode'])) {
+            $model->subBizCode = $map['SubBizCode'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['UpperNum'])) {
+            $model->upperNum = $map['UpperNum'];
         }
 
         return $model;

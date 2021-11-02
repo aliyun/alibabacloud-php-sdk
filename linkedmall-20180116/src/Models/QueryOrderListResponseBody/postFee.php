@@ -14,18 +14,18 @@ class postFee extends Model
     public $fundAmount;
 
     /**
-     * @var string
-     */
-    public $fundType;
-
-    /**
      * @var int
      */
     public $fundAmountMoney;
+
+    /**
+     * @var string
+     */
+    public $fundType;
     protected $_name = [
         'fundAmount'      => 'FundAmount',
-        'fundType'        => 'FundType',
         'fundAmountMoney' => 'FundAmountMoney',
+        'fundType'        => 'FundType',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class postFee extends Model
         if (null !== $this->fundAmount) {
             $res['FundAmount'] = $this->fundAmount;
         }
-        if (null !== $this->fundType) {
-            $res['FundType'] = $this->fundType;
-        }
         if (null !== $this->fundAmountMoney) {
             $res['FundAmountMoney'] = $this->fundAmountMoney;
+        }
+        if (null !== $this->fundType) {
+            $res['FundType'] = $this->fundType;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class postFee extends Model
         if (isset($map['FundAmount'])) {
             $model->fundAmount = $map['FundAmount'];
         }
-        if (isset($map['FundType'])) {
-            $model->fundType = $map['FundType'];
-        }
         if (isset($map['FundAmountMoney'])) {
             $model->fundAmountMoney = $map['FundAmountMoney'];
+        }
+        if (isset($map['FundType'])) {
+            $model->fundType = $map['FundType'];
         }
 
         return $model;

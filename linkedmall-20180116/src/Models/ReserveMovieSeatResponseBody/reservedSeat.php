@@ -11,7 +11,12 @@ class reservedSeat extends Model
     /**
      * @var string
      */
-    public $status;
+    public $applyKey;
+
+    /**
+     * @var int
+     */
+    public $defaultLockSecond;
 
     /**
      * @var int
@@ -21,17 +26,12 @@ class reservedSeat extends Model
     /**
      * @var string
      */
-    public $applyKey;
-
-    /**
-     * @var int
-     */
-    public $defaultLockSecond;
+    public $status;
     protected $_name = [
-        'status'            => 'Status',
-        'reservedTime'      => 'ReservedTime',
         'applyKey'          => 'ApplyKey',
         'defaultLockSecond' => 'DefaultLockSecond',
+        'reservedTime'      => 'ReservedTime',
+        'status'            => 'Status',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class reservedSeat extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->reservedTime) {
-            $res['ReservedTime'] = $this->reservedTime;
-        }
         if (null !== $this->applyKey) {
             $res['ApplyKey'] = $this->applyKey;
         }
         if (null !== $this->defaultLockSecond) {
             $res['DefaultLockSecond'] = $this->defaultLockSecond;
+        }
+        if (null !== $this->reservedTime) {
+            $res['ReservedTime'] = $this->reservedTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class reservedSeat extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ReservedTime'])) {
-            $model->reservedTime = $map['ReservedTime'];
-        }
         if (isset($map['ApplyKey'])) {
             $model->applyKey = $map['ApplyKey'];
         }
         if (isset($map['DefaultLockSecond'])) {
             $model->defaultLockSecond = $map['DefaultLockSecond'];
+        }
+        if (isset($map['ReservedTime'])) {
+            $model->reservedTime = $map['ReservedTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

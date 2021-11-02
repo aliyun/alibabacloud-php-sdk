@@ -24,20 +24,20 @@ class RepayForPayUrlRequest extends Model
     public $lmOrderId;
 
     /**
-     * @var bool
-     */
-    public $useAnonymousTbAccount;
-
-    /**
      * @var string
      */
     public $thirdPartyUserId;
+
+    /**
+     * @var bool
+     */
+    public $useAnonymousTbAccount;
     protected $_name = [
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
         'lmOrderId'             => 'LmOrderId',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
         'thirdPartyUserId'      => 'ThirdPartyUserId',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class RepayForPayUrlRequest extends Model
         if (null !== $this->lmOrderId) {
             $res['LmOrderId'] = $this->lmOrderId;
         }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
-        }
         if (null !== $this->thirdPartyUserId) {
             $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
+        }
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class RepayForPayUrlRequest extends Model
         if (isset($map['LmOrderId'])) {
             $model->lmOrderId = $map['LmOrderId'];
         }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
-        }
         if (isset($map['ThirdPartyUserId'])) {
             $model->thirdPartyUserId = $map['ThirdPartyUserId'];
+        }
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

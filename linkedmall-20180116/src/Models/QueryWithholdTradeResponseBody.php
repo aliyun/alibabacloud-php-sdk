@@ -20,19 +20,19 @@ class QueryWithholdTradeResponseBody extends Model
     public $message;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var queryWithholdTradeResponse
      */
     public $queryWithholdTradeResponse;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'code'                       => 'Code',
         'message'                    => 'Message',
-        'requestId'                  => 'RequestId',
         'queryWithholdTradeResponse' => 'QueryWithholdTradeResponse',
+        'requestId'                  => 'RequestId',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class QueryWithholdTradeResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->queryWithholdTradeResponse) {
             $res['QueryWithholdTradeResponse'] = null !== $this->queryWithholdTradeResponse ? $this->queryWithholdTradeResponse->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class QueryWithholdTradeResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['QueryWithholdTradeResponse'])) {
             $model->queryWithholdTradeResponse = queryWithholdTradeResponse::fromMap($map['QueryWithholdTradeResponse']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

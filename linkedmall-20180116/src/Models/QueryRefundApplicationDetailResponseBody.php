@@ -20,19 +20,19 @@ class QueryRefundApplicationDetailResponseBody extends Model
     public $message;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var refundApplicationDetail
      */
     public $refundApplicationDetail;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'code'                    => 'Code',
         'message'                 => 'Message',
-        'requestId'               => 'RequestId',
         'refundApplicationDetail' => 'RefundApplicationDetail',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class QueryRefundApplicationDetailResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->refundApplicationDetail) {
             $res['RefundApplicationDetail'] = null !== $this->refundApplicationDetail ? $this->refundApplicationDetail->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class QueryRefundApplicationDetailResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['RefundApplicationDetail'])) {
             $model->refundApplicationDetail = refundApplicationDetail::fromMap($map['RefundApplicationDetail']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

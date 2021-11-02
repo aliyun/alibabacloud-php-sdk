@@ -12,9 +12,9 @@ use AlibabaCloud\Tea\Model;
 class lmOrderList extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $lmOrderId;
+    public $createDate;
 
     /**
      * @var int
@@ -27,9 +27,14 @@ class lmOrderList extends Model
     public $extJson;
 
     /**
+     * @var fundStructureModels
+     */
+    public $fundStructureModels;
+
+    /**
      * @var int
      */
-    public $orderStatus;
+    public $lmOrderId;
 
     /**
      * @var string
@@ -37,14 +42,9 @@ class lmOrderList extends Model
     public $lmPaymentId;
 
     /**
-     * @var string
-     */
-    public $shopName;
-
-    /**
      * @var int
      */
-    public $tbOrderId;
+    public $logisticsStatus;
 
     /**
      * @var int
@@ -54,17 +54,17 @@ class lmOrderList extends Model
     /**
      * @var int
      */
-    public $logisticsStatus;
+    public $orderStatus;
+
+    /**
+     * @var postFee
+     */
+    public $postFee;
 
     /**
      * @var string
      */
-    public $createDate;
-
-    /**
-     * @var fundStructureModels
-     */
-    public $fundStructureModels;
+    public $shopName;
 
     /**
      * @var subOrderList
@@ -72,23 +72,23 @@ class lmOrderList extends Model
     public $subOrderList;
 
     /**
-     * @var postFee
+     * @var int
      */
-    public $postFee;
+    public $tbOrderId;
     protected $_name = [
-        'lmOrderId'           => 'LmOrderId',
+        'createDate'          => 'CreateDate',
         'enableStatus'        => 'EnableStatus',
         'extJson'             => 'ExtJson',
-        'orderStatus'         => 'OrderStatus',
-        'lmPaymentId'         => 'LmPaymentId',
-        'shopName'            => 'ShopName',
-        'tbOrderId'           => 'TbOrderId',
-        'orderAmount'         => 'OrderAmount',
-        'logisticsStatus'     => 'LogisticsStatus',
-        'createDate'          => 'CreateDate',
         'fundStructureModels' => 'FundStructureModels',
-        'subOrderList'        => 'SubOrderList',
+        'lmOrderId'           => 'LmOrderId',
+        'lmPaymentId'         => 'LmPaymentId',
+        'logisticsStatus'     => 'LogisticsStatus',
+        'orderAmount'         => 'OrderAmount',
+        'orderStatus'         => 'OrderStatus',
         'postFee'             => 'PostFee',
+        'shopName'            => 'ShopName',
+        'subOrderList'        => 'SubOrderList',
+        'tbOrderId'           => 'TbOrderId',
     ];
 
     public function validate()
@@ -98,8 +98,8 @@ class lmOrderList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lmOrderId) {
-            $res['LmOrderId'] = $this->lmOrderId;
+        if (null !== $this->createDate) {
+            $res['CreateDate'] = $this->createDate;
         }
         if (null !== $this->enableStatus) {
             $res['EnableStatus'] = $this->enableStatus;
@@ -107,35 +107,35 @@ class lmOrderList extends Model
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
         }
-        if (null !== $this->orderStatus) {
-            $res['OrderStatus'] = $this->orderStatus;
+        if (null !== $this->fundStructureModels) {
+            $res['FundStructureModels'] = null !== $this->fundStructureModels ? $this->fundStructureModels->toMap() : null;
+        }
+        if (null !== $this->lmOrderId) {
+            $res['LmOrderId'] = $this->lmOrderId;
         }
         if (null !== $this->lmPaymentId) {
             $res['LmPaymentId'] = $this->lmPaymentId;
         }
-        if (null !== $this->shopName) {
-            $res['ShopName'] = $this->shopName;
-        }
-        if (null !== $this->tbOrderId) {
-            $res['TbOrderId'] = $this->tbOrderId;
+        if (null !== $this->logisticsStatus) {
+            $res['LogisticsStatus'] = $this->logisticsStatus;
         }
         if (null !== $this->orderAmount) {
             $res['OrderAmount'] = $this->orderAmount;
         }
-        if (null !== $this->logisticsStatus) {
-            $res['LogisticsStatus'] = $this->logisticsStatus;
+        if (null !== $this->orderStatus) {
+            $res['OrderStatus'] = $this->orderStatus;
         }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
+        if (null !== $this->postFee) {
+            $res['PostFee'] = null !== $this->postFee ? $this->postFee->toMap() : null;
         }
-        if (null !== $this->fundStructureModels) {
-            $res['FundStructureModels'] = null !== $this->fundStructureModels ? $this->fundStructureModels->toMap() : null;
+        if (null !== $this->shopName) {
+            $res['ShopName'] = $this->shopName;
         }
         if (null !== $this->subOrderList) {
             $res['SubOrderList'] = null !== $this->subOrderList ? $this->subOrderList->toMap() : null;
         }
-        if (null !== $this->postFee) {
-            $res['PostFee'] = null !== $this->postFee ? $this->postFee->toMap() : null;
+        if (null !== $this->tbOrderId) {
+            $res['TbOrderId'] = $this->tbOrderId;
         }
 
         return $res;
@@ -149,8 +149,8 @@ class lmOrderList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LmOrderId'])) {
-            $model->lmOrderId = $map['LmOrderId'];
+        if (isset($map['CreateDate'])) {
+            $model->createDate = $map['CreateDate'];
         }
         if (isset($map['EnableStatus'])) {
             $model->enableStatus = $map['EnableStatus'];
@@ -158,35 +158,35 @@ class lmOrderList extends Model
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
         }
-        if (isset($map['OrderStatus'])) {
-            $model->orderStatus = $map['OrderStatus'];
+        if (isset($map['FundStructureModels'])) {
+            $model->fundStructureModels = fundStructureModels::fromMap($map['FundStructureModels']);
+        }
+        if (isset($map['LmOrderId'])) {
+            $model->lmOrderId = $map['LmOrderId'];
         }
         if (isset($map['LmPaymentId'])) {
             $model->lmPaymentId = $map['LmPaymentId'];
         }
-        if (isset($map['ShopName'])) {
-            $model->shopName = $map['ShopName'];
-        }
-        if (isset($map['TbOrderId'])) {
-            $model->tbOrderId = $map['TbOrderId'];
+        if (isset($map['LogisticsStatus'])) {
+            $model->logisticsStatus = $map['LogisticsStatus'];
         }
         if (isset($map['OrderAmount'])) {
             $model->orderAmount = $map['OrderAmount'];
         }
-        if (isset($map['LogisticsStatus'])) {
-            $model->logisticsStatus = $map['LogisticsStatus'];
+        if (isset($map['OrderStatus'])) {
+            $model->orderStatus = $map['OrderStatus'];
         }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
+        if (isset($map['PostFee'])) {
+            $model->postFee = postFee::fromMap($map['PostFee']);
         }
-        if (isset($map['FundStructureModels'])) {
-            $model->fundStructureModels = fundStructureModels::fromMap($map['FundStructureModels']);
+        if (isset($map['ShopName'])) {
+            $model->shopName = $map['ShopName'];
         }
         if (isset($map['SubOrderList'])) {
             $model->subOrderList = subOrderList::fromMap($map['SubOrderList']);
         }
-        if (isset($map['PostFee'])) {
-            $model->postFee = postFee::fromMap($map['PostFee']);
+        if (isset($map['TbOrderId'])) {
+            $model->tbOrderId = $map['TbOrderId'];
         }
 
         return $model;

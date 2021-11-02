@@ -12,6 +12,11 @@ class RenderOrderRequest extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var string
+     */
     public $bizId;
 
     /**
@@ -22,22 +27,17 @@ class RenderOrderRequest extends Model
     /**
      * @var string
      */
-    public $extJson;
-
-    /**
-     * @var string
-     */
     public $deliveryAddress;
 
     /**
-     * @var bool
-     */
-    public $useAnonymousTbAccount;
-
-    /**
      * @var string
      */
-    public $thirdPartyUserId;
+    public $extJson;
+
+    /**
+     * @var itemList[]
+     */
+    public $itemList;
 
     /**
      * @var string
@@ -47,22 +47,22 @@ class RenderOrderRequest extends Model
     /**
      * @var string
      */
-    public $accountType;
+    public $thirdPartyUserId;
 
     /**
-     * @var itemList[]
+     * @var bool
      */
-    public $itemList;
+    public $useAnonymousTbAccount;
     protected $_name = [
+        'accountType'           => 'AccountType',
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
-        'extJson'               => 'ExtJson',
         'deliveryAddress'       => 'DeliveryAddress',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
-        'thirdPartyUserId'      => 'ThirdPartyUserId',
-        'lmItemId'              => 'LmItemId',
-        'accountType'           => 'AccountType',
+        'extJson'               => 'ExtJson',
         'itemList'              => 'ItemList',
+        'lmItemId'              => 'LmItemId',
+        'thirdPartyUserId'      => 'ThirdPartyUserId',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -72,29 +72,20 @@ class RenderOrderRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
-        if (null !== $this->extJson) {
-            $res['ExtJson'] = $this->extJson;
-        }
         if (null !== $this->deliveryAddress) {
             $res['DeliveryAddress'] = $this->deliveryAddress;
         }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
-        }
-        if (null !== $this->thirdPartyUserId) {
-            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
-        }
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
-        }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
+        if (null !== $this->extJson) {
+            $res['ExtJson'] = $this->extJson;
         }
         if (null !== $this->itemList) {
             $res['ItemList'] = [];
@@ -104,6 +95,15 @@ class RenderOrderRequest extends Model
                     $res['ItemList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->thirdPartyUserId) {
+            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
+        }
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -117,29 +117,20 @@ class RenderOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
-        if (isset($map['ExtJson'])) {
-            $model->extJson = $map['ExtJson'];
-        }
         if (isset($map['DeliveryAddress'])) {
             $model->deliveryAddress = $map['DeliveryAddress'];
         }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
-        }
-        if (isset($map['ThirdPartyUserId'])) {
-            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
-        }
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
-        }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
+        if (isset($map['ExtJson'])) {
+            $model->extJson = $map['ExtJson'];
         }
         if (isset($map['ItemList'])) {
             if (!empty($map['ItemList'])) {
@@ -149,6 +140,15 @@ class RenderOrderRequest extends Model
                     $model->itemList[$n++] = null !== $item ? itemList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['ThirdPartyUserId'])) {
+            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
+        }
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

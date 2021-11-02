@@ -14,14 +14,14 @@ class AddItemLimitRuleResponseBody extends Model
     public $code;
 
     /**
-     * @var int
-     */
-    public $model;
-
-    /**
      * @var string
      */
     public $message;
+
+    /**
+     * @var int
+     */
+    public $model;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class AddItemLimitRuleResponseBody extends Model
     public $ruleId;
     protected $_name = [
         'code'      => 'Code',
-        'model'     => 'Model',
         'message'   => 'Message',
+        'model'     => 'Model',
         'requestId' => 'RequestId',
         'ruleId'    => 'RuleId',
     ];
@@ -50,11 +50,11 @@ class AddItemLimitRuleResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->model) {
-            $res['Model'] = $this->model;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -77,11 +77,11 @@ class AddItemLimitRuleResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Model'])) {
-            $model->model = $map['Model'];
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -15,6 +15,11 @@ class QueryOrderCommissionRateResponseBody extends Model
     public $code;
 
     /**
+     * @var commissionModels[]
+     */
+    public $commissionModels;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class QueryOrderCommissionRateResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var commissionModels[]
-     */
-    public $commissionModels;
     protected $_name = [
         'code'             => 'Code',
+        'commissionModels' => 'CommissionModels',
         'message'          => 'Message',
         'requestId'        => 'RequestId',
-        'commissionModels' => 'CommissionModels',
     ];
 
     public function validate()
@@ -45,12 +45,6 @@ class QueryOrderCommissionRateResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->commissionModels) {
             $res['CommissionModels'] = [];
             if (null !== $this->commissionModels && \is_array($this->commissionModels)) {
@@ -59,6 +53,12 @@ class QueryOrderCommissionRateResponseBody extends Model
                     $res['CommissionModels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class QueryOrderCommissionRateResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CommissionModels'])) {
             if (!empty($map['CommissionModels'])) {
                 $model->commissionModels = [];
@@ -89,6 +83,12 @@ class QueryOrderCommissionRateResponseBody extends Model
                     $model->commissionModels[$n++] = null !== $item ? commissionModels::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

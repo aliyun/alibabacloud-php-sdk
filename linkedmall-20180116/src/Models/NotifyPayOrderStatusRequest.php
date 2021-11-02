@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class NotifyPayOrderStatusRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $channelId;
+    public $amount;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $channelId;
 
     /**
      * @var string
@@ -29,15 +29,15 @@ class NotifyPayOrderStatusRequest extends Model
     public $payTypes;
 
     /**
-     * @var int
+     * @var string
      */
-    public $amount;
+    public $requestId;
     protected $_name = [
+        'amount'        => 'Amount',
         'channelId'     => 'ChannelId',
-        'requestId'     => 'RequestId',
         'operationDate' => 'OperationDate',
         'payTypes'      => 'PayTypes',
-        'amount'        => 'Amount',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class NotifyPayOrderStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->amount) {
+            $res['Amount'] = $this->amount;
+        }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->operationDate) {
             $res['OperationDate'] = $this->operationDate;
@@ -59,8 +59,8 @@ class NotifyPayOrderStatusRequest extends Model
         if (null !== $this->payTypes) {
             $res['PayTypes'] = $this->payTypes;
         }
-        if (null !== $this->amount) {
-            $res['Amount'] = $this->amount;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class NotifyPayOrderStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Amount'])) {
+            $model->amount = $map['Amount'];
+        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['OperationDate'])) {
             $model->operationDate = $map['OperationDate'];
@@ -86,8 +86,8 @@ class NotifyPayOrderStatusRequest extends Model
         if (isset($map['PayTypes'])) {
             $model->payTypes = $map['PayTypes'];
         }
-        if (isset($map['Amount'])) {
-            $model->amount = $map['Amount'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

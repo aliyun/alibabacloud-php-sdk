@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class skuList extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $statusAction;
-
-    /**
-     * @var int
-     */
-    public $priceCent;
-
-    /**
-     * @var int
-     */
-    public $skuId;
+    public $benefitId;
 
     /**
      * @var int
@@ -34,22 +24,32 @@ class skuList extends Model
     public $pointsAmount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $benefitId;
+    public $priceCent;
 
     /**
      * @var int
      */
     public $quantity;
+
+    /**
+     * @var int
+     */
+    public $skuId;
+
+    /**
+     * @var int
+     */
+    public $statusAction;
     protected $_name = [
-        'statusAction' => 'StatusAction',
-        'priceCent'    => 'PriceCent',
-        'skuId'        => 'SkuId',
+        'benefitId'    => 'BenefitId',
         'points'       => 'Points',
         'pointsAmount' => 'PointsAmount',
-        'benefitId'    => 'BenefitId',
+        'priceCent'    => 'PriceCent',
         'quantity'     => 'Quantity',
+        'skuId'        => 'SkuId',
+        'statusAction' => 'StatusAction',
     ];
 
     public function validate()
@@ -59,14 +59,8 @@ class skuList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->statusAction) {
-            $res['StatusAction'] = $this->statusAction;
-        }
-        if (null !== $this->priceCent) {
-            $res['PriceCent'] = $this->priceCent;
-        }
-        if (null !== $this->skuId) {
-            $res['SkuId'] = $this->skuId;
+        if (null !== $this->benefitId) {
+            $res['BenefitId'] = $this->benefitId;
         }
         if (null !== $this->points) {
             $res['Points'] = $this->points;
@@ -74,11 +68,17 @@ class skuList extends Model
         if (null !== $this->pointsAmount) {
             $res['PointsAmount'] = $this->pointsAmount;
         }
-        if (null !== $this->benefitId) {
-            $res['BenefitId'] = $this->benefitId;
+        if (null !== $this->priceCent) {
+            $res['PriceCent'] = $this->priceCent;
         }
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
+        }
+        if (null !== $this->skuId) {
+            $res['SkuId'] = $this->skuId;
+        }
+        if (null !== $this->statusAction) {
+            $res['StatusAction'] = $this->statusAction;
         }
 
         return $res;
@@ -92,14 +92,8 @@ class skuList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StatusAction'])) {
-            $model->statusAction = $map['StatusAction'];
-        }
-        if (isset($map['PriceCent'])) {
-            $model->priceCent = $map['PriceCent'];
-        }
-        if (isset($map['SkuId'])) {
-            $model->skuId = $map['SkuId'];
+        if (isset($map['BenefitId'])) {
+            $model->benefitId = $map['BenefitId'];
         }
         if (isset($map['Points'])) {
             $model->points = $map['Points'];
@@ -107,11 +101,17 @@ class skuList extends Model
         if (isset($map['PointsAmount'])) {
             $model->pointsAmount = $map['PointsAmount'];
         }
-        if (isset($map['BenefitId'])) {
-            $model->benefitId = $map['BenefitId'];
+        if (isset($map['PriceCent'])) {
+            $model->priceCent = $map['PriceCent'];
         }
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
+        }
+        if (isset($map['SkuId'])) {
+            $model->skuId = $map['SkuId'];
+        }
+        if (isset($map['StatusAction'])) {
+            $model->statusAction = $map['StatusAction'];
         }
 
         return $model;

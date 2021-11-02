@@ -11,15 +11,15 @@ class skuList extends Model
     /**
      * @var int
      */
-    public $skuId;
+    public $quantity;
 
     /**
      * @var int
      */
-    public $quantity;
+    public $skuId;
     protected $_name = [
-        'skuId'    => 'SkuId',
         'quantity' => 'Quantity',
+        'skuId'    => 'SkuId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class skuList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skuId) {
-            $res['SkuId'] = $this->skuId;
-        }
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
+        }
+        if (null !== $this->skuId) {
+            $res['SkuId'] = $this->skuId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class skuList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkuId'])) {
-            $model->skuId = $map['SkuId'];
-        }
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
+        }
+        if (isset($map['SkuId'])) {
+            $model->skuId = $map['SkuId'];
         }
 
         return $model;

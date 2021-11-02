@@ -15,6 +15,11 @@ class QueryBestSession4ItemsResponseBody extends Model
     public $code;
 
     /**
+     * @var lmItemActivitySessionModelList
+     */
+    public $lmItemActivitySessionModelList;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class QueryBestSession4ItemsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var lmItemActivitySessionModelList
-     */
-    public $lmItemActivitySessionModelList;
     protected $_name = [
         'code'                           => 'Code',
+        'lmItemActivitySessionModelList' => 'LmItemActivitySessionModelList',
         'message'                        => 'Message',
         'requestId'                      => 'RequestId',
-        'lmItemActivitySessionModelList' => 'LmItemActivitySessionModelList',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class QueryBestSession4ItemsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->lmItemActivitySessionModelList) {
+            $res['LmItemActivitySessionModelList'] = null !== $this->lmItemActivitySessionModelList ? $this->lmItemActivitySessionModelList->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->lmItemActivitySessionModelList) {
-            $res['LmItemActivitySessionModelList'] = null !== $this->lmItemActivitySessionModelList ? $this->lmItemActivitySessionModelList->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class QueryBestSession4ItemsResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['LmItemActivitySessionModelList'])) {
+            $model->lmItemActivitySessionModelList = lmItemActivitySessionModelList::fromMap($map['LmItemActivitySessionModelList']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LmItemActivitySessionModelList'])) {
-            $model->lmItemActivitySessionModelList = lmItemActivitySessionModelList::fromMap($map['LmItemActivitySessionModelList']);
         }
 
         return $model;

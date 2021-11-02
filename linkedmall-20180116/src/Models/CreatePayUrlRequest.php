@@ -24,20 +24,20 @@ class CreatePayUrlRequest extends Model
     public $buyInfo;
 
     /**
-     * @var bool
-     */
-    public $useAnonymousTbAccount;
-
-    /**
      * @var string
      */
     public $thirdPartyUserId;
+
+    /**
+     * @var bool
+     */
+    public $useAnonymousTbAccount;
     protected $_name = [
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
         'buyInfo'               => 'BuyInfo',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
         'thirdPartyUserId'      => 'ThirdPartyUserId',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class CreatePayUrlRequest extends Model
         if (null !== $this->buyInfo) {
             $res['BuyInfo'] = $this->buyInfo;
         }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
-        }
         if (null !== $this->thirdPartyUserId) {
             $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
+        }
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class CreatePayUrlRequest extends Model
         if (isset($map['BuyInfo'])) {
             $model->buyInfo = $map['BuyInfo'];
         }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
-        }
         if (isset($map['ThirdPartyUserId'])) {
             $model->thirdPartyUserId = $map['ThirdPartyUserId'];
+        }
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetCategoryChainResponseBody extends Model
 {
     /**
+     * @var categoryList[]
+     */
+    public $categoryList;
+
+    /**
      * @var string
      */
     public $code;
@@ -23,16 +28,11 @@ class GetCategoryChainResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var categoryList[]
-     */
-    public $categoryList;
     protected $_name = [
+        'categoryList' => 'CategoryList',
         'code'         => 'Code',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
-        'categoryList' => 'CategoryList',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class GetCategoryChainResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->categoryList) {
             $res['CategoryList'] = [];
             if (null !== $this->categoryList && \is_array($this->categoryList)) {
@@ -59,6 +50,15 @@ class GetCategoryChainResponseBody extends Model
                     $res['CategoryList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class GetCategoryChainResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CategoryList'])) {
             if (!empty($map['CategoryList'])) {
                 $model->categoryList = [];
@@ -89,6 +80,15 @@ class GetCategoryChainResponseBody extends Model
                     $model->categoryList[$n++] = null !== $item ? categoryList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

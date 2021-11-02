@@ -12,12 +12,17 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $batchId;
 
     /**
      * @var string
      */
     public $code;
+
+    /**
+     * @var failIds
+     */
+    public $failIds;
 
     /**
      * @var string
@@ -32,19 +37,14 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
     /**
      * @var string
      */
-    public $batchId;
-
-    /**
-     * @var failIds
-     */
-    public $failIds;
+    public $status;
     protected $_name = [
-        'status'    => 'Status',
+        'batchId'   => 'BatchId',
         'code'      => 'Code',
+        'failIds'   => 'FailIds',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'batchId'   => 'BatchId',
-        'failIds'   => 'FailIds',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -54,11 +54,14 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->batchId) {
+            $res['BatchId'] = $this->batchId;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->failIds) {
+            $res['FailIds'] = null !== $this->failIds ? $this->failIds->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -66,11 +69,8 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->batchId) {
-            $res['BatchId'] = $this->batchId;
-        }
-        if (null !== $this->failIds) {
-            $res['FailIds'] = null !== $this->failIds ? $this->failIds->toMap() : null;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -84,11 +84,14 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['BatchId'])) {
+            $model->batchId = $map['BatchId'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['FailIds'])) {
+            $model->failIds = failIds::fromMap($map['FailIds']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -96,11 +99,8 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['BatchId'])) {
-            $model->batchId = $map['BatchId'];
-        }
-        if (isset($map['FailIds'])) {
-            $model->failIds = failIds::fromMap($map['FailIds']);
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

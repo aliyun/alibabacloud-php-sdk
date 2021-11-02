@@ -16,7 +16,7 @@ class postFee extends Model
     /**
      * @var int
      */
-    public $lmOrderId;
+    public $fundAmountMoney;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class postFee extends Model
     /**
      * @var int
      */
-    public $fundAmountMoney;
+    public $lmOrderId;
 
     /**
      * @var int
@@ -34,9 +34,9 @@ class postFee extends Model
     public $tbSubOrderId;
     protected $_name = [
         'fundAmount'      => 'FundAmount',
-        'lmOrderId'       => 'LmOrderId',
-        'fundType'        => 'FundType',
         'fundAmountMoney' => 'FundAmountMoney',
+        'fundType'        => 'FundType',
+        'lmOrderId'       => 'LmOrderId',
         'tbSubOrderId'    => 'TbSubOrderId',
     ];
 
@@ -50,14 +50,14 @@ class postFee extends Model
         if (null !== $this->fundAmount) {
             $res['FundAmount'] = $this->fundAmount;
         }
-        if (null !== $this->lmOrderId) {
-            $res['LmOrderId'] = $this->lmOrderId;
+        if (null !== $this->fundAmountMoney) {
+            $res['FundAmountMoney'] = $this->fundAmountMoney;
         }
         if (null !== $this->fundType) {
             $res['FundType'] = $this->fundType;
         }
-        if (null !== $this->fundAmountMoney) {
-            $res['FundAmountMoney'] = $this->fundAmountMoney;
+        if (null !== $this->lmOrderId) {
+            $res['LmOrderId'] = $this->lmOrderId;
         }
         if (null !== $this->tbSubOrderId) {
             $res['TbSubOrderId'] = $this->tbSubOrderId;
@@ -77,14 +77,14 @@ class postFee extends Model
         if (isset($map['FundAmount'])) {
             $model->fundAmount = $map['FundAmount'];
         }
-        if (isset($map['LmOrderId'])) {
-            $model->lmOrderId = $map['LmOrderId'];
+        if (isset($map['FundAmountMoney'])) {
+            $model->fundAmountMoney = $map['FundAmountMoney'];
         }
         if (isset($map['FundType'])) {
             $model->fundType = $map['FundType'];
         }
-        if (isset($map['FundAmountMoney'])) {
-            $model->fundAmountMoney = $map['FundAmountMoney'];
+        if (isset($map['LmOrderId'])) {
+            $model->lmOrderId = $map['LmOrderId'];
         }
         if (isset($map['TbSubOrderId'])) {
             $model->tbSubOrderId = $map['TbSubOrderId'];

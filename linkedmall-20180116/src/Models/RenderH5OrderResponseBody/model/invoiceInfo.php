@@ -11,15 +11,15 @@ class invoiceInfo extends Model
     /**
      * @var string
      */
-    public $type;
+    public $desc;
 
     /**
      * @var string
      */
-    public $desc;
+    public $type;
     protected $_name = [
-        'type' => 'Type',
         'desc' => 'Desc',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class invoiceInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class invoiceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

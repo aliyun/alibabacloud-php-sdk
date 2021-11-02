@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetCategoryListResponseBody extends Model
 {
     /**
+     * @var categoryList
+     */
+    public $categoryList;
+
+    /**
      * @var string
      */
     public $code;
@@ -23,16 +28,11 @@ class GetCategoryListResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var categoryList
-     */
-    public $categoryList;
     protected $_name = [
+        'categoryList' => 'CategoryList',
         'code'         => 'Code',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
-        'categoryList' => 'CategoryList',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class GetCategoryListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->categoryList) {
+            $res['CategoryList'] = null !== $this->categoryList ? $this->categoryList->toMap() : null;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -50,9 +53,6 @@ class GetCategoryListResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->categoryList) {
-            $res['CategoryList'] = null !== $this->categoryList ? $this->categoryList->toMap() : null;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class GetCategoryListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryList'])) {
+            $model->categoryList = categoryList::fromMap($map['CategoryList']);
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -74,9 +77,6 @@ class GetCategoryListResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['CategoryList'])) {
-            $model->categoryList = categoryList::fromMap($map['CategoryList']);
         }
 
         return $model;

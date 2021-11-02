@@ -26,18 +26,18 @@ class ValidateTaobaoAccountRequest extends Model
     /**
      * @var string
      */
-    public $tbUserNick;
+    public $mobileNo;
 
     /**
      * @var string
      */
-    public $mobileNo;
+    public $tbUserNick;
     protected $_name = [
         'bizId'      => 'BizId',
         'bizUid'     => 'BizUid',
         'extJson'    => 'ExtJson',
-        'tbUserNick' => 'TbUserNick',
         'mobileNo'   => 'MobileNo',
+        'tbUserNick' => 'TbUserNick',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class ValidateTaobaoAccountRequest extends Model
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
         }
-        if (null !== $this->tbUserNick) {
-            $res['TbUserNick'] = $this->tbUserNick;
-        }
         if (null !== $this->mobileNo) {
             $res['MobileNo'] = $this->mobileNo;
+        }
+        if (null !== $this->tbUserNick) {
+            $res['TbUserNick'] = $this->tbUserNick;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class ValidateTaobaoAccountRequest extends Model
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
         }
-        if (isset($map['TbUserNick'])) {
-            $model->tbUserNick = $map['TbUserNick'];
-        }
         if (isset($map['MobileNo'])) {
             $model->mobileNo = $map['MobileNo'];
+        }
+        if (isset($map['TbUserNick'])) {
+            $model->tbUserNick = $map['TbUserNick'];
         }
 
         return $model;

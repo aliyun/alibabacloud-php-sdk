@@ -11,15 +11,15 @@ class QueryBatchRegistAnonymousTbAccountResultRequest extends Model
     /**
      * @var string
      */
-    public $bizId;
+    public $batchId;
 
     /**
      * @var string
      */
-    public $batchId;
+    public $bizId;
     protected $_name = [
-        'bizId'   => 'BizId',
         'batchId' => 'BatchId',
+        'bizId'   => 'BizId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QueryBatchRegistAnonymousTbAccountResultRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
-        }
         if (null !== $this->batchId) {
             $res['BatchId'] = $this->batchId;
+        }
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QueryBatchRegistAnonymousTbAccountResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
-        }
         if (isset($map['BatchId'])) {
             $model->batchId = $map['BatchId'];
+        }
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
 
         return $model;

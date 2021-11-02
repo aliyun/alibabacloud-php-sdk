@@ -15,6 +15,11 @@ class QueryUnfinishedSessions4ItemsResponseBody extends Model
     public $code;
 
     /**
+     * @var lmItemActivitySessionModelListList
+     */
+    public $lmItemActivitySessionModelListList;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class QueryUnfinishedSessions4ItemsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var lmItemActivitySessionModelListList
-     */
-    public $lmItemActivitySessionModelListList;
     protected $_name = [
         'code'                               => 'Code',
+        'lmItemActivitySessionModelListList' => 'LmItemActivitySessionModelListList',
         'message'                            => 'Message',
         'requestId'                          => 'RequestId',
-        'lmItemActivitySessionModelListList' => 'LmItemActivitySessionModelListList',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class QueryUnfinishedSessions4ItemsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->lmItemActivitySessionModelListList) {
+            $res['LmItemActivitySessionModelListList'] = null !== $this->lmItemActivitySessionModelListList ? $this->lmItemActivitySessionModelListList->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->lmItemActivitySessionModelListList) {
-            $res['LmItemActivitySessionModelListList'] = null !== $this->lmItemActivitySessionModelListList ? $this->lmItemActivitySessionModelListList->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class QueryUnfinishedSessions4ItemsResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['LmItemActivitySessionModelListList'])) {
+            $model->lmItemActivitySessionModelListList = lmItemActivitySessionModelListList::fromMap($map['LmItemActivitySessionModelListList']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LmItemActivitySessionModelListList'])) {
-            $model->lmItemActivitySessionModelListList = lmItemActivitySessionModelListList::fromMap($map['LmItemActivitySessionModelListList']);
         }
 
         return $model;

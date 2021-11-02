@@ -12,19 +12,9 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
-     * @var bool
-     */
-    public $eticket;
-
-    /**
      * @var string
      */
-    public $createDate;
-
-    /**
-     * @var string
-     */
-    public $logisticsCompName;
+    public $channelBizType;
 
     /**
      * @var string
@@ -34,12 +24,12 @@ class order extends Model
     /**
      * @var string
      */
-    public $logisticsMobilePhone;
+    public $channelOrderId;
 
     /**
      * @var string
      */
-    public $resExtInfo;
+    public $createDate;
 
     /**
      * @var int
@@ -47,19 +37,54 @@ class order extends Model
     public $enableStatus;
 
     /**
-     * @var string
+     * @var int
      */
-    public $channelBizType;
+    public $endTime;
+
+    /**
+     * @var bool
+     */
+    public $eticket;
+
+    /**
+     * @var mixed[]
+     */
+    public $extInfo;
+
+    /**
+     * @var fundStructureModels
+     */
+    public $fundStructureModels;
+
+    /**
+     * @var int
+     */
+    public $lmOrderId;
 
     /**
      * @var string
      */
-    public $shipping;
+    public $logisticsAddress;
 
     /**
      * @var string
      */
-    public $orderPayInfo;
+    public $logisticsCompName;
+
+    /**
+     * @var string
+     */
+    public $logisticsMobilePhone;
+
+    /**
+     * @var string
+     */
+    public $logisticsNo;
+
+    /**
+     * @var int
+     */
+    public $logisticsStatus;
 
     /**
      * @var string
@@ -69,27 +94,7 @@ class order extends Model
     /**
      * @var string
      */
-    public $tbOrderId;
-
-    /**
-     * @var int
-     */
-    public $logisticsStatus;
-
-    /**
-     * @var int
-     */
-    public $lmOrderId;
-
-    /**
-     * @var int
-     */
-    public $sellerId;
-
-    /**
-     * @var string
-     */
-    public $shopName;
+    public $logisticsUserName;
 
     /**
      * @var int
@@ -97,14 +102,9 @@ class order extends Model
     public $orderAmount;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $extInfo;
-
-    /**
-     * @var int
-     */
-    public $endTime;
+    public $orderPayInfo;
 
     /**
      * @var int
@@ -112,24 +112,14 @@ class order extends Model
     public $payStatus;
 
     /**
-     * @var string
-     */
-    public $logisticsNo;
-
-    /**
-     * @var string
-     */
-    public $logisticsUserName;
-
-    /**
-     * @var string
-     */
-    public $logisticsAddress;
-
-    /**
      * @var int
      */
     public $payWaterStatus;
+
+    /**
+     * @var postFee
+     */
+    public $postFee;
 
     /**
      * @var int
@@ -139,12 +129,27 @@ class order extends Model
     /**
      * @var string
      */
+    public $resExtInfo;
+
+    /**
+     * @var int
+     */
+    public $sellerId;
+
+    /**
+     * @var string
+     */
     public $sellerNick;
 
     /**
      * @var string
      */
-    public $channelOrderId;
+    public $shipping;
+
+    /**
+     * @var string
+     */
+    public $shopName;
 
     /**
      * @var subItemOrderList
@@ -152,45 +157,40 @@ class order extends Model
     public $subItemOrderList;
 
     /**
-     * @var fundStructureModels
+     * @var string
      */
-    public $fundStructureModels;
-
-    /**
-     * @var postFee
-     */
-    public $postFee;
+    public $tbOrderId;
     protected $_name = [
-        'eticket'              => 'Eticket',
-        'createDate'           => 'CreateDate',
-        'logisticsCompName'    => 'LogisticsCompName',
-        'channelCode'          => 'ChannelCode',
-        'logisticsMobilePhone' => 'LogisticsMobilePhone',
-        'resExtInfo'           => 'ResExtInfo',
-        'enableStatus'         => 'EnableStatus',
         'channelBizType'       => 'ChannelBizType',
-        'shipping'             => 'Shipping',
-        'orderPayInfo'         => 'OrderPayInfo',
-        'logisticsStatusDesc'  => 'LogisticsStatusDesc',
-        'tbOrderId'            => 'TbOrderId',
-        'logisticsStatus'      => 'LogisticsStatus',
-        'lmOrderId'            => 'LmOrderId',
-        'sellerId'             => 'SellerId',
-        'shopName'             => 'ShopName',
-        'orderAmount'          => 'OrderAmount',
-        'extInfo'              => 'ExtInfo',
-        'endTime'              => 'EndTime',
-        'payStatus'            => 'PayStatus',
-        'logisticsNo'          => 'LogisticsNo',
-        'logisticsUserName'    => 'LogisticsUserName',
-        'logisticsAddress'     => 'LogisticsAddress',
-        'payWaterStatus'       => 'PayWaterStatus',
-        'refundStatus'         => 'RefundStatus',
-        'sellerNick'           => 'SellerNick',
+        'channelCode'          => 'ChannelCode',
         'channelOrderId'       => 'ChannelOrderId',
-        'subItemOrderList'     => 'SubItemOrderList',
+        'createDate'           => 'CreateDate',
+        'enableStatus'         => 'EnableStatus',
+        'endTime'              => 'EndTime',
+        'eticket'              => 'Eticket',
+        'extInfo'              => 'ExtInfo',
         'fundStructureModels'  => 'FundStructureModels',
+        'lmOrderId'            => 'LmOrderId',
+        'logisticsAddress'     => 'LogisticsAddress',
+        'logisticsCompName'    => 'LogisticsCompName',
+        'logisticsMobilePhone' => 'LogisticsMobilePhone',
+        'logisticsNo'          => 'LogisticsNo',
+        'logisticsStatus'      => 'LogisticsStatus',
+        'logisticsStatusDesc'  => 'LogisticsStatusDesc',
+        'logisticsUserName'    => 'LogisticsUserName',
+        'orderAmount'          => 'OrderAmount',
+        'orderPayInfo'         => 'OrderPayInfo',
+        'payStatus'            => 'PayStatus',
+        'payWaterStatus'       => 'PayWaterStatus',
         'postFee'              => 'PostFee',
+        'refundStatus'         => 'RefundStatus',
+        'resExtInfo'           => 'ResExtInfo',
+        'sellerId'             => 'SellerId',
+        'sellerNick'           => 'SellerNick',
+        'shipping'             => 'Shipping',
+        'shopName'             => 'ShopName',
+        'subItemOrderList'     => 'SubItemOrderList',
+        'tbOrderId'            => 'TbOrderId',
     ];
 
     public function validate()
@@ -200,95 +200,95 @@ class order extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eticket) {
-            $res['Eticket'] = $this->eticket;
-        }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
-        }
-        if (null !== $this->logisticsCompName) {
-            $res['LogisticsCompName'] = $this->logisticsCompName;
+        if (null !== $this->channelBizType) {
+            $res['ChannelBizType'] = $this->channelBizType;
         }
         if (null !== $this->channelCode) {
             $res['ChannelCode'] = $this->channelCode;
         }
-        if (null !== $this->logisticsMobilePhone) {
-            $res['LogisticsMobilePhone'] = $this->logisticsMobilePhone;
+        if (null !== $this->channelOrderId) {
+            $res['ChannelOrderId'] = $this->channelOrderId;
         }
-        if (null !== $this->resExtInfo) {
-            $res['ResExtInfo'] = $this->resExtInfo;
+        if (null !== $this->createDate) {
+            $res['CreateDate'] = $this->createDate;
         }
         if (null !== $this->enableStatus) {
             $res['EnableStatus'] = $this->enableStatus;
         }
-        if (null !== $this->channelBizType) {
-            $res['ChannelBizType'] = $this->channelBizType;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->shipping) {
-            $res['Shipping'] = $this->shipping;
-        }
-        if (null !== $this->orderPayInfo) {
-            $res['OrderPayInfo'] = $this->orderPayInfo;
-        }
-        if (null !== $this->logisticsStatusDesc) {
-            $res['LogisticsStatusDesc'] = $this->logisticsStatusDesc;
-        }
-        if (null !== $this->tbOrderId) {
-            $res['TbOrderId'] = $this->tbOrderId;
-        }
-        if (null !== $this->logisticsStatus) {
-            $res['LogisticsStatus'] = $this->logisticsStatus;
-        }
-        if (null !== $this->lmOrderId) {
-            $res['LmOrderId'] = $this->lmOrderId;
-        }
-        if (null !== $this->sellerId) {
-            $res['SellerId'] = $this->sellerId;
-        }
-        if (null !== $this->shopName) {
-            $res['ShopName'] = $this->shopName;
-        }
-        if (null !== $this->orderAmount) {
-            $res['OrderAmount'] = $this->orderAmount;
+        if (null !== $this->eticket) {
+            $res['Eticket'] = $this->eticket;
         }
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->fundStructureModels) {
+            $res['FundStructureModels'] = null !== $this->fundStructureModels ? $this->fundStructureModels->toMap() : null;
         }
-        if (null !== $this->payStatus) {
-            $res['PayStatus'] = $this->payStatus;
-        }
-        if (null !== $this->logisticsNo) {
-            $res['LogisticsNo'] = $this->logisticsNo;
-        }
-        if (null !== $this->logisticsUserName) {
-            $res['LogisticsUserName'] = $this->logisticsUserName;
+        if (null !== $this->lmOrderId) {
+            $res['LmOrderId'] = $this->lmOrderId;
         }
         if (null !== $this->logisticsAddress) {
             $res['LogisticsAddress'] = $this->logisticsAddress;
         }
+        if (null !== $this->logisticsCompName) {
+            $res['LogisticsCompName'] = $this->logisticsCompName;
+        }
+        if (null !== $this->logisticsMobilePhone) {
+            $res['LogisticsMobilePhone'] = $this->logisticsMobilePhone;
+        }
+        if (null !== $this->logisticsNo) {
+            $res['LogisticsNo'] = $this->logisticsNo;
+        }
+        if (null !== $this->logisticsStatus) {
+            $res['LogisticsStatus'] = $this->logisticsStatus;
+        }
+        if (null !== $this->logisticsStatusDesc) {
+            $res['LogisticsStatusDesc'] = $this->logisticsStatusDesc;
+        }
+        if (null !== $this->logisticsUserName) {
+            $res['LogisticsUserName'] = $this->logisticsUserName;
+        }
+        if (null !== $this->orderAmount) {
+            $res['OrderAmount'] = $this->orderAmount;
+        }
+        if (null !== $this->orderPayInfo) {
+            $res['OrderPayInfo'] = $this->orderPayInfo;
+        }
+        if (null !== $this->payStatus) {
+            $res['PayStatus'] = $this->payStatus;
+        }
         if (null !== $this->payWaterStatus) {
             $res['PayWaterStatus'] = $this->payWaterStatus;
+        }
+        if (null !== $this->postFee) {
+            $res['PostFee'] = null !== $this->postFee ? $this->postFee->toMap() : null;
         }
         if (null !== $this->refundStatus) {
             $res['RefundStatus'] = $this->refundStatus;
         }
+        if (null !== $this->resExtInfo) {
+            $res['ResExtInfo'] = $this->resExtInfo;
+        }
+        if (null !== $this->sellerId) {
+            $res['SellerId'] = $this->sellerId;
+        }
         if (null !== $this->sellerNick) {
             $res['SellerNick'] = $this->sellerNick;
         }
-        if (null !== $this->channelOrderId) {
-            $res['ChannelOrderId'] = $this->channelOrderId;
+        if (null !== $this->shipping) {
+            $res['Shipping'] = $this->shipping;
+        }
+        if (null !== $this->shopName) {
+            $res['ShopName'] = $this->shopName;
         }
         if (null !== $this->subItemOrderList) {
             $res['SubItemOrderList'] = null !== $this->subItemOrderList ? $this->subItemOrderList->toMap() : null;
         }
-        if (null !== $this->fundStructureModels) {
-            $res['FundStructureModels'] = null !== $this->fundStructureModels ? $this->fundStructureModels->toMap() : null;
-        }
-        if (null !== $this->postFee) {
-            $res['PostFee'] = null !== $this->postFee ? $this->postFee->toMap() : null;
+        if (null !== $this->tbOrderId) {
+            $res['TbOrderId'] = $this->tbOrderId;
         }
 
         return $res;
@@ -302,95 +302,95 @@ class order extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Eticket'])) {
-            $model->eticket = $map['Eticket'];
-        }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
-        }
-        if (isset($map['LogisticsCompName'])) {
-            $model->logisticsCompName = $map['LogisticsCompName'];
+        if (isset($map['ChannelBizType'])) {
+            $model->channelBizType = $map['ChannelBizType'];
         }
         if (isset($map['ChannelCode'])) {
             $model->channelCode = $map['ChannelCode'];
         }
-        if (isset($map['LogisticsMobilePhone'])) {
-            $model->logisticsMobilePhone = $map['LogisticsMobilePhone'];
+        if (isset($map['ChannelOrderId'])) {
+            $model->channelOrderId = $map['ChannelOrderId'];
         }
-        if (isset($map['ResExtInfo'])) {
-            $model->resExtInfo = $map['ResExtInfo'];
+        if (isset($map['CreateDate'])) {
+            $model->createDate = $map['CreateDate'];
         }
         if (isset($map['EnableStatus'])) {
             $model->enableStatus = $map['EnableStatus'];
         }
-        if (isset($map['ChannelBizType'])) {
-            $model->channelBizType = $map['ChannelBizType'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Shipping'])) {
-            $model->shipping = $map['Shipping'];
-        }
-        if (isset($map['OrderPayInfo'])) {
-            $model->orderPayInfo = $map['OrderPayInfo'];
-        }
-        if (isset($map['LogisticsStatusDesc'])) {
-            $model->logisticsStatusDesc = $map['LogisticsStatusDesc'];
-        }
-        if (isset($map['TbOrderId'])) {
-            $model->tbOrderId = $map['TbOrderId'];
-        }
-        if (isset($map['LogisticsStatus'])) {
-            $model->logisticsStatus = $map['LogisticsStatus'];
-        }
-        if (isset($map['LmOrderId'])) {
-            $model->lmOrderId = $map['LmOrderId'];
-        }
-        if (isset($map['SellerId'])) {
-            $model->sellerId = $map['SellerId'];
-        }
-        if (isset($map['ShopName'])) {
-            $model->shopName = $map['ShopName'];
-        }
-        if (isset($map['OrderAmount'])) {
-            $model->orderAmount = $map['OrderAmount'];
+        if (isset($map['Eticket'])) {
+            $model->eticket = $map['Eticket'];
         }
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['FundStructureModels'])) {
+            $model->fundStructureModels = fundStructureModels::fromMap($map['FundStructureModels']);
         }
-        if (isset($map['PayStatus'])) {
-            $model->payStatus = $map['PayStatus'];
-        }
-        if (isset($map['LogisticsNo'])) {
-            $model->logisticsNo = $map['LogisticsNo'];
-        }
-        if (isset($map['LogisticsUserName'])) {
-            $model->logisticsUserName = $map['LogisticsUserName'];
+        if (isset($map['LmOrderId'])) {
+            $model->lmOrderId = $map['LmOrderId'];
         }
         if (isset($map['LogisticsAddress'])) {
             $model->logisticsAddress = $map['LogisticsAddress'];
         }
+        if (isset($map['LogisticsCompName'])) {
+            $model->logisticsCompName = $map['LogisticsCompName'];
+        }
+        if (isset($map['LogisticsMobilePhone'])) {
+            $model->logisticsMobilePhone = $map['LogisticsMobilePhone'];
+        }
+        if (isset($map['LogisticsNo'])) {
+            $model->logisticsNo = $map['LogisticsNo'];
+        }
+        if (isset($map['LogisticsStatus'])) {
+            $model->logisticsStatus = $map['LogisticsStatus'];
+        }
+        if (isset($map['LogisticsStatusDesc'])) {
+            $model->logisticsStatusDesc = $map['LogisticsStatusDesc'];
+        }
+        if (isset($map['LogisticsUserName'])) {
+            $model->logisticsUserName = $map['LogisticsUserName'];
+        }
+        if (isset($map['OrderAmount'])) {
+            $model->orderAmount = $map['OrderAmount'];
+        }
+        if (isset($map['OrderPayInfo'])) {
+            $model->orderPayInfo = $map['OrderPayInfo'];
+        }
+        if (isset($map['PayStatus'])) {
+            $model->payStatus = $map['PayStatus'];
+        }
         if (isset($map['PayWaterStatus'])) {
             $model->payWaterStatus = $map['PayWaterStatus'];
+        }
+        if (isset($map['PostFee'])) {
+            $model->postFee = postFee::fromMap($map['PostFee']);
         }
         if (isset($map['RefundStatus'])) {
             $model->refundStatus = $map['RefundStatus'];
         }
+        if (isset($map['ResExtInfo'])) {
+            $model->resExtInfo = $map['ResExtInfo'];
+        }
+        if (isset($map['SellerId'])) {
+            $model->sellerId = $map['SellerId'];
+        }
         if (isset($map['SellerNick'])) {
             $model->sellerNick = $map['SellerNick'];
         }
-        if (isset($map['ChannelOrderId'])) {
-            $model->channelOrderId = $map['ChannelOrderId'];
+        if (isset($map['Shipping'])) {
+            $model->shipping = $map['Shipping'];
+        }
+        if (isset($map['ShopName'])) {
+            $model->shopName = $map['ShopName'];
         }
         if (isset($map['SubItemOrderList'])) {
             $model->subItemOrderList = subItemOrderList::fromMap($map['SubItemOrderList']);
         }
-        if (isset($map['FundStructureModels'])) {
-            $model->fundStructureModels = fundStructureModels::fromMap($map['FundStructureModels']);
-        }
-        if (isset($map['PostFee'])) {
-            $model->postFee = postFee::fromMap($map['PostFee']);
+        if (isset($map['TbOrderId'])) {
+            $model->tbOrderId = $map['TbOrderId'];
         }
 
         return $model;

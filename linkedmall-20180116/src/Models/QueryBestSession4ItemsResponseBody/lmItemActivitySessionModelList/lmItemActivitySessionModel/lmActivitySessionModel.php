@@ -11,22 +11,7 @@ class lmActivitySessionModel extends Model
     /**
      * @var string
      */
-    public $subBizCode;
-
-    /**
-     * @var string
-     */
-    public $endDate;
-
-    /**
-     * @var string
-     */
-    public $displayDate;
-
-    /**
-     * @var int
-     */
-    public $lmSessionId;
+    public $bizId;
 
     /**
      * @var string
@@ -36,7 +21,17 @@ class lmActivitySessionModel extends Model
     /**
      * @var string
      */
-    public $startDate;
+    public $displayDate;
+
+    /**
+     * @var string
+     */
+    public $endDate;
+
+    /**
+     * @var mixed[]
+     */
+    public $extInfo;
 
     /**
      * @var int
@@ -44,9 +39,9 @@ class lmActivitySessionModel extends Model
     public $lmActivityId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $bizId;
+    public $lmSessionId;
 
     /**
      * @var string
@@ -54,20 +49,25 @@ class lmActivitySessionModel extends Model
     public $name;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $extInfo;
+    public $startDate;
+
+    /**
+     * @var string
+     */
+    public $subBizCode;
     protected $_name = [
-        'subBizCode'   => 'SubBizCode',
-        'endDate'      => 'EndDate',
-        'displayDate'  => 'DisplayDate',
-        'lmSessionId'  => 'LmSessionId',
-        'description'  => 'Description',
-        'startDate'    => 'StartDate',
-        'lmActivityId' => 'LmActivityId',
         'bizId'        => 'BizId',
-        'name'         => 'Name',
+        'description'  => 'Description',
+        'displayDate'  => 'DisplayDate',
+        'endDate'      => 'EndDate',
         'extInfo'      => 'ExtInfo',
+        'lmActivityId' => 'LmActivityId',
+        'lmSessionId'  => 'LmSessionId',
+        'name'         => 'Name',
+        'startDate'    => 'StartDate',
+        'subBizCode'   => 'SubBizCode',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class lmActivitySessionModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subBizCode) {
-            $res['SubBizCode'] = $this->subBizCode;
-        }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
-        }
-        if (null !== $this->displayDate) {
-            $res['DisplayDate'] = $this->displayDate;
-        }
-        if (null !== $this->lmSessionId) {
-            $res['LmSessionId'] = $this->lmSessionId;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
+        if (null !== $this->displayDate) {
+            $res['DisplayDate'] = $this->displayDate;
+        }
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
         }
         if (null !== $this->lmActivityId) {
             $res['LmActivityId'] = $this->lmActivityId;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
+        if (null !== $this->lmSessionId) {
+            $res['LmSessionId'] = $this->lmSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->extInfo) {
-            $res['ExtInfo'] = $this->extInfo;
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
+        }
+        if (null !== $this->subBizCode) {
+            $res['SubBizCode'] = $this->subBizCode;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class lmActivitySessionModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubBizCode'])) {
-            $model->subBizCode = $map['SubBizCode'];
-        }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
-        }
-        if (isset($map['DisplayDate'])) {
-            $model->displayDate = $map['DisplayDate'];
-        }
-        if (isset($map['LmSessionId'])) {
-            $model->lmSessionId = $map['LmSessionId'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
+        if (isset($map['DisplayDate'])) {
+            $model->displayDate = $map['DisplayDate'];
+        }
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
         }
         if (isset($map['LmActivityId'])) {
             $model->lmActivityId = $map['LmActivityId'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
+        if (isset($map['LmSessionId'])) {
+            $model->lmSessionId = $map['LmSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['ExtInfo'])) {
-            $model->extInfo = $map['ExtInfo'];
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
+        }
+        if (isset($map['SubBizCode'])) {
+            $model->subBizCode = $map['SubBizCode'];
         }
 
         return $model;

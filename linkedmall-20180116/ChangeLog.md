@@ -1,3 +1,6 @@
+2021-11-02 Version: 1.0.3
+- QueryItemDetailTea.
+
 2021-09-10 Version: 1.0.2
 - AMP version.
 

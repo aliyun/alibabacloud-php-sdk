@@ -11,7 +11,12 @@ class activitySessionItemSkuList extends Model
     /**
      * @var int
      */
-    public $skuId;
+    public $points;
+
+    /**
+     * @var int
+     */
+    public $pointsAmount;
 
     /**
      * @var int
@@ -21,17 +26,12 @@ class activitySessionItemSkuList extends Model
     /**
      * @var int
      */
-    public $points;
-
-    /**
-     * @var int
-     */
-    public $pointsAmount;
+    public $skuId;
     protected $_name = [
-        'skuId'        => 'SkuId',
-        'priceCent'    => 'PriceCent',
         'points'       => 'Points',
         'pointsAmount' => 'PointsAmount',
+        'priceCent'    => 'PriceCent',
+        'skuId'        => 'SkuId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class activitySessionItemSkuList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skuId) {
-            $res['SkuId'] = $this->skuId;
-        }
-        if (null !== $this->priceCent) {
-            $res['PriceCent'] = $this->priceCent;
-        }
         if (null !== $this->points) {
             $res['Points'] = $this->points;
         }
         if (null !== $this->pointsAmount) {
             $res['PointsAmount'] = $this->pointsAmount;
+        }
+        if (null !== $this->priceCent) {
+            $res['PriceCent'] = $this->priceCent;
+        }
+        if (null !== $this->skuId) {
+            $res['SkuId'] = $this->skuId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class activitySessionItemSkuList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkuId'])) {
-            $model->skuId = $map['SkuId'];
-        }
-        if (isset($map['PriceCent'])) {
-            $model->priceCent = $map['PriceCent'];
-        }
         if (isset($map['Points'])) {
             $model->points = $map['Points'];
         }
         if (isset($map['PointsAmount'])) {
             $model->pointsAmount = $map['PointsAmount'];
+        }
+        if (isset($map['PriceCent'])) {
+            $model->priceCent = $map['PriceCent'];
+        }
+        if (isset($map['SkuId'])) {
+            $model->skuId = $map['SkuId'];
         }
 
         return $model;

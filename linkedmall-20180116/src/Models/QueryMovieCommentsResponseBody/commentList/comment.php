@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class comment extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $remark;
+    public $commentTime;
+
+    /**
+     * @var string
+     */
+    public $content;
 
     /**
      * @var int
@@ -19,9 +24,9 @@ class comment extends Model
     public $favorCount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $subject;
+    public $id;
 
     /**
      * @var int
@@ -34,28 +39,23 @@ class comment extends Model
     public $nickName;
 
     /**
-     * @var string
-     */
-    public $content;
-
-    /**
      * @var int
      */
-    public $id;
+    public $remark;
 
     /**
      * @var string
      */
-    public $commentTime;
+    public $subject;
     protected $_name = [
-        'remark'      => 'Remark',
+        'commentTime' => 'CommentTime',
+        'content'     => 'Content',
         'favorCount'  => 'FavorCount',
-        'subject'     => 'Subject',
+        'id'          => 'Id',
         'movieId'     => 'MovieId',
         'nickName'    => 'NickName',
-        'content'     => 'Content',
-        'id'          => 'Id',
-        'commentTime' => 'CommentTime',
+        'remark'      => 'Remark',
+        'subject'     => 'Subject',
     ];
 
     public function validate()
@@ -65,14 +65,17 @@ class comment extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
+        if (null !== $this->commentTime) {
+            $res['CommentTime'] = $this->commentTime;
+        }
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->favorCount) {
             $res['FavorCount'] = $this->favorCount;
         }
-        if (null !== $this->subject) {
-            $res['Subject'] = $this->subject;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->movieId) {
             $res['MovieId'] = $this->movieId;
@@ -80,14 +83,11 @@ class comment extends Model
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->commentTime) {
-            $res['CommentTime'] = $this->commentTime;
+        if (null !== $this->subject) {
+            $res['Subject'] = $this->subject;
         }
 
         return $res;
@@ -101,14 +101,17 @@ class comment extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
+        if (isset($map['CommentTime'])) {
+            $model->commentTime = $map['CommentTime'];
+        }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['FavorCount'])) {
             $model->favorCount = $map['FavorCount'];
         }
-        if (isset($map['Subject'])) {
-            $model->subject = $map['Subject'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['MovieId'])) {
             $model->movieId = $map['MovieId'];
@@ -116,14 +119,11 @@ class comment extends Model
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['CommentTime'])) {
-            $model->commentTime = $map['CommentTime'];
+        if (isset($map['Subject'])) {
+            $model->subject = $map['Subject'];
         }
 
         return $model;

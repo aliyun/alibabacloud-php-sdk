@@ -11,7 +11,7 @@ class lmOrderList extends Model
     /**
      * @var int
      */
-    public $lmOrderId;
+    public $itemId;
 
     /**
      * @var string
@@ -21,7 +21,12 @@ class lmOrderList extends Model
     /**
      * @var string
      */
-    public $skuName;
+    public $lmItemId;
+
+    /**
+     * @var int
+     */
+    public $lmOrderId;
 
     /**
      * @var int
@@ -31,19 +36,14 @@ class lmOrderList extends Model
     /**
      * @var string
      */
-    public $lmItemId;
-
-    /**
-     * @var int
-     */
-    public $itemId;
+    public $skuName;
     protected $_name = [
-        'lmOrderId' => 'LmOrderId',
-        'itemName'  => 'ItemName',
-        'skuName'   => 'SkuName',
-        'skuId'     => 'SkuId',
-        'lmItemId'  => 'LmItemId',
         'itemId'    => 'ItemId',
+        'itemName'  => 'ItemName',
+        'lmItemId'  => 'LmItemId',
+        'lmOrderId' => 'LmOrderId',
+        'skuId'     => 'SkuId',
+        'skuName'   => 'SkuName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class lmOrderList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lmOrderId) {
-            $res['LmOrderId'] = $this->lmOrderId;
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->itemName) {
             $res['ItemName'] = $this->itemName;
         }
-        if (null !== $this->skuName) {
-            $res['SkuName'] = $this->skuName;
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->lmOrderId) {
+            $res['LmOrderId'] = $this->lmOrderId;
         }
         if (null !== $this->skuId) {
             $res['SkuId'] = $this->skuId;
         }
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
-        }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
+        if (null !== $this->skuName) {
+            $res['SkuName'] = $this->skuName;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class lmOrderList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LmOrderId'])) {
-            $model->lmOrderId = $map['LmOrderId'];
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['ItemName'])) {
             $model->itemName = $map['ItemName'];
         }
-        if (isset($map['SkuName'])) {
-            $model->skuName = $map['SkuName'];
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['LmOrderId'])) {
+            $model->lmOrderId = $map['LmOrderId'];
         }
         if (isset($map['SkuId'])) {
             $model->skuId = $map['SkuId'];
         }
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
-        }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
+        if (isset($map['SkuName'])) {
+            $model->skuName = $map['SkuName'];
         }
 
         return $model;

@@ -16,12 +16,12 @@ class RefuseMerchantSyncTaskRequest extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $sellerNick;
 
     /**
      * @var string
      */
-    public $sellerNick;
+    public $taskId;
 
     /**
      * @var int
@@ -29,8 +29,8 @@ class RefuseMerchantSyncTaskRequest extends Model
     public $timeStamp;
     protected $_name = [
         'bizId'      => 'BizId',
-        'taskId'     => 'TaskId',
         'sellerNick' => 'SellerNick',
+        'taskId'     => 'TaskId',
         'timeStamp'  => 'TimeStamp',
     ];
 
@@ -44,11 +44,11 @@ class RefuseMerchantSyncTaskRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->sellerNick) {
             $res['SellerNick'] = $this->sellerNick;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
@@ -68,11 +68,11 @@ class RefuseMerchantSyncTaskRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['SellerNick'])) {
             $model->sellerNick = $map['SellerNick'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];

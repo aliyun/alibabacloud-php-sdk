@@ -11,6 +11,11 @@ class BatchRegistAnonymousTbAccountResponseBody extends Model
     /**
      * @var string
      */
+    public $batchId;
+
+    /**
+     * @var string
+     */
     public $code;
 
     /**
@@ -22,16 +27,11 @@ class BatchRegistAnonymousTbAccountResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $batchId;
     protected $_name = [
+        'batchId'   => 'BatchId',
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'batchId'   => 'BatchId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class BatchRegistAnonymousTbAccountResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->batchId) {
+            $res['BatchId'] = $this->batchId;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -49,9 +52,6 @@ class BatchRegistAnonymousTbAccountResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->batchId) {
-            $res['BatchId'] = $this->batchId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class BatchRegistAnonymousTbAccountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BatchId'])) {
+            $model->batchId = $map['BatchId'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -73,9 +76,6 @@ class BatchRegistAnonymousTbAccountResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['BatchId'])) {
-            $model->batchId = $map['BatchId'];
         }
 
         return $model;

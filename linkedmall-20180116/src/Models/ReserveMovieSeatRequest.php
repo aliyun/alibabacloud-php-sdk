@@ -14,6 +14,21 @@ class ReserveMovieSeatRequest extends Model
     public $bizId;
 
     /**
+     * @var string
+     */
+    public $bizUid;
+
+    /**
+     * @var string
+     */
+    public $extJson;
+
+    /**
+     * @var string
+     */
+    public $mobile;
+
+    /**
      * @var int
      */
     public $scheduleId;
@@ -27,29 +42,14 @@ class ReserveMovieSeatRequest extends Model
      * @var string
      */
     public $seatNames;
-
-    /**
-     * @var string
-     */
-    public $bizUid;
-
-    /**
-     * @var string
-     */
-    public $mobile;
-
-    /**
-     * @var string
-     */
-    public $extJson;
     protected $_name = [
         'bizId'      => 'BizId',
+        'bizUid'     => 'BizUid',
+        'extJson'    => 'ExtJson',
+        'mobile'     => 'Mobile',
         'scheduleId' => 'ScheduleId',
         'seatIds'    => 'SeatIds',
         'seatNames'  => 'SeatNames',
-        'bizUid'     => 'BizUid',
-        'mobile'     => 'Mobile',
-        'extJson'    => 'ExtJson',
     ];
 
     public function validate()
@@ -62,6 +62,15 @@ class ReserveMovieSeatRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+        if (null !== $this->bizUid) {
+            $res['BizUid'] = $this->bizUid;
+        }
+        if (null !== $this->extJson) {
+            $res['ExtJson'] = $this->extJson;
+        }
+        if (null !== $this->mobile) {
+            $res['Mobile'] = $this->mobile;
+        }
         if (null !== $this->scheduleId) {
             $res['ScheduleId'] = $this->scheduleId;
         }
@@ -70,15 +79,6 @@ class ReserveMovieSeatRequest extends Model
         }
         if (null !== $this->seatNames) {
             $res['SeatNames'] = $this->seatNames;
-        }
-        if (null !== $this->bizUid) {
-            $res['BizUid'] = $this->bizUid;
-        }
-        if (null !== $this->mobile) {
-            $res['Mobile'] = $this->mobile;
-        }
-        if (null !== $this->extJson) {
-            $res['ExtJson'] = $this->extJson;
         }
 
         return $res;
@@ -95,6 +95,15 @@ class ReserveMovieSeatRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+        if (isset($map['BizUid'])) {
+            $model->bizUid = $map['BizUid'];
+        }
+        if (isset($map['ExtJson'])) {
+            $model->extJson = $map['ExtJson'];
+        }
+        if (isset($map['Mobile'])) {
+            $model->mobile = $map['Mobile'];
+        }
         if (isset($map['ScheduleId'])) {
             $model->scheduleId = $map['ScheduleId'];
         }
@@ -103,15 +112,6 @@ class ReserveMovieSeatRequest extends Model
         }
         if (isset($map['SeatNames'])) {
             $model->seatNames = $map['SeatNames'];
-        }
-        if (isset($map['BizUid'])) {
-            $model->bizUid = $map['BizUid'];
-        }
-        if (isset($map['Mobile'])) {
-            $model->mobile = $map['Mobile'];
-        }
-        if (isset($map['ExtJson'])) {
-            $model->extJson = $map['ExtJson'];
         }
 
         return $model;

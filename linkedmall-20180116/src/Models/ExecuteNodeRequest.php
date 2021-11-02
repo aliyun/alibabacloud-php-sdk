@@ -11,12 +11,7 @@ class ExecuteNodeRequest extends Model
     /**
      * @var string
      */
-    public $processInstanceId;
-
-    /**
-     * @var string
-     */
-    public $processId;
+    public $nodeId;
 
     /**
      * @var string
@@ -26,17 +21,22 @@ class ExecuteNodeRequest extends Model
     /**
      * @var string
      */
-    public $nodeId;
+    public $processId;
+
+    /**
+     * @var string
+     */
+    public $processInstanceId;
 
     /**
      * @var string
      */
     public $requestData;
     protected $_name = [
-        'processInstanceId' => 'ProcessInstanceId',
-        'processId'         => 'ProcessId',
-        'nodeInstanceId'    => 'NodeInstanceId',
         'nodeId'            => 'NodeId',
+        'nodeInstanceId'    => 'NodeInstanceId',
+        'processId'         => 'ProcessId',
+        'processInstanceId' => 'ProcessInstanceId',
         'requestData'       => 'RequestData',
     ];
 
@@ -47,17 +47,17 @@ class ExecuteNodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->processInstanceId) {
-            $res['ProcessInstanceId'] = $this->processInstanceId;
-        }
-        if (null !== $this->processId) {
-            $res['ProcessId'] = $this->processId;
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->nodeInstanceId) {
             $res['NodeInstanceId'] = $this->nodeInstanceId;
         }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
+        if (null !== $this->processId) {
+            $res['ProcessId'] = $this->processId;
+        }
+        if (null !== $this->processInstanceId) {
+            $res['ProcessInstanceId'] = $this->processInstanceId;
         }
         if (null !== $this->requestData) {
             $res['RequestData'] = $this->requestData;
@@ -74,17 +74,17 @@ class ExecuteNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProcessInstanceId'])) {
-            $model->processInstanceId = $map['ProcessInstanceId'];
-        }
-        if (isset($map['ProcessId'])) {
-            $model->processId = $map['ProcessId'];
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['NodeInstanceId'])) {
             $model->nodeInstanceId = $map['NodeInstanceId'];
         }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
+        if (isset($map['ProcessId'])) {
+            $model->processId = $map['ProcessId'];
+        }
+        if (isset($map['ProcessInstanceId'])) {
+            $model->processInstanceId = $map['ProcessInstanceId'];
         }
         if (isset($map['RequestData'])) {
             $model->requestData = $map['RequestData'];

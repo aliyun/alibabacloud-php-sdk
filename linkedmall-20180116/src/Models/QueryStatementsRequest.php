@@ -11,7 +11,22 @@ class QueryStatementsRequest extends Model
     /**
      * @var string
      */
-    public $tenantId;
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $extInfo;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -26,26 +41,6 @@ class QueryStatementsRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var string
-     */
     public $settleStatus;
 
     /**
@@ -56,18 +51,23 @@ class QueryStatementsRequest extends Model
     /**
      * @var string
      */
-    public $extInfo;
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $tenantId;
     protected $_name = [
-        'tenantId'     => 'TenantId',
+        'endTime'      => 'EndTime',
+        'extInfo'      => 'ExtInfo',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
         'payeeIds'     => 'PayeeIds',
         'settleNoes'   => 'SettleNoes',
-        'startTime'    => 'StartTime',
-        'endTime'      => 'EndTime',
-        'pageSize'     => 'PageSize',
-        'pageNumber'   => 'PageNumber',
         'settleStatus' => 'SettleStatus',
         'settleType'   => 'SettleType',
-        'extInfo'      => 'ExtInfo',
+        'startTime'    => 'StartTime',
+        'tenantId'     => 'TenantId',
     ];
 
     public function validate()
@@ -77,8 +77,17 @@ class QueryStatementsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->payeeIds) {
             $res['PayeeIds'] = $this->payeeIds;
@@ -86,26 +95,17 @@ class QueryStatementsRequest extends Model
         if (null !== $this->settleNoes) {
             $res['SettleNoes'] = $this->settleNoes;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->settleStatus) {
             $res['SettleStatus'] = $this->settleStatus;
         }
         if (null !== $this->settleType) {
             $res['SettleType'] = $this->settleType;
         }
-        if (null !== $this->extInfo) {
-            $res['ExtInfo'] = $this->extInfo;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -119,8 +119,17 @@ class QueryStatementsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PayeeIds'])) {
             $model->payeeIds = $map['PayeeIds'];
@@ -128,26 +137,17 @@ class QueryStatementsRequest extends Model
         if (isset($map['SettleNoes'])) {
             $model->settleNoes = $map['SettleNoes'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['SettleStatus'])) {
             $model->settleStatus = $map['SettleStatus'];
         }
         if (isset($map['SettleType'])) {
             $model->settleType = $map['SettleType'];
         }
-        if (isset($map['ExtInfo'])) {
-            $model->extInfo = $map['ExtInfo'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

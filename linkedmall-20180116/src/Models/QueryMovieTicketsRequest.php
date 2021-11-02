@@ -21,17 +21,17 @@ class QueryMovieTicketsRequest extends Model
     /**
      * @var string
      */
-    public $orderId;
+    public $extJson;
 
     /**
      * @var string
      */
-    public $extJson;
+    public $orderId;
     protected $_name = [
         'bizId'   => 'BizId',
         'bizUid'  => 'BizUid',
-        'orderId' => 'OrderId',
         'extJson' => 'ExtJson',
+        'orderId' => 'OrderId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class QueryMovieTicketsRequest extends Model
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class QueryMovieTicketsRequest extends Model
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         return $model;

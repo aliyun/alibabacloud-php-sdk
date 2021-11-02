@@ -11,7 +11,7 @@ class QueryWithholdTradeRequest extends Model
     /**
      * @var string
      */
-    public $tradeNo;
+    public $merchantId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class QueryWithholdTradeRequest extends Model
     /**
      * @var string
      */
-    public $merchantId;
+    public $tradeNo;
     protected $_name = [
-        'tradeNo'    => 'TradeNo',
-        'outTradeNo' => 'OutTradeNo',
         'merchantId' => 'MerchantId',
+        'outTradeNo' => 'OutTradeNo',
+        'tradeNo'    => 'TradeNo',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class QueryWithholdTradeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tradeNo) {
-            $res['TradeNo'] = $this->tradeNo;
+        if (null !== $this->merchantId) {
+            $res['MerchantId'] = $this->merchantId;
         }
         if (null !== $this->outTradeNo) {
             $res['OutTradeNo'] = $this->outTradeNo;
         }
-        if (null !== $this->merchantId) {
-            $res['MerchantId'] = $this->merchantId;
+        if (null !== $this->tradeNo) {
+            $res['TradeNo'] = $this->tradeNo;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class QueryWithholdTradeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TradeNo'])) {
-            $model->tradeNo = $map['TradeNo'];
+        if (isset($map['MerchantId'])) {
+            $model->merchantId = $map['MerchantId'];
         }
         if (isset($map['OutTradeNo'])) {
             $model->outTradeNo = $map['OutTradeNo'];
         }
-        if (isset($map['MerchantId'])) {
-            $model->merchantId = $map['MerchantId'];
+        if (isset($map['TradeNo'])) {
+            $model->tradeNo = $map['TradeNo'];
         }
 
         return $model;

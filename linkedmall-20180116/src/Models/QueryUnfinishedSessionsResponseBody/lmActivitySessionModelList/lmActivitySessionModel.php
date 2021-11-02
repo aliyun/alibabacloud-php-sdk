@@ -11,7 +11,12 @@ class lmActivitySessionModel extends Model
     /**
      * @var string
      */
-    public $subBizCode;
+    public $bizId;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -24,9 +29,9 @@ class lmActivitySessionModel extends Model
     public $endDate;
 
     /**
-     * @var string
+     * @var int
      */
-    public $description;
+    public $lmActivityId;
 
     /**
      * @var int
@@ -36,12 +41,7 @@ class lmActivitySessionModel extends Model
     /**
      * @var string
      */
-    public $bizId;
-
-    /**
-     * @var int
-     */
-    public $lmActivityId;
+    public $name;
 
     /**
      * @var string
@@ -51,17 +51,17 @@ class lmActivitySessionModel extends Model
     /**
      * @var string
      */
-    public $name;
+    public $subBizCode;
     protected $_name = [
-        'subBizCode'   => 'SubBizCode',
+        'bizId'        => 'BizId',
+        'description'  => 'Description',
         'displayDate'  => 'DisplayDate',
         'endDate'      => 'EndDate',
-        'description'  => 'Description',
-        'lmSessionId'  => 'LmSessionId',
-        'bizId'        => 'BizId',
         'lmActivityId' => 'LmActivityId',
-        'startDate'    => 'StartDate',
+        'lmSessionId'  => 'LmSessionId',
         'name'         => 'Name',
+        'startDate'    => 'StartDate',
+        'subBizCode'   => 'SubBizCode',
     ];
 
     public function validate()
@@ -71,8 +71,11 @@ class lmActivitySessionModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subBizCode) {
-            $res['SubBizCode'] = $this->subBizCode;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->displayDate) {
             $res['DisplayDate'] = $this->displayDate;
@@ -80,23 +83,20 @@ class lmActivitySessionModel extends Model
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->lmActivityId) {
+            $res['LmActivityId'] = $this->lmActivityId;
         }
         if (null !== $this->lmSessionId) {
             $res['LmSessionId'] = $this->lmSessionId;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
-        }
-        if (null !== $this->lmActivityId) {
-            $res['LmActivityId'] = $this->lmActivityId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->subBizCode) {
+            $res['SubBizCode'] = $this->subBizCode;
         }
 
         return $res;
@@ -110,8 +110,11 @@ class lmActivitySessionModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubBizCode'])) {
-            $model->subBizCode = $map['SubBizCode'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DisplayDate'])) {
             $model->displayDate = $map['DisplayDate'];
@@ -119,23 +122,20 @@ class lmActivitySessionModel extends Model
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['LmActivityId'])) {
+            $model->lmActivityId = $map['LmActivityId'];
         }
         if (isset($map['LmSessionId'])) {
             $model->lmSessionId = $map['LmSessionId'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
-        }
-        if (isset($map['LmActivityId'])) {
-            $model->lmActivityId = $map['LmActivityId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['SubBizCode'])) {
+            $model->subBizCode = $map['SubBizCode'];
         }
 
         return $model;

@@ -15,6 +15,11 @@ class QueryAddressResponseBody extends Model
     public $code;
 
     /**
+     * @var divisionAddress
+     */
+    public $divisionAddress;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class QueryAddressResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var divisionAddress
-     */
-    public $divisionAddress;
     protected $_name = [
         'code'            => 'Code',
+        'divisionAddress' => 'DivisionAddress',
         'message'         => 'Message',
         'requestId'       => 'RequestId',
-        'divisionAddress' => 'DivisionAddress',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class QueryAddressResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->divisionAddress) {
+            $res['DivisionAddress'] = null !== $this->divisionAddress ? $this->divisionAddress->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->divisionAddress) {
-            $res['DivisionAddress'] = null !== $this->divisionAddress ? $this->divisionAddress->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class QueryAddressResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['DivisionAddress'])) {
+            $model->divisionAddress = divisionAddress::fromMap($map['DivisionAddress']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DivisionAddress'])) {
-            $model->divisionAddress = divisionAddress::fromMap($map['DivisionAddress']);
         }
 
         return $model;

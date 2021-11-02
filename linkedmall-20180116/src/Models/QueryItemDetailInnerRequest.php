@@ -14,26 +14,6 @@ class QueryItemDetailInnerRequest extends Model
     public $bizId;
 
     /**
-     * @var int
-     */
-    public $itemId;
-
-    /**
-     * @var string
-     */
-    public $lmItemId;
-
-    /**
-     * @var bool
-     */
-    public $useAnonymousTbAccount;
-
-    /**
-     * @var string
-     */
-    public $thirdPartyUserId;
-
-    /**
      * @var string
      */
     public $bizUid;
@@ -47,15 +27,35 @@ class QueryItemDetailInnerRequest extends Model
      * @var string
      */
     public $ip;
+
+    /**
+     * @var int
+     */
+    public $itemId;
+
+    /**
+     * @var string
+     */
+    public $lmItemId;
+
+    /**
+     * @var string
+     */
+    public $thirdPartyUserId;
+
+    /**
+     * @var bool
+     */
+    public $useAnonymousTbAccount;
     protected $_name = [
         'bizId'                 => 'BizId',
-        'itemId'                => 'ItemId',
-        'lmItemId'              => 'LmItemId',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
-        'thirdPartyUserId'      => 'ThirdPartyUserId',
         'bizUid'                => 'BizUid',
         'divisionCode'          => 'DivisionCode',
         'ip'                    => 'Ip',
+        'itemId'                => 'ItemId',
+        'lmItemId'              => 'LmItemId',
+        'thirdPartyUserId'      => 'ThirdPartyUserId',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -68,18 +68,6 @@ class QueryItemDetailInnerRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
-        }
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
-        }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
-        }
-        if (null !== $this->thirdPartyUserId) {
-            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
-        }
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
@@ -88,6 +76,18 @@ class QueryItemDetailInnerRequest extends Model
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
+        }
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->thirdPartyUserId) {
+            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
+        }
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -104,18 +104,6 @@ class QueryItemDetailInnerRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
-        }
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
-        }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
-        }
-        if (isset($map['ThirdPartyUserId'])) {
-            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
-        }
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
@@ -124,6 +112,18 @@ class QueryItemDetailInnerRequest extends Model
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
+        }
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
+        }
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['ThirdPartyUserId'])) {
+            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
+        }
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

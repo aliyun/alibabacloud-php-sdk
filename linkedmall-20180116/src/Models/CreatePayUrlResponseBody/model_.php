@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
-     * @var string
-     */
-    public $redirectUrl;
-
-    /**
-     * @var string[]
-     */
-    public $payTradeIds;
-
-    /**
      * @var string[]
      */
     public $lmOrderList;
@@ -27,11 +17,21 @@ class model_ extends Model
      * @var string[]
      */
     public $orderIds;
+
+    /**
+     * @var string[]
+     */
+    public $payTradeIds;
+
+    /**
+     * @var string
+     */
+    public $redirectUrl;
     protected $_name = [
-        'redirectUrl' => 'RedirectUrl',
-        'payTradeIds' => 'PayTradeIds',
         'lmOrderList' => 'LmOrderList',
         'orderIds'    => 'OrderIds',
+        'payTradeIds' => 'PayTradeIds',
+        'redirectUrl' => 'RedirectUrl',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class model_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->redirectUrl) {
-            $res['RedirectUrl'] = $this->redirectUrl;
-        }
-        if (null !== $this->payTradeIds) {
-            $res['PayTradeIds'] = $this->payTradeIds;
-        }
         if (null !== $this->lmOrderList) {
             $res['LmOrderList'] = $this->lmOrderList;
         }
         if (null !== $this->orderIds) {
             $res['OrderIds'] = $this->orderIds;
+        }
+        if (null !== $this->payTradeIds) {
+            $res['PayTradeIds'] = $this->payTradeIds;
+        }
+        if (null !== $this->redirectUrl) {
+            $res['RedirectUrl'] = $this->redirectUrl;
         }
 
         return $res;
@@ -65,14 +65,6 @@ class model_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RedirectUrl'])) {
-            $model->redirectUrl = $map['RedirectUrl'];
-        }
-        if (isset($map['PayTradeIds'])) {
-            if (!empty($map['PayTradeIds'])) {
-                $model->payTradeIds = $map['PayTradeIds'];
-            }
-        }
         if (isset($map['LmOrderList'])) {
             if (!empty($map['LmOrderList'])) {
                 $model->lmOrderList = $map['LmOrderList'];
@@ -82,6 +74,14 @@ class model_ extends Model
             if (!empty($map['OrderIds'])) {
                 $model->orderIds = $map['OrderIds'];
             }
+        }
+        if (isset($map['PayTradeIds'])) {
+            if (!empty($map['PayTradeIds'])) {
+                $model->payTradeIds = $map['PayTradeIds'];
+            }
+        }
+        if (isset($map['RedirectUrl'])) {
+            $model->redirectUrl = $map['RedirectUrl'];
         }
 
         return $model;

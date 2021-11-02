@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class skuPropertys extends Model
 {
     /**
-     * @var string
-     */
-    public $text;
-
-    /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $text;
 
     /**
      * @var values[]
      */
     public $values;
     protected $_name = [
-        'text'   => 'Text',
         'id'     => 'Id',
+        'text'   => 'Text',
         'values' => 'Values',
     ];
 
@@ -36,11 +36,11 @@ class skuPropertys extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->text) {
+            $res['Text'] = $this->text;
         }
         if (null !== $this->values) {
             $res['Values'] = [];
@@ -63,11 +63,11 @@ class skuPropertys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Text'])) {
+            $model->text = $map['Text'];
         }
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {

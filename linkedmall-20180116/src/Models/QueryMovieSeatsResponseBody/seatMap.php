@@ -15,9 +15,14 @@ class seatMap extends Model
     public $maxCanBuy;
 
     /**
-     * @var string
+     * @var int
      */
-    public $tipMessage;
+    public $maxColumn;
+
+    /**
+     * @var int
+     */
+    public $maxLeftPx;
 
     /**
      * @var int
@@ -27,7 +32,22 @@ class seatMap extends Model
     /**
      * @var int
      */
+    public $maxTopPx;
+
+    /**
+     * @var int
+     */
     public $minColumn;
+
+    /**
+     * @var int
+     */
+    public $minLeftPx;
+
+    /**
+     * @var int
+     */
+    public $minRow;
 
     /**
      * @var int
@@ -40,11 +60,6 @@ class seatMap extends Model
     public $notice;
 
     /**
-     * @var int
-     */
-    public $maxColumn;
-
-    /**
      * @var bool
      */
     public $regular;
@@ -52,12 +67,12 @@ class seatMap extends Model
     /**
      * @var int
      */
-    public $maxTopPx;
+    public $seatCount;
 
     /**
-     * @var int
+     * @var seats
      */
-    public $maxLeftPx;
+    public $seats;
 
     /**
      * @var int
@@ -65,40 +80,25 @@ class seatMap extends Model
     public $soldCount;
 
     /**
-     * @var int
+     * @var string
      */
-    public $minRow;
-
-    /**
-     * @var int
-     */
-    public $seatCount;
-
-    /**
-     * @var int
-     */
-    public $minLeftPx;
-
-    /**
-     * @var seats
-     */
-    public $seats;
+    public $tipMessage;
     protected $_name = [
         'maxCanBuy'  => 'MaxCanBuy',
-        'tipMessage' => 'TipMessage',
+        'maxColumn'  => 'MaxColumn',
+        'maxLeftPx'  => 'MaxLeftPx',
         'maxRow'     => 'MaxRow',
+        'maxTopPx'   => 'MaxTopPx',
         'minColumn'  => 'MinColumn',
+        'minLeftPx'  => 'MinLeftPx',
+        'minRow'     => 'MinRow',
         'minTopPx'   => 'MinTopPx',
         'notice'     => 'Notice',
-        'maxColumn'  => 'MaxColumn',
         'regular'    => 'Regular',
-        'maxTopPx'   => 'MaxTopPx',
-        'maxLeftPx'  => 'MaxLeftPx',
-        'soldCount'  => 'SoldCount',
-        'minRow'     => 'MinRow',
         'seatCount'  => 'SeatCount',
-        'minLeftPx'  => 'MinLeftPx',
         'seats'      => 'Seats',
+        'soldCount'  => 'SoldCount',
+        'tipMessage' => 'TipMessage',
     ];
 
     public function validate()
@@ -111,14 +111,26 @@ class seatMap extends Model
         if (null !== $this->maxCanBuy) {
             $res['MaxCanBuy'] = $this->maxCanBuy;
         }
-        if (null !== $this->tipMessage) {
-            $res['TipMessage'] = $this->tipMessage;
+        if (null !== $this->maxColumn) {
+            $res['MaxColumn'] = $this->maxColumn;
+        }
+        if (null !== $this->maxLeftPx) {
+            $res['MaxLeftPx'] = $this->maxLeftPx;
         }
         if (null !== $this->maxRow) {
             $res['MaxRow'] = $this->maxRow;
         }
+        if (null !== $this->maxTopPx) {
+            $res['MaxTopPx'] = $this->maxTopPx;
+        }
         if (null !== $this->minColumn) {
             $res['MinColumn'] = $this->minColumn;
+        }
+        if (null !== $this->minLeftPx) {
+            $res['MinLeftPx'] = $this->minLeftPx;
+        }
+        if (null !== $this->minRow) {
+            $res['MinRow'] = $this->minRow;
         }
         if (null !== $this->minTopPx) {
             $res['MinTopPx'] = $this->minTopPx;
@@ -126,32 +138,20 @@ class seatMap extends Model
         if (null !== $this->notice) {
             $res['Notice'] = $this->notice;
         }
-        if (null !== $this->maxColumn) {
-            $res['MaxColumn'] = $this->maxColumn;
-        }
         if (null !== $this->regular) {
             $res['Regular'] = $this->regular;
-        }
-        if (null !== $this->maxTopPx) {
-            $res['MaxTopPx'] = $this->maxTopPx;
-        }
-        if (null !== $this->maxLeftPx) {
-            $res['MaxLeftPx'] = $this->maxLeftPx;
-        }
-        if (null !== $this->soldCount) {
-            $res['SoldCount'] = $this->soldCount;
-        }
-        if (null !== $this->minRow) {
-            $res['MinRow'] = $this->minRow;
         }
         if (null !== $this->seatCount) {
             $res['SeatCount'] = $this->seatCount;
         }
-        if (null !== $this->minLeftPx) {
-            $res['MinLeftPx'] = $this->minLeftPx;
-        }
         if (null !== $this->seats) {
             $res['Seats'] = null !== $this->seats ? $this->seats->toMap() : null;
+        }
+        if (null !== $this->soldCount) {
+            $res['SoldCount'] = $this->soldCount;
+        }
+        if (null !== $this->tipMessage) {
+            $res['TipMessage'] = $this->tipMessage;
         }
 
         return $res;
@@ -168,14 +168,26 @@ class seatMap extends Model
         if (isset($map['MaxCanBuy'])) {
             $model->maxCanBuy = $map['MaxCanBuy'];
         }
-        if (isset($map['TipMessage'])) {
-            $model->tipMessage = $map['TipMessage'];
+        if (isset($map['MaxColumn'])) {
+            $model->maxColumn = $map['MaxColumn'];
+        }
+        if (isset($map['MaxLeftPx'])) {
+            $model->maxLeftPx = $map['MaxLeftPx'];
         }
         if (isset($map['MaxRow'])) {
             $model->maxRow = $map['MaxRow'];
         }
+        if (isset($map['MaxTopPx'])) {
+            $model->maxTopPx = $map['MaxTopPx'];
+        }
         if (isset($map['MinColumn'])) {
             $model->minColumn = $map['MinColumn'];
+        }
+        if (isset($map['MinLeftPx'])) {
+            $model->minLeftPx = $map['MinLeftPx'];
+        }
+        if (isset($map['MinRow'])) {
+            $model->minRow = $map['MinRow'];
         }
         if (isset($map['MinTopPx'])) {
             $model->minTopPx = $map['MinTopPx'];
@@ -183,32 +195,20 @@ class seatMap extends Model
         if (isset($map['Notice'])) {
             $model->notice = $map['Notice'];
         }
-        if (isset($map['MaxColumn'])) {
-            $model->maxColumn = $map['MaxColumn'];
-        }
         if (isset($map['Regular'])) {
             $model->regular = $map['Regular'];
-        }
-        if (isset($map['MaxTopPx'])) {
-            $model->maxTopPx = $map['MaxTopPx'];
-        }
-        if (isset($map['MaxLeftPx'])) {
-            $model->maxLeftPx = $map['MaxLeftPx'];
-        }
-        if (isset($map['SoldCount'])) {
-            $model->soldCount = $map['SoldCount'];
-        }
-        if (isset($map['MinRow'])) {
-            $model->minRow = $map['MinRow'];
         }
         if (isset($map['SeatCount'])) {
             $model->seatCount = $map['SeatCount'];
         }
-        if (isset($map['MinLeftPx'])) {
-            $model->minLeftPx = $map['MinLeftPx'];
-        }
         if (isset($map['Seats'])) {
             $model->seats = seats::fromMap($map['Seats']);
+        }
+        if (isset($map['SoldCount'])) {
+            $model->soldCount = $map['SoldCount'];
+        }
+        if (isset($map['TipMessage'])) {
+            $model->tipMessage = $map['TipMessage'];
         }
 
         return $model;

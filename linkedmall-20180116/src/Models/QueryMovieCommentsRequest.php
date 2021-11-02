@@ -14,6 +14,11 @@ class QueryMovieCommentsRequest extends Model
     public $bizId;
 
     /**
+     * @var string
+     */
+    public $extJson;
+
+    /**
      * @var int
      */
     public $movieId;
@@ -22,16 +27,11 @@ class QueryMovieCommentsRequest extends Model
      * @var int
      */
     public $pageNumber;
-
-    /**
-     * @var string
-     */
-    public $extJson;
     protected $_name = [
         'bizId'      => 'BizId',
+        'extJson'    => 'ExtJson',
         'movieId'    => 'MovieId',
         'pageNumber' => 'PageNumber',
-        'extJson'    => 'ExtJson',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class QueryMovieCommentsRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+        if (null !== $this->extJson) {
+            $res['ExtJson'] = $this->extJson;
+        }
         if (null !== $this->movieId) {
             $res['MovieId'] = $this->movieId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->extJson) {
-            $res['ExtJson'] = $this->extJson;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class QueryMovieCommentsRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+        if (isset($map['ExtJson'])) {
+            $model->extJson = $map['ExtJson'];
+        }
         if (isset($map['MovieId'])) {
             $model->movieId = $map['MovieId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['ExtJson'])) {
-            $model->extJson = $map['ExtJson'];
         }
 
         return $model;

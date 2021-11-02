@@ -16,16 +16,16 @@ class QueryMessagesRequest extends Model
     /**
      * @var string
      */
-    public $topic;
+    public $extJson;
 
     /**
      * @var string
      */
-    public $extJson;
+    public $topic;
     protected $_name = [
         'bizId'   => 'BizId',
-        'topic'   => 'Topic',
         'extJson' => 'ExtJson',
+        'topic'   => 'Topic',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class QueryMessagesRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class QueryMessagesRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

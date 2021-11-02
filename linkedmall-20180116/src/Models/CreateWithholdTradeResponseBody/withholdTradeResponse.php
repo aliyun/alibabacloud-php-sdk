@@ -11,27 +11,27 @@ class withholdTradeResponse extends Model
     /**
      * @var string
      */
-    public $paymentDate;
-
-    /**
-     * @var string
-     */
-    public $tradeNo;
-
-    /**
-     * @var string
-     */
     public $outRequestNo;
 
     /**
      * @var string
      */
     public $outTradeNo;
+
+    /**
+     * @var string
+     */
+    public $paymentDate;
+
+    /**
+     * @var string
+     */
+    public $tradeNo;
     protected $_name = [
-        'paymentDate'  => 'PaymentDate',
-        'tradeNo'      => 'TradeNo',
         'outRequestNo' => 'OutRequestNo',
         'outTradeNo'   => 'OutTradeNo',
+        'paymentDate'  => 'PaymentDate',
+        'tradeNo'      => 'TradeNo',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class withholdTradeResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->paymentDate) {
-            $res['PaymentDate'] = $this->paymentDate;
-        }
-        if (null !== $this->tradeNo) {
-            $res['TradeNo'] = $this->tradeNo;
-        }
         if (null !== $this->outRequestNo) {
             $res['OutRequestNo'] = $this->outRequestNo;
         }
         if (null !== $this->outTradeNo) {
             $res['OutTradeNo'] = $this->outTradeNo;
+        }
+        if (null !== $this->paymentDate) {
+            $res['PaymentDate'] = $this->paymentDate;
+        }
+        if (null !== $this->tradeNo) {
+            $res['TradeNo'] = $this->tradeNo;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class withholdTradeResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PaymentDate'])) {
-            $model->paymentDate = $map['PaymentDate'];
-        }
-        if (isset($map['TradeNo'])) {
-            $model->tradeNo = $map['TradeNo'];
-        }
         if (isset($map['OutRequestNo'])) {
             $model->outRequestNo = $map['OutRequestNo'];
         }
         if (isset($map['OutTradeNo'])) {
             $model->outTradeNo = $map['OutTradeNo'];
+        }
+        if (isset($map['PaymentDate'])) {
+            $model->paymentDate = $map['PaymentDate'];
+        }
+        if (isset($map['TradeNo'])) {
+            $model->tradeNo = $map['TradeNo'];
         }
 
         return $model;

@@ -11,11 +11,6 @@ class divisionAddress extends Model
     /**
      * @var int
      */
-    public $parentId;
-
-    /**
-     * @var int
-     */
     public $divisionCode;
 
     /**
@@ -27,11 +22,16 @@ class divisionAddress extends Model
      * @var string
      */
     public $divisionName;
+
+    /**
+     * @var int
+     */
+    public $parentId;
     protected $_name = [
-        'parentId'      => 'ParentId',
         'divisionCode'  => 'DivisionCode',
         'divisionLevel' => 'DivisionLevel',
         'divisionName'  => 'DivisionName',
+        'parentId'      => 'ParentId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class divisionAddress extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
         if (null !== $this->divisionCode) {
             $res['DivisionCode'] = $this->divisionCode;
         }
@@ -52,6 +49,9 @@ class divisionAddress extends Model
         }
         if (null !== $this->divisionName) {
             $res['DivisionName'] = $this->divisionName;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class divisionAddress extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
         if (isset($map['DivisionCode'])) {
             $model->divisionCode = $map['DivisionCode'];
         }
@@ -76,6 +73,9 @@ class divisionAddress extends Model
         }
         if (isset($map['DivisionName'])) {
             $model->divisionName = $map['DivisionName'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
         }
 
         return $model;

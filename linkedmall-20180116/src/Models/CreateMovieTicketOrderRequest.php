@@ -21,7 +21,7 @@ class CreateMovieTicketOrderRequest extends Model
     /**
      * @var string
      */
-    public $outTradeId;
+    public $extJson;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class CreateMovieTicketOrderRequest extends Model
     /**
      * @var string
      */
-    public $extJson;
+    public $outTradeId;
     protected $_name = [
         'bizId'          => 'BizId',
         'bizUid'         => 'BizUid',
-        'outTradeId'     => 'OutTradeId',
-        'lockSeatAppKey' => 'LockSeatAppKey',
         'extJson'        => 'ExtJson',
+        'lockSeatAppKey' => 'LockSeatAppKey',
+        'outTradeId'     => 'OutTradeId',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class CreateMovieTicketOrderRequest extends Model
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
-        if (null !== $this->outTradeId) {
-            $res['OutTradeId'] = $this->outTradeId;
+        if (null !== $this->extJson) {
+            $res['ExtJson'] = $this->extJson;
         }
         if (null !== $this->lockSeatAppKey) {
             $res['LockSeatAppKey'] = $this->lockSeatAppKey;
         }
-        if (null !== $this->extJson) {
-            $res['ExtJson'] = $this->extJson;
+        if (null !== $this->outTradeId) {
+            $res['OutTradeId'] = $this->outTradeId;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class CreateMovieTicketOrderRequest extends Model
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
-        if (isset($map['OutTradeId'])) {
-            $model->outTradeId = $map['OutTradeId'];
+        if (isset($map['ExtJson'])) {
+            $model->extJson = $map['ExtJson'];
         }
         if (isset($map['LockSeatAppKey'])) {
             $model->lockSeatAppKey = $map['LockSeatAppKey'];
         }
-        if (isset($map['ExtJson'])) {
-            $model->extJson = $map['ExtJson'];
+        if (isset($map['OutTradeId'])) {
+            $model->outTradeId = $map['OutTradeId'];
         }
 
         return $model;

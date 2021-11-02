@@ -20,6 +20,11 @@ class CreatePayUrlResponseBody extends Model
     public $message;
 
     /**
+     * @var model_
+     */
+    public $model;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -28,17 +33,12 @@ class CreatePayUrlResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var model_
-     */
-    public $model;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
+        'model'     => 'Model',
         'requestId' => 'RequestId',
         'success'   => 'Success',
-        'model'     => 'Model',
     ];
 
     public function validate()
@@ -54,14 +54,14 @@ class CreatePayUrlResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->model) {
+            $res['Model'] = null !== $this->model ? $this->model->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->model) {
-            $res['Model'] = null !== $this->model ? $this->model->toMap() : null;
         }
 
         return $res;
@@ -81,14 +81,14 @@ class CreatePayUrlResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['Model'])) {
+            $model->model = model_::fromMap($map['Model']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Model'])) {
-            $model->model = model_::fromMap($map['Model']);
         }
 
         return $model;

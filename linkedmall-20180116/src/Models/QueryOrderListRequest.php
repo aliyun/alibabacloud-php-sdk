@@ -11,6 +11,11 @@ class QueryOrderListRequest extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var string
+     */
     public $bizId;
 
     /**
@@ -19,9 +24,9 @@ class QueryOrderListRequest extends Model
     public $bizUid;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $filterOption;
 
     /**
      * @var int
@@ -29,14 +34,9 @@ class QueryOrderListRequest extends Model
     public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $filterOption;
-
-    /**
-     * @var bool
-     */
-    public $useAnonymousTbAccount;
+    public $pageSize;
 
     /**
      * @var string
@@ -44,18 +44,18 @@ class QueryOrderListRequest extends Model
     public $thirdPartyUserId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $accountType;
+    public $useAnonymousTbAccount;
     protected $_name = [
+        'accountType'           => 'AccountType',
         'bizId'                 => 'BizId',
         'bizUid'                => 'BizUid',
-        'pageSize'              => 'PageSize',
-        'pageNumber'            => 'PageNumber',
         'filterOption'          => 'FilterOption',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
+        'pageNumber'            => 'PageNumber',
+        'pageSize'              => 'PageSize',
         'thirdPartyUserId'      => 'ThirdPartyUserId',
-        'accountType'           => 'AccountType',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class QueryOrderListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->filterOption) {
+            $res['FilterOption'] = $this->filterOption;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->filterOption) {
-            $res['FilterOption'] = $this->filterOption;
-        }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->thirdPartyUserId) {
             $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
         }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class QueryOrderListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['FilterOption'])) {
+            $model->filterOption = $map['FilterOption'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['FilterOption'])) {
-            $model->filterOption = $map['FilterOption'];
-        }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ThirdPartyUserId'])) {
             $model->thirdPartyUserId = $map['ThirdPartyUserId'];
         }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

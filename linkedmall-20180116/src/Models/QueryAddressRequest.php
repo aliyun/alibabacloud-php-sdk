@@ -16,16 +16,16 @@ class QueryAddressRequest extends Model
     /**
      * @var string
      */
-    public $ip;
+    public $divisionCode;
 
     /**
      * @var string
      */
-    public $divisionCode;
+    public $ip;
     protected $_name = [
         'bizId'        => 'BizId',
-        'ip'           => 'Ip',
         'divisionCode' => 'DivisionCode',
+        'ip'           => 'Ip',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class QueryAddressRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
         if (null !== $this->divisionCode) {
             $res['DivisionCode'] = $this->divisionCode;
+        }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class QueryAddressRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
         if (isset($map['DivisionCode'])) {
             $model->divisionCode = $map['DivisionCode'];
+        }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
 
         return $model;

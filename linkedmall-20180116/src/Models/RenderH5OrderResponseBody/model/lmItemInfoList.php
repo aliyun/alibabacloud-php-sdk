@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class lmItemInfoList extends Model
 {
     /**
-     * @var string
-     */
-    public $tbShopName;
-
-    /**
      * @var int
      */
-    public $sellerId;
-
-    /**
-     * @var string
-     */
-    public $lmItemId;
-
-    /**
-     * @var string
-     */
-    public $message;
+    public $actualPrice;
 
     /**
      * @var bool
@@ -39,6 +24,11 @@ class lmItemInfoList extends Model
     public $cash;
 
     /**
+     * @var mixed[]
+     */
+    public $features;
+
+    /**
      * @var int
      */
     public $itemId;
@@ -46,32 +36,12 @@ class lmItemInfoList extends Model
     /**
      * @var string
      */
-    public $virtualItemType;
-
-    /**
-     * @var string
-     */
     public $itemName;
 
     /**
-     * @var int
-     */
-    public $actualPrice;
-
-    /**
      * @var string
      */
-    public $skuName;
-
-    /**
-     * @var int
-     */
-    public $skuId;
-
-    /**
-     * @var int
-     */
-    public $points;
+    public $itemPicUrl;
 
     /**
      * @var string
@@ -81,7 +51,17 @@ class lmItemInfoList extends Model
     /**
      * @var string
      */
-    public $sellerNick;
+    public $lmItemId;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var int
+     */
+    public $points;
 
     /**
      * @var int
@@ -89,33 +69,53 @@ class lmItemInfoList extends Model
     public $quantity;
 
     /**
-     * @var mixed[]
+     * @var int
      */
-    public $features;
+    public $sellerId;
 
     /**
      * @var string
      */
-    public $itemPicUrl;
+    public $sellerNick;
+
+    /**
+     * @var int
+     */
+    public $skuId;
+
+    /**
+     * @var string
+     */
+    public $skuName;
+
+    /**
+     * @var string
+     */
+    public $tbShopName;
+
+    /**
+     * @var string
+     */
+    public $virtualItemType;
     protected $_name = [
-        'tbShopName'      => 'TbShopName',
-        'sellerId'        => 'SellerId',
-        'lmItemId'        => 'LmItemId',
-        'message'         => 'Message',
+        'actualPrice'     => 'ActualPrice',
         'canSell'         => 'CanSell',
         'cash'            => 'Cash',
-        'itemId'          => 'ItemId',
-        'virtualItemType' => 'VirtualItemType',
-        'itemName'        => 'ItemName',
-        'actualPrice'     => 'ActualPrice',
-        'skuName'         => 'SkuName',
-        'skuId'           => 'SkuId',
-        'points'          => 'Points',
-        'itemUrl'         => 'ItemUrl',
-        'sellerNick'      => 'SellerNick',
-        'quantity'        => 'Quantity',
         'features'        => 'Features',
+        'itemId'          => 'ItemId',
+        'itemName'        => 'ItemName',
         'itemPicUrl'      => 'ItemPicUrl',
+        'itemUrl'         => 'ItemUrl',
+        'lmItemId'        => 'LmItemId',
+        'message'         => 'Message',
+        'points'          => 'Points',
+        'quantity'        => 'Quantity',
+        'sellerId'        => 'SellerId',
+        'sellerNick'      => 'SellerNick',
+        'skuId'           => 'SkuId',
+        'skuName'         => 'SkuName',
+        'tbShopName'      => 'TbShopName',
+        'virtualItemType' => 'VirtualItemType',
     ];
 
     public function validate()
@@ -125,17 +125,8 @@ class lmItemInfoList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tbShopName) {
-            $res['TbShopName'] = $this->tbShopName;
-        }
-        if (null !== $this->sellerId) {
-            $res['SellerId'] = $this->sellerId;
-        }
-        if (null !== $this->lmItemId) {
-            $res['LmItemId'] = $this->lmItemId;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->actualPrice) {
+            $res['ActualPrice'] = $this->actualPrice;
         }
         if (null !== $this->canSell) {
             $res['CanSell'] = $this->canSell;
@@ -143,41 +134,50 @@ class lmItemInfoList extends Model
         if (null !== $this->cash) {
             $res['Cash'] = $this->cash;
         }
+        if (null !== $this->features) {
+            $res['Features'] = $this->features;
+        }
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
-        }
-        if (null !== $this->virtualItemType) {
-            $res['VirtualItemType'] = $this->virtualItemType;
         }
         if (null !== $this->itemName) {
             $res['ItemName'] = $this->itemName;
         }
-        if (null !== $this->actualPrice) {
-            $res['ActualPrice'] = $this->actualPrice;
-        }
-        if (null !== $this->skuName) {
-            $res['SkuName'] = $this->skuName;
-        }
-        if (null !== $this->skuId) {
-            $res['SkuId'] = $this->skuId;
-        }
-        if (null !== $this->points) {
-            $res['Points'] = $this->points;
+        if (null !== $this->itemPicUrl) {
+            $res['ItemPicUrl'] = $this->itemPicUrl;
         }
         if (null !== $this->itemUrl) {
             $res['ItemUrl'] = $this->itemUrl;
         }
-        if (null !== $this->sellerNick) {
-            $res['SellerNick'] = $this->sellerNick;
+        if (null !== $this->lmItemId) {
+            $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->points) {
+            $res['Points'] = $this->points;
         }
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
         }
-        if (null !== $this->features) {
-            $res['Features'] = $this->features;
+        if (null !== $this->sellerId) {
+            $res['SellerId'] = $this->sellerId;
         }
-        if (null !== $this->itemPicUrl) {
-            $res['ItemPicUrl'] = $this->itemPicUrl;
+        if (null !== $this->sellerNick) {
+            $res['SellerNick'] = $this->sellerNick;
+        }
+        if (null !== $this->skuId) {
+            $res['SkuId'] = $this->skuId;
+        }
+        if (null !== $this->skuName) {
+            $res['SkuName'] = $this->skuName;
+        }
+        if (null !== $this->tbShopName) {
+            $res['TbShopName'] = $this->tbShopName;
+        }
+        if (null !== $this->virtualItemType) {
+            $res['VirtualItemType'] = $this->virtualItemType;
         }
 
         return $res;
@@ -191,17 +191,8 @@ class lmItemInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TbShopName'])) {
-            $model->tbShopName = $map['TbShopName'];
-        }
-        if (isset($map['SellerId'])) {
-            $model->sellerId = $map['SellerId'];
-        }
-        if (isset($map['LmItemId'])) {
-            $model->lmItemId = $map['LmItemId'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['ActualPrice'])) {
+            $model->actualPrice = $map['ActualPrice'];
         }
         if (isset($map['CanSell'])) {
             $model->canSell = $map['CanSell'];
@@ -209,41 +200,50 @@ class lmItemInfoList extends Model
         if (isset($map['Cash'])) {
             $model->cash = $map['Cash'];
         }
+        if (isset($map['Features'])) {
+            $model->features = $map['Features'];
+        }
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
-        }
-        if (isset($map['VirtualItemType'])) {
-            $model->virtualItemType = $map['VirtualItemType'];
         }
         if (isset($map['ItemName'])) {
             $model->itemName = $map['ItemName'];
         }
-        if (isset($map['ActualPrice'])) {
-            $model->actualPrice = $map['ActualPrice'];
-        }
-        if (isset($map['SkuName'])) {
-            $model->skuName = $map['SkuName'];
-        }
-        if (isset($map['SkuId'])) {
-            $model->skuId = $map['SkuId'];
-        }
-        if (isset($map['Points'])) {
-            $model->points = $map['Points'];
+        if (isset($map['ItemPicUrl'])) {
+            $model->itemPicUrl = $map['ItemPicUrl'];
         }
         if (isset($map['ItemUrl'])) {
             $model->itemUrl = $map['ItemUrl'];
         }
-        if (isset($map['SellerNick'])) {
-            $model->sellerNick = $map['SellerNick'];
+        if (isset($map['LmItemId'])) {
+            $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['Points'])) {
+            $model->points = $map['Points'];
         }
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
         }
-        if (isset($map['Features'])) {
-            $model->features = $map['Features'];
+        if (isset($map['SellerId'])) {
+            $model->sellerId = $map['SellerId'];
         }
-        if (isset($map['ItemPicUrl'])) {
-            $model->itemPicUrl = $map['ItemPicUrl'];
+        if (isset($map['SellerNick'])) {
+            $model->sellerNick = $map['SellerNick'];
+        }
+        if (isset($map['SkuId'])) {
+            $model->skuId = $map['SkuId'];
+        }
+        if (isset($map['SkuName'])) {
+            $model->skuName = $map['SkuName'];
+        }
+        if (isset($map['TbShopName'])) {
+            $model->tbShopName = $map['TbShopName'];
+        }
+        if (isset($map['VirtualItemType'])) {
+            $model->virtualItemType = $map['VirtualItemType'];
         }
 
         return $model;

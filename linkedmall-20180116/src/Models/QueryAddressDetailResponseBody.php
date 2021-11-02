@@ -15,6 +15,11 @@ class QueryAddressDetailResponseBody extends Model
     public $code;
 
     /**
+     * @var deliveryAddress
+     */
+    public $deliveryAddress;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class QueryAddressDetailResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var deliveryAddress
-     */
-    public $deliveryAddress;
     protected $_name = [
         'code'            => 'Code',
+        'deliveryAddress' => 'DeliveryAddress',
         'message'         => 'Message',
         'requestId'       => 'RequestId',
-        'deliveryAddress' => 'DeliveryAddress',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class QueryAddressDetailResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->deliveryAddress) {
+            $res['DeliveryAddress'] = null !== $this->deliveryAddress ? $this->deliveryAddress->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->deliveryAddress) {
-            $res['DeliveryAddress'] = null !== $this->deliveryAddress ? $this->deliveryAddress->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class QueryAddressDetailResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['DeliveryAddress'])) {
+            $model->deliveryAddress = deliveryAddress::fromMap($map['DeliveryAddress']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DeliveryAddress'])) {
-            $model->deliveryAddress = deliveryAddress::fromMap($map['DeliveryAddress']);
         }
 
         return $model;

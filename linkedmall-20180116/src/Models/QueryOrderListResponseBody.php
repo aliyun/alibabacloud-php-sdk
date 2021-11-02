@@ -13,12 +13,12 @@ class QueryOrderListResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $code;
 
     /**
-     * @var string
+     * @var lmOrderList
      */
-    public $code;
+    public $lmOrderList;
 
     /**
      * @var string
@@ -28,17 +28,12 @@ class QueryOrderListResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
     public $pageNumber;
 
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageSize;
 
     /**
      * @var postFee
@@ -46,18 +41,23 @@ class QueryOrderListResponseBody extends Model
     public $postFee;
 
     /**
-     * @var lmOrderList
+     * @var string
      */
-    public $lmOrderList;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'code'        => 'Code',
-        'message'     => 'Message',
-        'pageSize'    => 'PageSize',
-        'pageNumber'  => 'PageNumber',
-        'totalCount'  => 'TotalCount',
-        'postFee'     => 'PostFee',
         'lmOrderList' => 'LmOrderList',
+        'message'     => 'Message',
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
+        'postFee'     => 'PostFee',
+        'requestId'   => 'RequestId',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -67,29 +67,29 @@ class QueryOrderListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->lmOrderList) {
+            $res['LmOrderList'] = null !== $this->lmOrderList ? $this->lmOrderList->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->postFee) {
             $res['PostFee'] = null !== $this->postFee ? $this->postFee->toMap() : null;
         }
-        if (null !== $this->lmOrderList) {
-            $res['LmOrderList'] = null !== $this->lmOrderList ? $this->lmOrderList->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -103,29 +103,29 @@ class QueryOrderListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['LmOrderList'])) {
+            $model->lmOrderList = lmOrderList::fromMap($map['LmOrderList']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PostFee'])) {
             $model->postFee = postFee::fromMap($map['PostFee']);
         }
-        if (isset($map['LmOrderList'])) {
-            $model->lmOrderList = lmOrderList::fromMap($map['LmOrderList']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

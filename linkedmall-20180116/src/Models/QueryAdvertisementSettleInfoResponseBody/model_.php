@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
-     * @var int
+     * @var advertiseSettleInfoList[]
      */
-    public $pageSize;
+    public $advertiseSettleInfoList;
 
     /**
      * @var int
@@ -22,17 +22,17 @@ class model_ extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageSize;
 
     /**
-     * @var advertiseSettleInfoList[]
+     * @var int
      */
-    public $advertiseSettleInfoList;
+    public $totalCount;
     protected $_name = [
-        'pageSize'                => 'PageSize',
-        'pageNumber'              => 'PageNumber',
-        'totalCount'              => 'TotalCount',
         'advertiseSettleInfoList' => 'AdvertiseSettleInfoList',
+        'pageNumber'              => 'PageNumber',
+        'pageSize'                => 'PageSize',
+        'totalCount'              => 'TotalCount',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class model_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->advertiseSettleInfoList) {
             $res['AdvertiseSettleInfoList'] = [];
             if (null !== $this->advertiseSettleInfoList && \is_array($this->advertiseSettleInfoList)) {
@@ -59,6 +50,15 @@ class model_ extends Model
                     $res['AdvertiseSettleInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class model_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['AdvertiseSettleInfoList'])) {
             if (!empty($map['AdvertiseSettleInfoList'])) {
                 $model->advertiseSettleInfoList = [];
@@ -89,6 +80,15 @@ class model_ extends Model
                     $model->advertiseSettleInfoList[$n++] = null !== $item ? advertiseSettleInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

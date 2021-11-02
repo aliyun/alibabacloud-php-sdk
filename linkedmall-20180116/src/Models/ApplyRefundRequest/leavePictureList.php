@@ -11,15 +11,15 @@ class leavePictureList extends Model
     /**
      * @var string
      */
-    public $picture;
+    public $desc;
 
     /**
      * @var string
      */
-    public $desc;
+    public $picture;
     protected $_name = [
-        'picture' => 'Picture',
         'desc'    => 'Desc',
+        'picture' => 'Picture',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class leavePictureList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->picture) {
-            $res['Picture'] = $this->picture;
-        }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->picture) {
+            $res['Picture'] = $this->picture;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class leavePictureList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Picture'])) {
-            $model->picture = $map['Picture'];
-        }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['Picture'])) {
+            $model->picture = $map['Picture'];
         }
 
         return $model;

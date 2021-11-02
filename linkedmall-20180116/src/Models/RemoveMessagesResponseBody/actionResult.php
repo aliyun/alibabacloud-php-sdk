@@ -16,16 +16,16 @@ class actionResult extends Model
     /**
      * @var string
      */
-    public $returnValue;
+    public $returnMessage;
 
     /**
      * @var string
      */
-    public $returnMessage;
+    public $returnValue;
     protected $_name = [
         'returnCode'    => 'ReturnCode',
-        'returnValue'   => 'ReturnValue',
         'returnMessage' => 'ReturnMessage',
+        'returnValue'   => 'ReturnValue',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class actionResult extends Model
         if (null !== $this->returnCode) {
             $res['ReturnCode'] = $this->returnCode;
         }
-        if (null !== $this->returnValue) {
-            $res['ReturnValue'] = $this->returnValue;
-        }
         if (null !== $this->returnMessage) {
             $res['ReturnMessage'] = $this->returnMessage;
+        }
+        if (null !== $this->returnValue) {
+            $res['ReturnValue'] = $this->returnValue;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class actionResult extends Model
         if (isset($map['ReturnCode'])) {
             $model->returnCode = $map['ReturnCode'];
         }
-        if (isset($map['ReturnValue'])) {
-            $model->returnValue = $map['ReturnValue'];
-        }
         if (isset($map['ReturnMessage'])) {
             $model->returnMessage = $map['ReturnMessage'];
+        }
+        if (isset($map['ReturnValue'])) {
+            $model->returnValue = $map['ReturnValue'];
         }
 
         return $model;

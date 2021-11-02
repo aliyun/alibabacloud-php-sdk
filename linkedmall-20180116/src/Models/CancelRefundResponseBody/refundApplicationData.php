@@ -11,21 +11,21 @@ class refundApplicationData extends Model
     /**
      * @var int
      */
+    public $disputeStatus;
+
+    /**
+     * @var int
+     */
     public $disputeType;
 
     /**
      * @var string
      */
     public $subLmOrderId;
-
-    /**
-     * @var int
-     */
-    public $disputeStatus;
     protected $_name = [
+        'disputeStatus' => 'DisputeStatus',
         'disputeType'   => 'DisputeType',
         'subLmOrderId'  => 'SubLmOrderId',
-        'disputeStatus' => 'DisputeStatus',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class refundApplicationData extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->disputeStatus) {
+            $res['DisputeStatus'] = $this->disputeStatus;
+        }
         if (null !== $this->disputeType) {
             $res['DisputeType'] = $this->disputeType;
         }
         if (null !== $this->subLmOrderId) {
             $res['SubLmOrderId'] = $this->subLmOrderId;
-        }
-        if (null !== $this->disputeStatus) {
-            $res['DisputeStatus'] = $this->disputeStatus;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class refundApplicationData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisputeStatus'])) {
+            $model->disputeStatus = $map['DisputeStatus'];
+        }
         if (isset($map['DisputeType'])) {
             $model->disputeType = $map['DisputeType'];
         }
         if (isset($map['SubLmOrderId'])) {
             $model->subLmOrderId = $map['SubLmOrderId'];
-        }
-        if (isset($map['DisputeStatus'])) {
-            $model->disputeStatus = $map['DisputeStatus'];
         }
 
         return $model;

@@ -21,7 +21,7 @@ class refundResponse extends Model
     /**
      * @var string
      */
-    public $tradeNo;
+    public $outRequestNo;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class refundResponse extends Model
     /**
      * @var string
      */
-    public $outRequestNo;
+    public $tradeNo;
     protected $_name = [
         'fundChange'   => 'FundChange',
         'gmtRefundPay' => 'GmtRefundPay',
-        'tradeNo'      => 'TradeNo',
-        'outTradeNo'   => 'OutTradeNo',
         'outRequestNo' => 'OutRequestNo',
+        'outTradeNo'   => 'OutTradeNo',
+        'tradeNo'      => 'TradeNo',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class refundResponse extends Model
         if (null !== $this->gmtRefundPay) {
             $res['GmtRefundPay'] = $this->gmtRefundPay;
         }
-        if (null !== $this->tradeNo) {
-            $res['TradeNo'] = $this->tradeNo;
+        if (null !== $this->outRequestNo) {
+            $res['OutRequestNo'] = $this->outRequestNo;
         }
         if (null !== $this->outTradeNo) {
             $res['OutTradeNo'] = $this->outTradeNo;
         }
-        if (null !== $this->outRequestNo) {
-            $res['OutRequestNo'] = $this->outRequestNo;
+        if (null !== $this->tradeNo) {
+            $res['TradeNo'] = $this->tradeNo;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class refundResponse extends Model
         if (isset($map['GmtRefundPay'])) {
             $model->gmtRefundPay = $map['GmtRefundPay'];
         }
-        if (isset($map['TradeNo'])) {
-            $model->tradeNo = $map['TradeNo'];
+        if (isset($map['OutRequestNo'])) {
+            $model->outRequestNo = $map['OutRequestNo'];
         }
         if (isset($map['OutTradeNo'])) {
             $model->outTradeNo = $map['OutTradeNo'];
         }
-        if (isset($map['OutRequestNo'])) {
-            $model->outRequestNo = $map['OutRequestNo'];
+        if (isset($map['TradeNo'])) {
+            $model->tradeNo = $map['TradeNo'];
         }
 
         return $model;

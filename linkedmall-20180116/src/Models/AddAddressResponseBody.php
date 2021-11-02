@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddAddressResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $addressId;
+
+    /**
      * @var string
      */
     public $code;
@@ -22,16 +27,11 @@ class AddAddressResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $addressId;
     protected $_name = [
+        'addressId' => 'AddressId',
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'addressId' => 'AddressId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class AddAddressResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressId) {
+            $res['AddressId'] = $this->addressId;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -49,9 +52,6 @@ class AddAddressResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->addressId) {
-            $res['AddressId'] = $this->addressId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class AddAddressResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressId'])) {
+            $model->addressId = $map['AddressId'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -73,9 +76,6 @@ class AddAddressResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['AddressId'])) {
-            $model->addressId = $map['AddressId'];
         }
 
         return $model;

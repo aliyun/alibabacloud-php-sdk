@@ -16,7 +16,7 @@ class SyncMerchantInfoRequest extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $itemList;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class SyncMerchantInfoRequest extends Model
     /**
      * @var string
      */
-    public $itemList;
+    public $taskId;
 
     /**
      * @var int
@@ -34,9 +34,9 @@ class SyncMerchantInfoRequest extends Model
     public $timeStamp;
     protected $_name = [
         'bizId'      => 'BizId',
-        'taskId'     => 'TaskId',
-        'sellerNick' => 'SellerNick',
         'itemList'   => 'ItemList',
+        'sellerNick' => 'SellerNick',
+        'taskId'     => 'TaskId',
         'timeStamp'  => 'TimeStamp',
     ];
 
@@ -50,14 +50,14 @@ class SyncMerchantInfoRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->itemList) {
+            $res['ItemList'] = $this->itemList;
         }
         if (null !== $this->sellerNick) {
             $res['SellerNick'] = $this->sellerNick;
         }
-        if (null !== $this->itemList) {
-            $res['ItemList'] = $this->itemList;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
@@ -77,14 +77,14 @@ class SyncMerchantInfoRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['ItemList'])) {
+            $model->itemList = $map['ItemList'];
         }
         if (isset($map['SellerNick'])) {
             $model->sellerNick = $map['SellerNick'];
         }
-        if (isset($map['ItemList'])) {
-            $model->itemList = $map['ItemList'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];

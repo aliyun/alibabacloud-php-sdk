@@ -14,6 +14,11 @@ class deliveryInfos extends Model
     public $displayName;
 
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var int
      */
     public $postFee;
@@ -22,16 +27,11 @@ class deliveryInfos extends Model
      * @var int
      */
     public $serviceType;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
         'displayName' => 'DisplayName',
+        'id'          => 'Id',
         'postFee'     => 'PostFee',
         'serviceType' => 'ServiceType',
-        'id'          => 'Id',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class deliveryInfos extends Model
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->postFee) {
             $res['PostFee'] = $this->postFee;
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class deliveryInfos extends Model
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['PostFee'])) {
             $model->postFee = $map['PostFee'];
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

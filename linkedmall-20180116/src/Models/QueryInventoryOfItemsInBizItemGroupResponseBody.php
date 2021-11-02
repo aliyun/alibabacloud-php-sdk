@@ -15,6 +15,11 @@ class QueryInventoryOfItemsInBizItemGroupResponseBody extends Model
     public $code;
 
     /**
+     * @var itemList[]
+     */
+    public $itemList;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class QueryInventoryOfItemsInBizItemGroupResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var itemList[]
-     */
-    public $itemList;
     protected $_name = [
         'code'      => 'Code',
+        'itemList'  => 'ItemList',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'itemList'  => 'ItemList',
     ];
 
     public function validate()
@@ -45,12 +45,6 @@ class QueryInventoryOfItemsInBizItemGroupResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->itemList) {
             $res['ItemList'] = [];
             if (null !== $this->itemList && \is_array($this->itemList)) {
@@ -59,6 +53,12 @@ class QueryInventoryOfItemsInBizItemGroupResponseBody extends Model
                     $res['ItemList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class QueryInventoryOfItemsInBizItemGroupResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ItemList'])) {
             if (!empty($map['ItemList'])) {
                 $model->itemList = [];
@@ -89,6 +83,12 @@ class QueryInventoryOfItemsInBizItemGroupResponseBody extends Model
                     $model->itemList[$n++] = null !== $item ? itemList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

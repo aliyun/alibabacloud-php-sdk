@@ -11,12 +11,17 @@ class queryWithholdTradeResponse extends Model
     /**
      * @var string
      */
-    public $settleStatus;
+    public $outTradeNo;
 
     /**
      * @var string
      */
-    public $tradeStatus;
+    public $paymentDate;
+
+    /**
+     * @var string
+     */
+    public $settleStatus;
 
     /**
      * @var string
@@ -31,19 +36,14 @@ class queryWithholdTradeResponse extends Model
     /**
      * @var string
      */
-    public $paymentDate;
-
-    /**
-     * @var string
-     */
-    public $outTradeNo;
+    public $tradeStatus;
     protected $_name = [
+        'outTradeNo'   => 'OutTradeNo',
+        'paymentDate'  => 'PaymentDate',
         'settleStatus' => 'SettleStatus',
-        'tradeStatus'  => 'TradeStatus',
         'totalAmount'  => 'TotalAmount',
         'tradeNo'      => 'TradeNo',
-        'paymentDate'  => 'PaymentDate',
-        'outTradeNo'   => 'OutTradeNo',
+        'tradeStatus'  => 'TradeStatus',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class queryWithholdTradeResponse extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->outTradeNo) {
+            $res['OutTradeNo'] = $this->outTradeNo;
+        }
+        if (null !== $this->paymentDate) {
+            $res['PaymentDate'] = $this->paymentDate;
+        }
         if (null !== $this->settleStatus) {
             $res['SettleStatus'] = $this->settleStatus;
-        }
-        if (null !== $this->tradeStatus) {
-            $res['TradeStatus'] = $this->tradeStatus;
         }
         if (null !== $this->totalAmount) {
             $res['TotalAmount'] = $this->totalAmount;
@@ -65,11 +68,8 @@ class queryWithholdTradeResponse extends Model
         if (null !== $this->tradeNo) {
             $res['TradeNo'] = $this->tradeNo;
         }
-        if (null !== $this->paymentDate) {
-            $res['PaymentDate'] = $this->paymentDate;
-        }
-        if (null !== $this->outTradeNo) {
-            $res['OutTradeNo'] = $this->outTradeNo;
+        if (null !== $this->tradeStatus) {
+            $res['TradeStatus'] = $this->tradeStatus;
         }
 
         return $res;
@@ -83,11 +83,14 @@ class queryWithholdTradeResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OutTradeNo'])) {
+            $model->outTradeNo = $map['OutTradeNo'];
+        }
+        if (isset($map['PaymentDate'])) {
+            $model->paymentDate = $map['PaymentDate'];
+        }
         if (isset($map['SettleStatus'])) {
             $model->settleStatus = $map['SettleStatus'];
-        }
-        if (isset($map['TradeStatus'])) {
-            $model->tradeStatus = $map['TradeStatus'];
         }
         if (isset($map['TotalAmount'])) {
             $model->totalAmount = $map['TotalAmount'];
@@ -95,11 +98,8 @@ class queryWithholdTradeResponse extends Model
         if (isset($map['TradeNo'])) {
             $model->tradeNo = $map['TradeNo'];
         }
-        if (isset($map['PaymentDate'])) {
-            $model->paymentDate = $map['PaymentDate'];
-        }
-        if (isset($map['OutTradeNo'])) {
-            $model->outTradeNo = $map['OutTradeNo'];
+        if (isset($map['TradeStatus'])) {
+            $model->tradeStatus = $map['TradeStatus'];
         }
 
         return $model;

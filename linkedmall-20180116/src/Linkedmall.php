@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderV2Request;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderV2Response;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreatePayUrlRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreatePayUrlResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateSettleConfirmRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateSettleConfirmResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateVirtualProductOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateVirtualProductOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateWithholdTradeRequest;
@@ -45,6 +47,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\EnableOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\EnableOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ExecuteNodeRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ExecuteNodeResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetActivityGameInfoRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetActivityGameInfoResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetCategoryChainRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetCategoryChainResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetCategoryListRequest;
@@ -61,13 +65,19 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetSwitchUrlRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetSwitchUrlResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetUserInfoRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetUserInfoResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetUserTokenPageRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetUserTokenPageResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetWithholdSignPageUrlRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetWithholdSignPageUrlResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GrantPromotionToUserRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GrantPromotionToUserResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListItemActivitiesRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListItemActivitiesResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListItemActivitiesShrinkRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListUserGameProcessRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListUserGameProcessResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBasicAndBizItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBasicAndBizItemsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBizItemsRequest;
@@ -80,6 +90,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyPayOrderStatusRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyPayOrderStatusResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyWithholdFundRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyWithholdFundResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\PushUserGameProcessRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\PushUserGameProcessResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryActivityItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryActivityItemsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAddressDetailRequest;
@@ -123,6 +135,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemDetailInnerRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemDetailInnerResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemDetailRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemDetailResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemDetailTeaRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemDetailTeaResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInSubBizsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInSubBizsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInSubBizsShrinkRequest;
@@ -172,6 +186,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUnfinishedSessionsResponse
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUpcomingMoviesRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUpcomingMoviesResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUpcomingMoviesShrinkRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserGameProcessRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserGameProcessResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryWithholdTradeRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryWithholdTradeResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefundOrderRequest;
@@ -200,6 +216,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ReserveMovieSeatRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ReserveMovieSeatResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SettleOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SettleOrderResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\StartUserGameRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\StartUserGameResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SubmitReturnGoodLogisticsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SubmitReturnGoodLogisticsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SyncMerchantInfoRequest;
@@ -675,6 +693,34 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param CreateSettleConfirmRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSettleConfirmResponse
+     */
+    public function createSettleConfirmWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateSettleConfirmResponse::fromMap($this->doRPCRequest('CreateSettleConfirm', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateSettleConfirmRequest $request
+     *
+     * @return CreateSettleConfirmResponse
+     */
+    public function createSettleConfirm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSettleConfirmWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateVirtualProductOrderRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -840,6 +886,35 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetActivityGameInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetActivityGameInfoResponse
+     */
+    public function getActivityGameInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetActivityGameInfoResponse::fromMap($this->doRPCRequest('GetActivityGameInfo', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetActivityGameInfoRequest $request
+     *
+     * @return GetActivityGameInfoResponse
+     */
+    public function getActivityGameInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getActivityGameInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -1068,6 +1143,35 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param GetUserTokenPageRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetUserTokenPageResponse
+     */
+    public function getUserTokenPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetUserTokenPageResponse::fromMap($this->doRPCRequest('GetUserTokenPage', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetUserTokenPageRequest $request
+     *
+     * @return GetUserTokenPageResponse
+     */
+    public function getUserTokenPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserTokenPageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetWithholdSignPageUrlRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1093,6 +1197,34 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWithholdSignPageUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GrantPromotionToUserRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GrantPromotionToUserResponse
+     */
+    public function grantPromotionToUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GrantPromotionToUserResponse::fromMap($this->doRPCRequest('GrantPromotionToUser', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GrantPromotionToUserRequest $request
+     *
+     * @return GrantPromotionToUserResponse
+     */
+    public function grantPromotionToUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantPromotionToUserWithOptions($request, $runtime);
     }
 
     /**
@@ -1134,11 +1266,11 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new ListItemActivitiesShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lmItemIds)) {
-            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
-        }
         if (!Utils::isUnset($tmpReq->itemIds)) {
             $request->itemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itemIds, 'ItemIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->lmItemIds)) {
+            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -1157,6 +1289,35 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listItemActivitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListUserGameProcessRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListUserGameProcessResponse
+     */
+    public function listUserGameProcessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListUserGameProcessResponse::fromMap($this->doRPCRequest('ListUserGameProcess', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListUserGameProcessRequest $request
+     *
+     * @return ListUserGameProcessResponse
+     */
+    public function listUserGameProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserGameProcessWithOptions($request, $runtime);
     }
 
     /**
@@ -1325,6 +1486,34 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->notifyWithholdFundWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PushUserGameProcessRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PushUserGameProcessResponse
+     */
+    public function pushUserGameProcessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PushUserGameProcessResponse::fromMap($this->doRPCRequest('PushUserGameProcess', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PushUserGameProcessRequest $request
+     *
+     * @return PushUserGameProcessResponse
+     */
+    public function pushUserGameProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pushUserGameProcessWithOptions($request, $runtime);
     }
 
     /**
@@ -1595,11 +1784,11 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new QueryBestSession4ItemsShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lmItemIds)) {
-            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
-        }
         if (!Utils::isUnset($tmpReq->itemIds)) {
             $request->itemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itemIds, 'ItemIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->lmItemIds)) {
+            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -1631,11 +1820,11 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new QueryBizItemListShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lmItemIds)) {
-            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
-        }
         if (!Utils::isUnset($tmpReq->itemIds)) {
             $request->itemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itemIds, 'ItemIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->lmItemIds)) {
+            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -1695,11 +1884,11 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new QueryBizItemsWithActivityShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lmItemIds)) {
-            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
-        }
         if (!Utils::isUnset($tmpReq->itemIds)) {
             $request->itemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itemIds, 'ItemIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->lmItemIds)) {
+            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
         }
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
@@ -1897,6 +2086,34 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryItemDetailInnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryItemDetailTeaRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryItemDetailTeaResponse
+     */
+    public function queryItemDetailTeaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryItemDetailTeaResponse::fromMap($this->doRPCRequest('QueryItemDetailTea', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryItemDetailTeaRequest $request
+     *
+     * @return QueryItemDetailTeaResponse
+     */
+    public function queryItemDetailTea($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryItemDetailTeaWithOptions($request, $runtime);
     }
 
     /**
@@ -2506,11 +2723,11 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new QueryUnfinishedSessions4ItemsShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lmItemIds)) {
-            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
-        }
         if (!Utils::isUnset($tmpReq->itemIds)) {
             $request->itemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itemIds, 'ItemIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->lmItemIds)) {
+            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -2562,6 +2779,35 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryUpcomingMoviesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryUserGameProcessRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryUserGameProcessResponse
+     */
+    public function queryUserGameProcessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return QueryUserGameProcessResponse::fromMap($this->doRPCRequest('QueryUserGameProcess', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryUserGameProcessRequest $request
+     *
+     * @return QueryUserGameProcessResponse
+     */
+    public function queryUserGameProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryUserGameProcessWithOptions($request, $runtime);
     }
 
     /**
@@ -2954,6 +3200,34 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->settleOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartUserGameRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartUserGameResponse
+     */
+    public function startUserGameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartUserGameResponse::fromMap($this->doRPCRequest('StartUserGame', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartUserGameRequest $request
+     *
+     * @return StartUserGameResponse
+     */
+    public function startUserGame($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startUserGameWithOptions($request, $runtime);
     }
 
     /**

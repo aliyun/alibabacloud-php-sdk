@@ -16,16 +16,16 @@ class QueryBestSession4ItemsRequest extends Model
     /**
      * @var mixed[]
      */
-    public $lmItemIds;
+    public $itemIds;
 
     /**
      * @var mixed[]
      */
-    public $itemIds;
+    public $lmItemIds;
     protected $_name = [
         'bizId'     => 'BizId',
-        'lmItemIds' => 'LmItemIds',
         'itemIds'   => 'ItemIds',
+        'lmItemIds' => 'LmItemIds',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class QueryBestSession4ItemsRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->lmItemIds) {
-            $res['LmItemIds'] = $this->lmItemIds;
-        }
         if (null !== $this->itemIds) {
             $res['ItemIds'] = $this->itemIds;
+        }
+        if (null !== $this->lmItemIds) {
+            $res['LmItemIds'] = $this->lmItemIds;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class QueryBestSession4ItemsRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['LmItemIds'])) {
-            $model->lmItemIds = $map['LmItemIds'];
-        }
         if (isset($map['ItemIds'])) {
             $model->itemIds = $map['ItemIds'];
+        }
+        if (isset($map['LmItemIds'])) {
+            $model->lmItemIds = $map['LmItemIds'];
         }
 
         return $model;

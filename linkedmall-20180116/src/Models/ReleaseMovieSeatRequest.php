@@ -16,22 +16,22 @@ class ReleaseMovieSeatRequest extends Model
     /**
      * @var string
      */
-    public $lockSeatApplyKey;
-
-    /**
-     * @var string
-     */
     public $bizUid;
 
     /**
      * @var string
      */
     public $extJson;
+
+    /**
+     * @var string
+     */
+    public $lockSeatApplyKey;
     protected $_name = [
         'bizId'            => 'BizId',
-        'lockSeatApplyKey' => 'LockSeatApplyKey',
         'bizUid'           => 'BizUid',
         'extJson'          => 'ExtJson',
+        'lockSeatApplyKey' => 'LockSeatApplyKey',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ReleaseMovieSeatRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->lockSeatApplyKey) {
-            $res['LockSeatApplyKey'] = $this->lockSeatApplyKey;
-        }
         if (null !== $this->bizUid) {
             $res['BizUid'] = $this->bizUid;
         }
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
+        }
+        if (null !== $this->lockSeatApplyKey) {
+            $res['LockSeatApplyKey'] = $this->lockSeatApplyKey;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ReleaseMovieSeatRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['LockSeatApplyKey'])) {
-            $model->lockSeatApplyKey = $map['LockSeatApplyKey'];
-        }
         if (isset($map['BizUid'])) {
             $model->bizUid = $map['BizUid'];
         }
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
+        }
+        if (isset($map['LockSeatApplyKey'])) {
+            $model->lockSeatApplyKey = $map['LockSeatApplyKey'];
         }
 
         return $model;

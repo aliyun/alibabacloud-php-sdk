@@ -14,14 +14,9 @@ class GetLoginPageRequest extends Model
     public $bizId;
 
     /**
-     * @var bool
-     */
-    public $useAnonymousTbAccount;
-
-    /**
      * @var string
      */
-    public $thirdPartyUserId;
+    public $failUrl;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class GetLoginPageRequest extends Model
     /**
      * @var string
      */
-    public $failUrl;
+    public $thirdPartyUserId;
+
+    /**
+     * @var bool
+     */
+    public $useAnonymousTbAccount;
     protected $_name = [
         'bizId'                 => 'BizId',
-        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
-        'thirdPartyUserId'      => 'ThirdPartyUserId',
-        'targetUrl'             => 'TargetUrl',
         'failUrl'               => 'FailUrl',
+        'targetUrl'             => 'TargetUrl',
+        'thirdPartyUserId'      => 'ThirdPartyUserId',
+        'useAnonymousTbAccount' => 'UseAnonymousTbAccount',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class GetLoginPageRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->useAnonymousTbAccount) {
-            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
-        }
-        if (null !== $this->thirdPartyUserId) {
-            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
+        if (null !== $this->failUrl) {
+            $res['FailUrl'] = $this->failUrl;
         }
         if (null !== $this->targetUrl) {
             $res['TargetUrl'] = $this->targetUrl;
         }
-        if (null !== $this->failUrl) {
-            $res['FailUrl'] = $this->failUrl;
+        if (null !== $this->thirdPartyUserId) {
+            $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
+        }
+        if (null !== $this->useAnonymousTbAccount) {
+            $res['UseAnonymousTbAccount'] = $this->useAnonymousTbAccount;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class GetLoginPageRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['UseAnonymousTbAccount'])) {
-            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
-        }
-        if (isset($map['ThirdPartyUserId'])) {
-            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
+        if (isset($map['FailUrl'])) {
+            $model->failUrl = $map['FailUrl'];
         }
         if (isset($map['TargetUrl'])) {
             $model->targetUrl = $map['TargetUrl'];
         }
-        if (isset($map['FailUrl'])) {
-            $model->failUrl = $map['FailUrl'];
+        if (isset($map['ThirdPartyUserId'])) {
+            $model->thirdPartyUserId = $map['ThirdPartyUserId'];
+        }
+        if (isset($map['UseAnonymousTbAccount'])) {
+            $model->useAnonymousTbAccount = $map['UseAnonymousTbAccount'];
         }
 
         return $model;

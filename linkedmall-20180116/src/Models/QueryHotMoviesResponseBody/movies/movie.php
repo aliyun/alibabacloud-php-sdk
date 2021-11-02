@@ -13,57 +13,12 @@ class movie extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $movieVersion;
-
-    /**
-     * @var string
-     */
     public $backgroundPicture;
 
     /**
      * @var string
      */
-    public $remark;
-
-    /**
-     * @var string
-     */
-    public $openDay;
-
-    /**
-     * @var string
-     */
-    public $highlight;
-
-    /**
-     * @var string
-     */
-    public $language;
-
-    /**
-     * @var string
-     */
-    public $openTime;
-
-    /**
-     * @var string
-     */
-    public $director;
-
-    /**
-     * @var string
-     */
-    public $poster;
-
-    /**
-     * @var string
-     */
-    public $movieName;
+    public $country;
 
     /**
      * @var string
@@ -73,7 +28,7 @@ class movie extends Model
     /**
      * @var string
      */
-    public $country;
+    public $director;
 
     /**
      * @var int
@@ -83,12 +38,7 @@ class movie extends Model
     /**
      * @var string
      */
-    public $movieNameEn;
-
-    /**
-     * @var string
-     */
-    public $leadingRole;
+    public $highlight;
 
     /**
      * @var int
@@ -96,34 +46,84 @@ class movie extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $language;
+
+    /**
+     * @var string
+     */
+    public $leadingRole;
+
+    /**
+     * @var string
+     */
+    public $movieName;
+
+    /**
+     * @var string
+     */
+    public $movieNameEn;
+
+    /**
      * @var movieTypeList
      */
     public $movieTypeList;
 
     /**
+     * @var string
+     */
+    public $movieVersion;
+
+    /**
+     * @var string
+     */
+    public $openDay;
+
+    /**
+     * @var string
+     */
+    public $openTime;
+
+    /**
+     * @var string
+     */
+    public $poster;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
      * @var trailerList
      */
     public $trailerList;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'              => 'Type',
-        'movieVersion'      => 'MovieVersion',
         'backgroundPicture' => 'BackgroundPicture',
-        'remark'            => 'Remark',
-        'openDay'           => 'OpenDay',
-        'highlight'         => 'Highlight',
-        'language'          => 'Language',
-        'openTime'          => 'OpenTime',
-        'director'          => 'Director',
-        'poster'            => 'Poster',
-        'movieName'         => 'MovieName',
-        'description'       => 'Description',
         'country'           => 'Country',
+        'description'       => 'Description',
+        'director'          => 'Director',
         'duration'          => 'Duration',
-        'movieNameEn'       => 'MovieNameEn',
-        'leadingRole'       => 'LeadingRole',
+        'highlight'         => 'Highlight',
         'id'                => 'Id',
+        'language'          => 'Language',
+        'leadingRole'       => 'LeadingRole',
+        'movieName'         => 'MovieName',
+        'movieNameEn'       => 'MovieNameEn',
         'movieTypeList'     => 'MovieTypeList',
+        'movieVersion'      => 'MovieVersion',
+        'openDay'           => 'OpenDay',
+        'openTime'          => 'OpenTime',
+        'poster'            => 'Poster',
+        'remark'            => 'Remark',
         'trailerList'       => 'TrailerList',
+        'type'              => 'Type',
     ];
 
     public function validate()
@@ -133,62 +133,62 @@ class movie extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->movieVersion) {
-            $res['MovieVersion'] = $this->movieVersion;
-        }
         if (null !== $this->backgroundPicture) {
             $res['BackgroundPicture'] = $this->backgroundPicture;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->openDay) {
-            $res['OpenDay'] = $this->openDay;
-        }
-        if (null !== $this->highlight) {
-            $res['Highlight'] = $this->highlight;
-        }
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
-        }
-        if (null !== $this->openTime) {
-            $res['OpenTime'] = $this->openTime;
-        }
-        if (null !== $this->director) {
-            $res['Director'] = $this->director;
-        }
-        if (null !== $this->poster) {
-            $res['Poster'] = $this->poster;
-        }
-        if (null !== $this->movieName) {
-            $res['MovieName'] = $this->movieName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
         if (null !== $this->country) {
             $res['Country'] = $this->country;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->director) {
+            $res['Director'] = $this->director;
+        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-        if (null !== $this->movieNameEn) {
-            $res['MovieNameEn'] = $this->movieNameEn;
-        }
-        if (null !== $this->leadingRole) {
-            $res['LeadingRole'] = $this->leadingRole;
+        if (null !== $this->highlight) {
+            $res['Highlight'] = $this->highlight;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
+        if (null !== $this->leadingRole) {
+            $res['LeadingRole'] = $this->leadingRole;
+        }
+        if (null !== $this->movieName) {
+            $res['MovieName'] = $this->movieName;
+        }
+        if (null !== $this->movieNameEn) {
+            $res['MovieNameEn'] = $this->movieNameEn;
+        }
         if (null !== $this->movieTypeList) {
             $res['MovieTypeList'] = null !== $this->movieTypeList ? $this->movieTypeList->toMap() : null;
         }
+        if (null !== $this->movieVersion) {
+            $res['MovieVersion'] = $this->movieVersion;
+        }
+        if (null !== $this->openDay) {
+            $res['OpenDay'] = $this->openDay;
+        }
+        if (null !== $this->openTime) {
+            $res['OpenTime'] = $this->openTime;
+        }
+        if (null !== $this->poster) {
+            $res['Poster'] = $this->poster;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
         if (null !== $this->trailerList) {
             $res['TrailerList'] = null !== $this->trailerList ? $this->trailerList->toMap() : null;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -202,62 +202,62 @@ class movie extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['MovieVersion'])) {
-            $model->movieVersion = $map['MovieVersion'];
-        }
         if (isset($map['BackgroundPicture'])) {
             $model->backgroundPicture = $map['BackgroundPicture'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['OpenDay'])) {
-            $model->openDay = $map['OpenDay'];
-        }
-        if (isset($map['Highlight'])) {
-            $model->highlight = $map['Highlight'];
-        }
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
-        }
-        if (isset($map['OpenTime'])) {
-            $model->openTime = $map['OpenTime'];
-        }
-        if (isset($map['Director'])) {
-            $model->director = $map['Director'];
-        }
-        if (isset($map['Poster'])) {
-            $model->poster = $map['Poster'];
-        }
-        if (isset($map['MovieName'])) {
-            $model->movieName = $map['MovieName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
         if (isset($map['Country'])) {
             $model->country = $map['Country'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Director'])) {
+            $model->director = $map['Director'];
+        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-        if (isset($map['MovieNameEn'])) {
-            $model->movieNameEn = $map['MovieNameEn'];
-        }
-        if (isset($map['LeadingRole'])) {
-            $model->leadingRole = $map['LeadingRole'];
+        if (isset($map['Highlight'])) {
+            $model->highlight = $map['Highlight'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
+        if (isset($map['LeadingRole'])) {
+            $model->leadingRole = $map['LeadingRole'];
+        }
+        if (isset($map['MovieName'])) {
+            $model->movieName = $map['MovieName'];
+        }
+        if (isset($map['MovieNameEn'])) {
+            $model->movieNameEn = $map['MovieNameEn'];
+        }
         if (isset($map['MovieTypeList'])) {
             $model->movieTypeList = movieTypeList::fromMap($map['MovieTypeList']);
         }
+        if (isset($map['MovieVersion'])) {
+            $model->movieVersion = $map['MovieVersion'];
+        }
+        if (isset($map['OpenDay'])) {
+            $model->openDay = $map['OpenDay'];
+        }
+        if (isset($map['OpenTime'])) {
+            $model->openTime = $map['OpenTime'];
+        }
+        if (isset($map['Poster'])) {
+            $model->poster = $map['Poster'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
         if (isset($map['TrailerList'])) {
             $model->trailerList = trailerList::fromMap($map['TrailerList']);
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

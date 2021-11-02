@@ -11,6 +11,16 @@ class RefundOrderRequest extends Model
     /**
      * @var string
      */
+    public $extInfo;
+
+    /**
+     * @var string
+     */
+    public $merchantId;
+
+    /**
+     * @var string
+     */
     public $outRequestNo;
 
     /**
@@ -21,7 +31,7 @@ class RefundOrderRequest extends Model
     /**
      * @var string
      */
-    public $tradeNo;
+    public $refundAmount;
 
     /**
      * @var string
@@ -31,31 +41,21 @@ class RefundOrderRequest extends Model
     /**
      * @var string
      */
-    public $refundAmount;
-
-    /**
-     * @var string
-     */
     public $refundRoyaltyParameters;
 
     /**
      * @var string
      */
-    public $extInfo;
-
-    /**
-     * @var string
-     */
-    public $merchantId;
+    public $tradeNo;
     protected $_name = [
-        'outRequestNo'            => 'OutRequestNo',
-        'outTradeNo'              => 'OutTradeNo',
-        'tradeNo'                 => 'TradeNo',
-        'refundReason'            => 'RefundReason',
-        'refundAmount'            => 'RefundAmount',
-        'refundRoyaltyParameters' => 'RefundRoyaltyParameters',
         'extInfo'                 => 'ExtInfo',
         'merchantId'              => 'MerchantId',
+        'outRequestNo'            => 'OutRequestNo',
+        'outTradeNo'              => 'OutTradeNo',
+        'refundAmount'            => 'RefundAmount',
+        'refundReason'            => 'RefundReason',
+        'refundRoyaltyParameters' => 'RefundRoyaltyParameters',
+        'tradeNo'                 => 'TradeNo',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class RefundOrderRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
+        }
+        if (null !== $this->merchantId) {
+            $res['MerchantId'] = $this->merchantId;
+        }
         if (null !== $this->outRequestNo) {
             $res['OutRequestNo'] = $this->outRequestNo;
         }
         if (null !== $this->outTradeNo) {
             $res['OutTradeNo'] = $this->outTradeNo;
         }
-        if (null !== $this->tradeNo) {
-            $res['TradeNo'] = $this->tradeNo;
+        if (null !== $this->refundAmount) {
+            $res['RefundAmount'] = $this->refundAmount;
         }
         if (null !== $this->refundReason) {
             $res['RefundReason'] = $this->refundReason;
         }
-        if (null !== $this->refundAmount) {
-            $res['RefundAmount'] = $this->refundAmount;
-        }
         if (null !== $this->refundRoyaltyParameters) {
             $res['RefundRoyaltyParameters'] = $this->refundRoyaltyParameters;
         }
-        if (null !== $this->extInfo) {
-            $res['ExtInfo'] = $this->extInfo;
-        }
-        if (null !== $this->merchantId) {
-            $res['MerchantId'] = $this->merchantId;
+        if (null !== $this->tradeNo) {
+            $res['TradeNo'] = $this->tradeNo;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class RefundOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
+        }
+        if (isset($map['MerchantId'])) {
+            $model->merchantId = $map['MerchantId'];
+        }
         if (isset($map['OutRequestNo'])) {
             $model->outRequestNo = $map['OutRequestNo'];
         }
         if (isset($map['OutTradeNo'])) {
             $model->outTradeNo = $map['OutTradeNo'];
         }
-        if (isset($map['TradeNo'])) {
-            $model->tradeNo = $map['TradeNo'];
+        if (isset($map['RefundAmount'])) {
+            $model->refundAmount = $map['RefundAmount'];
         }
         if (isset($map['RefundReason'])) {
             $model->refundReason = $map['RefundReason'];
         }
-        if (isset($map['RefundAmount'])) {
-            $model->refundAmount = $map['RefundAmount'];
-        }
         if (isset($map['RefundRoyaltyParameters'])) {
             $model->refundRoyaltyParameters = $map['RefundRoyaltyParameters'];
         }
-        if (isset($map['ExtInfo'])) {
-            $model->extInfo = $map['ExtInfo'];
-        }
-        if (isset($map['MerchantId'])) {
-            $model->merchantId = $map['MerchantId'];
+        if (isset($map['TradeNo'])) {
+            $model->tradeNo = $map['TradeNo'];
         }
 
         return $model;

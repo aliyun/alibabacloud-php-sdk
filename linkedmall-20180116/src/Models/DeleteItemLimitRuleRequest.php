@@ -14,9 +14,9 @@ class DeleteItemLimitRuleRequest extends Model
     public $bizId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $subBizCode;
+    public $itemId;
 
     /**
      * @var int
@@ -31,19 +31,19 @@ class DeleteItemLimitRuleRequest extends Model
     /**
      * @var int
      */
-    public $itemId;
+    public $ruleId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ruleId;
+    public $subBizCode;
     protected $_name = [
         'bizId'        => 'BizId',
-        'subBizCode'   => 'SubBizCode',
+        'itemId'       => 'ItemId',
         'lmActivityId' => 'LmActivityId',
         'lmItemId'     => 'LmItemId',
-        'itemId'       => 'ItemId',
         'ruleId'       => 'RuleId',
+        'subBizCode'   => 'SubBizCode',
     ];
 
     public function validate()
@@ -56,8 +56,8 @@ class DeleteItemLimitRuleRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->subBizCode) {
-            $res['SubBizCode'] = $this->subBizCode;
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->lmActivityId) {
             $res['LmActivityId'] = $this->lmActivityId;
@@ -65,11 +65,11 @@ class DeleteItemLimitRuleRequest extends Model
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
         }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
-        }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->subBizCode) {
+            $res['SubBizCode'] = $this->subBizCode;
         }
 
         return $res;
@@ -86,8 +86,8 @@ class DeleteItemLimitRuleRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['SubBizCode'])) {
-            $model->subBizCode = $map['SubBizCode'];
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
         }
         if (isset($map['LmActivityId'])) {
             $model->lmActivityId = $map['LmActivityId'];
@@ -95,11 +95,11 @@ class DeleteItemLimitRuleRequest extends Model
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];
         }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
-        }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['SubBizCode'])) {
+            $model->subBizCode = $map['SubBizCode'];
         }
 
         return $model;

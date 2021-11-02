@@ -19,19 +19,19 @@ class QueryAllCinemasRequest extends Model
     public $cityCode;
 
     /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
      * @var string
      */
     public $extJson;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
     protected $_name = [
         'bizId'      => 'BizId',
         'cityCode'   => 'CityCode',
-        'pageNumber' => 'PageNumber',
         'extJson'    => 'ExtJson',
+        'pageNumber' => 'PageNumber',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class QueryAllCinemasRequest extends Model
         if (null !== $this->cityCode) {
             $res['CityCode'] = $this->cityCode;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class QueryAllCinemasRequest extends Model
         if (isset($map['CityCode'])) {
             $model->cityCode = $map['CityCode'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
 
         return $model;

@@ -11,27 +11,27 @@ class miniShopInfo extends Model
     /**
      * @var string
      */
-    public $liteShopId;
-
-    /**
-     * @var string
-     */
-    public $src;
-
-    /**
-     * @var string
-     */
     public $bizId;
 
     /**
      * @var string
      */
+    public $liteShopId;
+
+    /**
+     * @var string
+     */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $src;
     protected $_name = [
-        'liteShopId' => 'LiteShopId',
-        'src'        => 'Src',
         'bizId'      => 'BizId',
+        'liteShopId' => 'LiteShopId',
         'name'       => 'Name',
+        'src'        => 'Src',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class miniShopInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->liteShopId) {
-            $res['LiteShopId'] = $this->liteShopId;
-        }
-        if (null !== $this->src) {
-            $res['Src'] = $this->src;
-        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+        if (null !== $this->liteShopId) {
+            $res['LiteShopId'] = $this->liteShopId;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->src) {
+            $res['Src'] = $this->src;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class miniShopInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LiteShopId'])) {
-            $model->liteShopId = $map['LiteShopId'];
-        }
-        if (isset($map['Src'])) {
-            $model->src = $map['Src'];
-        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+        if (isset($map['LiteShopId'])) {
+            $model->liteShopId = $map['LiteShopId'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Src'])) {
+            $model->src = $map['Src'];
         }
 
         return $model;

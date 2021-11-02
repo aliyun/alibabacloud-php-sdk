@@ -16,16 +16,16 @@ class model_ extends Model
     /**
      * @var string
      */
-    public $url;
+    public $taskId;
 
     /**
      * @var string
      */
-    public $taskId;
+    public $url;
     protected $_name = [
         'status' => 'Status',
-        'url'    => 'Url',
         'taskId' => 'TaskId',
+        'url'    => 'Url',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class model_ extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class model_ extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class tradeOrderSettleResponse extends Model
     /**
      * @var string
      */
-    public $tradeNo;
+    public $outRequestNo;
 
     /**
      * @var string
      */
-    public $outRequestNo;
+    public $tradeNo;
     protected $_name = [
-        'tradeNo'      => 'TradeNo',
         'outRequestNo' => 'OutRequestNo',
+        'tradeNo'      => 'TradeNo',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class tradeOrderSettleResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tradeNo) {
-            $res['TradeNo'] = $this->tradeNo;
-        }
         if (null !== $this->outRequestNo) {
             $res['OutRequestNo'] = $this->outRequestNo;
+        }
+        if (null !== $this->tradeNo) {
+            $res['TradeNo'] = $this->tradeNo;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class tradeOrderSettleResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TradeNo'])) {
-            $model->tradeNo = $map['TradeNo'];
-        }
         if (isset($map['OutRequestNo'])) {
             $model->outRequestNo = $map['OutRequestNo'];
+        }
+        if (isset($map['TradeNo'])) {
+            $model->tradeNo = $map['TradeNo'];
         }
 
         return $model;
