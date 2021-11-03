@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class verificationPreference extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
     public $verificationTypes;
     protected $_name = [
@@ -39,7 +39,9 @@ class verificationPreference extends Model
     {
         $model = new self();
         if (isset($map['VerificationTypes'])) {
-            $model->verificationTypes = $map['VerificationTypes'];
+            if (!empty($map['VerificationTypes'])) {
+                $model->verificationTypes = $map['VerificationTypes'];
+            }
         }
 
         return $model;
