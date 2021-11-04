@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class GetMediaInfoResponseBody extends Model
 {
     /**
+     * @var mediaInfo
+     */
+    public $mediaInfo;
+
+    /**
      * @description RequestId
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var mediaInfo
-     */
-    public $mediaInfo;
     protected $_name = [
-        'requestId' => 'RequestId',
         'mediaInfo' => 'MediaInfo',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -32,11 +32,11 @@ class GetMediaInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->mediaInfo) {
             $res['MediaInfo'] = null !== $this->mediaInfo ? $this->mediaInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -50,11 +50,11 @@ class GetMediaInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MediaInfo'])) {
             $model->mediaInfo = mediaInfo::fromMap($map['MediaInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

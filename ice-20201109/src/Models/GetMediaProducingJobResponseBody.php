@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class GetMediaProducingJobResponseBody extends Model
 {
     /**
+     * @var mediaProducingJob
+     */
+    public $mediaProducingJob;
+
+    /**
      * @description Id of the request
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var mediaProducingJob
-     */
-    public $mediaProducingJob;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'mediaProducingJob' => 'MediaProducingJob',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -32,11 +32,11 @@ class GetMediaProducingJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->mediaProducingJob) {
             $res['MediaProducingJob'] = null !== $this->mediaProducingJob ? $this->mediaProducingJob->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -50,11 +50,11 @@ class GetMediaProducingJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MediaProducingJob'])) {
             $model->mediaProducingJob = mediaProducingJob::fromMap($map['MediaProducingJob']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

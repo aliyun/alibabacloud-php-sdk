@@ -9,19 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ListSmartJobsRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $status;
+    public $jobState;
 
     /**
      * @var string
      */
-    public $nextToken;
+    public $jobType;
 
     /**
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var int
@@ -36,26 +41,21 @@ class ListSmartJobsRequest extends Model
     /**
      * @var string
      */
-    public $jobType;
-
-    /**
-     * @var string
-     */
     public $sortBy;
 
     /**
-     * @var string
+     * @var int
      */
-    public $jobState;
+    public $status;
     protected $_name = [
-        'status'     => 'Status',
-        'nextToken'  => 'NextToken',
+        'jobState'   => 'JobState',
+        'jobType'    => 'JobType',
         'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
-        'jobType'    => 'JobType',
         'sortBy'     => 'SortBy',
-        'jobState'   => 'JobState',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -65,14 +65,17 @@ class ListSmartJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->jobState) {
+            $res['JobState'] = $this->jobState;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->jobType) {
+            $res['JobType'] = $this->jobType;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
@@ -80,14 +83,11 @@ class ListSmartJobsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->jobType) {
-            $res['JobType'] = $this->jobType;
-        }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
-        if (null !== $this->jobState) {
-            $res['JobState'] = $this->jobState;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -101,14 +101,17 @@ class ListSmartJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['JobState'])) {
+            $model->jobState = $map['JobState'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['JobType'])) {
+            $model->jobType = $map['JobType'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
@@ -116,14 +119,11 @@ class ListSmartJobsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['JobType'])) {
-            $model->jobType = $map['JobType'];
-        }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
-        if (isset($map['JobState'])) {
-            $model->jobState = $map['JobState'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

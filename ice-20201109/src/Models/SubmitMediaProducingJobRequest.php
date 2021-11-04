@@ -11,17 +11,7 @@ class SubmitMediaProducingJobRequest extends Model
     /**
      * @var string
      */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $timeline;
-
-    /**
-     * @var string
-     */
-    public $templateId;
+    public $clientToken;
 
     /**
      * @var string
@@ -31,7 +21,7 @@ class SubmitMediaProducingJobRequest extends Model
     /**
      * @var string
      */
-    public $projectMetadata;
+    public $outputMediaConfig;
 
     /**
      * @var string
@@ -41,33 +31,43 @@ class SubmitMediaProducingJobRequest extends Model
     /**
      * @var string
      */
-    public $outputMediaConfig;
+    public $projectId;
 
     /**
      * @var string
      */
-    public $userData;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
+    public $projectMetadata;
 
     /**
      * @var string
      */
     public $source;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $timeline;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
-        'projectId'         => 'ProjectId',
-        'timeline'          => 'Timeline',
-        'templateId'        => 'TemplateId',
-        'clipsParam'        => 'ClipsParam',
-        'projectMetadata'   => 'ProjectMetadata',
-        'outputMediaTarget' => 'OutputMediaTarget',
-        'outputMediaConfig' => 'OutputMediaConfig',
-        'userData'          => 'UserData',
         'clientToken'       => 'ClientToken',
+        'clipsParam'        => 'ClipsParam',
+        'outputMediaConfig' => 'OutputMediaConfig',
+        'outputMediaTarget' => 'OutputMediaTarget',
+        'projectId'         => 'ProjectId',
+        'projectMetadata'   => 'ProjectMetadata',
         'source'            => 'Source',
+        'templateId'        => 'TemplateId',
+        'timeline'          => 'Timeline',
+        'userData'          => 'UserData',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class SubmitMediaProducingJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->timeline) {
-            $res['Timeline'] = $this->timeline;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->clipsParam) {
             $res['ClipsParam'] = $this->clipsParam;
         }
-        if (null !== $this->projectMetadata) {
-            $res['ProjectMetadata'] = $this->projectMetadata;
+        if (null !== $this->outputMediaConfig) {
+            $res['OutputMediaConfig'] = $this->outputMediaConfig;
         }
         if (null !== $this->outputMediaTarget) {
             $res['OutputMediaTarget'] = $this->outputMediaTarget;
         }
-        if (null !== $this->outputMediaConfig) {
-            $res['OutputMediaConfig'] = $this->outputMediaConfig;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->projectMetadata) {
+            $res['ProjectMetadata'] = $this->projectMetadata;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->timeline) {
+            $res['Timeline'] = $this->timeline;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class SubmitMediaProducingJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Timeline'])) {
-            $model->timeline = $map['Timeline'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['ClipsParam'])) {
             $model->clipsParam = $map['ClipsParam'];
         }
-        if (isset($map['ProjectMetadata'])) {
-            $model->projectMetadata = $map['ProjectMetadata'];
+        if (isset($map['OutputMediaConfig'])) {
+            $model->outputMediaConfig = $map['OutputMediaConfig'];
         }
         if (isset($map['OutputMediaTarget'])) {
             $model->outputMediaTarget = $map['OutputMediaTarget'];
         }
-        if (isset($map['OutputMediaConfig'])) {
-            $model->outputMediaConfig = $map['OutputMediaConfig'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['ProjectMetadata'])) {
+            $model->projectMetadata = $map['ProjectMetadata'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['Timeline'])) {
+            $model->timeline = $map['Timeline'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

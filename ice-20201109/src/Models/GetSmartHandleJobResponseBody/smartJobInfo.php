@@ -13,17 +13,12 @@ class smartJobInfo extends Model
     /**
      * @var string
      */
-    public $title;
+    public $createTime;
 
     /**
      * @var string
      */
     public $description;
-
-    /**
-     * @var string
-     */
-    public $userId;
 
     /**
      * @var string
@@ -36,14 +31,9 @@ class smartJobInfo extends Model
     public $inputConfig;
 
     /**
-     * @var outputConfig
-     */
-    public $outputConfig;
-
-    /**
      * @var string
      */
-    public $createTime;
+    public $jobType;
 
     /**
      * @var string
@@ -51,19 +41,29 @@ class smartJobInfo extends Model
     public $modifiedTime;
 
     /**
+     * @var outputConfig
+     */
+    public $outputConfig;
+
+    /**
      * @var string
      */
-    public $jobType;
+    public $title;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'title'         => 'Title',
+        'createTime'    => 'CreateTime',
         'description'   => 'Description',
-        'userId'        => 'UserId',
         'editingConfig' => 'EditingConfig',
         'inputConfig'   => 'InputConfig',
-        'outputConfig'  => 'OutputConfig',
-        'createTime'    => 'CreateTime',
-        'modifiedTime'  => 'ModifiedTime',
         'jobType'       => 'JobType',
+        'modifiedTime'  => 'ModifiedTime',
+        'outputConfig'  => 'OutputConfig',
+        'title'         => 'Title',
+        'userId'        => 'UserId',
     ];
 
     public function validate()
@@ -73,14 +73,11 @@ class smartJobInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
         if (null !== $this->editingConfig) {
             $res['EditingConfig'] = $this->editingConfig;
@@ -88,17 +85,20 @@ class smartJobInfo extends Model
         if (null !== $this->inputConfig) {
             $res['InputConfig'] = null !== $this->inputConfig ? $this->inputConfig->toMap() : null;
         }
-        if (null !== $this->outputConfig) {
-            $res['OutputConfig'] = null !== $this->outputConfig ? $this->outputConfig->toMap() : null;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->jobType) {
+            $res['JobType'] = $this->jobType;
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
-        if (null !== $this->jobType) {
-            $res['JobType'] = $this->jobType;
+        if (null !== $this->outputConfig) {
+            $res['OutputConfig'] = null !== $this->outputConfig ? $this->outputConfig->toMap() : null;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -112,14 +112,11 @@ class smartJobInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
         if (isset($map['EditingConfig'])) {
             $model->editingConfig = $map['EditingConfig'];
@@ -127,17 +124,20 @@ class smartJobInfo extends Model
         if (isset($map['InputConfig'])) {
             $model->inputConfig = inputConfig::fromMap($map['InputConfig']);
         }
-        if (isset($map['OutputConfig'])) {
-            $model->outputConfig = outputConfig::fromMap($map['OutputConfig']);
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['JobType'])) {
+            $model->jobType = $map['JobType'];
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
-        if (isset($map['JobType'])) {
-            $model->jobType = $map['JobType'];
+        if (isset($map['OutputConfig'])) {
+            $model->outputConfig = outputConfig::fromMap($map['OutputConfig']);
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

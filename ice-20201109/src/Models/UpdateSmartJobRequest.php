@@ -11,15 +11,15 @@ class UpdateSmartJobRequest extends Model
     /**
      * @var string
      */
-    public $jobId;
+    public $FEExtend;
 
     /**
      * @var string
      */
-    public $FEExtend;
+    public $jobId;
     protected $_name = [
-        'jobId'    => 'JobId',
         'FEExtend' => 'FEExtend',
+        'jobId'    => 'JobId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateSmartJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->FEExtend) {
             $res['FEExtend'] = $this->FEExtend;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateSmartJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['FEExtend'])) {
             $model->FEExtend = $map['FEExtend'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         return $model;

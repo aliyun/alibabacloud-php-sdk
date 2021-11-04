@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class SearchEditingProjectResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description 云剪辑工程总数
      *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
-    public $requestId;
+    public $nextToken;
 
     /**
      * @description 云剪辑工程列表
@@ -24,27 +29,22 @@ class SearchEditingProjectResponseBody extends Model
     public $projectList;
 
     /**
-     * @description 云剪辑工程总数
+     * @description Id of the request
      *
-     * @var int
+     * @var string
      */
-    public $maxResults;
+    public $requestId;
 
     /**
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'projectList' => 'ProjectList',
         'maxResults'  => 'MaxResults',
-        'totalCount'  => 'TotalCount',
         'nextToken'   => 'NextToken',
+        'projectList' => 'ProjectList',
+        'requestId'   => 'RequestId',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -54,8 +54,11 @@ class SearchEditingProjectResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->projectList) {
             $res['ProjectList'] = [];
@@ -66,14 +69,11 @@ class SearchEditingProjectResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -87,8 +87,11 @@ class SearchEditingProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['ProjectList'])) {
             if (!empty($map['ProjectList'])) {
@@ -99,14 +102,11 @@ class SearchEditingProjectResponseBody extends Model
                 }
             }
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

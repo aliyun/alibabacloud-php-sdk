@@ -9,13 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateRequest extends Model
 {
     /**
+     * @description 是否返回模板关联素材，1返回，默认0，不返回
+     *
+     * @var string
+     */
+    public $relatedMediaidFlag;
+
+    /**
      * @description 模板Id
      *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'templateId' => 'TemplateId',
+        'relatedMediaidFlag' => 'RelatedMediaidFlag',
+        'templateId'         => 'TemplateId',
     ];
 
     public function validate()
@@ -25,6 +33,9 @@ class GetTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->relatedMediaidFlag) {
+            $res['RelatedMediaidFlag'] = $this->relatedMediaidFlag;
+        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -40,6 +51,9 @@ class GetTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RelatedMediaidFlag'])) {
+            $model->relatedMediaidFlag = $map['RelatedMediaidFlag'];
+        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

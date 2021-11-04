@@ -9,20 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
-     * @description 模板类型
-     *
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @description 模板状态
-     *
-     * @var string
-     */
-    public $status;
-
-    /**
      * @description 创建来源
      *
      * @var string
@@ -42,12 +28,26 @@ class ListTemplatesRequest extends Model
      * @var string
      */
     public $sortType;
+
+    /**
+     * @description 模板状态
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @description 模板类型
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'         => 'Type',
-        'status'       => 'Status',
         'createSource' => 'CreateSource',
         'keyword'      => 'Keyword',
         'sortType'     => 'SortType',
+        'status'       => 'Status',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -57,12 +57,6 @@ class ListTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->createSource) {
             $res['CreateSource'] = $this->createSource;
         }
@@ -71,6 +65,12 @@ class ListTemplatesRequest extends Model
         }
         if (null !== $this->sortType) {
             $res['SortType'] = $this->sortType;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -84,12 +84,6 @@ class ListTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CreateSource'])) {
             $model->createSource = $map['CreateSource'];
         }
@@ -98,6 +92,12 @@ class ListTemplatesRequest extends Model
         }
         if (isset($map['SortType'])) {
             $model->sortType = $map['SortType'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

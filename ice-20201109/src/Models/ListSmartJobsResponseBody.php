@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListSmartJobsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description Id of the request
      *
      * @var string
@@ -24,22 +34,12 @@ class ListSmartJobsResponseBody extends Model
     /**
      * @var string
      */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
     public $totalCount;
     protected $_name = [
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
         'requestId'    => 'RequestId',
         'smartJobList' => 'SmartJobList',
-        'nextToken'    => 'NextToken',
-        'maxResults'   => 'MaxResults',
         'totalCount'   => 'TotalCount',
     ];
 
@@ -50,6 +50,12 @@ class ListSmartJobsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -61,12 +67,6 @@ class ListSmartJobsResponseBody extends Model
                     $res['SmartJobList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -83,6 +83,12 @@ class ListSmartJobsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -94,12 +100,6 @@ class ListSmartJobsResponseBody extends Model
                     $model->smartJobList[$n++] = null !== $item ? smartJobList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

@@ -9,18 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveEditingJobResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $jobId;
@@ -34,12 +22,24 @@ class SubmitLiveEditingJobResponseBody extends Model
      * @var string
      */
     public $mediaURL;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'projectId' => 'ProjectId',
         'jobId'     => 'JobId',
         'mediaId'   => 'MediaId',
         'mediaURL'  => 'MediaURL',
+        'projectId' => 'ProjectId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -49,12 +49,6 @@ class SubmitLiveEditingJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -63,6 +57,12 @@ class SubmitLiveEditingJobResponseBody extends Model
         }
         if (null !== $this->mediaURL) {
             $res['MediaURL'] = $this->mediaURL;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -76,12 +76,6 @@ class SubmitLiveEditingJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
@@ -90,6 +84,12 @@ class SubmitLiveEditingJobResponseBody extends Model
         }
         if (isset($map['MediaURL'])) {
             $model->mediaURL = $map['MediaURL'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

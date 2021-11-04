@@ -11,7 +11,7 @@ class templates extends Model
     /**
      * @var string
      */
-    public $templateId;
+    public $config;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class templates extends Model
     /**
      * @var string
      */
-    public $type;
+    public $templateId;
 
     /**
      * @var string
      */
-    public $config;
+    public $type;
     protected $_name = [
-        'templateId' => 'TemplateId',
-        'name'       => 'Name',
-        'type'       => 'Type',
         'config'     => 'Config',
+        'name'       => 'Name',
+        'templateId' => 'TemplateId',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class templates extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class templates extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
         }
 
         return $model;

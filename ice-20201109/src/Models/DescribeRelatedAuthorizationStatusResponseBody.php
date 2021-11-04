@@ -9,21 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRelatedAuthorizationStatusResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
-    public $OSSAuthorized;
-
-    /**
-     * @var bool
-     */
-    public $MTSAuthorized;
+    public $authorized;
 
     /**
      * @var bool
@@ -33,13 +21,25 @@ class DescribeRelatedAuthorizationStatusResponseBody extends Model
     /**
      * @var bool
      */
-    public $authorized;
+    public $MTSAuthorized;
+
+    /**
+     * @var bool
+     */
+    public $OSSAuthorized;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'OSSAuthorized' => 'OSSAuthorized',
-        'MTSAuthorized' => 'MTSAuthorized',
-        'MNSAuthorized' => 'MNSAuthorized',
         'authorized'    => 'Authorized',
+        'MNSAuthorized' => 'MNSAuthorized',
+        'MTSAuthorized' => 'MTSAuthorized',
+        'OSSAuthorized' => 'OSSAuthorized',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -49,20 +49,20 @@ class DescribeRelatedAuthorizationStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->OSSAuthorized) {
-            $res['OSSAuthorized'] = $this->OSSAuthorized;
-        }
-        if (null !== $this->MTSAuthorized) {
-            $res['MTSAuthorized'] = $this->MTSAuthorized;
+        if (null !== $this->authorized) {
+            $res['Authorized'] = $this->authorized;
         }
         if (null !== $this->MNSAuthorized) {
             $res['MNSAuthorized'] = $this->MNSAuthorized;
         }
-        if (null !== $this->authorized) {
-            $res['Authorized'] = $this->authorized;
+        if (null !== $this->MTSAuthorized) {
+            $res['MTSAuthorized'] = $this->MTSAuthorized;
+        }
+        if (null !== $this->OSSAuthorized) {
+            $res['OSSAuthorized'] = $this->OSSAuthorized;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -76,20 +76,20 @@ class DescribeRelatedAuthorizationStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['OSSAuthorized'])) {
-            $model->OSSAuthorized = $map['OSSAuthorized'];
-        }
-        if (isset($map['MTSAuthorized'])) {
-            $model->MTSAuthorized = $map['MTSAuthorized'];
+        if (isset($map['Authorized'])) {
+            $model->authorized = $map['Authorized'];
         }
         if (isset($map['MNSAuthorized'])) {
             $model->MNSAuthorized = $map['MNSAuthorized'];
         }
-        if (isset($map['Authorized'])) {
-            $model->authorized = $map['Authorized'];
+        if (isset($map['MTSAuthorized'])) {
+            $model->MTSAuthorized = $map['MTSAuthorized'];
+        }
+        if (isset($map['OSSAuthorized'])) {
+            $model->OSSAuthorized = $map['OSSAuthorized'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

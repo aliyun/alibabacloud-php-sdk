@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class SubmitAudioProduceJobResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description 任务ID
      *
      * @var string
      */
     public $jobId;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @description 任务状态
@@ -29,8 +29,8 @@ class SubmitAudioProduceJobResponseBody extends Model
      */
     public $state;
     protected $_name = [
-        'requestId' => 'RequestId',
         'jobId'     => 'JobId',
+        'requestId' => 'RequestId',
         'state'     => 'State',
     ];
 
@@ -41,11 +41,11 @@ class SubmitAudioProduceJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -62,11 +62,11 @@ class SubmitAudioProduceJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

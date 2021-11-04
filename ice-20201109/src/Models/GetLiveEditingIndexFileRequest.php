@@ -21,17 +21,17 @@ class GetLiveEditingIndexFileRequest extends Model
     /**
      * @var string
      */
-    public $streamName;
+    public $projectId;
 
     /**
      * @var string
      */
-    public $projectId;
+    public $streamName;
     protected $_name = [
         'appName'    => 'AppName',
         'domainName' => 'DomainName',
-        'streamName' => 'StreamName',
         'projectId'  => 'ProjectId',
+        'streamName' => 'StreamName',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class GetLiveEditingIndexFileRequest extends Model
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
-        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class GetLiveEditingIndexFileRequest extends Model
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
-        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

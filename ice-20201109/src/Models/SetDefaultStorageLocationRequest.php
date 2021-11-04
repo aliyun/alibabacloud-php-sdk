@@ -11,21 +11,21 @@ class SetDefaultStorageLocationRequest extends Model
     /**
      * @var string
      */
-    public $storageType;
-
-    /**
-     * @var string
-     */
     public $bucket;
 
     /**
      * @var string
      */
     public $path;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
-        'storageType' => 'StorageType',
         'bucket'      => 'Bucket',
         'path'        => 'Path',
+        'storageType' => 'StorageType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SetDefaultStorageLocationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->storageType) {
-            $res['StorageType'] = $this->storageType;
-        }
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SetDefaultStorageLocationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StorageType'])) {
-            $model->storageType = $map['StorageType'];
-        }
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         return $model;

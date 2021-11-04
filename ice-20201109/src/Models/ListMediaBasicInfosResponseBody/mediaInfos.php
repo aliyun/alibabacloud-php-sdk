@@ -11,11 +11,11 @@ use AlibabaCloud\Tea\Model;
 class mediaInfos extends Model
 {
     /**
-     * @description 媒资ID
+     * @description FileInfos
      *
-     * @var string
+     * @var fileInfoList[]
      */
-    public $mediaId;
+    public $fileInfoList;
 
     /**
      * @description BasicInfo
@@ -25,15 +25,15 @@ class mediaInfos extends Model
     public $mediaBasicInfo;
 
     /**
-     * @description FileInfos
+     * @description 媒资ID
      *
-     * @var fileInfoList[]
+     * @var string
      */
-    public $fileInfoList;
+    public $mediaId;
     protected $_name = [
-        'mediaId'        => 'MediaId',
-        'mediaBasicInfo' => 'MediaBasicInfo',
         'fileInfoList'   => 'FileInfoList',
+        'mediaBasicInfo' => 'MediaBasicInfo',
+        'mediaId'        => 'MediaId',
     ];
 
     public function validate()
@@ -43,12 +43,6 @@ class mediaInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mediaId) {
-            $res['MediaId'] = $this->mediaId;
-        }
-        if (null !== $this->mediaBasicInfo) {
-            $res['MediaBasicInfo'] = null !== $this->mediaBasicInfo ? $this->mediaBasicInfo->toMap() : null;
-        }
         if (null !== $this->fileInfoList) {
             $res['FileInfoList'] = [];
             if (null !== $this->fileInfoList && \is_array($this->fileInfoList)) {
@@ -57,6 +51,12 @@ class mediaInfos extends Model
                     $res['FileInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->mediaBasicInfo) {
+            $res['MediaBasicInfo'] = null !== $this->mediaBasicInfo ? $this->mediaBasicInfo->toMap() : null;
+        }
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
         }
 
         return $res;
@@ -70,12 +70,6 @@ class mediaInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MediaId'])) {
-            $model->mediaId = $map['MediaId'];
-        }
-        if (isset($map['MediaBasicInfo'])) {
-            $model->mediaBasicInfo = mediaBasicInfo::fromMap($map['MediaBasicInfo']);
-        }
         if (isset($map['FileInfoList'])) {
             if (!empty($map['FileInfoList'])) {
                 $model->fileInfoList = [];
@@ -84,6 +78,12 @@ class mediaInfos extends Model
                     $model->fileInfoList[$n++] = null !== $item ? fileInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MediaBasicInfo'])) {
+            $model->mediaBasicInfo = mediaBasicInfo::fromMap($map['MediaBasicInfo']);
+        }
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
         }
 
         return $model;

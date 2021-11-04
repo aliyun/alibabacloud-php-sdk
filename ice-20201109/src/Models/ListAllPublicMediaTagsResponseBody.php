@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListAllPublicMediaTagsResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description 公共素材库标签列表
      *
      * @var mediaTagList[]
      */
     public $mediaTagList;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'mediaTagList' => 'MediaTagList',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -34,9 +34,6 @@ class ListAllPublicMediaTagsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->mediaTagList) {
             $res['MediaTagList'] = [];
             if (null !== $this->mediaTagList && \is_array($this->mediaTagList)) {
@@ -45,6 +42,9 @@ class ListAllPublicMediaTagsResponseBody extends Model
                     $res['MediaTagList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,9 +58,6 @@ class ListAllPublicMediaTagsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MediaTagList'])) {
             if (!empty($map['MediaTagList'])) {
                 $model->mediaTagList = [];
@@ -69,6 +66,9 @@ class ListAllPublicMediaTagsResponseBody extends Model
                     $model->mediaTagList[$n++] = null !== $item ? mediaTagList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

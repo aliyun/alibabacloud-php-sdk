@@ -9,39 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListMediaBasicInfosRequest extends Model
 {
     /**
-     * @description 创建时间
-     *
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @description 结束时间
-     *
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @description 媒资媒体类型
-     *
-     * @var string
-     */
-    public $mediaType;
-
-    /**
      * @description 媒资业务类型
      *
      * @var string
      */
     public $businessType;
-
-    /**
-     * @description 来源
-     *
-     * @var string
-     */
-    public $source;
 
     /**
      * @description 分类
@@ -51,18 +23,18 @@ class ListMediaBasicInfosRequest extends Model
     public $category;
 
     /**
-     * @description 资源状态
+     * @description 结束时间
      *
      * @var string
      */
-    public $status;
+    public $endTime;
 
     /**
-     * @description 页号
+     * @description 返回值中是否包含文件基础信息
      *
-     * @var string
+     * @var bool
      */
-    public $nextToken;
+    public $includeFileBasicInfo;
 
     /**
      * @description 分页大小
@@ -72,6 +44,20 @@ class ListMediaBasicInfosRequest extends Model
     public $maxResults;
 
     /**
+     * @description 媒资媒体类型
+     *
+     * @var string
+     */
+    public $mediaType;
+
+    /**
+     * @description 页号
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description 排序
      *
      * @var string
@@ -79,23 +65,37 @@ class ListMediaBasicInfosRequest extends Model
     public $sortBy;
 
     /**
-     * @description 返回值中是否包含文件基础信息
+     * @description 来源
      *
-     * @var bool
+     * @var string
      */
-    public $includeFileBasicInfo;
+    public $source;
+
+    /**
+     * @description 创建时间
+     *
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @description 资源状态
+     *
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'startTime'            => 'StartTime',
-        'endTime'              => 'EndTime',
-        'mediaType'            => 'MediaType',
         'businessType'         => 'BusinessType',
-        'source'               => 'Source',
         'category'             => 'Category',
-        'status'               => 'Status',
-        'nextToken'            => 'NextToken',
-        'maxResults'           => 'MaxResults',
-        'sortBy'               => 'SortBy',
+        'endTime'              => 'EndTime',
         'includeFileBasicInfo' => 'IncludeFileBasicInfo',
+        'maxResults'           => 'MaxResults',
+        'mediaType'            => 'MediaType',
+        'nextToken'            => 'NextToken',
+        'sortBy'               => 'SortBy',
+        'source'               => 'Source',
+        'startTime'            => 'StartTime',
+        'status'               => 'Status',
     ];
 
     public function validate()
@@ -105,38 +105,38 @@ class ListMediaBasicInfosRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->mediaType) {
-            $res['MediaType'] = $this->mediaType;
-        }
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->includeFileBasicInfo) {
+            $res['IncludeFileBasicInfo'] = $this->includeFileBasicInfo;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
-        if (null !== $this->includeFileBasicInfo) {
-            $res['IncludeFileBasicInfo'] = $this->includeFileBasicInfo;
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -150,38 +150,38 @@ class ListMediaBasicInfosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['MediaType'])) {
-            $model->mediaType = $map['MediaType'];
-        }
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['IncludeFileBasicInfo'])) {
+            $model->includeFileBasicInfo = $map['IncludeFileBasicInfo'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
-        if (isset($map['IncludeFileBasicInfo'])) {
-            $model->includeFileBasicInfo = $map['IncludeFileBasicInfo'];
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

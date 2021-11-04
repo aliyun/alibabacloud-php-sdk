@@ -11,7 +11,7 @@ class SubmitKeyWordCutJobRequest extends Model
     /**
      * @var string
      */
-    public $keyword;
+    public $description;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class SubmitKeyWordCutJobRequest extends Model
     /**
      * @var string
      */
-    public $userData;
+    public $keyword;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class SubmitKeyWordCutJobRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $userData;
     protected $_name = [
-        'keyword'     => 'Keyword',
-        'inputFile'   => 'InputFile',
-        'userData'    => 'UserData',
-        'title'       => 'Title',
         'description' => 'Description',
+        'inputFile'   => 'InputFile',
+        'keyword'     => 'Keyword',
+        'title'       => 'Title',
+        'userData'    => 'UserData',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class SubmitKeyWordCutJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->inputFile) {
             $res['InputFile'] = $this->inputFile;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class SubmitKeyWordCutJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['InputFile'])) {
             $model->inputFile = $map['InputFile'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

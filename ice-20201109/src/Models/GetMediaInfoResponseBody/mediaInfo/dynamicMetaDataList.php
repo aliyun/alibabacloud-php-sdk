@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class dynamicMetaDataList extends Model
 {
     /**
+     * @description 元数据json string
+     *
+     * @var string
+     */
+    public $data;
+
+    /**
      * @description 开始时间
      *
      * @var float
@@ -28,18 +35,11 @@ class dynamicMetaDataList extends Model
      * @var string
      */
     public $type;
-
-    /**
-     * @description 元数据json string
-     *
-     * @var string
-     */
-    public $data;
     protected $_name = [
+        'data' => 'Data',
         'in'   => 'In',
         'out'  => 'Out',
         'type' => 'Type',
-        'data' => 'Data',
     ];
 
     public function validate()
@@ -49,6 +49,9 @@ class dynamicMetaDataList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->in) {
             $res['In'] = $this->in;
         }
@@ -57,9 +60,6 @@ class dynamicMetaDataList extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
         }
 
         return $res;
@@ -73,6 +73,9 @@ class dynamicMetaDataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
         if (isset($map['In'])) {
             $model->in = $map['In'];
         }
@@ -81,9 +84,6 @@ class dynamicMetaDataList extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
         }
 
         return $model;

@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListSysTemplatesRequest extends Model
 {
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始
-     *
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @description 本次读取的最大数据记录数量
      *
      * @var int
@@ -23,12 +16,19 @@ class ListSysTemplatesRequest extends Model
     public $maxResults;
 
     /**
+     * @description 标记当前开始读取的位置，置空表示从头开始
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'nextToken'  => 'NextToken',
         'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
         'type'       => 'Type',
     ];
 
@@ -39,11 +39,11 @@ class ListSysTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -60,11 +60,11 @@ class ListSysTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class aiRoughDataList extends Model
 {
     /**
-     * @description AI类型
-     *
-     * @var string
-     */
-    public $type;
-
-    /**
      * @description AI原始结果
      *
      * @var string
      */
     public $result;
+
+    /**
+     * @description AI类型
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'   => 'Type',
         'result' => 'Result',
+        'type'   => 'Type',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class aiRoughDataList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class aiRoughDataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

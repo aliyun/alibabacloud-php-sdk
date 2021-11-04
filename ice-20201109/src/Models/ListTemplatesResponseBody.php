@@ -17,20 +17,20 @@ class ListTemplatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @var templates[]
+     */
+    public $templates;
+
+    /**
      * @description 本次请求条件下的数据总量。
      *
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var templates[]
-     */
-    public $templates;
     protected $_name = [
         'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
         'templates'  => 'Templates',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -43,9 +43,6 @@ class ListTemplatesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->templates) {
             $res['Templates'] = [];
             if (null !== $this->templates && \is_array($this->templates)) {
@@ -54,6 +51,9 @@ class ListTemplatesResponseBody extends Model
                     $res['Templates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -70,9 +70,6 @@ class ListTemplatesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['Templates'])) {
             if (!empty($map['Templates'])) {
                 $model->templates = [];
@@ -81,6 +78,9 @@ class ListTemplatesResponseBody extends Model
                     $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

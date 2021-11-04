@@ -11,12 +11,12 @@ class SubmitPPTCutJobRequest extends Model
     /**
      * @var string
      */
-    public $inputFile;
+    public $description;
 
     /**
      * @var string
      */
-    public $userData;
+    public $inputFile;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class SubmitPPTCutJobRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $userData;
     protected $_name = [
-        'inputFile'   => 'InputFile',
-        'userData'    => 'UserData',
-        'title'       => 'Title',
         'description' => 'Description',
+        'inputFile'   => 'InputFile',
+        'title'       => 'Title',
+        'userData'    => 'UserData',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class SubmitPPTCutJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->inputFile) {
             $res['InputFile'] = $this->inputFile;
-        }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class SubmitPPTCutJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['InputFile'])) {
             $model->inputFile = $map['InputFile'];
-        }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

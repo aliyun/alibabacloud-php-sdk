@@ -10,11 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetSmartHandleJobResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
-    public $requestId;
+    public $FEExtend;
 
     /**
      * @var string
@@ -27,6 +25,18 @@ class GetSmartHandleJobResponseBody extends Model
     public $output;
 
     /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var smartJobInfo
+     */
+    public $smartJobInfo;
+
+    /**
      * @var string
      */
     public $state;
@@ -35,24 +45,14 @@ class GetSmartHandleJobResponseBody extends Model
      * @var string
      */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $FEExtend;
-
-    /**
-     * @var smartJobInfo
-     */
-    public $smartJobInfo;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'FEExtend'     => 'FEExtend',
         'jobId'        => 'JobId',
         'output'       => 'Output',
+        'requestId'    => 'RequestId',
+        'smartJobInfo' => 'SmartJobInfo',
         'state'        => 'State',
         'userData'     => 'UserData',
-        'FEExtend'     => 'FEExtend',
-        'smartJobInfo' => 'SmartJobInfo',
     ];
 
     public function validate()
@@ -62,8 +62,8 @@ class GetSmartHandleJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->FEExtend) {
+            $res['FEExtend'] = $this->FEExtend;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
@@ -71,17 +71,17 @@ class GetSmartHandleJobResponseBody extends Model
         if (null !== $this->output) {
             $res['Output'] = $this->output;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->smartJobInfo) {
+            $res['SmartJobInfo'] = null !== $this->smartJobInfo ? $this->smartJobInfo->toMap() : null;
+        }
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->FEExtend) {
-            $res['FEExtend'] = $this->FEExtend;
-        }
-        if (null !== $this->smartJobInfo) {
-            $res['SmartJobInfo'] = null !== $this->smartJobInfo ? $this->smartJobInfo->toMap() : null;
         }
 
         return $res;
@@ -95,8 +95,8 @@ class GetSmartHandleJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['FEExtend'])) {
+            $model->FEExtend = $map['FEExtend'];
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
@@ -104,17 +104,17 @@ class GetSmartHandleJobResponseBody extends Model
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SmartJobInfo'])) {
+            $model->smartJobInfo = smartJobInfo::fromMap($map['SmartJobInfo']);
+        }
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['FEExtend'])) {
-            $model->FEExtend = $map['FEExtend'];
-        }
-        if (isset($map['SmartJobInfo'])) {
-            $model->smartJobInfo = smartJobInfo::fromMap($map['SmartJobInfo']);
         }
 
         return $model;

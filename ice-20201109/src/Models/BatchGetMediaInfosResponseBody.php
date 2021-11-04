@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class BatchGetMediaInfosResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description 符合要求的媒资集合
      *
      * @var mediaInfos[]
      */
     public $mediaInfos;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'mediaInfos' => 'MediaInfos',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -34,9 +34,6 @@ class BatchGetMediaInfosResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->mediaInfos) {
             $res['MediaInfos'] = [];
             if (null !== $this->mediaInfos && \is_array($this->mediaInfos)) {
@@ -45,6 +42,9 @@ class BatchGetMediaInfosResponseBody extends Model
                     $res['MediaInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,9 +58,6 @@ class BatchGetMediaInfosResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MediaInfos'])) {
             if (!empty($map['MediaInfos'])) {
                 $model->mediaInfos = [];
@@ -69,6 +66,9 @@ class BatchGetMediaInfosResponseBody extends Model
                     $model->mediaInfos[$n++] = null !== $item ? mediaInfos::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

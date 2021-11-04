@@ -10,18 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListMediaBasicInfosResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description 符合要求的媒资总数
-     *
      * @var int
      */
-    public $totalCount;
+    public $maxResults;
 
     /**
      * @description 符合要求的媒资集合
@@ -36,15 +27,24 @@ class ListMediaBasicInfosResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description 符合要求的媒资总数
+     *
      * @var int
      */
-    public $maxResults;
+    public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
+        'maxResults' => 'MaxResults',
         'mediaInfos' => 'MediaInfos',
         'nextToken'  => 'NextToken',
-        'maxResults' => 'MaxResults',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -54,11 +54,8 @@ class ListMediaBasicInfosResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->mediaInfos) {
             $res['MediaInfos'] = [];
@@ -72,8 +69,11 @@ class ListMediaBasicInfosResponseBody extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -87,11 +87,8 @@ class ListMediaBasicInfosResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['MediaInfos'])) {
             if (!empty($map['MediaInfos'])) {
@@ -105,8 +102,11 @@ class ListMediaBasicInfosResponseBody extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

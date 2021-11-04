@@ -11,16 +11,9 @@ use AlibabaCloud\Tea\Model;
 class AddEditingProjectMaterialsResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
+     * @var liveMaterials[]
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $projectId;
+    public $liveMaterials;
 
     /**
      * @description 符合要求的媒资集合
@@ -30,20 +23,27 @@ class AddEditingProjectMaterialsResponseBody extends Model
     public $mediaInfos;
 
     /**
-     * @var liveMaterials[]
+     * @var string
      */
-    public $liveMaterials;
+    public $projectId;
 
     /**
      * @var string
      */
     public $projectMaterials;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'projectId'        => 'ProjectId',
-        'mediaInfos'       => 'MediaInfos',
         'liveMaterials'    => 'LiveMaterials',
+        'mediaInfos'       => 'MediaInfos',
+        'projectId'        => 'ProjectId',
         'projectMaterials' => 'ProjectMaterials',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class AddEditingProjectMaterialsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->liveMaterials) {
+            $res['LiveMaterials'] = [];
+            if (null !== $this->liveMaterials && \is_array($this->liveMaterials)) {
+                $n = 0;
+                foreach ($this->liveMaterials as $item) {
+                    $res['LiveMaterials'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->mediaInfos) {
             $res['MediaInfos'] = [];
@@ -68,17 +71,14 @@ class AddEditingProjectMaterialsResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->liveMaterials) {
-            $res['LiveMaterials'] = [];
-            if (null !== $this->liveMaterials && \is_array($this->liveMaterials)) {
-                $n = 0;
-                foreach ($this->liveMaterials as $item) {
-                    $res['LiveMaterials'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectMaterials) {
             $res['ProjectMaterials'] = $this->projectMaterials;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -92,11 +92,14 @@ class AddEditingProjectMaterialsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['LiveMaterials'])) {
+            if (!empty($map['LiveMaterials'])) {
+                $model->liveMaterials = [];
+                $n                    = 0;
+                foreach ($map['LiveMaterials'] as $item) {
+                    $model->liveMaterials[$n++] = null !== $item ? liveMaterials::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['MediaInfos'])) {
             if (!empty($map['MediaInfos'])) {
@@ -107,17 +110,14 @@ class AddEditingProjectMaterialsResponseBody extends Model
                 }
             }
         }
-        if (isset($map['LiveMaterials'])) {
-            if (!empty($map['LiveMaterials'])) {
-                $model->liveMaterials = [];
-                $n                    = 0;
-                foreach ($map['LiveMaterials'] as $item) {
-                    $model->liveMaterials[$n++] = null !== $item ? liveMaterials::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectMaterials'])) {
             $model->projectMaterials = $map['ProjectMaterials'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

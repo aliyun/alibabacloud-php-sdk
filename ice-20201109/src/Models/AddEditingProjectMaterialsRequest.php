@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AddEditingProjectMaterialsRequest extends Model
 {
     /**
-     * @description 云剪辑工程ID
-     *
-     * @var string
-     */
-    public $projectId;
-
-    /**
      * @description 素材ID
      *
      * @var string
      */
     public $materialMaps;
+
+    /**
+     * @description 云剪辑工程ID
+     *
+     * @var string
+     */
+    public $projectId;
     protected $_name = [
-        'projectId'    => 'ProjectId',
         'materialMaps' => 'MaterialMaps',
+        'projectId'    => 'ProjectId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class AddEditingProjectMaterialsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->materialMaps) {
             $res['MaterialMaps'] = $this->materialMaps;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class AddEditingProjectMaterialsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['MaterialMaps'])) {
             $model->materialMaps = $map['MaterialMaps'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

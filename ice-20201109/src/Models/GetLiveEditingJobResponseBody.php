@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class GetLiveEditingJobResponseBody extends Model
 {
     /**
+     * @var liveEditingJob
+     */
+    public $liveEditingJob;
+
+    /**
      * @description Id of the request
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var liveEditingJob
-     */
-    public $liveEditingJob;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'liveEditingJob' => 'LiveEditingJob',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -32,11 +32,11 @@ class GetLiveEditingJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->liveEditingJob) {
             $res['LiveEditingJob'] = null !== $this->liveEditingJob ? $this->liveEditingJob->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -50,11 +50,11 @@ class GetLiveEditingJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LiveEditingJob'])) {
             $model->liveEditingJob = liveEditingJob::fromMap($map['LiveEditingJob']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

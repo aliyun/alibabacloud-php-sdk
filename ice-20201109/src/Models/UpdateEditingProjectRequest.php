@@ -9,25 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateEditingProjectRequest extends Model
 {
     /**
-     * @description 云剪辑工程标题
-     *
      * @var string
      */
-    public $title;
-
-    /**
-     * @description 云剪辑工程描述
-     *
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @description 云剪辑工程时间线，Json格式
-     *
-     * @var string
-     */
-    public $timeline;
+    public $businessStatus;
 
     /**
      * @description 云剪辑工程封面
@@ -37,6 +21,13 @@ class UpdateEditingProjectRequest extends Model
     public $coverURL;
 
     /**
+     * @description 云剪辑工程描述
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description 云剪辑工程ID
      *
      * @var string
@@ -44,16 +35,25 @@ class UpdateEditingProjectRequest extends Model
     public $projectId;
 
     /**
+     * @description 云剪辑工程时间线，Json格式
+     *
      * @var string
      */
-    public $businessStatus;
+    public $timeline;
+
+    /**
+     * @description 云剪辑工程标题
+     *
+     * @var string
+     */
+    public $title;
     protected $_name = [
-        'title'          => 'Title',
-        'description'    => 'Description',
-        'timeline'       => 'Timeline',
-        'coverURL'       => 'CoverURL',
-        'projectId'      => 'ProjectId',
         'businessStatus' => 'BusinessStatus',
+        'coverURL'       => 'CoverURL',
+        'description'    => 'Description',
+        'projectId'      => 'ProjectId',
+        'timeline'       => 'Timeline',
+        'title'          => 'Title',
     ];
 
     public function validate()
@@ -63,23 +63,23 @@ class UpdateEditingProjectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->timeline) {
-            $res['Timeline'] = $this->timeline;
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
         }
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->businessStatus) {
-            $res['BusinessStatus'] = $this->businessStatus;
+        if (null !== $this->timeline) {
+            $res['Timeline'] = $this->timeline;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -93,23 +93,23 @@ class UpdateEditingProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Timeline'])) {
-            $model->timeline = $map['Timeline'];
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
         }
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['BusinessStatus'])) {
-            $model->businessStatus = $map['BusinessStatus'];
+        if (isset($map['Timeline'])) {
+            $model->timeline = $map['Timeline'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

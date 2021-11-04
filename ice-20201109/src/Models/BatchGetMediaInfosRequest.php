@@ -11,15 +11,15 @@ class BatchGetMediaInfosRequest extends Model
     /**
      * @var string
      */
-    public $mediaIds;
+    public $additionType;
 
     /**
      * @var string
      */
-    public $additionType;
+    public $mediaIds;
     protected $_name = [
-        'mediaIds'     => 'MediaIds',
         'additionType' => 'AdditionType',
+        'mediaIds'     => 'MediaIds',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class BatchGetMediaInfosRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mediaIds) {
-            $res['MediaIds'] = $this->mediaIds;
-        }
         if (null !== $this->additionType) {
             $res['AdditionType'] = $this->additionType;
+        }
+        if (null !== $this->mediaIds) {
+            $res['MediaIds'] = $this->mediaIds;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class BatchGetMediaInfosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MediaIds'])) {
-            $model->mediaIds = $map['MediaIds'];
-        }
         if (isset($map['AdditionType'])) {
             $model->additionType = $map['AdditionType'];
+        }
+        if (isset($map['MediaIds'])) {
+            $model->mediaIds = $map['MediaIds'];
         }
 
         return $model;

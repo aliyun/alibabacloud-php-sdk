@@ -9,27 +9,6 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
-     * @description 模板Id
-     *
-     * @var string
-     */
-    public $templateId;
-
-    /**
-     * @description 模板名称
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description 模板类型
-     *
-     * @var string
-     */
-    public $type;
-
-    /**
      * @description 参见Timeline模板Config文档
      *
      * @var string
@@ -42,6 +21,27 @@ class template extends Model
      * @var string
      */
     public $coverUrl;
+
+    /**
+     * @description 模板创建来源
+     *
+     * @var string
+     */
+    public $createSource;
+
+    /**
+     * @description 模板修改来源
+     *
+     * @var string
+     */
+    public $modifiedSource;
+
+    /**
+     * @description 模板名称
+     *
+     * @var string
+     */
+    public $name;
 
     /**
      * @description 预览视频媒资id
@@ -58,28 +58,28 @@ class template extends Model
     public $status;
 
     /**
-     * @description 模板创建来源
+     * @description 模板Id
      *
      * @var string
      */
-    public $createSource;
+    public $templateId;
 
     /**
-     * @description 模板修改来源
+     * @description 模板类型
      *
      * @var string
      */
-    public $modifiedSource;
+    public $type;
     protected $_name = [
-        'templateId'     => 'TemplateId',
-        'name'           => 'Name',
-        'type'           => 'Type',
         'config'         => 'Config',
         'coverUrl'       => 'CoverUrl',
-        'previewMedia'   => 'PreviewMedia',
-        'status'         => 'Status',
         'createSource'   => 'CreateSource',
         'modifiedSource' => 'ModifiedSource',
+        'name'           => 'Name',
+        'previewMedia'   => 'PreviewMedia',
+        'status'         => 'Status',
+        'templateId'     => 'TemplateId',
+        'type'           => 'Type',
     ];
 
     public function validate()
@@ -89,20 +89,20 @@ class template extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
+        }
+        if (null !== $this->createSource) {
+            $res['CreateSource'] = $this->createSource;
+        }
+        if (null !== $this->modifiedSource) {
+            $res['ModifiedSource'] = $this->modifiedSource;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->previewMedia) {
             $res['PreviewMedia'] = $this->previewMedia;
@@ -110,11 +110,11 @@ class template extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->createSource) {
-            $res['CreateSource'] = $this->createSource;
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->modifiedSource) {
-            $res['ModifiedSource'] = $this->modifiedSource;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -128,20 +128,20 @@ class template extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
+        }
+        if (isset($map['CreateSource'])) {
+            $model->createSource = $map['CreateSource'];
+        }
+        if (isset($map['ModifiedSource'])) {
+            $model->modifiedSource = $map['ModifiedSource'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PreviewMedia'])) {
             $model->previewMedia = $map['PreviewMedia'];
@@ -149,11 +149,11 @@ class template extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['CreateSource'])) {
-            $model->createSource = $map['CreateSource'];
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['ModifiedSource'])) {
-            $model->modifiedSource = $map['ModifiedSource'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

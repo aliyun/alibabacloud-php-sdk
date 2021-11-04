@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SearchEditingProjectRequest extends Model
 {
     /**
-     * @description CreateTime（创建时间）的开始时间
+     * @description 创建来源
      *
      * @var string
      */
-    public $startTime;
+    public $createSource;
 
     /**
      * @description CreationTime（创建时间）的结束时间
@@ -23,18 +23,11 @@ class SearchEditingProjectRequest extends Model
     public $endTime;
 
     /**
-     * @description 云剪辑工程状态。多个用逗号分隔
+     * @description 分页参数
      *
-     * @var string
+     * @var int
      */
-    public $status;
-
-    /**
-     * @description 结果排序方式
-     *
-     * @var string
-     */
-    public $sortBy;
+    public $maxResults;
 
     /**
      * @description 分页参数
@@ -44,18 +37,30 @@ class SearchEditingProjectRequest extends Model
     public $nextToken;
 
     /**
-     * @description 分页参数
-     *
-     * @var int
+     * @var string
      */
-    public $maxResults;
+    public $projectType;
 
     /**
-     * @description 创建来源
+     * @description 结果排序方式
      *
      * @var string
      */
-    public $createSource;
+    public $sortBy;
+
+    /**
+     * @description CreateTime（创建时间）的开始时间
+     *
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @description 云剪辑工程状态。多个用逗号分隔
+     *
+     * @var string
+     */
+    public $status;
 
     /**
      * @description 模板类型
@@ -63,21 +68,16 @@ class SearchEditingProjectRequest extends Model
      * @var string
      */
     public $templateType;
-
-    /**
-     * @var string
-     */
-    public $projectType;
     protected $_name = [
-        'startTime'    => 'StartTime',
-        'endTime'      => 'EndTime',
-        'status'       => 'Status',
-        'sortBy'       => 'SortBy',
-        'nextToken'    => 'NextToken',
-        'maxResults'   => 'MaxResults',
         'createSource' => 'CreateSource',
-        'templateType' => 'TemplateType',
+        'endTime'      => 'EndTime',
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
         'projectType'  => 'ProjectType',
+        'sortBy'       => 'SortBy',
+        'startTime'    => 'StartTime',
+        'status'       => 'Status',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -87,32 +87,32 @@ class SearchEditingProjectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->createSource) {
+            $res['CreateSource'] = $this->createSource;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->sortBy) {
-            $res['SortBy'] = $this->sortBy;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->projectType) {
+            $res['ProjectType'] = $this->projectType;
         }
-        if (null !== $this->createSource) {
-            $res['CreateSource'] = $this->createSource;
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
-        }
-        if (null !== $this->projectType) {
-            $res['ProjectType'] = $this->projectType;
         }
 
         return $res;
@@ -126,32 +126,32 @@ class SearchEditingProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['CreateSource'])) {
+            $model->createSource = $map['CreateSource'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['SortBy'])) {
-            $model->sortBy = $map['SortBy'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['ProjectType'])) {
+            $model->projectType = $map['ProjectType'];
         }
-        if (isset($map['CreateSource'])) {
-            $model->createSource = $map['CreateSource'];
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
-        }
-        if (isset($map['ProjectType'])) {
-            $model->projectType = $map['ProjectType'];
         }
 
         return $model;

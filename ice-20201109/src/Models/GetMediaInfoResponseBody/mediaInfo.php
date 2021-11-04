@@ -13,18 +13,11 @@ use AlibabaCloud\Tea\Model;
 class mediaInfo extends Model
 {
     /**
-     * @description 媒资ID
+     * @description AIMetadata
      *
-     * @var string
+     * @var aiRoughDataList[]
      */
-    public $mediaId;
-
-    /**
-     * @description BasicInfo
-     *
-     * @var mediaBasicInfo
-     */
-    public $mediaBasicInfo;
+    public $aiRoughDataList;
 
     /**
      * @description 其他元数据
@@ -34,24 +27,31 @@ class mediaInfo extends Model
     public $dynamicMetaDataList;
 
     /**
-     * @description AIMetadata
-     *
-     * @var aiRoughDataList[]
-     */
-    public $aiRoughDataList;
-
-    /**
      * @description FileInfos
      *
      * @var fileInfoList[]
      */
     public $fileInfoList;
+
+    /**
+     * @description BasicInfo
+     *
+     * @var mediaBasicInfo
+     */
+    public $mediaBasicInfo;
+
+    /**
+     * @description 媒资ID
+     *
+     * @var string
+     */
+    public $mediaId;
     protected $_name = [
-        'mediaId'             => 'MediaId',
-        'mediaBasicInfo'      => 'MediaBasicInfo',
-        'dynamicMetaDataList' => 'DynamicMetaDataList',
         'aiRoughDataList'     => 'AiRoughDataList',
+        'dynamicMetaDataList' => 'DynamicMetaDataList',
         'fileInfoList'        => 'FileInfoList',
+        'mediaBasicInfo'      => 'MediaBasicInfo',
+        'mediaId'             => 'MediaId',
     ];
 
     public function validate()
@@ -61,11 +61,14 @@ class mediaInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mediaId) {
-            $res['MediaId'] = $this->mediaId;
-        }
-        if (null !== $this->mediaBasicInfo) {
-            $res['MediaBasicInfo'] = null !== $this->mediaBasicInfo ? $this->mediaBasicInfo->toMap() : null;
+        if (null !== $this->aiRoughDataList) {
+            $res['AiRoughDataList'] = [];
+            if (null !== $this->aiRoughDataList && \is_array($this->aiRoughDataList)) {
+                $n = 0;
+                foreach ($this->aiRoughDataList as $item) {
+                    $res['AiRoughDataList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->dynamicMetaDataList) {
             $res['DynamicMetaDataList'] = [];
@@ -73,15 +76,6 @@ class mediaInfo extends Model
                 $n = 0;
                 foreach ($this->dynamicMetaDataList as $item) {
                     $res['DynamicMetaDataList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->aiRoughDataList) {
-            $res['AiRoughDataList'] = [];
-            if (null !== $this->aiRoughDataList && \is_array($this->aiRoughDataList)) {
-                $n = 0;
-                foreach ($this->aiRoughDataList as $item) {
-                    $res['AiRoughDataList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -93,6 +87,12 @@ class mediaInfo extends Model
                     $res['FileInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->mediaBasicInfo) {
+            $res['MediaBasicInfo'] = null !== $this->mediaBasicInfo ? $this->mediaBasicInfo->toMap() : null;
+        }
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
         }
 
         return $res;
@@ -106,11 +106,14 @@ class mediaInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MediaId'])) {
-            $model->mediaId = $map['MediaId'];
-        }
-        if (isset($map['MediaBasicInfo'])) {
-            $model->mediaBasicInfo = mediaBasicInfo::fromMap($map['MediaBasicInfo']);
+        if (isset($map['AiRoughDataList'])) {
+            if (!empty($map['AiRoughDataList'])) {
+                $model->aiRoughDataList = [];
+                $n                      = 0;
+                foreach ($map['AiRoughDataList'] as $item) {
+                    $model->aiRoughDataList[$n++] = null !== $item ? aiRoughDataList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['DynamicMetaDataList'])) {
             if (!empty($map['DynamicMetaDataList'])) {
@@ -118,15 +121,6 @@ class mediaInfo extends Model
                 $n                          = 0;
                 foreach ($map['DynamicMetaDataList'] as $item) {
                     $model->dynamicMetaDataList[$n++] = null !== $item ? dynamicMetaDataList::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['AiRoughDataList'])) {
-            if (!empty($map['AiRoughDataList'])) {
-                $model->aiRoughDataList = [];
-                $n                      = 0;
-                foreach ($map['AiRoughDataList'] as $item) {
-                    $model->aiRoughDataList[$n++] = null !== $item ? aiRoughDataList::fromMap($item) : $item;
                 }
             }
         }
@@ -138,6 +132,12 @@ class mediaInfo extends Model
                     $model->fileInfoList[$n++] = null !== $item ? fileInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MediaBasicInfo'])) {
+            $model->mediaBasicInfo = mediaBasicInfo::fromMap($map['MediaBasicInfo']);
+        }
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
         }
 
         return $model;

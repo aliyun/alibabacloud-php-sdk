@@ -11,20 +11,20 @@ class GetMediaInfoRequest extends Model
     /**
      * @var string
      */
-    public $mediaId;
+    public $inputURL;
 
     /**
      * @var string
      */
-    public $inputURL;
+    public $mediaId;
 
     /**
      * @var string
      */
     public $outputType;
     protected $_name = [
-        'mediaId'    => 'MediaId',
         'inputURL'   => 'InputURL',
+        'mediaId'    => 'MediaId',
         'outputType' => 'OutputType',
     ];
 
@@ -35,11 +35,11 @@ class GetMediaInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mediaId) {
-            $res['MediaId'] = $this->mediaId;
-        }
         if (null !== $this->inputURL) {
             $res['InputURL'] = $this->inputURL;
+        }
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
         }
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
@@ -56,11 +56,11 @@ class GetMediaInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MediaId'])) {
-            $model->mediaId = $map['MediaId'];
-        }
         if (isset($map['InputURL'])) {
             $model->inputURL = $map['InputURL'];
+        }
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
         }
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];

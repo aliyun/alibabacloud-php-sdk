@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SubmitMattingJobResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string
      */
     public $jobId;
@@ -24,6 +17,13 @@ class SubmitMattingJobResponseBody extends Model
      * @var string
      */
     public $output;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var string
@@ -35,9 +35,9 @@ class SubmitMattingJobResponseBody extends Model
      */
     public $userData;
     protected $_name = [
-        'requestId' => 'RequestId',
         'jobId'     => 'JobId',
         'output'    => 'Output',
+        'requestId' => 'RequestId',
         'state'     => 'State',
         'userData'  => 'UserData',
     ];
@@ -49,14 +49,14 @@ class SubmitMattingJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -76,14 +76,14 @@ class SubmitMattingJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

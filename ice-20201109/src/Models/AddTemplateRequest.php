@@ -9,20 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddTemplateRequest extends Model
 {
     /**
-     * @description 模板名称
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description 模板类型，取值范围：Timeline
-     *
-     * @var string
-     */
-    public $type;
-
-    /**
      * @description 参见Timeline模板Config文档
      *
      * @var string
@@ -37,6 +23,13 @@ class AddTemplateRequest extends Model
     public $coverUrl;
 
     /**
+     * @description 模板名称
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
      * @description 预览视频媒资id
      *
      * @var string
@@ -44,11 +37,11 @@ class AddTemplateRequest extends Model
     public $previewMedia;
 
     /**
-     * @description 模板状态
+     * @description 模板相关素材，模板编辑器使用
      *
      * @var string
      */
-    public $status;
+    public $relatedMediaids;
 
     /**
      * @description 模板创建来源，默认OpenAPI
@@ -58,20 +51,27 @@ class AddTemplateRequest extends Model
     public $source;
 
     /**
-     * @description 模板相关素材，模板编辑器使用
+     * @description 模板状态
      *
      * @var string
      */
-    public $relatedMediaids;
+    public $status;
+
+    /**
+     * @description 模板类型，取值范围：Timeline
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'name'            => 'Name',
-        'type'            => 'Type',
         'config'          => 'Config',
         'coverUrl'        => 'CoverUrl',
+        'name'            => 'Name',
         'previewMedia'    => 'PreviewMedia',
-        'status'          => 'Status',
-        'source'          => 'Source',
         'relatedMediaids' => 'RelatedMediaids',
+        'source'          => 'Source',
+        'status'          => 'Status',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -81,29 +81,29 @@ class AddTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->previewMedia) {
             $res['PreviewMedia'] = $this->previewMedia;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->relatedMediaids) {
+            $res['RelatedMediaids'] = $this->relatedMediaids;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-        if (null !== $this->relatedMediaids) {
-            $res['RelatedMediaids'] = $this->relatedMediaids;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -117,29 +117,29 @@ class AddTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['PreviewMedia'])) {
             $model->previewMedia = $map['PreviewMedia'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['RelatedMediaids'])) {
+            $model->relatedMediaids = $map['RelatedMediaids'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-        if (isset($map['RelatedMediaids'])) {
-            $model->relatedMediaids = $map['RelatedMediaids'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

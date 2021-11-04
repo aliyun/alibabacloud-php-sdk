@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeIceProductStatusResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $ICEServiceAvaliable;
+
+    /**
      * @description Id of the request
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $ICEServiceAvaliable;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'ICEServiceAvaliable' => 'ICEServiceAvaliable',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class DescribeIceProductStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->ICEServiceAvaliable) {
             $res['ICEServiceAvaliable'] = $this->ICEServiceAvaliable;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class DescribeIceProductStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ICEServiceAvaliable'])) {
             $model->ICEServiceAvaliable = $map['ICEServiceAvaliable'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
