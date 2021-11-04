@@ -11,16 +11,6 @@ class checkStatusResult extends Model
     /**
      * @var int
      */
-    public $new;
-
-    /**
-     * @var int
-     */
-    public $unknown;
-
-    /**
-     * @var int
-     */
     public $checkNotPass;
 
     /**
@@ -31,19 +21,29 @@ class checkStatusResult extends Model
     /**
      * @var int
      */
+    public $forceNotPass;
+
+    /**
+     * @var int
+     */
     public $forcePass;
 
     /**
      * @var int
      */
-    public $forceNotPass;
+    public $new;
+
+    /**
+     * @var int
+     */
+    public $unknown;
     protected $_name = [
-        'new'          => 'New',
-        'unknown'      => 'Unknown',
         'checkNotPass' => 'CheckNotPass',
         'checkPass'    => 'CheckPass',
-        'forcePass'    => 'ForcePass',
         'forceNotPass' => 'ForceNotPass',
+        'forcePass'    => 'ForcePass',
+        'new'          => 'New',
+        'unknown'      => 'Unknown',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class checkStatusResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->new) {
-            $res['New'] = $this->new;
-        }
-        if (null !== $this->unknown) {
-            $res['Unknown'] = $this->unknown;
-        }
         if (null !== $this->checkNotPass) {
             $res['CheckNotPass'] = $this->checkNotPass;
         }
         if (null !== $this->checkPass) {
             $res['CheckPass'] = $this->checkPass;
         }
+        if (null !== $this->forceNotPass) {
+            $res['ForceNotPass'] = $this->forceNotPass;
+        }
         if (null !== $this->forcePass) {
             $res['ForcePass'] = $this->forcePass;
         }
-        if (null !== $this->forceNotPass) {
-            $res['ForceNotPass'] = $this->forceNotPass;
+        if (null !== $this->new) {
+            $res['New'] = $this->new;
+        }
+        if (null !== $this->unknown) {
+            $res['Unknown'] = $this->unknown;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class checkStatusResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['New'])) {
-            $model->new = $map['New'];
-        }
-        if (isset($map['Unknown'])) {
-            $model->unknown = $map['Unknown'];
-        }
         if (isset($map['CheckNotPass'])) {
             $model->checkNotPass = $map['CheckNotPass'];
         }
         if (isset($map['CheckPass'])) {
             $model->checkPass = $map['CheckPass'];
         }
+        if (isset($map['ForceNotPass'])) {
+            $model->forceNotPass = $map['ForceNotPass'];
+        }
         if (isset($map['ForcePass'])) {
             $model->forcePass = $map['ForcePass'];
         }
-        if (isset($map['ForceNotPass'])) {
-            $model->forceNotPass = $map['ForceNotPass'];
+        if (isset($map['New'])) {
+            $model->new = $map['New'];
+        }
+        if (isset($map['Unknown'])) {
+            $model->unknown = $map['Unknown'];
         }
 
         return $model;

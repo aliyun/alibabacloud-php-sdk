@@ -9,33 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetProxyResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var int
-     */
-    public $proxyId;
-
-    /**
      * @var int
      */
     public $creatorId;
@@ -46,9 +19,29 @@ class GetProxyResponseBody extends Model
     public $creatorName;
 
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $httpsPort;
+
+    /**
      * @var int
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $mysqlPort;
 
     /**
      * @var bool
@@ -61,6 +54,11 @@ class GetProxyResponseBody extends Model
     public $privateHost;
 
     /**
+     * @var int
+     */
+    public $proxyId;
+
+    /**
      * @var bool
      */
     public $publicEnable;
@@ -71,29 +69,31 @@ class GetProxyResponseBody extends Model
     public $publicHost;
 
     /**
-     * @var int
+     * @description Id of the request
+     *
+     * @var string
      */
-    public $mysqlPort;
+    public $requestId;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $httpsPort;
+    public $success;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'success'       => 'Success',
-        'errorMessage'  => 'ErrorMessage',
-        'errorCode'     => 'ErrorCode',
-        'proxyId'       => 'ProxyId',
         'creatorId'     => 'CreatorId',
         'creatorName'   => 'CreatorName',
+        'errorCode'     => 'ErrorCode',
+        'errorMessage'  => 'ErrorMessage',
+        'httpsPort'     => 'HttpsPort',
         'instanceId'    => 'InstanceId',
+        'mysqlPort'     => 'MysqlPort',
         'privateEnable' => 'PrivateEnable',
         'privateHost'   => 'PrivateHost',
+        'proxyId'       => 'ProxyId',
         'publicEnable'  => 'PublicEnable',
         'publicHost'    => 'PublicHost',
-        'mysqlPort'     => 'MysqlPort',
-        'httpsPort'     => 'HttpsPort',
+        'requestId'     => 'RequestId',
+        'success'       => 'Success',
     ];
 
     public function validate()
@@ -103,29 +103,26 @@ class GetProxyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->proxyId) {
-            $res['ProxyId'] = $this->proxyId;
-        }
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
         if (null !== $this->creatorName) {
             $res['CreatorName'] = $this->creatorName;
         }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->httpsPort) {
+            $res['HttpsPort'] = $this->httpsPort;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mysqlPort) {
+            $res['MysqlPort'] = $this->mysqlPort;
         }
         if (null !== $this->privateEnable) {
             $res['PrivateEnable'] = $this->privateEnable;
@@ -133,17 +130,20 @@ class GetProxyResponseBody extends Model
         if (null !== $this->privateHost) {
             $res['PrivateHost'] = $this->privateHost;
         }
+        if (null !== $this->proxyId) {
+            $res['ProxyId'] = $this->proxyId;
+        }
         if (null !== $this->publicEnable) {
             $res['PublicEnable'] = $this->publicEnable;
         }
         if (null !== $this->publicHost) {
             $res['PublicHost'] = $this->publicHost;
         }
-        if (null !== $this->mysqlPort) {
-            $res['MysqlPort'] = $this->mysqlPort;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->httpsPort) {
-            $res['HttpsPort'] = $this->httpsPort;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -157,29 +157,26 @@ class GetProxyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ProxyId'])) {
-            $model->proxyId = $map['ProxyId'];
-        }
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
         if (isset($map['CreatorName'])) {
             $model->creatorName = $map['CreatorName'];
         }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['HttpsPort'])) {
+            $model->httpsPort = $map['HttpsPort'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MysqlPort'])) {
+            $model->mysqlPort = $map['MysqlPort'];
         }
         if (isset($map['PrivateEnable'])) {
             $model->privateEnable = $map['PrivateEnable'];
@@ -187,17 +184,20 @@ class GetProxyResponseBody extends Model
         if (isset($map['PrivateHost'])) {
             $model->privateHost = $map['PrivateHost'];
         }
+        if (isset($map['ProxyId'])) {
+            $model->proxyId = $map['ProxyId'];
+        }
         if (isset($map['PublicEnable'])) {
             $model->publicEnable = $map['PublicEnable'];
         }
         if (isset($map['PublicHost'])) {
             $model->publicHost = $map['PublicHost'];
         }
-        if (isset($map['MysqlPort'])) {
-            $model->mysqlPort = $map['MysqlPort'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['HttpsPort'])) {
-            $model->httpsPort = $map['HttpsPort'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

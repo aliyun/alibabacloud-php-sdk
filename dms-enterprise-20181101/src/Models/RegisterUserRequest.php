@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class RegisterUserRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $mobile;
+
+    /**
+     * @var string
+     */
+    public $roleNames;
+
+    /**
      * @var int
      */
     public $tid;
@@ -22,22 +32,12 @@ class RegisterUserRequest extends Model
      * @var string
      */
     public $userNick;
-
-    /**
-     * @var string
-     */
-    public $roleNames;
-
-    /**
-     * @var string
-     */
-    public $mobile;
     protected $_name = [
+        'mobile'    => 'Mobile',
+        'roleNames' => 'RoleNames',
         'tid'       => 'Tid',
         'uid'       => 'Uid',
         'userNick'  => 'UserNick',
-        'roleNames' => 'RoleNames',
-        'mobile'    => 'Mobile',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class RegisterUserRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mobile) {
+            $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->roleNames) {
+            $res['RoleNames'] = $this->roleNames;
+        }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -55,12 +61,6 @@ class RegisterUserRequest extends Model
         }
         if (null !== $this->userNick) {
             $res['UserNick'] = $this->userNick;
-        }
-        if (null !== $this->roleNames) {
-            $res['RoleNames'] = $this->roleNames;
-        }
-        if (null !== $this->mobile) {
-            $res['Mobile'] = $this->mobile;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class RegisterUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Mobile'])) {
+            $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['RoleNames'])) {
+            $model->roleNames = $map['RoleNames'];
+        }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
@@ -82,12 +88,6 @@ class RegisterUserRequest extends Model
         }
         if (isset($map['UserNick'])) {
             $model->userNick = $map['UserNick'];
-        }
-        if (isset($map['RoleNames'])) {
-            $model->roleNames = $map['RoleNames'];
-        }
-        if (isset($map['Mobile'])) {
-            $model->mobile = $map['Mobile'];
         }
 
         return $model;

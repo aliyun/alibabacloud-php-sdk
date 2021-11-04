@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListDatabasesResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var databaseList
      */
     public $databaseList;
@@ -35,16 +25,26 @@ class ListDatabasesResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'   => 'TotalCount',
-        'requestId'    => 'RequestId',
         'databaseList' => 'DatabaseList',
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
         'success'      => 'Success',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -54,12 +54,6 @@ class ListDatabasesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->databaseList) {
             $res['DatabaseList'] = null !== $this->databaseList ? $this->databaseList->toMap() : null;
         }
@@ -69,8 +63,14 @@ class ListDatabasesResponseBody extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -84,12 +84,6 @@ class ListDatabasesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DatabaseList'])) {
             $model->databaseList = databaseList::fromMap($map['DatabaseList']);
         }
@@ -99,8 +93,14 @@ class ListDatabasesResponseBody extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

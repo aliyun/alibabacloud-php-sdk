@@ -11,22 +11,12 @@ class resourceDetail extends Model
     /**
      * @var string
      */
-    public $searchName;
-
-    /**
-     * @var string
-     */
     public $dbType;
 
     /**
      * @var string
      */
     public $envType;
-
-    /**
-     * @var string
-     */
-    public $tableName;
 
     /**
      * @var int[]
@@ -37,13 +27,23 @@ class resourceDetail extends Model
      * @var string[]
      */
     public $ownerNickNames;
+
+    /**
+     * @var string
+     */
+    public $searchName;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
-        'searchName'     => 'SearchName',
         'dbType'         => 'DbType',
         'envType'        => 'EnvType',
-        'tableName'      => 'TableName',
         'ownerIds'       => 'OwnerIds',
         'ownerNickNames' => 'OwnerNickNames',
+        'searchName'     => 'SearchName',
+        'tableName'      => 'TableName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class resourceDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->searchName) {
-            $res['SearchName'] = $this->searchName;
-        }
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
         if (null !== $this->ownerIds) {
             $res['OwnerIds'] = $this->ownerIds;
         }
         if (null !== $this->ownerNickNames) {
             $res['OwnerNickNames'] = $this->ownerNickNames;
+        }
+        if (null !== $this->searchName) {
+            $res['SearchName'] = $this->searchName;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -83,17 +83,11 @@ class resourceDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SearchName'])) {
-            $model->searchName = $map['SearchName'];
-        }
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
-        }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
         }
         if (isset($map['OwnerIds'])) {
             if (!empty($map['OwnerIds'])) {
@@ -104,6 +98,12 @@ class resourceDetail extends Model
             if (!empty($map['OwnerNickNames'])) {
                 $model->ownerNickNames = $map['OwnerNickNames'];
             }
+        }
+        if (isset($map['SearchName'])) {
+            $model->searchName = $map['SearchName'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

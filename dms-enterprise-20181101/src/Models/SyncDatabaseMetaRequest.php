@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SyncDatabaseMetaRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
      * @var string
      */
     public $dbId;
@@ -22,10 +17,15 @@ class SyncDatabaseMetaRequest extends Model
      * @var bool
      */
     public $logic;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
-        'tid'   => 'Tid',
         'dbId'  => 'DbId',
         'logic' => 'Logic',
+        'tid'   => 'Tid',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SyncDatabaseMetaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SyncDatabaseMetaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

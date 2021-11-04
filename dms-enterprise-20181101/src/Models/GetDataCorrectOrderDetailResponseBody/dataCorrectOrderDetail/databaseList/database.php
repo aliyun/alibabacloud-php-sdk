@@ -19,6 +19,11 @@ class database extends Model
     public $dbType;
 
     /**
+     * @var string
+     */
+    public $envType;
+
+    /**
      * @var bool
      */
     public $logic;
@@ -27,17 +32,12 @@ class database extends Model
      * @var string
      */
     public $searchName;
-
-    /**
-     * @var string
-     */
-    public $envType;
     protected $_name = [
         'dbId'       => 'DbId',
         'dbType'     => 'DbType',
+        'envType'    => 'EnvType',
         'logic'      => 'Logic',
         'searchName' => 'SearchName',
-        'envType'    => 'EnvType',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class database extends Model
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
+        }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
         }
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
-        }
-        if (null !== $this->envType) {
-            $res['EnvType'] = $this->envType;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class database extends Model
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
+        }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
         }
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];
-        }
-        if (isset($map['EnvType'])) {
-            $model->envType = $map['EnvType'];
         }
 
         return $model;

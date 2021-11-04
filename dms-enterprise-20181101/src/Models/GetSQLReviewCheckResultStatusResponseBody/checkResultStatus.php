@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class checkResultStatus extends Model
 {
     /**
-     * @var int
+     * @var checkStatusResult
      */
-    public $totalSQLCount;
+    public $checkStatusResult;
 
     /**
      * @var int
@@ -21,19 +21,19 @@ class checkResultStatus extends Model
     public $checkedCount;
 
     /**
-     * @var checkStatusResult
-     */
-    public $checkStatusResult;
-
-    /**
      * @var SQLReviewResult
      */
     public $SQLReviewResult;
+
+    /**
+     * @var int
+     */
+    public $totalSQLCount;
     protected $_name = [
-        'totalSQLCount'     => 'TotalSQLCount',
-        'checkedCount'      => 'CheckedCount',
         'checkStatusResult' => 'CheckStatusResult',
+        'checkedCount'      => 'CheckedCount',
         'SQLReviewResult'   => 'SQLReviewResult',
+        'totalSQLCount'     => 'TotalSQLCount',
     ];
 
     public function validate()
@@ -43,17 +43,17 @@ class checkResultStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalSQLCount) {
-            $res['TotalSQLCount'] = $this->totalSQLCount;
+        if (null !== $this->checkStatusResult) {
+            $res['CheckStatusResult'] = null !== $this->checkStatusResult ? $this->checkStatusResult->toMap() : null;
         }
         if (null !== $this->checkedCount) {
             $res['CheckedCount'] = $this->checkedCount;
         }
-        if (null !== $this->checkStatusResult) {
-            $res['CheckStatusResult'] = null !== $this->checkStatusResult ? $this->checkStatusResult->toMap() : null;
-        }
         if (null !== $this->SQLReviewResult) {
             $res['SQLReviewResult'] = null !== $this->SQLReviewResult ? $this->SQLReviewResult->toMap() : null;
+        }
+        if (null !== $this->totalSQLCount) {
+            $res['TotalSQLCount'] = $this->totalSQLCount;
         }
 
         return $res;
@@ -67,17 +67,17 @@ class checkResultStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalSQLCount'])) {
-            $model->totalSQLCount = $map['TotalSQLCount'];
+        if (isset($map['CheckStatusResult'])) {
+            $model->checkStatusResult = checkStatusResult::fromMap($map['CheckStatusResult']);
         }
         if (isset($map['CheckedCount'])) {
             $model->checkedCount = $map['CheckedCount'];
         }
-        if (isset($map['CheckStatusResult'])) {
-            $model->checkStatusResult = checkStatusResult::fromMap($map['CheckStatusResult']);
-        }
         if (isset($map['SQLReviewResult'])) {
             $model->SQLReviewResult = SQLReviewResult::fromMap($map['SQLReviewResult']);
+        }
+        if (isset($map['TotalSQLCount'])) {
+            $model->totalSQLCount = $map['TotalSQLCount'];
         }
 
         return $model;

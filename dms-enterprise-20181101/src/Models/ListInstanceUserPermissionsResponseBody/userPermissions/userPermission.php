@@ -12,27 +12,27 @@ class userPermission extends Model
     /**
      * @var string
      */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $userNickName;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
      * @var permDetails
      */
     public $permDetails;
+
+    /**
+     * @var string
+     */
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $userNickName;
     protected $_name = [
-        'userId'       => 'UserId',
-        'userNickName' => 'UserNickName',
         'instanceId'   => 'InstanceId',
         'permDetails'  => 'PermDetails',
+        'userId'       => 'UserId',
+        'userNickName' => 'UserNickName',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class userPermission extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->userNickName) {
-            $res['UserNickName'] = $this->userNickName;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->permDetails) {
             $res['PermDetails'] = null !== $this->permDetails ? $this->permDetails->toMap() : null;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->userNickName) {
+            $res['UserNickName'] = $this->userNickName;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class userPermission extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['UserNickName'])) {
-            $model->userNickName = $map['UserNickName'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PermDetails'])) {
             $model->permDetails = permDetails::fromMap($map['PermDetails']);
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserNickName'])) {
+            $model->userNickName = $map['UserNickName'];
         }
 
         return $model;

@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RevokeUserPermissionRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
      * @var string
      */
-    public $userId;
+    public $dbId;
 
     /**
      * @var string
@@ -29,14 +24,14 @@ class RevokeUserPermissionRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $dbId;
-
-    /**
      * @var bool
      */
     public $logic;
+
+    /**
+     * @var string
+     */
+    public $permTypes;
 
     /**
      * @var string
@@ -49,25 +44,30 @@ class RevokeUserPermissionRequest extends Model
     public $tableName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $permTypes;
+    public $tid;
 
     /**
      * @var string
      */
     public $userAccessId;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'tid'          => 'Tid',
-        'userId'       => 'UserId',
+        'dbId'         => 'DbId',
         'dsType'       => 'DsType',
         'instanceId'   => 'InstanceId',
-        'dbId'         => 'DbId',
         'logic'        => 'Logic',
+        'permTypes'    => 'PermTypes',
         'tableId'      => 'TableId',
         'tableName'    => 'TableName',
-        'permTypes'    => 'PermTypes',
+        'tid'          => 'Tid',
         'userAccessId' => 'UserAccessId',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -77,11 +77,8 @@ class RevokeUserPermissionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
         }
         if (null !== $this->dsType) {
             $res['DsType'] = $this->dsType;
@@ -89,11 +86,11 @@ class RevokeUserPermissionRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->dbId) {
-            $res['DbId'] = $this->dbId;
-        }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
+        }
+        if (null !== $this->permTypes) {
+            $res['PermTypes'] = $this->permTypes;
         }
         if (null !== $this->tableId) {
             $res['TableId'] = $this->tableId;
@@ -101,11 +98,14 @@ class RevokeUserPermissionRequest extends Model
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
-        if (null !== $this->permTypes) {
-            $res['PermTypes'] = $this->permTypes;
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
         if (null !== $this->userAccessId) {
             $res['UserAccessId'] = $this->userAccessId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -119,11 +119,8 @@ class RevokeUserPermissionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
         }
         if (isset($map['DsType'])) {
             $model->dsType = $map['DsType'];
@@ -131,11 +128,11 @@ class RevokeUserPermissionRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
-        }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
+        }
+        if (isset($map['PermTypes'])) {
+            $model->permTypes = $map['PermTypes'];
         }
         if (isset($map['TableId'])) {
             $model->tableId = $map['TableId'];
@@ -143,11 +140,14 @@ class RevokeUserPermissionRequest extends Model
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
-        if (isset($map['PermTypes'])) {
-            $model->permTypes = $map['PermTypes'];
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
         if (isset($map['UserAccessId'])) {
             $model->userAccessId = $map['UserAccessId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

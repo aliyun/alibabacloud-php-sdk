@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncJobAnalyzeResultRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $orderId;
-
-    /**
      * @var string
      */
     public $compareType;
+
+    /**
+     * @var int
+     */
+    public $orderId;
 
     /**
      * @var int
@@ -33,8 +33,8 @@ class GetStructSyncJobAnalyzeResultRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'orderId'     => 'OrderId',
         'compareType' => 'CompareType',
+        'orderId'     => 'OrderId',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
         'tid'         => 'Tid',
@@ -47,11 +47,11 @@ class GetStructSyncJobAnalyzeResultRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
         if (null !== $this->compareType) {
             $res['CompareType'] = $this->compareType;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -74,11 +74,11 @@ class GetStructSyncJobAnalyzeResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['CompareType'])) {
             $model->compareType = $map['CompareType'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListUserPermissionsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
-     * @var string
-     */
-    public $permType;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @var string
      */
     public $databaseName;
@@ -31,12 +16,7 @@ class ListUserPermissionsRequest extends Model
     /**
      * @var string
      */
-    public $searchKey;
-
-    /**
-     * @var bool
-     */
-    public $logic;
+    public $dbType;
 
     /**
      * @var string
@@ -44,9 +24,9 @@ class ListUserPermissionsRequest extends Model
     public $envType;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $dbType;
+    public $logic;
 
     /**
      * @var int
@@ -57,17 +37,37 @@ class ListUserPermissionsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $permType;
+
+    /**
+     * @var string
+     */
+    public $searchKey;
+
+    /**
+     * @var int
+     */
+    public $tid;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'tid'          => 'Tid',
-        'permType'     => 'PermType',
-        'userId'       => 'UserId',
         'databaseName' => 'DatabaseName',
-        'searchKey'    => 'SearchKey',
-        'logic'        => 'Logic',
-        'envType'      => 'EnvType',
         'dbType'       => 'DbType',
+        'envType'      => 'EnvType',
+        'logic'        => 'Logic',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
+        'permType'     => 'PermType',
+        'searchKey'    => 'SearchKey',
+        'tid'          => 'Tid',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class ListUserPermissionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
-        if (null !== $this->permType) {
-            $res['PermType'] = $this->permType;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
         }
-        if (null !== $this->searchKey) {
-            $res['SearchKey'] = $this->searchKey;
-        }
-        if (null !== $this->logic) {
-            $res['Logic'] = $this->logic;
+        if (null !== $this->dbType) {
+            $res['DbType'] = $this->dbType;
         }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
-        if (null !== $this->dbType) {
-            $res['DbType'] = $this->dbType;
+        if (null !== $this->logic) {
+            $res['Logic'] = $this->logic;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->permType) {
+            $res['PermType'] = $this->permType;
+        }
+        if (null !== $this->searchKey) {
+            $res['SearchKey'] = $this->searchKey;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class ListUserPermissionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
-        if (isset($map['PermType'])) {
-            $model->permType = $map['PermType'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
         }
-        if (isset($map['SearchKey'])) {
-            $model->searchKey = $map['SearchKey'];
-        }
-        if (isset($map['Logic'])) {
-            $model->logic = $map['Logic'];
+        if (isset($map['DbType'])) {
+            $model->dbType = $map['DbType'];
         }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
-        if (isset($map['DbType'])) {
-            $model->dbType = $map['DbType'];
+        if (isset($map['Logic'])) {
+            $model->logic = $map['Logic'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PermType'])) {
+            $model->permType = $map['PermType'];
+        }
+        if (isset($map['SearchKey'])) {
+            $model->searchKey = $map['SearchKey'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

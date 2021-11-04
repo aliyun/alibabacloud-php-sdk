@@ -13,29 +13,29 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @var databaseInfo
-     */
-    public $databaseInfo;
-
-    /**
-     * @var tableInfo
-     */
-    public $tableInfo;
-
-    /**
      * @var columnInfo
      */
     public $columnInfo;
 
     /**
+     * @var databaseInfo
+     */
+    public $databaseInfo;
+
+    /**
      * @var instanceInfo
      */
     public $instanceInfo;
+
+    /**
+     * @var tableInfo
+     */
+    public $tableInfo;
     protected $_name = [
-        'databaseInfo' => 'DatabaseInfo',
-        'tableInfo'    => 'TableInfo',
         'columnInfo'   => 'ColumnInfo',
+        'databaseInfo' => 'DatabaseInfo',
         'instanceInfo' => 'InstanceInfo',
+        'tableInfo'    => 'TableInfo',
     ];
 
     public function validate()
@@ -45,17 +45,17 @@ class resources extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->databaseInfo) {
-            $res['DatabaseInfo'] = null !== $this->databaseInfo ? $this->databaseInfo->toMap() : null;
-        }
-        if (null !== $this->tableInfo) {
-            $res['TableInfo'] = null !== $this->tableInfo ? $this->tableInfo->toMap() : null;
-        }
         if (null !== $this->columnInfo) {
             $res['ColumnInfo'] = null !== $this->columnInfo ? $this->columnInfo->toMap() : null;
         }
+        if (null !== $this->databaseInfo) {
+            $res['DatabaseInfo'] = null !== $this->databaseInfo ? $this->databaseInfo->toMap() : null;
+        }
         if (null !== $this->instanceInfo) {
             $res['InstanceInfo'] = null !== $this->instanceInfo ? $this->instanceInfo->toMap() : null;
+        }
+        if (null !== $this->tableInfo) {
+            $res['TableInfo'] = null !== $this->tableInfo ? $this->tableInfo->toMap() : null;
         }
 
         return $res;
@@ -69,17 +69,17 @@ class resources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DatabaseInfo'])) {
-            $model->databaseInfo = databaseInfo::fromMap($map['DatabaseInfo']);
-        }
-        if (isset($map['TableInfo'])) {
-            $model->tableInfo = tableInfo::fromMap($map['TableInfo']);
-        }
         if (isset($map['ColumnInfo'])) {
             $model->columnInfo = columnInfo::fromMap($map['ColumnInfo']);
         }
+        if (isset($map['DatabaseInfo'])) {
+            $model->databaseInfo = databaseInfo::fromMap($map['DatabaseInfo']);
+        }
         if (isset($map['InstanceInfo'])) {
             $model->instanceInfo = instanceInfo::fromMap($map['InstanceInfo']);
+        }
+        if (isset($map['TableInfo'])) {
+            $model->tableInfo = tableInfo::fromMap($map['TableInfo']);
         }
 
         return $model;

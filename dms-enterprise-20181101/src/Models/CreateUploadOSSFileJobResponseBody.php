@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateUploadOSSFileJobResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
+    public $jobKey;
+
+    /**
      * @description Id of the request
      *
      * @var string
@@ -19,27 +34,12 @@ class CreateUploadOSSFileJobResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
-    public $jobKey;
     protected $_name = [
+        'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'jobKey'       => 'JobKey',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
-        'errorMessage' => 'ErrorMessage',
-        'errorCode'    => 'ErrorCode',
-        'jobKey'       => 'JobKey',
     ];
 
     public function validate()
@@ -49,20 +49,20 @@ class CreateUploadOSSFileJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->jobKey) {
+            $res['JobKey'] = $this->jobKey;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->jobKey) {
-            $res['JobKey'] = $this->jobKey;
         }
 
         return $res;
@@ -76,20 +76,20 @@ class CreateUploadOSSFileJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['JobKey'])) {
+            $model->jobKey = $map['JobKey'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['JobKey'])) {
-            $model->jobKey = $map['JobKey'];
         }
 
         return $model;

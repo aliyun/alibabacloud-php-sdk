@@ -14,11 +14,6 @@ class EditLogicDatabaseShrinkRequest extends Model
     public $alias;
 
     /**
-     * @var int
-     */
-    public $logicDbId;
-
-    /**
      * @var string
      */
     public $databaseIdsShrink;
@@ -26,11 +21,16 @@ class EditLogicDatabaseShrinkRequest extends Model
     /**
      * @var int
      */
+    public $logicDbId;
+
+    /**
+     * @var int
+     */
     public $tid;
     protected $_name = [
         'alias'             => 'Alias',
-        'logicDbId'         => 'LogicDbId',
         'databaseIdsShrink' => 'DatabaseIds',
+        'logicDbId'         => 'LogicDbId',
         'tid'               => 'Tid',
     ];
 
@@ -44,11 +44,11 @@ class EditLogicDatabaseShrinkRequest extends Model
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
-        if (null !== $this->logicDbId) {
-            $res['LogicDbId'] = $this->logicDbId;
-        }
         if (null !== $this->databaseIdsShrink) {
             $res['DatabaseIds'] = $this->databaseIdsShrink;
+        }
+        if (null !== $this->logicDbId) {
+            $res['LogicDbId'] = $this->logicDbId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -68,11 +68,11 @@ class EditLogicDatabaseShrinkRequest extends Model
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
-        if (isset($map['LogicDbId'])) {
-            $model->logicDbId = $map['LogicDbId'];
-        }
         if (isset($map['DatabaseIds'])) {
             $model->databaseIdsShrink = $map['DatabaseIds'];
+        }
+        if (isset($map['LogicDbId'])) {
+            $model->logicDbId = $map['LogicDbId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

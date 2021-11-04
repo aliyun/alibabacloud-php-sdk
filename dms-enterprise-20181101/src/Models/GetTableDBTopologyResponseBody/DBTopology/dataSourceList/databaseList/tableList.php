@@ -11,21 +11,21 @@ class tableList extends Model
     /**
      * @var string
      */
+    public $tableId;
+
+    /**
+     * @var string
+     */
     public $tableName;
 
     /**
      * @var string
      */
     public $tableType;
-
-    /**
-     * @var string
-     */
-    public $tableId;
     protected $_name = [
+        'tableId'   => 'TableId',
         'tableName' => 'TableName',
         'tableType' => 'TableType',
-        'tableId'   => 'TableId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class tableList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->tableId) {
+            $res['TableId'] = $this->tableId;
+        }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
         if (null !== $this->tableType) {
             $res['TableType'] = $this->tableType;
-        }
-        if (null !== $this->tableId) {
-            $res['TableId'] = $this->tableId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class tableList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TableId'])) {
+            $model->tableId = $map['TableId'];
+        }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
         if (isset($map['TableType'])) {
             $model->tableType = $map['TableType'];
-        }
-        if (isset($map['TableId'])) {
-            $model->tableId = $map['TableId'];
         }
 
         return $model;

@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class originSQLList extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $SQLId;
+    public $checkStatus;
+
+    /**
+     * @var string
+     */
+    public $checkedTime;
 
     /**
      * @var int
@@ -26,22 +31,22 @@ class originSQLList extends Model
     /**
      * @var string
      */
+    public $reviewSummary;
+
+    /**
+     * @var string
+     */
     public $SQLContent;
 
     /**
-     * @var string
+     * @var int
      */
-    public $checkStatus;
+    public $SQLId;
 
     /**
      * @var string
      */
-    public $statusDesc;
-
-    /**
-     * @var string
-     */
-    public $checkedTime;
+    public $SQLReviewQueryKey;
 
     /**
      * @var string
@@ -51,23 +56,18 @@ class originSQLList extends Model
     /**
      * @var string
      */
-    public $reviewSummary;
-
-    /**
-     * @var string
-     */
-    public $SQLReviewQueryKey;
+    public $statusDesc;
     protected $_name = [
-        'SQLId'             => 'SQLId',
+        'checkStatus'       => 'CheckStatus',
+        'checkedTime'       => 'CheckedTime',
         'fileId'            => 'FileId',
         'fileName'          => 'FileName',
-        'SQLContent'        => 'SQLContent',
-        'checkStatus'       => 'CheckStatus',
-        'statusDesc'        => 'StatusDesc',
-        'checkedTime'       => 'CheckedTime',
-        'sqlHash'           => 'SqlHash',
         'reviewSummary'     => 'ReviewSummary',
+        'SQLContent'        => 'SQLContent',
+        'SQLId'             => 'SQLId',
         'SQLReviewQueryKey' => 'SQLReviewQueryKey',
+        'sqlHash'           => 'SqlHash',
+        'statusDesc'        => 'StatusDesc',
     ];
 
     public function validate()
@@ -77,8 +77,11 @@ class originSQLList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->SQLId) {
-            $res['SQLId'] = $this->SQLId;
+        if (null !== $this->checkStatus) {
+            $res['CheckStatus'] = $this->checkStatus;
+        }
+        if (null !== $this->checkedTime) {
+            $res['CheckedTime'] = $this->checkedTime;
         }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
@@ -86,26 +89,23 @@ class originSQLList extends Model
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+        if (null !== $this->reviewSummary) {
+            $res['ReviewSummary'] = $this->reviewSummary;
+        }
         if (null !== $this->SQLContent) {
             $res['SQLContent'] = $this->SQLContent;
         }
-        if (null !== $this->checkStatus) {
-            $res['CheckStatus'] = $this->checkStatus;
+        if (null !== $this->SQLId) {
+            $res['SQLId'] = $this->SQLId;
         }
-        if (null !== $this->statusDesc) {
-            $res['StatusDesc'] = $this->statusDesc;
-        }
-        if (null !== $this->checkedTime) {
-            $res['CheckedTime'] = $this->checkedTime;
+        if (null !== $this->SQLReviewQueryKey) {
+            $res['SQLReviewQueryKey'] = $this->SQLReviewQueryKey;
         }
         if (null !== $this->sqlHash) {
             $res['SqlHash'] = $this->sqlHash;
         }
-        if (null !== $this->reviewSummary) {
-            $res['ReviewSummary'] = $this->reviewSummary;
-        }
-        if (null !== $this->SQLReviewQueryKey) {
-            $res['SQLReviewQueryKey'] = $this->SQLReviewQueryKey;
+        if (null !== $this->statusDesc) {
+            $res['StatusDesc'] = $this->statusDesc;
         }
 
         return $res;
@@ -119,8 +119,11 @@ class originSQLList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SQLId'])) {
-            $model->SQLId = $map['SQLId'];
+        if (isset($map['CheckStatus'])) {
+            $model->checkStatus = $map['CheckStatus'];
+        }
+        if (isset($map['CheckedTime'])) {
+            $model->checkedTime = $map['CheckedTime'];
         }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
@@ -128,26 +131,23 @@ class originSQLList extends Model
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+        if (isset($map['ReviewSummary'])) {
+            $model->reviewSummary = $map['ReviewSummary'];
+        }
         if (isset($map['SQLContent'])) {
             $model->SQLContent = $map['SQLContent'];
         }
-        if (isset($map['CheckStatus'])) {
-            $model->checkStatus = $map['CheckStatus'];
+        if (isset($map['SQLId'])) {
+            $model->SQLId = $map['SQLId'];
         }
-        if (isset($map['StatusDesc'])) {
-            $model->statusDesc = $map['StatusDesc'];
-        }
-        if (isset($map['CheckedTime'])) {
-            $model->checkedTime = $map['CheckedTime'];
+        if (isset($map['SQLReviewQueryKey'])) {
+            $model->SQLReviewQueryKey = $map['SQLReviewQueryKey'];
         }
         if (isset($map['SqlHash'])) {
             $model->sqlHash = $map['SqlHash'];
         }
-        if (isset($map['ReviewSummary'])) {
-            $model->reviewSummary = $map['ReviewSummary'];
-        }
-        if (isset($map['SQLReviewQueryKey'])) {
-            $model->SQLReviewQueryKey = $map['SQLReviewQueryKey'];
+        if (isset($map['StatusDesc'])) {
+            $model->statusDesc = $map['StatusDesc'];
         }
 
         return $model;

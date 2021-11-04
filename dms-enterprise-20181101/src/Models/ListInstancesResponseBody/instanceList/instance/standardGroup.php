@@ -11,15 +11,15 @@ class standardGroup extends Model
     /**
      * @var string
      */
-    public $groupName;
+    public $groupMode;
 
     /**
      * @var string
      */
-    public $groupMode;
+    public $groupName;
     protected $_name = [
-        'groupName' => 'GroupName',
         'groupMode' => 'GroupMode',
+        'groupName' => 'GroupName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class standardGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
         if (null !== $this->groupMode) {
             $res['GroupMode'] = $this->groupMode;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class standardGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
         if (isset($map['GroupMode'])) {
             $model->groupMode = $map['GroupMode'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
 
         return $model;

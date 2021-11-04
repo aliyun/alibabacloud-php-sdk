@@ -9,31 +9,6 @@ use AlibabaCloud\Tea\Model;
 class columnList extends Model
 {
     /**
-     * @var string
-     */
-    public $columnName;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $dataScale;
-
-    /**
-     * @var int
-     */
-    public $dataPrecision;
-
-    /**
-     * @var string
-     */
-    public $columnType;
-
-    /**
      * @var bool
      */
     public $autoIncrement;
@@ -41,7 +16,37 @@ class columnList extends Model
     /**
      * @var string
      */
-    public $position;
+    public $columnId;
+
+    /**
+     * @var string
+     */
+    public $columnName;
+
+    /**
+     * @var string
+     */
+    public $columnType;
+
+    /**
+     * @var int
+     */
+    public $dataLength;
+
+    /**
+     * @var int
+     */
+    public $dataPrecision;
+
+    /**
+     * @var int
+     */
+    public $dataScale;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var bool
@@ -51,23 +56,18 @@ class columnList extends Model
     /**
      * @var string
      */
-    public $columnId;
-
-    /**
-     * @var int
-     */
-    public $dataLength;
+    public $position;
     protected $_name = [
-        'columnName'    => 'ColumnName',
-        'description'   => 'Description',
-        'dataScale'     => 'DataScale',
-        'dataPrecision' => 'DataPrecision',
-        'columnType'    => 'ColumnType',
         'autoIncrement' => 'AutoIncrement',
-        'position'      => 'Position',
-        'nullable'      => 'Nullable',
         'columnId'      => 'ColumnId',
+        'columnName'    => 'ColumnName',
+        'columnType'    => 'ColumnType',
         'dataLength'    => 'DataLength',
+        'dataPrecision' => 'DataPrecision',
+        'dataScale'     => 'DataScale',
+        'description'   => 'Description',
+        'nullable'      => 'Nullable',
+        'position'      => 'Position',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class columnList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->columnName) {
-            $res['ColumnName'] = $this->columnName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->dataScale) {
-            $res['DataScale'] = $this->dataScale;
-        }
-        if (null !== $this->dataPrecision) {
-            $res['DataPrecision'] = $this->dataPrecision;
-        }
-        if (null !== $this->columnType) {
-            $res['ColumnType'] = $this->columnType;
-        }
         if (null !== $this->autoIncrement) {
             $res['AutoIncrement'] = $this->autoIncrement;
-        }
-        if (null !== $this->position) {
-            $res['Position'] = $this->position;
-        }
-        if (null !== $this->nullable) {
-            $res['Nullable'] = $this->nullable;
         }
         if (null !== $this->columnId) {
             $res['ColumnId'] = $this->columnId;
         }
+        if (null !== $this->columnName) {
+            $res['ColumnName'] = $this->columnName;
+        }
+        if (null !== $this->columnType) {
+            $res['ColumnType'] = $this->columnType;
+        }
         if (null !== $this->dataLength) {
             $res['DataLength'] = $this->dataLength;
+        }
+        if (null !== $this->dataPrecision) {
+            $res['DataPrecision'] = $this->dataPrecision;
+        }
+        if (null !== $this->dataScale) {
+            $res['DataScale'] = $this->dataScale;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->nullable) {
+            $res['Nullable'] = $this->nullable;
+        }
+        if (null !== $this->position) {
+            $res['Position'] = $this->position;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class columnList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ColumnName'])) {
-            $model->columnName = $map['ColumnName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['DataScale'])) {
-            $model->dataScale = $map['DataScale'];
-        }
-        if (isset($map['DataPrecision'])) {
-            $model->dataPrecision = $map['DataPrecision'];
-        }
-        if (isset($map['ColumnType'])) {
-            $model->columnType = $map['ColumnType'];
-        }
         if (isset($map['AutoIncrement'])) {
             $model->autoIncrement = $map['AutoIncrement'];
-        }
-        if (isset($map['Position'])) {
-            $model->position = $map['Position'];
-        }
-        if (isset($map['Nullable'])) {
-            $model->nullable = $map['Nullable'];
         }
         if (isset($map['ColumnId'])) {
             $model->columnId = $map['ColumnId'];
         }
+        if (isset($map['ColumnName'])) {
+            $model->columnName = $map['ColumnName'];
+        }
+        if (isset($map['ColumnType'])) {
+            $model->columnType = $map['ColumnType'];
+        }
         if (isset($map['DataLength'])) {
             $model->dataLength = $map['DataLength'];
+        }
+        if (isset($map['DataPrecision'])) {
+            $model->dataPrecision = $map['DataPrecision'];
+        }
+        if (isset($map['DataScale'])) {
+            $model->dataScale = $map['DataScale'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Nullable'])) {
+            $model->nullable = $map['Nullable'];
+        }
+        if (isset($map['Position'])) {
+            $model->position = $map['Position'];
         }
 
         return $model;

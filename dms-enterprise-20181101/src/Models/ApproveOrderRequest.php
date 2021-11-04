@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ApproveOrderRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
-     * @var int
-     */
-    public $workflowInstanceId;
-
-    /**
      * @var string
      */
     public $approvalType;
@@ -27,11 +17,21 @@ class ApproveOrderRequest extends Model
      * @var string
      */
     public $comment;
+
+    /**
+     * @var int
+     */
+    public $tid;
+
+    /**
+     * @var int
+     */
+    public $workflowInstanceId;
     protected $_name = [
-        'tid'                => 'Tid',
-        'workflowInstanceId' => 'WorkflowInstanceId',
         'approvalType'       => 'ApprovalType',
         'comment'            => 'Comment',
+        'tid'                => 'Tid',
+        'workflowInstanceId' => 'WorkflowInstanceId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ApproveOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
-        if (null !== $this->workflowInstanceId) {
-            $res['WorkflowInstanceId'] = $this->workflowInstanceId;
-        }
         if (null !== $this->approvalType) {
             $res['ApprovalType'] = $this->approvalType;
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
+        }
+        if (null !== $this->workflowInstanceId) {
+            $res['WorkflowInstanceId'] = $this->workflowInstanceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ApproveOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
-        if (isset($map['WorkflowInstanceId'])) {
-            $model->workflowInstanceId = $map['WorkflowInstanceId'];
-        }
         if (isset($map['ApprovalType'])) {
             $model->approvalType = $map['ApprovalType'];
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
+        }
+        if (isset($map['WorkflowInstanceId'])) {
+            $model->workflowInstanceId = $map['WorkflowInstanceId'];
         }
 
         return $model;

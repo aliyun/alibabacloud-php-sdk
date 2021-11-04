@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListWorkFlowNodesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
      * @var string
      */
     public $searchName;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
-        'tid'        => 'Tid',
         'searchName' => 'SearchName',
+        'tid'        => 'Tid',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListWorkFlowNodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListWorkFlowNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

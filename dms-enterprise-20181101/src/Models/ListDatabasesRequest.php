@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListDatabasesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
      * @var string
      */
     public $instanceId;
@@ -27,11 +22,16 @@ class ListDatabasesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
-        'tid'        => 'Tid',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'tid'        => 'Tid',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class ListDatabasesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -52,6 +49,9 @@ class ListDatabasesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class ListDatabasesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -76,6 +73,9 @@ class ListDatabasesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

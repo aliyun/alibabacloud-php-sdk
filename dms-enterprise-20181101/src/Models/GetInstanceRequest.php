@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
      * @var string
      */
     public $host;
@@ -27,11 +22,16 @@ class GetInstanceRequest extends Model
      * @var string
      */
     public $sid;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
-        'tid'  => 'Tid',
         'host' => 'Host',
         'port' => 'Port',
         'sid'  => 'Sid',
+        'tid'  => 'Tid',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class GetInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
@@ -52,6 +49,9 @@ class GetInstanceRequest extends Model
         }
         if (null !== $this->sid) {
             $res['Sid'] = $this->sid;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class GetInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
@@ -76,6 +73,9 @@ class GetInstanceRequest extends Model
         }
         if (isset($map['Sid'])) {
             $model->sid = $map['Sid'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

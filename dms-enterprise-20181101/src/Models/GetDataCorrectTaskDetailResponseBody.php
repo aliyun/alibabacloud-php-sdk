@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectTaskDetailResponseBody extends Model
 {
     /**
+     * @var dataCorrectTaskDetail
+     */
+    public $dataCorrectTaskDetail;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @description Id of the request
      *
      * @var string
@@ -20,27 +35,12 @@ class GetDataCorrectTaskDetailResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var dataCorrectTaskDetail
-     */
-    public $dataCorrectTaskDetail;
     protected $_name = [
+        'dataCorrectTaskDetail' => 'DataCorrectTaskDetail',
+        'errorCode'             => 'ErrorCode',
+        'errorMessage'          => 'ErrorMessage',
         'requestId'             => 'RequestId',
         'success'               => 'Success',
-        'errorMessage'          => 'ErrorMessage',
-        'errorCode'             => 'ErrorCode',
-        'dataCorrectTaskDetail' => 'DataCorrectTaskDetail',
     ];
 
     public function validate()
@@ -50,20 +50,20 @@ class GetDataCorrectTaskDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataCorrectTaskDetail) {
+            $res['DataCorrectTaskDetail'] = null !== $this->dataCorrectTaskDetail ? $this->dataCorrectTaskDetail->toMap() : null;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->dataCorrectTaskDetail) {
-            $res['DataCorrectTaskDetail'] = null !== $this->dataCorrectTaskDetail ? $this->dataCorrectTaskDetail->toMap() : null;
         }
 
         return $res;
@@ -77,20 +77,20 @@ class GetDataCorrectTaskDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataCorrectTaskDetail'])) {
+            $model->dataCorrectTaskDetail = dataCorrectTaskDetail::fromMap($map['DataCorrectTaskDetail']);
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['DataCorrectTaskDetail'])) {
-            $model->dataCorrectTaskDetail = dataCorrectTaskDetail::fromMap($map['DataCorrectTaskDetail']);
         }
 
         return $model;

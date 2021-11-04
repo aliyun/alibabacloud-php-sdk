@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListLogicTablesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
      * @var string
      */
     public $databaseId;
@@ -29,21 +24,26 @@ class ListLogicTablesRequest extends Model
     public $pageSize;
 
     /**
+     * @var bool
+     */
+    public $returnGuid;
+
+    /**
      * @var string
      */
     public $searchName;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $returnGuid;
+    public $tid;
     protected $_name = [
-        'tid'        => 'Tid',
         'databaseId' => 'DatabaseId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'searchName' => 'SearchName',
         'returnGuid' => 'ReturnGuid',
+        'searchName' => 'SearchName',
+        'tid'        => 'Tid',
     ];
 
     public function validate()
@@ -53,9 +53,6 @@ class ListLogicTablesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
         if (null !== $this->databaseId) {
             $res['DatabaseId'] = $this->databaseId;
         }
@@ -65,11 +62,14 @@ class ListLogicTablesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->returnGuid) {
+            $res['ReturnGuid'] = $this->returnGuid;
+        }
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
         }
-        if (null !== $this->returnGuid) {
-            $res['ReturnGuid'] = $this->returnGuid;
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -83,9 +83,6 @@ class ListLogicTablesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
         if (isset($map['DatabaseId'])) {
             $model->databaseId = $map['DatabaseId'];
         }
@@ -95,11 +92,14 @@ class ListLogicTablesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['ReturnGuid'])) {
+            $model->returnGuid = $map['ReturnGuid'];
+        }
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];
         }
-        if (isset($map['ReturnGuid'])) {
-            $model->returnGuid = $map['ReturnGuid'];
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

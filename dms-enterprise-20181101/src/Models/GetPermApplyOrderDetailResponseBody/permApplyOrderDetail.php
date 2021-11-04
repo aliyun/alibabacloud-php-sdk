@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class permApplyOrderDetail extends Model
 {
     /**
-     * @var resources[]
+     * @var string
      */
-    public $resources;
+    public $applyType;
 
     /**
      * @var int
@@ -20,19 +20,19 @@ class permApplyOrderDetail extends Model
     public $permType;
 
     /**
+     * @var resources[]
+     */
+    public $resources;
+
+    /**
      * @var int
      */
     public $seconds;
-
-    /**
-     * @var string
-     */
-    public $applyType;
     protected $_name = [
-        'resources' => 'Resources',
-        'permType'  => 'PermType',
-        'seconds'   => 'Seconds',
         'applyType' => 'ApplyType',
+        'permType'  => 'PermType',
+        'resources' => 'Resources',
+        'seconds'   => 'Seconds',
     ];
 
     public function validate()
@@ -42,6 +42,12 @@ class permApplyOrderDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applyType) {
+            $res['ApplyType'] = $this->applyType;
+        }
+        if (null !== $this->permType) {
+            $res['PermType'] = $this->permType;
+        }
         if (null !== $this->resources) {
             $res['Resources'] = [];
             if (null !== $this->resources && \is_array($this->resources)) {
@@ -51,14 +57,8 @@ class permApplyOrderDetail extends Model
                 }
             }
         }
-        if (null !== $this->permType) {
-            $res['PermType'] = $this->permType;
-        }
         if (null !== $this->seconds) {
             $res['Seconds'] = $this->seconds;
-        }
-        if (null !== $this->applyType) {
-            $res['ApplyType'] = $this->applyType;
         }
 
         return $res;
@@ -72,6 +72,12 @@ class permApplyOrderDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplyType'])) {
+            $model->applyType = $map['ApplyType'];
+        }
+        if (isset($map['PermType'])) {
+            $model->permType = $map['PermType'];
+        }
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
@@ -81,14 +87,8 @@ class permApplyOrderDetail extends Model
                 }
             }
         }
-        if (isset($map['PermType'])) {
-            $model->permType = $map['PermType'];
-        }
         if (isset($map['Seconds'])) {
             $model->seconds = $map['Seconds'];
-        }
-        if (isset($map['ApplyType'])) {
-            $model->applyType = $map['ApplyType'];
         }
 
         return $model;

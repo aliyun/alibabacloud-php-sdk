@@ -11,11 +11,6 @@ class proxyList extends Model
     /**
      * @var int
      */
-    public $proxyId;
-
-    /**
-     * @var int
-     */
     public $creatorId;
 
     /**
@@ -26,7 +21,17 @@ class proxyList extends Model
     /**
      * @var int
      */
+    public $httpsPort;
+
+    /**
+     * @var int
+     */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $mysqlPort;
 
     /**
      * @var bool
@@ -39,6 +44,11 @@ class proxyList extends Model
     public $privateHost;
 
     /**
+     * @var int
+     */
+    public $proxyId;
+
+    /**
      * @var bool
      */
     public $publicEnable;
@@ -47,27 +57,17 @@ class proxyList extends Model
      * @var string
      */
     public $publicHost;
-
-    /**
-     * @var int
-     */
-    public $mysqlPort;
-
-    /**
-     * @var int
-     */
-    public $httpsPort;
     protected $_name = [
-        'proxyId'       => 'ProxyId',
         'creatorId'     => 'CreatorId',
         'creatorName'   => 'CreatorName',
+        'httpsPort'     => 'HttpsPort',
         'instanceId'    => 'InstanceId',
+        'mysqlPort'     => 'MysqlPort',
         'privateEnable' => 'PrivateEnable',
         'privateHost'   => 'PrivateHost',
+        'proxyId'       => 'ProxyId',
         'publicEnable'  => 'PublicEnable',
         'publicHost'    => 'PublicHost',
-        'mysqlPort'     => 'MysqlPort',
-        'httpsPort'     => 'HttpsPort',
     ];
 
     public function validate()
@@ -77,17 +77,20 @@ class proxyList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->proxyId) {
-            $res['ProxyId'] = $this->proxyId;
-        }
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
         if (null !== $this->creatorName) {
             $res['CreatorName'] = $this->creatorName;
         }
+        if (null !== $this->httpsPort) {
+            $res['HttpsPort'] = $this->httpsPort;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mysqlPort) {
+            $res['MysqlPort'] = $this->mysqlPort;
         }
         if (null !== $this->privateEnable) {
             $res['PrivateEnable'] = $this->privateEnable;
@@ -95,17 +98,14 @@ class proxyList extends Model
         if (null !== $this->privateHost) {
             $res['PrivateHost'] = $this->privateHost;
         }
+        if (null !== $this->proxyId) {
+            $res['ProxyId'] = $this->proxyId;
+        }
         if (null !== $this->publicEnable) {
             $res['PublicEnable'] = $this->publicEnable;
         }
         if (null !== $this->publicHost) {
             $res['PublicHost'] = $this->publicHost;
-        }
-        if (null !== $this->mysqlPort) {
-            $res['MysqlPort'] = $this->mysqlPort;
-        }
-        if (null !== $this->httpsPort) {
-            $res['HttpsPort'] = $this->httpsPort;
         }
 
         return $res;
@@ -119,17 +119,20 @@ class proxyList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProxyId'])) {
-            $model->proxyId = $map['ProxyId'];
-        }
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
         if (isset($map['CreatorName'])) {
             $model->creatorName = $map['CreatorName'];
         }
+        if (isset($map['HttpsPort'])) {
+            $model->httpsPort = $map['HttpsPort'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MysqlPort'])) {
+            $model->mysqlPort = $map['MysqlPort'];
         }
         if (isset($map['PrivateEnable'])) {
             $model->privateEnable = $map['PrivateEnable'];
@@ -137,17 +140,14 @@ class proxyList extends Model
         if (isset($map['PrivateHost'])) {
             $model->privateHost = $map['PrivateHost'];
         }
+        if (isset($map['ProxyId'])) {
+            $model->proxyId = $map['ProxyId'];
+        }
         if (isset($map['PublicEnable'])) {
             $model->publicEnable = $map['PublicEnable'];
         }
         if (isset($map['PublicHost'])) {
             $model->publicHost = $map['PublicHost'];
-        }
-        if (isset($map['MysqlPort'])) {
-            $model->mysqlPort = $map['MysqlPort'];
-        }
-        if (isset($map['HttpsPort'])) {
-            $model->httpsPort = $map['HttpsPort'];
         }
 
         return $model;

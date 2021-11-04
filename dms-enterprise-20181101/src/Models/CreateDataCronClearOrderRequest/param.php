@@ -16,9 +16,9 @@ class param extends Model
     public $classify;
 
     /**
-     * @var dbItemList[]
+     * @var cronClearItemList[]
      */
-    public $dbItemList;
+    public $cronClearItemList;
 
     /**
      * @var string
@@ -26,26 +26,26 @@ class param extends Model
     public $cronFormat;
 
     /**
-     * @var cronClearItemList[]
+     * @var dbItemList[]
      */
-    public $cronClearItemList;
-
-    /**
-     * @var bool
-     */
-    public $specifyDuration;
+    public $dbItemList;
 
     /**
      * @var int
      */
     public $durationHour;
+
+    /**
+     * @var bool
+     */
+    public $specifyDuration;
     protected $_name = [
         'classify'          => 'Classify',
-        'dbItemList'        => 'DbItemList',
-        'cronFormat'        => 'CronFormat',
         'cronClearItemList' => 'CronClearItemList',
-        'specifyDuration'   => 'specifyDuration',
+        'cronFormat'        => 'CronFormat',
+        'dbItemList'        => 'DbItemList',
         'durationHour'      => 'DurationHour',
+        'specifyDuration'   => 'specifyDuration',
     ];
 
     public function validate()
@@ -58,18 +58,6 @@ class param extends Model
         if (null !== $this->classify) {
             $res['Classify'] = $this->classify;
         }
-        if (null !== $this->dbItemList) {
-            $res['DbItemList'] = [];
-            if (null !== $this->dbItemList && \is_array($this->dbItemList)) {
-                $n = 0;
-                foreach ($this->dbItemList as $item) {
-                    $res['DbItemList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->cronFormat) {
-            $res['CronFormat'] = $this->cronFormat;
-        }
         if (null !== $this->cronClearItemList) {
             $res['CronClearItemList'] = [];
             if (null !== $this->cronClearItemList && \is_array($this->cronClearItemList)) {
@@ -79,11 +67,23 @@ class param extends Model
                 }
             }
         }
-        if (null !== $this->specifyDuration) {
-            $res['specifyDuration'] = $this->specifyDuration;
+        if (null !== $this->cronFormat) {
+            $res['CronFormat'] = $this->cronFormat;
+        }
+        if (null !== $this->dbItemList) {
+            $res['DbItemList'] = [];
+            if (null !== $this->dbItemList && \is_array($this->dbItemList)) {
+                $n = 0;
+                foreach ($this->dbItemList as $item) {
+                    $res['DbItemList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->durationHour) {
             $res['DurationHour'] = $this->durationHour;
+        }
+        if (null !== $this->specifyDuration) {
+            $res['specifyDuration'] = $this->specifyDuration;
         }
 
         return $res;
@@ -100,18 +100,6 @@ class param extends Model
         if (isset($map['Classify'])) {
             $model->classify = $map['Classify'];
         }
-        if (isset($map['DbItemList'])) {
-            if (!empty($map['DbItemList'])) {
-                $model->dbItemList = [];
-                $n                 = 0;
-                foreach ($map['DbItemList'] as $item) {
-                    $model->dbItemList[$n++] = null !== $item ? dbItemList::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['CronFormat'])) {
-            $model->cronFormat = $map['CronFormat'];
-        }
         if (isset($map['CronClearItemList'])) {
             if (!empty($map['CronClearItemList'])) {
                 $model->cronClearItemList = [];
@@ -121,11 +109,23 @@ class param extends Model
                 }
             }
         }
-        if (isset($map['specifyDuration'])) {
-            $model->specifyDuration = $map['specifyDuration'];
+        if (isset($map['CronFormat'])) {
+            $model->cronFormat = $map['CronFormat'];
+        }
+        if (isset($map['DbItemList'])) {
+            if (!empty($map['DbItemList'])) {
+                $model->dbItemList = [];
+                $n                 = 0;
+                foreach ($map['DbItemList'] as $item) {
+                    $model->dbItemList[$n++] = null !== $item ? dbItemList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['DurationHour'])) {
             $model->durationHour = $map['DurationHour'];
+        }
+        if (isset($map['specifyDuration'])) {
+            $model->specifyDuration = $map['specifyDuration'];
         }
 
         return $model;

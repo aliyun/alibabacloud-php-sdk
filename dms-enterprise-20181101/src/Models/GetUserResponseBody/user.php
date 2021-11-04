@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $state;
+    public $curExecuteCount;
 
     /**
      * @var int
@@ -23,7 +23,12 @@ class user extends Model
     /**
      * @var string
      */
-    public $userId;
+    public $dingRobot;
+
+    /**
+     * @var string
+     */
+    public $email;
 
     /**
      * @var string
@@ -33,7 +38,27 @@ class user extends Model
     /**
      * @var int
      */
+    public $maxExecuteCount;
+
+    /**
+     * @var int
+     */
     public $maxResultCount;
+
+    /**
+     * @var string
+     */
+    public $mobile;
+
+    /**
+     * @var string
+     */
+    public $nickName;
+
+    /**
+     * @var string
+     */
+    public $notificationMode;
 
     /**
      * @var int
@@ -53,41 +78,46 @@ class user extends Model
     /**
      * @var string
      */
-    public $nickName;
-
-    /**
-     * @var int
-     */
-    public $maxExecuteCount;
-
-    /**
-     * @var int
-     */
-    public $curExecuteCount;
+    public $signatureMethod;
 
     /**
      * @var string
      */
-    public $mobile;
+    public $state;
 
     /**
      * @var string
      */
     public $uid;
+
+    /**
+     * @var string
+     */
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $webhook;
     protected $_name = [
-        'state'           => 'State',
-        'curResultCount'  => 'CurResultCount',
-        'userId'          => 'UserId',
-        'lastLoginTime'   => 'LastLoginTime',
-        'maxResultCount'  => 'MaxResultCount',
-        'parentUid'       => 'ParentUid',
-        'roleIdList'      => 'RoleIdList',
-        'roleNameList'    => 'RoleNameList',
-        'nickName'        => 'NickName',
-        'maxExecuteCount' => 'MaxExecuteCount',
-        'curExecuteCount' => 'CurExecuteCount',
-        'mobile'          => 'Mobile',
-        'uid'             => 'Uid',
+        'curExecuteCount'  => 'CurExecuteCount',
+        'curResultCount'   => 'CurResultCount',
+        'dingRobot'        => 'DingRobot',
+        'email'            => 'Email',
+        'lastLoginTime'    => 'LastLoginTime',
+        'maxExecuteCount'  => 'MaxExecuteCount',
+        'maxResultCount'   => 'MaxResultCount',
+        'mobile'           => 'Mobile',
+        'nickName'         => 'NickName',
+        'notificationMode' => 'NotificationMode',
+        'parentUid'        => 'ParentUid',
+        'roleIdList'       => 'RoleIdList',
+        'roleNameList'     => 'RoleNameList',
+        'signatureMethod'  => 'SignatureMethod',
+        'state'            => 'State',
+        'uid'              => 'Uid',
+        'userId'           => 'UserId',
+        'webhook'          => 'Webhook',
     ];
 
     public function validate()
@@ -97,20 +127,35 @@ class user extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->curExecuteCount) {
+            $res['CurExecuteCount'] = $this->curExecuteCount;
         }
         if (null !== $this->curResultCount) {
             $res['CurResultCount'] = $this->curResultCount;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->dingRobot) {
+            $res['DingRobot'] = $this->dingRobot;
+        }
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
         }
         if (null !== $this->lastLoginTime) {
             $res['LastLoginTime'] = $this->lastLoginTime;
         }
+        if (null !== $this->maxExecuteCount) {
+            $res['MaxExecuteCount'] = $this->maxExecuteCount;
+        }
         if (null !== $this->maxResultCount) {
             $res['MaxResultCount'] = $this->maxResultCount;
+        }
+        if (null !== $this->mobile) {
+            $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->nickName) {
+            $res['NickName'] = $this->nickName;
+        }
+        if (null !== $this->notificationMode) {
+            $res['NotificationMode'] = $this->notificationMode;
         }
         if (null !== $this->parentUid) {
             $res['ParentUid'] = $this->parentUid;
@@ -121,20 +166,20 @@ class user extends Model
         if (null !== $this->roleNameList) {
             $res['RoleNameList'] = null !== $this->roleNameList ? $this->roleNameList->toMap() : null;
         }
-        if (null !== $this->nickName) {
-            $res['NickName'] = $this->nickName;
+        if (null !== $this->signatureMethod) {
+            $res['SignatureMethod'] = $this->signatureMethod;
         }
-        if (null !== $this->maxExecuteCount) {
-            $res['MaxExecuteCount'] = $this->maxExecuteCount;
-        }
-        if (null !== $this->curExecuteCount) {
-            $res['CurExecuteCount'] = $this->curExecuteCount;
-        }
-        if (null !== $this->mobile) {
-            $res['Mobile'] = $this->mobile;
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->webhook) {
+            $res['Webhook'] = $this->webhook;
         }
 
         return $res;
@@ -148,20 +193,35 @@ class user extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['CurExecuteCount'])) {
+            $model->curExecuteCount = $map['CurExecuteCount'];
         }
         if (isset($map['CurResultCount'])) {
             $model->curResultCount = $map['CurResultCount'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['DingRobot'])) {
+            $model->dingRobot = $map['DingRobot'];
+        }
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
         }
         if (isset($map['LastLoginTime'])) {
             $model->lastLoginTime = $map['LastLoginTime'];
         }
+        if (isset($map['MaxExecuteCount'])) {
+            $model->maxExecuteCount = $map['MaxExecuteCount'];
+        }
         if (isset($map['MaxResultCount'])) {
             $model->maxResultCount = $map['MaxResultCount'];
+        }
+        if (isset($map['Mobile'])) {
+            $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['NickName'])) {
+            $model->nickName = $map['NickName'];
+        }
+        if (isset($map['NotificationMode'])) {
+            $model->notificationMode = $map['NotificationMode'];
         }
         if (isset($map['ParentUid'])) {
             $model->parentUid = $map['ParentUid'];
@@ -172,20 +232,20 @@ class user extends Model
         if (isset($map['RoleNameList'])) {
             $model->roleNameList = roleNameList::fromMap($map['RoleNameList']);
         }
-        if (isset($map['NickName'])) {
-            $model->nickName = $map['NickName'];
+        if (isset($map['SignatureMethod'])) {
+            $model->signatureMethod = $map['SignatureMethod'];
         }
-        if (isset($map['MaxExecuteCount'])) {
-            $model->maxExecuteCount = $map['MaxExecuteCount'];
-        }
-        if (isset($map['CurExecuteCount'])) {
-            $model->curExecuteCount = $map['CurExecuteCount'];
-        }
-        if (isset($map['Mobile'])) {
-            $model->mobile = $map['Mobile'];
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['Webhook'])) {
+            $model->webhook = $map['Webhook'];
         }
 
         return $model;

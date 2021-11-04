@@ -11,6 +11,11 @@ class ListDataCorrectPreCheckSQLRequest extends Model
     /**
      * @var int
      */
+    public $dbId;
+
+    /**
+     * @var int
+     */
     public $orderId;
 
     /**
@@ -26,17 +31,12 @@ class ListDataCorrectPreCheckSQLRequest extends Model
     /**
      * @var int
      */
-    public $dbId;
-
-    /**
-     * @var int
-     */
     public $tid;
     protected $_name = [
+        'dbId'       => 'DbId',
         'orderId'    => 'OrderId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'dbId'       => 'DbId',
         'tid'        => 'Tid',
     ];
 
@@ -47,6 +47,9 @@ class ListDataCorrectPreCheckSQLRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
+        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -55,9 +58,6 @@ class ListDataCorrectPreCheckSQLRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->dbId) {
-            $res['DbId'] = $this->dbId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -74,6 +74,9 @@ class ListDataCorrectPreCheckSQLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
+        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
@@ -82,9 +85,6 @@ class ListDataCorrectPreCheckSQLRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

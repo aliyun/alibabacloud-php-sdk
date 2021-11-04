@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetUserActiveTenantResponseBody extends Model
 {
     /**
-     * @var tenant
-     */
-    public $tenant;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string
      */
     public $errorCode;
@@ -30,15 +20,25 @@ class GetUserActiveTenantResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var tenant
+     */
+    public $tenant;
     protected $_name = [
-        'tenant'       => 'Tenant',
-        'requestId'    => 'RequestId',
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
         'success'      => 'Success',
+        'tenant'       => 'Tenant',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class GetUserActiveTenantResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tenant) {
-            $res['Tenant'] = null !== $this->tenant ? $this->tenant->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->tenant) {
+            $res['Tenant'] = null !== $this->tenant ? $this->tenant->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class GetUserActiveTenantResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tenant'])) {
-            $model->tenant = tenant::fromMap($map['Tenant']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Tenant'])) {
+            $model->tenant = tenant::fromMap($map['Tenant']);
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListColumnsRequest extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $tid;
+    public $logic;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class ListColumnsRequest extends Model
     public $tableId;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $logic;
+    public $tid;
     protected $_name = [
-        'tid'     => 'Tid',
-        'tableId' => 'TableId',
         'logic'   => 'Logic',
+        'tableId' => 'TableId',
+        'tid'     => 'Tid',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListColumnsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
+        if (null !== $this->logic) {
+            $res['Logic'] = $this->logic;
         }
         if (null !== $this->tableId) {
             $res['TableId'] = $this->tableId;
         }
-        if (null !== $this->logic) {
-            $res['Logic'] = $this->logic;
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListColumnsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
+        if (isset($map['Logic'])) {
+            $model->logic = $map['Logic'];
         }
         if (isset($map['TableId'])) {
             $model->tableId = $map['TableId'];
         }
-        if (isset($map['Logic'])) {
-            $model->logic = $map['Logic'];
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeColumnSecLevelRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $tid;
+    public $columnName;
 
     /**
      * @var int
@@ -24,6 +24,13 @@ class ChangeColumnSecLevelRequest extends Model
     public $isLogic;
 
     /**
+     * @description 新的敏感等级
+     *
+     * @var string
+     */
+    public $newLevel;
+
+    /**
      * @var string
      */
     public $schemaName;
@@ -34,24 +41,17 @@ class ChangeColumnSecLevelRequest extends Model
     public $tableName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $columnName;
-
-    /**
-     * @description 新的敏感等级
-     *
-     * @var string
-     */
-    public $newLevel;
+    public $tid;
     protected $_name = [
-        'tid'        => 'Tid',
+        'columnName' => 'ColumnName',
         'dbId'       => 'DbId',
         'isLogic'    => 'IsLogic',
+        'newLevel'   => 'NewLevel',
         'schemaName' => 'SchemaName',
         'tableName'  => 'TableName',
-        'columnName' => 'ColumnName',
-        'newLevel'   => 'NewLevel',
+        'tid'        => 'Tid',
     ];
 
     public function validate()
@@ -61,8 +61,8 @@ class ChangeColumnSecLevelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
+        if (null !== $this->columnName) {
+            $res['ColumnName'] = $this->columnName;
         }
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
@@ -70,17 +70,17 @@ class ChangeColumnSecLevelRequest extends Model
         if (null !== $this->isLogic) {
             $res['IsLogic'] = $this->isLogic;
         }
+        if (null !== $this->newLevel) {
+            $res['NewLevel'] = $this->newLevel;
+        }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
-        if (null !== $this->columnName) {
-            $res['ColumnName'] = $this->columnName;
-        }
-        if (null !== $this->newLevel) {
-            $res['NewLevel'] = $this->newLevel;
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -94,8 +94,8 @@ class ChangeColumnSecLevelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
+        if (isset($map['ColumnName'])) {
+            $model->columnName = $map['ColumnName'];
         }
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
@@ -103,17 +103,17 @@ class ChangeColumnSecLevelRequest extends Model
         if (isset($map['IsLogic'])) {
             $model->isLogic = $map['IsLogic'];
         }
+        if (isset($map['NewLevel'])) {
+            $model->newLevel = $map['NewLevel'];
+        }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
-        if (isset($map['ColumnName'])) {
-            $model->columnName = $map['ColumnName'];
-        }
-        if (isset($map['NewLevel'])) {
-            $model->newLevel = $map['NewLevel'];
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

@@ -12,11 +12,6 @@ class ListWorkFlowNodesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $errorCode;
 
     /**
@@ -25,20 +20,25 @@ class ListWorkFlowNodesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var workflowNodes
+     * @var string
      */
-    public $workflowNodes;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var workflowNodes
+     */
+    public $workflowNodes;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'errorCode'     => 'ErrorCode',
         'errorMessage'  => 'ErrorMessage',
-        'workflowNodes' => 'WorkflowNodes',
+        'requestId'     => 'RequestId',
         'success'       => 'Success',
+        'workflowNodes' => 'WorkflowNodes',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class ListWorkFlowNodesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->workflowNodes) {
-            $res['WorkflowNodes'] = null !== $this->workflowNodes ? $this->workflowNodes->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->workflowNodes) {
+            $res['WorkflowNodes'] = null !== $this->workflowNodes ? $this->workflowNodes->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class ListWorkFlowNodesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['WorkflowNodes'])) {
-            $model->workflowNodes = workflowNodes::fromMap($map['WorkflowNodes']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['WorkflowNodes'])) {
+            $model->workflowNodes = workflowNodes::fromMap($map['WorkflowNodes']);
         }
 
         return $model;

@@ -11,21 +11,21 @@ class resultList extends Model
     /**
      * @var string
      */
+    public $script;
+
+    /**
+     * @var string
+     */
     public $sourceTableName;
 
     /**
      * @var string
      */
     public $targetTableName;
-
-    /**
-     * @var string
-     */
-    public $script;
     protected $_name = [
+        'script'          => 'Script',
         'sourceTableName' => 'SourceTableName',
         'targetTableName' => 'TargetTableName',
-        'script'          => 'Script',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class resultList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->script) {
+            $res['Script'] = $this->script;
+        }
         if (null !== $this->sourceTableName) {
             $res['SourceTableName'] = $this->sourceTableName;
         }
         if (null !== $this->targetTableName) {
             $res['TargetTableName'] = $this->targetTableName;
-        }
-        if (null !== $this->script) {
-            $res['Script'] = $this->script;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class resultList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Script'])) {
+            $model->script = $map['Script'];
+        }
         if (isset($map['SourceTableName'])) {
             $model->sourceTableName = $map['SourceTableName'];
         }
         if (isset($map['TargetTableName'])) {
             $model->targetTableName = $map['TargetTableName'];
-        }
-        if (isset($map['Script'])) {
-            $model->script = $map['Script'];
         }
 
         return $model;

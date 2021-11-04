@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $tid;
+    public $attachmentKey;
 
     /**
      * @var string
@@ -26,24 +26,24 @@ class CreateOrderRequest extends Model
     /**
      * @var string
      */
-    public $relatedUserList;
-
-    /**
-     * @var string
-     */
     public $pluginType;
 
     /**
      * @var string
      */
-    public $attachmentKey;
+    public $relatedUserList;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
-        'tid'             => 'Tid',
+        'attachmentKey'   => 'AttachmentKey',
         'comment'         => 'Comment',
         'pluginParam'     => 'PluginParam',
-        'relatedUserList' => 'RelatedUserList',
         'pluginType'      => 'PluginType',
-        'attachmentKey'   => 'AttachmentKey',
+        'relatedUserList' => 'RelatedUserList',
+        'tid'             => 'Tid',
     ];
 
     public function validate()
@@ -53,8 +53,8 @@ class CreateOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
+        if (null !== $this->attachmentKey) {
+            $res['AttachmentKey'] = $this->attachmentKey;
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
@@ -62,14 +62,14 @@ class CreateOrderRequest extends Model
         if (null !== $this->pluginParam) {
             $res['PluginParam'] = $this->pluginParam;
         }
-        if (null !== $this->relatedUserList) {
-            $res['RelatedUserList'] = $this->relatedUserList;
-        }
         if (null !== $this->pluginType) {
             $res['PluginType'] = $this->pluginType;
         }
-        if (null !== $this->attachmentKey) {
-            $res['AttachmentKey'] = $this->attachmentKey;
+        if (null !== $this->relatedUserList) {
+            $res['RelatedUserList'] = $this->relatedUserList;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -83,8 +83,8 @@ class CreateOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
+        if (isset($map['AttachmentKey'])) {
+            $model->attachmentKey = $map['AttachmentKey'];
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
@@ -92,14 +92,14 @@ class CreateOrderRequest extends Model
         if (isset($map['PluginParam'])) {
             $model->pluginParam = $map['PluginParam'];
         }
-        if (isset($map['RelatedUserList'])) {
-            $model->relatedUserList = $map['RelatedUserList'];
-        }
         if (isset($map['PluginType'])) {
             $model->pluginType = $map['PluginType'];
         }
-        if (isset($map['AttachmentKey'])) {
-            $model->attachmentKey = $map['AttachmentKey'];
+        if (isset($map['RelatedUserList'])) {
+            $model->relatedUserList = $map['RelatedUserList'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

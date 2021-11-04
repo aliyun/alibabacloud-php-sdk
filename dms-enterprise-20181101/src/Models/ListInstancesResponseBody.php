@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string
      */
     public $errorCode;
@@ -35,16 +25,26 @@ class ListInstancesResponseBody extends Model
     public $instanceList;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'   => 'TotalCount',
-        'requestId'    => 'RequestId',
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'instanceList' => 'InstanceList',
+        'requestId'    => 'RequestId',
         'success'      => 'Success',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -54,12 +54,6 @@ class ListInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -69,8 +63,14 @@ class ListInstancesResponseBody extends Model
         if (null !== $this->instanceList) {
             $res['InstanceList'] = null !== $this->instanceList ? $this->instanceList->toMap() : null;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -84,12 +84,6 @@ class ListInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
@@ -99,8 +93,14 @@ class ListInstancesResponseBody extends Model
         if (isset($map['InstanceList'])) {
             $model->instanceList = instanceList::fromMap($map['InstanceList']);
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

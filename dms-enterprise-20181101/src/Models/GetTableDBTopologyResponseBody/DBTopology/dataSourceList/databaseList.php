@@ -25,20 +25,20 @@ class databaseList extends Model
     public $dbType;
 
     /**
-     * @var tableList[]
-     */
-    public $tableList;
-
-    /**
      * @var string
      */
     public $envType;
+
+    /**
+     * @var tableList[]
+     */
+    public $tableList;
     protected $_name = [
         'dbId'      => 'DbId',
         'dbName'    => 'DbName',
         'dbType'    => 'DbType',
-        'tableList' => 'TableList',
         'envType'   => 'EnvType',
+        'tableList' => 'TableList',
     ];
 
     public function validate()
@@ -57,6 +57,9 @@ class databaseList extends Model
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
+        }
         if (null !== $this->tableList) {
             $res['TableList'] = [];
             if (null !== $this->tableList && \is_array($this->tableList)) {
@@ -65,9 +68,6 @@ class databaseList extends Model
                     $res['TableList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->envType) {
-            $res['EnvType'] = $this->envType;
         }
 
         return $res;
@@ -90,6 +90,9 @@ class databaseList extends Model
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
+        }
         if (isset($map['TableList'])) {
             if (!empty($map['TableList'])) {
                 $model->tableList = [];
@@ -98,9 +101,6 @@ class databaseList extends Model
                     $model->tableList[$n++] = null !== $item ? tableList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['EnvType'])) {
-            $model->envType = $map['EnvType'];
         }
 
         return $model;

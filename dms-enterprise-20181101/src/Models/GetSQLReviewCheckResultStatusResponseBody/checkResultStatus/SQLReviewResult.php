@@ -26,7 +26,7 @@ class SQLReviewResult extends Model
     /**
      * @var int
      */
-    public $useDmsToolkit;
+    public $tableIndexSuggest;
 
     /**
      * @var int
@@ -36,14 +36,14 @@ class SQLReviewResult extends Model
     /**
      * @var int
      */
-    public $tableIndexSuggest;
+    public $useDmsToolkit;
     protected $_name = [
         'mustImprove'       => 'MustImprove',
         'potentialIssue'    => 'PotentialIssue',
         'suggestImprove'    => 'SuggestImprove',
-        'useDmsToolkit'     => 'UseDmsToolkit',
-        'useDmsDmlUnlock'   => 'UseDmsDmlUnlock',
         'tableIndexSuggest' => 'TableIndexSuggest',
+        'useDmsDmlUnlock'   => 'UseDmsDmlUnlock',
+        'useDmsToolkit'     => 'UseDmsToolkit',
     ];
 
     public function validate()
@@ -62,14 +62,14 @@ class SQLReviewResult extends Model
         if (null !== $this->suggestImprove) {
             $res['SuggestImprove'] = $this->suggestImprove;
         }
-        if (null !== $this->useDmsToolkit) {
-            $res['UseDmsToolkit'] = $this->useDmsToolkit;
+        if (null !== $this->tableIndexSuggest) {
+            $res['TableIndexSuggest'] = $this->tableIndexSuggest;
         }
         if (null !== $this->useDmsDmlUnlock) {
             $res['UseDmsDmlUnlock'] = $this->useDmsDmlUnlock;
         }
-        if (null !== $this->tableIndexSuggest) {
-            $res['TableIndexSuggest'] = $this->tableIndexSuggest;
+        if (null !== $this->useDmsToolkit) {
+            $res['UseDmsToolkit'] = $this->useDmsToolkit;
         }
 
         return $res;
@@ -92,14 +92,14 @@ class SQLReviewResult extends Model
         if (isset($map['SuggestImprove'])) {
             $model->suggestImprove = $map['SuggestImprove'];
         }
-        if (isset($map['UseDmsToolkit'])) {
-            $model->useDmsToolkit = $map['UseDmsToolkit'];
+        if (isset($map['TableIndexSuggest'])) {
+            $model->tableIndexSuggest = $map['TableIndexSuggest'];
         }
         if (isset($map['UseDmsDmlUnlock'])) {
             $model->useDmsDmlUnlock = $map['UseDmsDmlUnlock'];
         }
-        if (isset($map['TableIndexSuggest'])) {
-            $model->tableIndexSuggest = $map['TableIndexSuggest'];
+        if (isset($map['UseDmsToolkit'])) {
+            $model->useDmsToolkit = $map['UseDmsToolkit'];
         }
 
         return $model;

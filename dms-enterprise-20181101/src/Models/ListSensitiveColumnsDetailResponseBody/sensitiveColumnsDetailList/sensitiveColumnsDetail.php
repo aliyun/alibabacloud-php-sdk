@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class sensitiveColumnsDetail extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $dbId;
+    public $columnDescription;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class sensitiveColumnsDetail extends Model
     /**
      * @var string
      */
-    public $columnDescription;
+    public $columnType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $tableName;
+    public $dbId;
 
     /**
      * @var string
@@ -36,7 +36,7 @@ class sensitiveColumnsDetail extends Model
     /**
      * @var string
      */
-    public $columnType;
+    public $envType;
 
     /**
      * @var bool
@@ -56,18 +56,18 @@ class sensitiveColumnsDetail extends Model
     /**
      * @var string
      */
-    public $envType;
+    public $tableName;
     protected $_name = [
-        'dbId'              => 'DbId',
-        'columnName'        => 'ColumnName',
         'columnDescription' => 'ColumnDescription',
-        'tableName'         => 'TableName',
-        'dbType'            => 'DbType',
+        'columnName'        => 'ColumnName',
         'columnType'        => 'ColumnType',
+        'dbId'              => 'DbId',
+        'dbType'            => 'DbType',
+        'envType'           => 'EnvType',
         'logic'             => 'Logic',
         'schemaName'        => 'SchemaName',
         'searchName'        => 'SearchName',
-        'envType'           => 'EnvType',
+        'tableName'         => 'TableName',
     ];
 
     public function validate()
@@ -77,23 +77,23 @@ class sensitiveColumnsDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dbId) {
-            $res['DbId'] = $this->dbId;
+        if (null !== $this->columnDescription) {
+            $res['ColumnDescription'] = $this->columnDescription;
         }
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
-        if (null !== $this->columnDescription) {
-            $res['ColumnDescription'] = $this->columnDescription;
+        if (null !== $this->columnType) {
+            $res['ColumnType'] = $this->columnType;
         }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
         }
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
-        if (null !== $this->columnType) {
-            $res['ColumnType'] = $this->columnType;
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
@@ -104,8 +104,8 @@ class sensitiveColumnsDetail extends Model
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
         }
-        if (null !== $this->envType) {
-            $res['EnvType'] = $this->envType;
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -119,23 +119,23 @@ class sensitiveColumnsDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
+        if (isset($map['ColumnDescription'])) {
+            $model->columnDescription = $map['ColumnDescription'];
         }
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
-        if (isset($map['ColumnDescription'])) {
-            $model->columnDescription = $map['ColumnDescription'];
+        if (isset($map['ColumnType'])) {
+            $model->columnType = $map['ColumnType'];
         }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
         }
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
-        if (isset($map['ColumnType'])) {
-            $model->columnType = $map['ColumnType'];
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
@@ -146,8 +146,8 @@ class sensitiveColumnsDetail extends Model
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];
         }
-        if (isset($map['EnvType'])) {
-            $model->envType = $map['EnvType'];
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

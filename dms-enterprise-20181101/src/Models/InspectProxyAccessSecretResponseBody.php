@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class InspectProxyAccessSecretResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessSecret;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @description Id of the request
      *
      * @var string
@@ -19,27 +34,12 @@ class InspectProxyAccessSecretResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
-    public $accessSecret;
     protected $_name = [
+        'accessSecret' => 'AccessSecret',
+        'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
-        'errorMessage' => 'ErrorMessage',
-        'errorCode'    => 'ErrorCode',
-        'accessSecret' => 'AccessSecret',
     ];
 
     public function validate()
@@ -49,20 +49,20 @@ class InspectProxyAccessSecretResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessSecret) {
+            $res['AccessSecret'] = $this->accessSecret;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->accessSecret) {
-            $res['AccessSecret'] = $this->accessSecret;
         }
 
         return $res;
@@ -76,20 +76,20 @@ class InspectProxyAccessSecretResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessSecret'])) {
+            $model->accessSecret = $map['AccessSecret'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['AccessSecret'])) {
-            $model->accessSecret = $map['AccessSecret'];
         }
 
         return $model;

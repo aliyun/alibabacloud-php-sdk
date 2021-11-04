@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class preCheckSQLList extends Model
 {
     /**
-     * @var string
-     */
-    public $checkSQL;
-
-    /**
      * @var int
      */
     public $affectRows;
+
+    /**
+     * @var string
+     */
+    public $checkSQL;
 
     /**
      * @var int
@@ -38,8 +38,8 @@ class preCheckSQLList extends Model
      */
     public $sqlType;
     protected $_name = [
-        'checkSQL'          => 'CheckSQL',
         'affectRows'        => 'AffectRows',
+        'checkSQL'          => 'CheckSQL',
         'dbId'              => 'DbId',
         'SQLReviewQueryKey' => 'SQLReviewQueryKey',
         'sqlReviewStatus'   => 'SqlReviewStatus',
@@ -53,11 +53,11 @@ class preCheckSQLList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->checkSQL) {
-            $res['CheckSQL'] = $this->checkSQL;
-        }
         if (null !== $this->affectRows) {
             $res['AffectRows'] = $this->affectRows;
+        }
+        if (null !== $this->checkSQL) {
+            $res['CheckSQL'] = $this->checkSQL;
         }
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
@@ -83,11 +83,11 @@ class preCheckSQLList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CheckSQL'])) {
-            $model->checkSQL = $map['CheckSQL'];
-        }
         if (isset($map['AffectRows'])) {
             $model->affectRows = $map['AffectRows'];
+        }
+        if (isset($map['CheckSQL'])) {
+            $model->checkSQL = $map['CheckSQL'];
         }
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];

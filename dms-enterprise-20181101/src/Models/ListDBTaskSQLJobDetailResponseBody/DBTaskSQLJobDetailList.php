@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DBTaskSQLJobDetailList extends Model
 {
     /**
-     * @var int
-     */
-    public $jobDetailId;
-
-    /**
      * @var string
      */
     public $currentSql;
+
+    /**
+     * @var int
+     */
+    public $dbId;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class DBTaskSQLJobDetailList extends Model
     /**
      * @var int
      */
-    public $jobId;
+    public $jobDetailId;
 
     /**
      * @var int
      */
-    public $dbId;
+    public $jobId;
 
     /**
      * @var bool
@@ -53,11 +53,11 @@ class DBTaskSQLJobDetailList extends Model
      */
     public $status;
     protected $_name = [
-        'jobDetailId'  => 'JobDetailId',
         'currentSql'   => 'CurrentSql',
-        'executeCount' => 'ExecuteCount',
-        'jobId'        => 'JobId',
         'dbId'         => 'DbId',
+        'executeCount' => 'ExecuteCount',
+        'jobDetailId'  => 'JobDetailId',
+        'jobId'        => 'JobId',
         'logic'        => 'Logic',
         'skip'         => 'Skip',
         'sqlType'      => 'SqlType',
@@ -71,20 +71,20 @@ class DBTaskSQLJobDetailList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobDetailId) {
-            $res['JobDetailId'] = $this->jobDetailId;
-        }
         if (null !== $this->currentSql) {
             $res['CurrentSql'] = $this->currentSql;
+        }
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
         }
         if (null !== $this->executeCount) {
             $res['ExecuteCount'] = $this->executeCount;
         }
+        if (null !== $this->jobDetailId) {
+            $res['JobDetailId'] = $this->jobDetailId;
+        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->dbId) {
-            $res['DbId'] = $this->dbId;
         }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
@@ -110,20 +110,20 @@ class DBTaskSQLJobDetailList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobDetailId'])) {
-            $model->jobDetailId = $map['JobDetailId'];
-        }
         if (isset($map['CurrentSql'])) {
             $model->currentSql = $map['CurrentSql'];
+        }
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
         }
         if (isset($map['ExecuteCount'])) {
             $model->executeCount = $map['ExecuteCount'];
         }
+        if (isset($map['JobDetailId'])) {
+            $model->jobDetailId = $map['JobDetailId'];
+        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
-        }
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
         }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];

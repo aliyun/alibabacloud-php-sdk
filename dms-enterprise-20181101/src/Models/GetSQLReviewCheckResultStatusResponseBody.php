@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetSQLReviewCheckResultStatusResponseBody extends Model
 {
     /**
-     * @var string
+     * @var checkResultStatus
      */
-    public $requestId;
+    public $checkResultStatus;
 
     /**
      * @var string
@@ -25,20 +25,20 @@ class GetSQLReviewCheckResultStatusResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var checkResultStatus
-     */
-    public $checkResultStatus;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'checkResultStatus' => 'CheckResultStatus',
         'errorCode'         => 'ErrorCode',
         'errorMessage'      => 'ErrorMessage',
+        'requestId'         => 'RequestId',
         'success'           => 'Success',
-        'checkResultStatus' => 'CheckResultStatus',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class GetSQLReviewCheckResultStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->checkResultStatus) {
+            $res['CheckResultStatus'] = null !== $this->checkResultStatus ? $this->checkResultStatus->toMap() : null;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -57,11 +57,11 @@ class GetSQLReviewCheckResultStatusResponseBody extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->checkResultStatus) {
-            $res['CheckResultStatus'] = null !== $this->checkResultStatus ? $this->checkResultStatus->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class GetSQLReviewCheckResultStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CheckResultStatus'])) {
+            $model->checkResultStatus = checkResultStatus::fromMap($map['CheckResultStatus']);
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
@@ -84,11 +84,11 @@ class GetSQLReviewCheckResultStatusResponseBody extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['CheckResultStatus'])) {
-            $model->checkResultStatus = checkResultStatus::fromMap($map['CheckResultStatus']);
         }
 
         return $model;

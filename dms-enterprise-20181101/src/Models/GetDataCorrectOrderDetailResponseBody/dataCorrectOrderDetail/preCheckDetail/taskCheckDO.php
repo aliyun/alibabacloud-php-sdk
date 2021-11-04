@@ -11,21 +11,21 @@ class taskCheckDO extends Model
     /**
      * @var string
      */
-    public $userTip;
-
-    /**
-     * @var string
-     */
     public $checkStatus;
 
     /**
      * @var string
      */
     public $checkStep;
+
+    /**
+     * @var string
+     */
+    public $userTip;
     protected $_name = [
-        'userTip'     => 'UserTip',
         'checkStatus' => 'CheckStatus',
         'checkStep'   => 'CheckStep',
+        'userTip'     => 'UserTip',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class taskCheckDO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userTip) {
-            $res['UserTip'] = $this->userTip;
-        }
         if (null !== $this->checkStatus) {
             $res['CheckStatus'] = $this->checkStatus;
         }
         if (null !== $this->checkStep) {
             $res['CheckStep'] = $this->checkStep;
+        }
+        if (null !== $this->userTip) {
+            $res['UserTip'] = $this->userTip;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class taskCheckDO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserTip'])) {
-            $model->userTip = $map['UserTip'];
-        }
         if (isset($map['CheckStatus'])) {
             $model->checkStatus = $map['CheckStatus'];
         }
         if (isset($map['CheckStep'])) {
             $model->checkStep = $map['CheckStep'];
+        }
+        if (isset($map['UserTip'])) {
+            $model->userTip = $map['UserTip'];
         }
 
         return $model;

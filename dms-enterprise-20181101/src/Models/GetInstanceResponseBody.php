@@ -12,7 +12,12 @@ class GetInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @var instance
@@ -22,22 +27,17 @@ class GetInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'instance'     => 'Instance',
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'instance'     => 'Instance',
+        'requestId'    => 'RequestId',
         'success'      => 'Success',
     ];
 
@@ -48,17 +48,17 @@ class GetInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->instance) {
-            $res['Instance'] = null !== $this->instance ? $this->instance->toMap() : null;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->instance) {
+            $res['Instance'] = null !== $this->instance ? $this->instance->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -75,17 +75,17 @@ class GetInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Instance'])) {
-            $model->instance = instance::fromMap($map['Instance']);
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['Instance'])) {
+            $model->instance = instance::fromMap($map['Instance']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

@@ -12,7 +12,7 @@ class results extends Model
     /**
      * @var string
      */
-    public $ruleName;
+    public $comments;
 
     /**
      * @var string
@@ -20,31 +20,31 @@ class results extends Model
     public $feedback;
 
     /**
-     * @var string
-     */
-    public $comments;
-
-    /**
      * @var string[]
      */
     public $messages;
 
     /**
-     * @var scripts[]
+     * @var string
      */
-    public $scripts;
+    public $ruleName;
 
     /**
      * @var string
      */
     public $ruleType;
+
+    /**
+     * @var scripts[]
+     */
+    public $scripts;
     protected $_name = [
-        'ruleName' => 'RuleName',
-        'feedback' => 'Feedback',
         'comments' => 'Comments',
+        'feedback' => 'Feedback',
         'messages' => 'Messages',
-        'scripts'  => 'Scripts',
+        'ruleName' => 'RuleName',
         'ruleType' => 'RuleType',
+        'scripts'  => 'Scripts',
     ];
 
     public function validate()
@@ -54,17 +54,20 @@ class results extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
+        if (null !== $this->comments) {
+            $res['Comments'] = $this->comments;
         }
         if (null !== $this->feedback) {
             $res['Feedback'] = $this->feedback;
         }
-        if (null !== $this->comments) {
-            $res['Comments'] = $this->comments;
-        }
         if (null !== $this->messages) {
             $res['Messages'] = $this->messages;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->ruleType) {
+            $res['RuleType'] = $this->ruleType;
         }
         if (null !== $this->scripts) {
             $res['Scripts'] = [];
@@ -74,9 +77,6 @@ class results extends Model
                     $res['Scripts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->ruleType) {
-            $res['RuleType'] = $this->ruleType;
         }
 
         return $res;
@@ -90,19 +90,22 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
+        if (isset($map['Comments'])) {
+            $model->comments = $map['Comments'];
         }
         if (isset($map['Feedback'])) {
             $model->feedback = $map['Feedback'];
-        }
-        if (isset($map['Comments'])) {
-            $model->comments = $map['Comments'];
         }
         if (isset($map['Messages'])) {
             if (!empty($map['Messages'])) {
                 $model->messages = $map['Messages'];
             }
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['RuleType'])) {
+            $model->ruleType = $map['RuleType'];
         }
         if (isset($map['Scripts'])) {
             if (!empty($map['Scripts'])) {
@@ -112,9 +115,6 @@ class results extends Model
                     $model->scripts[$n++] = null !== $item ? scripts::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RuleType'])) {
-            $model->ruleType = $map['RuleType'];
         }
 
         return $model;

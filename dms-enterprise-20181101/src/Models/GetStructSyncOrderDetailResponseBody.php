@@ -10,16 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncOrderDetailResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
+    public $errorCode;
 
     /**
      * @var string
@@ -27,20 +20,27 @@ class GetStructSyncOrderDetailResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
-    public $errorCode;
+    public $requestId;
 
     /**
      * @var structSyncOrderDetail
      */
     public $structSyncOrderDetail;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'             => 'RequestId',
-        'success'               => 'Success',
-        'errorMessage'          => 'ErrorMessage',
         'errorCode'             => 'ErrorCode',
+        'errorMessage'          => 'ErrorMessage',
+        'requestId'             => 'RequestId',
         'structSyncOrderDetail' => 'StructSyncOrderDetail',
+        'success'               => 'Success',
     ];
 
     public function validate()
@@ -50,20 +50,20 @@ class GetStructSyncOrderDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->structSyncOrderDetail) {
             $res['StructSyncOrderDetail'] = null !== $this->structSyncOrderDetail ? $this->structSyncOrderDetail->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -77,20 +77,20 @@ class GetStructSyncOrderDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StructSyncOrderDetail'])) {
             $model->structSyncOrderDetail = structSyncOrderDetail::fromMap($map['StructSyncOrderDetail']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

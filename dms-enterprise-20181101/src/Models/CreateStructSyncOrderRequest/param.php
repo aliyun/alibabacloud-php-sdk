@@ -12,29 +12,29 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
-     * @var source
-     */
-    public $source;
-
-    /**
-     * @var target
-     */
-    public $target;
-
-    /**
      * @var bool
      */
     public $ignoreError;
 
     /**
+     * @var source
+     */
+    public $source;
+
+    /**
      * @var tableInfoList[]
      */
     public $tableInfoList;
+
+    /**
+     * @var target
+     */
+    public $target;
     protected $_name = [
-        'source'        => 'Source',
-        'target'        => 'Target',
         'ignoreError'   => 'IgnoreError',
+        'source'        => 'Source',
         'tableInfoList' => 'TableInfoList',
+        'target'        => 'Target',
     ];
 
     public function validate()
@@ -44,14 +44,11 @@ class param extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->source) {
-            $res['Source'] = null !== $this->source ? $this->source->toMap() : null;
-        }
-        if (null !== $this->target) {
-            $res['Target'] = null !== $this->target ? $this->target->toMap() : null;
-        }
         if (null !== $this->ignoreError) {
             $res['IgnoreError'] = $this->ignoreError;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = null !== $this->source ? $this->source->toMap() : null;
         }
         if (null !== $this->tableInfoList) {
             $res['TableInfoList'] = [];
@@ -61,6 +58,9 @@ class param extends Model
                     $res['TableInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->target) {
+            $res['Target'] = null !== $this->target ? $this->target->toMap() : null;
         }
 
         return $res;
@@ -74,14 +74,11 @@ class param extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Source'])) {
-            $model->source = source::fromMap($map['Source']);
-        }
-        if (isset($map['Target'])) {
-            $model->target = target::fromMap($map['Target']);
-        }
         if (isset($map['IgnoreError'])) {
             $model->ignoreError = $map['IgnoreError'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = source::fromMap($map['Source']);
         }
         if (isset($map['TableInfoList'])) {
             if (!empty($map['TableInfoList'])) {
@@ -91,6 +88,9 @@ class param extends Model
                     $model->tableInfoList[$n++] = null !== $item ? tableInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Target'])) {
+            $model->target = target::fromMap($map['Target']);
         }
 
         return $model;

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class SearchDatabaseRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $tid;
+    public $dbType;
 
     /**
      * @var string
      */
-    public $searchKey;
+    public $envType;
 
     /**
      * @var int
@@ -31,7 +31,7 @@ class SearchDatabaseRequest extends Model
     /**
      * @var string
      */
-    public $envType;
+    public $searchKey;
 
     /**
      * @var string
@@ -44,18 +44,18 @@ class SearchDatabaseRequest extends Model
     public $searchTarget;
 
     /**
-     * @var string
+     * @var int
      */
-    public $dbType;
+    public $tid;
     protected $_name = [
-        'tid'          => 'Tid',
-        'searchKey'    => 'SearchKey',
+        'dbType'       => 'DbType',
+        'envType'      => 'EnvType',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
-        'envType'      => 'EnvType',
+        'searchKey'    => 'SearchKey',
         'searchRange'  => 'SearchRange',
         'searchTarget' => 'SearchTarget',
-        'dbType'       => 'DbType',
+        'tid'          => 'Tid',
     ];
 
     public function validate()
@@ -65,11 +65,11 @@ class SearchDatabaseRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
+        if (null !== $this->dbType) {
+            $res['DbType'] = $this->dbType;
         }
-        if (null !== $this->searchKey) {
-            $res['SearchKey'] = $this->searchKey;
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -77,8 +77,8 @@ class SearchDatabaseRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->envType) {
-            $res['EnvType'] = $this->envType;
+        if (null !== $this->searchKey) {
+            $res['SearchKey'] = $this->searchKey;
         }
         if (null !== $this->searchRange) {
             $res['SearchRange'] = $this->searchRange;
@@ -86,8 +86,8 @@ class SearchDatabaseRequest extends Model
         if (null !== $this->searchTarget) {
             $res['SearchTarget'] = $this->searchTarget;
         }
-        if (null !== $this->dbType) {
-            $res['DbType'] = $this->dbType;
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -101,11 +101,11 @@ class SearchDatabaseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
+        if (isset($map['DbType'])) {
+            $model->dbType = $map['DbType'];
         }
-        if (isset($map['SearchKey'])) {
-            $model->searchKey = $map['SearchKey'];
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -113,8 +113,8 @@ class SearchDatabaseRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['EnvType'])) {
-            $model->envType = $map['EnvType'];
+        if (isset($map['SearchKey'])) {
+            $model->searchKey = $map['SearchKey'];
         }
         if (isset($map['SearchRange'])) {
             $model->searchRange = $map['SearchRange'];
@@ -122,8 +122,8 @@ class SearchDatabaseRequest extends Model
         if (isset($map['SearchTarget'])) {
             $model->searchTarget = $map['SearchTarget'];
         }
-        if (isset($map['DbType'])) {
-            $model->dbType = $map['DbType'];
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

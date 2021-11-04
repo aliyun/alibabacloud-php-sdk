@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CloseOrderRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $tid;
+    public $closeReason;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class CloseOrderRequest extends Model
     public $orderId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $closeReason;
+    public $tid;
     protected $_name = [
-        'tid'         => 'Tid',
-        'orderId'     => 'OrderId',
         'closeReason' => 'CloseReason',
+        'orderId'     => 'OrderId',
+        'tid'         => 'Tid',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CloseOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
+        if (null !== $this->closeReason) {
+            $res['CloseReason'] = $this->closeReason;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-        if (null !== $this->closeReason) {
-            $res['CloseReason'] = $this->closeReason;
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CloseOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
+        if (isset($map['CloseReason'])) {
+            $model->closeReason = $map['CloseReason'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-        if (isset($map['CloseReason'])) {
-            $model->closeReason = $map['CloseReason'];
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

@@ -16,12 +16,12 @@ class indexList extends Model
     /**
      * @var string
      */
-    public $indexName;
+    public $indexId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $unique;
+    public $indexName;
 
     /**
      * @var string
@@ -29,15 +29,15 @@ class indexList extends Model
     public $indexType;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $indexId;
+    public $unique;
     protected $_name = [
         'indexColumns' => 'IndexColumns',
-        'indexName'    => 'IndexName',
-        'unique'       => 'Unique',
-        'indexType'    => 'IndexType',
         'indexId'      => 'IndexId',
+        'indexName'    => 'IndexName',
+        'indexType'    => 'IndexType',
+        'unique'       => 'Unique',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class indexList extends Model
         if (null !== $this->indexColumns) {
             $res['IndexColumns'] = $this->indexColumns;
         }
+        if (null !== $this->indexId) {
+            $res['IndexId'] = $this->indexId;
+        }
         if (null !== $this->indexName) {
             $res['IndexName'] = $this->indexName;
-        }
-        if (null !== $this->unique) {
-            $res['Unique'] = $this->unique;
         }
         if (null !== $this->indexType) {
             $res['IndexType'] = $this->indexType;
         }
-        if (null !== $this->indexId) {
-            $res['IndexId'] = $this->indexId;
+        if (null !== $this->unique) {
+            $res['Unique'] = $this->unique;
         }
 
         return $res;
@@ -79,17 +79,17 @@ class indexList extends Model
                 $model->indexColumns = $map['IndexColumns'];
             }
         }
+        if (isset($map['IndexId'])) {
+            $model->indexId = $map['IndexId'];
+        }
         if (isset($map['IndexName'])) {
             $model->indexName = $map['IndexName'];
-        }
-        if (isset($map['Unique'])) {
-            $model->unique = $map['Unique'];
         }
         if (isset($map['IndexType'])) {
             $model->indexType = $map['IndexType'];
         }
-        if (isset($map['IndexId'])) {
-            $model->indexId = $map['IndexId'];
+        if (isset($map['Unique'])) {
+            $model->unique = $map['Unique'];
         }
 
         return $model;

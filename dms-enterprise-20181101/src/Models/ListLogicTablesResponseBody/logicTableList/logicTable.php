@@ -16,14 +16,9 @@ class logicTable extends Model
     public $databaseId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $tableName;
-
-    /**
-     * @var string
-     */
-    public $tableCount;
+    public $logic;
 
     /**
      * @var ownerIdList
@@ -41,9 +36,9 @@ class logicTable extends Model
     public $schemaName;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $logic;
+    public $tableCount;
 
     /**
      * @var string
@@ -59,17 +54,22 @@ class logicTable extends Model
      * @var string
      */
     public $tableId;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
         'databaseId'    => 'DatabaseId',
-        'tableName'     => 'TableName',
-        'tableCount'    => 'TableCount',
+        'logic'         => 'Logic',
         'ownerIdList'   => 'OwnerIdList',
         'ownerNameList' => 'OwnerNameList',
         'schemaName'    => 'SchemaName',
-        'logic'         => 'Logic',
+        'tableCount'    => 'TableCount',
         'tableExpr'     => 'TableExpr',
         'tableGuid'     => 'TableGuid',
         'tableId'       => 'TableId',
+        'tableName'     => 'TableName',
     ];
 
     public function validate()
@@ -82,11 +82,8 @@ class logicTable extends Model
         if (null !== $this->databaseId) {
             $res['DatabaseId'] = $this->databaseId;
         }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->tableCount) {
-            $res['TableCount'] = $this->tableCount;
+        if (null !== $this->logic) {
+            $res['Logic'] = $this->logic;
         }
         if (null !== $this->ownerIdList) {
             $res['OwnerIdList'] = null !== $this->ownerIdList ? $this->ownerIdList->toMap() : null;
@@ -97,8 +94,8 @@ class logicTable extends Model
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
-        if (null !== $this->logic) {
-            $res['Logic'] = $this->logic;
+        if (null !== $this->tableCount) {
+            $res['TableCount'] = $this->tableCount;
         }
         if (null !== $this->tableExpr) {
             $res['TableExpr'] = $this->tableExpr;
@@ -108,6 +105,9 @@ class logicTable extends Model
         }
         if (null !== $this->tableId) {
             $res['TableId'] = $this->tableId;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -124,11 +124,8 @@ class logicTable extends Model
         if (isset($map['DatabaseId'])) {
             $model->databaseId = $map['DatabaseId'];
         }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
-        if (isset($map['TableCount'])) {
-            $model->tableCount = $map['TableCount'];
+        if (isset($map['Logic'])) {
+            $model->logic = $map['Logic'];
         }
         if (isset($map['OwnerIdList'])) {
             $model->ownerIdList = ownerIdList::fromMap($map['OwnerIdList']);
@@ -139,8 +136,8 @@ class logicTable extends Model
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
-        if (isset($map['Logic'])) {
-            $model->logic = $map['Logic'];
+        if (isset($map['TableCount'])) {
+            $model->tableCount = $map['TableCount'];
         }
         if (isset($map['TableExpr'])) {
             $model->tableExpr = $map['TableExpr'];
@@ -150,6 +147,9 @@ class logicTable extends Model
         }
         if (isset($map['TableId'])) {
             $model->tableId = $map['TableId'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

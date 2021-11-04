@@ -12,12 +12,17 @@ class param extends Model
     /**
      * @var string
      */
-    public $classify;
+    public $attachmentName;
 
     /**
      * @var string
      */
-    public $attachmentName;
+    public $classify;
+
+    /**
+     * @var bool
+     */
+    public $csvFirstRowIsColumnDef;
 
     /**
      * @var dbItemList[]
@@ -27,27 +32,12 @@ class param extends Model
     /**
      * @var string
      */
-    public $fileType;
-
-    /**
-     * @var string
-     */
     public $fileEncoding;
 
     /**
      * @var string
      */
-    public $tableName;
-
-    /**
-     * @var string
-     */
-    public $insertType;
-
-    /**
-     * @var bool
-     */
-    public $csvFirstRowIsColumnDef;
+    public $fileType;
 
     /**
      * @var bool
@@ -62,7 +52,7 @@ class param extends Model
     /**
      * @var string
      */
-    public $rollbackSQL;
+    public $insertType;
 
     /**
      * @var string
@@ -72,21 +62,31 @@ class param extends Model
     /**
      * @var string
      */
+    public $rollbackSQL;
+
+    /**
+     * @var string
+     */
     public $rollbackSqlType;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
-        'classify'               => 'Classify',
         'attachmentName'         => 'AttachmentName',
-        'dbItemList'             => 'DbItemList',
-        'fileType'               => 'FileType',
-        'fileEncoding'           => 'FileEncoding',
-        'tableName'              => 'TableName',
-        'insertType'             => 'InsertType',
+        'classify'               => 'Classify',
         'csvFirstRowIsColumnDef' => 'CsvFirstRowIsColumnDef',
+        'dbItemList'             => 'DbItemList',
+        'fileEncoding'           => 'FileEncoding',
+        'fileType'               => 'FileType',
         'ignoreError'            => 'IgnoreError',
         'importMode'             => 'ImportMode',
-        'rollbackSQL'            => 'RollbackSQL',
+        'insertType'             => 'InsertType',
         'rollbackAttachmentName' => 'RollbackAttachmentName',
+        'rollbackSQL'            => 'RollbackSQL',
         'rollbackSqlType'        => 'RollbackSqlType',
+        'tableName'              => 'TableName',
     ];
 
     public function validate()
@@ -96,11 +96,14 @@ class param extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachmentName) {
+            $res['AttachmentName'] = $this->attachmentName;
+        }
         if (null !== $this->classify) {
             $res['Classify'] = $this->classify;
         }
-        if (null !== $this->attachmentName) {
-            $res['AttachmentName'] = $this->attachmentName;
+        if (null !== $this->csvFirstRowIsColumnDef) {
+            $res['CsvFirstRowIsColumnDef'] = $this->csvFirstRowIsColumnDef;
         }
         if (null !== $this->dbItemList) {
             $res['DbItemList'] = [];
@@ -111,20 +114,11 @@ class param extends Model
                 }
             }
         }
-        if (null !== $this->fileType) {
-            $res['FileType'] = $this->fileType;
-        }
         if (null !== $this->fileEncoding) {
             $res['FileEncoding'] = $this->fileEncoding;
         }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->insertType) {
-            $res['InsertType'] = $this->insertType;
-        }
-        if (null !== $this->csvFirstRowIsColumnDef) {
-            $res['CsvFirstRowIsColumnDef'] = $this->csvFirstRowIsColumnDef;
+        if (null !== $this->fileType) {
+            $res['FileType'] = $this->fileType;
         }
         if (null !== $this->ignoreError) {
             $res['IgnoreError'] = $this->ignoreError;
@@ -132,14 +126,20 @@ class param extends Model
         if (null !== $this->importMode) {
             $res['ImportMode'] = $this->importMode;
         }
-        if (null !== $this->rollbackSQL) {
-            $res['RollbackSQL'] = $this->rollbackSQL;
+        if (null !== $this->insertType) {
+            $res['InsertType'] = $this->insertType;
         }
         if (null !== $this->rollbackAttachmentName) {
             $res['RollbackAttachmentName'] = $this->rollbackAttachmentName;
         }
+        if (null !== $this->rollbackSQL) {
+            $res['RollbackSQL'] = $this->rollbackSQL;
+        }
         if (null !== $this->rollbackSqlType) {
             $res['RollbackSqlType'] = $this->rollbackSqlType;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -153,11 +153,14 @@ class param extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachmentName'])) {
+            $model->attachmentName = $map['AttachmentName'];
+        }
         if (isset($map['Classify'])) {
             $model->classify = $map['Classify'];
         }
-        if (isset($map['AttachmentName'])) {
-            $model->attachmentName = $map['AttachmentName'];
+        if (isset($map['CsvFirstRowIsColumnDef'])) {
+            $model->csvFirstRowIsColumnDef = $map['CsvFirstRowIsColumnDef'];
         }
         if (isset($map['DbItemList'])) {
             if (!empty($map['DbItemList'])) {
@@ -168,20 +171,11 @@ class param extends Model
                 }
             }
         }
-        if (isset($map['FileType'])) {
-            $model->fileType = $map['FileType'];
-        }
         if (isset($map['FileEncoding'])) {
             $model->fileEncoding = $map['FileEncoding'];
         }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
-        if (isset($map['InsertType'])) {
-            $model->insertType = $map['InsertType'];
-        }
-        if (isset($map['CsvFirstRowIsColumnDef'])) {
-            $model->csvFirstRowIsColumnDef = $map['CsvFirstRowIsColumnDef'];
+        if (isset($map['FileType'])) {
+            $model->fileType = $map['FileType'];
         }
         if (isset($map['IgnoreError'])) {
             $model->ignoreError = $map['IgnoreError'];
@@ -189,14 +183,20 @@ class param extends Model
         if (isset($map['ImportMode'])) {
             $model->importMode = $map['ImportMode'];
         }
-        if (isset($map['RollbackSQL'])) {
-            $model->rollbackSQL = $map['RollbackSQL'];
+        if (isset($map['InsertType'])) {
+            $model->insertType = $map['InsertType'];
         }
         if (isset($map['RollbackAttachmentName'])) {
             $model->rollbackAttachmentName = $map['RollbackAttachmentName'];
         }
+        if (isset($map['RollbackSQL'])) {
+            $model->rollbackSQL = $map['RollbackSQL'];
+        }
         if (isset($map['RollbackSqlType'])) {
             $model->rollbackSqlType = $map['RollbackSqlType'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class optimizeDetail extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $queryKey;
+    public $dbId;
 
     /**
      * @var int
@@ -20,25 +20,25 @@ class optimizeDetail extends Model
     public $instanceId;
 
     /**
-     * @var int
+     * @var qualityResult
      */
-    public $dbId;
+    public $qualityResult;
+
+    /**
+     * @var string
+     */
+    public $queryKey;
 
     /**
      * @var string
      */
     public $sqlType;
-
-    /**
-     * @var qualityResult
-     */
-    public $qualityResult;
     protected $_name = [
-        'queryKey'      => 'QueryKey',
-        'instanceId'    => 'InstanceId',
         'dbId'          => 'DbId',
-        'sqlType'       => 'SqlType',
+        'instanceId'    => 'InstanceId',
         'qualityResult' => 'QualityResult',
+        'queryKey'      => 'QueryKey',
+        'sqlType'       => 'SqlType',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class optimizeDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->queryKey) {
-            $res['QueryKey'] = $this->queryKey;
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->dbId) {
-            $res['DbId'] = $this->dbId;
+        if (null !== $this->qualityResult) {
+            $res['QualityResult'] = null !== $this->qualityResult ? $this->qualityResult->toMap() : null;
+        }
+        if (null !== $this->queryKey) {
+            $res['QueryKey'] = $this->queryKey;
         }
         if (null !== $this->sqlType) {
             $res['SqlType'] = $this->sqlType;
-        }
-        if (null !== $this->qualityResult) {
-            $res['QualityResult'] = null !== $this->qualityResult ? $this->qualityResult->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class optimizeDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['QueryKey'])) {
-            $model->queryKey = $map['QueryKey'];
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
+        if (isset($map['QualityResult'])) {
+            $model->qualityResult = qualityResult::fromMap($map['QualityResult']);
+        }
+        if (isset($map['QueryKey'])) {
+            $model->queryKey = $map['QueryKey'];
         }
         if (isset($map['SqlType'])) {
             $model->sqlType = $map['SqlType'];
-        }
-        if (isset($map['QualityResult'])) {
-            $model->qualityResult = qualityResult::fromMap($map['QualityResult']);
         }
 
         return $model;

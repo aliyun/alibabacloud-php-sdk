@@ -16,21 +16,6 @@ class order extends Model
     /**
      * @var string
      */
-    public $lastModifyTime;
-
-    /**
-     * @var string
-     */
-    public $statusCode;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
     public $committer;
 
     /**
@@ -41,7 +26,17 @@ class order extends Model
     /**
      * @var string
      */
-    public $statusDesc;
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $lastModifyTime;
+
+    /**
+     * @var int
+     */
+    public $orderId;
 
     /**
      * @var string
@@ -49,19 +44,24 @@ class order extends Model
     public $pluginType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $orderId;
+    public $statusCode;
+
+    /**
+     * @var string
+     */
+    public $statusDesc;
     protected $_name = [
         'comment'        => 'Comment',
-        'lastModifyTime' => 'LastModifyTime',
-        'statusCode'     => 'StatusCode',
-        'createTime'     => 'CreateTime',
         'committer'      => 'Committer',
         'committerId'    => 'CommitterId',
-        'statusDesc'     => 'StatusDesc',
-        'pluginType'     => 'PluginType',
+        'createTime'     => 'CreateTime',
+        'lastModifyTime' => 'LastModifyTime',
         'orderId'        => 'OrderId',
+        'pluginType'     => 'PluginType',
+        'statusCode'     => 'StatusCode',
+        'statusDesc'     => 'StatusDesc',
     ];
 
     public function validate()
@@ -74,29 +74,29 @@ class order extends Model
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-        if (null !== $this->lastModifyTime) {
-            $res['LastModifyTime'] = $this->lastModifyTime;
-        }
-        if (null !== $this->statusCode) {
-            $res['StatusCode'] = $this->statusCode;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->committer) {
             $res['Committer'] = $this->committer;
         }
         if (null !== $this->committerId) {
             $res['CommitterId'] = $this->committerId;
         }
-        if (null !== $this->statusDesc) {
-            $res['StatusDesc'] = $this->statusDesc;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->lastModifyTime) {
+            $res['LastModifyTime'] = $this->lastModifyTime;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->pluginType) {
             $res['PluginType'] = $this->pluginType;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+        if (null !== $this->statusCode) {
+            $res['StatusCode'] = $this->statusCode;
+        }
+        if (null !== $this->statusDesc) {
+            $res['StatusDesc'] = $this->statusDesc;
         }
 
         return $res;
@@ -113,29 +113,29 @@ class order extends Model
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-        if (isset($map['LastModifyTime'])) {
-            $model->lastModifyTime = $map['LastModifyTime'];
-        }
-        if (isset($map['StatusCode'])) {
-            $model->statusCode = $map['StatusCode'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['Committer'])) {
             $model->committer = $map['Committer'];
         }
         if (isset($map['CommitterId'])) {
             $model->committerId = $map['CommitterId'];
         }
-        if (isset($map['StatusDesc'])) {
-            $model->statusDesc = $map['StatusDesc'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['LastModifyTime'])) {
+            $model->lastModifyTime = $map['LastModifyTime'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['PluginType'])) {
             $model->pluginType = $map['PluginType'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
+        if (isset($map['StatusCode'])) {
+            $model->statusCode = $map['StatusCode'];
+        }
+        if (isset($map['StatusDesc'])) {
+            $model->statusDesc = $map['StatusDesc'];
         }
 
         return $model;

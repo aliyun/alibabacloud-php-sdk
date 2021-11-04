@@ -10,19 +10,14 @@ use AlibabaCloud\Tea\Model;
 class workFlowTemplate extends Model
 {
     /**
-     * @var int
-     */
-    public $isSystem;
-
-    /**
-     * @var workflowNodes
-     */
-    public $workflowNodes;
-
-    /**
      * @var string
      */
     public $comment;
+
+    /**
+     * @var int
+     */
+    public $createUserId;
 
     /**
      * @var string
@@ -30,9 +25,9 @@ class workFlowTemplate extends Model
     public $enabled;
 
     /**
-     * @var string
+     * @var int
      */
-    public $templateName;
+    public $isSystem;
 
     /**
      * @var int
@@ -40,17 +35,22 @@ class workFlowTemplate extends Model
     public $templateId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $createUserId;
+    public $templateName;
+
+    /**
+     * @var workflowNodes
+     */
+    public $workflowNodes;
     protected $_name = [
-        'isSystem'      => 'IsSystem',
-        'workflowNodes' => 'WorkflowNodes',
         'comment'       => 'Comment',
-        'enabled'       => 'Enabled',
-        'templateName'  => 'TemplateName',
-        'templateId'    => 'TemplateId',
         'createUserId'  => 'CreateUserId',
+        'enabled'       => 'Enabled',
+        'isSystem'      => 'IsSystem',
+        'templateId'    => 'TemplateId',
+        'templateName'  => 'TemplateName',
+        'workflowNodes' => 'WorkflowNodes',
     ];
 
     public function validate()
@@ -60,26 +60,26 @@ class workFlowTemplate extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isSystem) {
-            $res['IsSystem'] = $this->isSystem;
-        }
-        if (null !== $this->workflowNodes) {
-            $res['WorkflowNodes'] = null !== $this->workflowNodes ? $this->workflowNodes->toMap() : null;
-        }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->createUserId) {
+            $res['CreateUserId'] = $this->createUserId;
         }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
+        if (null !== $this->isSystem) {
+            $res['IsSystem'] = $this->isSystem;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->createUserId) {
-            $res['CreateUserId'] = $this->createUserId;
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->workflowNodes) {
+            $res['WorkflowNodes'] = null !== $this->workflowNodes ? $this->workflowNodes->toMap() : null;
         }
 
         return $res;
@@ -93,26 +93,26 @@ class workFlowTemplate extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsSystem'])) {
-            $model->isSystem = $map['IsSystem'];
-        }
-        if (isset($map['WorkflowNodes'])) {
-            $model->workflowNodes = workflowNodes::fromMap($map['WorkflowNodes']);
-        }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+        if (isset($map['CreateUserId'])) {
+            $model->createUserId = $map['CreateUserId'];
         }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
+        if (isset($map['IsSystem'])) {
+            $model->isSystem = $map['IsSystem'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['CreateUserId'])) {
-            $model->createUserId = $map['CreateUserId'];
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['WorkflowNodes'])) {
+            $model->workflowNodes = workflowNodes::fromMap($map['WorkflowNodes']);
         }
 
         return $model;

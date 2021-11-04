@@ -15,18 +15,18 @@ class qualityResult extends Model
     public $errorMessage;
 
     /**
-     * @var results[]
-     */
-    public $results;
-
-    /**
      * @var bool
      */
     public $occurError;
+
+    /**
+     * @var results[]
+     */
+    public $results;
     protected $_name = [
         'errorMessage' => 'ErrorMessage',
-        'results'      => 'Results',
         'occurError'   => 'OccurError',
+        'results'      => 'Results',
     ];
 
     public function validate()
@@ -39,6 +39,9 @@ class qualityResult extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->occurError) {
+            $res['OccurError'] = $this->occurError;
+        }
         if (null !== $this->results) {
             $res['Results'] = [];
             if (null !== $this->results && \is_array($this->results)) {
@@ -47,9 +50,6 @@ class qualityResult extends Model
                     $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->occurError) {
-            $res['OccurError'] = $this->occurError;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class qualityResult extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['OccurError'])) {
+            $model->occurError = $map['OccurError'];
+        }
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
@@ -74,9 +77,6 @@ class qualityResult extends Model
                     $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['OccurError'])) {
-            $model->occurError = $map['OccurError'];
         }
 
         return $model;

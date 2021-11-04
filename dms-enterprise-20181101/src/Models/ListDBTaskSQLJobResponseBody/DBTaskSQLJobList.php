@@ -9,6 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DBTaskSQLJobList extends Model
 {
     /**
+     * @var string
+     */
+    public $comment;
+
+    /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @var int
+     */
+    public $dbId;
+
+    /**
+     * @var string
+     */
+    public $dbSearchName;
+
+    /**
+     * @var int
+     */
+    public $dbTaskGroupId;
+
+    /**
      * @var int
      */
     public $jobId;
@@ -21,37 +46,12 @@ class DBTaskSQLJobList extends Model
     /**
      * @var string
      */
-    public $comment;
-
-    /**
-     * @var string
-     */
-    public $dbSearchName;
-
-    /**
-     * @var int
-     */
-    public $dbId;
+    public $lastExecTime;
 
     /**
      * @var bool
      */
     public $logic;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $lastExecTime;
-
-    /**
-     * @var int
-     */
-    public $dbTaskGroupId;
 
     /**
      * @var string
@@ -63,15 +63,15 @@ class DBTaskSQLJobList extends Model
      */
     public $transactional;
     protected $_name = [
+        'comment'       => 'Comment',
+        'createTime'    => 'CreateTime',
+        'dbId'          => 'DbId',
+        'dbSearchName'  => 'DbSearchName',
+        'dbTaskGroupId' => 'DbTaskGroupId',
         'jobId'         => 'JobId',
         'jobType'       => 'JobType',
-        'comment'       => 'Comment',
-        'dbSearchName'  => 'DbSearchName',
-        'dbId'          => 'DbId',
-        'logic'         => 'Logic',
-        'createTime'    => 'CreateTime',
         'lastExecTime'  => 'LastExecTime',
-        'dbTaskGroupId' => 'DbTaskGroupId',
+        'logic'         => 'Logic',
         'status'        => 'Status',
         'transactional' => 'Transactional',
     ];
@@ -83,32 +83,32 @@ class DBTaskSQLJobList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
+        }
+        if (null !== $this->dbSearchName) {
+            $res['DbSearchName'] = $this->dbSearchName;
+        }
+        if (null !== $this->dbTaskGroupId) {
+            $res['DbTaskGroupId'] = $this->dbTaskGroupId;
+        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
-        }
-        if (null !== $this->dbSearchName) {
-            $res['DbSearchName'] = $this->dbSearchName;
-        }
-        if (null !== $this->dbId) {
-            $res['DbId'] = $this->dbId;
-        }
-        if (null !== $this->logic) {
-            $res['Logic'] = $this->logic;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->lastExecTime) {
             $res['LastExecTime'] = $this->lastExecTime;
         }
-        if (null !== $this->dbTaskGroupId) {
-            $res['DbTaskGroupId'] = $this->dbTaskGroupId;
+        if (null !== $this->logic) {
+            $res['Logic'] = $this->logic;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -128,32 +128,32 @@ class DBTaskSQLJobList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
+        }
+        if (isset($map['DbSearchName'])) {
+            $model->dbSearchName = $map['DbSearchName'];
+        }
+        if (isset($map['DbTaskGroupId'])) {
+            $model->dbTaskGroupId = $map['DbTaskGroupId'];
+        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
-        }
-        if (isset($map['DbSearchName'])) {
-            $model->dbSearchName = $map['DbSearchName'];
-        }
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
-        }
-        if (isset($map['Logic'])) {
-            $model->logic = $map['Logic'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['LastExecTime'])) {
             $model->lastExecTime = $map['LastExecTime'];
         }
-        if (isset($map['DbTaskGroupId'])) {
-            $model->dbTaskGroupId = $map['DbTaskGroupId'];
+        if (isset($map['Logic'])) {
+            $model->logic = $map['Logic'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

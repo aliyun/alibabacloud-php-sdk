@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class structSyncJobDetail extends Model
 {
     /**
+     * @var int
+     */
+    public $DBTaskGroupId;
+
+    /**
+     * @var int
+     */
+    public $executeCount;
+
+    /**
      * @var string
      */
     public $jobStatus;
@@ -19,14 +29,9 @@ class structSyncJobDetail extends Model
     public $message;
 
     /**
-     * @var int
+     * @var string
      */
-    public $tableAnalyzed;
-
-    /**
-     * @var int
-     */
-    public $tableCount;
+    public $securityRule;
 
     /**
      * @var int
@@ -36,26 +41,21 @@ class structSyncJobDetail extends Model
     /**
      * @var int
      */
-    public $executeCount;
-
-    /**
-     * @var string
-     */
-    public $securityRule;
+    public $tableAnalyzed;
 
     /**
      * @var int
      */
-    public $DBTaskGroupId;
+    public $tableCount;
     protected $_name = [
+        'DBTaskGroupId' => 'DBTaskGroupId',
+        'executeCount'  => 'ExecuteCount',
         'jobStatus'     => 'JobStatus',
         'message'       => 'Message',
+        'securityRule'  => 'SecurityRule',
+        'sqlCount'      => 'SqlCount',
         'tableAnalyzed' => 'TableAnalyzed',
         'tableCount'    => 'TableCount',
-        'sqlCount'      => 'SqlCount',
-        'executeCount'  => 'ExecuteCount',
-        'securityRule'  => 'SecurityRule',
-        'DBTaskGroupId' => 'DBTaskGroupId',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class structSyncJobDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBTaskGroupId) {
+            $res['DBTaskGroupId'] = $this->DBTaskGroupId;
+        }
+        if (null !== $this->executeCount) {
+            $res['ExecuteCount'] = $this->executeCount;
+        }
         if (null !== $this->jobStatus) {
             $res['JobStatus'] = $this->jobStatus;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->securityRule) {
+            $res['SecurityRule'] = $this->securityRule;
+        }
+        if (null !== $this->sqlCount) {
+            $res['SqlCount'] = $this->sqlCount;
+        }
         if (null !== $this->tableAnalyzed) {
             $res['TableAnalyzed'] = $this->tableAnalyzed;
         }
         if (null !== $this->tableCount) {
             $res['TableCount'] = $this->tableCount;
-        }
-        if (null !== $this->sqlCount) {
-            $res['SqlCount'] = $this->sqlCount;
-        }
-        if (null !== $this->executeCount) {
-            $res['ExecuteCount'] = $this->executeCount;
-        }
-        if (null !== $this->securityRule) {
-            $res['SecurityRule'] = $this->securityRule;
-        }
-        if (null !== $this->DBTaskGroupId) {
-            $res['DBTaskGroupId'] = $this->DBTaskGroupId;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class structSyncJobDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBTaskGroupId'])) {
+            $model->DBTaskGroupId = $map['DBTaskGroupId'];
+        }
+        if (isset($map['ExecuteCount'])) {
+            $model->executeCount = $map['ExecuteCount'];
+        }
         if (isset($map['JobStatus'])) {
             $model->jobStatus = $map['JobStatus'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['SecurityRule'])) {
+            $model->securityRule = $map['SecurityRule'];
+        }
+        if (isset($map['SqlCount'])) {
+            $model->sqlCount = $map['SqlCount'];
+        }
         if (isset($map['TableAnalyzed'])) {
             $model->tableAnalyzed = $map['TableAnalyzed'];
         }
         if (isset($map['TableCount'])) {
             $model->tableCount = $map['TableCount'];
-        }
-        if (isset($map['SqlCount'])) {
-            $model->sqlCount = $map['SqlCount'];
-        }
-        if (isset($map['ExecuteCount'])) {
-            $model->executeCount = $map['ExecuteCount'];
-        }
-        if (isset($map['SecurityRule'])) {
-            $model->securityRule = $map['SecurityRule'];
-        }
-        if (isset($map['DBTaskGroupId'])) {
-            $model->DBTaskGroupId = $map['DBTaskGroupId'];
         }
 
         return $model;

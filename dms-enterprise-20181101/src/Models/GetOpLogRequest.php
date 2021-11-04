@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetOpLogRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $tid;
+    public $endTime;
 
     /**
      * @var string
@@ -19,14 +19,9 @@ class GetOpLogRequest extends Model
     public $module;
 
     /**
-     * @var string
+     * @var int
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
+    public $pageNumber;
 
     /**
      * @var int
@@ -34,16 +29,21 @@ class GetOpLogRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
      * @var int
      */
-    public $pageNumber;
+    public $tid;
     protected $_name = [
-        'tid'        => 'Tid',
-        'module'     => 'Module',
-        'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
-        'pageSize'   => 'PageSize',
+        'module'     => 'Module',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'startTime'  => 'StartTime',
+        'tid'        => 'Tid',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class GetOpLogRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->module) {
             $res['Module'] = $this->module;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class GetOpLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Module'])) {
             $model->module = $map['Module'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

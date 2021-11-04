@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateLogicDatabaseResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $logicDbId;
+
+    /**
      * @description Id of the request
      *
      * @var string
@@ -19,27 +34,12 @@ class CreateLogicDatabaseResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var int
-     */
-    public $logicDbId;
     protected $_name = [
+        'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'logicDbId'    => 'LogicDbId',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
-        'errorMessage' => 'ErrorMessage',
-        'errorCode'    => 'ErrorCode',
-        'logicDbId'    => 'LogicDbId',
     ];
 
     public function validate()
@@ -49,20 +49,20 @@ class CreateLogicDatabaseResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->logicDbId) {
+            $res['LogicDbId'] = $this->logicDbId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->logicDbId) {
-            $res['LogicDbId'] = $this->logicDbId;
         }
 
         return $res;
@@ -76,20 +76,20 @@ class CreateLogicDatabaseResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['LogicDbId'])) {
+            $model->logicDbId = $map['LogicDbId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['LogicDbId'])) {
-            $model->logicDbId = $map['LogicDbId'];
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ExecuteDataExportShrinkRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $tid;
+    public $actionDetailShrink;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class ExecuteDataExportShrinkRequest extends Model
     public $orderId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $actionDetailShrink;
+    public $tid;
     protected $_name = [
-        'tid'                => 'Tid',
-        'orderId'            => 'OrderId',
         'actionDetailShrink' => 'ActionDetail',
+        'orderId'            => 'OrderId',
+        'tid'                => 'Tid',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ExecuteDataExportShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
+        if (null !== $this->actionDetailShrink) {
+            $res['ActionDetail'] = $this->actionDetailShrink;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-        if (null !== $this->actionDetailShrink) {
-            $res['ActionDetail'] = $this->actionDetailShrink;
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ExecuteDataExportShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
+        if (isset($map['ActionDetail'])) {
+            $model->actionDetailShrink = $map['ActionDetail'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-        if (isset($map['ActionDetail'])) {
-            $model->actionDetailShrink = $map['ActionDetail'];
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

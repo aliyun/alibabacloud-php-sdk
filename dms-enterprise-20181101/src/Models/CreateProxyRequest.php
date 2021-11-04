@@ -16,22 +16,22 @@ class CreateProxyRequest extends Model
     /**
      * @var string
      */
-    public $username;
-
-    /**
-     * @var string
-     */
     public $password;
 
     /**
      * @var int
      */
     public $tid;
+
+    /**
+     * @var string
+     */
+    public $username;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'username'   => 'Username',
         'password'   => 'Password',
         'tid'        => 'Tid',
+        'username'   => 'Username',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class CreateProxyRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->username) {
-            $res['Username'] = $this->username;
-        }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
+        }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class CreateProxyRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Username'])) {
-            $model->username = $map['Username'];
-        }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
         return $model;

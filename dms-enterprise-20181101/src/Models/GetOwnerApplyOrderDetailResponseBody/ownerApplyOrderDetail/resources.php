@@ -15,18 +15,18 @@ class resources extends Model
     public $logic;
 
     /**
-     * @var string
-     */
-    public $targetId;
-
-    /**
      * @var resourceDetail
      */
     public $resourceDetail;
+
+    /**
+     * @var string
+     */
+    public $targetId;
     protected $_name = [
         'logic'          => 'Logic',
-        'targetId'       => 'TargetId',
         'resourceDetail' => 'ResourceDetail',
+        'targetId'       => 'TargetId',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class resources extends Model
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
         }
-        if (null !== $this->targetId) {
-            $res['TargetId'] = $this->targetId;
-        }
         if (null !== $this->resourceDetail) {
             $res['ResourceDetail'] = null !== $this->resourceDetail ? $this->resourceDetail->toMap() : null;
+        }
+        if (null !== $this->targetId) {
+            $res['TargetId'] = $this->targetId;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class resources extends Model
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
         }
-        if (isset($map['TargetId'])) {
-            $model->targetId = $map['TargetId'];
-        }
         if (isset($map['ResourceDetail'])) {
             $model->resourceDetail = resourceDetail::fromMap($map['ResourceDetail']);
+        }
+        if (isset($map['TargetId'])) {
+            $model->targetId = $map['TargetId'];
         }
 
         return $model;

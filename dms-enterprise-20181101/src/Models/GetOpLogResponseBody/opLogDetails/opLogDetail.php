@@ -11,17 +11,12 @@ class opLogDetail extends Model
     /**
      * @var string
      */
-    public $module;
-
-    /**
-     * @var string
-     */
     public $database;
 
     /**
      * @var string
      */
-    public $userId;
+    public $module;
 
     /**
      * @var string
@@ -31,7 +26,7 @@ class opLogDetail extends Model
     /**
      * @var string
      */
-    public $userNick;
+    public $opTime;
 
     /**
      * @var int
@@ -41,15 +36,20 @@ class opLogDetail extends Model
     /**
      * @var string
      */
-    public $opTime;
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $userNick;
     protected $_name = [
-        'module'    => 'Module',
         'database'  => 'Database',
-        'userId'    => 'UserId',
+        'module'    => 'Module',
         'opContent' => 'OpContent',
-        'userNick'  => 'UserNick',
-        'orderId'   => 'OrderId',
         'opTime'    => 'OpTime',
+        'orderId'   => 'OrderId',
+        'userId'    => 'UserId',
+        'userNick'  => 'UserNick',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class opLogDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->module) {
-            $res['Module'] = $this->module;
-        }
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->module) {
+            $res['Module'] = $this->module;
         }
         if (null !== $this->opContent) {
             $res['OpContent'] = $this->opContent;
         }
-        if (null !== $this->userNick) {
-            $res['UserNick'] = $this->userNick;
+        if (null !== $this->opTime) {
+            $res['OpTime'] = $this->opTime;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-        if (null !== $this->opTime) {
-            $res['OpTime'] = $this->opTime;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->userNick) {
+            $res['UserNick'] = $this->userNick;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class opLogDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Module'])) {
-            $model->module = $map['Module'];
-        }
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['Module'])) {
+            $model->module = $map['Module'];
         }
         if (isset($map['OpContent'])) {
             $model->opContent = $map['OpContent'];
         }
-        if (isset($map['UserNick'])) {
-            $model->userNick = $map['UserNick'];
+        if (isset($map['OpTime'])) {
+            $model->opTime = $map['OpTime'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-        if (isset($map['OpTime'])) {
-            $model->opTime = $map['OpTime'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserNick'])) {
+            $model->userNick = $map['UserNick'];
         }
 
         return $model;

@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListDataCorrectPreCheckSQLResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var preCheckSQLList[]
+     */
+    public $preCheckSQLList;
+
+    /**
      * @description Id of the request
      *
      * @var string
@@ -20,27 +35,12 @@ class ListDataCorrectPreCheckSQLResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var preCheckSQLList[]
-     */
-    public $preCheckSQLList;
     protected $_name = [
+        'errorCode'       => 'ErrorCode',
+        'errorMessage'    => 'ErrorMessage',
+        'preCheckSQLList' => 'PreCheckSQLList',
         'requestId'       => 'RequestId',
         'success'         => 'Success',
-        'errorMessage'    => 'ErrorMessage',
-        'errorCode'       => 'ErrorCode',
-        'preCheckSQLList' => 'PreCheckSQLList',
     ];
 
     public function validate()
@@ -50,17 +50,11 @@ class ListDataCorrectPreCheckSQLResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->preCheckSQLList) {
             $res['PreCheckSQLList'] = [];
@@ -70,6 +64,12 @@ class ListDataCorrectPreCheckSQLResponseBody extends Model
                     $res['PreCheckSQLList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -83,17 +83,11 @@ class ListDataCorrectPreCheckSQLResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['PreCheckSQLList'])) {
             if (!empty($map['PreCheckSQLList'])) {
@@ -103,6 +97,12 @@ class ListDataCorrectPreCheckSQLResponseBody extends Model
                     $model->preCheckSQLList[$n++] = null !== $item ? preCheckSQLList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

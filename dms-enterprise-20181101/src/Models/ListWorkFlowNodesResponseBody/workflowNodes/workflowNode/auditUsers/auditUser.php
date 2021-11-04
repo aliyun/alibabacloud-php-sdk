@@ -11,21 +11,21 @@ class auditUser extends Model
     /**
      * @var string
      */
+    public $nickName;
+
+    /**
+     * @var string
+     */
     public $realName;
 
     /**
      * @var int
      */
     public $userId;
-
-    /**
-     * @var string
-     */
-    public $nickName;
     protected $_name = [
+        'nickName' => 'NickName',
         'realName' => 'RealName',
         'userId'   => 'UserId',
-        'nickName' => 'NickName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class auditUser extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nickName) {
+            $res['NickName'] = $this->nickName;
+        }
         if (null !== $this->realName) {
             $res['RealName'] = $this->realName;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->nickName) {
-            $res['NickName'] = $this->nickName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class auditUser extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NickName'])) {
+            $model->nickName = $map['NickName'];
+        }
         if (isset($map['RealName'])) {
             $model->realName = $map['RealName'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['NickName'])) {
-            $model->nickName = $map['NickName'];
         }
 
         return $model;

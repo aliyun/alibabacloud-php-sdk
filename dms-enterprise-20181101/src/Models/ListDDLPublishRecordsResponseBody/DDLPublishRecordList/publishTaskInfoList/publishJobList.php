@@ -11,6 +11,11 @@ class publishJobList extends Model
     /**
      * @var int
      */
+    public $DBTaskGroupId;
+
+    /**
+     * @var int
+     */
     public $executeCount;
 
     /**
@@ -21,29 +26,24 @@ class publishJobList extends Model
     /**
      * @var string
      */
-    public $tableName;
-
-    /**
-     * @var string
-     */
     public $statusDesc;
 
     /**
      * @var string
      */
-    public $taskJobStatus;
+    public $tableName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $DBTaskGroupId;
+    public $taskJobStatus;
     protected $_name = [
+        'DBTaskGroupId' => 'DBTaskGroupId',
         'executeCount'  => 'ExecuteCount',
         'scripts'       => 'Scripts',
-        'tableName'     => 'TableName',
         'statusDesc'    => 'StatusDesc',
+        'tableName'     => 'TableName',
         'taskJobStatus' => 'TaskJobStatus',
-        'DBTaskGroupId' => 'DBTaskGroupId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class publishJobList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBTaskGroupId) {
+            $res['DBTaskGroupId'] = $this->DBTaskGroupId;
+        }
         if (null !== $this->executeCount) {
             $res['ExecuteCount'] = $this->executeCount;
         }
         if (null !== $this->scripts) {
             $res['Scripts'] = $this->scripts;
         }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
         if (null !== $this->statusDesc) {
             $res['StatusDesc'] = $this->statusDesc;
         }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
         if (null !== $this->taskJobStatus) {
             $res['TaskJobStatus'] = $this->taskJobStatus;
-        }
-        if (null !== $this->DBTaskGroupId) {
-            $res['DBTaskGroupId'] = $this->DBTaskGroupId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class publishJobList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBTaskGroupId'])) {
+            $model->DBTaskGroupId = $map['DBTaskGroupId'];
+        }
         if (isset($map['ExecuteCount'])) {
             $model->executeCount = $map['ExecuteCount'];
         }
         if (isset($map['Scripts'])) {
             $model->scripts = $map['Scripts'];
         }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
         if (isset($map['StatusDesc'])) {
             $model->statusDesc = $map['StatusDesc'];
         }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
         if (isset($map['TaskJobStatus'])) {
             $model->taskJobStatus = $map['TaskJobStatus'];
-        }
-        if (isset($map['DBTaskGroupId'])) {
-            $model->DBTaskGroupId = $map['DBTaskGroupId'];
         }
 
         return $model;

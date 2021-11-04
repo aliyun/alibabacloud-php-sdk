@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetApprovalDetailResponseBody extends Model
 {
     /**
-     * @var string
+     * @var approvalDetail
      */
-    public $requestId;
+    public $approvalDetail;
 
     /**
      * @var string
@@ -25,19 +25,19 @@ class GetApprovalDetailResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var approvalDetail
+     * @var string
      */
-    public $approvalDetail;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'approvalDetail' => 'ApprovalDetail',
         'errorCode'      => 'ErrorCode',
         'errorMessage'   => 'ErrorMessage',
-        'approvalDetail' => 'ApprovalDetail',
+        'requestId'      => 'RequestId',
         'success'        => 'Success',
     ];
 
@@ -48,8 +48,8 @@ class GetApprovalDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->approvalDetail) {
+            $res['ApprovalDetail'] = null !== $this->approvalDetail ? $this->approvalDetail->toMap() : null;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -57,8 +57,8 @@ class GetApprovalDetailResponseBody extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->approvalDetail) {
-            $res['ApprovalDetail'] = null !== $this->approvalDetail ? $this->approvalDetail->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -75,8 +75,8 @@ class GetApprovalDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ApprovalDetail'])) {
+            $model->approvalDetail = approvalDetail::fromMap($map['ApprovalDetail']);
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
@@ -84,8 +84,8 @@ class GetApprovalDetailResponseBody extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['ApprovalDetail'])) {
-            $model->approvalDetail = approvalDetail::fromMap($map['ApprovalDetail']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

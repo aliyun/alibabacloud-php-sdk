@@ -12,7 +12,17 @@ class param extends Model
     /**
      * @var string
      */
+    public $attachmentName;
+
+    /**
+     * @var string
+     */
     public $classify;
+
+    /**
+     * @var dbItemList[]
+     */
+    public $dbItemList;
 
     /**
      * @var int
@@ -27,12 +37,7 @@ class param extends Model
     /**
      * @var string
      */
-    public $sqlType;
-
-    /**
-     * @var string
-     */
-    public $attachmentName;
+    public $rollbackAttachmentName;
 
     /**
      * @var string
@@ -42,27 +47,22 @@ class param extends Model
     /**
      * @var string
      */
-    public $rollbackAttachmentName;
+    public $rollbackSqlType;
 
     /**
      * @var string
      */
-    public $rollbackSqlType;
-
-    /**
-     * @var dbItemList[]
-     */
-    public $dbItemList;
+    public $sqlType;
     protected $_name = [
+        'attachmentName'         => 'AttachmentName',
         'classify'               => 'Classify',
+        'dbItemList'             => 'DbItemList',
         'estimateAffectRows'     => 'EstimateAffectRows',
         'execSQL'                => 'ExecSQL',
-        'sqlType'                => 'SqlType',
-        'attachmentName'         => 'AttachmentName',
-        'rollbackSQL'            => 'RollbackSQL',
         'rollbackAttachmentName' => 'RollbackAttachmentName',
+        'rollbackSQL'            => 'RollbackSQL',
         'rollbackSqlType'        => 'RollbackSqlType',
-        'dbItemList'             => 'DbItemList',
+        'sqlType'                => 'SqlType',
     ];
 
     public function validate()
@@ -72,29 +72,11 @@ class param extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->classify) {
-            $res['Classify'] = $this->classify;
-        }
-        if (null !== $this->estimateAffectRows) {
-            $res['EstimateAffectRows'] = $this->estimateAffectRows;
-        }
-        if (null !== $this->execSQL) {
-            $res['ExecSQL'] = $this->execSQL;
-        }
-        if (null !== $this->sqlType) {
-            $res['SqlType'] = $this->sqlType;
-        }
         if (null !== $this->attachmentName) {
             $res['AttachmentName'] = $this->attachmentName;
         }
-        if (null !== $this->rollbackSQL) {
-            $res['RollbackSQL'] = $this->rollbackSQL;
-        }
-        if (null !== $this->rollbackAttachmentName) {
-            $res['RollbackAttachmentName'] = $this->rollbackAttachmentName;
-        }
-        if (null !== $this->rollbackSqlType) {
-            $res['RollbackSqlType'] = $this->rollbackSqlType;
+        if (null !== $this->classify) {
+            $res['Classify'] = $this->classify;
         }
         if (null !== $this->dbItemList) {
             $res['DbItemList'] = [];
@@ -104,6 +86,24 @@ class param extends Model
                     $res['DbItemList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->estimateAffectRows) {
+            $res['EstimateAffectRows'] = $this->estimateAffectRows;
+        }
+        if (null !== $this->execSQL) {
+            $res['ExecSQL'] = $this->execSQL;
+        }
+        if (null !== $this->rollbackAttachmentName) {
+            $res['RollbackAttachmentName'] = $this->rollbackAttachmentName;
+        }
+        if (null !== $this->rollbackSQL) {
+            $res['RollbackSQL'] = $this->rollbackSQL;
+        }
+        if (null !== $this->rollbackSqlType) {
+            $res['RollbackSqlType'] = $this->rollbackSqlType;
+        }
+        if (null !== $this->sqlType) {
+            $res['SqlType'] = $this->sqlType;
         }
 
         return $res;
@@ -117,29 +117,11 @@ class param extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Classify'])) {
-            $model->classify = $map['Classify'];
-        }
-        if (isset($map['EstimateAffectRows'])) {
-            $model->estimateAffectRows = $map['EstimateAffectRows'];
-        }
-        if (isset($map['ExecSQL'])) {
-            $model->execSQL = $map['ExecSQL'];
-        }
-        if (isset($map['SqlType'])) {
-            $model->sqlType = $map['SqlType'];
-        }
         if (isset($map['AttachmentName'])) {
             $model->attachmentName = $map['AttachmentName'];
         }
-        if (isset($map['RollbackSQL'])) {
-            $model->rollbackSQL = $map['RollbackSQL'];
-        }
-        if (isset($map['RollbackAttachmentName'])) {
-            $model->rollbackAttachmentName = $map['RollbackAttachmentName'];
-        }
-        if (isset($map['RollbackSqlType'])) {
-            $model->rollbackSqlType = $map['RollbackSqlType'];
+        if (isset($map['Classify'])) {
+            $model->classify = $map['Classify'];
         }
         if (isset($map['DbItemList'])) {
             if (!empty($map['DbItemList'])) {
@@ -149,6 +131,24 @@ class param extends Model
                     $model->dbItemList[$n++] = null !== $item ? dbItemList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['EstimateAffectRows'])) {
+            $model->estimateAffectRows = $map['EstimateAffectRows'];
+        }
+        if (isset($map['ExecSQL'])) {
+            $model->execSQL = $map['ExecSQL'];
+        }
+        if (isset($map['RollbackAttachmentName'])) {
+            $model->rollbackAttachmentName = $map['RollbackAttachmentName'];
+        }
+        if (isset($map['RollbackSQL'])) {
+            $model->rollbackSQL = $map['RollbackSQL'];
+        }
+        if (isset($map['RollbackSqlType'])) {
+            $model->rollbackSqlType = $map['RollbackSqlType'];
+        }
+        if (isset($map['SqlType'])) {
+            $model->sqlType = $map['SqlType'];
         }
 
         return $model;

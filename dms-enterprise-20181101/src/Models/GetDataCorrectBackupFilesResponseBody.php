@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectBackupFilesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var dataCorrectBackupFiles
      */
-    public $requestId;
+    public $dataCorrectBackupFiles;
 
     /**
      * @var string
@@ -25,20 +25,20 @@ class GetDataCorrectBackupFilesResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var dataCorrectBackupFiles
-     */
-    public $dataCorrectBackupFiles;
     protected $_name = [
-        'requestId'              => 'RequestId',
+        'dataCorrectBackupFiles' => 'DataCorrectBackupFiles',
         'errorCode'              => 'ErrorCode',
         'errorMessage'           => 'ErrorMessage',
+        'requestId'              => 'RequestId',
         'success'                => 'Success',
-        'dataCorrectBackupFiles' => 'DataCorrectBackupFiles',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class GetDataCorrectBackupFilesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->dataCorrectBackupFiles) {
+            $res['DataCorrectBackupFiles'] = null !== $this->dataCorrectBackupFiles ? $this->dataCorrectBackupFiles->toMap() : null;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -57,11 +57,11 @@ class GetDataCorrectBackupFilesResponseBody extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->dataCorrectBackupFiles) {
-            $res['DataCorrectBackupFiles'] = null !== $this->dataCorrectBackupFiles ? $this->dataCorrectBackupFiles->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class GetDataCorrectBackupFilesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DataCorrectBackupFiles'])) {
+            $model->dataCorrectBackupFiles = dataCorrectBackupFiles::fromMap($map['DataCorrectBackupFiles']);
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
@@ -84,11 +84,11 @@ class GetDataCorrectBackupFilesResponseBody extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['DataCorrectBackupFiles'])) {
-            $model->dataCorrectBackupFiles = dataCorrectBackupFiles::fromMap($map['DataCorrectBackupFiles']);
         }
 
         return $model;

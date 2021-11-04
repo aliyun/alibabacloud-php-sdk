@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class detailInfo extends Model
 {
     /**
-     * @var indexList[]
-     */
-    public $indexList;
-
-    /**
      * @var columnList[]
      */
     public $columnList;
+
+    /**
+     * @var indexList[]
+     */
+    public $indexList;
     protected $_name = [
-        'indexList'  => 'IndexList',
         'columnList' => 'ColumnList',
+        'indexList'  => 'IndexList',
     ];
 
     public function validate()
@@ -31,21 +31,21 @@ class detailInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->indexList) {
-            $res['IndexList'] = [];
-            if (null !== $this->indexList && \is_array($this->indexList)) {
-                $n = 0;
-                foreach ($this->indexList as $item) {
-                    $res['IndexList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->columnList) {
             $res['ColumnList'] = [];
             if (null !== $this->columnList && \is_array($this->columnList)) {
                 $n = 0;
                 foreach ($this->columnList as $item) {
                     $res['ColumnList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->indexList) {
+            $res['IndexList'] = [];
+            if (null !== $this->indexList && \is_array($this->indexList)) {
+                $n = 0;
+                foreach ($this->indexList as $item) {
+                    $res['IndexList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -61,21 +61,21 @@ class detailInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IndexList'])) {
-            if (!empty($map['IndexList'])) {
-                $model->indexList = [];
-                $n                = 0;
-                foreach ($map['IndexList'] as $item) {
-                    $model->indexList[$n++] = null !== $item ? indexList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['ColumnList'])) {
             if (!empty($map['ColumnList'])) {
                 $model->columnList = [];
                 $n                 = 0;
                 foreach ($map['ColumnList'] as $item) {
                     $model->columnList[$n++] = null !== $item ? columnList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['IndexList'])) {
+            if (!empty($map['IndexList'])) {
+                $model->indexList = [];
+                $n                = 0;
+                foreach ($map['IndexList'] as $item) {
+                    $model->indexList[$n++] = null !== $item ? indexList::fromMap($item) : $item;
                 }
             }
         }

@@ -15,14 +15,14 @@ class CreateSQLReviewOrderRequest extends Model
     public $comment;
 
     /**
-     * @var int[]
-     */
-    public $relatedUserList;
-
-    /**
      * @var param
      */
     public $param;
+
+    /**
+     * @var int[]
+     */
+    public $relatedUserList;
 
     /**
      * @var int
@@ -30,8 +30,8 @@ class CreateSQLReviewOrderRequest extends Model
     public $tid;
     protected $_name = [
         'comment'         => 'Comment',
-        'relatedUserList' => 'RelatedUserList',
         'param'           => 'Param',
+        'relatedUserList' => 'RelatedUserList',
         'tid'             => 'Tid',
     ];
 
@@ -45,11 +45,11 @@ class CreateSQLReviewOrderRequest extends Model
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-        if (null !== $this->relatedUserList) {
-            $res['RelatedUserList'] = $this->relatedUserList;
-        }
         if (null !== $this->param) {
             $res['Param'] = null !== $this->param ? $this->param->toMap() : null;
+        }
+        if (null !== $this->relatedUserList) {
+            $res['RelatedUserList'] = $this->relatedUserList;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -69,13 +69,13 @@ class CreateSQLReviewOrderRequest extends Model
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+        if (isset($map['Param'])) {
+            $model->param = param::fromMap($map['Param']);
+        }
         if (isset($map['RelatedUserList'])) {
             if (!empty($map['RelatedUserList'])) {
                 $model->relatedUserList = $map['RelatedUserList'];
             }
-        }
-        if (isset($map['Param'])) {
-            $model->param = param::fromMap($map['Param']);
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

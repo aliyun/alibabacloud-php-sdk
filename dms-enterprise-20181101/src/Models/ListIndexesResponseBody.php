@@ -12,11 +12,6 @@ class ListIndexesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $errorCode;
 
     /**
@@ -30,14 +25,19 @@ class ListIndexesResponseBody extends Model
     public $indexList;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'indexList'    => 'IndexList',
+        'requestId'    => 'RequestId',
         'success'      => 'Success',
     ];
 
@@ -48,9 +48,6 @@ class ListIndexesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -59,6 +56,9 @@ class ListIndexesResponseBody extends Model
         }
         if (null !== $this->indexList) {
             $res['IndexList'] = null !== $this->indexList ? $this->indexList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -75,9 +75,6 @@ class ListIndexesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
@@ -86,6 +83,9 @@ class ListIndexesResponseBody extends Model
         }
         if (isset($map['IndexList'])) {
             $model->indexList = indexList::fromMap($map['IndexList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

@@ -25,6 +25,11 @@ class publishTaskInfoList extends Model
     public $planTime;
 
     /**
+     * @var publishJobList[]
+     */
+    public $publishJobList;
+
+    /**
      * @var string
      */
     public $publishStrategy;
@@ -38,19 +43,14 @@ class publishTaskInfoList extends Model
      * @var string
      */
     public $taskJobStatus;
-
-    /**
-     * @var publishJobList[]
-     */
-    public $publishJobList;
     protected $_name = [
         'dbId'            => 'DbId',
         'logic'           => 'Logic',
         'planTime'        => 'PlanTime',
+        'publishJobList'  => 'PublishJobList',
         'publishStrategy' => 'PublishStrategy',
         'statusDesc'      => 'StatusDesc',
         'taskJobStatus'   => 'TaskJobStatus',
-        'publishJobList'  => 'PublishJobList',
     ];
 
     public function validate()
@@ -69,15 +69,6 @@ class publishTaskInfoList extends Model
         if (null !== $this->planTime) {
             $res['PlanTime'] = $this->planTime;
         }
-        if (null !== $this->publishStrategy) {
-            $res['PublishStrategy'] = $this->publishStrategy;
-        }
-        if (null !== $this->statusDesc) {
-            $res['StatusDesc'] = $this->statusDesc;
-        }
-        if (null !== $this->taskJobStatus) {
-            $res['TaskJobStatus'] = $this->taskJobStatus;
-        }
         if (null !== $this->publishJobList) {
             $res['PublishJobList'] = [];
             if (null !== $this->publishJobList && \is_array($this->publishJobList)) {
@@ -86,6 +77,15 @@ class publishTaskInfoList extends Model
                     $res['PublishJobList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->publishStrategy) {
+            $res['PublishStrategy'] = $this->publishStrategy;
+        }
+        if (null !== $this->statusDesc) {
+            $res['StatusDesc'] = $this->statusDesc;
+        }
+        if (null !== $this->taskJobStatus) {
+            $res['TaskJobStatus'] = $this->taskJobStatus;
         }
 
         return $res;
@@ -108,15 +108,6 @@ class publishTaskInfoList extends Model
         if (isset($map['PlanTime'])) {
             $model->planTime = $map['PlanTime'];
         }
-        if (isset($map['PublishStrategy'])) {
-            $model->publishStrategy = $map['PublishStrategy'];
-        }
-        if (isset($map['StatusDesc'])) {
-            $model->statusDesc = $map['StatusDesc'];
-        }
-        if (isset($map['TaskJobStatus'])) {
-            $model->taskJobStatus = $map['TaskJobStatus'];
-        }
         if (isset($map['PublishJobList'])) {
             if (!empty($map['PublishJobList'])) {
                 $model->publishJobList = [];
@@ -125,6 +116,15 @@ class publishTaskInfoList extends Model
                     $model->publishJobList[$n++] = null !== $item ? publishJobList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PublishStrategy'])) {
+            $model->publishStrategy = $map['PublishStrategy'];
+        }
+        if (isset($map['StatusDesc'])) {
+            $model->statusDesc = $map['StatusDesc'];
+        }
+        if (isset($map['TaskJobStatus'])) {
+            $model->taskJobStatus = $map['TaskJobStatus'];
         }
 
         return $model;

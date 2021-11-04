@@ -14,14 +14,14 @@ use AlibabaCloud\Tea\Model;
 class structSyncOrderDetail extends Model
 {
     /**
+     * @var bool
+     */
+    public $ignoreError;
+
+    /**
      * @var sourceDatabaseInfo
      */
     public $sourceDatabaseInfo;
-
-    /**
-     * @var targetDatabaseInfo
-     */
-    public $targetDatabaseInfo;
 
     /**
      * @var string
@@ -34,6 +34,16 @@ class structSyncOrderDetail extends Model
     public $sourceVersionInfo;
 
     /**
+     * @var tableInfoList[]
+     */
+    public $tableInfoList;
+
+    /**
+     * @var targetDatabaseInfo
+     */
+    public $targetDatabaseInfo;
+
+    /**
      * @var string
      */
     public $targetType;
@@ -42,25 +52,15 @@ class structSyncOrderDetail extends Model
      * @var targetVersionInfo
      */
     public $targetVersionInfo;
-
-    /**
-     * @var tableInfoList[]
-     */
-    public $tableInfoList;
-
-    /**
-     * @var bool
-     */
-    public $ignoreError;
     protected $_name = [
+        'ignoreError'        => 'IgnoreError',
         'sourceDatabaseInfo' => 'SourceDatabaseInfo',
-        'targetDatabaseInfo' => 'TargetDatabaseInfo',
         'sourceType'         => 'SourceType',
         'sourceVersionInfo'  => 'SourceVersionInfo',
+        'tableInfoList'      => 'TableInfoList',
+        'targetDatabaseInfo' => 'TargetDatabaseInfo',
         'targetType'         => 'TargetType',
         'targetVersionInfo'  => 'TargetVersionInfo',
-        'tableInfoList'      => 'TableInfoList',
-        'ignoreError'        => 'IgnoreError',
     ];
 
     public function validate()
@@ -70,23 +70,17 @@ class structSyncOrderDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ignoreError) {
+            $res['IgnoreError'] = $this->ignoreError;
+        }
         if (null !== $this->sourceDatabaseInfo) {
             $res['SourceDatabaseInfo'] = null !== $this->sourceDatabaseInfo ? $this->sourceDatabaseInfo->toMap() : null;
-        }
-        if (null !== $this->targetDatabaseInfo) {
-            $res['TargetDatabaseInfo'] = null !== $this->targetDatabaseInfo ? $this->targetDatabaseInfo->toMap() : null;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->sourceVersionInfo) {
             $res['SourceVersionInfo'] = null !== $this->sourceVersionInfo ? $this->sourceVersionInfo->toMap() : null;
-        }
-        if (null !== $this->targetType) {
-            $res['TargetType'] = $this->targetType;
-        }
-        if (null !== $this->targetVersionInfo) {
-            $res['TargetVersionInfo'] = null !== $this->targetVersionInfo ? $this->targetVersionInfo->toMap() : null;
         }
         if (null !== $this->tableInfoList) {
             $res['TableInfoList'] = [];
@@ -97,8 +91,14 @@ class structSyncOrderDetail extends Model
                 }
             }
         }
-        if (null !== $this->ignoreError) {
-            $res['IgnoreError'] = $this->ignoreError;
+        if (null !== $this->targetDatabaseInfo) {
+            $res['TargetDatabaseInfo'] = null !== $this->targetDatabaseInfo ? $this->targetDatabaseInfo->toMap() : null;
+        }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
+        }
+        if (null !== $this->targetVersionInfo) {
+            $res['TargetVersionInfo'] = null !== $this->targetVersionInfo ? $this->targetVersionInfo->toMap() : null;
         }
 
         return $res;
@@ -112,23 +112,17 @@ class structSyncOrderDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IgnoreError'])) {
+            $model->ignoreError = $map['IgnoreError'];
+        }
         if (isset($map['SourceDatabaseInfo'])) {
             $model->sourceDatabaseInfo = sourceDatabaseInfo::fromMap($map['SourceDatabaseInfo']);
-        }
-        if (isset($map['TargetDatabaseInfo'])) {
-            $model->targetDatabaseInfo = targetDatabaseInfo::fromMap($map['TargetDatabaseInfo']);
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
         if (isset($map['SourceVersionInfo'])) {
             $model->sourceVersionInfo = sourceVersionInfo::fromMap($map['SourceVersionInfo']);
-        }
-        if (isset($map['TargetType'])) {
-            $model->targetType = $map['TargetType'];
-        }
-        if (isset($map['TargetVersionInfo'])) {
-            $model->targetVersionInfo = targetVersionInfo::fromMap($map['TargetVersionInfo']);
         }
         if (isset($map['TableInfoList'])) {
             if (!empty($map['TableInfoList'])) {
@@ -139,8 +133,14 @@ class structSyncOrderDetail extends Model
                 }
             }
         }
-        if (isset($map['IgnoreError'])) {
-            $model->ignoreError = $map['IgnoreError'];
+        if (isset($map['TargetDatabaseInfo'])) {
+            $model->targetDatabaseInfo = targetDatabaseInfo::fromMap($map['TargetDatabaseInfo']);
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
+        }
+        if (isset($map['TargetVersionInfo'])) {
+            $model->targetVersionInfo = targetVersionInfo::fromMap($map['TargetVersionInfo']);
         }
 
         return $model;

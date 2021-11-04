@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListSQLReviewOriginSQLShrinkRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $orderId;
-
-    /**
      * @var string
      */
     public $orderActionDetailShrink;
@@ -21,10 +16,15 @@ class ListSQLReviewOriginSQLShrinkRequest extends Model
     /**
      * @var int
      */
+    public $orderId;
+
+    /**
+     * @var int
+     */
     public $tid;
     protected $_name = [
-        'orderId'                 => 'OrderId',
         'orderActionDetailShrink' => 'OrderActionDetail',
+        'orderId'                 => 'OrderId',
         'tid'                     => 'Tid',
     ];
 
@@ -35,11 +35,11 @@ class ListSQLReviewOriginSQLShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
         if (null !== $this->orderActionDetailShrink) {
             $res['OrderActionDetail'] = $this->orderActionDetailShrink;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -56,11 +56,11 @@ class ListSQLReviewOriginSQLShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['OrderActionDetail'])) {
             $model->orderActionDetailShrink = $map['OrderActionDetail'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

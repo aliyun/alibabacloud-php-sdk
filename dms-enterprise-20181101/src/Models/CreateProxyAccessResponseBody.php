@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateProxyAccessResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $proxyAccessId;
+
+    /**
      * @description Id of the request
      *
      * @var string
@@ -19,27 +34,12 @@ class CreateProxyAccessResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var int
-     */
-    public $proxyAccessId;
     protected $_name = [
+        'errorCode'     => 'ErrorCode',
+        'errorMessage'  => 'ErrorMessage',
+        'proxyAccessId' => 'ProxyAccessId',
         'requestId'     => 'RequestId',
         'success'       => 'Success',
-        'errorMessage'  => 'ErrorMessage',
-        'errorCode'     => 'ErrorCode',
-        'proxyAccessId' => 'ProxyAccessId',
     ];
 
     public function validate()
@@ -49,20 +49,20 @@ class CreateProxyAccessResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->proxyAccessId) {
+            $res['ProxyAccessId'] = $this->proxyAccessId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->proxyAccessId) {
-            $res['ProxyAccessId'] = $this->proxyAccessId;
         }
 
         return $res;
@@ -76,20 +76,20 @@ class CreateProxyAccessResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['ProxyAccessId'])) {
+            $model->proxyAccessId = $map['ProxyAccessId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ProxyAccessId'])) {
-            $model->proxyAccessId = $map['ProxyAccessId'];
         }
 
         return $model;

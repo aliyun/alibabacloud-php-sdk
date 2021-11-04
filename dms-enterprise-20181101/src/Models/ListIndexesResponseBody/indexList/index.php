@@ -11,6 +11,16 @@ class index extends Model
     /**
      * @var string
      */
+    public $indexComment;
+
+    /**
+     * @var string
+     */
+    public $indexId;
+
+    /**
+     * @var string
+     */
     public $indexName;
 
     /**
@@ -22,22 +32,12 @@ class index extends Model
      * @var string
      */
     public $tableId;
-
-    /**
-     * @var string
-     */
-    public $indexId;
-
-    /**
-     * @var string
-     */
-    public $indexComment;
     protected $_name = [
+        'indexComment' => 'IndexComment',
+        'indexId'      => 'IndexId',
         'indexName'    => 'IndexName',
         'indexType'    => 'IndexType',
         'tableId'      => 'TableId',
-        'indexId'      => 'IndexId',
-        'indexComment' => 'IndexComment',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class index extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->indexComment) {
+            $res['IndexComment'] = $this->indexComment;
+        }
+        if (null !== $this->indexId) {
+            $res['IndexId'] = $this->indexId;
+        }
         if (null !== $this->indexName) {
             $res['IndexName'] = $this->indexName;
         }
@@ -55,12 +61,6 @@ class index extends Model
         }
         if (null !== $this->tableId) {
             $res['TableId'] = $this->tableId;
-        }
-        if (null !== $this->indexId) {
-            $res['IndexId'] = $this->indexId;
-        }
-        if (null !== $this->indexComment) {
-            $res['IndexComment'] = $this->indexComment;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class index extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IndexComment'])) {
+            $model->indexComment = $map['IndexComment'];
+        }
+        if (isset($map['IndexId'])) {
+            $model->indexId = $map['IndexId'];
+        }
         if (isset($map['IndexName'])) {
             $model->indexName = $map['IndexName'];
         }
@@ -82,12 +88,6 @@ class index extends Model
         }
         if (isset($map['TableId'])) {
             $model->tableId = $map['TableId'];
-        }
-        if (isset($map['IndexId'])) {
-            $model->indexId = $map['IndexId'];
-        }
-        if (isset($map['IndexComment'])) {
-            $model->indexComment = $map['IndexComment'];
         }
 
         return $model;

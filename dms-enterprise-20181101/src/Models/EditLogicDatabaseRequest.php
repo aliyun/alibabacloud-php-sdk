@@ -14,11 +14,6 @@ class EditLogicDatabaseRequest extends Model
     public $alias;
 
     /**
-     * @var int
-     */
-    public $logicDbId;
-
-    /**
      * @var int[]
      */
     public $databaseIds;
@@ -26,11 +21,16 @@ class EditLogicDatabaseRequest extends Model
     /**
      * @var int
      */
+    public $logicDbId;
+
+    /**
+     * @var int
+     */
     public $tid;
     protected $_name = [
         'alias'       => 'Alias',
-        'logicDbId'   => 'LogicDbId',
         'databaseIds' => 'DatabaseIds',
+        'logicDbId'   => 'LogicDbId',
         'tid'         => 'Tid',
     ];
 
@@ -44,11 +44,11 @@ class EditLogicDatabaseRequest extends Model
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
-        if (null !== $this->logicDbId) {
-            $res['LogicDbId'] = $this->logicDbId;
-        }
         if (null !== $this->databaseIds) {
             $res['DatabaseIds'] = $this->databaseIds;
+        }
+        if (null !== $this->logicDbId) {
+            $res['LogicDbId'] = $this->logicDbId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -68,13 +68,13 @@ class EditLogicDatabaseRequest extends Model
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
-        if (isset($map['LogicDbId'])) {
-            $model->logicDbId = $map['LogicDbId'];
-        }
         if (isset($map['DatabaseIds'])) {
             if (!empty($map['DatabaseIds'])) {
                 $model->databaseIds = $map['DatabaseIds'];
             }
+        }
+        if (isset($map['LogicDbId'])) {
+            $model->logicDbId = $map['LogicDbId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

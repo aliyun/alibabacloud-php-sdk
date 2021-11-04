@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class columnList extends Model
 {
     /**
-     * @var string
-     */
-    public $columnType;
-
-    /**
      * @var bool
      */
     public $autoIncrement;
@@ -31,17 +26,12 @@ class columnList extends Model
     /**
      * @var string
      */
-    public $securityLevel;
+    public $columnType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $primaryKey;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $dataLength;
 
     /**
      * @var int
@@ -54,9 +44,9 @@ class columnList extends Model
     public $dataScale;
 
     /**
-     * @var int
+     * @var string
      */
-    public $position;
+    public $description;
 
     /**
      * @var bool
@@ -66,20 +56,30 @@ class columnList extends Model
     /**
      * @var int
      */
-    public $dataLength;
+    public $position;
+
+    /**
+     * @var string
+     */
+    public $primaryKey;
+
+    /**
+     * @var string
+     */
+    public $securityLevel;
     protected $_name = [
-        'columnType'    => 'ColumnType',
         'autoIncrement' => 'AutoIncrement',
         'columnId'      => 'ColumnId',
         'columnName'    => 'ColumnName',
-        'securityLevel' => 'SecurityLevel',
-        'primaryKey'    => 'PrimaryKey',
-        'description'   => 'Description',
+        'columnType'    => 'ColumnType',
+        'dataLength'    => 'DataLength',
         'dataPrecision' => 'DataPrecision',
         'dataScale'     => 'DataScale',
-        'position'      => 'Position',
+        'description'   => 'Description',
         'nullable'      => 'Nullable',
-        'dataLength'    => 'DataLength',
+        'position'      => 'Position',
+        'primaryKey'    => 'PrimaryKey',
+        'securityLevel' => 'SecurityLevel',
     ];
 
     public function validate()
@@ -89,9 +89,6 @@ class columnList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->columnType) {
-            $res['ColumnType'] = $this->columnType;
-        }
         if (null !== $this->autoIncrement) {
             $res['AutoIncrement'] = $this->autoIncrement;
         }
@@ -101,14 +98,11 @@ class columnList extends Model
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
-        if (null !== $this->securityLevel) {
-            $res['SecurityLevel'] = $this->securityLevel;
+        if (null !== $this->columnType) {
+            $res['ColumnType'] = $this->columnType;
         }
-        if (null !== $this->primaryKey) {
-            $res['PrimaryKey'] = $this->primaryKey;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->dataLength) {
+            $res['DataLength'] = $this->dataLength;
         }
         if (null !== $this->dataPrecision) {
             $res['DataPrecision'] = $this->dataPrecision;
@@ -116,14 +110,20 @@ class columnList extends Model
         if (null !== $this->dataScale) {
             $res['DataScale'] = $this->dataScale;
         }
-        if (null !== $this->position) {
-            $res['Position'] = $this->position;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->nullable) {
             $res['Nullable'] = $this->nullable;
         }
-        if (null !== $this->dataLength) {
-            $res['DataLength'] = $this->dataLength;
+        if (null !== $this->position) {
+            $res['Position'] = $this->position;
+        }
+        if (null !== $this->primaryKey) {
+            $res['PrimaryKey'] = $this->primaryKey;
+        }
+        if (null !== $this->securityLevel) {
+            $res['SecurityLevel'] = $this->securityLevel;
         }
 
         return $res;
@@ -137,9 +137,6 @@ class columnList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ColumnType'])) {
-            $model->columnType = $map['ColumnType'];
-        }
         if (isset($map['AutoIncrement'])) {
             $model->autoIncrement = $map['AutoIncrement'];
         }
@@ -149,14 +146,11 @@ class columnList extends Model
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
-        if (isset($map['SecurityLevel'])) {
-            $model->securityLevel = $map['SecurityLevel'];
+        if (isset($map['ColumnType'])) {
+            $model->columnType = $map['ColumnType'];
         }
-        if (isset($map['PrimaryKey'])) {
-            $model->primaryKey = $map['PrimaryKey'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['DataLength'])) {
+            $model->dataLength = $map['DataLength'];
         }
         if (isset($map['DataPrecision'])) {
             $model->dataPrecision = $map['DataPrecision'];
@@ -164,14 +158,20 @@ class columnList extends Model
         if (isset($map['DataScale'])) {
             $model->dataScale = $map['DataScale'];
         }
-        if (isset($map['Position'])) {
-            $model->position = $map['Position'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Nullable'])) {
             $model->nullable = $map['Nullable'];
         }
-        if (isset($map['DataLength'])) {
-            $model->dataLength = $map['DataLength'];
+        if (isset($map['Position'])) {
+            $model->position = $map['Position'];
+        }
+        if (isset($map['PrimaryKey'])) {
+            $model->primaryKey = $map['PrimaryKey'];
+        }
+        if (isset($map['SecurityLevel'])) {
+            $model->securityLevel = $map['SecurityLevel'];
         }
 
         return $model;

@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class tableTopologyInfoList extends Model
 {
     /**
-     * @var string
-     */
-    public $tableNameList;
-
-    /**
-     * @var string
-     */
-    public $tableNameExpr;
-
-    /**
-     * @var int
-     */
-    public $tableCount;
-
-    /**
      * @var int
      */
     public $dbId;
@@ -31,17 +16,22 @@ class tableTopologyInfoList extends Model
     /**
      * @var string
      */
+    public $dbName;
+
+    /**
+     * @var string
+     */
     public $dbSearchName;
+
+    /**
+     * @var string
+     */
+    public $dbType;
 
     /**
      * @var int
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
 
     /**
      * @var string
@@ -56,24 +46,34 @@ class tableTopologyInfoList extends Model
     /**
      * @var string
      */
-    public $dbName;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $tableCount;
 
     /**
      * @var string
      */
-    public $dbType;
+    public $tableNameExpr;
+
+    /**
+     * @var string
+     */
+    public $tableNameList;
     protected $_name = [
-        'tableNameList'      => 'TableNameList',
-        'tableNameExpr'      => 'TableNameExpr',
-        'tableCount'         => 'TableCount',
         'dbId'               => 'DbId',
+        'dbName'             => 'DbName',
         'dbSearchName'       => 'DbSearchName',
+        'dbType'             => 'DbType',
         'instanceId'         => 'InstanceId',
-        'regionId'           => 'RegionId',
         'instanceResourceId' => 'InstanceResourceId',
         'instanceSource'     => 'InstanceSource',
-        'dbName'             => 'DbName',
-        'dbType'             => 'DbType',
+        'regionId'           => 'RegionId',
+        'tableCount'         => 'TableCount',
+        'tableNameExpr'      => 'TableNameExpr',
+        'tableNameList'      => 'TableNameList',
     ];
 
     public function validate()
@@ -83,26 +83,20 @@ class tableTopologyInfoList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableNameList) {
-            $res['TableNameList'] = $this->tableNameList;
-        }
-        if (null !== $this->tableNameExpr) {
-            $res['TableNameExpr'] = $this->tableNameExpr;
-        }
-        if (null !== $this->tableCount) {
-            $res['TableCount'] = $this->tableCount;
-        }
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
+        }
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
         }
         if (null !== $this->dbSearchName) {
             $res['DbSearchName'] = $this->dbSearchName;
         }
+        if (null !== $this->dbType) {
+            $res['DbType'] = $this->dbType;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->instanceResourceId) {
             $res['InstanceResourceId'] = $this->instanceResourceId;
@@ -110,11 +104,17 @@ class tableTopologyInfoList extends Model
         if (null !== $this->instanceSource) {
             $res['InstanceSource'] = $this->instanceSource;
         }
-        if (null !== $this->dbName) {
-            $res['DbName'] = $this->dbName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->dbType) {
-            $res['DbType'] = $this->dbType;
+        if (null !== $this->tableCount) {
+            $res['TableCount'] = $this->tableCount;
+        }
+        if (null !== $this->tableNameExpr) {
+            $res['TableNameExpr'] = $this->tableNameExpr;
+        }
+        if (null !== $this->tableNameList) {
+            $res['TableNameList'] = $this->tableNameList;
         }
 
         return $res;
@@ -128,26 +128,20 @@ class tableTopologyInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableNameList'])) {
-            $model->tableNameList = $map['TableNameList'];
-        }
-        if (isset($map['TableNameExpr'])) {
-            $model->tableNameExpr = $map['TableNameExpr'];
-        }
-        if (isset($map['TableCount'])) {
-            $model->tableCount = $map['TableCount'];
-        }
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
+        }
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
         }
         if (isset($map['DbSearchName'])) {
             $model->dbSearchName = $map['DbSearchName'];
         }
+        if (isset($map['DbType'])) {
+            $model->dbType = $map['DbType'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['InstanceResourceId'])) {
             $model->instanceResourceId = $map['InstanceResourceId'];
@@ -155,11 +149,17 @@ class tableTopologyInfoList extends Model
         if (isset($map['InstanceSource'])) {
             $model->instanceSource = $map['InstanceSource'];
         }
-        if (isset($map['DbName'])) {
-            $model->dbName = $map['DbName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['DbType'])) {
-            $model->dbType = $map['DbType'];
+        if (isset($map['TableCount'])) {
+            $model->tableCount = $map['TableCount'];
+        }
+        if (isset($map['TableNameExpr'])) {
+            $model->tableNameExpr = $map['TableNameExpr'];
+        }
+        if (isset($map['TableNameList'])) {
+            $model->tableNameList = $map['TableNameList'];
         }
 
         return $model;

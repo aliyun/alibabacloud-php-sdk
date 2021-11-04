@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $projectName;
+    public $attachmentKeyList;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class param extends Model
     public $dbId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $attachmentKeyList;
+    public $projectName;
     protected $_name = [
-        'projectName'       => 'ProjectName',
-        'dbId'              => 'DbId',
         'attachmentKeyList' => 'AttachmentKeyList',
+        'dbId'              => 'DbId',
+        'projectName'       => 'ProjectName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class param extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
+        if (null !== $this->attachmentKeyList) {
+            $res['AttachmentKeyList'] = $this->attachmentKeyList;
         }
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
-        if (null !== $this->attachmentKeyList) {
-            $res['AttachmentKeyList'] = $this->attachmentKeyList;
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -56,16 +56,16 @@ class param extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
-        }
         if (isset($map['AttachmentKeyList'])) {
             if (!empty($map['AttachmentKeyList'])) {
                 $model->attachmentKeyList = $map['AttachmentKeyList'];
             }
+        }
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

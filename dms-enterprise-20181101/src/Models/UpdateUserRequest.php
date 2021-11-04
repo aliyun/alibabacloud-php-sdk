@@ -11,6 +11,26 @@ class UpdateUserRequest extends Model
     /**
      * @var int
      */
+    public $maxExecuteCount;
+
+    /**
+     * @var int
+     */
+    public $maxResultCount;
+
+    /**
+     * @var string
+     */
+    public $mobile;
+
+    /**
+     * @var string
+     */
+    public $roleNames;
+
+    /**
+     * @var int
+     */
     public $tid;
 
     /**
@@ -22,34 +42,14 @@ class UpdateUserRequest extends Model
      * @var string
      */
     public $userNick;
-
-    /**
-     * @var string
-     */
-    public $roleNames;
-
-    /**
-     * @var string
-     */
-    public $mobile;
-
-    /**
-     * @var int
-     */
-    public $maxExecuteCount;
-
-    /**
-     * @var int
-     */
-    public $maxResultCount;
     protected $_name = [
+        'maxExecuteCount' => 'MaxExecuteCount',
+        'maxResultCount'  => 'MaxResultCount',
+        'mobile'          => 'Mobile',
+        'roleNames'       => 'RoleNames',
         'tid'             => 'Tid',
         'uid'             => 'Uid',
         'userNick'        => 'UserNick',
-        'roleNames'       => 'RoleNames',
-        'mobile'          => 'Mobile',
-        'maxExecuteCount' => 'MaxExecuteCount',
-        'maxResultCount'  => 'MaxResultCount',
     ];
 
     public function validate()
@@ -59,6 +59,18 @@ class UpdateUserRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxExecuteCount) {
+            $res['MaxExecuteCount'] = $this->maxExecuteCount;
+        }
+        if (null !== $this->maxResultCount) {
+            $res['MaxResultCount'] = $this->maxResultCount;
+        }
+        if (null !== $this->mobile) {
+            $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->roleNames) {
+            $res['RoleNames'] = $this->roleNames;
+        }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -67,18 +79,6 @@ class UpdateUserRequest extends Model
         }
         if (null !== $this->userNick) {
             $res['UserNick'] = $this->userNick;
-        }
-        if (null !== $this->roleNames) {
-            $res['RoleNames'] = $this->roleNames;
-        }
-        if (null !== $this->mobile) {
-            $res['Mobile'] = $this->mobile;
-        }
-        if (null !== $this->maxExecuteCount) {
-            $res['MaxExecuteCount'] = $this->maxExecuteCount;
-        }
-        if (null !== $this->maxResultCount) {
-            $res['MaxResultCount'] = $this->maxResultCount;
         }
 
         return $res;
@@ -92,6 +92,18 @@ class UpdateUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxExecuteCount'])) {
+            $model->maxExecuteCount = $map['MaxExecuteCount'];
+        }
+        if (isset($map['MaxResultCount'])) {
+            $model->maxResultCount = $map['MaxResultCount'];
+        }
+        if (isset($map['Mobile'])) {
+            $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['RoleNames'])) {
+            $model->roleNames = $map['RoleNames'];
+        }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
@@ -100,18 +112,6 @@ class UpdateUserRequest extends Model
         }
         if (isset($map['UserNick'])) {
             $model->userNick = $map['UserNick'];
-        }
-        if (isset($map['RoleNames'])) {
-            $model->roleNames = $map['RoleNames'];
-        }
-        if (isset($map['Mobile'])) {
-            $model->mobile = $map['Mobile'];
-        }
-        if (isset($map['MaxExecuteCount'])) {
-            $model->maxExecuteCount = $map['MaxExecuteCount'];
-        }
-        if (isset($map['MaxResultCount'])) {
-            $model->maxResultCount = $map['MaxResultCount'];
         }
 
         return $model;

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DBTopology extends Model
 {
     /**
-     * @var string
-     */
-    public $tableName;
-
-    /**
      * @var dataSourceList[]
      */
     public $dataSourceList;
@@ -23,10 +18,15 @@ class DBTopology extends Model
      * @var string
      */
     public $tableGuid;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
-        'tableName'      => 'TableName',
         'dataSourceList' => 'DataSourceList',
         'tableGuid'      => 'TableGuid',
+        'tableName'      => 'TableName',
     ];
 
     public function validate()
@@ -36,9 +36,6 @@ class DBTopology extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
         if (null !== $this->dataSourceList) {
             $res['DataSourceList'] = [];
             if (null !== $this->dataSourceList && \is_array($this->dataSourceList)) {
@@ -50,6 +47,9 @@ class DBTopology extends Model
         }
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -63,9 +63,6 @@ class DBTopology extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
         if (isset($map['DataSourceList'])) {
             if (!empty($map['DataSourceList'])) {
                 $model->dataSourceList = [];
@@ -77,6 +74,9 @@ class DBTopology extends Model
         }
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

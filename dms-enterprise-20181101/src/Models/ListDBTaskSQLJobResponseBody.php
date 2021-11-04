@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListDBTaskSQLJobResponseBody extends Model
 {
     /**
+     * @var DBTaskSQLJobList[]
+     */
+    public $DBTaskSQLJobList;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @description Id of the request
      *
      * @var string
@@ -22,30 +37,15 @@ class ListDBTaskSQLJobResponseBody extends Model
     public $success;
 
     /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var DBTaskSQLJobList[]
-     */
-    public $DBTaskSQLJobList;
-
-    /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
+        'DBTaskSQLJobList' => 'DBTaskSQLJobList',
+        'errorCode'        => 'ErrorCode',
+        'errorMessage'     => 'ErrorMessage',
         'requestId'        => 'RequestId',
         'success'          => 'Success',
-        'errorMessage'     => 'ErrorMessage',
-        'errorCode'        => 'ErrorCode',
-        'DBTaskSQLJobList' => 'DBTaskSQLJobList',
         'totalCount'       => 'TotalCount',
     ];
 
@@ -56,18 +56,6 @@ class ListDBTaskSQLJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
         if (null !== $this->DBTaskSQLJobList) {
             $res['DBTaskSQLJobList'] = [];
             if (null !== $this->DBTaskSQLJobList && \is_array($this->DBTaskSQLJobList)) {
@@ -76,6 +64,18 @@ class ListDBTaskSQLJobResponseBody extends Model
                     $res['DBTaskSQLJobList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -92,18 +92,6 @@ class ListDBTaskSQLJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
         if (isset($map['DBTaskSQLJobList'])) {
             if (!empty($map['DBTaskSQLJobList'])) {
                 $model->DBTaskSQLJobList = [];
@@ -112,6 +100,18 @@ class ListDBTaskSQLJobResponseBody extends Model
                     $model->DBTaskSQLJobList[$n++] = null !== $item ? DBTaskSQLJobList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

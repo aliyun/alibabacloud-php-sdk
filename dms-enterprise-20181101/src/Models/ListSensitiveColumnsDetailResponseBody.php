@@ -12,16 +12,6 @@ class ListSensitiveColumnsDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var sensitiveColumnsDetailList
-     */
-    public $sensitiveColumnsDetailList;
-
-    /**
-     * @var string
-     */
     public $errorCode;
 
     /**
@@ -30,14 +20,24 @@ class ListSensitiveColumnsDetailResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var sensitiveColumnsDetailList
+     */
+    public $sensitiveColumnsDetailList;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'                  => 'RequestId',
-        'sensitiveColumnsDetailList' => 'SensitiveColumnsDetailList',
         'errorCode'                  => 'ErrorCode',
         'errorMessage'               => 'ErrorMessage',
+        'requestId'                  => 'RequestId',
+        'sensitiveColumnsDetailList' => 'SensitiveColumnsDetailList',
         'success'                    => 'Success',
     ];
 
@@ -48,17 +48,17 @@ class ListSensitiveColumnsDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->sensitiveColumnsDetailList) {
-            $res['SensitiveColumnsDetailList'] = null !== $this->sensitiveColumnsDetailList ? $this->sensitiveColumnsDetailList->toMap() : null;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->sensitiveColumnsDetailList) {
+            $res['SensitiveColumnsDetailList'] = null !== $this->sensitiveColumnsDetailList ? $this->sensitiveColumnsDetailList->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -75,17 +75,17 @@ class ListSensitiveColumnsDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SensitiveColumnsDetailList'])) {
-            $model->sensitiveColumnsDetailList = sensitiveColumnsDetailList::fromMap($map['SensitiveColumnsDetailList']);
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SensitiveColumnsDetailList'])) {
+            $model->sensitiveColumnsDetailList = sensitiveColumnsDetailList::fromMap($map['SensitiveColumnsDetailList']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

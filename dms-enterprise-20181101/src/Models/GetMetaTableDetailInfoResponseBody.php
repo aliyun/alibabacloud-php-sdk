@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableDetailInfoResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var detailInfo
      */
     public $detailInfo;
@@ -30,14 +25,19 @@ class GetMetaTableDetailInfoResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'detailInfo'   => 'DetailInfo',
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
         'success'      => 'Success',
     ];
 
@@ -48,9 +48,6 @@ class GetMetaTableDetailInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->detailInfo) {
             $res['DetailInfo'] = null !== $this->detailInfo ? $this->detailInfo->toMap() : null;
         }
@@ -59,6 +56,9 @@ class GetMetaTableDetailInfoResponseBody extends Model
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -75,9 +75,6 @@ class GetMetaTableDetailInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DetailInfo'])) {
             $model->detailInfo = detailInfo::fromMap($map['DetailInfo']);
         }
@@ -86,6 +83,9 @@ class GetMetaTableDetailInfoResponseBody extends Model
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

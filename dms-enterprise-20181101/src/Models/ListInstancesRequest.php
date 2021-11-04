@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
-     * @var string
-     */
-    public $searchKey;
-
-    /**
      * @var string
      */
     public $dbType;
@@ -36,12 +26,12 @@ class ListInstancesRequest extends Model
     /**
      * @var string
      */
-    public $netType;
+    public $instanceState;
 
     /**
      * @var string
      */
-    public $instanceState;
+    public $netType;
 
     /**
      * @var int
@@ -52,16 +42,26 @@ class ListInstancesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $searchKey;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
-        'tid'            => 'Tid',
-        'searchKey'      => 'SearchKey',
         'dbType'         => 'DbType',
         'envType'        => 'EnvType',
         'instanceSource' => 'InstanceSource',
-        'netType'        => 'NetType',
         'instanceState'  => 'InstanceState',
+        'netType'        => 'NetType',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
+        'searchKey'      => 'SearchKey',
+        'tid'            => 'Tid',
     ];
 
     public function validate()
@@ -71,12 +71,6 @@ class ListInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
-        if (null !== $this->searchKey) {
-            $res['SearchKey'] = $this->searchKey;
-        }
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
@@ -86,17 +80,23 @@ class ListInstancesRequest extends Model
         if (null !== $this->instanceSource) {
             $res['InstanceSource'] = $this->instanceSource;
         }
-        if (null !== $this->netType) {
-            $res['NetType'] = $this->netType;
-        }
         if (null !== $this->instanceState) {
             $res['InstanceState'] = $this->instanceState;
+        }
+        if (null !== $this->netType) {
+            $res['NetType'] = $this->netType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->searchKey) {
+            $res['SearchKey'] = $this->searchKey;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -110,12 +110,6 @@ class ListInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
-        if (isset($map['SearchKey'])) {
-            $model->searchKey = $map['SearchKey'];
-        }
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
@@ -125,17 +119,23 @@ class ListInstancesRequest extends Model
         if (isset($map['InstanceSource'])) {
             $model->instanceSource = $map['InstanceSource'];
         }
-        if (isset($map['NetType'])) {
-            $model->netType = $map['NetType'];
-        }
         if (isset($map['InstanceState'])) {
             $model->instanceState = $map['InstanceState'];
+        }
+        if (isset($map['NetType'])) {
+            $model->netType = $map['NetType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SearchKey'])) {
+            $model->searchKey = $map['SearchKey'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

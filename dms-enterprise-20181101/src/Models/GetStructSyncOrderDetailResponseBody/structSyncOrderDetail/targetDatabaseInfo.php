@@ -16,11 +16,6 @@ class targetDatabaseInfo extends Model
     /**
      * @var string
      */
-    public $searchName;
-
-    /**
-     * @var string
-     */
     public $dbType;
 
     /**
@@ -32,12 +27,17 @@ class targetDatabaseInfo extends Model
      * @var bool
      */
     public $logic;
+
+    /**
+     * @var string
+     */
+    public $searchName;
     protected $_name = [
         'dbId'       => 'DbId',
-        'searchName' => 'SearchName',
         'dbType'     => 'DbType',
         'envType'    => 'EnvType',
         'logic'      => 'Logic',
+        'searchName' => 'SearchName',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class targetDatabaseInfo extends Model
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
-        if (null !== $this->searchName) {
-            $res['SearchName'] = $this->searchName;
-        }
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
@@ -61,6 +58,9 @@ class targetDatabaseInfo extends Model
         }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
+        }
+        if (null !== $this->searchName) {
+            $res['SearchName'] = $this->searchName;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class targetDatabaseInfo extends Model
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
-        if (isset($map['SearchName'])) {
-            $model->searchName = $map['SearchName'];
-        }
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
@@ -88,6 +85,9 @@ class targetDatabaseInfo extends Model
         }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
+        }
+        if (isset($map['SearchName'])) {
+            $model->searchName = $map['SearchName'];
         }
 
         return $model;

@@ -10,21 +10,6 @@ use AlibabaCloud\Tea\Model;
 class SearchTableResponseBody extends Model
 {
     /**
-     * @var searchTableList
-     */
-    public $searchTableList;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string
      */
     public $errorCode;
@@ -35,16 +20,31 @@ class SearchTableResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var searchTableList
+     */
+    public $searchTableList;
+
+    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'searchTableList' => 'SearchTableList',
-        'totalCount'      => 'TotalCount',
-        'requestId'       => 'RequestId',
         'errorCode'       => 'ErrorCode',
         'errorMessage'    => 'ErrorMessage',
+        'requestId'       => 'RequestId',
+        'searchTableList' => 'SearchTableList',
         'success'         => 'Success',
+        'totalCount'      => 'TotalCount',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class SearchTableResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->searchTableList) {
-            $res['SearchTableList'] = null !== $this->searchTableList ? $this->searchTableList->toMap() : null;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->searchTableList) {
+            $res['SearchTableList'] = null !== $this->searchTableList ? $this->searchTableList->toMap() : null;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class SearchTableResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SearchTableList'])) {
-            $model->searchTableList = searchTableList::fromMap($map['SearchTableList']);
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SearchTableList'])) {
+            $model->searchTableList = searchTableList::fromMap($map['SearchTableList']);
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

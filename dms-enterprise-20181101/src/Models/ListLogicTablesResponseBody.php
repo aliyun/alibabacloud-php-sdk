@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListLogicTablesResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @var logicTableList
@@ -25,26 +30,21 @@ class ListLogicTablesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'     => 'TotalCount',
-        'logicTableList' => 'LogicTableList',
-        'requestId'      => 'RequestId',
         'errorCode'      => 'ErrorCode',
         'errorMessage'   => 'ErrorMessage',
+        'logicTableList' => 'LogicTableList',
+        'requestId'      => 'RequestId',
         'success'        => 'Success',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -54,8 +54,11 @@ class ListLogicTablesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->logicTableList) {
             $res['LogicTableList'] = null !== $this->logicTableList ? $this->logicTableList->toMap() : null;
@@ -63,14 +66,11 @@ class ListLogicTablesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -84,8 +84,11 @@ class ListLogicTablesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['LogicTableList'])) {
             $model->logicTableList = logicTableList::fromMap($map['LogicTableList']);
@@ -93,14 +96,11 @@ class ListLogicTablesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

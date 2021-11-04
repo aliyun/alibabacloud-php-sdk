@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableDetailInfoRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
      * @var string
      */
     public $tableGuid;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
-        'tid'       => 'Tid',
         'tableGuid' => 'TableGuid',
+        'tid'       => 'Tid',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetMetaTableDetailInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetMetaTableDetailInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

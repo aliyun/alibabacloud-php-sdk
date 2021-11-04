@@ -11,15 +11,15 @@ class columnInfo extends Model
     /**
      * @var string
      */
-    public $tableName;
+    public $columnName;
 
     /**
      * @var string
      */
-    public $columnName;
+    public $tableName;
     protected $_name = [
-        'tableName'  => 'TableName',
         'columnName' => 'ColumnName',
+        'tableName'  => 'TableName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class columnInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class columnInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

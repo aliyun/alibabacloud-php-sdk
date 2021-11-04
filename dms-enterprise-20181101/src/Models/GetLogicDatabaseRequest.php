@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetLogicDatabaseRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
      * @var string
      */
     public $dbId;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
-        'tid'  => 'Tid',
         'dbId' => 'DbId',
+        'tid'  => 'Tid',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetLogicDatabaseRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetLogicDatabaseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

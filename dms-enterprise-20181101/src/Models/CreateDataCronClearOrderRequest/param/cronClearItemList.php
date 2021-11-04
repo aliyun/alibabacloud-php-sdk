@@ -11,12 +11,12 @@ class cronClearItemList extends Model
     /**
      * @var string
      */
-    public $tableName;
+    public $columnName;
 
     /**
      * @var string
      */
-    public $columnName;
+    public $filterSQL;
 
     /**
      * @var int
@@ -26,18 +26,18 @@ class cronClearItemList extends Model
     /**
      * @var string
      */
-    public $timeUnit;
+    public $tableName;
 
     /**
      * @var string
      */
-    public $filterSQL;
+    public $timeUnit;
     protected $_name = [
-        'tableName'  => 'TableName',
         'columnName' => 'ColumnName',
-        'remainDays' => 'RemainDays',
-        'timeUnit'   => 'TimeUnit',
         'filterSQL'  => 'FilterSQL',
+        'remainDays' => 'RemainDays',
+        'tableName'  => 'TableName',
+        'timeUnit'   => 'TimeUnit',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class cronClearItemList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
+        }
+        if (null !== $this->filterSQL) {
+            $res['FilterSQL'] = $this->filterSQL;
         }
         if (null !== $this->remainDays) {
             $res['RemainDays'] = $this->remainDays;
         }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
         if (null !== $this->timeUnit) {
             $res['TimeUnit'] = $this->timeUnit;
-        }
-        if (null !== $this->filterSQL) {
-            $res['FilterSQL'] = $this->filterSQL;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class cronClearItemList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
+        }
+        if (isset($map['FilterSQL'])) {
+            $model->filterSQL = $map['FilterSQL'];
         }
         if (isset($map['RemainDays'])) {
             $model->remainDays = $map['RemainDays'];
         }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
         if (isset($map['TimeUnit'])) {
             $model->timeUnit = $map['TimeUnit'];
-        }
-        if (isset($map['FilterSQL'])) {
-            $model->filterSQL = $map['FilterSQL'];
         }
 
         return $model;

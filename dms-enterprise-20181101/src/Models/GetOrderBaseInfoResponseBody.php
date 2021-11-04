@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetOrderBaseInfoResponseBody extends Model
 {
     /**
-     * @var orderBaseInfo
-     */
-    public $orderBaseInfo;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string
      */
     public $errorCode;
@@ -30,14 +20,24 @@ class GetOrderBaseInfoResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var orderBaseInfo
+     */
+    public $orderBaseInfo;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'orderBaseInfo' => 'OrderBaseInfo',
-        'requestId'     => 'RequestId',
         'errorCode'     => 'ErrorCode',
         'errorMessage'  => 'ErrorMessage',
+        'orderBaseInfo' => 'OrderBaseInfo',
+        'requestId'     => 'RequestId',
         'success'       => 'Success',
     ];
 
@@ -48,17 +48,17 @@ class GetOrderBaseInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->orderBaseInfo) {
-            $res['OrderBaseInfo'] = null !== $this->orderBaseInfo ? $this->orderBaseInfo->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->orderBaseInfo) {
+            $res['OrderBaseInfo'] = null !== $this->orderBaseInfo ? $this->orderBaseInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -75,17 +75,17 @@ class GetOrderBaseInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderBaseInfo'])) {
-            $model->orderBaseInfo = orderBaseInfo::fromMap($map['OrderBaseInfo']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['OrderBaseInfo'])) {
+            $model->orderBaseInfo = orderBaseInfo::fromMap($map['OrderBaseInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

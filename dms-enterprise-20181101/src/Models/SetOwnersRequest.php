@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetOwnersRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
      * @var string
      */
-    public $resourceId;
+    public $ownerIds;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class SetOwnersRequest extends Model
     /**
      * @var string
      */
-    public $ownerIds;
+    public $resourceId;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
-        'tid'        => 'Tid',
-        'resourceId' => 'ResourceId',
-        'ownerType'  => 'OwnerType',
         'ownerIds'   => 'OwnerIds',
+        'ownerType'  => 'OwnerType',
+        'resourceId' => 'ResourceId',
+        'tid'        => 'Tid',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class SetOwnersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+        if (null !== $this->ownerIds) {
+            $res['OwnerIds'] = $this->ownerIds;
         }
         if (null !== $this->ownerType) {
             $res['OwnerType'] = $this->ownerType;
         }
-        if (null !== $this->ownerIds) {
-            $res['OwnerIds'] = $this->ownerIds;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class SetOwnersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
+        if (isset($map['OwnerIds'])) {
+            $model->ownerIds = $map['OwnerIds'];
         }
         if (isset($map['OwnerType'])) {
             $model->ownerType = $map['OwnerType'];
         }
-        if (isset($map['OwnerIds'])) {
-            $model->ownerIds = $map['OwnerIds'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

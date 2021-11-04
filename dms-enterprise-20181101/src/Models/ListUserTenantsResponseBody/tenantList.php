@@ -14,18 +14,18 @@ class tenantList extends Model
     public $status;
 
     /**
-     * @var int
-     */
-    public $tid;
-
-    /**
      * @var string
      */
     public $tenantName;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
         'status'     => 'Status',
-        'tid'        => 'Tid',
         'tenantName' => 'TenantName',
+        'tid'        => 'Tid',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class tenantList extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
         if (null !== $this->tenantName) {
             $res['TenantName'] = $this->tenantName;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class tenantList extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
         if (isset($map['TenantName'])) {
             $model->tenantName = $map['TenantName'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class structSyncExecSqlDetail extends Model
 {
     /**
-     * @var int
-     */
-    public $totalSqlCount;
-
-    /**
      * @var string
      */
     public $execSql;
+
+    /**
+     * @var int
+     */
+    public $totalSqlCount;
     protected $_name = [
-        'totalSqlCount' => 'TotalSqlCount',
         'execSql'       => 'ExecSql',
+        'totalSqlCount' => 'TotalSqlCount',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class structSyncExecSqlDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalSqlCount) {
-            $res['TotalSqlCount'] = $this->totalSqlCount;
-        }
         if (null !== $this->execSql) {
             $res['ExecSql'] = $this->execSql;
+        }
+        if (null !== $this->totalSqlCount) {
+            $res['TotalSqlCount'] = $this->totalSqlCount;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class structSyncExecSqlDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalSqlCount'])) {
-            $model->totalSqlCount = $map['TotalSqlCount'];
-        }
         if (isset($map['ExecSql'])) {
             $model->execSql = $map['ExecSql'];
+        }
+        if (isset($map['TotalSqlCount'])) {
+            $model->totalSqlCount = $map['TotalSqlCount'];
         }
 
         return $model;

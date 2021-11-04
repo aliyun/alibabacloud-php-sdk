@@ -12,16 +12,6 @@ class ExecuteScriptResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var results[]
-     */
-    public $results;
-
-    /**
-     * @var string
-     */
     public $errorCode;
 
     /**
@@ -30,14 +20,24 @@ class ExecuteScriptResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var results[]
+     */
+    public $results;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'results'      => 'Results',
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
+        'results'      => 'Results',
         'success'      => 'Success',
     ];
 
@@ -48,6 +48,12 @@ class ExecuteScriptResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,12 +65,6 @@ class ExecuteScriptResponseBody extends Model
                     $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -81,6 +81,12 @@ class ExecuteScriptResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -92,12 +98,6 @@ class ExecuteScriptResponseBody extends Model
                     $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class GetPermApplyOrderDetailResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var permApplyOrderDetail
+     */
+    public $permApplyOrderDetail;
+
+    /**
      * @description Id of the request
      *
      * @var string
@@ -20,27 +35,12 @@ class GetPermApplyOrderDetailResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var permApplyOrderDetail
-     */
-    public $permApplyOrderDetail;
     protected $_name = [
+        'errorCode'            => 'ErrorCode',
+        'errorMessage'         => 'ErrorMessage',
+        'permApplyOrderDetail' => 'PermApplyOrderDetail',
         'requestId'            => 'RequestId',
         'success'              => 'Success',
-        'errorMessage'         => 'ErrorMessage',
-        'errorCode'            => 'ErrorCode',
-        'permApplyOrderDetail' => 'PermApplyOrderDetail',
     ];
 
     public function validate()
@@ -50,20 +50,20 @@ class GetPermApplyOrderDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->permApplyOrderDetail) {
+            $res['PermApplyOrderDetail'] = null !== $this->permApplyOrderDetail ? $this->permApplyOrderDetail->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->permApplyOrderDetail) {
-            $res['PermApplyOrderDetail'] = null !== $this->permApplyOrderDetail ? $this->permApplyOrderDetail->toMap() : null;
         }
 
         return $res;
@@ -77,20 +77,20 @@ class GetPermApplyOrderDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['PermApplyOrderDetail'])) {
+            $model->permApplyOrderDetail = permApplyOrderDetail::fromMap($map['PermApplyOrderDetail']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['PermApplyOrderDetail'])) {
-            $model->permApplyOrderDetail = permApplyOrderDetail::fromMap($map['PermApplyOrderDetail']);
         }
 
         return $model;

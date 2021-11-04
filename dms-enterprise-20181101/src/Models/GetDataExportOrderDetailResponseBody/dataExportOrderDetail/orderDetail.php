@@ -11,12 +11,7 @@ class orderDetail extends Model
     /**
      * @var int
      */
-    public $dbId;
-
-    /**
-     * @var string
-     */
-    public $database;
+    public $actualAffectRows;
 
     /**
      * @var string
@@ -26,17 +21,22 @@ class orderDetail extends Model
     /**
      * @var string
      */
-    public $exeSQL;
-
-    /**
-     * @var bool
-     */
-    public $logic;
+    public $database;
 
     /**
      * @var int
      */
-    public $actualAffectRows;
+    public $dbId;
+
+    /**
+     * @var string
+     */
+    public $envType;
+
+    /**
+     * @var string
+     */
+    public $exeSQL;
 
     /**
      * @var bool
@@ -49,19 +49,19 @@ class orderDetail extends Model
     public $ignoreAffectRowsReason;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $envType;
+    public $logic;
     protected $_name = [
-        'dbId'                   => 'DbId',
-        'database'               => 'Database',
-        'classify'               => 'Classify',
-        'exeSQL'                 => 'ExeSQL',
-        'logic'                  => 'Logic',
         'actualAffectRows'       => 'ActualAffectRows',
+        'classify'               => 'Classify',
+        'database'               => 'Database',
+        'dbId'                   => 'DbId',
+        'envType'                => 'EnvType',
+        'exeSQL'                 => 'ExeSQL',
         'ignoreAffectRows'       => 'IgnoreAffectRows',
         'ignoreAffectRowsReason' => 'IgnoreAffectRowsReason',
-        'envType'                => 'EnvType',
+        'logic'                  => 'Logic',
     ];
 
     public function validate()
@@ -71,23 +71,23 @@ class orderDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dbId) {
-            $res['DbId'] = $this->dbId;
-        }
-        if (null !== $this->database) {
-            $res['Database'] = $this->database;
+        if (null !== $this->actualAffectRows) {
+            $res['ActualAffectRows'] = $this->actualAffectRows;
         }
         if (null !== $this->classify) {
             $res['Classify'] = $this->classify;
         }
+        if (null !== $this->database) {
+            $res['Database'] = $this->database;
+        }
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
+        }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
+        }
         if (null !== $this->exeSQL) {
             $res['ExeSQL'] = $this->exeSQL;
-        }
-        if (null !== $this->logic) {
-            $res['Logic'] = $this->logic;
-        }
-        if (null !== $this->actualAffectRows) {
-            $res['ActualAffectRows'] = $this->actualAffectRows;
         }
         if (null !== $this->ignoreAffectRows) {
             $res['IgnoreAffectRows'] = $this->ignoreAffectRows;
@@ -95,8 +95,8 @@ class orderDetail extends Model
         if (null !== $this->ignoreAffectRowsReason) {
             $res['IgnoreAffectRowsReason'] = $this->ignoreAffectRowsReason;
         }
-        if (null !== $this->envType) {
-            $res['EnvType'] = $this->envType;
+        if (null !== $this->logic) {
+            $res['Logic'] = $this->logic;
         }
 
         return $res;
@@ -110,23 +110,23 @@ class orderDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
-        }
-        if (isset($map['Database'])) {
-            $model->database = $map['Database'];
+        if (isset($map['ActualAffectRows'])) {
+            $model->actualAffectRows = $map['ActualAffectRows'];
         }
         if (isset($map['Classify'])) {
             $model->classify = $map['Classify'];
         }
+        if (isset($map['Database'])) {
+            $model->database = $map['Database'];
+        }
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
+        }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
+        }
         if (isset($map['ExeSQL'])) {
             $model->exeSQL = $map['ExeSQL'];
-        }
-        if (isset($map['Logic'])) {
-            $model->logic = $map['Logic'];
-        }
-        if (isset($map['ActualAffectRows'])) {
-            $model->actualAffectRows = $map['ActualAffectRows'];
         }
         if (isset($map['IgnoreAffectRows'])) {
             $model->ignoreAffectRows = $map['IgnoreAffectRows'];
@@ -134,8 +134,8 @@ class orderDetail extends Model
         if (isset($map['IgnoreAffectRowsReason'])) {
             $model->ignoreAffectRowsReason = $map['IgnoreAffectRowsReason'];
         }
-        if (isset($map['EnvType'])) {
-            $model->envType = $map['EnvType'];
+        if (isset($map['Logic'])) {
+            $model->logic = $map['Logic'];
         }
 
         return $model;

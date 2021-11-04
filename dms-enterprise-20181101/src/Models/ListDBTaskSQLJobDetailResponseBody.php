@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListDBTaskSQLJobDetailResponseBody extends Model
 {
     /**
+     * @var DBTaskSQLJobDetailList[]
+     */
+    public $DBTaskSQLJobDetailList;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @description Id of the request
      *
      * @var string
@@ -22,30 +37,15 @@ class ListDBTaskSQLJobDetailResponseBody extends Model
     public $success;
 
     /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var DBTaskSQLJobDetailList[]
-     */
-    public $DBTaskSQLJobDetailList;
-
-    /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
+        'DBTaskSQLJobDetailList' => 'DBTaskSQLJobDetailList',
+        'errorCode'              => 'ErrorCode',
+        'errorMessage'           => 'ErrorMessage',
         'requestId'              => 'RequestId',
         'success'                => 'Success',
-        'errorMessage'           => 'ErrorMessage',
-        'errorCode'              => 'ErrorCode',
-        'DBTaskSQLJobDetailList' => 'DBTaskSQLJobDetailList',
         'totalCount'             => 'TotalCount',
     ];
 
@@ -56,18 +56,6 @@ class ListDBTaskSQLJobDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
         if (null !== $this->DBTaskSQLJobDetailList) {
             $res['DBTaskSQLJobDetailList'] = [];
             if (null !== $this->DBTaskSQLJobDetailList && \is_array($this->DBTaskSQLJobDetailList)) {
@@ -76,6 +64,18 @@ class ListDBTaskSQLJobDetailResponseBody extends Model
                     $res['DBTaskSQLJobDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -92,18 +92,6 @@ class ListDBTaskSQLJobDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
         if (isset($map['DBTaskSQLJobDetailList'])) {
             if (!empty($map['DBTaskSQLJobDetailList'])) {
                 $model->DBTaskSQLJobDetailList = [];
@@ -112,6 +100,18 @@ class ListDBTaskSQLJobDetailResponseBody extends Model
                     $model->DBTaskSQLJobDetailList[$n++] = null !== $item ? DBTaskSQLJobDetailList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

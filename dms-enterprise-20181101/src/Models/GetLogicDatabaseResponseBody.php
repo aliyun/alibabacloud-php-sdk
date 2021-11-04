@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetLogicDatabaseResponseBody extends Model
 {
     /**
-     * @var logicDatabase
-     */
-    public $logicDatabase;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string
      */
     public $errorCode;
@@ -30,14 +20,24 @@ class GetLogicDatabaseResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var logicDatabase
+     */
+    public $logicDatabase;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'logicDatabase' => 'LogicDatabase',
-        'requestId'     => 'RequestId',
         'errorCode'     => 'ErrorCode',
         'errorMessage'  => 'ErrorMessage',
+        'logicDatabase' => 'LogicDatabase',
+        'requestId'     => 'RequestId',
         'success'       => 'Success',
     ];
 
@@ -48,17 +48,17 @@ class GetLogicDatabaseResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logicDatabase) {
-            $res['LogicDatabase'] = null !== $this->logicDatabase ? $this->logicDatabase->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->logicDatabase) {
+            $res['LogicDatabase'] = null !== $this->logicDatabase ? $this->logicDatabase->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -75,17 +75,17 @@ class GetLogicDatabaseResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogicDatabase'])) {
-            $model->logicDatabase = logicDatabase::fromMap($map['LogicDatabase']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['LogicDatabase'])) {
+            $model->logicDatabase = logicDatabase::fromMap($map['LogicDatabase']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class approvalDetail extends Model
 {
     /**
-     * @var workflowNodes
+     * @var int
      */
-    public $workflowNodes;
+    public $auditId;
 
     /**
      * @var string
      */
-    public $description;
+    public $createTime;
 
     /**
      * @var currentHandlers
@@ -29,17 +29,7 @@ class approvalDetail extends Model
     /**
      * @var string
      */
-    public $orderType;
-
-    /**
-     * @var string
-     */
-    public $title;
-
-    /**
-     * @var int
-     */
-    public $auditId;
+    public $description;
 
     /**
      * @var int
@@ -49,22 +39,38 @@ class approvalDetail extends Model
     /**
      * @var string
      */
-    public $workflowInsCode;
+    public $orderType;
 
     /**
      * @var reasonList
      */
     public $reasonList;
+
+    /**
+     * @var string
+     */
+    public $title;
+
+    /**
+     * @var string
+     */
+    public $workflowInsCode;
+
+    /**
+     * @var workflowNodes
+     */
+    public $workflowNodes;
     protected $_name = [
-        'workflowNodes'   => 'WorkflowNodes',
-        'description'     => 'Description',
-        'currentHandlers' => 'CurrentHandlers',
-        'orderType'       => 'OrderType',
-        'title'           => 'Title',
         'auditId'         => 'AuditId',
+        'createTime'      => 'CreateTime',
+        'currentHandlers' => 'CurrentHandlers',
+        'description'     => 'Description',
         'orderId'         => 'OrderId',
-        'workflowInsCode' => 'WorkflowInsCode',
+        'orderType'       => 'OrderType',
         'reasonList'      => 'ReasonList',
+        'title'           => 'Title',
+        'workflowInsCode' => 'WorkflowInsCode',
+        'workflowNodes'   => 'WorkflowNodes',
     ];
 
     public function validate()
@@ -74,32 +80,35 @@ class approvalDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workflowNodes) {
-            $res['WorkflowNodes'] = null !== $this->workflowNodes ? $this->workflowNodes->toMap() : null;
+        if (null !== $this->auditId) {
+            $res['AuditId'] = $this->auditId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->currentHandlers) {
             $res['CurrentHandlers'] = null !== $this->currentHandlers ? $this->currentHandlers->toMap() : null;
         }
-        if (null !== $this->orderType) {
-            $res['OrderType'] = $this->orderType;
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->auditId) {
-            $res['AuditId'] = $this->auditId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-        if (null !== $this->workflowInsCode) {
-            $res['WorkflowInsCode'] = $this->workflowInsCode;
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
         }
         if (null !== $this->reasonList) {
             $res['ReasonList'] = null !== $this->reasonList ? $this->reasonList->toMap() : null;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
+        if (null !== $this->workflowInsCode) {
+            $res['WorkflowInsCode'] = $this->workflowInsCode;
+        }
+        if (null !== $this->workflowNodes) {
+            $res['WorkflowNodes'] = null !== $this->workflowNodes ? $this->workflowNodes->toMap() : null;
         }
 
         return $res;
@@ -113,32 +122,35 @@ class approvalDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkflowNodes'])) {
-            $model->workflowNodes = workflowNodes::fromMap($map['WorkflowNodes']);
+        if (isset($map['AuditId'])) {
+            $model->auditId = $map['AuditId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['CurrentHandlers'])) {
             $model->currentHandlers = currentHandlers::fromMap($map['CurrentHandlers']);
         }
-        if (isset($map['OrderType'])) {
-            $model->orderType = $map['OrderType'];
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['AuditId'])) {
-            $model->auditId = $map['AuditId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-        if (isset($map['WorkflowInsCode'])) {
-            $model->workflowInsCode = $map['WorkflowInsCode'];
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
         }
         if (isset($map['ReasonList'])) {
             $model->reasonList = reasonList::fromMap($map['ReasonList']);
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
+        if (isset($map['WorkflowInsCode'])) {
+            $model->workflowInsCode = $map['WorkflowInsCode'];
+        }
+        if (isset($map['WorkflowNodes'])) {
+            $model->workflowNodes = workflowNodes::fromMap($map['WorkflowNodes']);
         }
 
         return $model;

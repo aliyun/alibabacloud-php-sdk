@@ -12,7 +12,7 @@ class uploadFileJobDetail extends Model
     /**
      * @var string
      */
-    public $jobKey;
+    public $attachmentKey;
 
     /**
      * @var string
@@ -32,22 +32,7 @@ class uploadFileJobDetail extends Model
     /**
      * @var string
      */
-    public $uploadType;
-
-    /**
-     * @var string
-     */
-    public $uploadURL;
-
-    /**
-     * @var uploadOSSParam
-     */
-    public $uploadOSSParam;
-
-    /**
-     * @var int
-     */
-    public $uploadedSize;
+    public $jobKey;
 
     /**
      * @var string
@@ -60,21 +45,36 @@ class uploadFileJobDetail extends Model
     public $jobStatusDesc;
 
     /**
+     * @var uploadOSSParam
+     */
+    public $uploadOSSParam;
+
+    /**
      * @var string
      */
-    public $attachmentKey;
+    public $uploadType;
+
+    /**
+     * @var string
+     */
+    public $uploadURL;
+
+    /**
+     * @var int
+     */
+    public $uploadedSize;
     protected $_name = [
-        'jobKey'         => 'JobKey',
+        'attachmentKey'  => 'AttachmentKey',
         'fileName'       => 'FileName',
         'fileSize'       => 'FileSize',
         'fileSource'     => 'FileSource',
-        'uploadType'     => 'UploadType',
-        'uploadURL'      => 'UploadURL',
-        'uploadOSSParam' => 'UploadOSSParam',
-        'uploadedSize'   => 'UploadedSize',
+        'jobKey'         => 'JobKey',
         'jobStatus'      => 'JobStatus',
         'jobStatusDesc'  => 'JobStatusDesc',
-        'attachmentKey'  => 'AttachmentKey',
+        'uploadOSSParam' => 'UploadOSSParam',
+        'uploadType'     => 'UploadType',
+        'uploadURL'      => 'UploadURL',
+        'uploadedSize'   => 'UploadedSize',
     ];
 
     public function validate()
@@ -84,8 +84,8 @@ class uploadFileJobDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobKey) {
-            $res['JobKey'] = $this->jobKey;
+        if (null !== $this->attachmentKey) {
+            $res['AttachmentKey'] = $this->attachmentKey;
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
@@ -96,17 +96,8 @@ class uploadFileJobDetail extends Model
         if (null !== $this->fileSource) {
             $res['FileSource'] = $this->fileSource;
         }
-        if (null !== $this->uploadType) {
-            $res['UploadType'] = $this->uploadType;
-        }
-        if (null !== $this->uploadURL) {
-            $res['UploadURL'] = $this->uploadURL;
-        }
-        if (null !== $this->uploadOSSParam) {
-            $res['UploadOSSParam'] = null !== $this->uploadOSSParam ? $this->uploadOSSParam->toMap() : null;
-        }
-        if (null !== $this->uploadedSize) {
-            $res['UploadedSize'] = $this->uploadedSize;
+        if (null !== $this->jobKey) {
+            $res['JobKey'] = $this->jobKey;
         }
         if (null !== $this->jobStatus) {
             $res['JobStatus'] = $this->jobStatus;
@@ -114,8 +105,17 @@ class uploadFileJobDetail extends Model
         if (null !== $this->jobStatusDesc) {
             $res['JobStatusDesc'] = $this->jobStatusDesc;
         }
-        if (null !== $this->attachmentKey) {
-            $res['AttachmentKey'] = $this->attachmentKey;
+        if (null !== $this->uploadOSSParam) {
+            $res['UploadOSSParam'] = null !== $this->uploadOSSParam ? $this->uploadOSSParam->toMap() : null;
+        }
+        if (null !== $this->uploadType) {
+            $res['UploadType'] = $this->uploadType;
+        }
+        if (null !== $this->uploadURL) {
+            $res['UploadURL'] = $this->uploadURL;
+        }
+        if (null !== $this->uploadedSize) {
+            $res['UploadedSize'] = $this->uploadedSize;
         }
 
         return $res;
@@ -129,8 +129,8 @@ class uploadFileJobDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobKey'])) {
-            $model->jobKey = $map['JobKey'];
+        if (isset($map['AttachmentKey'])) {
+            $model->attachmentKey = $map['AttachmentKey'];
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
@@ -141,17 +141,8 @@ class uploadFileJobDetail extends Model
         if (isset($map['FileSource'])) {
             $model->fileSource = $map['FileSource'];
         }
-        if (isset($map['UploadType'])) {
-            $model->uploadType = $map['UploadType'];
-        }
-        if (isset($map['UploadURL'])) {
-            $model->uploadURL = $map['UploadURL'];
-        }
-        if (isset($map['UploadOSSParam'])) {
-            $model->uploadOSSParam = uploadOSSParam::fromMap($map['UploadOSSParam']);
-        }
-        if (isset($map['UploadedSize'])) {
-            $model->uploadedSize = $map['UploadedSize'];
+        if (isset($map['JobKey'])) {
+            $model->jobKey = $map['JobKey'];
         }
         if (isset($map['JobStatus'])) {
             $model->jobStatus = $map['JobStatus'];
@@ -159,8 +150,17 @@ class uploadFileJobDetail extends Model
         if (isset($map['JobStatusDesc'])) {
             $model->jobStatusDesc = $map['JobStatusDesc'];
         }
-        if (isset($map['AttachmentKey'])) {
-            $model->attachmentKey = $map['AttachmentKey'];
+        if (isset($map['UploadOSSParam'])) {
+            $model->uploadOSSParam = uploadOSSParam::fromMap($map['UploadOSSParam']);
+        }
+        if (isset($map['UploadType'])) {
+            $model->uploadType = $map['UploadType'];
+        }
+        if (isset($map['UploadURL'])) {
+            $model->uploadURL = $map['UploadURL'];
+        }
+        if (isset($map['UploadedSize'])) {
+            $model->uploadedSize = $map['UploadedSize'];
         }
 
         return $model;

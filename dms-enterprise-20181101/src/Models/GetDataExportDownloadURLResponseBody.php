@@ -17,11 +17,6 @@ class GetDataExportDownloadURLResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $errorCode;
 
     /**
@@ -30,14 +25,19 @@ class GetDataExportDownloadURLResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'downloadURLResult' => 'DownloadURLResult',
-        'requestId'         => 'RequestId',
         'errorCode'         => 'ErrorCode',
         'errorMessage'      => 'ErrorMessage',
+        'requestId'         => 'RequestId',
         'success'           => 'Success',
     ];
 
@@ -51,14 +51,14 @@ class GetDataExportDownloadURLResponseBody extends Model
         if (null !== $this->downloadURLResult) {
             $res['DownloadURLResult'] = null !== $this->downloadURLResult ? $this->downloadURLResult->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -78,14 +78,14 @@ class GetDataExportDownloadURLResponseBody extends Model
         if (isset($map['DownloadURLResult'])) {
             $model->downloadURLResult = downloadURLResult::fromMap($map['DownloadURLResult']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

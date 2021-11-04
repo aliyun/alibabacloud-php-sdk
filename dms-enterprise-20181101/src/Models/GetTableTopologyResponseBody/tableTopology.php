@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class tableTopology extends Model
 {
     /**
+     * @var bool
+     */
+    public $logic;
+
+    /**
      * @var string
      */
     public $tableGuid;
@@ -23,16 +28,11 @@ class tableTopology extends Model
      * @var tableTopologyInfoList[]
      */
     public $tableTopologyInfoList;
-
-    /**
-     * @var bool
-     */
-    public $logic;
     protected $_name = [
+        'logic'                 => 'Logic',
         'tableGuid'             => 'TableGuid',
         'tableName'             => 'TableName',
         'tableTopologyInfoList' => 'TableTopologyInfoList',
-        'logic'                 => 'Logic',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class tableTopology extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->logic) {
+            $res['Logic'] = $this->logic;
+        }
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
         }
@@ -57,9 +60,6 @@ class tableTopology extends Model
                 }
             }
         }
-        if (null !== $this->logic) {
-            $res['Logic'] = $this->logic;
-        }
 
         return $res;
     }
@@ -72,6 +72,9 @@ class tableTopology extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Logic'])) {
+            $model->logic = $map['Logic'];
+        }
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
         }
@@ -86,9 +89,6 @@ class tableTopology extends Model
                     $model->tableTopologyInfoList[$n++] = null !== $item ? tableTopologyInfoList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Logic'])) {
-            $model->logic = $map['Logic'];
         }
 
         return $model;

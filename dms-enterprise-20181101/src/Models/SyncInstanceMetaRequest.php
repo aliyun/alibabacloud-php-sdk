@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SyncInstanceMetaRequest extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $tid;
+    public $ignoreTable;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class SyncInstanceMetaRequest extends Model
     public $instanceId;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $ignoreTable;
+    public $tid;
     protected $_name = [
-        'tid'         => 'Tid',
-        'instanceId'  => 'InstanceId',
         'ignoreTable' => 'IgnoreTable',
+        'instanceId'  => 'InstanceId',
+        'tid'         => 'Tid',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SyncInstanceMetaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
+        if (null !== $this->ignoreTable) {
+            $res['IgnoreTable'] = $this->ignoreTable;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->ignoreTable) {
-            $res['IgnoreTable'] = $this->ignoreTable;
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SyncInstanceMetaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
+        if (isset($map['IgnoreTable'])) {
+            $model->ignoreTable = $map['IgnoreTable'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['IgnoreTable'])) {
-            $model->ignoreTable = $map['IgnoreTable'];
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

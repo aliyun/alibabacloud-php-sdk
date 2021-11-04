@@ -12,27 +12,27 @@ class CreateUploadOSSFileJobRequest extends Model
     /**
      * @var string
      */
-    public $fileSource;
+    public $fileName;
 
     /**
      * @var string
      */
-    public $fileName;
-
-    /**
-     * @var uploadTarget
-     */
-    public $uploadTarget;
+    public $fileSource;
 
     /**
      * @var int
      */
     public $tid;
+
+    /**
+     * @var uploadTarget
+     */
+    public $uploadTarget;
     protected $_name = [
-        'fileSource'   => 'FileSource',
         'fileName'     => 'FileName',
-        'uploadTarget' => 'UploadTarget',
+        'fileSource'   => 'FileSource',
         'tid'          => 'Tid',
+        'uploadTarget' => 'UploadTarget',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class CreateUploadOSSFileJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileSource) {
-            $res['FileSource'] = $this->fileSource;
-        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-        if (null !== $this->uploadTarget) {
-            $res['UploadTarget'] = null !== $this->uploadTarget ? $this->uploadTarget->toMap() : null;
+        if (null !== $this->fileSource) {
+            $res['FileSource'] = $this->fileSource;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
+        }
+        if (null !== $this->uploadTarget) {
+            $res['UploadTarget'] = null !== $this->uploadTarget ? $this->uploadTarget->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class CreateUploadOSSFileJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileSource'])) {
-            $model->fileSource = $map['FileSource'];
-        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
-        if (isset($map['UploadTarget'])) {
-            $model->uploadTarget = uploadTarget::fromMap($map['UploadTarget']);
+        if (isset($map['FileSource'])) {
+            $model->fileSource = $map['FileSource'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
+        }
+        if (isset($map['UploadTarget'])) {
+            $model->uploadTarget = uploadTarget::fromMap($map['UploadTarget']);
         }
 
         return $model;

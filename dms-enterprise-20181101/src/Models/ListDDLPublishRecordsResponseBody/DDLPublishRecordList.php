@@ -12,12 +12,12 @@ class DDLPublishRecordList extends Model
     /**
      * @var string
      */
-    public $auditStatus;
+    public $auditExpireTime;
 
     /**
      * @var string
      */
-    public $auditExpireTime;
+    public $auditStatus;
 
     /**
      * @var int
@@ -40,6 +40,11 @@ class DDLPublishRecordList extends Model
     public $publishStatus;
 
     /**
+     * @var publishTaskInfoList[]
+     */
+    public $publishTaskInfoList;
+
+    /**
      * @var string
      */
     public $riskLevel;
@@ -53,22 +58,17 @@ class DDLPublishRecordList extends Model
      * @var int
      */
     public $workflowInstanceId;
-
-    /**
-     * @var publishTaskInfoList[]
-     */
-    public $publishTaskInfoList;
     protected $_name = [
-        'auditStatus'         => 'AuditStatus',
         'auditExpireTime'     => 'AuditExpireTime',
+        'auditStatus'         => 'AuditStatus',
         'creatorId'           => 'CreatorId',
         'finality'            => 'Finality',
         'finalityReason'      => 'FinalityReason',
         'publishStatus'       => 'PublishStatus',
+        'publishTaskInfoList' => 'PublishTaskInfoList',
         'riskLevel'           => 'RiskLevel',
         'statusDesc'          => 'StatusDesc',
         'workflowInstanceId'  => 'WorkflowInstanceId',
-        'publishTaskInfoList' => 'PublishTaskInfoList',
     ];
 
     public function validate()
@@ -78,11 +78,11 @@ class DDLPublishRecordList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->auditStatus) {
-            $res['AuditStatus'] = $this->auditStatus;
-        }
         if (null !== $this->auditExpireTime) {
             $res['AuditExpireTime'] = $this->auditExpireTime;
+        }
+        if (null !== $this->auditStatus) {
+            $res['AuditStatus'] = $this->auditStatus;
         }
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
@@ -96,15 +96,6 @@ class DDLPublishRecordList extends Model
         if (null !== $this->publishStatus) {
             $res['PublishStatus'] = $this->publishStatus;
         }
-        if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
-        }
-        if (null !== $this->statusDesc) {
-            $res['StatusDesc'] = $this->statusDesc;
-        }
-        if (null !== $this->workflowInstanceId) {
-            $res['WorkflowInstanceId'] = $this->workflowInstanceId;
-        }
         if (null !== $this->publishTaskInfoList) {
             $res['PublishTaskInfoList'] = [];
             if (null !== $this->publishTaskInfoList && \is_array($this->publishTaskInfoList)) {
@@ -113,6 +104,15 @@ class DDLPublishRecordList extends Model
                     $res['PublishTaskInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->statusDesc) {
+            $res['StatusDesc'] = $this->statusDesc;
+        }
+        if (null !== $this->workflowInstanceId) {
+            $res['WorkflowInstanceId'] = $this->workflowInstanceId;
         }
 
         return $res;
@@ -126,11 +126,11 @@ class DDLPublishRecordList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuditStatus'])) {
-            $model->auditStatus = $map['AuditStatus'];
-        }
         if (isset($map['AuditExpireTime'])) {
             $model->auditExpireTime = $map['AuditExpireTime'];
+        }
+        if (isset($map['AuditStatus'])) {
+            $model->auditStatus = $map['AuditStatus'];
         }
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
@@ -144,15 +144,6 @@ class DDLPublishRecordList extends Model
         if (isset($map['PublishStatus'])) {
             $model->publishStatus = $map['PublishStatus'];
         }
-        if (isset($map['RiskLevel'])) {
-            $model->riskLevel = $map['RiskLevel'];
-        }
-        if (isset($map['StatusDesc'])) {
-            $model->statusDesc = $map['StatusDesc'];
-        }
-        if (isset($map['WorkflowInstanceId'])) {
-            $model->workflowInstanceId = $map['WorkflowInstanceId'];
-        }
         if (isset($map['PublishTaskInfoList'])) {
             if (!empty($map['PublishTaskInfoList'])) {
                 $model->publishTaskInfoList = [];
@@ -161,6 +152,15 @@ class DDLPublishRecordList extends Model
                     $model->publishTaskInfoList[$n++] = null !== $item ? publishTaskInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['StatusDesc'])) {
+            $model->statusDesc = $map['StatusDesc'];
+        }
+        if (isset($map['WorkflowInstanceId'])) {
+            $model->workflowInstanceId = $map['WorkflowInstanceId'];
         }
 
         return $model;

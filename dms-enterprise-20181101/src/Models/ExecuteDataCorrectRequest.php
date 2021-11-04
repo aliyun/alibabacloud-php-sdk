@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ExecuteDataCorrectRequest extends Model
 {
     /**
-     * @var string
+     * @var mixed[]
      */
-    public $tid;
+    public $actionDetail;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class ExecuteDataCorrectRequest extends Model
     public $orderId;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $actionDetail;
+    public $tid;
     protected $_name = [
-        'tid'          => 'Tid',
-        'orderId'      => 'OrderId',
         'actionDetail' => 'ActionDetail',
+        'orderId'      => 'OrderId',
+        'tid'          => 'Tid',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ExecuteDataCorrectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
+        if (null !== $this->actionDetail) {
+            $res['ActionDetail'] = $this->actionDetail;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-        if (null !== $this->actionDetail) {
-            $res['ActionDetail'] = $this->actionDetail;
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ExecuteDataCorrectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
+        if (isset($map['ActionDetail'])) {
+            $model->actionDetail = $map['ActionDetail'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-        if (isset($map['ActionDetail'])) {
-            $model->actionDetail = $map['ActionDetail'];
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;
