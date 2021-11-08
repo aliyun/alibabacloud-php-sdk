@@ -14,7 +14,12 @@ class messages extends Model
     /**
      * @var string
      */
-    public $type;
+    public $answerSource;
+
+    /**
+     * @var string
+     */
+    public $answerType;
 
     /**
      * @var knowledge
@@ -22,19 +27,26 @@ class messages extends Model
     public $knowledge;
 
     /**
+     * @var recommends[]
+     */
+    public $recommends;
+
+    /**
      * @var text
      */
     public $text;
 
     /**
-     * @var recommends[]
+     * @var string
      */
-    public $recommends;
+    public $type;
     protected $_name = [
-        'type'       => 'Type',
-        'knowledge'  => 'Knowledge',
-        'text'       => 'Text',
-        'recommends' => 'Recommends',
+        'answerSource' => 'AnswerSource',
+        'answerType'   => 'AnswerType',
+        'knowledge'    => 'Knowledge',
+        'recommends'   => 'Recommends',
+        'text'         => 'Text',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -44,14 +56,14 @@ class messages extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->answerSource) {
+            $res['AnswerSource'] = $this->answerSource;
+        }
+        if (null !== $this->answerType) {
+            $res['AnswerType'] = $this->answerType;
         }
         if (null !== $this->knowledge) {
             $res['Knowledge'] = null !== $this->knowledge ? $this->knowledge->toMap() : null;
-        }
-        if (null !== $this->text) {
-            $res['Text'] = null !== $this->text ? $this->text->toMap() : null;
         }
         if (null !== $this->recommends) {
             $res['Recommends'] = [];
@@ -61,6 +73,12 @@ class messages extends Model
                     $res['Recommends'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->text) {
+            $res['Text'] = null !== $this->text ? $this->text->toMap() : null;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -74,14 +92,14 @@ class messages extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['AnswerSource'])) {
+            $model->answerSource = $map['AnswerSource'];
+        }
+        if (isset($map['AnswerType'])) {
+            $model->answerType = $map['AnswerType'];
         }
         if (isset($map['Knowledge'])) {
             $model->knowledge = knowledge::fromMap($map['Knowledge']);
-        }
-        if (isset($map['Text'])) {
-            $model->text = text::fromMap($map['Text']);
         }
         if (isset($map['Recommends'])) {
             if (!empty($map['Recommends'])) {
@@ -91,6 +109,12 @@ class messages extends Model
                     $model->recommends[$n++] = null !== $item ? recommends::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Text'])) {
+            $model->text = text::fromMap($map['Text']);
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

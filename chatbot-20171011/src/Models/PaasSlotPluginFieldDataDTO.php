@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PaasSlotPluginFieldDataDTO extends Model
 {
     /**
-     * @description IntentName
+     * @description ContentSlot
      *
-     * @var string
+     * @var PaasSlotConfigDTO[]
      */
-    public $intentName;
+    public $contentSlot;
 
     /**
      * @description IntentId
@@ -23,11 +23,11 @@ class PaasSlotPluginFieldDataDTO extends Model
     public $intentId;
 
     /**
-     * @description Name
+     * @description IntentName
      *
      * @var string
      */
-    public $name;
+    public $intentName;
 
     /**
      * @description IsSysIntent
@@ -37,17 +37,17 @@ class PaasSlotPluginFieldDataDTO extends Model
     public $isSysIntent;
 
     /**
-     * @description ContentSlot
+     * @description Name
      *
-     * @var PaasSlotConfigDTO[]
+     * @var string
      */
-    public $contentSlot;
+    public $name;
     protected $_name = [
-        'intentName'  => 'IntentName',
-        'intentId'    => 'IntentId',
-        'name'        => 'Name',
-        'isSysIntent' => 'IsSysIntent',
         'contentSlot' => 'ContentSlot',
+        'intentId'    => 'IntentId',
+        'intentName'  => 'IntentName',
+        'isSysIntent' => 'IsSysIntent',
+        'name'        => 'Name',
     ];
 
     public function validate()
@@ -57,18 +57,6 @@ class PaasSlotPluginFieldDataDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->intentName) {
-            $res['IntentName'] = $this->intentName;
-        }
-        if (null !== $this->intentId) {
-            $res['IntentId'] = $this->intentId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->isSysIntent) {
-            $res['IsSysIntent'] = $this->isSysIntent;
-        }
         if (null !== $this->contentSlot) {
             $res['ContentSlot'] = [];
             if (null !== $this->contentSlot && \is_array($this->contentSlot)) {
@@ -77,6 +65,18 @@ class PaasSlotPluginFieldDataDTO extends Model
                     $res['ContentSlot'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->intentId) {
+            $res['IntentId'] = $this->intentId;
+        }
+        if (null !== $this->intentName) {
+            $res['IntentName'] = $this->intentName;
+        }
+        if (null !== $this->isSysIntent) {
+            $res['IsSysIntent'] = $this->isSysIntent;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -90,18 +90,6 @@ class PaasSlotPluginFieldDataDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IntentName'])) {
-            $model->intentName = $map['IntentName'];
-        }
-        if (isset($map['IntentId'])) {
-            $model->intentId = $map['IntentId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['IsSysIntent'])) {
-            $model->isSysIntent = $map['IsSysIntent'];
-        }
         if (isset($map['ContentSlot'])) {
             if (!empty($map['ContentSlot'])) {
                 $model->contentSlot = [];
@@ -110,6 +98,18 @@ class PaasSlotPluginFieldDataDTO extends Model
                     $model->contentSlot[$n++] = null !== $item ? PaasSlotConfigDTO::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IntentId'])) {
+            $model->intentId = $map['IntentId'];
+        }
+        if (isset($map['IntentName'])) {
+            $model->intentName = $map['IntentName'];
+        }
+        if (isset($map['IsSysIntent'])) {
+            $model->isSysIntent = $map['IsSysIntent'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class RuleMtopDTO extends Model
 {
     /**
+     * @description Error
+     *
+     * @var string[]
+     */
+    public $error;
+
+    /**
      * @description Strict
      *
      * @var bool
@@ -28,18 +35,11 @@ class RuleMtopDTO extends Model
      * @var string[]
      */
     public $warning;
-
-    /**
-     * @description Error
-     *
-     * @var string[]
-     */
-    public $error;
     protected $_name = [
+        'error'   => 'Error',
         'strict'  => 'Strict',
         'text'    => 'Text',
         'warning' => 'Warning',
-        'error'   => 'Error',
     ];
 
     public function validate()
@@ -49,6 +49,9 @@ class RuleMtopDTO extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->error) {
+            $res['Error'] = $this->error;
+        }
         if (null !== $this->strict) {
             $res['Strict'] = $this->strict;
         }
@@ -57,9 +60,6 @@ class RuleMtopDTO extends Model
         }
         if (null !== $this->warning) {
             $res['Warning'] = $this->warning;
-        }
-        if (null !== $this->error) {
-            $res['Error'] = $this->error;
         }
 
         return $res;
@@ -73,6 +73,11 @@ class RuleMtopDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Error'])) {
+            if (!empty($map['Error'])) {
+                $model->error = $map['Error'];
+            }
+        }
         if (isset($map['Strict'])) {
             $model->strict = $map['Strict'];
         }
@@ -82,11 +87,6 @@ class RuleMtopDTO extends Model
         if (isset($map['Warning'])) {
             if (!empty($map['Warning'])) {
                 $model->warning = $map['Warning'];
-            }
-        }
-        if (isset($map['Error'])) {
-            if (!empty($map['Error'])) {
-                $model->error = $map['Error'];
             }
         }
 

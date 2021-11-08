@@ -11,12 +11,12 @@ class FeedbackRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $feedback;
 
     /**
      * @var string
      */
-    public $sessionId;
+    public $instanceId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class FeedbackRequest extends Model
     /**
      * @var string
      */
-    public $feedback;
+    public $sessionId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'sessionId'  => 'SessionId',
-        'messageId'  => 'MessageId',
         'feedback'   => 'Feedback',
+        'instanceId' => 'InstanceId',
+        'messageId'  => 'MessageId',
+        'sessionId'  => 'SessionId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class FeedbackRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->feedback) {
+            $res['Feedback'] = $this->feedback;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->sessionId) {
-            $res['SessionId'] = $this->sessionId;
         }
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
-        if (null !== $this->feedback) {
-            $res['Feedback'] = $this->feedback;
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class FeedbackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Feedback'])) {
+            $model->feedback = $map['Feedback'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['SessionId'])) {
-            $model->sessionId = $map['SessionId'];
         }
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }
-        if (isset($map['Feedback'])) {
-            $model->feedback = $map['Feedback'];
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         return $model;

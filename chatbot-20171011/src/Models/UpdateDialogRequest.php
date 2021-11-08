@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateDialogRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var int
      */
     public $dialogId;
@@ -17,15 +22,10 @@ class UpdateDialogRequest extends Model
      * @var string
      */
     public $dialogName;
-
-    /**
-     * @var string
-     */
-    public $description;
     protected $_name = [
+        'description' => 'Description',
         'dialogId'    => 'DialogId',
         'dialogName'  => 'DialogName',
-        'description' => 'Description',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateDialogRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->dialogId) {
             $res['DialogId'] = $this->dialogId;
         }
         if (null !== $this->dialogName) {
             $res['DialogName'] = $this->dialogName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateDialogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['DialogId'])) {
             $model->dialogId = $map['DialogId'];
         }
         if (isset($map['DialogName'])) {
             $model->dialogName = $map['DialogName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
 
         return $model;

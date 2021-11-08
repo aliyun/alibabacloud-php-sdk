@@ -19,27 +19,17 @@ class knowledge extends Model
     /**
      * @var string
      */
+    public $endDate;
+
+    /**
+     * @var string
+     */
     public $knowledgeTitle;
 
     /**
      * @var int
      */
     public $knowledgeType;
-
-    /**
-     * @var solutions[]
-     */
-    public $solutions;
-
-    /**
-     * @var string
-     */
-    public $startDate;
-
-    /**
-     * @var string
-     */
-    public $endDate;
 
     /**
      * @var outlines[]
@@ -50,15 +40,25 @@ class knowledge extends Model
      * @var simQuestions[]
      */
     public $simQuestions;
+
+    /**
+     * @var solutions[]
+     */
+    public $solutions;
+
+    /**
+     * @var string
+     */
+    public $startDate;
     protected $_name = [
         'categoryId'     => 'CategoryId',
+        'endDate'        => 'EndDate',
         'knowledgeTitle' => 'KnowledgeTitle',
         'knowledgeType'  => 'KnowledgeType',
-        'solutions'      => 'Solutions',
-        'startDate'      => 'StartDate',
-        'endDate'        => 'EndDate',
         'outlines'       => 'Outlines',
         'simQuestions'   => 'SimQuestions',
+        'solutions'      => 'Solutions',
+        'startDate'      => 'StartDate',
     ];
 
     public function validate()
@@ -71,26 +71,14 @@ class knowledge extends Model
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
+        }
         if (null !== $this->knowledgeTitle) {
             $res['KnowledgeTitle'] = $this->knowledgeTitle;
         }
         if (null !== $this->knowledgeType) {
             $res['KnowledgeType'] = $this->knowledgeType;
-        }
-        if (null !== $this->solutions) {
-            $res['Solutions'] = [];
-            if (null !== $this->solutions && \is_array($this->solutions)) {
-                $n = 0;
-                foreach ($this->solutions as $item) {
-                    $res['Solutions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
         }
         if (null !== $this->outlines) {
             $res['Outlines'] = [];
@@ -110,6 +98,18 @@ class knowledge extends Model
                 }
             }
         }
+        if (null !== $this->solutions) {
+            $res['Solutions'] = [];
+            if (null !== $this->solutions && \is_array($this->solutions)) {
+                $n = 0;
+                foreach ($this->solutions as $item) {
+                    $res['Solutions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
+        }
 
         return $res;
     }
@@ -125,26 +125,14 @@ class knowledge extends Model
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
+        }
         if (isset($map['KnowledgeTitle'])) {
             $model->knowledgeTitle = $map['KnowledgeTitle'];
         }
         if (isset($map['KnowledgeType'])) {
             $model->knowledgeType = $map['KnowledgeType'];
-        }
-        if (isset($map['Solutions'])) {
-            if (!empty($map['Solutions'])) {
-                $model->solutions = [];
-                $n                = 0;
-                foreach ($map['Solutions'] as $item) {
-                    $model->solutions[$n++] = null !== $item ? solutions::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
         }
         if (isset($map['Outlines'])) {
             if (!empty($map['Outlines'])) {
@@ -163,6 +151,18 @@ class knowledge extends Model
                     $model->simQuestions[$n++] = null !== $item ? simQuestions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Solutions'])) {
+            if (!empty($map['Solutions'])) {
+                $model->solutions = [];
+                $n                = 0;
+                foreach ($map['Solutions'] as $item) {
+                    $model->solutions[$n++] = null !== $item ? solutions::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class MoveKnowledgeCategoryRequest extends Model
     /**
      * @var int
      */
-    public $knowledgeId;
+    public $categoryId;
 
     /**
      * @var int
      */
-    public $categoryId;
+    public $knowledgeId;
     protected $_name = [
-        'knowledgeId' => 'KnowledgeId',
         'categoryId'  => 'CategoryId',
+        'knowledgeId' => 'KnowledgeId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class MoveKnowledgeCategoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->knowledgeId) {
-            $res['KnowledgeId'] = $this->knowledgeId;
-        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
+        }
+        if (null !== $this->knowledgeId) {
+            $res['KnowledgeId'] = $this->knowledgeId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class MoveKnowledgeCategoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KnowledgeId'])) {
-            $model->knowledgeId = $map['KnowledgeId'];
-        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
+        }
+        if (isset($map['KnowledgeId'])) {
+            $model->knowledgeId = $map['KnowledgeId'];
         }
 
         return $model;

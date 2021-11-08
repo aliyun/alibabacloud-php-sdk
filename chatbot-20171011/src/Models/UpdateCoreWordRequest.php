@@ -11,15 +11,15 @@ class UpdateCoreWordRequest extends Model
     /**
      * @var string
      */
-    public $coreWordName;
+    public $coreWordCode;
 
     /**
      * @var string
      */
-    public $coreWordCode;
+    public $coreWordName;
     protected $_name = [
-        'coreWordName' => 'CoreWordName',
         'coreWordCode' => 'CoreWordCode',
+        'coreWordName' => 'CoreWordName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateCoreWordRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->coreWordName) {
-            $res['CoreWordName'] = $this->coreWordName;
-        }
         if (null !== $this->coreWordCode) {
             $res['CoreWordCode'] = $this->coreWordCode;
+        }
+        if (null !== $this->coreWordName) {
+            $res['CoreWordName'] = $this->coreWordName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateCoreWordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CoreWordName'])) {
-            $model->coreWordName = $map['CoreWordName'];
-        }
         if (isset($map['CoreWordCode'])) {
             $model->coreWordCode = $map['CoreWordCode'];
+        }
+        if (isset($map['CoreWordName'])) {
+            $model->coreWordName = $map['CoreWordName'];
         }
 
         return $model;

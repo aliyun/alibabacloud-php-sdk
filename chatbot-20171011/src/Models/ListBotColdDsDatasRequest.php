@@ -11,12 +11,12 @@ class ListBotColdDsDatasRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $endTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $endTime;
+    public $limit;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class ListBotColdDsDatasRequest extends Model
     public $robotInstanceId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $limit;
+    public $startTime;
     protected $_name = [
-        'startTime'       => 'StartTime',
         'endTime'         => 'EndTime',
-        'robotInstanceId' => 'RobotInstanceId',
         'limit'           => 'Limit',
+        'robotInstanceId' => 'RobotInstanceId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListBotColdDsDatasRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
         }
         if (null !== $this->robotInstanceId) {
             $res['RobotInstanceId'] = $this->robotInstanceId;
         }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListBotColdDsDatasRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
         }
         if (isset($map['RobotInstanceId'])) {
             $model->robotInstanceId = $map['RobotInstanceId'];
         }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

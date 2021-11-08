@@ -12,27 +12,7 @@ class DescribeBotResponseBody extends Model
     /**
      * @var string
      */
-    public $languageCode;
-
-    /**
-     * @var string
-     */
-    public $timeZone;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $introduction;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $avatar;
 
     /**
      * @var categories[]
@@ -47,7 +27,17 @@ class DescribeBotResponseBody extends Model
     /**
      * @var string
      */
-    public $avatar;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $introduction;
+
+    /**
+     * @var string
+     */
+    public $languageCode;
 
     /**
      * @var string
@@ -58,17 +48,27 @@ class DescribeBotResponseBody extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $timeZone;
     protected $_name = [
-        'languageCode' => 'LanguageCode',
-        'timeZone'     => 'TimeZone',
-        'requestId'    => 'RequestId',
-        'introduction' => 'Introduction',
-        'instanceId'   => 'InstanceId',
+        'avatar'       => 'Avatar',
         'categories'   => 'Categories',
         'createTime'   => 'CreateTime',
-        'avatar'       => 'Avatar',
+        'instanceId'   => 'InstanceId',
+        'introduction' => 'Introduction',
+        'languageCode' => 'LanguageCode',
         'logo'         => 'Logo',
         'name'         => 'Name',
+        'requestId'    => 'RequestId',
+        'timeZone'     => 'TimeZone',
     ];
 
     public function validate()
@@ -78,20 +78,8 @@ class DescribeBotResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->languageCode) {
-            $res['LanguageCode'] = $this->languageCode;
-        }
-        if (null !== $this->timeZone) {
-            $res['TimeZone'] = $this->timeZone;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->introduction) {
-            $res['Introduction'] = $this->introduction;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->avatar) {
+            $res['Avatar'] = $this->avatar;
         }
         if (null !== $this->categories) {
             $res['Categories'] = [];
@@ -105,14 +93,26 @@ class DescribeBotResponseBody extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->avatar) {
-            $res['Avatar'] = $this->avatar;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->introduction) {
+            $res['Introduction'] = $this->introduction;
+        }
+        if (null !== $this->languageCode) {
+            $res['LanguageCode'] = $this->languageCode;
         }
         if (null !== $this->logo) {
             $res['Logo'] = $this->logo;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->timeZone) {
+            $res['TimeZone'] = $this->timeZone;
         }
 
         return $res;
@@ -126,20 +126,8 @@ class DescribeBotResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LanguageCode'])) {
-            $model->languageCode = $map['LanguageCode'];
-        }
-        if (isset($map['TimeZone'])) {
-            $model->timeZone = $map['TimeZone'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Introduction'])) {
-            $model->introduction = $map['Introduction'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Avatar'])) {
+            $model->avatar = $map['Avatar'];
         }
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
@@ -153,14 +141,26 @@ class DescribeBotResponseBody extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['Avatar'])) {
-            $model->avatar = $map['Avatar'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Introduction'])) {
+            $model->introduction = $map['Introduction'];
+        }
+        if (isset($map['LanguageCode'])) {
+            $model->languageCode = $map['LanguageCode'];
         }
         if (isset($map['Logo'])) {
             $model->logo = $map['Logo'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
 
         return $model;

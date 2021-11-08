@@ -16,16 +16,16 @@ class RemoveEntityMemberShrinkRequest extends Model
     /**
      * @var string
      */
-    public $removeType;
+    public $memberShrink;
 
     /**
      * @var string
      */
-    public $memberShrink;
+    public $removeType;
     protected $_name = [
         'entityId'     => 'EntityId',
-        'removeType'   => 'RemoveType',
         'memberShrink' => 'Member',
+        'removeType'   => 'RemoveType',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class RemoveEntityMemberShrinkRequest extends Model
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
-        if (null !== $this->removeType) {
-            $res['RemoveType'] = $this->removeType;
-        }
         if (null !== $this->memberShrink) {
             $res['Member'] = $this->memberShrink;
+        }
+        if (null !== $this->removeType) {
+            $res['RemoveType'] = $this->removeType;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class RemoveEntityMemberShrinkRequest extends Model
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
-        if (isset($map['RemoveType'])) {
-            $model->removeType = $map['RemoveType'];
-        }
         if (isset($map['Member'])) {
             $model->memberShrink = $map['Member'];
+        }
+        if (isset($map['RemoveType'])) {
+            $model->removeType = $map['RemoveType'];
         }
 
         return $model;

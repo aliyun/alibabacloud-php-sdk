@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PaasResponseNodeContentDTO extends Model
 {
     /**
-     * @description Type
+     * @description ButtonList
      *
-     * @var string
+     * @var PaasButtonListDTO
      */
-    public $type;
-
-    /**
-     * @description Text
-     *
-     * @var string
-     */
-    public $text;
+    public $buttonList;
 
     /**
      * @description Image
@@ -30,16 +23,23 @@ class PaasResponseNodeContentDTO extends Model
     public $image;
 
     /**
-     * @description ButtonList
+     * @description Text
      *
-     * @var PaasButtonListDTO
+     * @var string
      */
-    public $buttonList;
+    public $text;
+
+    /**
+     * @description Type
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'       => 'Type',
-        'text'       => 'Text',
-        'image'      => 'Image',
         'buttonList' => 'ButtonList',
+        'image'      => 'Image',
+        'text'       => 'Text',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class PaasResponseNodeContentDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
+        if (null !== $this->buttonList) {
+            $res['ButtonList'] = null !== $this->buttonList ? $this->buttonList->toMap() : null;
         }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
-        if (null !== $this->buttonList) {
-            $res['ButtonList'] = null !== $this->buttonList ? $this->buttonList->toMap() : null;
+        if (null !== $this->text) {
+            $res['Text'] = $this->text;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class PaasResponseNodeContentDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
+        if (isset($map['ButtonList'])) {
+            $model->buttonList = PaasButtonListDTO::fromMap($map['ButtonList']);
         }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
-        if (isset($map['ButtonList'])) {
-            $model->buttonList = PaasButtonListDTO::fromMap($map['ButtonList']);
+        if (isset($map['Text'])) {
+            $model->text = $map['Text'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

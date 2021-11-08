@@ -194,36 +194,31 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateEntityRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @param ActivatePerspectiveRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return CreateEntityResponse
+     * @return ActivatePerspectiveResponse
      */
-    public function createEntityWithOptions($tmpReq, $runtime)
+    public function activatePerspectiveWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new CreateEntityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->members)) {
-            $request->membersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->members, 'Members', 'json');
-        }
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return CreateEntityResponse::fromMap($this->doRPCRequest('CreateEntity', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ActivatePerspectiveResponse::fromMap($this->doRPCRequest('ActivatePerspective', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateEntityRequest $request
+     * @param ActivatePerspectiveRequest $request
      *
-     * @return CreateEntityResponse
+     * @return ActivatePerspectiveResponse
      */
-    public function createEntity($request)
+    public function activatePerspective($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createEntityWithOptions($request, $runtime);
+        return $this->activatePerspectiveWithOptions($request, $runtime);
     }
 
     /**
@@ -252,174 +247,6 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addSynonymWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteCategoryRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteCategoryResponse
-     */
-    public function deleteCategoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteCategoryResponse::fromMap($this->doRPCRequest('DeleteCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteCategoryRequest $request
-     *
-     * @return DeleteCategoryResponse
-     */
-    public function deleteCategory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteCategoryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PublishKnowledgeRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return PublishKnowledgeResponse
-     */
-    public function publishKnowledgeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PublishKnowledgeResponse::fromMap($this->doRPCRequest('PublishKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PublishKnowledgeRequest $request
-     *
-     * @return PublishKnowledgeResponse
-     */
-    public function publishKnowledge($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->publishKnowledgeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListBotKnowledgeDetailsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListBotKnowledgeDetailsResponse
-     */
-    public function listBotKnowledgeDetailsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListBotKnowledgeDetailsResponse::fromMap($this->doRPCRequest('ListBotKnowledgeDetails', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListBotKnowledgeDetailsRequest $request
-     *
-     * @return ListBotKnowledgeDetailsResponse
-     */
-    public function listBotKnowledgeDetails($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listBotKnowledgeDetailsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryIntentsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return QueryIntentsResponse
-     */
-    public function queryIntentsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryIntentsResponse::fromMap($this->doRPCRequest('QueryIntents', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryIntentsRequest $request
-     *
-     * @return QueryIntentsResponse
-     */
-    public function queryIntents($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryIntentsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeCategoryRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeCategoryResponse
-     */
-    public function describeCategoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeCategoryResponse::fromMap($this->doRPCRequest('DescribeCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCategoryRequest $request
-     *
-     * @return DescribeCategoryResponse
-     */
-    public function describeCategory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCategoryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListBotReceptionDetailDatasRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ListBotReceptionDetailDatasResponse
-     */
-    public function listBotReceptionDetailDatasWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListBotReceptionDetailDatasResponse::fromMap($this->doRPCRequest('ListBotReceptionDetailDatas', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListBotReceptionDetailDatasRequest $request
-     *
-     * @return ListBotReceptionDetailDatasResponse
-     */
-    public function listBotReceptionDetailDatas($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listBotReceptionDetailDatasWithOptions($request, $runtime);
     }
 
     /**
@@ -456,115 +283,59 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeBotRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param AssociateRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return DescribeBotResponse
+     * @return AssociateResponse
      */
-    public function describeBotWithOptions($request, $runtime)
+    public function associateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeBotResponse::fromMap($this->doRPCRequest('DescribeBot', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssociateResponse::fromMap($this->doRPCRequest('Associate', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeBotRequest $request
+     * @param AssociateRequest $request
      *
-     * @return DescribeBotResponse
+     * @return AssociateResponse
      */
-    public function describeBot($request)
+    public function associate($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeBotWithOptions($request, $runtime);
+        return $this->associateWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListBotColdDsDatasRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ChatRequest    $request
+     * @param RuntimeOptions $runtime
      *
-     * @return ListBotColdDsDatasResponse
+     * @return ChatResponse
      */
-    public function listBotColdDsDatasWithOptions($request, $runtime)
+    public function chatWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListBotColdDsDatasResponse::fromMap($this->doRPCRequest('ListBotColdDsDatas', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ChatResponse::fromMap($this->doRPCRequest('Chat', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListBotColdDsDatasRequest $request
+     * @param ChatRequest $request
      *
-     * @return ListBotColdDsDatasResponse
+     * @return ChatResponse
      */
-    public function listBotColdDsDatas($request)
+    public function chat($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listBotColdDsDatasWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribePerspectiveRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribePerspectiveResponse
-     */
-    public function describePerspectiveWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribePerspectiveResponse::fromMap($this->doRPCRequest('DescribePerspective', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribePerspectiveRequest $request
-     *
-     * @return DescribePerspectiveResponse
-     */
-    public function describePerspective($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePerspectiveWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateDialogRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UpdateDialogResponse
-     */
-    public function updateDialogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateDialogResponse::fromMap($this->doRPCRequest('UpdateDialog', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateDialogRequest $request
-     *
-     * @return UpdateDialogResponse
-     */
-    public function updateDialog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDialogWithOptions($request, $runtime);
+        return $this->chatWithOptions($request, $runtime);
     }
 
     /**
@@ -596,59 +367,59 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeIntentRequest $request
+     * @param CreateCategoryRequest $request
      * @param RuntimeOptions        $runtime
      *
-     * @return DescribeIntentResponse
+     * @return CreateCategoryResponse
      */
-    public function describeIntentWithOptions($request, $runtime)
+    public function createCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeIntentResponse::fromMap($this->doRPCRequest('DescribeIntent', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCategoryResponse::fromMap($this->doRPCRequest('CreateCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeIntentRequest $request
+     * @param CreateCategoryRequest $request
      *
-     * @return DescribeIntentResponse
+     * @return CreateCategoryResponse
      */
-    public function describeIntent($request)
+    public function createCategory($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeIntentWithOptions($request, $runtime);
+        return $this->createCategoryWithOptions($request, $runtime);
     }
 
     /**
-     * @param QueryDialogsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param CreateCoreWordRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return QueryDialogsResponse
+     * @return CreateCoreWordResponse
      */
-    public function queryDialogsWithOptions($request, $runtime)
+    public function createCoreWordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return QueryDialogsResponse::fromMap($this->doRPCRequest('QueryDialogs', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCoreWordResponse::fromMap($this->doRPCRequest('CreateCoreWord', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param QueryDialogsRequest $request
+     * @param CreateCoreWordRequest $request
      *
-     * @return QueryDialogsResponse
+     * @return CreateCoreWordResponse
      */
-    public function queryDialogs($request)
+    public function createCoreWord($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->queryDialogsWithOptions($request, $runtime);
+        return $this->createCoreWordWithOptions($request, $runtime);
     }
 
     /**
@@ -680,127 +451,15 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param QueryCoreWordsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return QueryCoreWordsResponse
-     */
-    public function queryCoreWordsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryCoreWordsResponse::fromMap($this->doRPCRequest('QueryCoreWords', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryCoreWordsRequest $request
-     *
-     * @return QueryCoreWordsResponse
-     */
-    public function queryCoreWords($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryCoreWordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateCoreWordRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateCoreWordResponse
-     */
-    public function updateCoreWordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateCoreWordResponse::fromMap($this->doRPCRequest('UpdateCoreWord', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateCoreWordRequest $request
-     *
-     * @return UpdateCoreWordResponse
-     */
-    public function updateCoreWord($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateCoreWordWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateCategoryRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateCategoryResponse
-     */
-    public function updateCategoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateCategoryResponse::fromMap($this->doRPCRequest('UpdateCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateCategoryRequest $request
-     *
-     * @return UpdateCategoryResponse
-     */
-    public function updateCategory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateCategoryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetConversationListRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetConversationListResponse
-     */
-    public function getConversationListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetConversationListResponse::fromMap($this->doRPCRequest('GetConversationList', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetConversationListRequest $request
-     *
-     * @return GetConversationListResponse
-     */
-    public function getConversationList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getConversationListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateEntityRequest $tmpReq
+     * @param CreateEntityRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
-     * @return UpdateEntityResponse
+     * @return CreateEntityResponse
      */
-    public function updateEntityWithOptions($tmpReq, $runtime)
+    public function createEntityWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new UpdateEntityShrinkRequest([]);
+        $request = new CreateEntityShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->members)) {
             $request->membersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->members, 'Members', 'json');
@@ -809,75 +468,19 @@ class Chatbot extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateEntityResponse::fromMap($this->doRPCRequest('UpdateEntity', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEntityResponse::fromMap($this->doRPCRequest('CreateEntity', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateEntityRequest $request
+     * @param CreateEntityRequest $request
      *
-     * @return UpdateEntityResponse
+     * @return CreateEntityResponse
      */
-    public function updateEntity($request)
+    public function createEntity($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateEntityWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteCoreWordRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteCoreWordResponse
-     */
-    public function deleteCoreWordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteCoreWordResponse::fromMap($this->doRPCRequest('DeleteCoreWord', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteCoreWordRequest $request
-     *
-     * @return DeleteCoreWordResponse
-     */
-    public function deleteCoreWord($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteCoreWordWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param MoveKnowledgeCategoryRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return MoveKnowledgeCategoryResponse
-     */
-    public function moveKnowledgeCategoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return MoveKnowledgeCategoryResponse::fromMap($this->doRPCRequest('MoveKnowledgeCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param MoveKnowledgeCategoryRequest $request
-     *
-     * @return MoveKnowledgeCategoryResponse
-     */
-    public function moveKnowledgeCategory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->moveKnowledgeCategoryWithOptions($request, $runtime);
+        return $this->createEntityWithOptions($request, $runtime);
     }
 
     /**
@@ -914,338 +517,36 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdatePerspectiveRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdatePerspectiveResponse
-     */
-    public function updatePerspectiveWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdatePerspectiveResponse::fromMap($this->doRPCRequest('UpdatePerspective', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdatePerspectiveRequest $request
-     *
-     * @return UpdatePerspectiveResponse
-     */
-    public function updatePerspective($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updatePerspectiveWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryCategoriesRequest $request
+     * @param CreateKnowledgeRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
-     * @return QueryCategoriesResponse
+     * @return CreateKnowledgeResponse
      */
-    public function queryCategoriesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryCategoriesResponse::fromMap($this->doRPCRequest('QueryCategories', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryCategoriesRequest $request
-     *
-     * @return QueryCategoriesResponse
-     */
-    public function queryCategories($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryCategoriesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteDialogRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteDialogResponse
-     */
-    public function deleteDialogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteDialogResponse::fromMap($this->doRPCRequest('DeleteDialog', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteDialogRequest $request
-     *
-     * @return DeleteDialogResponse
-     */
-    public function deleteDialog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteDialogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryKnowledgesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return QueryKnowledgesResponse
-     */
-    public function queryKnowledgesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryKnowledgesResponse::fromMap($this->doRPCRequest('QueryKnowledges', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryKnowledgesRequest $request
-     *
-     * @return QueryKnowledgesResponse
-     */
-    public function queryKnowledges($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryKnowledgesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAsyncResultRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetAsyncResultResponse
-     */
-    public function getAsyncResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetAsyncResultResponse::fromMap($this->doRPCRequest('GetAsyncResult', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAsyncResultRequest $request
-     *
-     * @return GetAsyncResultResponse
-     */
-    public function getAsyncResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAsyncResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDialogRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeDialogResponse
-     */
-    public function describeDialogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDialogResponse::fromMap($this->doRPCRequest('DescribeDialog', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDialogRequest $request
-     *
-     * @return DescribeDialogResponse
-     */
-    public function describeDialog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDialogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateIntentRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UpdateIntentResponse
-     */
-    public function updateIntentWithOptions($tmpReq, $runtime)
+    public function createKnowledgeWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new UpdateIntentShrinkRequest([]);
+        $request = new CreateKnowledgeShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->intentDefinition)) {
-            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->intentDefinition), 'IntentDefinition', 'json');
+        if (!Utils::isUnset($tmpReq->knowledge)) {
+            $request->knowledgeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->knowledge), 'Knowledge', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateIntentResponse::fromMap($this->doRPCRequest('UpdateIntent', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateKnowledgeResponse::fromMap($this->doRPCRequest('CreateKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateIntentRequest $request
+     * @param CreateKnowledgeRequest $request
      *
-     * @return UpdateIntentResponse
+     * @return CreateKnowledgeResponse
      */
-    public function updateIntent($request)
+    public function createKnowledge($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateIntentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveSynonymRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RemoveSynonymResponse
-     */
-    public function removeSynonymWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveSynonymResponse::fromMap($this->doRPCRequest('RemoveSynonym', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveSynonymRequest $request
-     *
-     * @return RemoveSynonymResponse
-     */
-    public function removeSynonym($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeSynonymWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDialogFlowRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeDialogFlowResponse
-     */
-    public function describeDialogFlowWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDialogFlowResponse::fromMap($this->doRPCRequest('DescribeDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDialogFlowRequest $request
-     *
-     * @return DescribeDialogFlowResponse
-     */
-    public function describeDialogFlow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDialogFlowWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ActivatePerspectiveRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ActivatePerspectiveResponse
-     */
-    public function activatePerspectiveWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ActivatePerspectiveResponse::fromMap($this->doRPCRequest('ActivatePerspective', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ActivatePerspectiveRequest $request
-     *
-     * @return ActivatePerspectiveResponse
-     */
-    public function activatePerspective($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->activatePerspectiveWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeKnowledgeRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeKnowledgeResponse
-     */
-    public function describeKnowledgeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeKnowledgeResponse::fromMap($this->doRPCRequest('DescribeKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeKnowledgeRequest $request
-     *
-     * @return DescribeKnowledgeResponse
-     */
-    public function describeKnowledge($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeKnowledgeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return QueryPerspectivesResponse
-     */
-    public function queryPerspectivesWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return QueryPerspectivesResponse::fromMap($this->doRPCRequest('QueryPerspectives', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return QueryPerspectivesResponse
-     */
-    public function queryPerspectives()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryPerspectivesWithOptions($runtime);
+        return $this->createKnowledgeWithOptions($request, $runtime);
     }
 
     /**
@@ -1277,6 +578,118 @@ class Chatbot extends OpenApiClient
     }
 
     /**
+     * @param DeleteBotRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteBotResponse
+     */
+    public function deleteBotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteBotResponse::fromMap($this->doRPCRequest('DeleteBot', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBotRequest $request
+     *
+     * @return DeleteBotResponse
+     */
+    public function deleteBot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCategoryRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteCategoryResponse
+     */
+    public function deleteCategoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteCategoryResponse::fromMap($this->doRPCRequest('DeleteCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCategoryRequest $request
+     *
+     * @return DeleteCategoryResponse
+     */
+    public function deleteCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCoreWordRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteCoreWordResponse
+     */
+    public function deleteCoreWordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteCoreWordResponse::fromMap($this->doRPCRequest('DeleteCoreWord', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCoreWordRequest $request
+     *
+     * @return DeleteCoreWordResponse
+     */
+    public function deleteCoreWord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCoreWordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDialogRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteDialogResponse
+     */
+    public function deleteDialogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDialogResponse::fromMap($this->doRPCRequest('DeleteDialog', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDialogRequest $request
+     *
+     * @return DeleteDialogResponse
+     */
+    public function deleteDialog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDialogWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteEntityRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1302,301 +715,6 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEntityWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveEntityMemberRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return RemoveEntityMemberResponse
-     */
-    public function removeEntityMemberWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RemoveEntityMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->member)) {
-            $request->memberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->member), 'Member', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveEntityMemberResponse::fromMap($this->doRPCRequest('RemoveEntityMember', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveEntityMemberRequest $request
-     *
-     * @return RemoveEntityMemberResponse
-     */
-    public function removeEntityMember($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeEntityMemberWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TestDialogFlowRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return TestDialogFlowResponse
-     */
-    public function testDialogFlowWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return TestDialogFlowResponse::fromMap($this->doRPCRequest('TestDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param TestDialogFlowRequest $request
-     *
-     * @return TestDialogFlowResponse
-     */
-    public function testDialogFlow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->testDialogFlowWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetBotDsStatDataRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetBotDsStatDataResponse
-     */
-    public function getBotDsStatDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetBotDsStatDataResponse::fromMap($this->doRPCRequest('GetBotDsStatData', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetBotDsStatDataRequest $request
-     *
-     * @return GetBotDsStatDataResponse
-     */
-    public function getBotDsStatData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getBotDsStatDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FeedbackRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return FeedbackResponse
-     */
-    public function feedbackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return FeedbackResponse::fromMap($this->doRPCRequest('Feedback', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param FeedbackRequest $request
-     *
-     * @return FeedbackResponse
-     */
-    public function feedback($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->feedbackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ChatRequest    $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return ChatResponse
-     */
-    public function chatWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ChatResponse::fromMap($this->doRPCRequest('Chat', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ChatRequest $request
-     *
-     * @return ChatResponse
-     */
-    public function chat($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->chatWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DisableKnowledgeRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DisableKnowledgeResponse
-     */
-    public function disableKnowledgeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DisableKnowledgeResponse::fromMap($this->doRPCRequest('DisableKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DisableKnowledgeRequest $request
-     *
-     * @return DisableKnowledgeResponse
-     */
-    public function disableKnowledge($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->disableKnowledgeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListBotHotDsDatasRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListBotHotDsDatasResponse
-     */
-    public function listBotHotDsDatasWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListBotHotDsDatasResponse::fromMap($this->doRPCRequest('ListBotHotDsDatas', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListBotHotDsDatasRequest $request
-     *
-     * @return ListBotHotDsDatasResponse
-     */
-    public function listBotHotDsDatas($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listBotHotDsDatasWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetBotKnowledgeStatDataRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetBotKnowledgeStatDataResponse
-     */
-    public function getBotKnowledgeStatDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetBotKnowledgeStatDataResponse::fromMap($this->doRPCRequest('GetBotKnowledgeStatData', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetBotKnowledgeStatDataRequest $request
-     *
-     * @return GetBotKnowledgeStatDataResponse
-     */
-    public function getBotKnowledgeStatData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getBotKnowledgeStatDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateKnowledgeRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateKnowledgeResponse
-     */
-    public function updateKnowledgeWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateKnowledgeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->knowledge)) {
-            $request->knowledgeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->knowledge), 'Knowledge', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateKnowledgeResponse::fromMap($this->doRPCRequest('UpdateKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateKnowledgeRequest $request
-     *
-     * @return UpdateKnowledgeResponse
-     */
-    public function updateKnowledge($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateKnowledgeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateKnowledgeRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateKnowledgeResponse
-     */
-    public function createKnowledgeWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateKnowledgeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->knowledge)) {
-            $request->knowledgeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->knowledge), 'Knowledge', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateKnowledgeResponse::fromMap($this->doRPCRequest('CreateKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateKnowledgeRequest $request
-     *
-     * @return CreateKnowledgeResponse
-     */
-    public function createKnowledge($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createKnowledgeWithOptions($request, $runtime);
     }
 
     /**
@@ -1656,283 +774,59 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListBotChatHistorysRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeBotRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return ListBotChatHistorysResponse
+     * @return DescribeBotResponse
      */
-    public function listBotChatHistorysWithOptions($request, $runtime)
+    public function describeBotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListBotChatHistorysResponse::fromMap($this->doRPCRequest('ListBotChatHistorys', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBotResponse::fromMap($this->doRPCRequest('DescribeBot', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListBotChatHistorysRequest $request
+     * @param DescribeBotRequest $request
      *
-     * @return ListBotChatHistorysResponse
+     * @return DescribeBotResponse
      */
-    public function listBotChatHistorys($request)
+    public function describeBot($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listBotChatHistorysWithOptions($request, $runtime);
+        return $this->describeBotWithOptions($request, $runtime);
     }
 
     /**
-     * @param DisableDialogFlowRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeCategoryRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return DisableDialogFlowResponse
+     * @return DescribeCategoryResponse
      */
-    public function disableDialogFlowWithOptions($request, $runtime)
+    public function describeCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DisableDialogFlowResponse::fromMap($this->doRPCRequest('DisableDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCategoryResponse::fromMap($this->doRPCRequest('DescribeCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DisableDialogFlowRequest $request
+     * @param DescribeCategoryRequest $request
      *
-     * @return DisableDialogFlowResponse
+     * @return DescribeCategoryResponse
      */
-    public function disableDialogFlow($request)
+    public function describeCategory($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->disableDialogFlowWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryBotsRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return QueryBotsResponse
-     */
-    public function queryBotsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryBotsResponse::fromMap($this->doRPCRequest('QueryBots', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryBotsRequest $request
-     *
-     * @return QueryBotsResponse
-     */
-    public function queryBots($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryBotsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PublishDialogFlowRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return PublishDialogFlowResponse
-     */
-    public function publishDialogFlowWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PublishDialogFlowResponse::fromMap($this->doRPCRequest('PublishDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PublishDialogFlowRequest $request
-     *
-     * @return PublishDialogFlowResponse
-     */
-    public function publishDialogFlow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->publishDialogFlowWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListBotColdKnowledgesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListBotColdKnowledgesResponse
-     */
-    public function listBotColdKnowledgesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListBotColdKnowledgesResponse::fromMap($this->doRPCRequest('ListBotColdKnowledges', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListBotColdKnowledgesRequest $request
-     *
-     * @return ListBotColdKnowledgesResponse
-     */
-    public function listBotColdKnowledges($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listBotColdKnowledgesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateCoreWordRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateCoreWordResponse
-     */
-    public function createCoreWordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateCoreWordResponse::fromMap($this->doRPCRequest('CreateCoreWord', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateCoreWordRequest $request
-     *
-     * @return CreateCoreWordResponse
-     */
-    public function createCoreWord($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createCoreWordWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteBotRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return DeleteBotResponse
-     */
-    public function deleteBotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteBotResponse::fromMap($this->doRPCRequest('DeleteBot', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteBotRequest $request
-     *
-     * @return DeleteBotResponse
-     */
-    public function deleteBot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteBotWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QuerySystemEntitiesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return QuerySystemEntitiesResponse
-     */
-    public function querySystemEntitiesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QuerySystemEntitiesResponse::fromMap($this->doRPCRequest('QuerySystemEntities', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QuerySystemEntitiesRequest $request
-     *
-     * @return QuerySystemEntitiesResponse
-     */
-    public function querySystemEntities($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->querySystemEntitiesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListConversationLogsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListConversationLogsResponse
-     */
-    public function listConversationLogsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListConversationLogsResponse::fromMap($this->doRPCRequest('ListConversationLogs', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListConversationLogsRequest $request
-     *
-     * @return ListConversationLogsResponse
-     */
-    public function listConversationLogs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listConversationLogsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetBotChatDataRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetBotChatDataResponse
-     */
-    public function getBotChatDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetBotChatDataResponse::fromMap($this->doRPCRequest('GetBotChatData', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetBotChatDataRequest $request
-     *
-     * @return GetBotChatDataResponse
-     */
-    public function getBotChatData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getBotChatDataWithOptions($request, $runtime);
+        return $this->describeCategoryWithOptions($request, $runtime);
     }
 
     /**
@@ -1964,6 +858,370 @@ class Chatbot extends OpenApiClient
     }
 
     /**
+     * @param DescribeDialogRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeDialogResponse
+     */
+    public function describeDialogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDialogResponse::fromMap($this->doRPCRequest('DescribeDialog', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDialogRequest $request
+     *
+     * @return DescribeDialogResponse
+     */
+    public function describeDialog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDialogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDialogFlowRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDialogFlowResponse
+     */
+    public function describeDialogFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDialogFlowResponse::fromMap($this->doRPCRequest('DescribeDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDialogFlowRequest $request
+     *
+     * @return DescribeDialogFlowResponse
+     */
+    public function describeDialogFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDialogFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEntitiesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeEntitiesResponse
+     */
+    public function describeEntitiesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeEntitiesResponse::fromMap($this->doRPCRequest('DescribeEntities', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEntitiesRequest $request
+     *
+     * @return DescribeEntitiesResponse
+     */
+    public function describeEntities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeIntentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeIntentResponse
+     */
+    public function describeIntentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeIntentResponse::fromMap($this->doRPCRequest('DescribeIntent', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeIntentRequest $request
+     *
+     * @return DescribeIntentResponse
+     */
+    public function describeIntent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIntentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeKnowledgeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeKnowledgeResponse
+     */
+    public function describeKnowledgeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeKnowledgeResponse::fromMap($this->doRPCRequest('DescribeKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeKnowledgeRequest $request
+     *
+     * @return DescribeKnowledgeResponse
+     */
+    public function describeKnowledge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKnowledgeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePerspectiveRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribePerspectiveResponse
+     */
+    public function describePerspectiveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePerspectiveResponse::fromMap($this->doRPCRequest('DescribePerspective', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePerspectiveRequest $request
+     *
+     * @return DescribePerspectiveResponse
+     */
+    public function describePerspective($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePerspectiveWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DisableDialogFlowRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DisableDialogFlowResponse
+     */
+    public function disableDialogFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DisableDialogFlowResponse::fromMap($this->doRPCRequest('DisableDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DisableDialogFlowRequest $request
+     *
+     * @return DisableDialogFlowResponse
+     */
+    public function disableDialogFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDialogFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DisableKnowledgeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DisableKnowledgeResponse
+     */
+    public function disableKnowledgeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DisableKnowledgeResponse::fromMap($this->doRPCRequest('DisableKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DisableKnowledgeRequest $request
+     *
+     * @return DisableKnowledgeResponse
+     */
+    public function disableKnowledge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableKnowledgeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FeedbackRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return FeedbackResponse
+     */
+    public function feedbackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return FeedbackResponse::fromMap($this->doRPCRequest('Feedback', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param FeedbackRequest $request
+     *
+     * @return FeedbackResponse
+     */
+    public function feedback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->feedbackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAsyncResultRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAsyncResultResponse
+     */
+    public function getAsyncResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetAsyncResultResponse::fromMap($this->doRPCRequest('GetAsyncResult', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAsyncResultRequest $request
+     *
+     * @return GetAsyncResultResponse
+     */
+    public function getAsyncResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAsyncResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBotChatDataRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetBotChatDataResponse
+     */
+    public function getBotChatDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetBotChatDataResponse::fromMap($this->doRPCRequest('GetBotChatData', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetBotChatDataRequest $request
+     *
+     * @return GetBotChatDataResponse
+     */
+    public function getBotChatData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBotChatDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBotDsStatDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetBotDsStatDataResponse
+     */
+    public function getBotDsStatDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetBotDsStatDataResponse::fromMap($this->doRPCRequest('GetBotDsStatData', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetBotDsStatDataRequest $request
+     *
+     * @return GetBotDsStatDataResponse
+     */
+    public function getBotDsStatData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBotDsStatDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBotKnowledgeStatDataRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetBotKnowledgeStatDataResponse
+     */
+    public function getBotKnowledgeStatDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetBotKnowledgeStatDataResponse::fromMap($this->doRPCRequest('GetBotKnowledgeStatData', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetBotKnowledgeStatDataRequest $request
+     *
+     * @return GetBotKnowledgeStatDataResponse
+     */
+    public function getBotKnowledgeStatData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBotKnowledgeStatDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetBotSessionDataRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1989,6 +1247,174 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBotSessionDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetConversationListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetConversationListResponse
+     */
+    public function getConversationListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetConversationListResponse::fromMap($this->doRPCRequest('GetConversationList', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetConversationListRequest $request
+     *
+     * @return GetConversationListResponse
+     */
+    public function getConversationList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConversationListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBotChatHistorysRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListBotChatHistorysResponse
+     */
+    public function listBotChatHistorysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBotChatHistorysResponse::fromMap($this->doRPCRequest('ListBotChatHistorys', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBotChatHistorysRequest $request
+     *
+     * @return ListBotChatHistorysResponse
+     */
+    public function listBotChatHistorys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBotChatHistorysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBotColdDsDatasRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListBotColdDsDatasResponse
+     */
+    public function listBotColdDsDatasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBotColdDsDatasResponse::fromMap($this->doRPCRequest('ListBotColdDsDatas', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBotColdDsDatasRequest $request
+     *
+     * @return ListBotColdDsDatasResponse
+     */
+    public function listBotColdDsDatas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBotColdDsDatasWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBotColdKnowledgesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListBotColdKnowledgesResponse
+     */
+    public function listBotColdKnowledgesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBotColdKnowledgesResponse::fromMap($this->doRPCRequest('ListBotColdKnowledges', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBotColdKnowledgesRequest $request
+     *
+     * @return ListBotColdKnowledgesResponse
+     */
+    public function listBotColdKnowledges($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBotColdKnowledgesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBotDsDetailsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListBotDsDetailsResponse
+     */
+    public function listBotDsDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBotDsDetailsResponse::fromMap($this->doRPCRequest('ListBotDsDetails', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBotDsDetailsRequest $request
+     *
+     * @return ListBotDsDetailsResponse
+     */
+    public function listBotDsDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBotDsDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBotHotDsDatasRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListBotHotDsDatasResponse
+     */
+    public function listBotHotDsDatasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBotHotDsDatasResponse::fromMap($this->doRPCRequest('ListBotHotDsDatas', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBotHotDsDatasRequest $request
+     *
+     * @return ListBotHotDsDatasResponse
+     */
+    public function listBotHotDsDatas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBotHotDsDatasWithOptions($request, $runtime);
     }
 
     /**
@@ -2020,6 +1446,286 @@ class Chatbot extends OpenApiClient
     }
 
     /**
+     * @param ListBotKnowledgeDetailsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListBotKnowledgeDetailsResponse
+     */
+    public function listBotKnowledgeDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBotKnowledgeDetailsResponse::fromMap($this->doRPCRequest('ListBotKnowledgeDetails', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBotKnowledgeDetailsRequest $request
+     *
+     * @return ListBotKnowledgeDetailsResponse
+     */
+    public function listBotKnowledgeDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBotKnowledgeDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBotReceptionDetailDatasRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListBotReceptionDetailDatasResponse
+     */
+    public function listBotReceptionDetailDatasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBotReceptionDetailDatasResponse::fromMap($this->doRPCRequest('ListBotReceptionDetailDatas', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBotReceptionDetailDatasRequest $request
+     *
+     * @return ListBotReceptionDetailDatasResponse
+     */
+    public function listBotReceptionDetailDatas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBotReceptionDetailDatasWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListConversationLogsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListConversationLogsResponse
+     */
+    public function listConversationLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListConversationLogsResponse::fromMap($this->doRPCRequest('ListConversationLogs', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListConversationLogsRequest $request
+     *
+     * @return ListConversationLogsResponse
+     */
+    public function listConversationLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConversationLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MoveKnowledgeCategoryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return MoveKnowledgeCategoryResponse
+     */
+    public function moveKnowledgeCategoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return MoveKnowledgeCategoryResponse::fromMap($this->doRPCRequest('MoveKnowledgeCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param MoveKnowledgeCategoryRequest $request
+     *
+     * @return MoveKnowledgeCategoryResponse
+     */
+    public function moveKnowledgeCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveKnowledgeCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublishDialogFlowRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PublishDialogFlowResponse
+     */
+    public function publishDialogFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PublishDialogFlowResponse::fromMap($this->doRPCRequest('PublishDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PublishDialogFlowRequest $request
+     *
+     * @return PublishDialogFlowResponse
+     */
+    public function publishDialogFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishDialogFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublishKnowledgeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PublishKnowledgeResponse
+     */
+    public function publishKnowledgeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PublishKnowledgeResponse::fromMap($this->doRPCRequest('PublishKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PublishKnowledgeRequest $request
+     *
+     * @return PublishKnowledgeResponse
+     */
+    public function publishKnowledge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishKnowledgeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryBotsRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return QueryBotsResponse
+     */
+    public function queryBotsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryBotsResponse::fromMap($this->doRPCRequest('QueryBots', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryBotsRequest $request
+     *
+     * @return QueryBotsResponse
+     */
+    public function queryBots($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryBotsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCategoriesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryCategoriesResponse
+     */
+    public function queryCategoriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryCategoriesResponse::fromMap($this->doRPCRequest('QueryCategories', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryCategoriesRequest $request
+     *
+     * @return QueryCategoriesResponse
+     */
+    public function queryCategories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCategoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCoreWordsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryCoreWordsResponse
+     */
+    public function queryCoreWordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryCoreWordsResponse::fromMap($this->doRPCRequest('QueryCoreWords', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryCoreWordsRequest $request
+     *
+     * @return QueryCoreWordsResponse
+     */
+    public function queryCoreWords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCoreWordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDialogsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryDialogsResponse
+     */
+    public function queryDialogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryDialogsResponse::fromMap($this->doRPCRequest('QueryDialogs', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryDialogsRequest $request
+     *
+     * @return QueryDialogsResponse
+     */
+    public function queryDialogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDialogsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryEntitiesRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2045,6 +1751,285 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryIntentsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryIntentsResponse
+     */
+    public function queryIntentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryIntentsResponse::fromMap($this->doRPCRequest('QueryIntents', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryIntentsRequest $request
+     *
+     * @return QueryIntentsResponse
+     */
+    public function queryIntents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryIntentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryKnowledgesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryKnowledgesResponse
+     */
+    public function queryKnowledgesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryKnowledgesResponse::fromMap($this->doRPCRequest('QueryKnowledges', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryKnowledgesRequest $request
+     *
+     * @return QueryKnowledgesResponse
+     */
+    public function queryKnowledges($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryKnowledgesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return QueryPerspectivesResponse
+     */
+    public function queryPerspectivesWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return QueryPerspectivesResponse::fromMap($this->doRPCRequest('QueryPerspectives', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return QueryPerspectivesResponse
+     */
+    public function queryPerspectives()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPerspectivesWithOptions($runtime);
+    }
+
+    /**
+     * @param QuerySystemEntitiesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QuerySystemEntitiesResponse
+     */
+    public function querySystemEntitiesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QuerySystemEntitiesResponse::fromMap($this->doRPCRequest('QuerySystemEntities', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QuerySystemEntitiesRequest $request
+     *
+     * @return QuerySystemEntitiesResponse
+     */
+    public function querySystemEntities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySystemEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveEntityMemberRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RemoveEntityMemberResponse
+     */
+    public function removeEntityMemberWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveEntityMemberShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->member)) {
+            $request->memberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->member), 'Member', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveEntityMemberResponse::fromMap($this->doRPCRequest('RemoveEntityMember', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveEntityMemberRequest $request
+     *
+     * @return RemoveEntityMemberResponse
+     */
+    public function removeEntityMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeEntityMemberWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveSynonymRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RemoveSynonymResponse
+     */
+    public function removeSynonymWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveSynonymResponse::fromMap($this->doRPCRequest('RemoveSynonym', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveSynonymRequest $request
+     *
+     * @return RemoveSynonymResponse
+     */
+    public function removeSynonym($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeSynonymWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TestDialogFlowRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return TestDialogFlowResponse
+     */
+    public function testDialogFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TestDialogFlowResponse::fromMap($this->doRPCRequest('TestDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TestDialogFlowRequest $request
+     *
+     * @return TestDialogFlowResponse
+     */
+    public function testDialogFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testDialogFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCategoryRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateCategoryResponse
+     */
+    public function updateCategoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateCategoryResponse::fromMap($this->doRPCRequest('UpdateCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCategoryRequest $request
+     *
+     * @return UpdateCategoryResponse
+     */
+    public function updateCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCoreWordRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateCoreWordResponse
+     */
+    public function updateCoreWordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateCoreWordResponse::fromMap($this->doRPCRequest('UpdateCoreWord', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCoreWordRequest $request
+     *
+     * @return UpdateCoreWordResponse
+     */
+    public function updateCoreWord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCoreWordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDialogRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateDialogResponse
+     */
+    public function updateDialogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDialogResponse::fromMap($this->doRPCRequest('UpdateDialog', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDialogRequest $request
+     *
+     * @return UpdateDialogResponse
+     */
+    public function updateDialog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDialogWithOptions($request, $runtime);
     }
 
     /**
@@ -2081,114 +2066,129 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListBotDsDetailsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param UpdateEntityRequest $tmpReq
+     * @param RuntimeOptions      $runtime
      *
-     * @return ListBotDsDetailsResponse
+     * @return UpdateEntityResponse
      */
-    public function listBotDsDetailsWithOptions($request, $runtime)
+    public function updateEntityWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateEntityShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->members)) {
+            $request->membersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->members, 'Members', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateEntityResponse::fromMap($this->doRPCRequest('UpdateEntity', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateEntityRequest $request
+     *
+     * @return UpdateEntityResponse
+     */
+    public function updateEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateIntentRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateIntentResponse
+     */
+    public function updateIntentWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateIntentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->intentDefinition)) {
+            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->intentDefinition), 'IntentDefinition', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateIntentResponse::fromMap($this->doRPCRequest('UpdateIntent', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateIntentRequest $request
+     *
+     * @return UpdateIntentResponse
+     */
+    public function updateIntent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIntentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateKnowledgeRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateKnowledgeResponse
+     */
+    public function updateKnowledgeWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateKnowledgeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->knowledge)) {
+            $request->knowledgeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->knowledge), 'Knowledge', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateKnowledgeResponse::fromMap($this->doRPCRequest('UpdateKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateKnowledgeRequest $request
+     *
+     * @return UpdateKnowledgeResponse
+     */
+    public function updateKnowledge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKnowledgeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePerspectiveRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdatePerspectiveResponse
+     */
+    public function updatePerspectiveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListBotDsDetailsResponse::fromMap($this->doRPCRequest('ListBotDsDetails', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdatePerspectiveResponse::fromMap($this->doRPCRequest('UpdatePerspective', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListBotDsDetailsRequest $request
+     * @param UpdatePerspectiveRequest $request
      *
-     * @return ListBotDsDetailsResponse
+     * @return UpdatePerspectiveResponse
      */
-    public function listBotDsDetails($request)
+    public function updatePerspective($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listBotDsDetailsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssociateRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return AssociateResponse
-     */
-    public function associateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AssociateResponse::fromMap($this->doRPCRequest('Associate', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AssociateRequest $request
-     *
-     * @return AssociateResponse
-     */
-    public function associate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->associateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateCategoryRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateCategoryResponse
-     */
-    public function createCategoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateCategoryResponse::fromMap($this->doRPCRequest('CreateCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateCategoryRequest $request
-     *
-     * @return CreateCategoryResponse
-     */
-    public function createCategory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createCategoryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeEntitiesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeEntitiesResponse
-     */
-    public function describeEntitiesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeEntitiesResponse::fromMap($this->doRPCRequest('DescribeEntities', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeEntitiesRequest $request
-     *
-     * @return DescribeEntitiesResponse
-     */
-    public function describeEntities($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeEntitiesWithOptions($request, $runtime);
+        return $this->updatePerspectiveWithOptions($request, $runtime);
     }
 }

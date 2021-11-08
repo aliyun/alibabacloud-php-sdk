@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class PaasEdgeDTO extends Model
 {
     /**
-     * @description Target
-     *
-     * @var string
-     */
-    public $target;
-
-    /**
      * @description Id
      *
      * @var string
      */
     public $id;
+
+    /**
+     * @description Label
+     *
+     * @var string
+     */
+    public $label;
 
     /**
      * @description Source
@@ -30,16 +30,16 @@ class PaasEdgeDTO extends Model
     public $source;
 
     /**
-     * @description Label
+     * @description Target
      *
      * @var string
      */
-    public $label;
+    public $target;
     protected $_name = [
-        'target' => 'Target',
         'id'     => 'Id',
-        'source' => 'Source',
         'label'  => 'Label',
+        'source' => 'Source',
+        'target' => 'Target',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class PaasEdgeDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->target) {
-            $res['Target'] = $this->target;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
+        if (null !== $this->target) {
+            $res['Target'] = $this->target;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class PaasEdgeDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Target'])) {
-            $model->target = $map['Target'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
+        if (isset($map['Target'])) {
+            $model->target = $map['Target'];
         }
 
         return $model;

@@ -9,19 +9,24 @@ use AlibabaCloud\Tea\Model;
 class solutions extends Model
 {
     /**
-     * @var string[]
-     */
-    public $perspectiveIds;
-
-    /**
      * @var string
      */
-    public $summary;
+    public $content;
 
     /**
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $modifyTime;
+
+    /**
+     * @var string[]
+     */
+    public $perspectiveIds;
 
     /**
      * @var string
@@ -36,20 +41,15 @@ class solutions extends Model
     /**
      * @var string
      */
-    public $content;
-
-    /**
-     * @var string
-     */
-    public $modifyTime;
+    public $summary;
     protected $_name = [
-        'perspectiveIds' => 'PerspectiveIds',
-        'summary'        => 'Summary',
+        'content'        => 'Content',
         'createTime'     => 'CreateTime',
+        'modifyTime'     => 'ModifyTime',
+        'perspectiveIds' => 'PerspectiveIds',
         'plainText'      => 'PlainText',
         'solutionId'     => 'SolutionId',
-        'content'        => 'Content',
-        'modifyTime'     => 'ModifyTime',
+        'summary'        => 'Summary',
     ];
 
     public function validate()
@@ -59,14 +59,17 @@ class solutions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->perspectiveIds) {
-            $res['PerspectiveIds'] = $this->perspectiveIds;
-        }
-        if (null !== $this->summary) {
-            $res['Summary'] = $this->summary;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->perspectiveIds) {
+            $res['PerspectiveIds'] = $this->perspectiveIds;
         }
         if (null !== $this->plainText) {
             $res['PlainText'] = $this->plainText;
@@ -74,11 +77,8 @@ class solutions extends Model
         if (null !== $this->solutionId) {
             $res['SolutionId'] = $this->solutionId;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->summary) {
+            $res['Summary'] = $this->summary;
         }
 
         return $res;
@@ -92,16 +92,19 @@ class solutions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
+        }
         if (isset($map['PerspectiveIds'])) {
             if (!empty($map['PerspectiveIds'])) {
                 $model->perspectiveIds = $map['PerspectiveIds'];
             }
-        }
-        if (isset($map['Summary'])) {
-            $model->summary = $map['Summary'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['PlainText'])) {
             $model->plainText = $map['PlainText'];
@@ -109,11 +112,8 @@ class solutions extends Model
         if (isset($map['SolutionId'])) {
             $model->solutionId = $map['SolutionId'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['Summary'])) {
+            $model->summary = $map['Summary'];
         }
 
         return $model;

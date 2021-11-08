@@ -11,7 +11,7 @@ class CreateDialogRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $description;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class CreateDialogRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $instanceId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'dialogName'  => 'DialogName',
         'description' => 'Description',
+        'dialogName'  => 'DialogName',
+        'instanceId'  => 'InstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateDialogRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->dialogName) {
             $res['DialogName'] = $this->dialogName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateDialogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DialogName'])) {
             $model->dialogName = $map['DialogName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

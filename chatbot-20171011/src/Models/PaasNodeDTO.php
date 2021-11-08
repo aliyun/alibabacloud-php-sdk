@@ -30,6 +30,13 @@ class PaasNodeDTO extends Model
     public $label;
 
     /**
+     * @description PluginData
+     *
+     * @var PaasPluginDataDTO
+     */
+    public $pluginData;
+
+    /**
      * @description Xx
      *
      * @var float
@@ -42,20 +49,13 @@ class PaasNodeDTO extends Model
      * @var float
      */
     public $yy;
-
-    /**
-     * @description PluginData
-     *
-     * @var PaasPluginDataDTO
-     */
-    public $pluginData;
     protected $_name = [
         'code'       => 'Code',
         'id'         => 'Id',
         'label'      => 'Label',
+        'pluginData' => 'PluginData',
         'xx'         => 'Xx',
         'yy'         => 'Yy',
-        'pluginData' => 'PluginData',
     ];
 
     public function validate()
@@ -74,14 +74,14 @@ class PaasNodeDTO extends Model
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+        if (null !== $this->pluginData) {
+            $res['PluginData'] = null !== $this->pluginData ? $this->pluginData->toMap() : null;
+        }
         if (null !== $this->xx) {
             $res['Xx'] = $this->xx;
         }
         if (null !== $this->yy) {
             $res['Yy'] = $this->yy;
-        }
-        if (null !== $this->pluginData) {
-            $res['PluginData'] = null !== $this->pluginData ? $this->pluginData->toMap() : null;
         }
 
         return $res;
@@ -104,14 +104,14 @@ class PaasNodeDTO extends Model
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+        if (isset($map['PluginData'])) {
+            $model->pluginData = PaasPluginDataDTO::fromMap($map['PluginData']);
+        }
         if (isset($map['Xx'])) {
             $model->xx = $map['Xx'];
         }
         if (isset($map['Yy'])) {
             $model->yy = $map['Yy'];
-        }
-        if (isset($map['PluginData'])) {
-            $model->pluginData = PaasPluginDataDTO::fromMap($map['PluginData']);
         }
 
         return $model;

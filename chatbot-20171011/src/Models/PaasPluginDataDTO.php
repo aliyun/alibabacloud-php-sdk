@@ -14,9 +14,9 @@ class PaasPluginDataDTO extends Model
     public $entry;
 
     /**
-     * @var PaasSlotDTO
+     * @var PaasFunctionDTO
      */
-    public $slot;
+    public $function;
 
     /**
      * @var PaasResponseDTO
@@ -24,14 +24,14 @@ class PaasPluginDataDTO extends Model
     public $response;
 
     /**
-     * @var PaasFunctionDTO
+     * @var PaasSlotDTO
      */
-    public $function;
+    public $slot;
     protected $_name = [
         'entry'    => 'Entry',
-        'slot'     => 'Slot',
-        'response' => 'Response',
         'function' => 'Function',
+        'response' => 'Response',
+        'slot'     => 'Slot',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class PaasPluginDataDTO extends Model
         if (null !== $this->entry) {
             $res['Entry'] = null !== $this->entry ? $this->entry->toMap() : null;
         }
-        if (null !== $this->slot) {
-            $res['Slot'] = null !== $this->slot ? $this->slot->toMap() : null;
+        if (null !== $this->function) {
+            $res['Function'] = null !== $this->function ? $this->function->toMap() : null;
         }
         if (null !== $this->response) {
             $res['Response'] = null !== $this->response ? $this->response->toMap() : null;
         }
-        if (null !== $this->function) {
-            $res['Function'] = null !== $this->function ? $this->function->toMap() : null;
+        if (null !== $this->slot) {
+            $res['Slot'] = null !== $this->slot ? $this->slot->toMap() : null;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class PaasPluginDataDTO extends Model
         if (isset($map['Entry'])) {
             $model->entry = PaasEntryDTO::fromMap($map['Entry']);
         }
-        if (isset($map['Slot'])) {
-            $model->slot = PaasSlotDTO::fromMap($map['Slot']);
+        if (isset($map['Function'])) {
+            $model->function = PaasFunctionDTO::fromMap($map['Function']);
         }
         if (isset($map['Response'])) {
             $model->response = PaasResponseDTO::fromMap($map['Response']);
         }
-        if (isset($map['Function'])) {
-            $model->function = PaasFunctionDTO::fromMap($map['Function']);
+        if (isset($map['Slot'])) {
+            $model->slot = PaasSlotDTO::fromMap($map['Slot']);
         }
 
         return $model;

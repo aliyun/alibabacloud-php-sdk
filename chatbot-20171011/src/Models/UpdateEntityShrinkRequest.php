@@ -26,18 +26,18 @@ class UpdateEntityShrinkRequest extends Model
     /**
      * @var string
      */
-    public $regex;
+    public $membersShrink;
 
     /**
      * @var string
      */
-    public $membersShrink;
+    public $regex;
     protected $_name = [
         'entityId'      => 'EntityId',
         'entityName'    => 'EntityName',
         'entityType'    => 'EntityType',
-        'regex'         => 'Regex',
         'membersShrink' => 'Members',
+        'regex'         => 'Regex',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class UpdateEntityShrinkRequest extends Model
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
         }
-        if (null !== $this->regex) {
-            $res['Regex'] = $this->regex;
-        }
         if (null !== $this->membersShrink) {
             $res['Members'] = $this->membersShrink;
+        }
+        if (null !== $this->regex) {
+            $res['Regex'] = $this->regex;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class UpdateEntityShrinkRequest extends Model
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
         }
-        if (isset($map['Regex'])) {
-            $model->regex = $map['Regex'];
-        }
         if (isset($map['Members'])) {
             $model->membersShrink = $map['Members'];
+        }
+        if (isset($map['Regex'])) {
+            $model->regex = $map['Regex'];
         }
 
         return $model;

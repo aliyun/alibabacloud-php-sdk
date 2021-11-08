@@ -25,20 +25,20 @@ class CreateEntityRequest extends Model
     public $entityType;
 
     /**
-     * @var string
-     */
-    public $regex;
-
-    /**
      * @var members[]
      */
     public $members;
+
+    /**
+     * @var string
+     */
+    public $regex;
     protected $_name = [
         'dialogId'   => 'DialogId',
         'entityName' => 'EntityName',
         'entityType' => 'EntityType',
-        'regex'      => 'Regex',
         'members'    => 'Members',
+        'regex'      => 'Regex',
     ];
 
     public function validate()
@@ -57,9 +57,6 @@ class CreateEntityRequest extends Model
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
         }
-        if (null !== $this->regex) {
-            $res['Regex'] = $this->regex;
-        }
         if (null !== $this->members) {
             $res['Members'] = [];
             if (null !== $this->members && \is_array($this->members)) {
@@ -68,6 +65,9 @@ class CreateEntityRequest extends Model
                     $res['Members'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regex) {
+            $res['Regex'] = $this->regex;
         }
 
         return $res;
@@ -90,9 +90,6 @@ class CreateEntityRequest extends Model
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
         }
-        if (isset($map['Regex'])) {
-            $model->regex = $map['Regex'];
-        }
         if (isset($map['Members'])) {
             if (!empty($map['Members'])) {
                 $model->members = [];
@@ -101,6 +98,9 @@ class CreateEntityRequest extends Model
                     $model->members[$n++] = null !== $item ? members::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Regex'])) {
+            $model->regex = $map['Regex'];
         }
 
         return $model;

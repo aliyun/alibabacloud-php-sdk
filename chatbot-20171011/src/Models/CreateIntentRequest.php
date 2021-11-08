@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateIntentRequest extends Model
 {
     /**
-     * @var IntentCreateDTO
-     */
-    public $intentDefinition;
-
-    /**
      * @var int
      */
     public $dialogId;
+
+    /**
+     * @var IntentCreateDTO
+     */
+    public $intentDefinition;
     protected $_name = [
-        'intentDefinition' => 'IntentDefinition',
         'dialogId'         => 'DialogId',
+        'intentDefinition' => 'IntentDefinition',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateIntentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->intentDefinition) {
-            $res['IntentDefinition'] = null !== $this->intentDefinition ? $this->intentDefinition->toMap() : null;
-        }
         if (null !== $this->dialogId) {
             $res['DialogId'] = $this->dialogId;
+        }
+        if (null !== $this->intentDefinition) {
+            $res['IntentDefinition'] = null !== $this->intentDefinition ? $this->intentDefinition->toMap() : null;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateIntentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IntentDefinition'])) {
-            $model->intentDefinition = IntentCreateDTO::fromMap($map['IntentDefinition']);
-        }
         if (isset($map['DialogId'])) {
             $model->dialogId = $map['DialogId'];
+        }
+        if (isset($map['IntentDefinition'])) {
+            $model->intentDefinition = IntentCreateDTO::fromMap($map['IntentDefinition']);
         }
 
         return $model;

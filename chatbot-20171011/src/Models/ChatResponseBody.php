@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ChatResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $messageId;
+
+    /**
      * @var messages[]
      */
     public $messages;
@@ -22,23 +27,18 @@ class ChatResponseBody extends Model
     /**
      * @var string
      */
-    public $tag;
-
-    /**
-     * @var string
-     */
     public $sessionId;
 
     /**
      * @var string
      */
-    public $messageId;
+    public $tag;
     protected $_name = [
+        'messageId' => 'MessageId',
         'messages'  => 'Messages',
         'requestId' => 'RequestId',
-        'tag'       => 'Tag',
         'sessionId' => 'SessionId',
-        'messageId' => 'MessageId',
+        'tag'       => 'Tag',
     ];
 
     public function validate()
@@ -48,6 +48,9 @@ class ChatResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->messageId) {
+            $res['MessageId'] = $this->messageId;
+        }
         if (null !== $this->messages) {
             $res['Messages'] = [];
             if (null !== $this->messages && \is_array($this->messages)) {
@@ -60,14 +63,11 @@ class ChatResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
-        if (null !== $this->messageId) {
-            $res['MessageId'] = $this->messageId;
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -81,6 +81,9 @@ class ChatResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
+        }
         if (isset($map['Messages'])) {
             if (!empty($map['Messages'])) {
                 $model->messages = [];
@@ -93,14 +96,11 @@ class ChatResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
-        if (isset($map['MessageId'])) {
-            $model->messageId = $map['MessageId'];
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

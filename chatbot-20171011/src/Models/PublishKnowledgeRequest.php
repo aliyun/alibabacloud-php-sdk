@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class PublishKnowledgeRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $knowledgeId;
-
-    /**
      * @var bool
      */
     public $async;
+
+    /**
+     * @var int
+     */
+    public $knowledgeId;
     protected $_name = [
-        'knowledgeId' => 'KnowledgeId',
         'async'       => 'Async',
+        'knowledgeId' => 'KnowledgeId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class PublishKnowledgeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->knowledgeId) {
-            $res['KnowledgeId'] = $this->knowledgeId;
-        }
         if (null !== $this->async) {
             $res['Async'] = $this->async;
+        }
+        if (null !== $this->knowledgeId) {
+            $res['KnowledgeId'] = $this->knowledgeId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class PublishKnowledgeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KnowledgeId'])) {
-            $model->knowledgeId = $map['KnowledgeId'];
-        }
         if (isset($map['Async'])) {
             $model->async = $map['Async'];
+        }
+        if (isset($map['KnowledgeId'])) {
+            $model->knowledgeId = $map['KnowledgeId'];
         }
 
         return $model;

@@ -15,18 +15,18 @@ class RemoveEntityMemberRequest extends Model
     public $entityId;
 
     /**
-     * @var string
-     */
-    public $removeType;
-
-    /**
      * @var member
      */
     public $member;
+
+    /**
+     * @var string
+     */
+    public $removeType;
     protected $_name = [
         'entityId'   => 'EntityId',
-        'removeType' => 'RemoveType',
         'member'     => 'Member',
+        'removeType' => 'RemoveType',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class RemoveEntityMemberRequest extends Model
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
-        if (null !== $this->removeType) {
-            $res['RemoveType'] = $this->removeType;
-        }
         if (null !== $this->member) {
             $res['Member'] = null !== $this->member ? $this->member->toMap() : null;
+        }
+        if (null !== $this->removeType) {
+            $res['RemoveType'] = $this->removeType;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class RemoveEntityMemberRequest extends Model
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
-        if (isset($map['RemoveType'])) {
-            $model->removeType = $map['RemoveType'];
-        }
         if (isset($map['Member'])) {
             $model->member = member::fromMap($map['Member']);
+        }
+        if (isset($map['RemoveType'])) {
+            $model->removeType = $map['RemoveType'];
         }
 
         return $model;

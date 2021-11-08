@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribePerspectiveResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $status;
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $createUserName;
+
+    /**
+     * @var string
+     */
+    public $modifyTime;
+
+    /**
+     * @var string
+     */
+    public $modifyUserName;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
@@ -21,7 +41,7 @@ class DescribePerspectiveResponseBody extends Model
     /**
      * @var string
      */
-    public $modifyTime;
+    public $perspectiveId;
 
     /**
      * @var string
@@ -34,40 +54,20 @@ class DescribePerspectiveResponseBody extends Model
     public $selfDefine;
 
     /**
-     * @var string
+     * @var int
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $modifyUserName;
-
-    /**
-     * @var string
-     */
-    public $perspectiveId;
-
-    /**
-     * @var string
-     */
-    public $createUserName;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $status;
     protected $_name = [
-        'status'          => 'Status',
-        'perspectiveCode' => 'PerspectiveCode',
+        'createTime'      => 'CreateTime',
+        'createUserName'  => 'CreateUserName',
         'modifyTime'      => 'ModifyTime',
+        'modifyUserName'  => 'ModifyUserName',
+        'name'            => 'Name',
+        'perspectiveCode' => 'PerspectiveCode',
+        'perspectiveId'   => 'PerspectiveId',
         'requestId'       => 'RequestId',
         'selfDefine'      => 'SelfDefine',
-        'createTime'      => 'CreateTime',
-        'modifyUserName'  => 'ModifyUserName',
-        'perspectiveId'   => 'PerspectiveId',
-        'createUserName'  => 'CreateUserName',
-        'name'            => 'Name',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -77,14 +77,26 @@ class DescribePerspectiveResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->createUserName) {
+            $res['CreateUserName'] = $this->createUserName;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->modifyUserName) {
+            $res['ModifyUserName'] = $this->modifyUserName;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->perspectiveCode) {
             $res['PerspectiveCode'] = $this->perspectiveCode;
         }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->perspectiveId) {
+            $res['PerspectiveId'] = $this->perspectiveId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -92,20 +104,8 @@ class DescribePerspectiveResponseBody extends Model
         if (null !== $this->selfDefine) {
             $res['SelfDefine'] = $this->selfDefine;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->modifyUserName) {
-            $res['ModifyUserName'] = $this->modifyUserName;
-        }
-        if (null !== $this->perspectiveId) {
-            $res['PerspectiveId'] = $this->perspectiveId;
-        }
-        if (null !== $this->createUserName) {
-            $res['CreateUserName'] = $this->createUserName;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -119,14 +119,26 @@ class DescribePerspectiveResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CreateUserName'])) {
+            $model->createUserName = $map['CreateUserName'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['ModifyUserName'])) {
+            $model->modifyUserName = $map['ModifyUserName'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PerspectiveCode'])) {
             $model->perspectiveCode = $map['PerspectiveCode'];
         }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['PerspectiveId'])) {
+            $model->perspectiveId = $map['PerspectiveId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -134,20 +146,8 @@ class DescribePerspectiveResponseBody extends Model
         if (isset($map['SelfDefine'])) {
             $model->selfDefine = $map['SelfDefine'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ModifyUserName'])) {
-            $model->modifyUserName = $map['ModifyUserName'];
-        }
-        if (isset($map['PerspectiveId'])) {
-            $model->perspectiveId = $map['PerspectiveId'];
-        }
-        if (isset($map['CreateUserName'])) {
-            $model->createUserName = $map['CreateUserName'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

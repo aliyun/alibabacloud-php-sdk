@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class PaasResponsePluginFieldDataDTO extends Model
 {
     /**
-     * @description Name
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @description ContentResponse
      *
      * @var PaasResponseNodeContentDTO
      */
     public $contentResponse;
+
+    /**
+     * @description Name
+     *
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'name'            => 'Name',
         'contentResponse' => 'ContentResponse',
+        'name'            => 'Name',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class PaasResponsePluginFieldDataDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->contentResponse) {
             $res['ContentResponse'] = null !== $this->contentResponse ? $this->contentResponse->toMap() : null;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class PaasResponsePluginFieldDataDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['ContentResponse'])) {
             $model->contentResponse = PaasResponseNodeContentDTO::fromMap($map['ContentResponse']);
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

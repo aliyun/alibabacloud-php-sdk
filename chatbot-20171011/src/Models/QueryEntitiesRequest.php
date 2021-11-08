@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class QueryEntitiesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $entityName;
-
-    /**
      * @var int
      */
     public $dialogId;
+
+    /**
+     * @var string
+     */
+    public $entityName;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class QueryEntitiesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'entityName' => 'EntityName',
         'dialogId'   => 'DialogId',
+        'entityName' => 'EntityName',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -41,11 +41,11 @@ class QueryEntitiesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->entityName) {
-            $res['EntityName'] = $this->entityName;
-        }
         if (null !== $this->dialogId) {
             $res['DialogId'] = $this->dialogId;
+        }
+        if (null !== $this->entityName) {
+            $res['EntityName'] = $this->entityName;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -65,11 +65,11 @@ class QueryEntitiesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EntityName'])) {
-            $model->entityName = $map['EntityName'];
-        }
         if (isset($map['DialogId'])) {
             $model->dialogId = $map['DialogId'];
+        }
+        if (isset($map['EntityName'])) {
+            $model->entityName = $map['EntityName'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

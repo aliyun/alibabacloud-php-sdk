@@ -14,6 +14,11 @@ class simQuestions extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $modifyTime;
+
+    /**
      * @var int
      */
     public $simQuestionId;
@@ -22,16 +27,11 @@ class simQuestions extends Model
      * @var string
      */
     public $title;
-
-    /**
-     * @var string
-     */
-    public $modifyTime;
     protected $_name = [
         'createTime'    => 'CreateTime',
+        'modifyTime'    => 'ModifyTime',
         'simQuestionId' => 'SimQuestionId',
         'title'         => 'Title',
-        'modifyTime'    => 'ModifyTime',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class simQuestions extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
+        }
         if (null !== $this->simQuestionId) {
             $res['SimQuestionId'] = $this->simQuestionId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
-        }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class simQuestions extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
+        }
         if (isset($map['SimQuestionId'])) {
             $model->simQuestionId = $map['SimQuestionId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
-        }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
         }
 
         return $model;

@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class UsersayMtopDTO extends Model
 {
     /**
-     * @description Id
-     *
-     * @var string
-     */
-    public $id;
-
-    /**
      * @description Data
      *
      * @var SectionMtopDTO[]
      */
     public $data;
+
+    /**
+     * @description Id
+     *
+     * @var string
+     */
+    public $id;
 
     /**
      * @description Strict
@@ -29,8 +29,8 @@ class UsersayMtopDTO extends Model
      */
     public $strict;
     protected $_name = [
-        'id'     => 'Id',
         'data'   => 'Data',
+        'id'     => 'Id',
         'strict' => 'Strict',
     ];
 
@@ -41,9 +41,6 @@ class UsersayMtopDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->data) {
             $res['Data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -52,6 +49,9 @@ class UsersayMtopDTO extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->strict) {
             $res['Strict'] = $this->strict;
@@ -68,9 +68,6 @@ class UsersayMtopDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
@@ -79,6 +76,9 @@ class UsersayMtopDTO extends Model
                     $model->data[$n++] = null !== $item ? SectionMtopDTO::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Strict'])) {
             $model->strict = $map['Strict'];

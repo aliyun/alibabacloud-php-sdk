@@ -11,15 +11,15 @@ class UpdatePerspectiveRequest extends Model
     /**
      * @var string
      */
-    public $perspectiveId;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $perspectiveId;
     protected $_name = [
-        'perspectiveId' => 'PerspectiveId',
         'name'          => 'Name',
+        'perspectiveId' => 'PerspectiveId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdatePerspectiveRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->perspectiveId) {
-            $res['PerspectiveId'] = $this->perspectiveId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->perspectiveId) {
+            $res['PerspectiveId'] = $this->perspectiveId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdatePerspectiveRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PerspectiveId'])) {
-            $model->perspectiveId = $map['PerspectiveId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PerspectiveId'])) {
+            $model->perspectiveId = $map['PerspectiveId'];
         }
 
         return $model;

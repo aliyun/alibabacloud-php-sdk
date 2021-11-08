@@ -15,18 +15,18 @@ class userSay extends Model
     public $data;
 
     /**
-     * @var string
-     */
-    public $userSayId;
-
-    /**
      * @var bool
      */
     public $strict;
+
+    /**
+     * @var string
+     */
+    public $userSayId;
     protected $_name = [
         'data'      => 'Data',
-        'userSayId' => 'UserSayId',
         'strict'    => 'Strict',
+        'userSayId' => 'UserSayId',
     ];
 
     public function validate()
@@ -45,11 +45,11 @@ class userSay extends Model
                 }
             }
         }
-        if (null !== $this->userSayId) {
-            $res['UserSayId'] = $this->userSayId;
-        }
         if (null !== $this->strict) {
             $res['Strict'] = $this->strict;
+        }
+        if (null !== $this->userSayId) {
+            $res['UserSayId'] = $this->userSayId;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class userSay extends Model
                 }
             }
         }
-        if (isset($map['UserSayId'])) {
-            $model->userSayId = $map['UserSayId'];
-        }
         if (isset($map['Strict'])) {
             $model->strict = $map['Strict'];
+        }
+        if (isset($map['UserSayId'])) {
+            $model->userSayId = $map['UserSayId'];
         }
 
         return $model;

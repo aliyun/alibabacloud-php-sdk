@@ -16,7 +16,7 @@ class DescribeCategoryResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $name;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class DescribeCategoryResponseBody extends Model
     /**
      * @var string
      */
-    public $name;
+    public $requestId;
     protected $_name = [
         'categoryId'       => 'CategoryId',
-        'requestId'        => 'RequestId',
-        'parentCategoryId' => 'ParentCategoryId',
         'name'             => 'Name',
+        'parentCategoryId' => 'ParentCategoryId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DescribeCategoryResponseBody extends Model
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->parentCategoryId) {
             $res['ParentCategoryId'] = $this->parentCategoryId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DescribeCategoryResponseBody extends Model
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['ParentCategoryId'])) {
             $model->parentCategoryId = $map['ParentCategoryId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

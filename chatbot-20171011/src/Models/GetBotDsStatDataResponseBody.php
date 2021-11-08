@@ -14,18 +14,18 @@ class GetBotDsStatDataResponseBody extends Model
     public $costTime;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var mixed[][]
      */
     public $datas;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'costTime'  => 'CostTime',
-        'requestId' => 'RequestId',
         'datas'     => 'Datas',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class GetBotDsStatDataResponseBody extends Model
         if (null !== $this->costTime) {
             $res['CostTime'] = $this->costTime;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->datas) {
             $res['Datas'] = $this->datas;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -59,13 +59,13 @@ class GetBotDsStatDataResponseBody extends Model
         if (isset($map['CostTime'])) {
             $model->costTime = $map['CostTime'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Datas'])) {
             if (!empty($map['Datas'])) {
                 $model->datas = $map['Datas'];
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

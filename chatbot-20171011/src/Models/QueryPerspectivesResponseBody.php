@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryPerspectivesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var perspectives[]
      */
     public $perspectives;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'perspectives' => 'Perspectives',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class QueryPerspectivesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->perspectives) {
             $res['Perspectives'] = [];
             if (null !== $this->perspectives && \is_array($this->perspectives)) {
@@ -41,6 +38,9 @@ class QueryPerspectivesResponseBody extends Model
                     $res['Perspectives'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class QueryPerspectivesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Perspectives'])) {
             if (!empty($map['Perspectives'])) {
                 $model->perspectives = [];
@@ -65,6 +62,9 @@ class QueryPerspectivesResponseBody extends Model
                     $model->perspectives[$n++] = null !== $item ? perspectives::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

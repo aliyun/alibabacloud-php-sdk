@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class perspectives extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
      * @var string
      */
-    public $modifyUserName;
+    public $createTime;
 
     /**
      * @var string
@@ -26,17 +21,12 @@ class perspectives extends Model
     /**
      * @var string
      */
-    public $createTime;
+    public $modifyTime;
 
     /**
      * @var string
      */
-    public $perspectiveId;
-
-    /**
-     * @var bool
-     */
-    public $selfDefine;
+    public $modifyUserName;
 
     /**
      * @var string
@@ -51,17 +41,27 @@ class perspectives extends Model
     /**
      * @var string
      */
-    public $modifyTime;
+    public $perspectiveId;
+
+    /**
+     * @var bool
+     */
+    public $selfDefine;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'          => 'Status',
-        'modifyUserName'  => 'ModifyUserName',
-        'createUserName'  => 'CreateUserName',
         'createTime'      => 'CreateTime',
-        'perspectiveId'   => 'PerspectiveId',
-        'selfDefine'      => 'SelfDefine',
+        'createUserName'  => 'CreateUserName',
+        'modifyTime'      => 'ModifyTime',
+        'modifyUserName'  => 'ModifyUserName',
         'name'            => 'Name',
         'perspectiveCode' => 'PerspectiveCode',
-        'modifyTime'      => 'ModifyTime',
+        'perspectiveId'   => 'PerspectiveId',
+        'selfDefine'      => 'SelfDefine',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -71,23 +71,17 @@ class perspectives extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->modifyUserName) {
-            $res['ModifyUserName'] = $this->modifyUserName;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->createUserName) {
             $res['CreateUserName'] = $this->createUserName;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
-        if (null !== $this->perspectiveId) {
-            $res['PerspectiveId'] = $this->perspectiveId;
-        }
-        if (null !== $this->selfDefine) {
-            $res['SelfDefine'] = $this->selfDefine;
+        if (null !== $this->modifyUserName) {
+            $res['ModifyUserName'] = $this->modifyUserName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -95,8 +89,14 @@ class perspectives extends Model
         if (null !== $this->perspectiveCode) {
             $res['PerspectiveCode'] = $this->perspectiveCode;
         }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->perspectiveId) {
+            $res['PerspectiveId'] = $this->perspectiveId;
+        }
+        if (null !== $this->selfDefine) {
+            $res['SelfDefine'] = $this->selfDefine;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -110,23 +110,17 @@ class perspectives extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ModifyUserName'])) {
-            $model->modifyUserName = $map['ModifyUserName'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['CreateUserName'])) {
             $model->createUserName = $map['CreateUserName'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
-        if (isset($map['PerspectiveId'])) {
-            $model->perspectiveId = $map['PerspectiveId'];
-        }
-        if (isset($map['SelfDefine'])) {
-            $model->selfDefine = $map['SelfDefine'];
+        if (isset($map['ModifyUserName'])) {
+            $model->modifyUserName = $map['ModifyUserName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -134,8 +128,14 @@ class perspectives extends Model
         if (isset($map['PerspectiveCode'])) {
             $model->perspectiveCode = $map['PerspectiveCode'];
         }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['PerspectiveId'])) {
+            $model->perspectiveId = $map['PerspectiveId'];
+        }
+        if (isset($map['SelfDefine'])) {
+            $model->selfDefine = $map['SelfDefine'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

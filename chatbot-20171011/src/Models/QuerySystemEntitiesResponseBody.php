@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QuerySystemEntitiesResponseBody extends Model
 {
     /**
-     * @var systemEntities[]
-     */
-    public $systemEntities;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var systemEntities[]
+     */
+    public $systemEntities;
     protected $_name = [
-        'systemEntities' => 'SystemEntities',
         'requestId'      => 'RequestId',
+        'systemEntities' => 'SystemEntities',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class QuerySystemEntitiesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->systemEntities) {
             $res['SystemEntities'] = [];
             if (null !== $this->systemEntities && \is_array($this->systemEntities)) {
@@ -38,9 +41,6 @@ class QuerySystemEntitiesResponseBody extends Model
                     $res['SystemEntities'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class QuerySystemEntitiesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['SystemEntities'])) {
             if (!empty($map['SystemEntities'])) {
                 $model->systemEntities = [];
@@ -62,9 +65,6 @@ class QuerySystemEntitiesResponseBody extends Model
                     $model->systemEntities[$n++] = null !== $item ? systemEntities::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

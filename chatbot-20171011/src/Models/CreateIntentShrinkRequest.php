@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateIntentShrinkRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $intentDefinitionShrink;
-
-    /**
      * @var int
      */
     public $dialogId;
+
+    /**
+     * @var string
+     */
+    public $intentDefinitionShrink;
     protected $_name = [
-        'intentDefinitionShrink' => 'IntentDefinition',
         'dialogId'               => 'DialogId',
+        'intentDefinitionShrink' => 'IntentDefinition',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateIntentShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->intentDefinitionShrink) {
-            $res['IntentDefinition'] = $this->intentDefinitionShrink;
-        }
         if (null !== $this->dialogId) {
             $res['DialogId'] = $this->dialogId;
+        }
+        if (null !== $this->intentDefinitionShrink) {
+            $res['IntentDefinition'] = $this->intentDefinitionShrink;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateIntentShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IntentDefinition'])) {
-            $model->intentDefinitionShrink = $map['IntentDefinition'];
-        }
         if (isset($map['DialogId'])) {
             $model->dialogId = $map['DialogId'];
+        }
+        if (isset($map['IntentDefinition'])) {
+            $model->intentDefinitionShrink = $map['IntentDefinition'];
         }
 
         return $model;

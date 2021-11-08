@@ -14,18 +14,18 @@ class solutions extends Model
     public $content;
 
     /**
-     * @var string
-     */
-    public $plainText;
-
-    /**
      * @var string[]
      */
     public $perspectiveIds;
+
+    /**
+     * @var string
+     */
+    public $plainText;
     protected $_name = [
         'content'        => 'Content',
-        'plainText'      => 'PlainText',
         'perspectiveIds' => 'PerspectiveIds',
+        'plainText'      => 'PlainText',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class solutions extends Model
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-        if (null !== $this->plainText) {
-            $res['PlainText'] = $this->plainText;
-        }
         if (null !== $this->perspectiveIds) {
             $res['PerspectiveIds'] = $this->perspectiveIds;
+        }
+        if (null !== $this->plainText) {
+            $res['PlainText'] = $this->plainText;
         }
 
         return $res;
@@ -59,13 +59,13 @@ class solutions extends Model
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-        if (isset($map['PlainText'])) {
-            $model->plainText = $map['PlainText'];
-        }
         if (isset($map['PerspectiveIds'])) {
             if (!empty($map['PerspectiveIds'])) {
                 $model->perspectiveIds = $map['PerspectiveIds'];
             }
+        }
+        if (isset($map['PlainText'])) {
+            $model->plainText = $map['PlainText'];
         }
 
         return $model;

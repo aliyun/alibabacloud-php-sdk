@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateCategoryRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $parentCategoryId;
-
-    /**
      * @var string
      */
-    public $name;
+    public $bizCode;
 
     /**
      * @var int
@@ -26,12 +21,17 @@ class CreateCategoryRequest extends Model
     /**
      * @var string
      */
-    public $bizCode;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $parentCategoryId;
     protected $_name = [
-        'parentCategoryId' => 'ParentCategoryId',
-        'name'             => 'Name',
-        'knowledgeType'    => 'KnowledgeType',
         'bizCode'          => 'BizCode',
+        'knowledgeType'    => 'KnowledgeType',
+        'name'             => 'Name',
+        'parentCategoryId' => 'ParentCategoryId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateCategoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parentCategoryId) {
-            $res['ParentCategoryId'] = $this->parentCategoryId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->bizCode) {
+            $res['BizCode'] = $this->bizCode;
         }
         if (null !== $this->knowledgeType) {
             $res['KnowledgeType'] = $this->knowledgeType;
         }
-        if (null !== $this->bizCode) {
-            $res['BizCode'] = $this->bizCode;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->parentCategoryId) {
+            $res['ParentCategoryId'] = $this->parentCategoryId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateCategoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParentCategoryId'])) {
-            $model->parentCategoryId = $map['ParentCategoryId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['BizCode'])) {
+            $model->bizCode = $map['BizCode'];
         }
         if (isset($map['KnowledgeType'])) {
             $model->knowledgeType = $map['KnowledgeType'];
         }
-        if (isset($map['BizCode'])) {
-            $model->bizCode = $map['BizCode'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ParentCategoryId'])) {
+            $model->parentCategoryId = $map['ParentCategoryId'];
         }
 
         return $model;

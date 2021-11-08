@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryKnowledgesRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $knowledgeTitle;
+    public $categoryId;
 
     /**
      * @var string
      */
     public $coreWordName;
+
+    /**
+     * @var string
+     */
+    public $knowledgeTitle;
 
     /**
      * @var int
@@ -27,17 +32,12 @@ class QueryKnowledgesRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $categoryId;
     protected $_name = [
-        'knowledgeTitle' => 'KnowledgeTitle',
+        'categoryId'     => 'CategoryId',
         'coreWordName'   => 'CoreWordName',
+        'knowledgeTitle' => 'KnowledgeTitle',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
-        'categoryId'     => 'CategoryId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class QueryKnowledgesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->knowledgeTitle) {
-            $res['KnowledgeTitle'] = $this->knowledgeTitle;
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->coreWordName) {
             $res['CoreWordName'] = $this->coreWordName;
+        }
+        if (null !== $this->knowledgeTitle) {
+            $res['KnowledgeTitle'] = $this->knowledgeTitle;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class QueryKnowledgesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KnowledgeTitle'])) {
-            $model->knowledgeTitle = $map['KnowledgeTitle'];
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['CoreWordName'])) {
             $model->coreWordName = $map['CoreWordName'];
+        }
+        if (isset($map['KnowledgeTitle'])) {
+            $model->knowledgeTitle = $map['KnowledgeTitle'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class CreateCoreWordResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $coreWordCode;
 
     /**
      * @var string
      */
-    public $coreWordCode;
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'coreWordCode' => 'CoreWordCode',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateCoreWordResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->coreWordCode) {
             $res['CoreWordCode'] = $this->coreWordCode;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateCoreWordResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CoreWordCode'])) {
             $model->coreWordCode = $map['CoreWordCode'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

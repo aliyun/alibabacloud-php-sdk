@@ -11,12 +11,12 @@ class QueryDialogsRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $dialogName;
 
     /**
      * @var string
      */
-    public $dialogName;
+    public $instanceId;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class QueryDialogsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'dialogName' => 'DialogName',
+        'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -41,11 +41,11 @@ class QueryDialogsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->dialogName) {
             $res['DialogName'] = $this->dialogName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -65,11 +65,11 @@ class QueryDialogsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['DialogName'])) {
             $model->dialogName = $map['DialogName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

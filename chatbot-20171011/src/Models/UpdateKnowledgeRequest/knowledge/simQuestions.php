@@ -11,7 +11,7 @@ class simQuestions extends Model
     /**
      * @var string
      */
-    public $title;
+    public $action;
 
     /**
      * @var int
@@ -21,11 +21,11 @@ class simQuestions extends Model
     /**
      * @var string
      */
-    public $action;
+    public $title;
     protected $_name = [
-        'title'         => 'Title',
-        'simQuestionId' => 'SimQuestionId',
         'action'        => 'Action',
+        'simQuestionId' => 'SimQuestionId',
+        'title'         => 'Title',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class simQuestions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->action) {
+            $res['Action'] = $this->action;
         }
         if (null !== $this->simQuestionId) {
             $res['SimQuestionId'] = $this->simQuestionId;
         }
-        if (null !== $this->action) {
-            $res['Action'] = $this->action;
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class simQuestions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['Action'])) {
+            $model->action = $map['Action'];
         }
         if (isset($map['SimQuestionId'])) {
             $model->simQuestionId = $map['SimQuestionId'];
         }
-        if (isset($map['Action'])) {
-            $model->action = $map['Action'];
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

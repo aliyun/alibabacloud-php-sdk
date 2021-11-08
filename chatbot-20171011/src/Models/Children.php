@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class Children extends Model
 {
     /**
+     * @description 地区代号
+     *
+     * @var string
+     */
+    public $areaCode;
+
+    /**
      * @description 分类Id
      *
      * @var int
@@ -16,18 +23,11 @@ class Children extends Model
     public $categoryId;
 
     /**
-     * @description 父分类Id
+     * @description 子元素
      *
-     * @var int
+     * @var \AlibabaCloud\SDK\Chatbot\V20171011\Models\Children[]
      */
-    public $parentCategoryId;
-
-    /**
-     * @description 地区代号
-     *
-     * @var string
-     */
-    public $areaCode;
+    public $childrens;
 
     /**
      * @description 名称
@@ -37,17 +37,17 @@ class Children extends Model
     public $name;
 
     /**
-     * @description 子元素
+     * @description 父分类Id
      *
-     * @var \AlibabaCloud\SDK\Chatbot\V20171011\Models\Children[]
+     * @var int
      */
-    public $childrens;
+    public $parentCategoryId;
     protected $_name = [
-        'categoryId'       => 'CategoryId',
-        'parentCategoryId' => 'ParentCategoryId',
         'areaCode'         => 'AreaCode',
-        'name'             => 'Name',
+        'categoryId'       => 'CategoryId',
         'childrens'        => 'Childrens',
+        'name'             => 'Name',
+        'parentCategoryId' => 'ParentCategoryId',
     ];
 
     public function validate()
@@ -57,17 +57,11 @@ class Children extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
-        }
-        if (null !== $this->parentCategoryId) {
-            $res['ParentCategoryId'] = $this->parentCategoryId;
-        }
         if (null !== $this->areaCode) {
             $res['AreaCode'] = $this->areaCode;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->childrens) {
             $res['Childrens'] = [];
@@ -77,6 +71,12 @@ class Children extends Model
                     $res['Childrens'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->parentCategoryId) {
+            $res['ParentCategoryId'] = $this->parentCategoryId;
         }
 
         return $res;
@@ -90,17 +90,11 @@ class Children extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
-        }
-        if (isset($map['ParentCategoryId'])) {
-            $model->parentCategoryId = $map['ParentCategoryId'];
-        }
         if (isset($map['AreaCode'])) {
             $model->areaCode = $map['AreaCode'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['Childrens'])) {
             if (!empty($map['Childrens'])) {
@@ -110,6 +104,12 @@ class Children extends Model
                     $model->childrens[$n++] = null !== $item ? self::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ParentCategoryId'])) {
+            $model->parentCategoryId = $map['ParentCategoryId'];
         }
 
         return $model;

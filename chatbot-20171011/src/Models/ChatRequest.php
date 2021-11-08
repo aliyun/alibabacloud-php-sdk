@@ -16,12 +16,22 @@ class ChatRequest extends Model
     /**
      * @var string
      */
-    public $sessionId;
+    public $intentName;
 
     /**
      * @var string
      */
     public $knowledgeId;
+
+    /**
+     * @var string[]
+     */
+    public $perspective;
+
+    /**
+     * @var bool
+     */
+    public $recommend;
 
     /**
      * @var string
@@ -36,6 +46,11 @@ class ChatRequest extends Model
     /**
      * @var string
      */
+    public $sessionId;
+
+    /**
+     * @var string
+     */
     public $tag;
 
     /**
@@ -44,42 +59,21 @@ class ChatRequest extends Model
     public $utterance;
 
     /**
-     * @var bool
-     */
-    public $recommend;
-
-    /**
-     * @var int
-     */
-    public $recommendNum;
-
-    /**
-     * @var string
-     */
-    public $intentName;
-
-    /**
      * @var string
      */
     public $vendorParam;
-
-    /**
-     * @var string[]
-     */
-    public $perspective;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'sessionId'    => 'SessionId',
-        'knowledgeId'  => 'KnowledgeId',
-        'senderId'     => 'SenderId',
-        'senderNick'   => 'SenderNick',
-        'tag'          => 'Tag',
-        'utterance'    => 'Utterance',
-        'recommend'    => 'Recommend',
-        'recommendNum' => 'RecommendNum',
-        'intentName'   => 'IntentName',
-        'vendorParam'  => 'VendorParam',
-        'perspective'  => 'Perspective',
+        'instanceId'  => 'InstanceId',
+        'intentName'  => 'IntentName',
+        'knowledgeId' => 'KnowledgeId',
+        'perspective' => 'Perspective',
+        'recommend'   => 'Recommend',
+        'senderId'    => 'SenderId',
+        'senderNick'  => 'SenderNick',
+        'sessionId'   => 'SessionId',
+        'tag'         => 'Tag',
+        'utterance'   => 'Utterance',
+        'vendorParam' => 'VendorParam',
     ];
 
     public function validate()
@@ -92,11 +86,17 @@ class ChatRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->sessionId) {
-            $res['SessionId'] = $this->sessionId;
+        if (null !== $this->intentName) {
+            $res['IntentName'] = $this->intentName;
         }
         if (null !== $this->knowledgeId) {
             $res['KnowledgeId'] = $this->knowledgeId;
+        }
+        if (null !== $this->perspective) {
+            $res['Perspective'] = $this->perspective;
+        }
+        if (null !== $this->recommend) {
+            $res['Recommend'] = $this->recommend;
         }
         if (null !== $this->senderId) {
             $res['SenderId'] = $this->senderId;
@@ -104,26 +104,17 @@ class ChatRequest extends Model
         if (null !== $this->senderNick) {
             $res['SenderNick'] = $this->senderNick;
         }
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
         if (null !== $this->utterance) {
             $res['Utterance'] = $this->utterance;
         }
-        if (null !== $this->recommend) {
-            $res['Recommend'] = $this->recommend;
-        }
-        if (null !== $this->recommendNum) {
-            $res['RecommendNum'] = $this->recommendNum;
-        }
-        if (null !== $this->intentName) {
-            $res['IntentName'] = $this->intentName;
-        }
         if (null !== $this->vendorParam) {
             $res['VendorParam'] = $this->vendorParam;
-        }
-        if (null !== $this->perspective) {
-            $res['Perspective'] = $this->perspective;
         }
 
         return $res;
@@ -140,11 +131,19 @@ class ChatRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['SessionId'])) {
-            $model->sessionId = $map['SessionId'];
+        if (isset($map['IntentName'])) {
+            $model->intentName = $map['IntentName'];
         }
         if (isset($map['KnowledgeId'])) {
             $model->knowledgeId = $map['KnowledgeId'];
+        }
+        if (isset($map['Perspective'])) {
+            if (!empty($map['Perspective'])) {
+                $model->perspective = $map['Perspective'];
+            }
+        }
+        if (isset($map['Recommend'])) {
+            $model->recommend = $map['Recommend'];
         }
         if (isset($map['SenderId'])) {
             $model->senderId = $map['SenderId'];
@@ -152,28 +151,17 @@ class ChatRequest extends Model
         if (isset($map['SenderNick'])) {
             $model->senderNick = $map['SenderNick'];
         }
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
+        }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
         if (isset($map['Utterance'])) {
             $model->utterance = $map['Utterance'];
         }
-        if (isset($map['Recommend'])) {
-            $model->recommend = $map['Recommend'];
-        }
-        if (isset($map['RecommendNum'])) {
-            $model->recommendNum = $map['RecommendNum'];
-        }
-        if (isset($map['IntentName'])) {
-            $model->intentName = $map['IntentName'];
-        }
         if (isset($map['VendorParam'])) {
             $model->vendorParam = $map['VendorParam'];
-        }
-        if (isset($map['Perspective'])) {
-            if (!empty($map['Perspective'])) {
-                $model->perspective = $map['Perspective'];
-            }
         }
 
         return $model;

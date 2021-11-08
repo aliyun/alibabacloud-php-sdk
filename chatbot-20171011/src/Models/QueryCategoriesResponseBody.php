@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class QueryCategoriesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var Children[]
      */
     public $categories;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'categories' => 'Categories',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -29,9 +29,6 @@ class QueryCategoriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->categories) {
             $res['Categories'] = [];
             if (null !== $this->categories && \is_array($this->categories)) {
@@ -40,6 +37,9 @@ class QueryCategoriesResponseBody extends Model
                     $res['Categories'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -53,9 +53,6 @@ class QueryCategoriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
                 $model->categories = [];
@@ -64,6 +61,9 @@ class QueryCategoriesResponseBody extends Model
                     $model->categories[$n++] = null !== $item ? Children::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

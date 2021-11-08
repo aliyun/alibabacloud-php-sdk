@@ -14,9 +14,9 @@ class ruleCheck extends Model
     public $error;
 
     /**
-     * @var string[]
+     * @var bool
      */
-    public $warning;
+    public $strict;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class ruleCheck extends Model
     public $text;
 
     /**
-     * @var bool
+     * @var string[]
      */
-    public $strict;
+    public $warning;
     protected $_name = [
         'error'   => 'Error',
-        'warning' => 'Warning',
-        'text'    => 'Text',
         'strict'  => 'Strict',
+        'text'    => 'Text',
+        'warning' => 'Warning',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ruleCheck extends Model
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
-        if (null !== $this->warning) {
-            $res['Warning'] = $this->warning;
+        if (null !== $this->strict) {
+            $res['Strict'] = $this->strict;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
-        if (null !== $this->strict) {
-            $res['Strict'] = $this->strict;
+        if (null !== $this->warning) {
+            $res['Warning'] = $this->warning;
         }
 
         return $res;
@@ -70,16 +70,16 @@ class ruleCheck extends Model
                 $model->error = $map['Error'];
             }
         }
-        if (isset($map['Warning'])) {
-            if (!empty($map['Warning'])) {
-                $model->warning = $map['Warning'];
-            }
+        if (isset($map['Strict'])) {
+            $model->strict = $map['Strict'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
-        if (isset($map['Strict'])) {
-            $model->strict = $map['Strict'];
+        if (isset($map['Warning'])) {
+            if (!empty($map['Warning'])) {
+                $model->warning = $map['Warning'];
+            }
         }
 
         return $model;

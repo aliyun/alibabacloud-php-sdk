@@ -14,17 +14,12 @@ class intents extends Model
     /**
      * @var string
      */
-    public $modifyUserId;
-
-    /**
-     * @var string
-     */
-    public $modifyUserName;
-
-    /**
-     * @var string
-     */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $createUserId;
 
     /**
      * @var string
@@ -32,14 +27,24 @@ class intents extends Model
     public $createUserName;
 
     /**
-     * @var slot[]
+     * @var int
      */
-    public $slot;
+    public $intentId;
 
     /**
-     * @var userSay[]
+     * @var string
      */
-    public $userSay;
+    public $modifyTime;
+
+    /**
+     * @var string
+     */
+    public $modifyUserId;
+
+    /**
+     * @var string
+     */
+    public $modifyUserName;
 
     /**
      * @var string
@@ -52,31 +57,26 @@ class intents extends Model
     public $ruleCheck;
 
     /**
-     * @var string
+     * @var slot[]
      */
-    public $createUserId;
+    public $slot;
 
     /**
-     * @var int
+     * @var userSay[]
      */
-    public $intentId;
-
-    /**
-     * @var string
-     */
-    public $modifyTime;
+    public $userSay;
     protected $_name = [
-        'modifyUserId'   => 'ModifyUserId',
-        'modifyUserName' => 'ModifyUserName',
         'createTime'     => 'CreateTime',
-        'createUserName' => 'CreateUserName',
-        'slot'           => 'Slot',
-        'userSay'        => 'UserSay',
-        'name'           => 'Name',
-        'ruleCheck'      => 'RuleCheck',
         'createUserId'   => 'CreateUserId',
+        'createUserName' => 'CreateUserName',
         'intentId'       => 'IntentId',
         'modifyTime'     => 'ModifyTime',
+        'modifyUserId'   => 'ModifyUserId',
+        'modifyUserName' => 'ModifyUserName',
+        'name'           => 'Name',
+        'ruleCheck'      => 'RuleCheck',
+        'slot'           => 'Slot',
+        'userSay'        => 'UserSay',
     ];
 
     public function validate()
@@ -86,17 +86,38 @@ class intents extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->createUserId) {
+            $res['CreateUserId'] = $this->createUserId;
+        }
+        if (null !== $this->createUserName) {
+            $res['CreateUserName'] = $this->createUserName;
+        }
+        if (null !== $this->intentId) {
+            $res['IntentId'] = $this->intentId;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
+        }
         if (null !== $this->modifyUserId) {
             $res['ModifyUserId'] = $this->modifyUserId;
         }
         if (null !== $this->modifyUserName) {
             $res['ModifyUserName'] = $this->modifyUserName;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
-        if (null !== $this->createUserName) {
-            $res['CreateUserName'] = $this->createUserName;
+        if (null !== $this->ruleCheck) {
+            $res['RuleCheck'] = [];
+            if (null !== $this->ruleCheck && \is_array($this->ruleCheck)) {
+                $n = 0;
+                foreach ($this->ruleCheck as $item) {
+                    $res['RuleCheck'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->slot) {
             $res['Slot'] = [];
@@ -116,27 +137,6 @@ class intents extends Model
                 }
             }
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->ruleCheck) {
-            $res['RuleCheck'] = [];
-            if (null !== $this->ruleCheck && \is_array($this->ruleCheck)) {
-                $n = 0;
-                foreach ($this->ruleCheck as $item) {
-                    $res['RuleCheck'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->createUserId) {
-            $res['CreateUserId'] = $this->createUserId;
-        }
-        if (null !== $this->intentId) {
-            $res['IntentId'] = $this->intentId;
-        }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
-        }
 
         return $res;
     }
@@ -149,17 +149,38 @@ class intents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CreateUserId'])) {
+            $model->createUserId = $map['CreateUserId'];
+        }
+        if (isset($map['CreateUserName'])) {
+            $model->createUserName = $map['CreateUserName'];
+        }
+        if (isset($map['IntentId'])) {
+            $model->intentId = $map['IntentId'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
+        }
         if (isset($map['ModifyUserId'])) {
             $model->modifyUserId = $map['ModifyUserId'];
         }
         if (isset($map['ModifyUserName'])) {
             $model->modifyUserName = $map['ModifyUserName'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
-        if (isset($map['CreateUserName'])) {
-            $model->createUserName = $map['CreateUserName'];
+        if (isset($map['RuleCheck'])) {
+            if (!empty($map['RuleCheck'])) {
+                $model->ruleCheck = [];
+                $n                = 0;
+                foreach ($map['RuleCheck'] as $item) {
+                    $model->ruleCheck[$n++] = null !== $item ? ruleCheck::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Slot'])) {
             if (!empty($map['Slot'])) {
@@ -178,27 +199,6 @@ class intents extends Model
                     $model->userSay[$n++] = null !== $item ? userSay::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['RuleCheck'])) {
-            if (!empty($map['RuleCheck'])) {
-                $model->ruleCheck = [];
-                $n                = 0;
-                foreach ($map['RuleCheck'] as $item) {
-                    $model->ruleCheck[$n++] = null !== $item ? ruleCheck::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['CreateUserId'])) {
-            $model->createUserId = $map['CreateUserId'];
-        }
-        if (isset($map['IntentId'])) {
-            $model->intentId = $map['IntentId'];
-        }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
         }
 
         return $model;

@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class slots extends Model
 {
     /**
+     * @var bool
+     */
+    public $isHit;
+
+    /**
      * @var string
      */
-    public $value;
+    public $name;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class slots extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var bool
-     */
-    public $isHit;
+    public $value;
     protected $_name = [
-        'value'  => 'Value',
-        'origin' => 'Origin',
-        'name'   => 'Name',
         'isHit'  => 'IsHit',
+        'name'   => 'Name',
+        'origin' => 'Origin',
+        'value'  => 'Value',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class slots extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
-        if (null !== $this->origin) {
-            $res['Origin'] = $this->origin;
+        if (null !== $this->isHit) {
+            $res['IsHit'] = $this->isHit;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->isHit) {
-            $res['IsHit'] = $this->isHit;
+        if (null !== $this->origin) {
+            $res['Origin'] = $this->origin;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class slots extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
-        if (isset($map['Origin'])) {
-            $model->origin = $map['Origin'];
+        if (isset($map['IsHit'])) {
+            $model->isHit = $map['IsHit'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['IsHit'])) {
-            $model->isHit = $map['IsHit'];
+        if (isset($map['Origin'])) {
+            $model->origin = $map['Origin'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

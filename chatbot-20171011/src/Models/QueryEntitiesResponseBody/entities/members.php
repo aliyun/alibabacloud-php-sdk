@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
-     * @var string[]
-     */
-    public $synonyms;
-
-    /**
      * @var string
      */
     public $memberName;
+
+    /**
+     * @var string[]
+     */
+    public $synonyms;
     protected $_name = [
-        'synonyms'   => 'Synonyms',
         'memberName' => 'MemberName',
+        'synonyms'   => 'Synonyms',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class members extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->synonyms) {
-            $res['Synonyms'] = $this->synonyms;
-        }
         if (null !== $this->memberName) {
             $res['MemberName'] = $this->memberName;
+        }
+        if (null !== $this->synonyms) {
+            $res['Synonyms'] = $this->synonyms;
         }
 
         return $res;
@@ -47,13 +47,13 @@ class members extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MemberName'])) {
+            $model->memberName = $map['MemberName'];
+        }
         if (isset($map['Synonyms'])) {
             if (!empty($map['Synonyms'])) {
                 $model->synonyms = $map['Synonyms'];
             }
-        }
-        if (isset($map['MemberName'])) {
-            $model->memberName = $map['MemberName'];
         }
 
         return $model;

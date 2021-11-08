@@ -14,14 +14,9 @@ class AssociateRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $utterance;
-
-    /**
-     * @var string
-     */
-    public $sessionId;
+    public $perspective;
 
     /**
      * @var int
@@ -29,15 +24,20 @@ class AssociateRequest extends Model
     public $recommendNum;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $perspective;
+    public $sessionId;
+
+    /**
+     * @var string
+     */
+    public $utterance;
     protected $_name = [
         'instanceId'   => 'InstanceId',
-        'utterance'    => 'Utterance',
-        'sessionId'    => 'SessionId',
-        'recommendNum' => 'RecommendNum',
         'perspective'  => 'Perspective',
+        'recommendNum' => 'RecommendNum',
+        'sessionId'    => 'SessionId',
+        'utterance'    => 'Utterance',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class AssociateRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->utterance) {
-            $res['Utterance'] = $this->utterance;
-        }
-        if (null !== $this->sessionId) {
-            $res['SessionId'] = $this->sessionId;
+        if (null !== $this->perspective) {
+            $res['Perspective'] = $this->perspective;
         }
         if (null !== $this->recommendNum) {
             $res['RecommendNum'] = $this->recommendNum;
         }
-        if (null !== $this->perspective) {
-            $res['Perspective'] = $this->perspective;
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
+        }
+        if (null !== $this->utterance) {
+            $res['Utterance'] = $this->utterance;
         }
 
         return $res;
@@ -77,19 +77,19 @@ class AssociateRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Utterance'])) {
-            $model->utterance = $map['Utterance'];
-        }
-        if (isset($map['SessionId'])) {
-            $model->sessionId = $map['SessionId'];
-        }
-        if (isset($map['RecommendNum'])) {
-            $model->recommendNum = $map['RecommendNum'];
-        }
         if (isset($map['Perspective'])) {
             if (!empty($map['Perspective'])) {
                 $model->perspective = $map['Perspective'];
             }
+        }
+        if (isset($map['RecommendNum'])) {
+            $model->recommendNum = $map['RecommendNum'];
+        }
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
+        }
+        if (isset($map['Utterance'])) {
+            $model->utterance = $map['Utterance'];
         }
 
         return $model;

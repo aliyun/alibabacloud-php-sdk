@@ -16,11 +16,18 @@ class SlotrecordMtopDTO extends Model
     public $id;
 
     /**
-     * @description Question
+     * @description IsArray
      *
-     * @var string[]
+     * @var bool
      */
-    public $question;
+    public $isArray;
+
+    /**
+     * @description IsNecessary
+     *
+     * @var bool
+     */
+    public $isNecessary;
 
     /**
      * @description LifeSpan
@@ -37,25 +44,11 @@ class SlotrecordMtopDTO extends Model
     public $name;
 
     /**
-     * @description IsArray
+     * @description Question
      *
-     * @var bool
+     * @var string[]
      */
-    public $isArray;
-
-    /**
-     * @description Value
-     *
-     * @var string
-     */
-    public $value;
-
-    /**
-     * @description IsNecessary
-     *
-     * @var bool
-     */
-    public $isNecessary;
+    public $question;
 
     /**
      * @description Tags
@@ -63,15 +56,22 @@ class SlotrecordMtopDTO extends Model
      * @var TagMtopDTO[]
      */
     public $tags;
+
+    /**
+     * @description Value
+     *
+     * @var string
+     */
+    public $value;
     protected $_name = [
         'id'          => 'Id',
-        'question'    => 'Question',
+        'isArray'     => 'IsArray',
+        'isNecessary' => 'IsNecessary',
         'lifeSpan'    => 'LifeSpan',
         'name'        => 'Name',
-        'isArray'     => 'IsArray',
-        'value'       => 'Value',
-        'isNecessary' => 'IsNecessary',
+        'question'    => 'Question',
         'tags'        => 'Tags',
+        'value'       => 'Value',
     ];
 
     public function validate()
@@ -84,8 +84,11 @@ class SlotrecordMtopDTO extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->question) {
-            $res['Question'] = $this->question;
+        if (null !== $this->isArray) {
+            $res['IsArray'] = $this->isArray;
+        }
+        if (null !== $this->isNecessary) {
+            $res['IsNecessary'] = $this->isNecessary;
         }
         if (null !== $this->lifeSpan) {
             $res['LifeSpan'] = $this->lifeSpan;
@@ -93,14 +96,8 @@ class SlotrecordMtopDTO extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->isArray) {
-            $res['IsArray'] = $this->isArray;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
-        if (null !== $this->isNecessary) {
-            $res['IsNecessary'] = $this->isNecessary;
+        if (null !== $this->question) {
+            $res['Question'] = $this->question;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -110,6 +107,9 @@ class SlotrecordMtopDTO extends Model
                     $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -126,10 +126,11 @@ class SlotrecordMtopDTO extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Question'])) {
-            if (!empty($map['Question'])) {
-                $model->question = $map['Question'];
-            }
+        if (isset($map['IsArray'])) {
+            $model->isArray = $map['IsArray'];
+        }
+        if (isset($map['IsNecessary'])) {
+            $model->isNecessary = $map['IsNecessary'];
         }
         if (isset($map['LifeSpan'])) {
             $model->lifeSpan = $map['LifeSpan'];
@@ -137,14 +138,10 @@ class SlotrecordMtopDTO extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['IsArray'])) {
-            $model->isArray = $map['IsArray'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
-        if (isset($map['IsNecessary'])) {
-            $model->isNecessary = $map['IsNecessary'];
+        if (isset($map['Question'])) {
+            if (!empty($map['Question'])) {
+                $model->question = $map['Question'];
+            }
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
@@ -154,6 +151,9 @@ class SlotrecordMtopDTO extends Model
                     $model->tags[$n++] = null !== $item ? TagMtopDTO::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -23,13 +23,6 @@ class PaasSlotConfigDTO extends Model
     public $isNecessary;
 
     /**
-     * @description Value
-     *
-     * @var string
-     */
-    public $value;
-
-    /**
      * @description LifeSpan
      *
      * @var int
@@ -49,13 +42,20 @@ class PaasSlotConfigDTO extends Model
      * @var string[]
      */
     public $question;
+
+    /**
+     * @description Value
+     *
+     * @var string
+     */
+    public $value;
     protected $_name = [
         'isArray'     => 'IsArray',
         'isNecessary' => 'IsNecessary',
-        'value'       => 'Value',
         'lifeSpan'    => 'LifeSpan',
         'name'        => 'Name',
         'question'    => 'Question',
+        'value'       => 'Value',
     ];
 
     public function validate()
@@ -71,9 +71,6 @@ class PaasSlotConfigDTO extends Model
         if (null !== $this->isNecessary) {
             $res['IsNecessary'] = $this->isNecessary;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->lifeSpan) {
             $res['LifeSpan'] = $this->lifeSpan;
         }
@@ -82,6 +79,9 @@ class PaasSlotConfigDTO extends Model
         }
         if (null !== $this->question) {
             $res['Question'] = $this->question;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -101,9 +101,6 @@ class PaasSlotConfigDTO extends Model
         if (isset($map['IsNecessary'])) {
             $model->isNecessary = $map['IsNecessary'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['LifeSpan'])) {
             $model->lifeSpan = $map['LifeSpan'];
         }
@@ -114,6 +111,9 @@ class PaasSlotConfigDTO extends Model
             if (!empty($map['Question'])) {
                 $model->question = $map['Question'];
             }
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

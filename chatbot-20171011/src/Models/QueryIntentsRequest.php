@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class QueryIntentsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $intentName;
-
-    /**
      * @var int
      */
     public $dialogId;
+
+    /**
+     * @var string
+     */
+    public $intentName;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class QueryIntentsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'intentName' => 'IntentName',
         'dialogId'   => 'DialogId',
+        'intentName' => 'IntentName',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -41,11 +41,11 @@ class QueryIntentsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->intentName) {
-            $res['IntentName'] = $this->intentName;
-        }
         if (null !== $this->dialogId) {
             $res['DialogId'] = $this->dialogId;
+        }
+        if (null !== $this->intentName) {
+            $res['IntentName'] = $this->intentName;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -65,11 +65,11 @@ class QueryIntentsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IntentName'])) {
-            $model->intentName = $map['IntentName'];
-        }
         if (isset($map['DialogId'])) {
             $model->dialogId = $map['DialogId'];
+        }
+        if (isset($map['IntentName'])) {
+            $model->intentName = $map['IntentName'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

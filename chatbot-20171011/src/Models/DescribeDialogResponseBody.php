@@ -9,26 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDialogResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $modifyTime;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string
      */
     public $createTime;
@@ -39,6 +19,16 @@ class DescribeDialogResponseBody extends Model
     public $createUserId;
 
     /**
+     * @var string
+     */
+    public $createUserName;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var int
      */
     public $dialogId;
@@ -46,7 +36,7 @@ class DescribeDialogResponseBody extends Model
     /**
      * @var string
      */
-    public $createUserName;
+    public $dialogName;
 
     /**
      * @var bool
@@ -54,9 +44,14 @@ class DescribeDialogResponseBody extends Model
     public $isOnline;
 
     /**
+     * @var bool
+     */
+    public $isSampleDialog;
+
+    /**
      * @var string
      */
-    public $dialogName;
+    public $modifyTime;
 
     /**
      * @var string
@@ -69,23 +64,28 @@ class DescribeDialogResponseBody extends Model
     public $modifyUserName;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $isSampleDialog;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'         => 'Status',
-        'modifyTime'     => 'ModifyTime',
-        'description'    => 'Description',
-        'requestId'      => 'RequestId',
         'createTime'     => 'CreateTime',
         'createUserId'   => 'CreateUserId',
-        'dialogId'       => 'DialogId',
         'createUserName' => 'CreateUserName',
-        'isOnline'       => 'IsOnline',
+        'description'    => 'Description',
+        'dialogId'       => 'DialogId',
         'dialogName'     => 'DialogName',
+        'isOnline'       => 'IsOnline',
+        'isSampleDialog' => 'IsSampleDialog',
+        'modifyTime'     => 'ModifyTime',
         'modifyUserId'   => 'ModifyUserId',
         'modifyUserName' => 'ModifyUserName',
-        'isSampleDialog' => 'IsSampleDialog',
+        'requestId'      => 'RequestId',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -95,35 +95,32 @@ class DescribeDialogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->createUserId) {
             $res['CreateUserId'] = $this->createUserId;
         }
+        if (null !== $this->createUserName) {
+            $res['CreateUserName'] = $this->createUserName;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->dialogId) {
             $res['DialogId'] = $this->dialogId;
         }
-        if (null !== $this->createUserName) {
-            $res['CreateUserName'] = $this->createUserName;
+        if (null !== $this->dialogName) {
+            $res['DialogName'] = $this->dialogName;
         }
         if (null !== $this->isOnline) {
             $res['IsOnline'] = $this->isOnline;
         }
-        if (null !== $this->dialogName) {
-            $res['DialogName'] = $this->dialogName;
+        if (null !== $this->isSampleDialog) {
+            $res['IsSampleDialog'] = $this->isSampleDialog;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->modifyUserId) {
             $res['ModifyUserId'] = $this->modifyUserId;
@@ -131,8 +128,11 @@ class DescribeDialogResponseBody extends Model
         if (null !== $this->modifyUserName) {
             $res['ModifyUserName'] = $this->modifyUserName;
         }
-        if (null !== $this->isSampleDialog) {
-            $res['IsSampleDialog'] = $this->isSampleDialog;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -146,35 +146,32 @@ class DescribeDialogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
         if (isset($map['CreateUserId'])) {
             $model->createUserId = $map['CreateUserId'];
         }
+        if (isset($map['CreateUserName'])) {
+            $model->createUserName = $map['CreateUserName'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['DialogId'])) {
             $model->dialogId = $map['DialogId'];
         }
-        if (isset($map['CreateUserName'])) {
-            $model->createUserName = $map['CreateUserName'];
+        if (isset($map['DialogName'])) {
+            $model->dialogName = $map['DialogName'];
         }
         if (isset($map['IsOnline'])) {
             $model->isOnline = $map['IsOnline'];
         }
-        if (isset($map['DialogName'])) {
-            $model->dialogName = $map['DialogName'];
+        if (isset($map['IsSampleDialog'])) {
+            $model->isSampleDialog = $map['IsSampleDialog'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['ModifyUserId'])) {
             $model->modifyUserId = $map['ModifyUserId'];
@@ -182,8 +179,11 @@ class DescribeDialogResponseBody extends Model
         if (isset($map['ModifyUserName'])) {
             $model->modifyUserName = $map['ModifyUserName'];
         }
-        if (isset($map['IsSampleDialog'])) {
-            $model->isSampleDialog = $map['IsSampleDialog'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -14,16 +14,6 @@ class GetConversationListResponseBody extends Model
     public $messages;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -31,12 +21,22 @@ class GetConversationListResponseBody extends Model
     /**
      * @var int
      */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
     public $totalCounts;
     protected $_name = [
         'messages'    => 'Messages',
-        'requestId'   => 'RequestId',
-        'pageSize'    => 'PageSize',
         'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
+        'requestId'   => 'RequestId',
         'totalCounts' => 'TotalCounts',
     ];
 
@@ -50,14 +50,14 @@ class GetConversationListResponseBody extends Model
         if (null !== $this->messages) {
             $res['Messages'] = $this->messages;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->totalCounts) {
             $res['TotalCounts'] = $this->totalCounts;
@@ -79,14 +79,14 @@ class GetConversationListResponseBody extends Model
                 $model->messages = $map['Messages'];
             }
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TotalCounts'])) {
             $model->totalCounts = $map['TotalCounts'];

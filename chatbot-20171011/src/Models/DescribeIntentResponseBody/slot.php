@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class slot extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $value;
+    public $isArray;
+
+    /**
+     * @var bool
+     */
+    public $isNecessary;
 
     /**
      * @var int
@@ -22,22 +27,7 @@ class slot extends Model
     /**
      * @var string
      */
-    public $slotId;
-
-    /**
-     * @var bool
-     */
-    public $isNecessary;
-
-    /**
-     * @var bool
-     */
-    public $isArray;
-
-    /**
-     * @var tags[]
-     */
-    public $tags;
+    public $name;
 
     /**
      * @var string[]
@@ -47,16 +37,26 @@ class slot extends Model
     /**
      * @var string
      */
-    public $name;
+    public $slotId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'value'       => 'Value',
-        'lifeSpan'    => 'LifeSpan',
-        'slotId'      => 'SlotId',
-        'isNecessary' => 'IsNecessary',
         'isArray'     => 'IsArray',
-        'tags'        => 'Tags',
-        'question'    => 'Question',
+        'isNecessary' => 'IsNecessary',
+        'lifeSpan'    => 'LifeSpan',
         'name'        => 'Name',
+        'question'    => 'Question',
+        'slotId'      => 'SlotId',
+        'tags'        => 'Tags',
+        'value'       => 'Value',
     ];
 
     public function validate()
@@ -66,20 +66,23 @@ class slot extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
-        if (null !== $this->lifeSpan) {
-            $res['LifeSpan'] = $this->lifeSpan;
-        }
-        if (null !== $this->slotId) {
-            $res['SlotId'] = $this->slotId;
+        if (null !== $this->isArray) {
+            $res['IsArray'] = $this->isArray;
         }
         if (null !== $this->isNecessary) {
             $res['IsNecessary'] = $this->isNecessary;
         }
-        if (null !== $this->isArray) {
-            $res['IsArray'] = $this->isArray;
+        if (null !== $this->lifeSpan) {
+            $res['LifeSpan'] = $this->lifeSpan;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->question) {
+            $res['Question'] = $this->question;
+        }
+        if (null !== $this->slotId) {
+            $res['SlotId'] = $this->slotId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -90,11 +93,8 @@ class slot extends Model
                 }
             }
         }
-        if (null !== $this->question) {
-            $res['Question'] = $this->question;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -108,20 +108,25 @@ class slot extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
-        if (isset($map['LifeSpan'])) {
-            $model->lifeSpan = $map['LifeSpan'];
-        }
-        if (isset($map['SlotId'])) {
-            $model->slotId = $map['SlotId'];
+        if (isset($map['IsArray'])) {
+            $model->isArray = $map['IsArray'];
         }
         if (isset($map['IsNecessary'])) {
             $model->isNecessary = $map['IsNecessary'];
         }
-        if (isset($map['IsArray'])) {
-            $model->isArray = $map['IsArray'];
+        if (isset($map['LifeSpan'])) {
+            $model->lifeSpan = $map['LifeSpan'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Question'])) {
+            if (!empty($map['Question'])) {
+                $model->question = $map['Question'];
+            }
+        }
+        if (isset($map['SlotId'])) {
+            $model->slotId = $map['SlotId'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
@@ -132,13 +137,8 @@ class slot extends Model
                 }
             }
         }
-        if (isset($map['Question'])) {
-            if (!empty($map['Question'])) {
-                $model->question = $map['Question'];
-            }
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

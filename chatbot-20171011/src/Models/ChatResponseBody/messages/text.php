@@ -12,12 +12,7 @@ class text extends Model
     /**
      * @var string
      */
-    public $hitStatement;
-
-    /**
-     * @var string
-     */
-    public $dialogName;
+    public $answerSource;
 
     /**
      * @var string
@@ -27,12 +22,32 @@ class text extends Model
     /**
      * @var string
      */
-    public $answerSource;
+    public $content;
 
     /**
-     * @var slots[]
+     * @var string
      */
-    public $slots;
+    public $contentType;
+
+    /**
+     * @var string
+     */
+    public $dialogName;
+
+    /**
+     * @var mixed[]
+     */
+    public $ext;
+
+    /**
+     * @var mixed[]
+     */
+    public $externalFlags;
+
+    /**
+     * @var string
+     */
+    public $hitStatement;
 
     /**
      * @var string
@@ -47,46 +62,43 @@ class text extends Model
     /**
      * @var string
      */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
     public $nodeName;
 
     /**
-     * @var mixed[]
+     * @var float
      */
-    public $externalFlags;
+    public $score;
 
     /**
-     * @var mixed[]
+     * @var slots[]
      */
-    public $ext;
+    public $slots;
 
     /**
      * @var string
      */
     public $userDefinedChatTitle;
-
-    /**
-     * @var string
-     */
-    public $content;
-
-    /**
-     * @var string
-     */
-    public $nodeId;
     protected $_name = [
-        'hitStatement'         => 'HitStatement',
-        'dialogName'           => 'DialogName',
-        'articleTitle'         => 'ArticleTitle',
         'answerSource'         => 'AnswerSource',
-        'slots'                => 'Slots',
+        'articleTitle'         => 'ArticleTitle',
+        'content'              => 'Content',
+        'contentType'          => 'ContentType',
+        'dialogName'           => 'DialogName',
+        'ext'                  => 'Ext',
+        'externalFlags'        => 'ExternalFlags',
+        'hitStatement'         => 'HitStatement',
         'intentName'           => 'IntentName',
         'metaData'             => 'MetaData',
-        'nodeName'             => 'NodeName',
-        'externalFlags'        => 'ExternalFlags',
-        'ext'                  => 'Ext',
-        'userDefinedChatTitle' => 'UserDefinedChatTitle',
-        'content'              => 'Content',
         'nodeId'               => 'NodeId',
+        'nodeName'             => 'NodeName',
+        'score'                => 'Score',
+        'slots'                => 'Slots',
+        'userDefinedChatTitle' => 'UserDefinedChatTitle',
     ];
 
     public function validate()
@@ -96,17 +108,44 @@ class text extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hitStatement) {
-            $res['HitStatement'] = $this->hitStatement;
-        }
-        if (null !== $this->dialogName) {
-            $res['DialogName'] = $this->dialogName;
+        if (null !== $this->answerSource) {
+            $res['AnswerSource'] = $this->answerSource;
         }
         if (null !== $this->articleTitle) {
             $res['ArticleTitle'] = $this->articleTitle;
         }
-        if (null !== $this->answerSource) {
-            $res['AnswerSource'] = $this->answerSource;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
+        if (null !== $this->contentType) {
+            $res['ContentType'] = $this->contentType;
+        }
+        if (null !== $this->dialogName) {
+            $res['DialogName'] = $this->dialogName;
+        }
+        if (null !== $this->ext) {
+            $res['Ext'] = $this->ext;
+        }
+        if (null !== $this->externalFlags) {
+            $res['ExternalFlags'] = $this->externalFlags;
+        }
+        if (null !== $this->hitStatement) {
+            $res['HitStatement'] = $this->hitStatement;
+        }
+        if (null !== $this->intentName) {
+            $res['IntentName'] = $this->intentName;
+        }
+        if (null !== $this->metaData) {
+            $res['MetaData'] = $this->metaData;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
         if (null !== $this->slots) {
             $res['Slots'] = [];
@@ -117,29 +156,8 @@ class text extends Model
                 }
             }
         }
-        if (null !== $this->intentName) {
-            $res['IntentName'] = $this->intentName;
-        }
-        if (null !== $this->metaData) {
-            $res['MetaData'] = $this->metaData;
-        }
-        if (null !== $this->nodeName) {
-            $res['NodeName'] = $this->nodeName;
-        }
-        if (null !== $this->externalFlags) {
-            $res['ExternalFlags'] = $this->externalFlags;
-        }
-        if (null !== $this->ext) {
-            $res['Ext'] = $this->ext;
-        }
         if (null !== $this->userDefinedChatTitle) {
             $res['UserDefinedChatTitle'] = $this->userDefinedChatTitle;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
         }
 
         return $res;
@@ -153,17 +171,44 @@ class text extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HitStatement'])) {
-            $model->hitStatement = $map['HitStatement'];
-        }
-        if (isset($map['DialogName'])) {
-            $model->dialogName = $map['DialogName'];
+        if (isset($map['AnswerSource'])) {
+            $model->answerSource = $map['AnswerSource'];
         }
         if (isset($map['ArticleTitle'])) {
             $model->articleTitle = $map['ArticleTitle'];
         }
-        if (isset($map['AnswerSource'])) {
-            $model->answerSource = $map['AnswerSource'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
+        if (isset($map['ContentType'])) {
+            $model->contentType = $map['ContentType'];
+        }
+        if (isset($map['DialogName'])) {
+            $model->dialogName = $map['DialogName'];
+        }
+        if (isset($map['Ext'])) {
+            $model->ext = $map['Ext'];
+        }
+        if (isset($map['ExternalFlags'])) {
+            $model->externalFlags = $map['ExternalFlags'];
+        }
+        if (isset($map['HitStatement'])) {
+            $model->hitStatement = $map['HitStatement'];
+        }
+        if (isset($map['IntentName'])) {
+            $model->intentName = $map['IntentName'];
+        }
+        if (isset($map['MetaData'])) {
+            $model->metaData = $map['MetaData'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
         if (isset($map['Slots'])) {
             if (!empty($map['Slots'])) {
@@ -174,29 +219,8 @@ class text extends Model
                 }
             }
         }
-        if (isset($map['IntentName'])) {
-            $model->intentName = $map['IntentName'];
-        }
-        if (isset($map['MetaData'])) {
-            $model->metaData = $map['MetaData'];
-        }
-        if (isset($map['NodeName'])) {
-            $model->nodeName = $map['NodeName'];
-        }
-        if (isset($map['ExternalFlags'])) {
-            $model->externalFlags = $map['ExternalFlags'];
-        }
-        if (isset($map['Ext'])) {
-            $model->ext = $map['Ext'];
-        }
         if (isset($map['UserDefinedChatTitle'])) {
             $model->userDefinedChatTitle = $map['UserDefinedChatTitle'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
         }
 
         return $model;

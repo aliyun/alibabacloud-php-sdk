@@ -19,11 +19,6 @@ class coreWords extends Model
     public $coreWordName;
 
     /**
-     * @var string[]
-     */
-    public $synonyms;
-
-    /**
      * @var string
      */
     public $createTime;
@@ -32,12 +27,17 @@ class coreWords extends Model
      * @var string
      */
     public $modifyTime;
+
+    /**
+     * @var string[]
+     */
+    public $synonyms;
     protected $_name = [
         'coreWordCode' => 'CoreWordCode',
         'coreWordName' => 'CoreWordName',
-        'synonyms'     => 'Synonyms',
         'createTime'   => 'CreateTime',
         'modifyTime'   => 'ModifyTime',
+        'synonyms'     => 'Synonyms',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class coreWords extends Model
         if (null !== $this->coreWordName) {
             $res['CoreWordName'] = $this->coreWordName;
         }
-        if (null !== $this->synonyms) {
-            $res['Synonyms'] = $this->synonyms;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->synonyms) {
+            $res['Synonyms'] = $this->synonyms;
         }
 
         return $res;
@@ -80,16 +80,16 @@ class coreWords extends Model
         if (isset($map['CoreWordName'])) {
             $model->coreWordName = $map['CoreWordName'];
         }
-        if (isset($map['Synonyms'])) {
-            if (!empty($map['Synonyms'])) {
-                $model->synonyms = $map['Synonyms'];
-            }
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['Synonyms'])) {
+            if (!empty($map['Synonyms'])) {
+                $model->synonyms = $map['Synonyms'];
+            }
         }
 
         return $model;

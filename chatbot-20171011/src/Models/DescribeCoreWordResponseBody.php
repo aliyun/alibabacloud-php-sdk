@@ -11,12 +11,17 @@ class DescribeCoreWordResponseBody extends Model
     /**
      * @var string
      */
+    public $coreWordCode;
+
+    /**
+     * @var string
+     */
     public $coreWordName;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $synonyms;
+    public $createTime;
 
     /**
      * @var string
@@ -29,21 +34,16 @@ class DescribeCoreWordResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $coreWordCode;
+    public $synonyms;
     protected $_name = [
+        'coreWordCode' => 'CoreWordCode',
         'coreWordName' => 'CoreWordName',
-        'synonyms'     => 'Synonyms',
+        'createTime'   => 'CreateTime',
         'modifyTime'   => 'ModifyTime',
         'requestId'    => 'RequestId',
-        'createTime'   => 'CreateTime',
-        'coreWordCode' => 'CoreWordCode',
+        'synonyms'     => 'Synonyms',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class DescribeCoreWordResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->coreWordCode) {
+            $res['CoreWordCode'] = $this->coreWordCode;
+        }
         if (null !== $this->coreWordName) {
             $res['CoreWordName'] = $this->coreWordName;
         }
-        if (null !== $this->synonyms) {
-            $res['Synonyms'] = $this->synonyms;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
@@ -65,11 +68,8 @@ class DescribeCoreWordResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->coreWordCode) {
-            $res['CoreWordCode'] = $this->coreWordCode;
+        if (null !== $this->synonyms) {
+            $res['Synonyms'] = $this->synonyms;
         }
 
         return $res;
@@ -83,13 +83,14 @@ class DescribeCoreWordResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CoreWordCode'])) {
+            $model->coreWordCode = $map['CoreWordCode'];
+        }
         if (isset($map['CoreWordName'])) {
             $model->coreWordName = $map['CoreWordName'];
         }
-        if (isset($map['Synonyms'])) {
-            if (!empty($map['Synonyms'])) {
-                $model->synonyms = $map['Synonyms'];
-            }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
@@ -97,11 +98,10 @@ class DescribeCoreWordResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['CoreWordCode'])) {
-            $model->coreWordCode = $map['CoreWordCode'];
+        if (isset($map['Synonyms'])) {
+            if (!empty($map['Synonyms'])) {
+                $model->synonyms = $map['Synonyms'];
+            }
         }
 
         return $model;

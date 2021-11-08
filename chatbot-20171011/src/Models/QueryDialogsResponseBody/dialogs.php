@@ -9,31 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dialogs extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $dialogName;
-
-    /**
-     * @var string
-     */
-    public $modifyUserId;
-
-    /**
-     * @var bool
-     */
-    public $isOnline;
-
-    /**
-     * @var string
-     */
-    public $createUserName;
-
-    /**
      * @var string
      */
     public $createTime;
@@ -46,7 +21,7 @@ class dialogs extends Model
     /**
      * @var string
      */
-    public $modifyUserName;
+    public $createUserName;
 
     /**
      * @var string
@@ -59,6 +34,16 @@ class dialogs extends Model
     public $dialogId;
 
     /**
+     * @var string
+     */
+    public $dialogName;
+
+    /**
+     * @var bool
+     */
+    public $isOnline;
+
+    /**
      * @var bool
      */
     public $isSampleDialog;
@@ -67,19 +52,34 @@ class dialogs extends Model
      * @var string
      */
     public $modifyTime;
+
+    /**
+     * @var string
+     */
+    public $modifyUserId;
+
+    /**
+     * @var string
+     */
+    public $modifyUserName;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'         => 'Status',
-        'dialogName'     => 'DialogName',
-        'modifyUserId'   => 'ModifyUserId',
-        'isOnline'       => 'IsOnline',
-        'createUserName' => 'CreateUserName',
         'createTime'     => 'CreateTime',
         'createUserId'   => 'CreateUserId',
-        'modifyUserName' => 'ModifyUserName',
+        'createUserName' => 'CreateUserName',
         'description'    => 'Description',
         'dialogId'       => 'DialogId',
+        'dialogName'     => 'DialogName',
+        'isOnline'       => 'IsOnline',
         'isSampleDialog' => 'IsSampleDialog',
         'modifyTime'     => 'ModifyTime',
+        'modifyUserId'   => 'ModifyUserId',
+        'modifyUserName' => 'ModifyUserName',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -89,29 +89,14 @@ class dialogs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->dialogName) {
-            $res['DialogName'] = $this->dialogName;
-        }
-        if (null !== $this->modifyUserId) {
-            $res['ModifyUserId'] = $this->modifyUserId;
-        }
-        if (null !== $this->isOnline) {
-            $res['IsOnline'] = $this->isOnline;
-        }
-        if (null !== $this->createUserName) {
-            $res['CreateUserName'] = $this->createUserName;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->createUserId) {
             $res['CreateUserId'] = $this->createUserId;
         }
-        if (null !== $this->modifyUserName) {
-            $res['ModifyUserName'] = $this->modifyUserName;
+        if (null !== $this->createUserName) {
+            $res['CreateUserName'] = $this->createUserName;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -119,11 +104,26 @@ class dialogs extends Model
         if (null !== $this->dialogId) {
             $res['DialogId'] = $this->dialogId;
         }
+        if (null !== $this->dialogName) {
+            $res['DialogName'] = $this->dialogName;
+        }
+        if (null !== $this->isOnline) {
+            $res['IsOnline'] = $this->isOnline;
+        }
         if (null !== $this->isSampleDialog) {
             $res['IsSampleDialog'] = $this->isSampleDialog;
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->modifyUserId) {
+            $res['ModifyUserId'] = $this->modifyUserId;
+        }
+        if (null !== $this->modifyUserName) {
+            $res['ModifyUserName'] = $this->modifyUserName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -137,29 +137,14 @@ class dialogs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['DialogName'])) {
-            $model->dialogName = $map['DialogName'];
-        }
-        if (isset($map['ModifyUserId'])) {
-            $model->modifyUserId = $map['ModifyUserId'];
-        }
-        if (isset($map['IsOnline'])) {
-            $model->isOnline = $map['IsOnline'];
-        }
-        if (isset($map['CreateUserName'])) {
-            $model->createUserName = $map['CreateUserName'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
         if (isset($map['CreateUserId'])) {
             $model->createUserId = $map['CreateUserId'];
         }
-        if (isset($map['ModifyUserName'])) {
-            $model->modifyUserName = $map['ModifyUserName'];
+        if (isset($map['CreateUserName'])) {
+            $model->createUserName = $map['CreateUserName'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -167,11 +152,26 @@ class dialogs extends Model
         if (isset($map['DialogId'])) {
             $model->dialogId = $map['DialogId'];
         }
+        if (isset($map['DialogName'])) {
+            $model->dialogName = $map['DialogName'];
+        }
+        if (isset($map['IsOnline'])) {
+            $model->isOnline = $map['IsOnline'];
+        }
         if (isset($map['IsSampleDialog'])) {
             $model->isSampleDialog = $map['IsSampleDialog'];
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['ModifyUserId'])) {
+            $model->modifyUserId = $map['ModifyUserId'];
+        }
+        if (isset($map['ModifyUserName'])) {
+            $model->modifyUserName = $map['ModifyUserName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

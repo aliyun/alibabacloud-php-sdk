@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PaasConditionEntryDTO extends Model
 {
     /**
-     * @description id
+     * @description Id
      *
      * @var string
      */
     public $id;
-
-    /**
-     * @description Term
-     *
-     * @var string
-     */
-    public $term;
 
     /**
      * @description Name
@@ -28,6 +21,13 @@ class PaasConditionEntryDTO extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @description Term
+     *
+     * @var string
+     */
+    public $term;
 
     /**
      * @description Type
@@ -43,9 +43,9 @@ class PaasConditionEntryDTO extends Model
      */
     public $value;
     protected $_name = [
-        'id'    => 'id',
-        'term'  => 'Term',
+        'id'    => 'Id',
         'name'  => 'Name',
+        'term'  => 'Term',
         'type'  => 'Type',
         'value' => 'Value',
     ];
@@ -58,13 +58,13 @@ class PaasConditionEntryDTO extends Model
     {
         $res = [];
         if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-        if (null !== $this->term) {
-            $res['Term'] = $this->term;
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->term) {
+            $res['Term'] = $this->term;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -84,14 +84,14 @@ class PaasConditionEntryDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-        if (isset($map['Term'])) {
-            $model->term = $map['Term'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Term'])) {
+            $model->term = $map['Term'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

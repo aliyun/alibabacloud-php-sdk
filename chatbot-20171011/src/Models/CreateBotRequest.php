@@ -11,16 +11,6 @@ class CreateBotRequest extends Model
     /**
      * @var string
      */
-    public $languageCode;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $avatar;
 
     /**
@@ -31,12 +21,22 @@ class CreateBotRequest extends Model
     /**
      * @var string
      */
+    public $languageCode;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $robotType;
     protected $_name = [
-        'languageCode' => 'LanguageCode',
-        'name'         => 'Name',
         'avatar'       => 'Avatar',
         'introduction' => 'Introduction',
+        'languageCode' => 'LanguageCode',
+        'name'         => 'Name',
         'robotType'    => 'RobotType',
     ];
 
@@ -47,17 +47,17 @@ class CreateBotRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->languageCode) {
-            $res['LanguageCode'] = $this->languageCode;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->avatar) {
             $res['Avatar'] = $this->avatar;
         }
         if (null !== $this->introduction) {
             $res['Introduction'] = $this->introduction;
+        }
+        if (null !== $this->languageCode) {
+            $res['LanguageCode'] = $this->languageCode;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->robotType) {
             $res['RobotType'] = $this->robotType;
@@ -74,17 +74,17 @@ class CreateBotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LanguageCode'])) {
-            $model->languageCode = $map['LanguageCode'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Avatar'])) {
             $model->avatar = $map['Avatar'];
         }
         if (isset($map['Introduction'])) {
             $model->introduction = $map['Introduction'];
+        }
+        if (isset($map['LanguageCode'])) {
+            $model->languageCode = $map['LanguageCode'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['RobotType'])) {
             $model->robotType = $map['RobotType'];

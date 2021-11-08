@@ -23,13 +23,6 @@ class IntentCreateDTO extends Model
     public $name;
 
     /**
-     * @description UserSay
-     *
-     * @var UsersayMtopDTO[]
-     */
-    public $userSay;
-
-    /**
      * @description RuleCheck
      *
      * @var RuleMtopDTO[]
@@ -40,12 +33,19 @@ class IntentCreateDTO extends Model
      * @var SlotrecordMtopDTO[]
      */
     public $slot;
+
+    /**
+     * @description UserSay
+     *
+     * @var UsersayMtopDTO[]
+     */
+    public $userSay;
     protected $_name = [
         'intentId'  => 'IntentId',
         'name'      => 'Name',
-        'userSay'   => 'UserSay',
         'ruleCheck' => 'RuleCheck',
         'slot'      => 'Slot',
+        'userSay'   => 'UserSay',
     ];
 
     public function validate()
@@ -60,15 +60,6 @@ class IntentCreateDTO extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->userSay) {
-            $res['UserSay'] = [];
-            if (null !== $this->userSay && \is_array($this->userSay)) {
-                $n = 0;
-                foreach ($this->userSay as $item) {
-                    $res['UserSay'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->ruleCheck) {
             $res['RuleCheck'] = [];
@@ -85,6 +76,15 @@ class IntentCreateDTO extends Model
                 $n = 0;
                 foreach ($this->slot as $item) {
                     $res['Slot'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->userSay) {
+            $res['UserSay'] = [];
+            if (null !== $this->userSay && \is_array($this->userSay)) {
+                $n = 0;
+                foreach ($this->userSay as $item) {
+                    $res['UserSay'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -106,15 +106,6 @@ class IntentCreateDTO extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['UserSay'])) {
-            if (!empty($map['UserSay'])) {
-                $model->userSay = [];
-                $n              = 0;
-                foreach ($map['UserSay'] as $item) {
-                    $model->userSay[$n++] = null !== $item ? UsersayMtopDTO::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['RuleCheck'])) {
             if (!empty($map['RuleCheck'])) {
                 $model->ruleCheck = [];
@@ -130,6 +121,15 @@ class IntentCreateDTO extends Model
                 $n           = 0;
                 foreach ($map['Slot'] as $item) {
                     $model->slot[$n++] = null !== $item ? SlotrecordMtopDTO::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['UserSay'])) {
+            if (!empty($map['UserSay'])) {
+                $model->userSay = [];
+                $n              = 0;
+                foreach ($map['UserSay'] as $item) {
+                    $model->userSay[$n++] = null !== $item ? UsersayMtopDTO::fromMap($item) : $item;
                 }
             }
         }

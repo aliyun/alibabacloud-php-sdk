@@ -11,27 +11,12 @@ class GetConversationListRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $sessionId;
-
-    /**
-     * @var string
-     */
-    public $senderId;
-
-    /**
-     * @var string
-     */
-    public $startDate;
-
-    /**
-     * @var string
-     */
     public $endDate;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -42,14 +27,29 @@ class GetConversationListRequest extends Model
      * @var string
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $senderId;
+
+    /**
+     * @var string
+     */
+    public $sessionId;
+
+    /**
+     * @var string
+     */
+    public $startDate;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'sessionId'  => 'SessionId',
-        'senderId'   => 'SenderId',
-        'startDate'  => 'StartDate',
         'endDate'    => 'EndDate',
+        'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'senderId'   => 'SenderId',
+        'sessionId'  => 'SessionId',
+        'startDate'  => 'StartDate',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class GetConversationListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->sessionId) {
-            $res['SessionId'] = $this->sessionId;
-        }
-        if (null !== $this->senderId) {
-            $res['SenderId'] = $this->senderId;
-        }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->senderId) {
+            $res['SenderId'] = $this->senderId;
+        }
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class GetConversationListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['SessionId'])) {
-            $model->sessionId = $map['SessionId'];
-        }
-        if (isset($map['SenderId'])) {
-            $model->senderId = $map['SenderId'];
-        }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SenderId'])) {
+            $model->senderId = $map['SenderId'];
+        }
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
 
         return $model;

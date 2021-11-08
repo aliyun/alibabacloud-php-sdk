@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PaasFunctionPluginFieldDataDTO extends Model
 {
     /**
-     * @description Function
-     *
-     * @var string
-     */
-    public $function;
-
-    /**
      * @description AliyunFunction
      *
      * @var string
@@ -23,11 +16,18 @@ class PaasFunctionPluginFieldDataDTO extends Model
     public $aliyunFunction;
 
     /**
-     * @description Type
+     * @description AliyunService
      *
      * @var string
      */
-    public $type;
+    public $aliyunService;
+
+    /**
+     * @description Code
+     *
+     * @var string
+     */
+    public $code;
 
     /**
      * @description Description
@@ -44,11 +44,11 @@ class PaasFunctionPluginFieldDataDTO extends Model
     public $endPoint;
 
     /**
-     * @description Code
+     * @description Function
      *
      * @var string
      */
-    public $code;
+    public $function;
 
     /**
      * @description Name
@@ -58,11 +58,11 @@ class PaasFunctionPluginFieldDataDTO extends Model
     public $name;
 
     /**
-     * @description AliyunService
+     * @description Params
      *
-     * @var string
+     * @var mixed[]
      */
-    public $aliyunService;
+    public $params;
 
     /**
      * @description Switch
@@ -72,22 +72,22 @@ class PaasFunctionPluginFieldDataDTO extends Model
     public $switch;
 
     /**
-     * @description Params
+     * @description Type
      *
-     * @var mixed[]
+     * @var string
      */
-    public $params;
+    public $type;
     protected $_name = [
-        'function'       => 'Function',
         'aliyunFunction' => 'AliyunFunction',
-        'type'           => 'Type',
+        'aliyunService'  => 'AliyunService',
+        'code'           => 'Code',
         'description'    => 'Description',
         'endPoint'       => 'EndPoint',
-        'code'           => 'Code',
+        'function'       => 'Function',
         'name'           => 'Name',
-        'aliyunService'  => 'AliyunService',
-        'switch'         => 'Switch',
         'params'         => 'Params',
+        'switch'         => 'Switch',
+        'type'           => 'Type',
     ];
 
     public function validate()
@@ -97,14 +97,14 @@ class PaasFunctionPluginFieldDataDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->function) {
-            $res['Function'] = $this->function;
-        }
         if (null !== $this->aliyunFunction) {
             $res['AliyunFunction'] = $this->aliyunFunction;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->aliyunService) {
+            $res['AliyunService'] = $this->aliyunService;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -112,14 +112,14 @@ class PaasFunctionPluginFieldDataDTO extends Model
         if (null !== $this->endPoint) {
             $res['EndPoint'] = $this->endPoint;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->function) {
+            $res['Function'] = $this->function;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->aliyunService) {
-            $res['AliyunService'] = $this->aliyunService;
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->switch) {
             $res['Switch'] = [];
@@ -130,8 +130,8 @@ class PaasFunctionPluginFieldDataDTO extends Model
                 }
             }
         }
-        if (null !== $this->params) {
-            $res['Params'] = $this->params;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -145,14 +145,14 @@ class PaasFunctionPluginFieldDataDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Function'])) {
-            $model->function = $map['Function'];
-        }
         if (isset($map['AliyunFunction'])) {
             $model->aliyunFunction = $map['AliyunFunction'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['AliyunService'])) {
+            $model->aliyunService = $map['AliyunService'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -160,14 +160,14 @@ class PaasFunctionPluginFieldDataDTO extends Model
         if (isset($map['EndPoint'])) {
             $model->endPoint = $map['EndPoint'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Function'])) {
+            $model->function = $map['Function'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['AliyunService'])) {
-            $model->aliyunService = $map['AliyunService'];
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
         }
         if (isset($map['Switch'])) {
             if (!empty($map['Switch'])) {
@@ -178,8 +178,8 @@ class PaasFunctionPluginFieldDataDTO extends Model
                 }
             }
         }
-        if (isset($map['Params'])) {
-            $model->params = $map['Params'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
