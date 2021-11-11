@@ -11,15 +11,15 @@ class ipAddress extends Model
     /**
      * @var string
      */
-    public $ipType;
+    public $host;
 
     /**
      * @var string
      */
-    public $host;
+    public $ipType;
     protected $_name = [
-        'ipType' => 'ipType',
         'host'   => 'host',
+        'ipType' => 'ipType',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ipAddress extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ipType) {
-            $res['ipType'] = $this->ipType;
-        }
         if (null !== $this->host) {
             $res['host'] = $this->host;
+        }
+        if (null !== $this->ipType) {
+            $res['ipType'] = $this->ipType;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ipAddress extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ipType'])) {
-            $model->ipType = $map['ipType'];
-        }
         if (isset($map['host'])) {
             $model->host = $map['host'];
+        }
+        if (isset($map['ipType'])) {
+            $model->ipType = $map['ipType'];
         }
 
         return $model;

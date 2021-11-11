@@ -16,12 +16,12 @@ class dictList extends Model
     /**
      * @var string
      */
-    public $sourceType;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $sourceType;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class dictList extends Model
     public $type;
     protected $_name = [
         'fileSize'   => 'fileSize',
-        'sourceType' => 'sourceType',
         'name'       => 'name',
+        'sourceType' => 'sourceType',
         'type'       => 'type',
     ];
 
@@ -44,11 +44,11 @@ class dictList extends Model
         if (null !== $this->fileSize) {
             $res['fileSize'] = $this->fileSize;
         }
-        if (null !== $this->sourceType) {
-            $res['sourceType'] = $this->sourceType;
-        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->sourceType) {
+            $res['sourceType'] = $this->sourceType;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -68,11 +68,11 @@ class dictList extends Model
         if (isset($map['fileSize'])) {
             $model->fileSize = $map['fileSize'];
         }
-        if (isset($map['sourceType'])) {
-            $model->sourceType = $map['sourceType'];
-        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['sourceType'])) {
+            $model->sourceType = $map['sourceType'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

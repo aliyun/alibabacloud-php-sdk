@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $page;
-
-    /**
-     * @var int
-     */
-    public $size;
-
-    /**
      * @var string
      */
     public $description;
@@ -31,25 +21,35 @@ class ListLogstashRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $ownerId;
+    public $page;
 
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $size;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'page'            => 'page',
-        'size'            => 'size',
         'description'     => 'description',
         'instanceId'      => 'instanceId',
-        'version'         => 'version',
         'ownerId'         => 'ownerId',
+        'page'            => 'page',
         'resourceGroupId' => 'resourceGroupId',
+        'size'            => 'size',
+        'version'         => 'version',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class ListLogstashRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->page) {
-            $res['page'] = $this->page;
-        }
-        if (null !== $this->size) {
-            $res['size'] = $this->size;
-        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
-        if (null !== $this->version) {
-            $res['version'] = $this->version;
-        }
         if (null !== $this->ownerId) {
             $res['ownerId'] = $this->ownerId;
         }
+        if (null !== $this->page) {
+            $res['page'] = $this->page;
+        }
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->size) {
+            $res['size'] = $this->size;
+        }
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class ListLogstashRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['page'])) {
-            $model->page = $map['page'];
-        }
-        if (isset($map['size'])) {
-            $model->size = $map['size'];
-        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
-        if (isset($map['version'])) {
-            $model->version = $map['version'];
-        }
         if (isset($map['ownerId'])) {
             $model->ownerId = $map['ownerId'];
         }
+        if (isset($map['page'])) {
+            $model->page = $map['page'];
+        }
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+        if (isset($map['size'])) {
+            $model->size = $map['size'];
+        }
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

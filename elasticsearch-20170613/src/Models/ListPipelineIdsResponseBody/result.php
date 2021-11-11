@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var string
-     */
-    public $pipelineId;
-
-    /**
      * @var bool
      */
     public $available;
@@ -27,11 +22,16 @@ class result extends Model
      * @var string
      */
     public $message;
+
+    /**
+     * @var string
+     */
+    public $pipelineId;
     protected $_name = [
-        'pipelineId' => 'pipelineId',
         'available'  => 'available',
         'code'       => 'code',
         'message'    => 'message',
+        'pipelineId' => 'pipelineId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pipelineId) {
-            $res['pipelineId'] = $this->pipelineId;
-        }
         if (null !== $this->available) {
             $res['available'] = $this->available;
         }
@@ -52,6 +49,9 @@ class result extends Model
         }
         if (null !== $this->message) {
             $res['message'] = $this->message;
+        }
+        if (null !== $this->pipelineId) {
+            $res['pipelineId'] = $this->pipelineId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['pipelineId'])) {
-            $model->pipelineId = $map['pipelineId'];
-        }
         if (isset($map['available'])) {
             $model->available = $map['available'];
         }
@@ -76,6 +73,9 @@ class result extends Model
         }
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+        if (isset($map['pipelineId'])) {
+            $model->pipelineId = $map['pipelineId'];
         }
 
         return $model;

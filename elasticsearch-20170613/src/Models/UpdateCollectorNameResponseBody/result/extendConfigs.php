@@ -12,7 +12,47 @@ class extendConfigs extends Model
     /**
      * @var string
      */
-    public $successPodsCount;
+    public $configType;
+
+    /**
+     * @var bool
+     */
+    public $enableMonitoring;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $host;
+
+    /**
+     * @var string[]
+     */
+    public $hosts;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $kibanaHost;
+
+    /**
+     * @var machines[]
+     */
+    public $machines;
 
     /**
      * @var string
@@ -22,7 +62,7 @@ class extendConfigs extends Model
     /**
      * @var string
      */
-    public $userName;
+    public $successPodsCount;
 
     /**
      * @var string
@@ -37,62 +77,22 @@ class extendConfigs extends Model
     /**
      * @var string
      */
-    public $kibanaHost;
-
-    /**
-     * @var bool
-     */
-    public $enableMonitoring;
-
-    /**
-     * @var string
-     */
-    public $configType;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $host;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var machines[]
-     */
-    public $machines;
-
-    /**
-     * @var string[]
-     */
-    public $hosts;
+    public $userName;
     protected $_name = [
-        'successPodsCount' => 'successPodsCount',
-        'protocol'         => 'protocol',
-        'userName'         => 'userName',
-        'totalPodsCount'   => 'totalPodsCount',
-        'type'             => 'type',
-        'kibanaHost'       => 'kibanaHost',
-        'enableMonitoring' => 'enableMonitoring',
         'configType'       => 'configType',
-        'instanceType'     => 'instanceType',
+        'enableMonitoring' => 'enableMonitoring',
         'groupId'          => 'groupId',
         'host'             => 'host',
-        'instanceId'       => 'instanceId',
-        'machines'         => 'machines',
         'hosts'            => 'hosts',
+        'instanceId'       => 'instanceId',
+        'instanceType'     => 'instanceType',
+        'kibanaHost'       => 'kibanaHost',
+        'machines'         => 'machines',
+        'protocol'         => 'protocol',
+        'successPodsCount' => 'successPodsCount',
+        'totalPodsCount'   => 'totalPodsCount',
+        'type'             => 'type',
+        'userName'         => 'userName',
     ];
 
     public function validate()
@@ -102,32 +102,11 @@ class extendConfigs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->successPodsCount) {
-            $res['successPodsCount'] = $this->successPodsCount;
-        }
-        if (null !== $this->protocol) {
-            $res['protocol'] = $this->protocol;
-        }
-        if (null !== $this->userName) {
-            $res['userName'] = $this->userName;
-        }
-        if (null !== $this->totalPodsCount) {
-            $res['totalPodsCount'] = $this->totalPodsCount;
-        }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
-        }
-        if (null !== $this->kibanaHost) {
-            $res['kibanaHost'] = $this->kibanaHost;
-        }
-        if (null !== $this->enableMonitoring) {
-            $res['enableMonitoring'] = $this->enableMonitoring;
-        }
         if (null !== $this->configType) {
             $res['configType'] = $this->configType;
         }
-        if (null !== $this->instanceType) {
-            $res['instanceType'] = $this->instanceType;
+        if (null !== $this->enableMonitoring) {
+            $res['enableMonitoring'] = $this->enableMonitoring;
         }
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
@@ -135,8 +114,17 @@ class extendConfigs extends Model
         if (null !== $this->host) {
             $res['host'] = $this->host;
         }
+        if (null !== $this->hosts) {
+            $res['hosts'] = $this->hosts;
+        }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceType) {
+            $res['instanceType'] = $this->instanceType;
+        }
+        if (null !== $this->kibanaHost) {
+            $res['kibanaHost'] = $this->kibanaHost;
         }
         if (null !== $this->machines) {
             $res['machines'] = [];
@@ -147,8 +135,20 @@ class extendConfigs extends Model
                 }
             }
         }
-        if (null !== $this->hosts) {
-            $res['hosts'] = $this->hosts;
+        if (null !== $this->protocol) {
+            $res['protocol'] = $this->protocol;
+        }
+        if (null !== $this->successPodsCount) {
+            $res['successPodsCount'] = $this->successPodsCount;
+        }
+        if (null !== $this->totalPodsCount) {
+            $res['totalPodsCount'] = $this->totalPodsCount;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
+        if (null !== $this->userName) {
+            $res['userName'] = $this->userName;
         }
 
         return $res;
@@ -162,32 +162,11 @@ class extendConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['successPodsCount'])) {
-            $model->successPodsCount = $map['successPodsCount'];
-        }
-        if (isset($map['protocol'])) {
-            $model->protocol = $map['protocol'];
-        }
-        if (isset($map['userName'])) {
-            $model->userName = $map['userName'];
-        }
-        if (isset($map['totalPodsCount'])) {
-            $model->totalPodsCount = $map['totalPodsCount'];
-        }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
-        }
-        if (isset($map['kibanaHost'])) {
-            $model->kibanaHost = $map['kibanaHost'];
-        }
-        if (isset($map['enableMonitoring'])) {
-            $model->enableMonitoring = $map['enableMonitoring'];
-        }
         if (isset($map['configType'])) {
             $model->configType = $map['configType'];
         }
-        if (isset($map['instanceType'])) {
-            $model->instanceType = $map['instanceType'];
+        if (isset($map['enableMonitoring'])) {
+            $model->enableMonitoring = $map['enableMonitoring'];
         }
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
@@ -195,8 +174,19 @@ class extendConfigs extends Model
         if (isset($map['host'])) {
             $model->host = $map['host'];
         }
+        if (isset($map['hosts'])) {
+            if (!empty($map['hosts'])) {
+                $model->hosts = $map['hosts'];
+            }
+        }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
+        }
+        if (isset($map['instanceType'])) {
+            $model->instanceType = $map['instanceType'];
+        }
+        if (isset($map['kibanaHost'])) {
+            $model->kibanaHost = $map['kibanaHost'];
         }
         if (isset($map['machines'])) {
             if (!empty($map['machines'])) {
@@ -207,10 +197,20 @@ class extendConfigs extends Model
                 }
             }
         }
-        if (isset($map['hosts'])) {
-            if (!empty($map['hosts'])) {
-                $model->hosts = $map['hosts'];
-            }
+        if (isset($map['protocol'])) {
+            $model->protocol = $map['protocol'];
+        }
+        if (isset($map['successPodsCount'])) {
+            $model->successPodsCount = $map['successPodsCount'];
+        }
+        if (isset($map['totalPodsCount'])) {
+            $model->totalPodsCount = $map['totalPodsCount'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
+        }
+        if (isset($map['userName'])) {
+            $model->userName = $map['userName'];
         }
 
         return $model;

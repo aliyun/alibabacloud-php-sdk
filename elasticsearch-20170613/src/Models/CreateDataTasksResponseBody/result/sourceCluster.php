@@ -11,7 +11,12 @@ class sourceCluster extends Model
     /**
      * @var string
      */
-    public $password;
+    public $dataSourceType;
+
+    /**
+     * @var string
+     */
+    public $endpoint;
 
     /**
      * @var string
@@ -21,12 +26,12 @@ class sourceCluster extends Model
     /**
      * @var string
      */
-    public $type;
+    public $password;
 
     /**
      * @var string
      */
-    public $endpoint;
+    public $type;
 
     /**
      * @var string
@@ -47,21 +52,16 @@ class sourceCluster extends Model
      * @var int
      */
     public $vpcInstancePort;
-
-    /**
-     * @var string
-     */
-    public $dataSourceType;
     protected $_name = [
-        'password'        => 'password',
-        'index'           => 'index',
-        'type'            => 'type',
+        'dataSourceType'  => 'dataSourceType',
         'endpoint'        => 'endpoint',
+        'index'           => 'index',
+        'password'        => 'password',
+        'type'            => 'type',
         'username'        => 'username',
         'vpcId'           => 'vpcId',
         'vpcInstanceId'   => 'vpcInstanceId',
         'vpcInstancePort' => 'vpcInstancePort',
-        'dataSourceType'  => 'dataSourceType',
     ];
 
     public function validate()
@@ -71,17 +71,20 @@ class sourceCluster extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->password) {
-            $res['password'] = $this->password;
+        if (null !== $this->dataSourceType) {
+            $res['dataSourceType'] = $this->dataSourceType;
+        }
+        if (null !== $this->endpoint) {
+            $res['endpoint'] = $this->endpoint;
         }
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
+        if (null !== $this->password) {
+            $res['password'] = $this->password;
+        }
         if (null !== $this->type) {
             $res['type'] = $this->type;
-        }
-        if (null !== $this->endpoint) {
-            $res['endpoint'] = $this->endpoint;
         }
         if (null !== $this->username) {
             $res['username'] = $this->username;
@@ -95,9 +98,6 @@ class sourceCluster extends Model
         if (null !== $this->vpcInstancePort) {
             $res['vpcInstancePort'] = $this->vpcInstancePort;
         }
-        if (null !== $this->dataSourceType) {
-            $res['dataSourceType'] = $this->dataSourceType;
-        }
 
         return $res;
     }
@@ -110,17 +110,20 @@ class sourceCluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['password'])) {
-            $model->password = $map['password'];
+        if (isset($map['dataSourceType'])) {
+            $model->dataSourceType = $map['dataSourceType'];
+        }
+        if (isset($map['endpoint'])) {
+            $model->endpoint = $map['endpoint'];
         }
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
+        if (isset($map['password'])) {
+            $model->password = $map['password'];
+        }
         if (isset($map['type'])) {
             $model->type = $map['type'];
-        }
-        if (isset($map['endpoint'])) {
-            $model->endpoint = $map['endpoint'];
         }
         if (isset($map['username'])) {
             $model->username = $map['username'];
@@ -133,9 +136,6 @@ class sourceCluster extends Model
         }
         if (isset($map['vpcInstancePort'])) {
             $model->vpcInstancePort = $map['vpcInstancePort'];
-        }
-        if (isset($map['dataSourceType'])) {
-            $model->dataSourceType = $map['dataSourceType'];
         }
 
         return $model;

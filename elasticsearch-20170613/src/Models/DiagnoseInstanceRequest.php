@@ -11,15 +11,15 @@ class DiagnoseInstanceRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $lang;
     protected $_name = [
-        'lang'        => 'lang',
         'clientToken' => 'ClientToken',
+        'lang'        => 'lang',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DiagnoseInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['lang'] = $this->lang;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->lang) {
+            $res['lang'] = $this->lang;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DiagnoseInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['lang'])) {
-            $model->lang = $map['lang'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['lang'])) {
+            $model->lang = $map['lang'];
         }
 
         return $model;

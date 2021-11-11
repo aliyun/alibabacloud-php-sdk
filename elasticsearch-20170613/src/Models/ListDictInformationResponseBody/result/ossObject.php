@@ -11,21 +11,21 @@ class ossObject extends Model
     /**
      * @var string
      */
-    public $key;
-
-    /**
-     * @var string
-     */
     public $bucketName;
 
     /**
      * @var string
      */
     public $etag;
+
+    /**
+     * @var string
+     */
+    public $key;
     protected $_name = [
-        'key'        => 'key',
         'bucketName' => 'bucketName',
         'etag'       => 'etag',
+        'key'        => 'key',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ossObject extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['key'] = $this->key;
-        }
         if (null !== $this->bucketName) {
             $res['bucketName'] = $this->bucketName;
         }
         if (null !== $this->etag) {
             $res['etag'] = $this->etag;
+        }
+        if (null !== $this->key) {
+            $res['key'] = $this->key;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ossObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['key'])) {
-            $model->key = $map['key'];
-        }
         if (isset($map['bucketName'])) {
             $model->bucketName = $map['bucketName'];
         }
         if (isset($map['etag'])) {
             $model->etag = $map['etag'];
+        }
+        if (isset($map['key'])) {
+            $model->key = $map['key'];
         }
 
         return $model;

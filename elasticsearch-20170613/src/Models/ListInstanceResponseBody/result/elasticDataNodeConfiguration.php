@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class elasticDataNodeConfiguration extends Model
 {
     /**
-     * @var string
-     */
-    public $spec;
-
-    /**
      * @var int
      */
     public $amount;
@@ -32,12 +27,17 @@ class elasticDataNodeConfiguration extends Model
      * @var string
      */
     public $diskType;
+
+    /**
+     * @var string
+     */
+    public $spec;
     protected $_name = [
-        'spec'           => 'spec',
         'amount'         => 'amount',
         'disk'           => 'disk',
         'diskEncryption' => 'diskEncryption',
         'diskType'       => 'diskType',
+        'spec'           => 'spec',
     ];
 
     public function validate()
@@ -47,9 +47,6 @@ class elasticDataNodeConfiguration extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spec) {
-            $res['spec'] = $this->spec;
-        }
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
         }
@@ -61,6 +58,9 @@ class elasticDataNodeConfiguration extends Model
         }
         if (null !== $this->diskType) {
             $res['diskType'] = $this->diskType;
+        }
+        if (null !== $this->spec) {
+            $res['spec'] = $this->spec;
         }
 
         return $res;
@@ -74,9 +74,6 @@ class elasticDataNodeConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['spec'])) {
-            $model->spec = $map['spec'];
-        }
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
         }
@@ -88,6 +85,9 @@ class elasticDataNodeConfiguration extends Model
         }
         if (isset($map['diskType'])) {
             $model->diskType = $map['diskType'];
+        }
+        if (isset($map['spec'])) {
+            $model->spec = $map['spec'];
         }
 
         return $model;

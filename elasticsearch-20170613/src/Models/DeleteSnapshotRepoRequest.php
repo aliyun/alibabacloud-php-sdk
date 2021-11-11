@@ -11,15 +11,15 @@ class DeleteSnapshotRepoRequest extends Model
     /**
      * @var string
      */
-    public $repoPath;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $repoPath;
     protected $_name = [
-        'repoPath'    => 'repoPath',
         'clientToken' => 'clientToken',
+        'repoPath'    => 'repoPath',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteSnapshotRepoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->repoPath) {
-            $res['repoPath'] = $this->repoPath;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->repoPath) {
+            $res['repoPath'] = $this->repoPath;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteSnapshotRepoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['repoPath'])) {
-            $model->repoPath = $map['repoPath'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['repoPath'])) {
+            $model->repoPath = $map['repoPath'];
         }
 
         return $model;

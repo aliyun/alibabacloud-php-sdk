@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class diagnoseItems extends Model
 {
     /**
-     * @var string
+     * @var detail
      */
-    public $item;
+    public $detail;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class diagnoseItems extends Model
     public $health;
 
     /**
-     * @var detail
+     * @var string
      */
-    public $detail;
+    public $item;
     protected $_name = [
-        'item'   => 'item',
-        'health' => 'health',
         'detail' => 'detail',
+        'health' => 'health',
+        'item'   => 'item',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class diagnoseItems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->item) {
-            $res['item'] = $this->item;
+        if (null !== $this->detail) {
+            $res['detail'] = null !== $this->detail ? $this->detail->toMap() : null;
         }
         if (null !== $this->health) {
             $res['health'] = $this->health;
         }
-        if (null !== $this->detail) {
-            $res['detail'] = null !== $this->detail ? $this->detail->toMap() : null;
+        if (null !== $this->item) {
+            $res['item'] = $this->item;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class diagnoseItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['item'])) {
-            $model->item = $map['item'];
+        if (isset($map['detail'])) {
+            $model->detail = detail::fromMap($map['detail']);
         }
         if (isset($map['health'])) {
             $model->health = $map['health'];
         }
-        if (isset($map['detail'])) {
-            $model->detail = detail::fromMap($map['detail']);
+        if (isset($map['item'])) {
+            $model->item = $map['item'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RestartInstanceRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $force;
-
-    /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var bool
+     */
+    public $force;
     protected $_name = [
-        'force'       => 'force',
         'clientToken' => 'clientToken',
+        'force'       => 'force',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RestartInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->force) {
-            $res['force'] = $this->force;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->force) {
+            $res['force'] = $this->force;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RestartInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['force'])) {
-            $model->force = $map['force'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['force'])) {
+            $model->force = $map['force'];
         }
 
         return $model;

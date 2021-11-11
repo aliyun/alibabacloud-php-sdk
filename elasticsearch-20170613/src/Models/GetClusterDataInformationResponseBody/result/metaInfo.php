@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class metaInfo extends Model
 {
     /**
+     * @var string[]
+     */
+    public $fields;
+
+    /**
+     * @var string[]
+     */
+    public $indices;
+
+    /**
      * @var string
      */
     public $mapping;
@@ -22,22 +32,12 @@ class metaInfo extends Model
      * @var string[]
      */
     public $typeName;
-
-    /**
-     * @var string[]
-     */
-    public $fields;
-
-    /**
-     * @var string[]
-     */
-    public $indices;
     protected $_name = [
+        'fields'   => 'fields',
+        'indices'  => 'indices',
         'mapping'  => 'mapping',
         'settings' => 'settings',
         'typeName' => 'typeName',
-        'fields'   => 'fields',
-        'indices'  => 'indices',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class metaInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fields) {
+            $res['fields'] = $this->fields;
+        }
+        if (null !== $this->indices) {
+            $res['indices'] = $this->indices;
+        }
         if (null !== $this->mapping) {
             $res['mapping'] = $this->mapping;
         }
@@ -55,12 +61,6 @@ class metaInfo extends Model
         }
         if (null !== $this->typeName) {
             $res['typeName'] = $this->typeName;
-        }
-        if (null !== $this->fields) {
-            $res['fields'] = $this->fields;
-        }
-        if (null !== $this->indices) {
-            $res['indices'] = $this->indices;
         }
 
         return $res;
@@ -74,6 +74,16 @@ class metaInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['fields'])) {
+            if (!empty($map['fields'])) {
+                $model->fields = $map['fields'];
+            }
+        }
+        if (isset($map['indices'])) {
+            if (!empty($map['indices'])) {
+                $model->indices = $map['indices'];
+            }
+        }
         if (isset($map['mapping'])) {
             $model->mapping = $map['mapping'];
         }
@@ -83,16 +93,6 @@ class metaInfo extends Model
         if (isset($map['typeName'])) {
             if (!empty($map['typeName'])) {
                 $model->typeName = $map['typeName'];
-            }
-        }
-        if (isset($map['fields'])) {
-            if (!empty($map['fields'])) {
-                $model->fields = $map['fields'];
-            }
-        }
-        if (isset($map['indices'])) {
-            if (!empty($map['indices'])) {
-                $model->indices = $map['indices'];
             }
         }
 

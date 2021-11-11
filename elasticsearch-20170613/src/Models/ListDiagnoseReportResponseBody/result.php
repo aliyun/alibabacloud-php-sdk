@@ -10,14 +10,24 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var string
-     */
-    public $trigger;
-
-    /**
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var diagnoseItems[]
+     */
+    public $diagnoseItems;
+
+    /**
+     * @var string
+     */
+    public $health;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -32,25 +42,15 @@ class result extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $health;
-
-    /**
-     * @var diagnoseItems[]
-     */
-    public $diagnoseItems;
+    public $trigger;
     protected $_name = [
-        'trigger'       => 'trigger',
         'createTime'    => 'createTime',
+        'diagnoseItems' => 'diagnoseItems',
+        'health'        => 'health',
+        'instanceId'    => 'instanceId',
         'reportId'      => 'reportId',
         'state'         => 'state',
-        'instanceId'    => 'instanceId',
-        'health'        => 'health',
-        'diagnoseItems' => 'diagnoseItems',
+        'trigger'       => 'trigger',
     ];
 
     public function validate()
@@ -60,23 +60,8 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->trigger) {
-            $res['trigger'] = $this->trigger;
-        }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
-        }
-        if (null !== $this->reportId) {
-            $res['reportId'] = $this->reportId;
-        }
-        if (null !== $this->state) {
-            $res['state'] = $this->state;
-        }
-        if (null !== $this->instanceId) {
-            $res['instanceId'] = $this->instanceId;
-        }
-        if (null !== $this->health) {
-            $res['health'] = $this->health;
         }
         if (null !== $this->diagnoseItems) {
             $res['diagnoseItems'] = [];
@@ -86,6 +71,21 @@ class result extends Model
                     $res['diagnoseItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->health) {
+            $res['health'] = $this->health;
+        }
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
+        }
+        if (null !== $this->reportId) {
+            $res['reportId'] = $this->reportId;
+        }
+        if (null !== $this->state) {
+            $res['state'] = $this->state;
+        }
+        if (null !== $this->trigger) {
+            $res['trigger'] = $this->trigger;
         }
 
         return $res;
@@ -99,23 +99,8 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['trigger'])) {
-            $model->trigger = $map['trigger'];
-        }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
-        }
-        if (isset($map['reportId'])) {
-            $model->reportId = $map['reportId'];
-        }
-        if (isset($map['state'])) {
-            $model->state = $map['state'];
-        }
-        if (isset($map['instanceId'])) {
-            $model->instanceId = $map['instanceId'];
-        }
-        if (isset($map['health'])) {
-            $model->health = $map['health'];
         }
         if (isset($map['diagnoseItems'])) {
             if (!empty($map['diagnoseItems'])) {
@@ -125,6 +110,21 @@ class result extends Model
                     $model->diagnoseItems[$n++] = null !== $item ? diagnoseItems::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['health'])) {
+            $model->health = $map['health'];
+        }
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
+        }
+        if (isset($map['reportId'])) {
+            $model->reportId = $map['reportId'];
+        }
+        if (isset($map['state'])) {
+            $model->state = $map['state'];
+        }
+        if (isset($map['trigger'])) {
+            $model->trigger = $map['trigger'];
         }
 
         return $model;

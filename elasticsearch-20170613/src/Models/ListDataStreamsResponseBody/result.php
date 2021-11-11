@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var int
-     */
-    public $totalStorageSize;
-
-    /**
      * @var string
      */
-    public $indexTemplateName;
+    public $health;
 
     /**
      * @var string
@@ -27,12 +22,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $name;
+    public $indexTemplateName;
 
     /**
-     * @var string
+     * @var indices[]
      */
-    public $health;
+    public $indices;
 
     /**
      * @var int
@@ -40,17 +35,22 @@ class result extends Model
     public $managedStorageSize;
 
     /**
-     * @var indices[]
+     * @var string
      */
-    public $indices;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $totalStorageSize;
     protected $_name = [
-        'totalStorageSize'   => 'totalStorageSize',
-        'indexTemplateName'  => 'indexTemplateName',
-        'ilmPolicyName'      => 'ilmPolicyName',
-        'name'               => 'name',
         'health'             => 'health',
-        'managedStorageSize' => 'managedStorageSize',
+        'ilmPolicyName'      => 'ilmPolicyName',
+        'indexTemplateName'  => 'indexTemplateName',
         'indices'            => 'indices',
+        'managedStorageSize' => 'managedStorageSize',
+        'name'               => 'name',
+        'totalStorageSize'   => 'totalStorageSize',
     ];
 
     public function validate()
@@ -60,23 +60,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalStorageSize) {
-            $res['totalStorageSize'] = $this->totalStorageSize;
-        }
-        if (null !== $this->indexTemplateName) {
-            $res['indexTemplateName'] = $this->indexTemplateName;
+        if (null !== $this->health) {
+            $res['health'] = $this->health;
         }
         if (null !== $this->ilmPolicyName) {
             $res['ilmPolicyName'] = $this->ilmPolicyName;
         }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
-        if (null !== $this->health) {
-            $res['health'] = $this->health;
-        }
-        if (null !== $this->managedStorageSize) {
-            $res['managedStorageSize'] = $this->managedStorageSize;
+        if (null !== $this->indexTemplateName) {
+            $res['indexTemplateName'] = $this->indexTemplateName;
         }
         if (null !== $this->indices) {
             $res['indices'] = [];
@@ -86,6 +77,15 @@ class result extends Model
                     $res['indices'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->managedStorageSize) {
+            $res['managedStorageSize'] = $this->managedStorageSize;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+        if (null !== $this->totalStorageSize) {
+            $res['totalStorageSize'] = $this->totalStorageSize;
         }
 
         return $res;
@@ -99,23 +99,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['totalStorageSize'])) {
-            $model->totalStorageSize = $map['totalStorageSize'];
-        }
-        if (isset($map['indexTemplateName'])) {
-            $model->indexTemplateName = $map['indexTemplateName'];
+        if (isset($map['health'])) {
+            $model->health = $map['health'];
         }
         if (isset($map['ilmPolicyName'])) {
             $model->ilmPolicyName = $map['ilmPolicyName'];
         }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
-        if (isset($map['health'])) {
-            $model->health = $map['health'];
-        }
-        if (isset($map['managedStorageSize'])) {
-            $model->managedStorageSize = $map['managedStorageSize'];
+        if (isset($map['indexTemplateName'])) {
+            $model->indexTemplateName = $map['indexTemplateName'];
         }
         if (isset($map['indices'])) {
             if (!empty($map['indices'])) {
@@ -125,6 +116,15 @@ class result extends Model
                     $model->indices[$n++] = null !== $item ? indices::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['managedStorageSize'])) {
+            $model->managedStorageSize = $map['managedStorageSize'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+        if (isset($map['totalStorageSize'])) {
+            $model->totalStorageSize = $map['totalStorageSize'];
         }
 
         return $model;

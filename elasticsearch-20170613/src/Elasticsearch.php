@@ -68,6 +68,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteSnapshotRepoResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteVpcEndpointRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteVpcEndpointResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeAckOperatorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeCollectorResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeConnectableClustersRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeConnectableClustersResponse;
@@ -205,6 +206,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RecommendTemplatesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RecommendTemplatesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ReinstallCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ReinstallCollectorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RemoveApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewLogstashRequest;
@@ -225,8 +227,10 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RunPipelinesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RunPipelinesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ShrinkNodeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ShrinkNodeResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartCollectorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopCollectorResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopPipelinesRequest;
@@ -250,6 +254,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateAdvancedSettingRequest
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateAdvancedSettingResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateAliwsDictRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateAliwsDictResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateApmRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateBlackIpsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateBlackIpsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateCollectorNameRequest;
@@ -332,45 +338,6 @@ class Elasticsearch extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-2-pop'          => 'elasticsearch.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'elasticsearch.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'elasticsearch.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'elasticsearch.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'elasticsearch.aliyuncs.com',
-            'cn-chengdu'                  => 'elasticsearch.aliyuncs.com',
-            'cn-edge-1'                   => 'elasticsearch.aliyuncs.com',
-            'cn-fujian'                   => 'elasticsearch.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'elasticsearch.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'elasticsearch.aliyuncs.com',
-            'cn-hangzhou-internal-prod-1' => 'elasticsearch.aliyuncs.com',
-            'cn-hangzhou-internal-test-1' => 'elasticsearch.aliyuncs.com',
-            'cn-hangzhou-internal-test-2' => 'elasticsearch.aliyuncs.com',
-            'cn-hangzhou-internal-test-3' => 'elasticsearch.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'elasticsearch.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'elasticsearch.aliyuncs.com',
-            'cn-huhehaote'                => 'elasticsearch.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'elasticsearch.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'elasticsearch.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'elasticsearch.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'elasticsearch.aliyuncs.com',
-            'cn-shanghai-inner'           => 'elasticsearch.aliyuncs.com',
-            'cn-shanghai-internal-test-1' => 'elasticsearch.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'elasticsearch.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'elasticsearch.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'elasticsearch.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'elasticsearch.aliyuncs.com',
-            'cn-wuhan'                    => 'elasticsearch.aliyuncs.com',
-            'cn-wulanchabu'               => 'elasticsearch.aliyuncs.com',
-            'cn-yushanfang'               => 'elasticsearch.aliyuncs.com',
-            'cn-zhangbei'                 => 'elasticsearch.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'elasticsearch.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'elasticsearch.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'elasticsearch.aliyuncs.com',
-            'eu-west-1-oxs'               => 'elasticsearch.aliyuncs.com',
-            'me-east-1'                   => 'elasticsearch.aliyuncs.com',
-            'rus-west-1-pop'              => 'elasticsearch.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('elasticsearch', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -607,11 +574,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->taskType)) {
-            @$query['taskType'] = $request->taskType;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             @$query['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            @$query['taskType'] = $request->taskType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -973,41 +940,6 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
-     *
-     * @return CreateInstanceResponse
-     */
-    public function createInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createInstanceWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param CreateInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateInstanceResponse
-     */
-    public function createInstanceWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            @$query['clientToken'] = $request->clientToken;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return CreateInstanceResponse::fromMap($this->doROARequest('createInstance', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances', 'json', $req, $runtime));
-    }
-
-    /**
      * @param CreateLogstashRequest $request
      *
      * @return CreateLogstashResponse
@@ -1069,11 +1001,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->trigger)) {
-            @$query['trigger'] = $request->trigger;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->trigger)) {
+            @$query['trigger'] = $request->trigger;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1577,11 +1509,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->repoPath)) {
-            @$query['repoPath'] = $request->repoPath;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             @$query['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->repoPath)) {
+            @$query['repoPath'] = $request->repoPath;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1660,6 +1592,36 @@ class Elasticsearch extends OpenApiClient
         ]);
 
         return DescribeAckOperatorResponse::fromMap($this->doROARequest('DescribeAckOperator', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/ack-clusters/' . $ClusterId . '/operator', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return DescribeApmResponse
+     */
+    public function describeApm($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeApmWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeApmResponse
+     */
+    public function describeApmWithOptions($instanceId, $headers, $runtime)
+    {
+        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return DescribeApmResponse::fromMap($this->doROARequest('DescribeApm', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/apm/' . $instanceId . '', 'json', $req, $runtime));
     }
 
     /**
@@ -2209,11 +2171,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->lang)) {
-            @$query['lang'] = $request->lang;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            @$query['lang'] = $request->lang;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2537,14 +2499,14 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->nodeType)) {
-            @$query['nodeType'] = $request->nodeType;
-        }
         if (!Utils::isUnset($request->count)) {
             @$query['count'] = $request->count;
         }
         if (!Utils::isUnset($request->ignoreStatus)) {
             @$query['ignoreStatus'] = $request->ignoreStatus;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            @$query['nodeType'] = $request->nodeType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2581,11 +2543,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->nodeType)) {
-            @$query['nodeType'] = $request->nodeType;
-        }
         if (!Utils::isUnset($request->count)) {
             @$query['count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            @$query['nodeType'] = $request->nodeType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3100,17 +3062,17 @@ class Elasticsearch extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->resId)) {
-            @$query['resId'] = $request->resId;
+        if (!Utils::isUnset($request->instanceId)) {
+            @$query['instanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->name)) {
             @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            @$query['instanceId'] = $request->instanceId;
-        }
         if (!Utils::isUnset($request->page)) {
             @$query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->resId)) {
+            @$query['resId'] = $request->resId;
         }
         if (!Utils::isUnset($request->size)) {
             @$query['size'] = $request->size;
@@ -3333,14 +3295,14 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->lang)) {
-            @$query['lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            @$query['startTime'] = $request->startTime;
+        if (!Utils::isUnset($request->detail)) {
+            @$query['detail'] = $request->detail;
         }
         if (!Utils::isUnset($request->endTime)) {
             @$query['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            @$query['lang'] = $request->lang;
         }
         if (!Utils::isUnset($request->page)) {
             @$query['page'] = $request->page;
@@ -3348,8 +3310,8 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->size)) {
             @$query['size'] = $request->size;
         }
-        if (!Utils::isUnset($request->detail)) {
-            @$query['detail'] = $request->detail;
+        if (!Utils::isUnset($request->startTime)) {
+            @$query['startTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->trigger)) {
             @$query['trigger'] = $request->trigger;
@@ -3389,20 +3351,20 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->lang)) {
-            @$query['lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            @$query['startTime'] = $request->startTime;
-        }
         if (!Utils::isUnset($request->endTime)) {
             @$query['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            @$query['lang'] = $request->lang;
         }
         if (!Utils::isUnset($request->page)) {
             @$query['page'] = $request->page;
         }
         if (!Utils::isUnset($request->size)) {
             @$query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            @$query['startTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->trigger)) {
             @$query['trigger'] = $request->trigger;
@@ -3442,14 +3404,14 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
+        if (!Utils::isUnset($request->analyzerType)) {
+            @$query['analyzerType'] = $request->analyzerType;
+        }
         if (!Utils::isUnset($request->bucketName)) {
             @$query['bucketName'] = $request->bucketName;
         }
         if (!Utils::isUnset($request->key)) {
             @$query['key'] = $request->key;
-        }
-        if (!Utils::isUnset($request->analyzerType)) {
-            @$query['analyzerType'] = $request->analyzerType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3524,17 +3486,17 @@ class Elasticsearch extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->page)) {
-            @$query['page'] = $request->page;
-        }
-        if (!Utils::isUnset($request->size)) {
-            @$query['size'] = $request->size;
-        }
         if (!Utils::isUnset($request->ecsInstanceIds)) {
             @$query['ecsInstanceIds'] = $request->ecsInstanceIds;
         }
         if (!Utils::isUnset($request->ecsInstanceName)) {
             @$query['ecsInstanceName'] = $request->ecsInstanceName;
+        }
+        if (!Utils::isUnset($request->page)) {
+            @$query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->size)) {
+            @$query['size'] = $request->size;
         }
         if (!Utils::isUnset($request->tags)) {
             @$query['tags'] = $request->tags;
@@ -3680,23 +3642,29 @@ class Elasticsearch extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->page)) {
-            @$query['page'] = $request->page;
-        }
-        if (!Utils::isUnset($request->size)) {
-            @$query['size'] = $request->size;
-        }
         if (!Utils::isUnset($request->description)) {
             @$query['description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            @$query['instanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->esVersion)) {
             @$query['esVersion'] = $request->esVersion;
         }
+        if (!Utils::isUnset($request->instanceCategory)) {
+            @$query['instanceCategory'] = $request->instanceCategory;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            @$query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            @$query['paymentType'] = $request->paymentType;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->size)) {
+            @$query['size'] = $request->size;
         }
         if (!Utils::isUnset($request->tags)) {
             @$query['tags'] = $request->tags;
@@ -3706,12 +3674,6 @@ class Elasticsearch extends OpenApiClient
         }
         if (!Utils::isUnset($request->zoneId)) {
             @$query['zoneId'] = $request->zoneId;
-        }
-        if (!Utils::isUnset($request->paymentType)) {
-            @$query['paymentType'] = $request->paymentType;
-        }
-        if (!Utils::isUnset($request->instanceCategory)) {
-            @$query['instanceCategory'] = $request->instanceCategory;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3751,14 +3713,14 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->all)) {
             @$query['all'] = $request->all;
         }
-        if (!Utils::isUnset($request->name)) {
-            @$query['name'] = $request->name;
-        }
         if (!Utils::isUnset($request->isManaged)) {
             @$query['isManaged'] = $request->isManaged;
         }
         if (!Utils::isUnset($request->isOpenstore)) {
             @$query['isOpenstore'] = $request->isOpenstore;
+        }
+        if (!Utils::isUnset($request->name)) {
+            @$query['name'] = $request->name;
         }
         if (!Utils::isUnset($request->page)) {
             @$query['page'] = $request->page;
@@ -3839,26 +3801,26 @@ class Elasticsearch extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->page)) {
-            @$query['page'] = $request->page;
-        }
-        if (!Utils::isUnset($request->size)) {
-            @$query['size'] = $request->size;
-        }
         if (!Utils::isUnset($request->description)) {
             @$query['description'] = $request->description;
         }
         if (!Utils::isUnset($request->instanceId)) {
             @$query['instanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->version)) {
-            @$query['version'] = $request->version;
-        }
         if (!Utils::isUnset($request->ownerId)) {
             @$query['ownerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->page)) {
+            @$query['page'] = $request->page;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->size)) {
+            @$query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->version)) {
+            @$query['version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3895,12 +3857,6 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->type)) {
-            @$query['type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->query)) {
-            @$query['query'] = $request->query;
-        }
         if (!Utils::isUnset($request->beginTime)) {
             @$query['beginTime'] = $request->beginTime;
         }
@@ -3910,8 +3866,14 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->page)) {
             @$query['page'] = $request->page;
         }
+        if (!Utils::isUnset($request->query)) {
+            @$query['query'] = $request->query;
+        }
         if (!Utils::isUnset($request->size)) {
             @$query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->type)) {
+            @$query['type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3995,17 +3957,17 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $ResId = OpenApiUtilClient::getEncodeParam($ResId);
         $query = [];
-        if (!Utils::isUnset($request->page)) {
-            @$query['page'] = $request->page;
-        }
-        if (!Utils::isUnset($request->size)) {
-            @$query['size'] = $request->size;
-        }
         if (!Utils::isUnset($request->ecsInstanceIds)) {
             @$query['ecsInstanceIds'] = $request->ecsInstanceIds;
         }
         if (!Utils::isUnset($request->ecsInstanceName)) {
             @$query['ecsInstanceName'] = $request->ecsInstanceName;
+        }
+        if (!Utils::isUnset($request->page)) {
+            @$query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->size)) {
+            @$query['size'] = $request->size;
         }
         if (!Utils::isUnset($request->tags)) {
             @$query['tags'] = $request->tags;
@@ -4045,11 +4007,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->pipelineId)) {
-            @$query['pipelineId'] = $request->pipelineId;
-        }
         if (!Utils::isUnset($request->page)) {
             @$query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            @$query['pipelineId'] = $request->pipelineId;
         }
         if (!Utils::isUnset($request->size)) {
             @$query['size'] = $request->size;
@@ -4166,12 +4128,6 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->type)) {
-            @$query['type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->query)) {
-            @$query['query'] = $request->query;
-        }
         if (!Utils::isUnset($request->beginTime)) {
             @$query['beginTime'] = $request->beginTime;
         }
@@ -4181,8 +4137,14 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->page)) {
             @$query['page'] = $request->page;
         }
+        if (!Utils::isUnset($request->query)) {
+            @$query['query'] = $request->query;
+        }
         if (!Utils::isUnset($request->size)) {
             @$query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->type)) {
+            @$query['type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4284,20 +4246,20 @@ class Elasticsearch extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            @$query['NextToken'] = $request->nextToken;
+        }
         if (!Utils::isUnset($request->page)) {
             @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->size)) {
-            @$query['Size'] = $request->size;
+        if (!Utils::isUnset($request->resourceIds)) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
         if (!Utils::isUnset($request->resourceType)) {
             @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            @$query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->resourceIds)) {
-            @$query['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->size)) {
+            @$query['Size'] = $request->size;
         }
         if (!Utils::isUnset($request->tags)) {
             @$query['Tags'] = $request->tags;
@@ -4375,11 +4337,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->size)) {
-            @$query['size'] = $request->size;
-        }
         if (!Utils::isUnset($request->page)) {
             @$query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->size)) {
+            @$query['size'] = $request->size;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4564,20 +4526,20 @@ class Elasticsearch extends OpenApiClient
             @$query['clientToken'] = $request->clientToken;
         }
         $body = [];
-        if (!Utils::isUnset($request->nodeType)) {
-            @$body['nodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->modifyMode)) {
+            @$body['modifyMode'] = $request->modifyMode;
         }
         if (!Utils::isUnset($request->networkType)) {
             @$body['networkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->modifyMode)) {
-            @$body['modifyMode'] = $request->modifyMode;
-        }
-        if (!Utils::isUnset($request->whiteIpList)) {
-            @$body['whiteIpList'] = $request->whiteIpList;
+        if (!Utils::isUnset($request->nodeType)) {
+            @$body['nodeType'] = $request->nodeType;
         }
         if (!Utils::isUnset($request->whiteIpGroup)) {
             @$body['whiteIpGroup'] = $request->whiteIpGroup;
+        }
+        if (!Utils::isUnset($request->whiteIpList)) {
+            @$body['whiteIpList'] = $request->whiteIpList;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4815,6 +4777,36 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @param string $instanceId
+     *
+     * @return RemoveApmResponse
+     */
+    public function removeApm($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeApmWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RemoveApmResponse
+     */
+    public function removeApmWithOptions($instanceId, $headers, $runtime)
+    {
+        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return RemoveApmResponse::fromMap($this->doROARequest('RemoveApm', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/apm/' . $instanceId . '', 'json', $req, $runtime));
+    }
+
+    /**
      * @param string               $InstanceId
      * @param RenewInstanceRequest $request
      *
@@ -4955,11 +4947,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->force)) {
-            @$query['force'] = $request->force;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             @$query['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->force)) {
+            @$query['force'] = $request->force;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4996,11 +4988,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->force)) {
-            @$query['force'] = $request->force;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             @$query['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->force)) {
+            @$query['force'] = $request->force;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -5192,14 +5184,14 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->nodeType)) {
-            @$query['nodeType'] = $request->nodeType;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             @$query['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->ignoreStatus)) {
             @$query['ignoreStatus'] = $request->ignoreStatus;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            @$query['nodeType'] = $request->nodeType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -5207,6 +5199,36 @@ class Elasticsearch extends OpenApiClient
         ]);
 
         return ShrinkNodeResponse::fromMap($this->doROARequest('ShrinkNode', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/shrink', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return StartApmResponse
+     */
+    public function startApm($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startApmWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartApmResponse
+     */
+    public function startApmWithOptions($instanceId, $headers, $runtime)
+    {
+        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return StartApmResponse::fromMap($this->doROARequest('StartApm', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/apm/' . $instanceId . '/actions/start', 'json', $req, $runtime));
     }
 
     /**
@@ -5245,6 +5267,36 @@ class Elasticsearch extends OpenApiClient
         ]);
 
         return StartCollectorResponse::fromMap($this->doROARequest('StartCollector', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/collectors/' . $ResId . '/actions/start', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return StopApmResponse
+     */
+    public function stopApm($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopApmWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopApmResponse
+     */
+    public function stopApmWithOptions($instanceId, $headers, $runtime)
+    {
+        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return StopApmResponse::fromMap($this->doROARequest('StopApm', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/apm/' . $instanceId . '/actions/stop', 'json', $req, $runtime));
     }
 
     /**
@@ -5376,11 +5428,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->nodeType)) {
-            @$query['nodeType'] = $request->nodeType;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             @$query['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            @$query['nodeType'] = $request->nodeType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -5421,14 +5473,14 @@ class Elasticsearch extends OpenApiClient
             @$query['clientToken'] = $request->clientToken;
         }
         $body = [];
-        if (!Utils::isUnset($request->nodeType)) {
-            @$body['nodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->actionType)) {
+            @$body['actionType'] = $request->actionType;
         }
         if (!Utils::isUnset($request->networkType)) {
             @$body['networkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->actionType)) {
-            @$body['actionType'] = $request->actionType;
+        if (!Utils::isUnset($request->nodeType)) {
+            @$body['nodeType'] = $request->nodeType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -5577,6 +5629,9 @@ class Elasticsearch extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->all)) {
+            @$query['All'] = $request->all;
+        }
         if (!Utils::isUnset($request->resourceIds)) {
             @$query['ResourceIds'] = $request->resourceIds;
         }
@@ -5585,9 +5640,6 @@ class Elasticsearch extends OpenApiClient
         }
         if (!Utils::isUnset($request->tagKeys)) {
             @$query['TagKeys'] = $request->tagKeys;
-        }
-        if (!Utils::isUnset($request->all)) {
-            @$query['All'] = $request->all;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -5709,6 +5761,56 @@ class Elasticsearch extends OpenApiClient
         ]);
 
         return UpdateAliwsDictResponse::fromMap($this->doROARequest('UpdateAliwsDict', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/instances/' . $InstanceId . '/aliws-dict', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string           $instanceId
+     * @param UpdateApmRequest $request
+     *
+     * @return UpdateApmResponse
+     */
+    public function updateApm($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateApmWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string           $instanceId
+     * @param UpdateApmRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateApmResponse
+     */
+    public function updateApmWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
+        $query      = [];
+        if (!Utils::isUnset($request->outputES)) {
+            @$query['outputES'] = $request->outputES;
+        }
+        if (!Utils::isUnset($request->outputESPassword)) {
+            @$query['outputESPassword'] = $request->outputESPassword;
+        }
+        if (!Utils::isUnset($request->outputESUserName)) {
+            @$query['outputESUserName'] = $request->outputESUserName;
+        }
+        if (!Utils::isUnset($request->token)) {
+            @$query['token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->yml)) {
+            @$query['yml'] = $request->yml;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+
+        return UpdateApmResponse::fromMap($this->doROARequest('UpdateApm', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/apm/' . $instanceId . '', 'json', $req, $runtime));
     }
 
     /**
@@ -6564,11 +6666,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->trigger)) {
-            @$query['trigger'] = $request->trigger;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             @$query['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->trigger)) {
+            @$query['trigger'] = $request->trigger;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -6966,11 +7068,11 @@ class Elasticsearch extends OpenApiClient
             @$query['dryRun'] = $request->dryRun;
         }
         $body = [];
-        if (!Utils::isUnset($request->version)) {
-            @$body['version'] = $request->version;
-        }
         if (!Utils::isUnset($request->type)) {
             @$body['type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->version)) {
+            @$body['version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -7046,11 +7148,11 @@ class Elasticsearch extends OpenApiClient
         Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $query      = [];
-        if (!Utils::isUnset($request->nodeType)) {
-            @$query['nodeType'] = $request->nodeType;
-        }
         if (!Utils::isUnset($request->ignoreStatus)) {
             @$query['ignoreStatus'] = $request->ignoreStatus;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            @$query['nodeType'] = $request->nodeType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -7134,5 +7236,40 @@ class Elasticsearch extends OpenApiClient
         ]);
 
         return ValidateTransferableNodesResponse::fromMap($this->doROARequest('ValidateTransferableNodes', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/validate-transfer-nodes', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstanceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+
+        return CreateInstanceResponse::fromMap($this->doROARequest('createInstance', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances', 'json', $req, $runtime));
     }
 }

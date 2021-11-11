@@ -11,15 +11,15 @@ class result extends Model
     /**
      * @var string
      */
-    public $repoPath;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $repoPath;
     protected $_name = [
-        'repoPath'   => 'repoPath',
         'instanceId' => 'instanceId',
+        'repoPath'   => 'repoPath',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->repoPath) {
-            $res['repoPath'] = $this->repoPath;
-        }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
+        }
+        if (null !== $this->repoPath) {
+            $res['repoPath'] = $this->repoPath;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['repoPath'])) {
-            $model->repoPath = $map['repoPath'];
-        }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
+        }
+        if (isset($map['repoPath'])) {
+            $model->repoPath = $map['repoPath'];
         }
 
         return $model;

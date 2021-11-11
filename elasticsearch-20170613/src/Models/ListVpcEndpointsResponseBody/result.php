@@ -11,27 +11,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $endpointBusinessStatus;
-
-    /**
-     * @var string
-     */
-    public $serviceId;
-
-    /**
-     * @var string
-     */
-    public $endpointName;
-
-    /**
-     * @var string
-     */
-    public $endpointId;
-
-    /**
-     * @var string
-     */
-    public $serviceName;
+    public $connectionStatus;
 
     /**
      * @var string
@@ -41,7 +21,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $connectionStatus;
+    public $endpointBusinessStatus;
 
     /**
      * @var string
@@ -51,17 +31,37 @@ class result extends Model
     /**
      * @var string
      */
+    public $endpointId;
+
+    /**
+     * @var string
+     */
+    public $endpointName;
+
+    /**
+     * @var string
+     */
     public $endpointStatus;
+
+    /**
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
-        'endpointBusinessStatus' => 'endpointBusinessStatus',
-        'serviceId'              => 'serviceId',
-        'endpointName'           => 'endpointName',
-        'endpointId'             => 'endpointId',
-        'serviceName'            => 'serviceName',
-        'createTime'             => 'createTime',
         'connectionStatus'       => 'connectionStatus',
+        'createTime'             => 'createTime',
+        'endpointBusinessStatus' => 'endpointBusinessStatus',
         'endpointDomain'         => 'endpointDomain',
+        'endpointId'             => 'endpointId',
+        'endpointName'           => 'endpointName',
         'endpointStatus'         => 'endpointStatus',
+        'serviceId'              => 'serviceId',
+        'serviceName'            => 'serviceName',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endpointBusinessStatus) {
-            $res['endpointBusinessStatus'] = $this->endpointBusinessStatus;
-        }
-        if (null !== $this->serviceId) {
-            $res['serviceId'] = $this->serviceId;
-        }
-        if (null !== $this->endpointName) {
-            $res['endpointName'] = $this->endpointName;
-        }
-        if (null !== $this->endpointId) {
-            $res['endpointId'] = $this->endpointId;
-        }
-        if (null !== $this->serviceName) {
-            $res['serviceName'] = $this->serviceName;
+        if (null !== $this->connectionStatus) {
+            $res['connectionStatus'] = $this->connectionStatus;
         }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
-        if (null !== $this->connectionStatus) {
-            $res['connectionStatus'] = $this->connectionStatus;
+        if (null !== $this->endpointBusinessStatus) {
+            $res['endpointBusinessStatus'] = $this->endpointBusinessStatus;
         }
         if (null !== $this->endpointDomain) {
             $res['endpointDomain'] = $this->endpointDomain;
         }
+        if (null !== $this->endpointId) {
+            $res['endpointId'] = $this->endpointId;
+        }
+        if (null !== $this->endpointName) {
+            $res['endpointName'] = $this->endpointName;
+        }
         if (null !== $this->endpointStatus) {
             $res['endpointStatus'] = $this->endpointStatus;
+        }
+        if (null !== $this->serviceId) {
+            $res['serviceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceName) {
+            $res['serviceName'] = $this->serviceName;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['endpointBusinessStatus'])) {
-            $model->endpointBusinessStatus = $map['endpointBusinessStatus'];
-        }
-        if (isset($map['serviceId'])) {
-            $model->serviceId = $map['serviceId'];
-        }
-        if (isset($map['endpointName'])) {
-            $model->endpointName = $map['endpointName'];
-        }
-        if (isset($map['endpointId'])) {
-            $model->endpointId = $map['endpointId'];
-        }
-        if (isset($map['serviceName'])) {
-            $model->serviceName = $map['serviceName'];
+        if (isset($map['connectionStatus'])) {
+            $model->connectionStatus = $map['connectionStatus'];
         }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
-        if (isset($map['connectionStatus'])) {
-            $model->connectionStatus = $map['connectionStatus'];
+        if (isset($map['endpointBusinessStatus'])) {
+            $model->endpointBusinessStatus = $map['endpointBusinessStatus'];
         }
         if (isset($map['endpointDomain'])) {
             $model->endpointDomain = $map['endpointDomain'];
         }
+        if (isset($map['endpointId'])) {
+            $model->endpointId = $map['endpointId'];
+        }
+        if (isset($map['endpointName'])) {
+            $model->endpointName = $map['endpointName'];
+        }
         if (isset($map['endpointStatus'])) {
             $model->endpointStatus = $map['endpointStatus'];
+        }
+        if (isset($map['serviceId'])) {
+            $model->serviceId = $map['serviceId'];
+        }
+        if (isset($map['serviceName'])) {
+            $model->serviceName = $map['serviceName'];
         }
 
         return $model;

@@ -11,17 +11,12 @@ class detail extends Model
     /**
      * @var string
      */
-    public $type;
+    public $desc;
 
     /**
      * @var string
      */
     public $name;
-
-    /**
-     * @var string
-     */
-    public $desc;
 
     /**
      * @var string
@@ -32,12 +27,17 @@ class detail extends Model
      * @var string
      */
     public $suggest;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'    => 'type',
-        'name'    => 'name',
         'desc'    => 'desc',
+        'name'    => 'name',
         'result'  => 'result',
         'suggest' => 'suggest',
+        'type'    => 'type',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class detail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->desc) {
+            $res['desc'] = $this->desc;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
-        }
-        if (null !== $this->desc) {
-            $res['desc'] = $this->desc;
         }
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
         if (null !== $this->suggest) {
             $res['suggest'] = $this->suggest;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class detail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['desc'])) {
+            $model->desc = $map['desc'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
-        }
-        if (isset($map['desc'])) {
-            $model->desc = $map['desc'];
         }
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }
         if (isset($map['suggest'])) {
             $model->suggest = $map['suggest'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

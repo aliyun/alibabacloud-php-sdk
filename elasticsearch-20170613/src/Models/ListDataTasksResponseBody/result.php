@@ -16,16 +16,6 @@ class result extends Model
     public $createTime;
 
     /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var sinkCluster
      */
     public $sinkCluster;
@@ -34,12 +24,22 @@ class result extends Model
      * @var sourceCluster
      */
     public $sourceCluster;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'createTime'    => 'createTime',
-        'taskId'        => 'taskId',
-        'status'        => 'status',
         'sinkCluster'   => 'sinkCluster',
         'sourceCluster' => 'sourceCluster',
+        'status'        => 'status',
+        'taskId'        => 'taskId',
     ];
 
     public function validate()
@@ -52,17 +52,17 @@ class result extends Model
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
-        if (null !== $this->taskId) {
-            $res['taskId'] = $this->taskId;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
         if (null !== $this->sinkCluster) {
             $res['sinkCluster'] = null !== $this->sinkCluster ? $this->sinkCluster->toMap() : null;
         }
         if (null !== $this->sourceCluster) {
             $res['sourceCluster'] = null !== $this->sourceCluster ? $this->sourceCluster->toMap() : null;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+        if (null !== $this->taskId) {
+            $res['taskId'] = $this->taskId;
         }
 
         return $res;
@@ -79,17 +79,17 @@ class result extends Model
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
-        if (isset($map['taskId'])) {
-            $model->taskId = $map['taskId'];
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
         if (isset($map['sinkCluster'])) {
             $model->sinkCluster = sinkCluster::fromMap($map['sinkCluster']);
         }
         if (isset($map['sourceCluster'])) {
             $model->sourceCluster = sourceCluster::fromMap($map['sourceCluster']);
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+        if (isset($map['taskId'])) {
+            $model->taskId = $map['taskId'];
         }
 
         return $model;

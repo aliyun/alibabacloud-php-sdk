@@ -11,27 +11,27 @@ class result extends Model
     /**
      * @var string
      */
-    public $endpoint;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
      * @var string
      */
-    public $kibanaEndpoint;
+    public $endpoint;
 
     /**
      * @var string
      */
     public $esInstanceId;
+
+    /**
+     * @var string
+     */
+    public $kibanaEndpoint;
     protected $_name = [
-        'endpoint'       => 'endpoint',
         'description'    => 'description',
-        'kibanaEndpoint' => 'kibanaEndpoint',
+        'endpoint'       => 'endpoint',
         'esInstanceId'   => 'esInstanceId',
+        'kibanaEndpoint' => 'kibanaEndpoint',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endpoint) {
-            $res['endpoint'] = $this->endpoint;
-        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-        if (null !== $this->kibanaEndpoint) {
-            $res['kibanaEndpoint'] = $this->kibanaEndpoint;
+        if (null !== $this->endpoint) {
+            $res['endpoint'] = $this->endpoint;
         }
         if (null !== $this->esInstanceId) {
             $res['esInstanceId'] = $this->esInstanceId;
+        }
+        if (null !== $this->kibanaEndpoint) {
+            $res['kibanaEndpoint'] = $this->kibanaEndpoint;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['endpoint'])) {
-            $model->endpoint = $map['endpoint'];
-        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-        if (isset($map['kibanaEndpoint'])) {
-            $model->kibanaEndpoint = $map['kibanaEndpoint'];
+        if (isset($map['endpoint'])) {
+            $model->endpoint = $map['endpoint'];
         }
         if (isset($map['esInstanceId'])) {
             $model->esInstanceId = $map['esInstanceId'];
+        }
+        if (isset($map['kibanaEndpoint'])) {
+            $model->kibanaEndpoint = $map['kibanaEndpoint'];
         }
 
         return $model;

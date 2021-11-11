@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var string
+     * @var tags[]
      */
-    public $paymentType;
+    public $tags;
 
     /**
-     * @var int
+     * @var string
      */
-    public $nodeAmount;
+    public $createdAt;
 
     /**
      * @var string
@@ -29,7 +29,27 @@ class result extends Model
     /**
      * @var string
      */
-    public $createdAt;
+    public $instanceId;
+
+    /**
+     * @var networkConfig
+     */
+    public $networkConfig;
+
+    /**
+     * @var int
+     */
+    public $nodeAmount;
+
+    /**
+     * @var nodeSpec
+     */
+    public $nodeSpec;
+
+    /**
+     * @var string
+     */
+    public $paymentType;
 
     /**
      * @var string
@@ -44,39 +64,19 @@ class result extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $version;
-
-    /**
-     * @var tags[]
-     */
-    public $tags;
-
-    /**
-     * @var nodeSpec
-     */
-    public $nodeSpec;
-
-    /**
-     * @var networkConfig
-     */
-    public $networkConfig;
     protected $_name = [
-        'paymentType'   => 'paymentType',
-        'nodeAmount'    => 'nodeAmount',
-        'description'   => 'description',
+        'tags'          => 'Tags',
         'createdAt'     => 'createdAt',
+        'description'   => 'description',
+        'instanceId'    => 'instanceId',
+        'networkConfig' => 'networkConfig',
+        'nodeAmount'    => 'nodeAmount',
+        'nodeSpec'      => 'nodeSpec',
+        'paymentType'   => 'paymentType',
         'status'        => 'status',
         'updatedAt'     => 'updatedAt',
-        'instanceId'    => 'instanceId',
         'version'       => 'version',
-        'tags'          => 'Tags',
-        'nodeSpec'      => 'nodeSpec',
-        'networkConfig' => 'networkConfig',
     ];
 
     public function validate()
@@ -86,30 +86,6 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->paymentType) {
-            $res['paymentType'] = $this->paymentType;
-        }
-        if (null !== $this->nodeAmount) {
-            $res['nodeAmount'] = $this->nodeAmount;
-        }
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
-        }
-        if (null !== $this->createdAt) {
-            $res['createdAt'] = $this->createdAt;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
-        if (null !== $this->updatedAt) {
-            $res['updatedAt'] = $this->updatedAt;
-        }
-        if (null !== $this->instanceId) {
-            $res['instanceId'] = $this->instanceId;
-        }
-        if (null !== $this->version) {
-            $res['version'] = $this->version;
-        }
         if (null !== $this->tags) {
             $res['Tags'] = [];
             if (null !== $this->tags && \is_array($this->tags)) {
@@ -119,11 +95,35 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->nodeSpec) {
-            $res['nodeSpec'] = null !== $this->nodeSpec ? $this->nodeSpec->toMap() : null;
+        if (null !== $this->createdAt) {
+            $res['createdAt'] = $this->createdAt;
+        }
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
         }
         if (null !== $this->networkConfig) {
             $res['networkConfig'] = null !== $this->networkConfig ? $this->networkConfig->toMap() : null;
+        }
+        if (null !== $this->nodeAmount) {
+            $res['nodeAmount'] = $this->nodeAmount;
+        }
+        if (null !== $this->nodeSpec) {
+            $res['nodeSpec'] = null !== $this->nodeSpec ? $this->nodeSpec->toMap() : null;
+        }
+        if (null !== $this->paymentType) {
+            $res['paymentType'] = $this->paymentType;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+        if (null !== $this->updatedAt) {
+            $res['updatedAt'] = $this->updatedAt;
+        }
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -137,30 +137,6 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['paymentType'])) {
-            $model->paymentType = $map['paymentType'];
-        }
-        if (isset($map['nodeAmount'])) {
-            $model->nodeAmount = $map['nodeAmount'];
-        }
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
-        }
-        if (isset($map['createdAt'])) {
-            $model->createdAt = $map['createdAt'];
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
-        if (isset($map['updatedAt'])) {
-            $model->updatedAt = $map['updatedAt'];
-        }
-        if (isset($map['instanceId'])) {
-            $model->instanceId = $map['instanceId'];
-        }
-        if (isset($map['version'])) {
-            $model->version = $map['version'];
-        }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
@@ -170,11 +146,35 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['nodeSpec'])) {
-            $model->nodeSpec = nodeSpec::fromMap($map['nodeSpec']);
+        if (isset($map['createdAt'])) {
+            $model->createdAt = $map['createdAt'];
+        }
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
         }
         if (isset($map['networkConfig'])) {
             $model->networkConfig = networkConfig::fromMap($map['networkConfig']);
+        }
+        if (isset($map['nodeAmount'])) {
+            $model->nodeAmount = $map['nodeAmount'];
+        }
+        if (isset($map['nodeSpec'])) {
+            $model->nodeSpec = nodeSpec::fromMap($map['nodeSpec']);
+        }
+        if (isset($map['paymentType'])) {
+            $model->paymentType = $map['paymentType'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+        if (isset($map['updatedAt'])) {
+            $model->updatedAt = $map['updatedAt'];
+        }
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

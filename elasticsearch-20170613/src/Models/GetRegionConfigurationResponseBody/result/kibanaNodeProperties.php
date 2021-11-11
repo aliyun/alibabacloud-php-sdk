@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class kibanaNodeProperties extends Model
 {
     /**
-     * @var string[]
-     */
-    public $spec;
-
-    /**
      * @var amountRange
      */
     public $amountRange;
+
+    /**
+     * @var string[]
+     */
+    public $spec;
     protected $_name = [
-        'spec'        => 'spec',
         'amountRange' => 'amountRange',
+        'spec'        => 'spec',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class kibanaNodeProperties extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spec) {
-            $res['spec'] = $this->spec;
-        }
         if (null !== $this->amountRange) {
             $res['amountRange'] = null !== $this->amountRange ? $this->amountRange->toMap() : null;
+        }
+        if (null !== $this->spec) {
+            $res['spec'] = $this->spec;
         }
 
         return $res;
@@ -48,13 +48,13 @@ class kibanaNodeProperties extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['amountRange'])) {
+            $model->amountRange = amountRange::fromMap($map['amountRange']);
+        }
         if (isset($map['spec'])) {
             if (!empty($map['spec'])) {
                 $model->spec = $map['spec'];
             }
-        }
-        if (isset($map['amountRange'])) {
-            $model->amountRange = amountRange::fromMap($map['amountRange']);
         }
 
         return $model;

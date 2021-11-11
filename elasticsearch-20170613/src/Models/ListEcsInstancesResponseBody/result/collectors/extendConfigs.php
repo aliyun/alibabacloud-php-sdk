@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class extendConfigs extends Model
 {
     /**
+     * @var string
+     */
+    public $configType;
+
+    /**
      * @var bool
      */
     public $enableMonitoring;
@@ -20,14 +25,24 @@ class extendConfigs extends Model
     public $groupId;
 
     /**
+     * @var string[]
+     */
+    public $hosts;
+
+    /**
      * @var string
      */
-    public $configType;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var machines[]
+     */
+    public $machines;
 
     /**
      * @var string
@@ -37,38 +52,23 @@ class extendConfigs extends Model
     /**
      * @var string
      */
-    public $userName;
-
-    /**
-     * @var string
-     */
     public $type;
 
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var machines[]
-     */
-    public $machines;
-
-    /**
-     * @var string[]
-     */
-    public $hosts;
+    public $userName;
     protected $_name = [
+        'configType'       => 'configType',
         'enableMonitoring' => 'enableMonitoring',
         'groupId'          => 'groupId',
-        'configType'       => 'configType',
-        'instanceType'     => 'instanceType',
-        'protocol'         => 'protocol',
-        'userName'         => 'userName',
-        'type'             => 'type',
-        'instanceId'       => 'instanceId',
-        'machines'         => 'machines',
         'hosts'            => 'hosts',
+        'instanceId'       => 'instanceId',
+        'instanceType'     => 'instanceType',
+        'machines'         => 'machines',
+        'protocol'         => 'protocol',
+        'type'             => 'type',
+        'userName'         => 'userName',
     ];
 
     public function validate()
@@ -78,29 +78,23 @@ class extendConfigs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configType) {
+            $res['configType'] = $this->configType;
+        }
         if (null !== $this->enableMonitoring) {
             $res['enableMonitoring'] = $this->enableMonitoring;
         }
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
         }
-        if (null !== $this->configType) {
-            $res['configType'] = $this->configType;
-        }
-        if (null !== $this->instanceType) {
-            $res['instanceType'] = $this->instanceType;
-        }
-        if (null !== $this->protocol) {
-            $res['protocol'] = $this->protocol;
-        }
-        if (null !== $this->userName) {
-            $res['userName'] = $this->userName;
-        }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->hosts) {
+            $res['hosts'] = $this->hosts;
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceType) {
+            $res['instanceType'] = $this->instanceType;
         }
         if (null !== $this->machines) {
             $res['machines'] = [];
@@ -111,8 +105,14 @@ class extendConfigs extends Model
                 }
             }
         }
-        if (null !== $this->hosts) {
-            $res['hosts'] = $this->hosts;
+        if (null !== $this->protocol) {
+            $res['protocol'] = $this->protocol;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
+        if (null !== $this->userName) {
+            $res['userName'] = $this->userName;
         }
 
         return $res;
@@ -126,29 +126,25 @@ class extendConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['configType'])) {
+            $model->configType = $map['configType'];
+        }
         if (isset($map['enableMonitoring'])) {
             $model->enableMonitoring = $map['enableMonitoring'];
         }
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
         }
-        if (isset($map['configType'])) {
-            $model->configType = $map['configType'];
-        }
-        if (isset($map['instanceType'])) {
-            $model->instanceType = $map['instanceType'];
-        }
-        if (isset($map['protocol'])) {
-            $model->protocol = $map['protocol'];
-        }
-        if (isset($map['userName'])) {
-            $model->userName = $map['userName'];
-        }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['hosts'])) {
+            if (!empty($map['hosts'])) {
+                $model->hosts = $map['hosts'];
+            }
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
+        }
+        if (isset($map['instanceType'])) {
+            $model->instanceType = $map['instanceType'];
         }
         if (isset($map['machines'])) {
             if (!empty($map['machines'])) {
@@ -159,10 +155,14 @@ class extendConfigs extends Model
                 }
             }
         }
-        if (isset($map['hosts'])) {
-            if (!empty($map['hosts'])) {
-                $model->hosts = $map['hosts'];
-            }
+        if (isset($map['protocol'])) {
+            $model->protocol = $map['protocol'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
+        }
+        if (isset($map['userName'])) {
+            $model->userName = $map['userName'];
         }
 
         return $model;

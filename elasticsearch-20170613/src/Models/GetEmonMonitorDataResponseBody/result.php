@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var float
+     * @var mixed[]
      */
-    public $integrity;
+    public $dps;
 
     /**
      * @var float
      */
-    public $summary;
+    public $integrity;
 
     /**
      * @var int
@@ -24,26 +24,26 @@ class result extends Model
     public $messageWatermark;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $dps;
+    public $metric;
+
+    /**
+     * @var float
+     */
+    public $summary;
 
     /**
      * @var mixed[]
      */
     public $tags;
-
-    /**
-     * @var string
-     */
-    public $metric;
     protected $_name = [
-        'integrity'        => 'integrity',
-        'summary'          => 'summary',
-        'messageWatermark' => 'messageWatermark',
         'dps'              => 'dps',
-        'tags'             => 'tags',
+        'integrity'        => 'integrity',
+        'messageWatermark' => 'messageWatermark',
         'metric'           => 'metric',
+        'summary'          => 'summary',
+        'tags'             => 'tags',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dps) {
+            $res['dps'] = $this->dps;
+        }
         if (null !== $this->integrity) {
             $res['integrity'] = $this->integrity;
-        }
-        if (null !== $this->summary) {
-            $res['summary'] = $this->summary;
         }
         if (null !== $this->messageWatermark) {
             $res['messageWatermark'] = $this->messageWatermark;
         }
-        if (null !== $this->dps) {
-            $res['dps'] = $this->dps;
+        if (null !== $this->metric) {
+            $res['metric'] = $this->metric;
+        }
+        if (null !== $this->summary) {
+            $res['summary'] = $this->summary;
         }
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
-        }
-        if (null !== $this->metric) {
-            $res['metric'] = $this->metric;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['dps'])) {
+            $model->dps = $map['dps'];
+        }
         if (isset($map['integrity'])) {
             $model->integrity = $map['integrity'];
-        }
-        if (isset($map['summary'])) {
-            $model->summary = $map['summary'];
         }
         if (isset($map['messageWatermark'])) {
             $model->messageWatermark = $map['messageWatermark'];
         }
-        if (isset($map['dps'])) {
-            $model->dps = $map['dps'];
+        if (isset($map['metric'])) {
+            $model->metric = $map['metric'];
+        }
+        if (isset($map['summary'])) {
+            $model->summary = $map['summary'];
         }
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];
-        }
-        if (isset($map['metric'])) {
-            $model->metric = $map['metric'];
         }
 
         return $model;

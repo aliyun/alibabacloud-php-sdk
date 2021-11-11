@@ -11,7 +11,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $snapWarehouse;
+    public $instanceId;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class result extends Model
     /**
      * @var string
      */
-    public $status;
+    public $snapWarehouse;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $status;
     protected $_name = [
-        'snapWarehouse' => 'snapWarehouse',
-        'repoPath'      => 'repoPath',
-        'status'        => 'status',
         'instanceId'    => 'instanceId',
+        'repoPath'      => 'repoPath',
+        'snapWarehouse' => 'snapWarehouse',
+        'status'        => 'status',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->snapWarehouse) {
-            $res['snapWarehouse'] = $this->snapWarehouse;
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
         }
         if (null !== $this->repoPath) {
             $res['repoPath'] = $this->repoPath;
         }
+        if (null !== $this->snapWarehouse) {
+            $res['snapWarehouse'] = $this->snapWarehouse;
+        }
         if (null !== $this->status) {
             $res['status'] = $this->status;
-        }
-        if (null !== $this->instanceId) {
-            $res['instanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['snapWarehouse'])) {
-            $model->snapWarehouse = $map['snapWarehouse'];
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
         }
         if (isset($map['repoPath'])) {
             $model->repoPath = $map['repoPath'];
         }
+        if (isset($map['snapWarehouse'])) {
+            $model->snapWarehouse = $map['snapWarehouse'];
+        }
         if (isset($map['status'])) {
             $model->status = $map['status'];
-        }
-        if (isset($map['instanceId'])) {
-            $model->instanceId = $map['instanceId'];
         }
 
         return $model;

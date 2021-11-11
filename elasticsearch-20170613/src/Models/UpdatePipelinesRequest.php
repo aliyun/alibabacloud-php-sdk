@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdatePipelinesRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $trigger;
-
-    /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var bool
+     */
+    public $trigger;
     protected $_name = [
-        'trigger'     => 'trigger',
         'clientToken' => 'clientToken',
+        'trigger'     => 'trigger',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdatePipelinesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->trigger) {
-            $res['trigger'] = $this->trigger;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->trigger) {
+            $res['trigger'] = $this->trigger;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdatePipelinesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['trigger'])) {
-            $model->trigger = $map['trigger'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['trigger'])) {
+            $model->trigger = $map['trigger'];
         }
 
         return $model;

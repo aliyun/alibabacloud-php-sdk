@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var sourceCluster
-     */
-    public $sourceCluster;
-
-    /**
      * @var sinkCluster
      */
     public $sinkCluster;
+
+    /**
+     * @var sourceCluster
+     */
+    public $sourceCluster;
     protected $_name = [
-        'sourceCluster' => 'sourceCluster',
         'sinkCluster'   => 'sinkCluster',
+        'sourceCluster' => 'sourceCluster',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceCluster) {
-            $res['sourceCluster'] = null !== $this->sourceCluster ? $this->sourceCluster->toMap() : null;
-        }
         if (null !== $this->sinkCluster) {
             $res['sinkCluster'] = null !== $this->sinkCluster ? $this->sinkCluster->toMap() : null;
+        }
+        if (null !== $this->sourceCluster) {
+            $res['sourceCluster'] = null !== $this->sourceCluster ? $this->sourceCluster->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['sourceCluster'])) {
-            $model->sourceCluster = sourceCluster::fromMap($map['sourceCluster']);
-        }
         if (isset($map['sinkCluster'])) {
             $model->sinkCluster = sinkCluster::fromMap($map['sinkCluster']);
+        }
+        if (isset($map['sourceCluster'])) {
+            $model->sourceCluster = sourceCluster::fromMap($map['sourceCluster']);
         }
 
         return $model;

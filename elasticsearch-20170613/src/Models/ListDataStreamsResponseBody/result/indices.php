@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class indices extends Model
 {
     /**
-     * @var bool
-     */
-    public $isManaged;
-
-    /**
      * @var string
      */
     public $createTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $size;
+    public $health;
+
+    /**
+     * @var bool
+     */
+    public $isManaged;
 
     /**
      * @var string
@@ -34,16 +34,16 @@ class indices extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $health;
+    public $size;
     protected $_name = [
-        'isManaged'     => 'isManaged',
         'createTime'    => 'createTime',
-        'size'          => 'size',
+        'health'        => 'health',
+        'isManaged'     => 'isManaged',
         'managedStatus' => 'managedStatus',
         'name'          => 'name',
-        'health'        => 'health',
+        'size'          => 'size',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class indices extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isManaged) {
-            $res['isManaged'] = $this->isManaged;
-        }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
-        if (null !== $this->size) {
-            $res['size'] = $this->size;
+        if (null !== $this->health) {
+            $res['health'] = $this->health;
+        }
+        if (null !== $this->isManaged) {
+            $res['isManaged'] = $this->isManaged;
         }
         if (null !== $this->managedStatus) {
             $res['managedStatus'] = $this->managedStatus;
@@ -68,8 +68,8 @@ class indices extends Model
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-        if (null !== $this->health) {
-            $res['health'] = $this->health;
+        if (null !== $this->size) {
+            $res['size'] = $this->size;
         }
 
         return $res;
@@ -83,14 +83,14 @@ class indices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['isManaged'])) {
-            $model->isManaged = $map['isManaged'];
-        }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
-        if (isset($map['size'])) {
-            $model->size = $map['size'];
+        if (isset($map['health'])) {
+            $model->health = $map['health'];
+        }
+        if (isset($map['isManaged'])) {
+            $model->isManaged = $map['isManaged'];
         }
         if (isset($map['managedStatus'])) {
             $model->managedStatus = $map['managedStatus'];
@@ -98,8 +98,8 @@ class indices extends Model
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-        if (isset($map['health'])) {
-            $model->health = $map['health'];
+        if (isset($map['size'])) {
+            $model->size = $map['size'];
         }
 
         return $model;

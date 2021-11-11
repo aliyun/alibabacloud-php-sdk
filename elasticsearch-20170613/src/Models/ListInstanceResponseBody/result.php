@@ -21,9 +21,9 @@ class result extends Model
     public $advancedDedicateMaster;
 
     /**
-     * @var int
+     * @var clientNodeConfiguration
      */
-    public $nodeAmount;
+    public $clientNodeConfiguration;
 
     /**
      * @var string
@@ -31,34 +31,9 @@ class result extends Model
     public $createdAt;
 
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var bool
      */
     public $dedicateMaster;
-
-    /**
-     * @var bool
-     */
-    public $serviceVpc;
-
-    /**
-     * @var string
-     */
-    public $paymentType;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $postpaidServiceStatus;
 
     /**
      * @var string
@@ -66,29 +41,14 @@ class result extends Model
     public $description;
 
     /**
+     * @var elasticDataNodeConfiguration
+     */
+    public $elasticDataNodeConfiguration;
+
+    /**
      * @var string
      */
     public $esVersion;
-
-    /**
-     * @var string
-     */
-    public $isNewDeployment;
-
-    /**
-     * @var string
-     */
-    public $updatedAt;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var tags[]
-     */
-    public $tags;
 
     /**
      * @var mixed[][]
@@ -96,14 +56,14 @@ class result extends Model
     public $extendConfigs;
 
     /**
-     * @var clientNodeConfiguration
+     * @var string
      */
-    public $clientNodeConfiguration;
+    public $instanceId;
 
     /**
-     * @var elasticDataNodeConfiguration
+     * @var string
      */
-    public $elasticDataNodeConfiguration;
+    public $isNewDeployment;
 
     /**
      * @var kibanaConfiguration
@@ -121,32 +81,72 @@ class result extends Model
     public $networkConfig;
 
     /**
+     * @var int
+     */
+    public $nodeAmount;
+
+    /**
      * @var nodeSpec
      */
     public $nodeSpec;
+
+    /**
+     * @var string
+     */
+    public $paymentType;
+
+    /**
+     * @var string
+     */
+    public $postpaidServiceStatus;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var bool
+     */
+    public $serviceVpc;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $updatedAt;
     protected $_name = [
         'advancedDedicateMaster'       => 'advancedDedicateMaster',
-        'nodeAmount'                   => 'nodeAmount',
-        'createdAt'                    => 'createdAt',
-        'status'                       => 'status',
-        'dedicateMaster'               => 'dedicateMaster',
-        'serviceVpc'                   => 'serviceVpc',
-        'paymentType'                  => 'paymentType',
-        'resourceGroupId'              => 'resourceGroupId',
-        'postpaidServiceStatus'        => 'postpaidServiceStatus',
-        'description'                  => 'description',
-        'esVersion'                    => 'esVersion',
-        'isNewDeployment'              => 'isNewDeployment',
-        'updatedAt'                    => 'updatedAt',
-        'instanceId'                   => 'instanceId',
-        'tags'                         => 'tags',
-        'extendConfigs'                => 'extendConfigs',
         'clientNodeConfiguration'      => 'clientNodeConfiguration',
+        'createdAt'                    => 'createdAt',
+        'dedicateMaster'               => 'dedicateMaster',
+        'description'                  => 'description',
         'elasticDataNodeConfiguration' => 'elasticDataNodeConfiguration',
+        'esVersion'                    => 'esVersion',
+        'extendConfigs'                => 'extendConfigs',
+        'instanceId'                   => 'instanceId',
+        'isNewDeployment'              => 'isNewDeployment',
         'kibanaConfiguration'          => 'kibanaConfiguration',
         'masterConfiguration'          => 'masterConfiguration',
         'networkConfig'                => 'networkConfig',
+        'nodeAmount'                   => 'nodeAmount',
         'nodeSpec'                     => 'nodeSpec',
+        'paymentType'                  => 'paymentType',
+        'postpaidServiceStatus'        => 'postpaidServiceStatus',
+        'resourceGroupId'              => 'resourceGroupId',
+        'serviceVpc'                   => 'serviceVpc',
+        'status'                       => 'status',
+        'tags'                         => 'tags',
+        'updatedAt'                    => 'updatedAt',
     ];
 
     public function validate()
@@ -159,62 +159,32 @@ class result extends Model
         if (null !== $this->advancedDedicateMaster) {
             $res['advancedDedicateMaster'] = $this->advancedDedicateMaster;
         }
-        if (null !== $this->nodeAmount) {
-            $res['nodeAmount'] = $this->nodeAmount;
+        if (null !== $this->clientNodeConfiguration) {
+            $res['clientNodeConfiguration'] = null !== $this->clientNodeConfiguration ? $this->clientNodeConfiguration->toMap() : null;
         }
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
         if (null !== $this->dedicateMaster) {
             $res['dedicateMaster'] = $this->dedicateMaster;
-        }
-        if (null !== $this->serviceVpc) {
-            $res['serviceVpc'] = $this->serviceVpc;
-        }
-        if (null !== $this->paymentType) {
-            $res['paymentType'] = $this->paymentType;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['resourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->postpaidServiceStatus) {
-            $res['postpaidServiceStatus'] = $this->postpaidServiceStatus;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+        if (null !== $this->elasticDataNodeConfiguration) {
+            $res['elasticDataNodeConfiguration'] = null !== $this->elasticDataNodeConfiguration ? $this->elasticDataNodeConfiguration->toMap() : null;
+        }
         if (null !== $this->esVersion) {
             $res['esVersion'] = $this->esVersion;
-        }
-        if (null !== $this->isNewDeployment) {
-            $res['isNewDeployment'] = $this->isNewDeployment;
-        }
-        if (null !== $this->updatedAt) {
-            $res['updatedAt'] = $this->updatedAt;
-        }
-        if (null !== $this->instanceId) {
-            $res['instanceId'] = $this->instanceId;
-        }
-        if (null !== $this->tags) {
-            $res['tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->extendConfigs) {
             $res['extendConfigs'] = $this->extendConfigs;
         }
-        if (null !== $this->clientNodeConfiguration) {
-            $res['clientNodeConfiguration'] = null !== $this->clientNodeConfiguration ? $this->clientNodeConfiguration->toMap() : null;
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
         }
-        if (null !== $this->elasticDataNodeConfiguration) {
-            $res['elasticDataNodeConfiguration'] = null !== $this->elasticDataNodeConfiguration ? $this->elasticDataNodeConfiguration->toMap() : null;
+        if (null !== $this->isNewDeployment) {
+            $res['isNewDeployment'] = $this->isNewDeployment;
         }
         if (null !== $this->kibanaConfiguration) {
             $res['kibanaConfiguration'] = null !== $this->kibanaConfiguration ? $this->kibanaConfiguration->toMap() : null;
@@ -225,8 +195,38 @@ class result extends Model
         if (null !== $this->networkConfig) {
             $res['networkConfig'] = null !== $this->networkConfig ? $this->networkConfig->toMap() : null;
         }
+        if (null !== $this->nodeAmount) {
+            $res['nodeAmount'] = $this->nodeAmount;
+        }
         if (null !== $this->nodeSpec) {
             $res['nodeSpec'] = null !== $this->nodeSpec ? $this->nodeSpec->toMap() : null;
+        }
+        if (null !== $this->paymentType) {
+            $res['paymentType'] = $this->paymentType;
+        }
+        if (null !== $this->postpaidServiceStatus) {
+            $res['postpaidServiceStatus'] = $this->postpaidServiceStatus;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->serviceVpc) {
+            $res['serviceVpc'] = $this->serviceVpc;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->updatedAt) {
+            $res['updatedAt'] = $this->updatedAt;
         }
 
         return $res;
@@ -243,64 +243,34 @@ class result extends Model
         if (isset($map['advancedDedicateMaster'])) {
             $model->advancedDedicateMaster = $map['advancedDedicateMaster'];
         }
-        if (isset($map['nodeAmount'])) {
-            $model->nodeAmount = $map['nodeAmount'];
+        if (isset($map['clientNodeConfiguration'])) {
+            $model->clientNodeConfiguration = clientNodeConfiguration::fromMap($map['clientNodeConfiguration']);
         }
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
         if (isset($map['dedicateMaster'])) {
             $model->dedicateMaster = $map['dedicateMaster'];
-        }
-        if (isset($map['serviceVpc'])) {
-            $model->serviceVpc = $map['serviceVpc'];
-        }
-        if (isset($map['paymentType'])) {
-            $model->paymentType = $map['paymentType'];
-        }
-        if (isset($map['resourceGroupId'])) {
-            $model->resourceGroupId = $map['resourceGroupId'];
-        }
-        if (isset($map['postpaidServiceStatus'])) {
-            $model->postpaidServiceStatus = $map['postpaidServiceStatus'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+        if (isset($map['elasticDataNodeConfiguration'])) {
+            $model->elasticDataNodeConfiguration = elasticDataNodeConfiguration::fromMap($map['elasticDataNodeConfiguration']);
+        }
         if (isset($map['esVersion'])) {
             $model->esVersion = $map['esVersion'];
-        }
-        if (isset($map['isNewDeployment'])) {
-            $model->isNewDeployment = $map['isNewDeployment'];
-        }
-        if (isset($map['updatedAt'])) {
-            $model->updatedAt = $map['updatedAt'];
-        }
-        if (isset($map['instanceId'])) {
-            $model->instanceId = $map['instanceId'];
-        }
-        if (isset($map['tags'])) {
-            if (!empty($map['tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['extendConfigs'])) {
             if (!empty($map['extendConfigs'])) {
                 $model->extendConfigs = $map['extendConfigs'];
             }
         }
-        if (isset($map['clientNodeConfiguration'])) {
-            $model->clientNodeConfiguration = clientNodeConfiguration::fromMap($map['clientNodeConfiguration']);
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
         }
-        if (isset($map['elasticDataNodeConfiguration'])) {
-            $model->elasticDataNodeConfiguration = elasticDataNodeConfiguration::fromMap($map['elasticDataNodeConfiguration']);
+        if (isset($map['isNewDeployment'])) {
+            $model->isNewDeployment = $map['isNewDeployment'];
         }
         if (isset($map['kibanaConfiguration'])) {
             $model->kibanaConfiguration = kibanaConfiguration::fromMap($map['kibanaConfiguration']);
@@ -311,8 +281,38 @@ class result extends Model
         if (isset($map['networkConfig'])) {
             $model->networkConfig = networkConfig::fromMap($map['networkConfig']);
         }
+        if (isset($map['nodeAmount'])) {
+            $model->nodeAmount = $map['nodeAmount'];
+        }
         if (isset($map['nodeSpec'])) {
             $model->nodeSpec = nodeSpec::fromMap($map['nodeSpec']);
+        }
+        if (isset($map['paymentType'])) {
+            $model->paymentType = $map['paymentType'];
+        }
+        if (isset($map['postpaidServiceStatus'])) {
+            $model->postpaidServiceStatus = $map['postpaidServiceStatus'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
+        if (isset($map['serviceVpc'])) {
+            $model->serviceVpc = $map['serviceVpc'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['updatedAt'])) {
+            $model->updatedAt = $map['updatedAt'];
         }
 
         return $model;

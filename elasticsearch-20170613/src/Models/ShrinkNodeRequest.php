@@ -11,21 +11,21 @@ class ShrinkNodeRequest extends Model
     /**
      * @var string
      */
-    public $nodeType;
-
-    /**
-     * @var string
-     */
     public $clientToken;
 
     /**
      * @var bool
      */
     public $ignoreStatus;
+
+    /**
+     * @var string
+     */
+    public $nodeType;
     protected $_name = [
-        'nodeType'     => 'nodeType',
         'clientToken'  => 'clientToken',
         'ignoreStatus' => 'ignoreStatus',
+        'nodeType'     => 'nodeType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ShrinkNodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nodeType) {
-            $res['nodeType'] = $this->nodeType;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->ignoreStatus) {
             $res['ignoreStatus'] = $this->ignoreStatus;
+        }
+        if (null !== $this->nodeType) {
+            $res['nodeType'] = $this->nodeType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ShrinkNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['nodeType'])) {
-            $model->nodeType = $map['nodeType'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
         if (isset($map['ignoreStatus'])) {
             $model->ignoreStatus = $map['ignoreStatus'];
+        }
+        if (isset($map['nodeType'])) {
+            $model->nodeType = $map['nodeType'];
         }
 
         return $model;

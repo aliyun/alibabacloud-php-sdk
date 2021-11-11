@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var string
+     */
+    public $downloadUrl;
+
+    /**
      * @var int
      */
     public $fileSize;
@@ -16,7 +21,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $downloadUrl;
+    public $name;
 
     /**
      * @var string
@@ -27,17 +32,12 @@ class result extends Model
      * @var string
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $name;
     protected $_name = [
-        'fileSize'    => 'fileSize',
         'downloadUrl' => 'downloadUrl',
+        'fileSize'    => 'fileSize',
+        'name'        => 'name',
         'sourceType'  => 'sourceType',
         'type'        => 'type',
-        'name'        => 'name',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->downloadUrl) {
+            $res['downloadUrl'] = $this->downloadUrl;
+        }
         if (null !== $this->fileSize) {
             $res['fileSize'] = $this->fileSize;
         }
-        if (null !== $this->downloadUrl) {
-            $res['downloadUrl'] = $this->downloadUrl;
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
         if (null !== $this->sourceType) {
             $res['sourceType'] = $this->sourceType;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
-        }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['downloadUrl'])) {
+            $model->downloadUrl = $map['downloadUrl'];
+        }
         if (isset($map['fileSize'])) {
             $model->fileSize = $map['fileSize'];
         }
-        if (isset($map['downloadUrl'])) {
-            $model->downloadUrl = $map['downloadUrl'];
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
         if (isset($map['sourceType'])) {
             $model->sourceType = $map['sourceType'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
         }
 
         return $model;

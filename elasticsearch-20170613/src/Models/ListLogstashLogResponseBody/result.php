@@ -11,17 +11,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $level;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
-
-    /**
-     * @var int
-     */
-    public $timestamp;
+    public $host;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class result extends Model
     /**
      * @var string
      */
-    public $host;
+    public $level;
+
+    /**
+     * @var int
+     */
+    public $timestamp;
     protected $_name = [
-        'level'      => 'level',
         'content'    => 'content',
-        'timestamp'  => 'timestamp',
-        'instanceId' => 'instanceId',
         'host'       => 'host',
+        'instanceId' => 'instanceId',
+        'level'      => 'level',
+        'timestamp'  => 'timestamp',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->level) {
-            $res['level'] = $this->level;
-        }
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
-        if (null !== $this->timestamp) {
-            $res['timestamp'] = $this->timestamp;
+        if (null !== $this->host) {
+            $res['host'] = $this->host;
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
-        if (null !== $this->host) {
-            $res['host'] = $this->host;
+        if (null !== $this->level) {
+            $res['level'] = $this->level;
+        }
+        if (null !== $this->timestamp) {
+            $res['timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['level'])) {
-            $model->level = $map['level'];
-        }
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
-        if (isset($map['timestamp'])) {
-            $model->timestamp = $map['timestamp'];
+        if (isset($map['host'])) {
+            $model->host = $map['host'];
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
-        if (isset($map['host'])) {
-            $model->host = $map['host'];
+        if (isset($map['level'])) {
+            $model->level = $map['level'];
+        }
+        if (isset($map['timestamp'])) {
+            $model->timestamp = $map['timestamp'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class headers extends Model
     /**
      * @var int
      */
-    public $xManagedStorageSize;
+    public $xManagedCount;
 
     /**
      * @var int
      */
-    public $xManagedCount;
+    public $xManagedStorageSize;
     protected $_name = [
-        'xManagedStorageSize' => 'X-Managed-StorageSize',
         'xManagedCount'       => 'X-Managed-Count',
+        'xManagedStorageSize' => 'X-Managed-StorageSize',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class headers extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->xManagedStorageSize) {
-            $res['X-Managed-StorageSize'] = $this->xManagedStorageSize;
-        }
         if (null !== $this->xManagedCount) {
             $res['X-Managed-Count'] = $this->xManagedCount;
+        }
+        if (null !== $this->xManagedStorageSize) {
+            $res['X-Managed-StorageSize'] = $this->xManagedStorageSize;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class headers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['X-Managed-StorageSize'])) {
-            $model->xManagedStorageSize = $map['X-Managed-StorageSize'];
-        }
         if (isset($map['X-Managed-Count'])) {
             $model->xManagedCount = $map['X-Managed-Count'];
+        }
+        if (isset($map['X-Managed-StorageSize'])) {
+            $model->xManagedStorageSize = $map['X-Managed-StorageSize'];
         }
 
         return $model;

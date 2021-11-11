@@ -16,9 +16,9 @@ class result extends Model
     public $cloudAssistantStatus;
 
     /**
-     * @var string
+     * @var collectors[]
      */
-    public $ecsInstanceName;
+    public $collectors;
 
     /**
      * @var string
@@ -28,7 +28,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $tags;
+    public $ecsInstanceName;
+
+    /**
+     * @var ipAddress[]
+     */
+    public $ipAddress;
 
     /**
      * @var string
@@ -41,23 +46,18 @@ class result extends Model
     public $status;
 
     /**
-     * @var ipAddress[]
+     * @var string
      */
-    public $ipAddress;
-
-    /**
-     * @var collectors[]
-     */
-    public $collectors;
+    public $tags;
     protected $_name = [
         'cloudAssistantStatus' => 'cloudAssistantStatus',
-        'ecsInstanceName'      => 'ecsInstanceName',
+        'collectors'           => 'collectors',
         'ecsInstanceId'        => 'ecsInstanceId',
-        'tags'                 => 'tags',
+        'ecsInstanceName'      => 'ecsInstanceName',
+        'ipAddress'            => 'ipAddress',
         'osType'               => 'osType',
         'status'               => 'status',
-        'ipAddress'            => 'ipAddress',
-        'collectors'           => 'collectors',
+        'tags'                 => 'tags',
     ];
 
     public function validate()
@@ -70,20 +70,20 @@ class result extends Model
         if (null !== $this->cloudAssistantStatus) {
             $res['cloudAssistantStatus'] = $this->cloudAssistantStatus;
         }
-        if (null !== $this->ecsInstanceName) {
-            $res['ecsInstanceName'] = $this->ecsInstanceName;
+        if (null !== $this->collectors) {
+            $res['collectors'] = [];
+            if (null !== $this->collectors && \is_array($this->collectors)) {
+                $n = 0;
+                foreach ($this->collectors as $item) {
+                    $res['collectors'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->ecsInstanceId) {
             $res['ecsInstanceId'] = $this->ecsInstanceId;
         }
-        if (null !== $this->tags) {
-            $res['tags'] = $this->tags;
-        }
-        if (null !== $this->osType) {
-            $res['osType'] = $this->osType;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
+        if (null !== $this->ecsInstanceName) {
+            $res['ecsInstanceName'] = $this->ecsInstanceName;
         }
         if (null !== $this->ipAddress) {
             $res['ipAddress'] = [];
@@ -94,14 +94,14 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->collectors) {
-            $res['collectors'] = [];
-            if (null !== $this->collectors && \is_array($this->collectors)) {
-                $n = 0;
-                foreach ($this->collectors as $item) {
-                    $res['collectors'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->osType) {
+            $res['osType'] = $this->osType;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['tags'] = $this->tags;
         }
 
         return $res;
@@ -118,20 +118,20 @@ class result extends Model
         if (isset($map['cloudAssistantStatus'])) {
             $model->cloudAssistantStatus = $map['cloudAssistantStatus'];
         }
-        if (isset($map['ecsInstanceName'])) {
-            $model->ecsInstanceName = $map['ecsInstanceName'];
+        if (isset($map['collectors'])) {
+            if (!empty($map['collectors'])) {
+                $model->collectors = [];
+                $n                 = 0;
+                foreach ($map['collectors'] as $item) {
+                    $model->collectors[$n++] = null !== $item ? collectors::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ecsInstanceId'])) {
             $model->ecsInstanceId = $map['ecsInstanceId'];
         }
-        if (isset($map['tags'])) {
-            $model->tags = $map['tags'];
-        }
-        if (isset($map['osType'])) {
-            $model->osType = $map['osType'];
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
+        if (isset($map['ecsInstanceName'])) {
+            $model->ecsInstanceName = $map['ecsInstanceName'];
         }
         if (isset($map['ipAddress'])) {
             if (!empty($map['ipAddress'])) {
@@ -142,14 +142,14 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['collectors'])) {
-            if (!empty($map['collectors'])) {
-                $model->collectors = [];
-                $n                 = 0;
-                foreach ($map['collectors'] as $item) {
-                    $model->collectors[$n++] = null !== $item ? collectors::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['osType'])) {
+            $model->osType = $map['osType'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+        if (isset($map['tags'])) {
+            $model->tags = $map['tags'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $pipelineId;
+    public $gmtCreatedTime;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class result extends Model
     /**
      * @var string
      */
-    public $gmtCreatedTime;
+    public $pipelineId;
 
     /**
      * @var string
      */
     public $pipelineStatus;
     protected $_name = [
-        'pipelineId'     => 'pipelineId',
-        'gmtUpdateTime'  => 'gmtUpdateTime',
         'gmtCreatedTime' => 'gmtCreatedTime',
+        'gmtUpdateTime'  => 'gmtUpdateTime',
+        'pipelineId'     => 'pipelineId',
         'pipelineStatus' => 'pipelineStatus',
     ];
 
@@ -41,14 +41,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pipelineId) {
-            $res['pipelineId'] = $this->pipelineId;
+        if (null !== $this->gmtCreatedTime) {
+            $res['gmtCreatedTime'] = $this->gmtCreatedTime;
         }
         if (null !== $this->gmtUpdateTime) {
             $res['gmtUpdateTime'] = $this->gmtUpdateTime;
         }
-        if (null !== $this->gmtCreatedTime) {
-            $res['gmtCreatedTime'] = $this->gmtCreatedTime;
+        if (null !== $this->pipelineId) {
+            $res['pipelineId'] = $this->pipelineId;
         }
         if (null !== $this->pipelineStatus) {
             $res['pipelineStatus'] = $this->pipelineStatus;
@@ -65,14 +65,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['pipelineId'])) {
-            $model->pipelineId = $map['pipelineId'];
+        if (isset($map['gmtCreatedTime'])) {
+            $model->gmtCreatedTime = $map['gmtCreatedTime'];
         }
         if (isset($map['gmtUpdateTime'])) {
             $model->gmtUpdateTime = $map['gmtUpdateTime'];
         }
-        if (isset($map['gmtCreatedTime'])) {
-            $model->gmtCreatedTime = $map['gmtCreatedTime'];
+        if (isset($map['pipelineId'])) {
+            $model->pipelineId = $map['pipelineId'];
         }
         if (isset($map['pipelineStatus'])) {
             $model->pipelineStatus = $map['pipelineStatus'];

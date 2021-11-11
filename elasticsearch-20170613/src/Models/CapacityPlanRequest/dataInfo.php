@@ -19,6 +19,11 @@ class dataInfo extends Model
     public $size;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var string
      */
     public $type;
@@ -27,17 +32,12 @@ class dataInfo extends Model
      * @var string
      */
     public $unit;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
         'code'       => 'code',
         'size'       => 'size',
+        'totalCount' => 'totalCount',
         'type'       => 'type',
         'unit'       => 'unit',
-        'totalCount' => 'totalCount',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class dataInfo extends Model
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
+        }
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
         if (null !== $this->unit) {
             $res['unit'] = $this->unit;
-        }
-        if (null !== $this->totalCount) {
-            $res['totalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class dataInfo extends Model
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
+        }
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
         if (isset($map['unit'])) {
             $model->unit = $map['unit'];
-        }
-        if (isset($map['totalCount'])) {
-            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

@@ -17,7 +17,7 @@ class ModifyWhiteIpsRequest extends Model
     /**
      * @var string
      */
-    public $nodeType;
+    public $modifyMode;
 
     /**
      * @var string
@@ -27,24 +27,24 @@ class ModifyWhiteIpsRequest extends Model
     /**
      * @var string
      */
-    public $modifyMode;
-
-    /**
-     * @var string[]
-     */
-    public $whiteIpList;
+    public $nodeType;
 
     /**
      * @var whiteIpGroup
      */
     public $whiteIpGroup;
+
+    /**
+     * @var string[]
+     */
+    public $whiteIpList;
     protected $_name = [
         'clientToken'  => 'clientToken',
-        'nodeType'     => 'nodeType',
-        'networkType'  => 'networkType',
         'modifyMode'   => 'modifyMode',
-        'whiteIpList'  => 'whiteIpList',
+        'networkType'  => 'networkType',
+        'nodeType'     => 'nodeType',
         'whiteIpGroup' => 'whiteIpGroup',
+        'whiteIpList'  => 'whiteIpList',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class ModifyWhiteIpsRequest extends Model
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
-        if (null !== $this->nodeType) {
-            $res['nodeType'] = $this->nodeType;
+        if (null !== $this->modifyMode) {
+            $res['modifyMode'] = $this->modifyMode;
         }
         if (null !== $this->networkType) {
             $res['networkType'] = $this->networkType;
         }
-        if (null !== $this->modifyMode) {
-            $res['modifyMode'] = $this->modifyMode;
-        }
-        if (null !== $this->whiteIpList) {
-            $res['whiteIpList'] = $this->whiteIpList;
+        if (null !== $this->nodeType) {
+            $res['nodeType'] = $this->nodeType;
         }
         if (null !== $this->whiteIpGroup) {
             $res['whiteIpGroup'] = null !== $this->whiteIpGroup ? $this->whiteIpGroup->toMap() : null;
+        }
+        if (null !== $this->whiteIpList) {
+            $res['whiteIpList'] = $this->whiteIpList;
         }
 
         return $res;
@@ -87,22 +87,22 @@ class ModifyWhiteIpsRequest extends Model
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
-        if (isset($map['nodeType'])) {
-            $model->nodeType = $map['nodeType'];
+        if (isset($map['modifyMode'])) {
+            $model->modifyMode = $map['modifyMode'];
         }
         if (isset($map['networkType'])) {
             $model->networkType = $map['networkType'];
         }
-        if (isset($map['modifyMode'])) {
-            $model->modifyMode = $map['modifyMode'];
+        if (isset($map['nodeType'])) {
+            $model->nodeType = $map['nodeType'];
+        }
+        if (isset($map['whiteIpGroup'])) {
+            $model->whiteIpGroup = whiteIpGroup::fromMap($map['whiteIpGroup']);
         }
         if (isset($map['whiteIpList'])) {
             if (!empty($map['whiteIpList'])) {
                 $model->whiteIpList = $map['whiteIpList'];
             }
-        }
-        if (isset($map['whiteIpGroup'])) {
-            $model->whiteIpGroup = whiteIpGroup::fromMap($map['whiteIpGroup']);
         }
 
         return $model;

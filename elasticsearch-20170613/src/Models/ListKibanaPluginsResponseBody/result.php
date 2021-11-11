@@ -16,12 +16,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $specificationUrl;
-
-    /**
-     * @var string
-     */
-    public $state;
+    public $name;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class result extends Model
     /**
      * @var string
      */
-    public $name;
+    public $specificationUrl;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'description'      => 'description',
+        'name'             => 'name',
+        'source'           => 'source',
         'specificationUrl' => 'specificationUrl',
         'state'            => 'state',
-        'source'           => 'source',
-        'name'             => 'name',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class result extends Model
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+        if (null !== $this->source) {
+            $res['source'] = $this->source;
+        }
         if (null !== $this->specificationUrl) {
             $res['specificationUrl'] = $this->specificationUrl;
         }
         if (null !== $this->state) {
             $res['state'] = $this->state;
-        }
-        if (null !== $this->source) {
-            $res['source'] = $this->source;
-        }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class result extends Model
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+        if (isset($map['source'])) {
+            $model->source = $map['source'];
+        }
         if (isset($map['specificationUrl'])) {
             $model->specificationUrl = $map['specificationUrl'];
         }
         if (isset($map['state'])) {
             $model->state = $map['state'];
-        }
-        if (isset($map['source'])) {
-            $model->source = $map['source'];
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
         }
 
         return $model;

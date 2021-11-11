@@ -11,15 +11,15 @@ class result extends Model
     /**
      * @var string
      */
-    public $networkType;
+    public $instances;
 
     /**
      * @var string
      */
-    public $instances;
+    public $networkType;
     protected $_name = [
-        'networkType' => 'networkType',
         'instances'   => 'instances',
+        'networkType' => 'networkType',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->networkType) {
-            $res['networkType'] = $this->networkType;
-        }
         if (null !== $this->instances) {
             $res['instances'] = $this->instances;
+        }
+        if (null !== $this->networkType) {
+            $res['networkType'] = $this->networkType;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['networkType'])) {
-            $model->networkType = $map['networkType'];
-        }
         if (isset($map['instances'])) {
             $model->instances = $map['instances'];
+        }
+        if (isset($map['networkType'])) {
+            $model->networkType = $map['networkType'];
         }
 
         return $model;

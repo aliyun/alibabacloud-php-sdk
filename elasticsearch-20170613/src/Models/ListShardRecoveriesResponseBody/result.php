@@ -11,6 +11,26 @@ class result extends Model
     /**
      * @var string
      */
+    public $bytesPercent;
+
+    /**
+     * @var int
+     */
+    public $bytesTotal;
+
+    /**
+     * @var string
+     */
+    public $filesPercent;
+
+    /**
+     * @var int
+     */
+    public $filesTotal;
+
+    /**
+     * @var string
+     */
     public $index;
 
     /**
@@ -24,29 +44,9 @@ class result extends Model
     public $sourceNode;
 
     /**
-     * @var int
-     */
-    public $filesTotal;
-
-    /**
      * @var string
      */
-    public $bytesPercent;
-
-    /**
-     * @var int
-     */
-    public $translogOps;
-
-    /**
-     * @var string
-     */
-    public $translogOpsPercent;
-
-    /**
-     * @var int
-     */
-    public $bytesTotal;
+    public $stage;
 
     /**
      * @var string
@@ -59,27 +59,27 @@ class result extends Model
     public $targetNode;
 
     /**
-     * @var string
+     * @var int
      */
-    public $filesPercent;
+    public $translogOps;
 
     /**
      * @var string
      */
-    public $stage;
+    public $translogOpsPercent;
     protected $_name = [
+        'bytesPercent'       => 'bytesPercent',
+        'bytesTotal'         => 'bytesTotal',
+        'filesPercent'       => 'filesPercent',
+        'filesTotal'         => 'filesTotal',
         'index'              => 'index',
         'sourceHost'         => 'sourceHost',
         'sourceNode'         => 'sourceNode',
-        'filesTotal'         => 'filesTotal',
-        'bytesPercent'       => 'bytesPercent',
-        'translogOps'        => 'translogOps',
-        'translogOpsPercent' => 'translogOpsPercent',
-        'bytesTotal'         => 'bytesTotal',
+        'stage'              => 'stage',
         'targetHost'         => 'targetHost',
         'targetNode'         => 'targetNode',
-        'filesPercent'       => 'filesPercent',
-        'stage'              => 'stage',
+        'translogOps'        => 'translogOps',
+        'translogOpsPercent' => 'translogOpsPercent',
     ];
 
     public function validate()
@@ -89,6 +89,18 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bytesPercent) {
+            $res['bytesPercent'] = $this->bytesPercent;
+        }
+        if (null !== $this->bytesTotal) {
+            $res['bytesTotal'] = $this->bytesTotal;
+        }
+        if (null !== $this->filesPercent) {
+            $res['filesPercent'] = $this->filesPercent;
+        }
+        if (null !== $this->filesTotal) {
+            $res['filesTotal'] = $this->filesTotal;
+        }
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
@@ -98,20 +110,8 @@ class result extends Model
         if (null !== $this->sourceNode) {
             $res['sourceNode'] = $this->sourceNode;
         }
-        if (null !== $this->filesTotal) {
-            $res['filesTotal'] = $this->filesTotal;
-        }
-        if (null !== $this->bytesPercent) {
-            $res['bytesPercent'] = $this->bytesPercent;
-        }
-        if (null !== $this->translogOps) {
-            $res['translogOps'] = $this->translogOps;
-        }
-        if (null !== $this->translogOpsPercent) {
-            $res['translogOpsPercent'] = $this->translogOpsPercent;
-        }
-        if (null !== $this->bytesTotal) {
-            $res['bytesTotal'] = $this->bytesTotal;
+        if (null !== $this->stage) {
+            $res['stage'] = $this->stage;
         }
         if (null !== $this->targetHost) {
             $res['targetHost'] = $this->targetHost;
@@ -119,11 +119,11 @@ class result extends Model
         if (null !== $this->targetNode) {
             $res['targetNode'] = $this->targetNode;
         }
-        if (null !== $this->filesPercent) {
-            $res['filesPercent'] = $this->filesPercent;
+        if (null !== $this->translogOps) {
+            $res['translogOps'] = $this->translogOps;
         }
-        if (null !== $this->stage) {
-            $res['stage'] = $this->stage;
+        if (null !== $this->translogOpsPercent) {
+            $res['translogOpsPercent'] = $this->translogOpsPercent;
         }
 
         return $res;
@@ -137,6 +137,18 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bytesPercent'])) {
+            $model->bytesPercent = $map['bytesPercent'];
+        }
+        if (isset($map['bytesTotal'])) {
+            $model->bytesTotal = $map['bytesTotal'];
+        }
+        if (isset($map['filesPercent'])) {
+            $model->filesPercent = $map['filesPercent'];
+        }
+        if (isset($map['filesTotal'])) {
+            $model->filesTotal = $map['filesTotal'];
+        }
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
@@ -146,20 +158,8 @@ class result extends Model
         if (isset($map['sourceNode'])) {
             $model->sourceNode = $map['sourceNode'];
         }
-        if (isset($map['filesTotal'])) {
-            $model->filesTotal = $map['filesTotal'];
-        }
-        if (isset($map['bytesPercent'])) {
-            $model->bytesPercent = $map['bytesPercent'];
-        }
-        if (isset($map['translogOps'])) {
-            $model->translogOps = $map['translogOps'];
-        }
-        if (isset($map['translogOpsPercent'])) {
-            $model->translogOpsPercent = $map['translogOpsPercent'];
-        }
-        if (isset($map['bytesTotal'])) {
-            $model->bytesTotal = $map['bytesTotal'];
+        if (isset($map['stage'])) {
+            $model->stage = $map['stage'];
         }
         if (isset($map['targetHost'])) {
             $model->targetHost = $map['targetHost'];
@@ -167,11 +167,11 @@ class result extends Model
         if (isset($map['targetNode'])) {
             $model->targetNode = $map['targetNode'];
         }
-        if (isset($map['filesPercent'])) {
-            $model->filesPercent = $map['filesPercent'];
+        if (isset($map['translogOps'])) {
+            $model->translogOps = $map['translogOps'];
         }
-        if (isset($map['stage'])) {
-            $model->stage = $map['stage'];
+        if (isset($map['translogOpsPercent'])) {
+            $model->translogOpsPercent = $map['translogOpsPercent'];
         }
 
         return $model;

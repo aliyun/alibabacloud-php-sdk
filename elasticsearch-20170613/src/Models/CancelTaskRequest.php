@@ -11,15 +11,15 @@ class CancelTaskRequest extends Model
     /**
      * @var string
      */
-    public $taskType;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $taskType;
     protected $_name = [
-        'taskType'    => 'taskType',
         'clientToken' => 'clientToken',
+        'taskType'    => 'taskType',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CancelTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskType) {
-            $res['taskType'] = $this->taskType;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->taskType) {
+            $res['taskType'] = $this->taskType;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CancelTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['taskType'])) {
-            $model->taskType = $map['taskType'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['taskType'])) {
+            $model->taskType = $map['taskType'];
         }
 
         return $model;

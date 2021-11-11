@@ -14,11 +14,6 @@ class ListInstanceIndicesRequest extends Model
     public $all;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var bool
      */
     public $isManaged;
@@ -27,6 +22,11 @@ class ListInstanceIndicesRequest extends Model
      * @var bool
      */
     public $isOpenstore;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var int
@@ -39,9 +39,9 @@ class ListInstanceIndicesRequest extends Model
     public $size;
     protected $_name = [
         'all'         => 'all',
-        'name'        => 'name',
         'isManaged'   => 'isManaged',
         'isOpenstore' => 'isOpenstore',
+        'name'        => 'name',
         'page'        => 'page',
         'size'        => 'size',
     ];
@@ -56,14 +56,14 @@ class ListInstanceIndicesRequest extends Model
         if (null !== $this->all) {
             $res['all'] = $this->all;
         }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
         if (null !== $this->isManaged) {
             $res['isManaged'] = $this->isManaged;
         }
         if (null !== $this->isOpenstore) {
             $res['isOpenstore'] = $this->isOpenstore;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
         if (null !== $this->page) {
             $res['page'] = $this->page;
@@ -86,14 +86,14 @@ class ListInstanceIndicesRequest extends Model
         if (isset($map['all'])) {
             $model->all = $map['all'];
         }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
         if (isset($map['isManaged'])) {
             $model->isManaged = $map['isManaged'];
         }
         if (isset($map['isOpenstore'])) {
             $model->isOpenstore = $map['isOpenstore'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
         if (isset($map['page'])) {
             $model->page = $map['page'];

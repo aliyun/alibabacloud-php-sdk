@@ -11,17 +11,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $regionEndpoint;
+    public $consoleEndpoint;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class result extends Model
     /**
      * @var string
      */
-    public $consoleEndpoint;
+    public $regionEndpoint;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
+        'consoleEndpoint' => 'consoleEndpoint',
+        'localName'       => 'localName',
+        'regionEndpoint'  => 'regionEndpoint',
         'regionId'        => 'regionId',
         'status'          => 'status',
-        'regionEndpoint'  => 'regionEndpoint',
-        'localName'       => 'localName',
-        'consoleEndpoint' => 'consoleEndpoint',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->consoleEndpoint) {
+            $res['consoleEndpoint'] = $this->consoleEndpoint;
+        }
+        if (null !== $this->localName) {
+            $res['localName'] = $this->localName;
+        }
+        if (null !== $this->regionEndpoint) {
+            $res['regionEndpoint'] = $this->regionEndpoint;
+        }
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
-        }
-        if (null !== $this->regionEndpoint) {
-            $res['regionEndpoint'] = $this->regionEndpoint;
-        }
-        if (null !== $this->localName) {
-            $res['localName'] = $this->localName;
-        }
-        if (null !== $this->consoleEndpoint) {
-            $res['consoleEndpoint'] = $this->consoleEndpoint;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['consoleEndpoint'])) {
+            $model->consoleEndpoint = $map['consoleEndpoint'];
+        }
+        if (isset($map['localName'])) {
+            $model->localName = $map['localName'];
+        }
+        if (isset($map['regionEndpoint'])) {
+            $model->regionEndpoint = $map['regionEndpoint'];
+        }
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
-        }
-        if (isset($map['regionEndpoint'])) {
-            $model->regionEndpoint = $map['regionEndpoint'];
-        }
-        if (isset($map['localName'])) {
-            $model->localName = $map['localName'];
-        }
-        if (isset($map['consoleEndpoint'])) {
-            $model->consoleEndpoint = $map['consoleEndpoint'];
         }
 
         return $model;

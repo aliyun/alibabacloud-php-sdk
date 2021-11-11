@@ -11,7 +11,7 @@ class endpointList extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $host;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class endpointList extends Model
     /**
      * @var string
      */
-    public $host;
+    public $zoneId;
     protected $_name = [
-        'zoneId' => 'zoneId',
-        'port'   => 'port',
         'host'   => 'host',
+        'port'   => 'port',
+        'zoneId' => 'zoneId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class endpointList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['zoneId'] = $this->zoneId;
+        if (null !== $this->host) {
+            $res['host'] = $this->host;
         }
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
-        if (null !== $this->host) {
-            $res['host'] = $this->host;
+        if (null !== $this->zoneId) {
+            $res['zoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class endpointList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['zoneId'])) {
-            $model->zoneId = $map['zoneId'];
+        if (isset($map['host'])) {
+            $model->host = $map['host'];
         }
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }
-        if (isset($map['host'])) {
-            $model->host = $map['host'];
+        if (isset($map['zoneId'])) {
+            $model->zoneId = $map['zoneId'];
         }
 
         return $model;
