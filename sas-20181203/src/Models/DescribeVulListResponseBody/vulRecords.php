@@ -87,6 +87,11 @@ class vulRecords extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $related;
 
     /**
@@ -139,6 +144,7 @@ class vulRecords extends Model
         'online'            => 'Online',
         'osVersion'         => 'OsVersion',
         'primaryId'         => 'PrimaryId',
+        'regionId'          => 'RegionId',
         'related'           => 'Related',
         'repairTs'          => 'RepairTs',
         'resultCode'        => 'ResultCode',
@@ -200,6 +206,9 @@ class vulRecords extends Model
         }
         if (null !== $this->primaryId) {
             $res['PrimaryId'] = $this->primaryId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->related) {
             $res['Related'] = $this->related;
@@ -281,6 +290,9 @@ class vulRecords extends Model
         }
         if (isset($map['PrimaryId'])) {
             $model->primaryId = $map['PrimaryId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Related'])) {
             $model->related = $map['Related'];

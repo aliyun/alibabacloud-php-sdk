@@ -165,7 +165,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstallCaptchaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstallCaptchaResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstallCodesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstallCodesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceAntiBruteForceRulesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceAntiBruteForceRulesResponse;
@@ -301,6 +300,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ExecStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExecStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExportVulRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExportVulResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupStorageCountResponse;
@@ -400,6 +401,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryDiscoverDatabaseRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryDiscoverDatabaseResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryPreCheckDatabaseRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryPreCheckDatabaseResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsRequest;
@@ -2827,31 +2830,25 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstallCodesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeInstallCodesResponse
      */
-    public function describeInstallCodesWithOptions($request, $runtime)
+    public function describeInstallCodesWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
         return DescribeInstallCodesResponse::fromMap($this->doRPCRequest('DescribeInstallCodes', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeInstallCodesRequest $request
-     *
      * @return DescribeInstallCodesResponse
      */
-    public function describeInstallCodes($request)
+    public function describeInstallCodes()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeInstallCodesWithOptions($request, $runtime);
+        return $this->describeInstallCodesWithOptions($runtime);
     }
 
     /**
@@ -4795,6 +4792,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ExportVulRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ExportVulResponse
+     */
+    public function exportVulWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ExportVulResponse::fromMap($this->doRPCRequest('ExportVul', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ExportVulRequest $request
+     *
+     * @return ExportVulResponse
+     */
+    public function exportVul($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportVulWithOptions($request, $runtime);
+    }
+
+    /**
      * @param FixCheckWarningsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -6171,6 +6196,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryDiscoverDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryGroupIdByGroupNameRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryGroupIdByGroupNameResponse
+     */
+    public function queryGroupIdByGroupNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryGroupIdByGroupNameResponse::fromMap($this->doRPCRequest('QueryGroupIdByGroupName', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryGroupIdByGroupNameRequest $request
+     *
+     * @return QueryGroupIdByGroupNameResponse
+     */
+    public function queryGroupIdByGroupName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGroupIdByGroupNameWithOptions($request, $runtime);
     }
 
     /**

@@ -23,6 +23,11 @@ class extendContentJson extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $ip;
 
     /**
@@ -72,6 +77,7 @@ class extendContentJson extends Model
     protected $_name = [
         'absolutePath'  => 'AbsolutePath',
         'aliasName'     => 'AliasName',
+        'description'   => 'Description',
         'ip'            => 'Ip',
         'lastTs'        => 'LastTs',
         'necessity'     => 'Necessity',
@@ -96,6 +102,9 @@ class extendContentJson extends Model
         }
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
@@ -150,6 +159,9 @@ class extendContentJson extends Model
         }
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];

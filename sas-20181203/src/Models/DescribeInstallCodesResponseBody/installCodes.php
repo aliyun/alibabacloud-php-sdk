@@ -41,16 +41,6 @@ class installCodes extends Model
     /**
      * @var string
      */
-    public $tag;
-
-    /**
-     * @var int
-     */
-    public $vendor;
-
-    /**
-     * @var string
-     */
     public $vendorName;
     protected $_name = [
         'captchaCode' => 'CaptchaCode',
@@ -59,8 +49,6 @@ class installCodes extends Model
         'groupName'   => 'GroupName',
         'onlyImage'   => 'OnlyImage',
         'os'          => 'Os',
-        'tag'         => 'Tag',
-        'vendor'      => 'Vendor',
         'vendorName'  => 'VendorName',
     ];
 
@@ -88,12 +76,6 @@ class installCodes extends Model
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->vendor) {
-            $res['Vendor'] = $this->vendor;
         }
         if (null !== $this->vendorName) {
             $res['VendorName'] = $this->vendorName;
@@ -127,12 +109,6 @@ class installCodes extends Model
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
-        }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
-        if (isset($map['Vendor'])) {
-            $model->vendor = $map['Vendor'];
         }
         if (isset($map['VendorName'])) {
             $model->vendorName = $map['VendorName'];
