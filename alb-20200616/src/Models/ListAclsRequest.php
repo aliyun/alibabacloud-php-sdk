@@ -23,11 +23,11 @@ class ListAclsRequest extends Model
     public $aclNames;
 
     /**
-     * @description 资源组ID
+     * @description 查询数量
      *
-     * @var string
+     * @var int
      */
-    public $resourceGroupId;
+    public $maxResults;
 
     /**
      * @description 分页查询标识
@@ -37,17 +37,17 @@ class ListAclsRequest extends Model
     public $nextToken;
 
     /**
-     * @description 查询数量
+     * @description 资源组ID
      *
-     * @var int
+     * @var string
      */
-    public $maxResults;
+    public $resourceGroupId;
     protected $_name = [
         'aclIds'          => 'AclIds',
         'aclNames'        => 'AclNames',
-        'resourceGroupId' => 'ResourceGroupId',
-        'nextToken'       => 'NextToken',
         'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -63,14 +63,14 @@ class ListAclsRequest extends Model
         if (null !== $this->aclNames) {
             $res['AclNames'] = $this->aclNames;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -94,14 +94,14 @@ class ListAclsRequest extends Model
                 $model->aclNames = $map['AclNames'];
             }
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

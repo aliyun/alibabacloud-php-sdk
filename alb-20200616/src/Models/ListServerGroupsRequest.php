@@ -10,6 +10,27 @@ use AlibabaCloud\Tea\Model;
 class ListServerGroupsRequest extends Model
 {
     /**
+     * @description 查询数量
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @description 分页查询标识
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @description 资源组ID
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description 服务器组Id列表
      *
      * @var string[]
@@ -24,25 +45,11 @@ class ListServerGroupsRequest extends Model
     public $serverGroupNames;
 
     /**
-     * @description 资源组ID
+     * @description Tag列表
      *
-     * @var string
+     * @var tag[]
      */
-    public $resourceGroupId;
-
-    /**
-     * @description 分页查询标识
-     *
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @description 查询数量
-     *
-     * @var int
-     */
-    public $maxResults;
+    public $tag;
 
     /**
      * @description VpcId
@@ -50,21 +57,14 @@ class ListServerGroupsRequest extends Model
      * @var string
      */
     public $vpcId;
-
-    /**
-     * @description Tag列表
-     *
-     * @var tag[]
-     */
-    public $tag;
     protected $_name = [
+        'maxResults'       => 'MaxResults',
+        'nextToken'        => 'NextToken',
+        'resourceGroupId'  => 'ResourceGroupId',
         'serverGroupIds'   => 'ServerGroupIds',
         'serverGroupNames' => 'ServerGroupNames',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'nextToken'        => 'NextToken',
-        'maxResults'       => 'MaxResults',
-        'vpcId'            => 'VpcId',
         'tag'              => 'Tag',
+        'vpcId'            => 'VpcId',
     ];
 
     public function validate()
@@ -74,23 +74,20 @@ class ListServerGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->serverGroupIds) {
             $res['ServerGroupIds'] = $this->serverGroupIds;
         }
         if (null !== $this->serverGroupNames) {
             $res['ServerGroupNames'] = $this->serverGroupNames;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -100,6 +97,9 @@ class ListServerGroupsRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -113,6 +113,15 @@ class ListServerGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ServerGroupIds'])) {
             if (!empty($map['ServerGroupIds'])) {
                 $model->serverGroupIds = $map['ServerGroupIds'];
@@ -123,18 +132,6 @@ class ListServerGroupsRequest extends Model
                 $model->serverGroupNames = $map['ServerGroupNames'];
             }
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -143,6 +140,9 @@ class ListServerGroupsRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

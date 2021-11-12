@@ -11,13 +11,6 @@ use AlibabaCloud\Tea\Model;
 class CreateRuleRequest extends Model
 {
     /**
-     * @description 监听标识
-     *
-     * @var string
-     */
-    public $listenerId;
-
-    /**
      * @description 幂等标识
      *
      * @var string
@@ -30,6 +23,13 @@ class CreateRuleRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @description 监听标识
+     *
+     * @var string
+     */
+    public $listenerId;
 
     /**
      * @description 转发规则优先级
@@ -59,9 +59,9 @@ class CreateRuleRequest extends Model
      */
     public $ruleName;
     protected $_name = [
-        'listenerId'     => 'ListenerId',
         'clientToken'    => 'ClientToken',
         'dryRun'         => 'DryRun',
+        'listenerId'     => 'ListenerId',
         'priority'       => 'Priority',
         'ruleActions'    => 'RuleActions',
         'ruleConditions' => 'RuleConditions',
@@ -75,14 +75,14 @@ class CreateRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -120,14 +120,14 @@ class CreateRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];

@@ -16,11 +16,18 @@ class CreateHealthCheckTemplateRequest extends Model
     public $clientToken;
 
     /**
-     * @description 名称
+     * @description dryRun
      *
-     * @var string
+     * @var bool
      */
-    public $healthCheckTemplateName;
+    public $dryRun;
+
+    /**
+     * @description 状态码
+     *
+     * @var string[]
+     */
+    public $healthCheckCodes;
 
     /**
      * @description 端口号
@@ -37,11 +44,11 @@ class CreateHealthCheckTemplateRequest extends Model
     public $healthCheckHost;
 
     /**
-     * @description 状态码
+     * @description 版本
      *
-     * @var string[]
+     * @var string
      */
-    public $healthCheckCodes;
+    public $healthCheckHttpVersion;
 
     /**
      * @description 时间间隔
@@ -51,11 +58,11 @@ class CreateHealthCheckTemplateRequest extends Model
     public $healthCheckInterval;
 
     /**
-     * @description 超时时间
+     * @description 方法
      *
-     * @var int
+     * @var string
      */
-    public $healthCheckTimeout;
+    public $healthCheckMethod;
 
     /**
      * @description uri
@@ -65,13 +72,6 @@ class CreateHealthCheckTemplateRequest extends Model
     public $healthCheckPath;
 
     /**
-     * @description 方法
-     *
-     * @var string
-     */
-    public $healthCheckMethod;
-
-    /**
      * @description 协议
      *
      * @var string
@@ -79,11 +79,18 @@ class CreateHealthCheckTemplateRequest extends Model
     public $healthCheckProtocol;
 
     /**
-     * @description 版本
+     * @description 名称
      *
      * @var string
      */
-    public $healthCheckHttpVersion;
+    public $healthCheckTemplateName;
+
+    /**
+     * @description 超时时间
+     *
+     * @var int
+     */
+    public $healthCheckTimeout;
 
     /**
      * @description 健康阈值
@@ -98,28 +105,21 @@ class CreateHealthCheckTemplateRequest extends Model
      * @var int
      */
     public $unhealthyThreshold;
-
-    /**
-     * @description dryRun
-     *
-     * @var bool
-     */
-    public $dryRun;
     protected $_name = [
         'clientToken'             => 'ClientToken',
-        'healthCheckTemplateName' => 'HealthCheckTemplateName',
+        'dryRun'                  => 'DryRun',
+        'healthCheckCodes'        => 'HealthCheckCodes',
         'healthCheckConnectPort'  => 'HealthCheckConnectPort',
         'healthCheckHost'         => 'HealthCheckHost',
-        'healthCheckCodes'        => 'HealthCheckCodes',
-        'healthCheckInterval'     => 'HealthCheckInterval',
-        'healthCheckTimeout'      => 'HealthCheckTimeout',
-        'healthCheckPath'         => 'HealthCheckPath',
-        'healthCheckMethod'       => 'HealthCheckMethod',
-        'healthCheckProtocol'     => 'HealthCheckProtocol',
         'healthCheckHttpVersion'  => 'HealthCheckHttpVersion',
+        'healthCheckInterval'     => 'HealthCheckInterval',
+        'healthCheckMethod'       => 'HealthCheckMethod',
+        'healthCheckPath'         => 'HealthCheckPath',
+        'healthCheckProtocol'     => 'HealthCheckProtocol',
+        'healthCheckTemplateName' => 'HealthCheckTemplateName',
+        'healthCheckTimeout'      => 'HealthCheckTimeout',
         'healthyThreshold'        => 'HealthyThreshold',
         'unhealthyThreshold'      => 'UnhealthyThreshold',
-        'dryRun'                  => 'DryRun',
     ];
 
     public function validate()
@@ -132,8 +132,11 @@ class CreateHealthCheckTemplateRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->healthCheckTemplateName) {
-            $res['HealthCheckTemplateName'] = $this->healthCheckTemplateName;
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->healthCheckCodes) {
+            $res['HealthCheckCodes'] = $this->healthCheckCodes;
         }
         if (null !== $this->healthCheckConnectPort) {
             $res['HealthCheckConnectPort'] = $this->healthCheckConnectPort;
@@ -141,35 +144,32 @@ class CreateHealthCheckTemplateRequest extends Model
         if (null !== $this->healthCheckHost) {
             $res['HealthCheckHost'] = $this->healthCheckHost;
         }
-        if (null !== $this->healthCheckCodes) {
-            $res['HealthCheckCodes'] = $this->healthCheckCodes;
+        if (null !== $this->healthCheckHttpVersion) {
+            $res['HealthCheckHttpVersion'] = $this->healthCheckHttpVersion;
         }
         if (null !== $this->healthCheckInterval) {
             $res['HealthCheckInterval'] = $this->healthCheckInterval;
         }
-        if (null !== $this->healthCheckTimeout) {
-            $res['HealthCheckTimeout'] = $this->healthCheckTimeout;
+        if (null !== $this->healthCheckMethod) {
+            $res['HealthCheckMethod'] = $this->healthCheckMethod;
         }
         if (null !== $this->healthCheckPath) {
             $res['HealthCheckPath'] = $this->healthCheckPath;
         }
-        if (null !== $this->healthCheckMethod) {
-            $res['HealthCheckMethod'] = $this->healthCheckMethod;
-        }
         if (null !== $this->healthCheckProtocol) {
             $res['HealthCheckProtocol'] = $this->healthCheckProtocol;
         }
-        if (null !== $this->healthCheckHttpVersion) {
-            $res['HealthCheckHttpVersion'] = $this->healthCheckHttpVersion;
+        if (null !== $this->healthCheckTemplateName) {
+            $res['HealthCheckTemplateName'] = $this->healthCheckTemplateName;
+        }
+        if (null !== $this->healthCheckTimeout) {
+            $res['HealthCheckTimeout'] = $this->healthCheckTimeout;
         }
         if (null !== $this->healthyThreshold) {
             $res['HealthyThreshold'] = $this->healthyThreshold;
         }
         if (null !== $this->unhealthyThreshold) {
             $res['UnhealthyThreshold'] = $this->unhealthyThreshold;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
         }
 
         return $res;
@@ -186,8 +186,13 @@ class CreateHealthCheckTemplateRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['HealthCheckTemplateName'])) {
-            $model->healthCheckTemplateName = $map['HealthCheckTemplateName'];
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['HealthCheckCodes'])) {
+            if (!empty($map['HealthCheckCodes'])) {
+                $model->healthCheckCodes = $map['HealthCheckCodes'];
+            }
         }
         if (isset($map['HealthCheckConnectPort'])) {
             $model->healthCheckConnectPort = $map['HealthCheckConnectPort'];
@@ -195,37 +200,32 @@ class CreateHealthCheckTemplateRequest extends Model
         if (isset($map['HealthCheckHost'])) {
             $model->healthCheckHost = $map['HealthCheckHost'];
         }
-        if (isset($map['HealthCheckCodes'])) {
-            if (!empty($map['HealthCheckCodes'])) {
-                $model->healthCheckCodes = $map['HealthCheckCodes'];
-            }
+        if (isset($map['HealthCheckHttpVersion'])) {
+            $model->healthCheckHttpVersion = $map['HealthCheckHttpVersion'];
         }
         if (isset($map['HealthCheckInterval'])) {
             $model->healthCheckInterval = $map['HealthCheckInterval'];
         }
-        if (isset($map['HealthCheckTimeout'])) {
-            $model->healthCheckTimeout = $map['HealthCheckTimeout'];
+        if (isset($map['HealthCheckMethod'])) {
+            $model->healthCheckMethod = $map['HealthCheckMethod'];
         }
         if (isset($map['HealthCheckPath'])) {
             $model->healthCheckPath = $map['HealthCheckPath'];
         }
-        if (isset($map['HealthCheckMethod'])) {
-            $model->healthCheckMethod = $map['HealthCheckMethod'];
-        }
         if (isset($map['HealthCheckProtocol'])) {
             $model->healthCheckProtocol = $map['HealthCheckProtocol'];
         }
-        if (isset($map['HealthCheckHttpVersion'])) {
-            $model->healthCheckHttpVersion = $map['HealthCheckHttpVersion'];
+        if (isset($map['HealthCheckTemplateName'])) {
+            $model->healthCheckTemplateName = $map['HealthCheckTemplateName'];
+        }
+        if (isset($map['HealthCheckTimeout'])) {
+            $model->healthCheckTimeout = $map['HealthCheckTimeout'];
         }
         if (isset($map['HealthyThreshold'])) {
             $model->healthyThreshold = $map['HealthyThreshold'];
         }
         if (isset($map['UnhealthyThreshold'])) {
             $model->unhealthyThreshold = $map['UnhealthyThreshold'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
         }
 
         return $model;

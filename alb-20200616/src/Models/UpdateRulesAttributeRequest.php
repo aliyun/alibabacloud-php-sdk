@@ -17,22 +17,22 @@ class UpdateRulesAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description 转发规则列表
-     *
-     * @var rules[]
-     */
-    public $rules;
-
-    /**
      * @description 是否只预检此次请求
      *
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @description 转发规则列表
+     *
+     * @var rules[]
+     */
+    public $rules;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'rules'       => 'Rules',
         'dryRun'      => 'DryRun',
+        'rules'       => 'Rules',
     ];
 
     public function validate()
@@ -45,6 +45,9 @@ class UpdateRulesAttributeRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->rules) {
             $res['Rules'] = [];
             if (null !== $this->rules && \is_array($this->rules)) {
@@ -53,9 +56,6 @@ class UpdateRulesAttributeRequest extends Model
                     $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
         }
 
         return $res;
@@ -72,6 +72,9 @@ class UpdateRulesAttributeRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
@@ -80,9 +83,6 @@ class UpdateRulesAttributeRequest extends Model
                     $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
         }
 
         return $model;

@@ -10,18 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListServerGroupServersRequest extends Model
 {
     /**
-     * @description 分页查询标识
-     *
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @description 查询数量
      *
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @description 分页查询标识
+     *
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @description 服务器组id
@@ -40,8 +40,8 @@ class ListServerGroupServersRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'nextToken'     => 'NextToken',
         'maxResults'    => 'MaxResults',
+        'nextToken'     => 'NextToken',
         'serverGroupId' => 'ServerGroupId',
         'serverIds'     => 'ServerIds',
         'tag'           => 'Tag',
@@ -54,11 +54,11 @@ class ListServerGroupServersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
@@ -87,11 +87,11 @@ class ListServerGroupServersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];

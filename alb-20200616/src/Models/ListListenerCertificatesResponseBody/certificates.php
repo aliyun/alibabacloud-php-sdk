@@ -16,6 +16,13 @@ class certificates extends Model
     public $certificateId;
 
     /**
+     * @description 证书类型
+     *
+     * @var string
+     */
+    public $certificateType;
+
+    /**
      * @description 是否为默认证书
      *
      * @var bool
@@ -28,18 +35,11 @@ class certificates extends Model
      * @var string
      */
     public $status;
-
-    /**
-     * @description 证书类型
-     *
-     * @var string
-     */
-    public $certificateType;
     protected $_name = [
         'certificateId'   => 'CertificateId',
+        'certificateType' => 'CertificateType',
         'isDefault'       => 'IsDefault',
         'status'          => 'Status',
-        'certificateType' => 'CertificateType',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class certificates extends Model
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
         }
+        if (null !== $this->certificateType) {
+            $res['CertificateType'] = $this->certificateType;
+        }
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->certificateType) {
-            $res['CertificateType'] = $this->certificateType;
         }
 
         return $res;
@@ -76,14 +76,14 @@ class certificates extends Model
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
         }
+        if (isset($map['CertificateType'])) {
+            $model->certificateType = $map['CertificateType'];
+        }
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['CertificateType'])) {
-            $model->certificateType = $map['CertificateType'];
         }
 
         return $model;

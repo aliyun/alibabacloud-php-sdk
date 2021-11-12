@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class trafficMirrorConfig extends Model
 {
     /**
-     * @description 镜像目标类型
-     *
-     * @var string
-     */
-    public $targetType;
-
-    /**
      * @description 镜像至服务器组
      *
      * @var mirrorGroupConfig
      */
     public $mirrorGroupConfig;
+
+    /**
+     * @description 镜像目标类型
+     *
+     * @var string
+     */
+    public $targetType;
     protected $_name = [
-        'targetType'        => 'TargetType',
         'mirrorGroupConfig' => 'MirrorGroupConfig',
+        'targetType'        => 'TargetType',
     ];
 
     public function validate()
@@ -34,11 +34,11 @@ class trafficMirrorConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->targetType) {
-            $res['TargetType'] = $this->targetType;
-        }
         if (null !== $this->mirrorGroupConfig) {
             $res['MirrorGroupConfig'] = null !== $this->mirrorGroupConfig ? $this->mirrorGroupConfig->toMap() : null;
+        }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
         }
 
         return $res;
@@ -52,11 +52,11 @@ class trafficMirrorConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TargetType'])) {
-            $model->targetType = $map['TargetType'];
-        }
         if (isset($map['MirrorGroupConfig'])) {
             $model->mirrorGroupConfig = mirrorGroupConfig::fromMap($map['MirrorGroupConfig']);
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
         }
 
         return $model;

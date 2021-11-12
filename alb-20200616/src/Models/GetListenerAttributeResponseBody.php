@@ -22,18 +22,18 @@ class GetListenerAttributeResponseBody extends Model
     public $aclConfig;
 
     /**
-     * @description 监听默认服务器证书列表，N当前取值范围为1
-     *
-     * @var certificates[]
-     */
-    public $certificates;
-
-    /**
      * @description 是否开启双向认证
      *
      * @var bool
      */
     public $caEnabled;
+
+    /**
+     * @description 监听默认服务器证书列表，N当前取值范围为1
+     *
+     * @var certificates[]
+     */
+    public $certificates;
 
     /**
      * @description 默认动作
@@ -148,8 +148,8 @@ class GetListenerAttributeResponseBody extends Model
     public $XForwardedForConfig;
     protected $_name = [
         'aclConfig'           => 'AclConfig',
-        'certificates'        => 'Certificates',
         'caEnabled'           => 'CaEnabled',
+        'certificates'        => 'Certificates',
         'defaultActions'      => 'DefaultActions',
         'gzipEnabled'         => 'GzipEnabled',
         'http2Enabled'        => 'Http2Enabled',
@@ -178,6 +178,9 @@ class GetListenerAttributeResponseBody extends Model
         if (null !== $this->aclConfig) {
             $res['AclConfig'] = null !== $this->aclConfig ? $this->aclConfig->toMap() : null;
         }
+        if (null !== $this->caEnabled) {
+            $res['CaEnabled'] = $this->caEnabled;
+        }
         if (null !== $this->certificates) {
             $res['Certificates'] = [];
             if (null !== $this->certificates && \is_array($this->certificates)) {
@@ -186,9 +189,6 @@ class GetListenerAttributeResponseBody extends Model
                     $res['Certificates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->caEnabled) {
-            $res['CaEnabled'] = $this->caEnabled;
         }
         if (null !== $this->defaultActions) {
             $res['DefaultActions'] = [];
@@ -259,6 +259,9 @@ class GetListenerAttributeResponseBody extends Model
         if (isset($map['AclConfig'])) {
             $model->aclConfig = aclConfig::fromMap($map['AclConfig']);
         }
+        if (isset($map['CaEnabled'])) {
+            $model->caEnabled = $map['CaEnabled'];
+        }
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
                 $model->certificates = [];
@@ -267,9 +270,6 @@ class GetListenerAttributeResponseBody extends Model
                     $model->certificates[$n++] = null !== $item ? certificates::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['CaEnabled'])) {
-            $model->caEnabled = $map['CaEnabled'];
         }
         if (isset($map['DefaultActions'])) {
             if (!empty($map['DefaultActions'])) {

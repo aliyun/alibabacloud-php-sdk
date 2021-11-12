@@ -10,13 +10,6 @@ use AlibabaCloud\Tea\Model;
 class AssociateAdditionalCertificatesWithListenerRequest extends Model
 {
     /**
-     * @description 监听Id
-     *
-     * @var string
-     */
-    public $listenerId;
-
-    /**
      * @description 证书列表
      *
      * @var certificates[]
@@ -36,11 +29,18 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @description 监听Id
+     *
+     * @var string
+     */
+    public $listenerId;
     protected $_name = [
-        'listenerId'   => 'ListenerId',
         'certificates' => 'Certificates',
         'clientToken'  => 'ClientToken',
         'dryRun'       => 'DryRun',
+        'listenerId'   => 'ListenerId',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
-        }
         if (null !== $this->certificates) {
             $res['Certificates'] = [];
             if (null !== $this->certificates && \is_array($this->certificates)) {
@@ -68,6 +65,9 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
 
         return $res;
     }
@@ -80,9 +80,6 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
-        }
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
                 $model->certificates = [];
@@ -97,6 +94,9 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
         }
 
         return $model;

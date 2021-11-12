@@ -23,6 +23,13 @@ class servers extends Model
     public $port;
 
     /**
+     * @description 服务器组id
+     *
+     * @var string
+     */
+    public $serverGroupId;
+
+    /**
      * @description 服务器id
      *
      * @var string
@@ -56,22 +63,15 @@ class servers extends Model
      * @var int
      */
     public $weight;
-
-    /**
-     * @description 服务器组id
-     *
-     * @var string
-     */
-    public $serverGroupId;
     protected $_name = [
         'description'   => 'Description',
         'port'          => 'Port',
+        'serverGroupId' => 'ServerGroupId',
         'serverId'      => 'ServerId',
         'serverIp'      => 'ServerIp',
         'serverType'    => 'ServerType',
         'status'        => 'Status',
         'weight'        => 'Weight',
-        'serverGroupId' => 'ServerGroupId',
     ];
 
     public function validate()
@@ -87,6 +87,9 @@ class servers extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+        if (null !== $this->serverGroupId) {
+            $res['ServerGroupId'] = $this->serverGroupId;
+        }
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
         }
@@ -101,9 +104,6 @@ class servers extends Model
         }
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
-        }
-        if (null !== $this->serverGroupId) {
-            $res['ServerGroupId'] = $this->serverGroupId;
         }
 
         return $res;
@@ -123,6 +123,9 @@ class servers extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+        if (isset($map['ServerGroupId'])) {
+            $model->serverGroupId = $map['ServerGroupId'];
+        }
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];
         }
@@ -137,9 +140,6 @@ class servers extends Model
         }
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
-        }
-        if (isset($map['ServerGroupId'])) {
-            $model->serverGroupId = $map['ServerGroupId'];
         }
 
         return $model;

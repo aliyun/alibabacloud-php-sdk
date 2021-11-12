@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateRulesAttributeResponseBody extends Model
+class DetachCommonBandwidthPackageFromLoadBalancerResponseBody extends Model
 {
     /**
-     * @description 异步任务Id
+     * @description 异步任务ID
      *
      * @var string
      */
@@ -46,7 +46,7 @@ class UpdateRulesAttributeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateRulesAttributeResponseBody
+     * @return DetachCommonBandwidthPackageFromLoadBalancerResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateAclAttributeRequest extends Model
 {
     /**
-     * @description 幂等参数
-     *
-     * @var string
-     */
-    public $clientToken;
-
-    /**
      * @description AclId
      *
      * @var string
@@ -30,15 +23,22 @@ class UpdateAclAttributeRequest extends Model
     public $aclName;
 
     /**
+     * @description 幂等参数
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description 是否预校验请求
      *
      * @var bool
      */
     public $dryRun;
     protected $_name = [
-        'clientToken' => 'ClientToken',
         'aclId'       => 'AclId',
         'aclName'     => 'AclName',
+        'clientToken' => 'ClientToken',
         'dryRun'      => 'DryRun',
     ];
 
@@ -49,14 +49,14 @@ class UpdateAclAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
         if (null !== $this->aclName) {
             $res['AclName'] = $this->aclName;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
@@ -73,14 +73,14 @@ class UpdateAclAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
         if (isset($map['AclName'])) {
             $model->aclName = $map['AclName'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];

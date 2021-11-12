@@ -11,32 +11,25 @@ use AlibabaCloud\Tea\Model;
 class CreateServerGroupRequest extends Model
 {
     /**
-     * @description 服务器组名称
+     * @description 幂等标识
      *
      * @var string
      */
-    public $serverGroupName;
+    public $clientToken;
 
     /**
-     * @description 服务器组类型
+     * @description  是否只预检此次请求
      *
-     * @var string
+     * @var bool
      */
-    public $serverGroupType;
+    public $dryRun;
 
     /**
-     * @description VpcId
+     * @description 健康检查配置
      *
-     * @var string
+     * @var healthCheckConfig
      */
-    public $vpcId;
-
-    /**
-     * @description 调度策略
-     *
-     * @var string
-     */
-    public $scheduler;
+    public $healthCheckConfig;
 
     /**
      * @description 后端协议类型
@@ -53,11 +46,25 @@ class CreateServerGroupRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description 健康检查配置
+     * @description 调度策略
      *
-     * @var healthCheckConfig
+     * @var string
      */
-    public $healthCheckConfig;
+    public $scheduler;
+
+    /**
+     * @description 服务器组名称
+     *
+     * @var string
+     */
+    public $serverGroupName;
+
+    /**
+     * @description 服务器组类型
+     *
+     * @var string
+     */
+    public $serverGroupType;
 
     /**
      * @description 会话保持配置
@@ -67,29 +74,22 @@ class CreateServerGroupRequest extends Model
     public $stickySessionConfig;
 
     /**
-     * @description 幂等标识
+     * @description VpcId
      *
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @description  是否只预检此次请求
-     *
-     * @var bool
-     */
-    public $dryRun;
+    public $vpcId;
     protected $_name = [
-        'serverGroupName'     => 'ServerGroupName',
-        'serverGroupType'     => 'ServerGroupType',
-        'vpcId'               => 'VpcId',
-        'scheduler'           => 'Scheduler',
-        'protocol'            => 'Protocol',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'healthCheckConfig'   => 'HealthCheckConfig',
-        'stickySessionConfig' => 'StickySessionConfig',
         'clientToken'         => 'ClientToken',
         'dryRun'              => 'DryRun',
+        'healthCheckConfig'   => 'HealthCheckConfig',
+        'protocol'            => 'Protocol',
+        'resourceGroupId'     => 'ResourceGroupId',
+        'scheduler'           => 'Scheduler',
+        'serverGroupName'     => 'ServerGroupName',
+        'serverGroupType'     => 'ServerGroupType',
+        'stickySessionConfig' => 'StickySessionConfig',
+        'vpcId'               => 'VpcId',
     ];
 
     public function validate()
@@ -99,17 +99,14 @@ class CreateServerGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serverGroupName) {
-            $res['ServerGroupName'] = $this->serverGroupName;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->serverGroupType) {
-            $res['ServerGroupType'] = $this->serverGroupType;
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->scheduler) {
-            $res['Scheduler'] = $this->scheduler;
+        if (null !== $this->healthCheckConfig) {
+            $res['HealthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toMap() : null;
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
@@ -117,17 +114,20 @@ class CreateServerGroupRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->healthCheckConfig) {
-            $res['HealthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toMap() : null;
+        if (null !== $this->scheduler) {
+            $res['Scheduler'] = $this->scheduler;
+        }
+        if (null !== $this->serverGroupName) {
+            $res['ServerGroupName'] = $this->serverGroupName;
+        }
+        if (null !== $this->serverGroupType) {
+            $res['ServerGroupType'] = $this->serverGroupType;
         }
         if (null !== $this->stickySessionConfig) {
             $res['StickySessionConfig'] = null !== $this->stickySessionConfig ? $this->stickySessionConfig->toMap() : null;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -141,17 +141,14 @@ class CreateServerGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServerGroupName'])) {
-            $model->serverGroupName = $map['ServerGroupName'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['ServerGroupType'])) {
-            $model->serverGroupType = $map['ServerGroupType'];
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['Scheduler'])) {
-            $model->scheduler = $map['Scheduler'];
+        if (isset($map['HealthCheckConfig'])) {
+            $model->healthCheckConfig = healthCheckConfig::fromMap($map['HealthCheckConfig']);
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
@@ -159,17 +156,20 @@ class CreateServerGroupRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['HealthCheckConfig'])) {
-            $model->healthCheckConfig = healthCheckConfig::fromMap($map['HealthCheckConfig']);
+        if (isset($map['Scheduler'])) {
+            $model->scheduler = $map['Scheduler'];
+        }
+        if (isset($map['ServerGroupName'])) {
+            $model->serverGroupName = $map['ServerGroupName'];
+        }
+        if (isset($map['ServerGroupType'])) {
+            $model->serverGroupType = $map['ServerGroupType'];
         }
         if (isset($map['StickySessionConfig'])) {
             $model->stickySessionConfig = stickySessionConfig::fromMap($map['StickySessionConfig']);
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

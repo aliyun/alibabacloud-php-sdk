@@ -52,18 +52,18 @@ class ruleActions extends Model
     public $redirectConfig;
 
     /**
+     * @description 去除HTTP标头
+     *
+     * @var removeHeaderConfig
+     */
+    public $removeHeaderConfig;
+
+    /**
      * @description 内部重定向动作配置
      *
      * @var rewriteConfig
      */
     public $rewriteConfig;
-
-    /**
-     * @description 转发规则动作类型
-     *
-     * @var string
-     */
-    public $type;
 
     /**
      * @description 流量限速
@@ -80,22 +80,22 @@ class ruleActions extends Model
     public $trafficMirrorConfig;
 
     /**
-     * @description 去除HTTP标头
+     * @description 转发规则动作类型
      *
-     * @var removeHeaderConfig
+     * @var string
      */
-    public $removeHeaderConfig;
+    public $type;
     protected $_name = [
         'fixedResponseConfig' => 'FixedResponseConfig',
         'forwardGroupConfig'  => 'ForwardGroupConfig',
         'insertHeaderConfig'  => 'InsertHeaderConfig',
         'order'               => 'Order',
         'redirectConfig'      => 'RedirectConfig',
+        'removeHeaderConfig'  => 'RemoveHeaderConfig',
         'rewriteConfig'       => 'RewriteConfig',
-        'type'                => 'Type',
         'trafficLimitConfig'  => 'TrafficLimitConfig',
         'trafficMirrorConfig' => 'TrafficMirrorConfig',
-        'removeHeaderConfig'  => 'RemoveHeaderConfig',
+        'type'                => 'Type',
     ];
 
     public function validate()
@@ -120,11 +120,11 @@ class ruleActions extends Model
         if (null !== $this->redirectConfig) {
             $res['RedirectConfig'] = null !== $this->redirectConfig ? $this->redirectConfig->toMap() : null;
         }
+        if (null !== $this->removeHeaderConfig) {
+            $res['RemoveHeaderConfig'] = null !== $this->removeHeaderConfig ? $this->removeHeaderConfig->toMap() : null;
+        }
         if (null !== $this->rewriteConfig) {
             $res['RewriteConfig'] = null !== $this->rewriteConfig ? $this->rewriteConfig->toMap() : null;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
         if (null !== $this->trafficLimitConfig) {
             $res['TrafficLimitConfig'] = null !== $this->trafficLimitConfig ? $this->trafficLimitConfig->toMap() : null;
@@ -132,8 +132,8 @@ class ruleActions extends Model
         if (null !== $this->trafficMirrorConfig) {
             $res['TrafficMirrorConfig'] = null !== $this->trafficMirrorConfig ? $this->trafficMirrorConfig->toMap() : null;
         }
-        if (null !== $this->removeHeaderConfig) {
-            $res['RemoveHeaderConfig'] = null !== $this->removeHeaderConfig ? $this->removeHeaderConfig->toMap() : null;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -162,11 +162,11 @@ class ruleActions extends Model
         if (isset($map['RedirectConfig'])) {
             $model->redirectConfig = redirectConfig::fromMap($map['RedirectConfig']);
         }
+        if (isset($map['RemoveHeaderConfig'])) {
+            $model->removeHeaderConfig = removeHeaderConfig::fromMap($map['RemoveHeaderConfig']);
+        }
         if (isset($map['RewriteConfig'])) {
             $model->rewriteConfig = rewriteConfig::fromMap($map['RewriteConfig']);
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
         if (isset($map['TrafficLimitConfig'])) {
             $model->trafficLimitConfig = trafficLimitConfig::fromMap($map['TrafficLimitConfig']);
@@ -174,8 +174,8 @@ class ruleActions extends Model
         if (isset($map['TrafficMirrorConfig'])) {
             $model->trafficMirrorConfig = trafficMirrorConfig::fromMap($map['TrafficMirrorConfig']);
         }
-        if (isset($map['RemoveHeaderConfig'])) {
-            $model->removeHeaderConfig = removeHeaderConfig::fromMap($map['RemoveHeaderConfig']);
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

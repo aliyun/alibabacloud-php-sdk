@@ -10,18 +10,18 @@ use AlibabaCloud\Tea\Model;
 class AddEntriesToAclRequest extends Model
 {
     /**
-     * @description AclId
-     *
-     * @var string
-     */
-    public $aclId;
-
-    /**
      * @description 条目信息列表
      *
      * @var aclEntries[]
      */
     public $aclEntries;
+
+    /**
+     * @description AclId
+     *
+     * @var string
+     */
+    public $aclId;
 
     /**
      * @description 幂等Token
@@ -37,8 +37,8 @@ class AddEntriesToAclRequest extends Model
      */
     public $dryRun;
     protected $_name = [
-        'aclId'       => 'AclId',
         'aclEntries'  => 'AclEntries',
+        'aclId'       => 'AclId',
         'clientToken' => 'ClientToken',
         'dryRun'      => 'DryRun',
     ];
@@ -50,9 +50,6 @@ class AddEntriesToAclRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclId) {
-            $res['AclId'] = $this->aclId;
-        }
         if (null !== $this->aclEntries) {
             $res['AclEntries'] = [];
             if (null !== $this->aclEntries && \is_array($this->aclEntries)) {
@@ -61,6 +58,9 @@ class AddEntriesToAclRequest extends Model
                     $res['AclEntries'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->aclId) {
+            $res['AclId'] = $this->aclId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -80,9 +80,6 @@ class AddEntriesToAclRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclId'])) {
-            $model->aclId = $map['AclId'];
-        }
         if (isset($map['AclEntries'])) {
             if (!empty($map['AclEntries'])) {
                 $model->aclEntries = [];
@@ -91,6 +88,9 @@ class AddEntriesToAclRequest extends Model
                     $model->aclEntries[$n++] = null !== $item ? aclEntries::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['AclId'])) {
+            $model->aclId = $map['AclId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

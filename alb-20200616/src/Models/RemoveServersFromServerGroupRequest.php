@@ -10,20 +10,6 @@ use AlibabaCloud\Tea\Model;
 class RemoveServersFromServerGroupRequest extends Model
 {
     /**
-     * @description 后端服务器Id
-     *
-     * @var string
-     */
-    public $serverGroupId;
-
-    /**
-     * @description 后端服务器
-     *
-     * @var servers[]
-     */
-    public $servers;
-
-    /**
      * @description 幂等标识
      *
      * @var string
@@ -36,11 +22,25 @@ class RemoveServersFromServerGroupRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @description 后端服务器Id
+     *
+     * @var string
+     */
+    public $serverGroupId;
+
+    /**
+     * @description 后端服务器
+     *
+     * @var servers[]
+     */
+    public $servers;
     protected $_name = [
-        'serverGroupId' => 'ServerGroupId',
-        'servers'       => 'Servers',
         'clientToken'   => 'ClientToken',
         'dryRun'        => 'DryRun',
+        'serverGroupId' => 'ServerGroupId',
+        'servers'       => 'Servers',
     ];
 
     public function validate()
@@ -50,6 +50,12 @@ class RemoveServersFromServerGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
         }
@@ -61,12 +67,6 @@ class RemoveServersFromServerGroupRequest extends Model
                     $res['Servers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
         }
 
         return $res;
@@ -80,6 +80,12 @@ class RemoveServersFromServerGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];
         }
@@ -91,12 +97,6 @@ class RemoveServersFromServerGroupRequest extends Model
                     $model->servers[$n++] = null !== $item ? servers::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
         }
 
         return $model;

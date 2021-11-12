@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class UpdateListenerLogConfigRequest extends Model
 {
     /**
-     * @description 监听标识
+     * @description 是否开启携带自定义Header
      *
-     * @var string
+     * @var bool
      */
-    public $listenerId;
+    public $accessLogRecordCustomizedHeadersEnabled;
+
+    /**
+     * @description 访问日志xtrace字段相关的配置
+     *
+     * @var accessLogTracingConfig
+     */
+    public $accessLogTracingConfig;
 
     /**
      * @description 幂等标识
@@ -31,24 +38,17 @@ class UpdateListenerLogConfigRequest extends Model
     public $dryRun;
 
     /**
-     * @description 是否开启携带自定义Header
+     * @description 监听标识
      *
-     * @var bool
+     * @var string
      */
-    public $accessLogRecordCustomizedHeadersEnabled;
-
-    /**
-     * @description 访问日志xtrace字段相关的配置
-     *
-     * @var accessLogTracingConfig
-     */
-    public $accessLogTracingConfig;
+    public $listenerId;
     protected $_name = [
-        'listenerId'                              => 'ListenerId',
-        'clientToken'                             => 'ClientToken',
-        'dryRun'                                  => 'DryRun',
         'accessLogRecordCustomizedHeadersEnabled' => 'AccessLogRecordCustomizedHeadersEnabled',
         'accessLogTracingConfig'                  => 'AccessLogTracingConfig',
+        'clientToken'                             => 'ClientToken',
+        'dryRun'                                  => 'DryRun',
+        'listenerId'                              => 'ListenerId',
     ];
 
     public function validate()
@@ -58,8 +58,11 @@ class UpdateListenerLogConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
+        if (null !== $this->accessLogRecordCustomizedHeadersEnabled) {
+            $res['AccessLogRecordCustomizedHeadersEnabled'] = $this->accessLogRecordCustomizedHeadersEnabled;
+        }
+        if (null !== $this->accessLogTracingConfig) {
+            $res['AccessLogTracingConfig'] = null !== $this->accessLogTracingConfig ? $this->accessLogTracingConfig->toMap() : null;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -67,11 +70,8 @@ class UpdateListenerLogConfigRequest extends Model
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-        if (null !== $this->accessLogRecordCustomizedHeadersEnabled) {
-            $res['AccessLogRecordCustomizedHeadersEnabled'] = $this->accessLogRecordCustomizedHeadersEnabled;
-        }
-        if (null !== $this->accessLogTracingConfig) {
-            $res['AccessLogTracingConfig'] = null !== $this->accessLogTracingConfig ? $this->accessLogTracingConfig->toMap() : null;
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
         }
 
         return $res;
@@ -85,8 +85,11 @@ class UpdateListenerLogConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
+        if (isset($map['AccessLogRecordCustomizedHeadersEnabled'])) {
+            $model->accessLogRecordCustomizedHeadersEnabled = $map['AccessLogRecordCustomizedHeadersEnabled'];
+        }
+        if (isset($map['AccessLogTracingConfig'])) {
+            $model->accessLogTracingConfig = accessLogTracingConfig::fromMap($map['AccessLogTracingConfig']);
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -94,11 +97,8 @@ class UpdateListenerLogConfigRequest extends Model
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-        if (isset($map['AccessLogRecordCustomizedHeadersEnabled'])) {
-            $model->accessLogRecordCustomizedHeadersEnabled = $map['AccessLogRecordCustomizedHeadersEnabled'];
-        }
-        if (isset($map['AccessLogTracingConfig'])) {
-            $model->accessLogTracingConfig = accessLogTracingConfig::fromMap($map['AccessLogTracingConfig']);
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
         }
 
         return $model;

@@ -18,13 +18,6 @@ class rules extends Model
     public $priority;
 
     /**
-     * @description 转发规则名称
-     *
-     * @var string
-     */
-    public $ruleName;
-
-    /**
      * @description 转发规则动作
      *
      * @var ruleActions[]
@@ -44,12 +37,19 @@ class rules extends Model
      * @var string
      */
     public $ruleId;
+
+    /**
+     * @description 转发规则名称
+     *
+     * @var string
+     */
+    public $ruleName;
     protected $_name = [
         'priority'       => 'Priority',
-        'ruleName'       => 'RuleName',
         'ruleActions'    => 'RuleActions',
         'ruleConditions' => 'RuleConditions',
         'ruleId'         => 'RuleId',
+        'ruleName'       => 'RuleName',
     ];
 
     public function validate()
@@ -61,9 +61,6 @@ class rules extends Model
         $res = [];
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
-        }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
         }
         if (null !== $this->ruleActions) {
             $res['RuleActions'] = [];
@@ -86,6 +83,9 @@ class rules extends Model
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
 
         return $res;
     }
@@ -100,9 +100,6 @@ class rules extends Model
         $model = new self();
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
         }
         if (isset($map['RuleActions'])) {
             if (!empty($map['RuleActions'])) {
@@ -124,6 +121,9 @@ class rules extends Model
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
 
         return $model;

@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteHealthCheckTemplatesRequest extends Model
 {
     /**
-     * @description 健康检查模板Id列表
-     *
-     * @var string[]
-     */
-    public $healthCheckTemplateIds;
-
-    /**
      * @description 幂等token
      *
      * @var string
@@ -28,10 +21,17 @@ class DeleteHealthCheckTemplatesRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @description 健康检查模板Id列表
+     *
+     * @var string[]
+     */
+    public $healthCheckTemplateIds;
     protected $_name = [
-        'healthCheckTemplateIds' => 'HealthCheckTemplateIds',
         'clientToken'            => 'ClientToken',
         'dryRun'                 => 'DryRun',
+        'healthCheckTemplateIds' => 'HealthCheckTemplateIds',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class DeleteHealthCheckTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->healthCheckTemplateIds) {
-            $res['HealthCheckTemplateIds'] = $this->healthCheckTemplateIds;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->healthCheckTemplateIds) {
+            $res['HealthCheckTemplateIds'] = $this->healthCheckTemplateIds;
         }
 
         return $res;
@@ -62,16 +62,16 @@ class DeleteHealthCheckTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HealthCheckTemplateIds'])) {
-            if (!empty($map['HealthCheckTemplateIds'])) {
-                $model->healthCheckTemplateIds = $map['HealthCheckTemplateIds'];
-            }
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['HealthCheckTemplateIds'])) {
+            if (!empty($map['HealthCheckTemplateIds'])) {
+                $model->healthCheckTemplateIds = $map['HealthCheckTemplateIds'];
+            }
         }
 
         return $model;

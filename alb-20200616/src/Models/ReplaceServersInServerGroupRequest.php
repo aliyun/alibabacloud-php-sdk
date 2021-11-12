@@ -11,25 +11,11 @@ use AlibabaCloud\Tea\Model;
 class ReplaceServersInServerGroupRequest extends Model
 {
     /**
-     * @description 后端服务器Id
-     *
-     * @var string
-     */
-    public $serverGroupId;
-
-    /**
      * @description 待添加后端服务器
      *
      * @var addedServers[]
      */
     public $addedServers;
-
-    /**
-     * @description 待删除后端服务器
-     *
-     * @var removedServers[]
-     */
-    public $removedServers;
 
     /**
      * @description 幂等Token
@@ -44,12 +30,26 @@ class ReplaceServersInServerGroupRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @description 待删除后端服务器
+     *
+     * @var removedServers[]
+     */
+    public $removedServers;
+
+    /**
+     * @description 后端服务器Id
+     *
+     * @var string
+     */
+    public $serverGroupId;
     protected $_name = [
-        'serverGroupId'  => 'ServerGroupId',
         'addedServers'   => 'AddedServers',
-        'removedServers' => 'RemovedServers',
         'clientToken'    => 'ClientToken',
         'dryRun'         => 'DryRun',
+        'removedServers' => 'RemovedServers',
+        'serverGroupId'  => 'ServerGroupId',
     ];
 
     public function validate()
@@ -59,9 +59,6 @@ class ReplaceServersInServerGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serverGroupId) {
-            $res['ServerGroupId'] = $this->serverGroupId;
-        }
         if (null !== $this->addedServers) {
             $res['AddedServers'] = [];
             if (null !== $this->addedServers && \is_array($this->addedServers)) {
@@ -70,6 +67,12 @@ class ReplaceServersInServerGroupRequest extends Model
                     $res['AddedServers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->removedServers) {
             $res['RemovedServers'] = [];
@@ -80,11 +83,8 @@ class ReplaceServersInServerGroupRequest extends Model
                 }
             }
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
+        if (null !== $this->serverGroupId) {
+            $res['ServerGroupId'] = $this->serverGroupId;
         }
 
         return $res;
@@ -98,9 +98,6 @@ class ReplaceServersInServerGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServerGroupId'])) {
-            $model->serverGroupId = $map['ServerGroupId'];
-        }
         if (isset($map['AddedServers'])) {
             if (!empty($map['AddedServers'])) {
                 $model->addedServers = [];
@@ -109,6 +106,12 @@ class ReplaceServersInServerGroupRequest extends Model
                     $model->addedServers[$n++] = null !== $item ? addedServers::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['RemovedServers'])) {
             if (!empty($map['RemovedServers'])) {
@@ -119,11 +122,8 @@ class ReplaceServersInServerGroupRequest extends Model
                 }
             }
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
+        if (isset($map['ServerGroupId'])) {
+            $model->serverGroupId = $map['ServerGroupId'];
         }
 
         return $model;

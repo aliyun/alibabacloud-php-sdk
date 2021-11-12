@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteLoadBalancerRequest extends Model
 {
     /**
-     * @description 实例id
-     *
-     * @var string
-     */
-    public $loadBalancerId;
-
-    /**
      * @description 幂等标识
      *
      * @var string
@@ -28,10 +21,17 @@ class DeleteLoadBalancerRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @description 实例id
+     *
+     * @var string
+     */
+    public $loadBalancerId;
     protected $_name = [
-        'loadBalancerId' => 'LoadBalancerId',
         'clientToken'    => 'ClientToken',
         'dryRun'         => 'DryRun',
+        'loadBalancerId' => 'LoadBalancerId',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class DeleteLoadBalancerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->loadBalancerId) {
-            $res['LoadBalancerId'] = $this->loadBalancerId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->loadBalancerId) {
+            $res['LoadBalancerId'] = $this->loadBalancerId;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class DeleteLoadBalancerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LoadBalancerId'])) {
-            $model->loadBalancerId = $map['LoadBalancerId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['LoadBalancerId'])) {
+            $model->loadBalancerId = $map['LoadBalancerId'];
         }
 
         return $model;

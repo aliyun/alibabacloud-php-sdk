@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListSecurityPoliciesRequest extends Model
 {
     /**
-     * @description 资源组ID
+     * @description 查询数量
      *
-     * @var string
+     * @var int
      */
-    public $resourceGroupId;
+    public $maxResults;
 
     /**
      * @description 分页查询标识
@@ -23,18 +23,11 @@ class ListSecurityPoliciesRequest extends Model
     public $nextToken;
 
     /**
-     * @description 查询数量
+     * @description 资源组ID
      *
-     * @var int
+     * @var string
      */
-    public $maxResults;
-
-    /**
-     * @description 安全策略名称
-     *
-     * @var string[]
-     */
-    public $securityPolicyNames;
+    public $resourceGroupId;
 
     /**
      * @description 安全策略id
@@ -42,12 +35,19 @@ class ListSecurityPoliciesRequest extends Model
      * @var string[]
      */
     public $securityPolicyIds;
+
+    /**
+     * @description 安全策略名称
+     *
+     * @var string[]
+     */
+    public $securityPolicyNames;
     protected $_name = [
-        'resourceGroupId'     => 'ResourceGroupId',
-        'nextToken'           => 'NextToken',
         'maxResults'          => 'MaxResults',
-        'securityPolicyNames' => 'SecurityPolicyNames',
+        'nextToken'           => 'NextToken',
+        'resourceGroupId'     => 'ResourceGroupId',
         'securityPolicyIds'   => 'SecurityPolicyIds',
+        'securityPolicyNames' => 'SecurityPolicyNames',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class ListSecurityPoliciesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->securityPolicyNames) {
-            $res['SecurityPolicyNames'] = $this->securityPolicyNames;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->securityPolicyIds) {
             $res['SecurityPolicyIds'] = $this->securityPolicyIds;
+        }
+        if (null !== $this->securityPolicyNames) {
+            $res['SecurityPolicyNames'] = $this->securityPolicyNames;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class ListSecurityPoliciesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['SecurityPolicyNames'])) {
-            if (!empty($map['SecurityPolicyNames'])) {
-                $model->securityPolicyNames = $map['SecurityPolicyNames'];
-            }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SecurityPolicyIds'])) {
             if (!empty($map['SecurityPolicyIds'])) {
                 $model->securityPolicyIds = $map['SecurityPolicyIds'];
+            }
+        }
+        if (isset($map['SecurityPolicyNames'])) {
+            if (!empty($map['SecurityPolicyNames'])) {
+                $model->securityPolicyNames = $map['SecurityPolicyNames'];
             }
         }
 

@@ -6,40 +6,48 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateLoadBalancerEditionRequest extends Model
+class DetachCommonBandwidthPackageFromLoadBalancerRequest extends Model
 {
     /**
-     * @description 幂等标识
+     * @description 带宽包ID
+     *
+     * @var string
+     */
+    public $bandwidthPackageId;
+
+    /**
+     * @description 幂等参数
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description  是否只预检此次请求
+     * @description 预校验
      *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description 实例版本
-     *
-     * @var string
-     */
-    public $loadBalancerEdition;
-
-    /**
-     * @description 实例Id
+     * @description 实例ID
      *
      * @var string
      */
     public $loadBalancerId;
+
+    /**
+     * @description 地域ID
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'clientToken'         => 'ClientToken',
-        'dryRun'              => 'DryRun',
-        'loadBalancerEdition' => 'LoadBalancerEdition',
-        'loadBalancerId'      => 'LoadBalancerId',
+        'bandwidthPackageId' => 'BandwidthPackageId',
+        'clientToken'        => 'ClientToken',
+        'dryRun'             => 'DryRun',
+        'loadBalancerId'     => 'LoadBalancerId',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -49,17 +57,20 @@ class UpdateLoadBalancerEditionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidthPackageId) {
+            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-        if (null !== $this->loadBalancerEdition) {
-            $res['LoadBalancerEdition'] = $this->loadBalancerEdition;
-        }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -68,22 +79,25 @@ class UpdateLoadBalancerEditionRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateLoadBalancerEditionRequest
+     * @return DetachCommonBandwidthPackageFromLoadBalancerRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BandwidthPackageId'])) {
+            $model->bandwidthPackageId = $map['BandwidthPackageId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-        if (isset($map['LoadBalancerEdition'])) {
-            $model->loadBalancerEdition = $map['LoadBalancerEdition'];
-        }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -16,11 +16,11 @@ class DissociateAclsFromListenerRequest extends Model
     public $aclIds;
 
     /**
-     * @description 监听Id
+     * @description 幂等标识
      *
      * @var string
      */
-    public $listenerId;
+    public $clientToken;
 
     /**
      * @description 预检此次请求
@@ -30,16 +30,16 @@ class DissociateAclsFromListenerRequest extends Model
     public $dryRun;
 
     /**
-     * @description 幂等标识
+     * @description 监听Id
      *
      * @var string
      */
-    public $clientToken;
+    public $listenerId;
     protected $_name = [
         'aclIds'      => 'AclIds',
-        'listenerId'  => 'ListenerId',
-        'dryRun'      => 'DryRun',
         'clientToken' => 'ClientToken',
+        'dryRun'      => 'DryRun',
+        'listenerId'  => 'ListenerId',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class DissociateAclsFromListenerRequest extends Model
         if (null !== $this->aclIds) {
             $res['AclIds'] = $this->aclIds;
         }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
         }
 
         return $res;
@@ -78,14 +78,14 @@ class DissociateAclsFromListenerRequest extends Model
                 $model->aclIds = $map['AclIds'];
             }
         }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
         }
 
         return $model;

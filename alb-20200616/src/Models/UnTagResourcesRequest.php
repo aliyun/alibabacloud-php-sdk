@@ -10,18 +10,18 @@ use AlibabaCloud\Tea\Model;
 class UnTagResourcesRequest extends Model
 {
     /**
-     * @description 资源类型
-     *
-     * @var string
-     */
-    public $resourceType;
-
-    /**
      * @description 资源实例Id
      *
      * @var string[]
      */
     public $resourceId;
+
+    /**
+     * @description 资源类型
+     *
+     * @var string
+     */
+    public $resourceType;
 
     /**
      * @description 标签列表
@@ -37,8 +37,8 @@ class UnTagResourcesRequest extends Model
      */
     public $tagKey;
     protected $_name = [
-        'resourceType' => 'ResourceType',
         'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
         'tagKey'       => 'TagKey',
     ];
@@ -50,11 +50,11 @@ class UnTagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -80,13 +80,13 @@ class UnTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

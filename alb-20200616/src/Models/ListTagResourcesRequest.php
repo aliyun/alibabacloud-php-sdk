@@ -10,13 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description 分页查询标识
-     *
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @description 查询数量
      *
      * @var int
@@ -24,11 +17,11 @@ class ListTagResourcesRequest extends Model
     public $maxResults;
 
     /**
-     * @description 资源类型
+     * @description 分页查询标识
      *
      * @var string
      */
-    public $resourceType;
+    public $nextToken;
 
     /**
      * @description 资源实例Id
@@ -38,16 +31,23 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description 资源类型
+     *
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @description 标签列表
      *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'nextToken'    => 'NextToken',
         'maxResults'   => 'MaxResults',
-        'resourceType' => 'ResourceType',
+        'nextToken'    => 'NextToken',
         'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
     ];
 
@@ -58,17 +58,17 @@ class ListTagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -91,19 +91,19 @@ class ListTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListAclEntriesRequest extends Model
 {
     /**
-     * @description 分页查询标识
+     * @description 访问控制策略Id
      *
      * @var string
      */
-    public $nextToken;
+    public $aclId;
 
     /**
      * @description 查询数量
@@ -23,15 +23,15 @@ class ListAclEntriesRequest extends Model
     public $maxResults;
 
     /**
-     * @description 访问控制策略Id
+     * @description 分页查询标识
      *
      * @var string
      */
-    public $aclId;
+    public $nextToken;
     protected $_name = [
-        'nextToken'  => 'NextToken',
-        'maxResults' => 'MaxResults',
         'aclId'      => 'AclId',
+        'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class ListAclEntriesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->aclId) {
+            $res['AclId'] = $this->aclId;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-        if (null !== $this->aclId) {
-            $res['AclId'] = $this->aclId;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class ListAclEntriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['AclId'])) {
+            $model->aclId = $map['AclId'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-        if (isset($map['AclId'])) {
-            $model->aclId = $map['AclId'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

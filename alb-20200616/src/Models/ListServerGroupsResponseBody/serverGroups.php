@@ -40,6 +40,13 @@ class serverGroups extends Model
     public $scheduler;
 
     /**
+     * @description 服务器组内服务器数量
+     *
+     * @var int
+     */
+    public $serverCount;
+
+    /**
      * @description 服务器组Id
      *
      * @var string
@@ -75,30 +82,31 @@ class serverGroups extends Model
     public $stickySessionConfig;
 
     /**
-     * @description 服务器组所在VpcId
-     *
-     * @var string
-     */
-    public $vpcId;
-
-    /**
      * @description 标签列表
      *
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @description 服务器组所在VpcId
+     *
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'healthCheckConfig'   => 'HealthCheckConfig',
         'protocol'            => 'Protocol',
         'resourceGroupId'     => 'ResourceGroupId',
         'scheduler'           => 'Scheduler',
+        'serverCount'         => 'ServerCount',
         'serverGroupId'       => 'ServerGroupId',
         'serverGroupName'     => 'ServerGroupName',
         'serverGroupStatus'   => 'ServerGroupStatus',
         'serverGroupType'     => 'ServerGroupType',
         'stickySessionConfig' => 'StickySessionConfig',
-        'vpcId'               => 'VpcId',
         'tags'                => 'Tags',
+        'vpcId'               => 'VpcId',
     ];
 
     public function validate()
@@ -120,6 +128,9 @@ class serverGroups extends Model
         if (null !== $this->scheduler) {
             $res['Scheduler'] = $this->scheduler;
         }
+        if (null !== $this->serverCount) {
+            $res['ServerCount'] = $this->serverCount;
+        }
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
         }
@@ -135,9 +146,6 @@ class serverGroups extends Model
         if (null !== $this->stickySessionConfig) {
             $res['StickySessionConfig'] = null !== $this->stickySessionConfig ? $this->stickySessionConfig->toMap() : null;
         }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->tags) {
             $res['Tags'] = [];
             if (null !== $this->tags && \is_array($this->tags)) {
@@ -146,6 +154,9 @@ class serverGroups extends Model
                     $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -171,6 +182,9 @@ class serverGroups extends Model
         if (isset($map['Scheduler'])) {
             $model->scheduler = $map['Scheduler'];
         }
+        if (isset($map['ServerCount'])) {
+            $model->serverCount = $map['ServerCount'];
+        }
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];
         }
@@ -186,9 +200,6 @@ class serverGroups extends Model
         if (isset($map['StickySessionConfig'])) {
             $model->stickySessionConfig = stickySessionConfig::fromMap($map['StickySessionConfig']);
         }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
@@ -197,6 +208,9 @@ class serverGroups extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

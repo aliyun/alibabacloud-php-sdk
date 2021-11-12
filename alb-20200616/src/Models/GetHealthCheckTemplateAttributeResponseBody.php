@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetHealthCheckTemplateAttributeResponseBody extends Model
 {
     /**
+     * @description 状态码
+     *
+     * @var string[]
+     */
+    public $healthCheckCodes;
+
+    /**
      * @description 端口
      *
      * @var int
@@ -23,25 +30,11 @@ class GetHealthCheckTemplateAttributeResponseBody extends Model
     public $healthCheckHost;
 
     /**
-     * @description 状态码
-     *
-     * @var string[]
-     */
-    public $healthCheckCodes;
-
-    /**
      * @description 版本
      *
      * @var string
      */
     public $healthCheckHttpVersion;
-
-    /**
-     * @description 健康检查模板Id
-     *
-     * @var string
-     */
-    public $healthCheckTemplateId;
 
     /**
      * @description 间隔时间
@@ -70,6 +63,13 @@ class GetHealthCheckTemplateAttributeResponseBody extends Model
      * @var string
      */
     public $healthCheckProtocol;
+
+    /**
+     * @description 健康检查模板Id
+     *
+     * @var string
+     */
+    public $healthCheckTemplateId;
 
     /**
      * @description 名称
@@ -106,15 +106,15 @@ class GetHealthCheckTemplateAttributeResponseBody extends Model
      */
     public $unhealthyThreshold;
     protected $_name = [
+        'healthCheckCodes'        => 'HealthCheckCodes',
         'healthCheckConnectPort'  => 'HealthCheckConnectPort',
         'healthCheckHost'         => 'HealthCheckHost',
-        'healthCheckCodes'        => 'HealthCheckCodes',
         'healthCheckHttpVersion'  => 'HealthCheckHttpVersion',
-        'healthCheckTemplateId'   => 'HealthCheckTemplateId',
         'healthCheckInterval'     => 'HealthCheckInterval',
         'healthCheckMethod'       => 'HealthCheckMethod',
         'healthCheckPath'         => 'HealthCheckPath',
         'healthCheckProtocol'     => 'HealthCheckProtocol',
+        'healthCheckTemplateId'   => 'HealthCheckTemplateId',
         'healthCheckTemplateName' => 'HealthCheckTemplateName',
         'healthCheckTimeout'      => 'HealthCheckTimeout',
         'healthyThreshold'        => 'HealthyThreshold',
@@ -129,20 +129,17 @@ class GetHealthCheckTemplateAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->healthCheckCodes) {
+            $res['HealthCheckCodes'] = $this->healthCheckCodes;
+        }
         if (null !== $this->healthCheckConnectPort) {
             $res['HealthCheckConnectPort'] = $this->healthCheckConnectPort;
         }
         if (null !== $this->healthCheckHost) {
             $res['HealthCheckHost'] = $this->healthCheckHost;
         }
-        if (null !== $this->healthCheckCodes) {
-            $res['HealthCheckCodes'] = $this->healthCheckCodes;
-        }
         if (null !== $this->healthCheckHttpVersion) {
             $res['HealthCheckHttpVersion'] = $this->healthCheckHttpVersion;
-        }
-        if (null !== $this->healthCheckTemplateId) {
-            $res['HealthCheckTemplateId'] = $this->healthCheckTemplateId;
         }
         if (null !== $this->healthCheckInterval) {
             $res['HealthCheckInterval'] = $this->healthCheckInterval;
@@ -155,6 +152,9 @@ class GetHealthCheckTemplateAttributeResponseBody extends Model
         }
         if (null !== $this->healthCheckProtocol) {
             $res['HealthCheckProtocol'] = $this->healthCheckProtocol;
+        }
+        if (null !== $this->healthCheckTemplateId) {
+            $res['HealthCheckTemplateId'] = $this->healthCheckTemplateId;
         }
         if (null !== $this->healthCheckTemplateName) {
             $res['HealthCheckTemplateName'] = $this->healthCheckTemplateName;
@@ -183,22 +183,19 @@ class GetHealthCheckTemplateAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HealthCheckCodes'])) {
+            if (!empty($map['HealthCheckCodes'])) {
+                $model->healthCheckCodes = $map['HealthCheckCodes'];
+            }
+        }
         if (isset($map['HealthCheckConnectPort'])) {
             $model->healthCheckConnectPort = $map['HealthCheckConnectPort'];
         }
         if (isset($map['HealthCheckHost'])) {
             $model->healthCheckHost = $map['HealthCheckHost'];
         }
-        if (isset($map['HealthCheckCodes'])) {
-            if (!empty($map['HealthCheckCodes'])) {
-                $model->healthCheckCodes = $map['HealthCheckCodes'];
-            }
-        }
         if (isset($map['HealthCheckHttpVersion'])) {
             $model->healthCheckHttpVersion = $map['HealthCheckHttpVersion'];
-        }
-        if (isset($map['HealthCheckTemplateId'])) {
-            $model->healthCheckTemplateId = $map['HealthCheckTemplateId'];
         }
         if (isset($map['HealthCheckInterval'])) {
             $model->healthCheckInterval = $map['HealthCheckInterval'];
@@ -211,6 +208,9 @@ class GetHealthCheckTemplateAttributeResponseBody extends Model
         }
         if (isset($map['HealthCheckProtocol'])) {
             $model->healthCheckProtocol = $map['HealthCheckProtocol'];
+        }
+        if (isset($map['HealthCheckTemplateId'])) {
+            $model->healthCheckTemplateId = $map['HealthCheckTemplateId'];
         }
         if (isset($map['HealthCheckTemplateName'])) {
             $model->healthCheckTemplateName = $map['HealthCheckTemplateName'];

@@ -9,27 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
-     * @description 分页查询标识
-     *
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @description 查询数量
-     *
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @description 资源类型
-     *
-     * @var string
-     */
-    public $resourceType;
-
-    /**
      * @description 标签类型
      *
      * @var string
@@ -42,12 +21,33 @@ class ListTagKeysRequest extends Model
      * @var string
      */
     public $keyword;
+
+    /**
+     * @description 查询数量
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @description 分页查询标识
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @description 资源类型
+     *
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
-        'nextToken'    => 'NextToken',
-        'maxResults'   => 'MaxResults',
-        'resourceType' => 'ResourceType',
         'category'     => 'Category',
         'keyword'      => 'Keyword',
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class ListTagKeysRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -84,20 +84,20 @@ class ListTagKeysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

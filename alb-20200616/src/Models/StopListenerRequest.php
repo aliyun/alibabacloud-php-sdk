@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class StopListenerRequest extends Model
 {
     /**
-     * @description 监听id
-     *
-     * @var string
-     */
-    public $listenerId;
-
-    /**
      * @description 幂等标识
      *
      * @var string
@@ -28,10 +21,17 @@ class StopListenerRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @description 监听id
+     *
+     * @var string
+     */
+    public $listenerId;
     protected $_name = [
-        'listenerId'  => 'ListenerId',
         'clientToken' => 'ClientToken',
         'dryRun'      => 'DryRun',
+        'listenerId'  => 'ListenerId',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class StopListenerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class StopListenerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
         }
 
         return $model;

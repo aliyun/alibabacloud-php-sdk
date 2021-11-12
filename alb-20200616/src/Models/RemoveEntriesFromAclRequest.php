@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class RemoveEntriesFromAclRequest extends Model
 {
     /**
+     * @description 访问控制策略Id
+     *
+     * @var string
+     */
+    public $aclId;
+
+    /**
      * @description 幂等标识
      *
      * @var string
@@ -23,22 +30,15 @@ class RemoveEntriesFromAclRequest extends Model
     public $dryRun;
 
     /**
-     * @description 访问控制策略Id
-     *
-     * @var string
-     */
-    public $aclId;
-
-    /**
      * @description 条目列表
      *
      * @var string[]
      */
     public $entries;
     protected $_name = [
+        'aclId'       => 'AclId',
         'clientToken' => 'ClientToken',
         'dryRun'      => 'DryRun',
-        'aclId'       => 'AclId',
         'entries'     => 'Entries',
     ];
 
@@ -49,14 +49,14 @@ class RemoveEntriesFromAclRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aclId) {
+            $res['AclId'] = $this->aclId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->aclId) {
-            $res['AclId'] = $this->aclId;
         }
         if (null !== $this->entries) {
             $res['Entries'] = $this->entries;
@@ -73,14 +73,14 @@ class RemoveEntriesFromAclRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AclId'])) {
+            $model->aclId = $map['AclId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['AclId'])) {
-            $model->aclId = $map['AclId'];
         }
         if (isset($map['Entries'])) {
             if (!empty($map['Entries'])) {

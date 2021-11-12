@@ -16,22 +16,22 @@ class DeleteServerGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description 服务器组id
-     *
-     * @var string
-     */
-    public $serverGroupId;
-
-    /**
      * @description 是否DryRun
      *
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @description 服务器组id
+     *
+     * @var string
+     */
+    public $serverGroupId;
     protected $_name = [
         'clientToken'   => 'ClientToken',
-        'serverGroupId' => 'ServerGroupId',
         'dryRun'        => 'DryRun',
+        'serverGroupId' => 'ServerGroupId',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class DeleteServerGroupRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->serverGroupId) {
-            $res['ServerGroupId'] = $this->serverGroupId;
-        }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->serverGroupId) {
+            $res['ServerGroupId'] = $this->serverGroupId;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class DeleteServerGroupRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['ServerGroupId'])) {
-            $model->serverGroupId = $map['ServerGroupId'];
-        }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['ServerGroupId'])) {
+            $model->serverGroupId = $map['ServerGroupId'];
         }
 
         return $model;

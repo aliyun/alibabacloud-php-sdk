@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateRulesAttributeResponseBody extends Model
+class UpdateLoadBalancerZonesResponseBody extends Model
 {
     /**
-     * @description 异步任务Id
+     * @description 异步任务id
      *
      * @var string
      */
@@ -46,7 +46,7 @@ class UpdateRulesAttributeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateRulesAttributeResponseBody
+     * @return UpdateLoadBalancerZonesResponseBody
      */
     public static function fromMap($map = [])
     {

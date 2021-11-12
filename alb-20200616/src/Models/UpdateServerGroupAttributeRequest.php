@@ -11,20 +11,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateServerGroupAttributeRequest extends Model
 {
     /**
-     * @description Acl名称
-     *
-     * @var string
-     */
-    public $serverGroupName;
-
-    /**
-     * @description 调度策略
-     *
-     * @var string
-     */
-    public $scheduler;
-
-    /**
      * @description 幂等标识
      *
      * @var string
@@ -46,11 +32,11 @@ class UpdateServerGroupAttributeRequest extends Model
     public $healthCheckConfig;
 
     /**
-     * @description 会话保持配置
+     * @description 调度策略
      *
-     * @var stickySessionConfig
+     * @var string
      */
-    public $stickySessionConfig;
+    public $scheduler;
 
     /**
      * @description 服务器组Id
@@ -58,14 +44,28 @@ class UpdateServerGroupAttributeRequest extends Model
      * @var string
      */
     public $serverGroupId;
+
+    /**
+     * @description Acl名称
+     *
+     * @var string
+     */
+    public $serverGroupName;
+
+    /**
+     * @description 会话保持配置
+     *
+     * @var stickySessionConfig
+     */
+    public $stickySessionConfig;
     protected $_name = [
-        'serverGroupName'     => 'ServerGroupName',
-        'scheduler'           => 'Scheduler',
         'clientToken'         => 'ClientToken',
         'dryRun'              => 'DryRun',
         'healthCheckConfig'   => 'HealthCheckConfig',
-        'stickySessionConfig' => 'StickySessionConfig',
+        'scheduler'           => 'Scheduler',
         'serverGroupId'       => 'ServerGroupId',
+        'serverGroupName'     => 'ServerGroupName',
+        'stickySessionConfig' => 'StickySessionConfig',
     ];
 
     public function validate()
@@ -75,12 +75,6 @@ class UpdateServerGroupAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serverGroupName) {
-            $res['ServerGroupName'] = $this->serverGroupName;
-        }
-        if (null !== $this->scheduler) {
-            $res['Scheduler'] = $this->scheduler;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -90,11 +84,17 @@ class UpdateServerGroupAttributeRequest extends Model
         if (null !== $this->healthCheckConfig) {
             $res['HealthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toMap() : null;
         }
-        if (null !== $this->stickySessionConfig) {
-            $res['StickySessionConfig'] = null !== $this->stickySessionConfig ? $this->stickySessionConfig->toMap() : null;
+        if (null !== $this->scheduler) {
+            $res['Scheduler'] = $this->scheduler;
         }
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
+        }
+        if (null !== $this->serverGroupName) {
+            $res['ServerGroupName'] = $this->serverGroupName;
+        }
+        if (null !== $this->stickySessionConfig) {
+            $res['StickySessionConfig'] = null !== $this->stickySessionConfig ? $this->stickySessionConfig->toMap() : null;
         }
 
         return $res;
@@ -108,12 +108,6 @@ class UpdateServerGroupAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServerGroupName'])) {
-            $model->serverGroupName = $map['ServerGroupName'];
-        }
-        if (isset($map['Scheduler'])) {
-            $model->scheduler = $map['Scheduler'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -123,11 +117,17 @@ class UpdateServerGroupAttributeRequest extends Model
         if (isset($map['HealthCheckConfig'])) {
             $model->healthCheckConfig = healthCheckConfig::fromMap($map['HealthCheckConfig']);
         }
-        if (isset($map['StickySessionConfig'])) {
-            $model->stickySessionConfig = stickySessionConfig::fromMap($map['StickySessionConfig']);
+        if (isset($map['Scheduler'])) {
+            $model->scheduler = $map['Scheduler'];
         }
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];
+        }
+        if (isset($map['ServerGroupName'])) {
+            $model->serverGroupName = $map['ServerGroupName'];
+        }
+        if (isset($map['StickySessionConfig'])) {
+            $model->stickySessionConfig = stickySessionConfig::fromMap($map['StickySessionConfig']);
         }
 
         return $model;

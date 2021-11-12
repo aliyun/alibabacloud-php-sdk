@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\AssociateAclsWithListenerRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AssociateAclsWithListenerResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AssociateAdditionalCertificatesWithListenerRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AssociateAdditionalCertificatesWithListenerResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\AttachCommonBandwidthPackageToLoadBalancerRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\AttachCommonBandwidthPackageToLoadBalancerResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateAclRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateAclResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateHealthCheckTemplateRequest;
@@ -50,6 +52,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteServerGroupResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeZonesResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\DetachCommonBandwidthPackageFromLoadBalancerRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\DetachCommonBandwidthPackageFromLoadBalancerResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DisableDeletionProtectionRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DisableDeletionProtectionResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DisableLoadBalancerAccessLogRequest;
@@ -129,6 +133,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerEditionRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerEditionResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerZonesRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerZonesResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRuleAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRuleAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest;
@@ -315,6 +321,34 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->associateAdditionalCertificatesWithListenerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+     */
+    public function attachCommonBandwidthPackageToLoadBalancerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->doRPCRequest('AttachCommonBandwidthPackageToLoadBalancer', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
+     *
+     * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+     */
+    public function attachCommonBandwidthPackageToLoadBalancer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachCommonBandwidthPackageToLoadBalancerWithOptions($request, $runtime);
     }
 
     /**
@@ -813,6 +847,34 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeZonesWithOptions($runtime);
+    }
+
+    /**
+     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+     */
+    public function detachCommonBandwidthPackageFromLoadBalancerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->doRPCRequest('DetachCommonBandwidthPackageFromLoadBalancer', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
+     *
+     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+     */
+    public function detachCommonBandwidthPackageFromLoadBalancer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachCommonBandwidthPackageFromLoadBalancerWithOptions($request, $runtime);
     }
 
     /**
@@ -1376,34 +1438,6 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param ListServerGroupsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListServerGroupsResponse
-     */
-    public function listServerGroupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListServerGroupsResponse::fromMap($this->doRPCRequest('ListServerGroups', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListServerGroupsRequest $request
-     *
-     * @return ListServerGroupsResponse
-     */
-    public function listServerGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listServerGroupsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListServerGroupServersRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1429,6 +1463,34 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listServerGroupServersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListServerGroupsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListServerGroupsResponse
+     */
+    public function listServerGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListServerGroupsResponse::fromMap($this->doRPCRequest('ListServerGroups', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListServerGroupsRequest $request
+     *
+     * @return ListServerGroupsResponse
+     */
+    public function listServerGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServerGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -1927,6 +1989,34 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateLoadBalancerEditionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateLoadBalancerZonesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateLoadBalancerZonesResponse
+     */
+    public function updateLoadBalancerZonesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateLoadBalancerZonesResponse::fromMap($this->doRPCRequest('UpdateLoadBalancerZones', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateLoadBalancerZonesRequest $request
+     *
+     * @return UpdateLoadBalancerZonesResponse
+     */
+    public function updateLoadBalancerZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLoadBalancerZonesWithOptions($request, $runtime);
     }
 
     /**

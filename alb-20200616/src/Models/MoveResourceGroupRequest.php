@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class MoveResourceGroupRequest extends Model
 {
     /**
-     * @description 资源类型
+     * @description 资源组id
      *
      * @var string
      */
-    public $resourceType;
+    public $newResourceGroupId;
 
     /**
      * @description 指定资源Id
@@ -23,15 +23,15 @@ class MoveResourceGroupRequest extends Model
     public $resourceId;
 
     /**
-     * @description 资源组id
+     * @description 资源类型
      *
      * @var string
      */
-    public $newResourceGroupId;
+    public $resourceType;
     protected $_name = [
-        'resourceType'       => 'ResourceType',
-        'resourceId'         => 'ResourceId',
         'newResourceGroupId' => 'NewResourceGroupId',
+        'resourceId'         => 'ResourceId',
+        'resourceType'       => 'ResourceType',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class MoveResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->newResourceGroupId) {
+            $res['NewResourceGroupId'] = $this->newResourceGroupId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-        if (null !== $this->newResourceGroupId) {
-            $res['NewResourceGroupId'] = $this->newResourceGroupId;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class MoveResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['NewResourceGroupId'])) {
+            $model->newResourceGroupId = $map['NewResourceGroupId'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-        if (isset($map['NewResourceGroupId'])) {
-            $model->newResourceGroupId = $map['NewResourceGroupId'];
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

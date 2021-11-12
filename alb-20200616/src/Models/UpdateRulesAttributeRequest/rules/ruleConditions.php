@@ -74,18 +74,18 @@ class ruleConditions extends Model
     public $responseStatusCodeConfig;
 
     /**
-     * @description 条件类型
-     *
-     * @var string
-     */
-    public $type;
-
-    /**
      * @description 基于源IP业务流量匹配
      *
      * @var sourceIpConfig
      */
     public $sourceIpConfig;
+
+    /**
+     * @description 条件类型
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'cookieConfig'             => 'CookieConfig',
         'headerConfig'             => 'HeaderConfig',
@@ -95,8 +95,8 @@ class ruleConditions extends Model
         'queryStringConfig'        => 'QueryStringConfig',
         'responseHeaderConfig'     => 'ResponseHeaderConfig',
         'responseStatusCodeConfig' => 'ResponseStatusCodeConfig',
-        'type'                     => 'Type',
         'sourceIpConfig'           => 'SourceIpConfig',
+        'type'                     => 'Type',
     ];
 
     public function validate()
@@ -130,11 +130,11 @@ class ruleConditions extends Model
         if (null !== $this->responseStatusCodeConfig) {
             $res['ResponseStatusCodeConfig'] = null !== $this->responseStatusCodeConfig ? $this->responseStatusCodeConfig->toMap() : null;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->sourceIpConfig) {
             $res['SourceIpConfig'] = null !== $this->sourceIpConfig ? $this->sourceIpConfig->toMap() : null;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -172,11 +172,11 @@ class ruleConditions extends Model
         if (isset($map['ResponseStatusCodeConfig'])) {
             $model->responseStatusCodeConfig = responseStatusCodeConfig::fromMap($map['ResponseStatusCodeConfig']);
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['SourceIpConfig'])) {
             $model->sourceIpConfig = sourceIpConfig::fromMap($map['SourceIpConfig']);
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

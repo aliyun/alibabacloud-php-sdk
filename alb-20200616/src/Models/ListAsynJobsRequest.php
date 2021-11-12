@@ -9,27 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListAsynJobsRequest extends Model
 {
     /**
-     * @description 任务ID列表
-     *
-     * @var string[]
-     */
-    public $jobIds;
-
-    /**
-     * @description 资源类型类型
-     *
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @description 资源实例ID列表
-     *
-     * @var string[]
-     */
-    public $resourceIds;
-
-    /**
      * @description 操作接口名
      *
      * @var string
@@ -51,11 +30,11 @@ class ListAsynJobsRequest extends Model
     public $endTime;
 
     /**
-     * @description 下一个查询开始Token
+     * @description 任务ID列表
      *
-     * @var string
+     * @var string[]
      */
-    public $nextToken;
+    public $jobIds;
 
     /**
      * @description 本次读取的最大数据记录数量
@@ -63,15 +42,36 @@ class ListAsynJobsRequest extends Model
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @description 下一个查询开始Token
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @description 资源实例ID列表
+     *
+     * @var string[]
+     */
+    public $resourceIds;
+
+    /**
+     * @description 资源类型类型
+     *
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
-        'jobIds'       => 'JobIds',
-        'resourceType' => 'ResourceType',
-        'resourceIds'  => 'ResourceIds',
         'apiName'      => 'ApiName',
         'beginTime'    => 'BeginTime',
         'endTime'      => 'EndTime',
-        'nextToken'    => 'NextToken',
+        'jobIds'       => 'JobIds',
         'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
+        'resourceIds'  => 'ResourceIds',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -81,15 +81,6 @@ class ListAsynJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobIds) {
-            $res['JobIds'] = $this->jobIds;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->resourceIds) {
-            $res['ResourceIds'] = $this->resourceIds;
-        }
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
         }
@@ -99,11 +90,20 @@ class ListAsynJobsRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->jobIds) {
+            $res['JobIds'] = $this->jobIds;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = $this->resourceIds;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -117,19 +117,6 @@ class ListAsynJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobIds'])) {
-            if (!empty($map['JobIds'])) {
-                $model->jobIds = $map['JobIds'];
-            }
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['ResourceIds'])) {
-            if (!empty($map['ResourceIds'])) {
-                $model->resourceIds = $map['ResourceIds'];
-            }
-        }
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
@@ -139,11 +126,24 @@ class ListAsynJobsRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['JobIds'])) {
+            if (!empty($map['JobIds'])) {
+                $model->jobIds = $map['JobIds'];
+            }
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ResourceIds'])) {
+            if (!empty($map['ResourceIds'])) {
+                $model->resourceIds = $map['ResourceIds'];
+            }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

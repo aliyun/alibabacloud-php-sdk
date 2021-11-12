@@ -11,6 +11,13 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description 转发规则方向
+     *
+     * @var string
+     */
+    public $direction;
+
+    /**
      * @description 转发规则优先级
      *
      * @var int
@@ -38,6 +45,7 @@ class rules extends Model
      */
     public $ruleName;
     protected $_name = [
+        'direction'      => 'Direction',
         'priority'       => 'Priority',
         'ruleActions'    => 'RuleActions',
         'ruleConditions' => 'RuleConditions',
@@ -51,6 +59,9 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
+        }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
@@ -87,6 +98,9 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
+        }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }

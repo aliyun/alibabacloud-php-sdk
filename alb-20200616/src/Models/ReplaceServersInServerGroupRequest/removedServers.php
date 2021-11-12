@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class removedServers extends Model
 {
     /**
+     * @description 端口
+     *
+     * @var int
+     */
+    public $port;
+
+    /**
      * @description 后端服务器id
      *
      * @var string
@@ -28,18 +35,11 @@ class removedServers extends Model
      * @var string
      */
     public $serverType;
-
-    /**
-     * @description 端口
-     *
-     * @var int
-     */
-    public $port;
     protected $_name = [
+        'port'       => 'Port',
         'serverId'   => 'ServerId',
         'serverIp'   => 'ServerIp',
         'serverType' => 'ServerType',
-        'port'       => 'Port',
     ];
 
     public function validate()
@@ -49,6 +49,9 @@ class removedServers extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
         }
@@ -57,9 +60,6 @@ class removedServers extends Model
         }
         if (null !== $this->serverType) {
             $res['ServerType'] = $this->serverType;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
         }
 
         return $res;
@@ -73,6 +73,9 @@ class removedServers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];
         }
@@ -81,9 +84,6 @@ class removedServers extends Model
         }
         if (isset($map['ServerType'])) {
             $model->serverType = $map['ServerType'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
         }
 
         return $model;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class healthCheckConfig extends Model
 {
     /**
+     * @description 状态码
+     *
+     * @var string[]
+     */
+    public $healthCheckCodes;
+
+    /**
      * @description 端口
      *
      * @var int
@@ -28,13 +35,6 @@ class healthCheckConfig extends Model
      * @var string
      */
     public $healthCheckHost;
-
-    /**
-     * @description 状态码
-     *
-     * @var string[]
-     */
-    public $healthCheckCodes;
 
     /**
      * @description 版本
@@ -92,10 +92,10 @@ class healthCheckConfig extends Model
      */
     public $unhealthyThreshold;
     protected $_name = [
+        'healthCheckCodes'       => 'HealthCheckCodes',
         'healthCheckConnectPort' => 'HealthCheckConnectPort',
         'healthCheckEnabled'     => 'HealthCheckEnabled',
         'healthCheckHost'        => 'HealthCheckHost',
-        'healthCheckCodes'       => 'HealthCheckCodes',
         'healthCheckHttpVersion' => 'HealthCheckHttpVersion',
         'healthCheckInterval'    => 'HealthCheckInterval',
         'healthCheckMethod'      => 'HealthCheckMethod',
@@ -113,6 +113,9 @@ class healthCheckConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->healthCheckCodes) {
+            $res['HealthCheckCodes'] = $this->healthCheckCodes;
+        }
         if (null !== $this->healthCheckConnectPort) {
             $res['HealthCheckConnectPort'] = $this->healthCheckConnectPort;
         }
@@ -121,9 +124,6 @@ class healthCheckConfig extends Model
         }
         if (null !== $this->healthCheckHost) {
             $res['HealthCheckHost'] = $this->healthCheckHost;
-        }
-        if (null !== $this->healthCheckCodes) {
-            $res['HealthCheckCodes'] = $this->healthCheckCodes;
         }
         if (null !== $this->healthCheckHttpVersion) {
             $res['HealthCheckHttpVersion'] = $this->healthCheckHttpVersion;
@@ -161,6 +161,11 @@ class healthCheckConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HealthCheckCodes'])) {
+            if (!empty($map['HealthCheckCodes'])) {
+                $model->healthCheckCodes = $map['HealthCheckCodes'];
+            }
+        }
         if (isset($map['HealthCheckConnectPort'])) {
             $model->healthCheckConnectPort = $map['HealthCheckConnectPort'];
         }
@@ -169,11 +174,6 @@ class healthCheckConfig extends Model
         }
         if (isset($map['HealthCheckHost'])) {
             $model->healthCheckHost = $map['HealthCheckHost'];
-        }
-        if (isset($map['HealthCheckCodes'])) {
-            if (!empty($map['HealthCheckCodes'])) {
-                $model->healthCheckCodes = $map['HealthCheckCodes'];
-            }
         }
         if (isset($map['HealthCheckHttpVersion'])) {
             $model->healthCheckHttpVersion = $map['HealthCheckHttpVersion'];

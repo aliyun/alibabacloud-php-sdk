@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListListenerCertificatesRequest extends Model
 {
     /**
-     * @description 分页查询标识
+     * @description 证书类型
      *
      * @var string
      */
-    public $nextToken;
-
-    /**
-     * @description 查询数量
-     *
-     * @var int
-     */
-    public $maxResults;
+    public $certificateType;
 
     /**
      * @description 监听Id
@@ -30,16 +23,23 @@ class ListListenerCertificatesRequest extends Model
     public $listenerId;
 
     /**
-     * @description 证书类型
+     * @description 查询数量
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @description 分页查询标识
      *
      * @var string
      */
-    public $certificateType;
+    public $nextToken;
     protected $_name = [
-        'nextToken'       => 'NextToken',
-        'maxResults'      => 'MaxResults',
-        'listenerId'      => 'ListenerId',
         'certificateType' => 'CertificateType',
+        'listenerId'      => 'ListenerId',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class ListListenerCertificatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->certificateType) {
+            $res['CertificateType'] = $this->certificateType;
         }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
-        if (null !== $this->certificateType) {
-            $res['CertificateType'] = $this->certificateType;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class ListListenerCertificatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['CertificateType'])) {
+            $model->certificateType = $map['CertificateType'];
         }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
-        if (isset($map['CertificateType'])) {
-            $model->certificateType = $map['CertificateType'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;
