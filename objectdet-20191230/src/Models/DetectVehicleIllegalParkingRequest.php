@@ -17,24 +17,12 @@ class DetectVehicleIllegalParkingRequest extends Model
     public $imageURL;
 
     /**
-     * @var string
-     */
-    public $originRequestId;
-
-    /**
      * @var roadRegions[]
      */
     public $roadRegions;
-
-    /**
-     * @var string
-     */
-    public $streamArn;
     protected $_name = [
-        'imageURL'        => 'ImageURL',
-        'originRequestId' => 'OriginRequestId',
-        'roadRegions'     => 'RoadRegions',
-        'streamArn'       => 'StreamArn',
+        'imageURL'    => 'ImageURL',
+        'roadRegions' => 'RoadRegions',
     ];
 
     public function validate()
@@ -47,9 +35,6 @@ class DetectVehicleIllegalParkingRequest extends Model
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
-        if (null !== $this->originRequestId) {
-            $res['OriginRequestId'] = $this->originRequestId;
-        }
         if (null !== $this->roadRegions) {
             $res['RoadRegions'] = [];
             if (null !== $this->roadRegions && \is_array($this->roadRegions)) {
@@ -58,9 +43,6 @@ class DetectVehicleIllegalParkingRequest extends Model
                     $res['RoadRegions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->streamArn) {
-            $res['StreamArn'] = $this->streamArn;
         }
 
         return $res;
@@ -77,9 +59,6 @@ class DetectVehicleIllegalParkingRequest extends Model
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
-        if (isset($map['OriginRequestId'])) {
-            $model->originRequestId = $map['OriginRequestId'];
-        }
         if (isset($map['RoadRegions'])) {
             if (!empty($map['RoadRegions'])) {
                 $model->roadRegions = [];
@@ -88,9 +67,6 @@ class DetectVehicleIllegalParkingRequest extends Model
                     $model->roadRegions[$n++] = null !== $item ? roadRegions::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['StreamArn'])) {
-            $model->streamArn = $map['StreamArn'];
         }
 
         return $model;

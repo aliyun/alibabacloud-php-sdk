@@ -1,3 +1,6 @@
+2021-11-15 Version: 1.0.6
+- Update DetectVehicleICongestion DetectVehicleIllegalParking.
+
 2021-11-01 Version: 1.0.5
 - Release DetectKitchenAnimals DetectWorkwear.
 

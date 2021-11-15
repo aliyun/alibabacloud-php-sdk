@@ -18,11 +18,6 @@ class DetectVehicleICongestionRequest extends Model
     public $imageURL;
 
     /**
-     * @var string
-     */
-    public $originRequestId;
-
-    /**
      * @var preRegionIntersectFeatures[]
      */
     public $preRegionIntersectFeatures;
@@ -31,17 +26,10 @@ class DetectVehicleICongestionRequest extends Model
      * @var roadRegions[]
      */
     public $roadRegions;
-
-    /**
-     * @var string
-     */
-    public $streamArn;
     protected $_name = [
         'imageURL'                   => 'ImageURL',
-        'originRequestId'            => 'OriginRequestId',
         'preRegionIntersectFeatures' => 'PreRegionIntersectFeatures',
         'roadRegions'                => 'RoadRegions',
-        'streamArn'                  => 'StreamArn',
     ];
 
     public function validate()
@@ -53,9 +41,6 @@ class DetectVehicleICongestionRequest extends Model
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
-        }
-        if (null !== $this->originRequestId) {
-            $res['OriginRequestId'] = $this->originRequestId;
         }
         if (null !== $this->preRegionIntersectFeatures) {
             $res['PreRegionIntersectFeatures'] = [];
@@ -75,9 +60,6 @@ class DetectVehicleICongestionRequest extends Model
                 }
             }
         }
-        if (null !== $this->streamArn) {
-            $res['StreamArn'] = $this->streamArn;
-        }
 
         return $res;
     }
@@ -92,9 +74,6 @@ class DetectVehicleICongestionRequest extends Model
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
-        }
-        if (isset($map['OriginRequestId'])) {
-            $model->originRequestId = $map['OriginRequestId'];
         }
         if (isset($map['PreRegionIntersectFeatures'])) {
             if (!empty($map['PreRegionIntersectFeatures'])) {
@@ -113,9 +92,6 @@ class DetectVehicleICongestionRequest extends Model
                     $model->roadRegions[$n++] = null !== $item ? roadRegions::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['StreamArn'])) {
-            $model->streamArn = $map['StreamArn'];
         }
 
         return $model;

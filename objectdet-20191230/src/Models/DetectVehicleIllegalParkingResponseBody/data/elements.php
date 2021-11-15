@@ -15,6 +15,11 @@ class elements extends Model
     public $boxes;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var float
      */
     public $score;
@@ -25,6 +30,7 @@ class elements extends Model
     public $typeName;
     protected $_name = [
         'boxes'    => 'Boxes',
+        'id'       => 'Id',
         'score'    => 'Score',
         'typeName' => 'TypeName',
     ];
@@ -44,6 +50,9 @@ class elements extends Model
                     $res['Boxes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
@@ -71,6 +80,9 @@ class elements extends Model
                     $model->boxes[$n++] = null !== $item ? boxes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
