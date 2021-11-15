@@ -11,7 +11,22 @@ class GetTitleGenerateRequest extends Model
     /**
      * @var string
      */
-    public $title;
+    public $attributes;
+
+    /**
+     * @var string
+     */
+    public $categoryId;
+
+    /**
+     * @var string
+     */
+    public $extra;
+
+    /**
+     * @var string
+     */
+    public $hotWords;
 
     /**
      * @var string
@@ -26,30 +41,15 @@ class GetTitleGenerateRequest extends Model
     /**
      * @var string
      */
-    public $categoryId;
-
-    /**
-     * @var string
-     */
-    public $hotWords;
-
-    /**
-     * @var string
-     */
-    public $attributes;
-
-    /**
-     * @var string
-     */
-    public $extra;
+    public $title;
     protected $_name = [
-        'title'      => 'Title',
+        'attributes' => 'Attributes',
+        'categoryId' => 'CategoryId',
+        'extra'      => 'Extra',
+        'hotWords'   => 'HotWords',
         'language'   => 'Language',
         'platform'   => 'Platform',
-        'categoryId' => 'CategoryId',
-        'hotWords'   => 'HotWords',
-        'attributes' => 'Attributes',
-        'extra'      => 'Extra',
+        'title'      => 'Title',
     ];
 
     public function validate()
@@ -59,8 +59,17 @@ class GetTitleGenerateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->attributes) {
+            $res['Attributes'] = $this->attributes;
+        }
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
+        }
+        if (null !== $this->extra) {
+            $res['Extra'] = $this->extra;
+        }
+        if (null !== $this->hotWords) {
+            $res['HotWords'] = $this->hotWords;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
@@ -68,17 +77,8 @@ class GetTitleGenerateRequest extends Model
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
-        }
-        if (null !== $this->hotWords) {
-            $res['HotWords'] = $this->hotWords;
-        }
-        if (null !== $this->attributes) {
-            $res['Attributes'] = $this->attributes;
-        }
-        if (null !== $this->extra) {
-            $res['Extra'] = $this->extra;
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -92,8 +92,17 @@ class GetTitleGenerateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['Attributes'])) {
+            $model->attributes = $map['Attributes'];
+        }
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
+        }
+        if (isset($map['Extra'])) {
+            $model->extra = $map['Extra'];
+        }
+        if (isset($map['HotWords'])) {
+            $model->hotWords = $map['HotWords'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
@@ -101,17 +110,8 @@ class GetTitleGenerateRequest extends Model
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
-        }
-        if (isset($map['HotWords'])) {
-            $model->hotWords = $map['HotWords'];
-        }
-        if (isset($map['Attributes'])) {
-            $model->attributes = $map['Attributes'];
-        }
-        if (isset($map['Extra'])) {
-            $model->extra = $map['Extra'];
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class CreateDocTranslateTaskRequest extends Model
     /**
      * @var string
      */
-    public $sourceLanguage;
+    public $callbackUrl;
 
     /**
      * @var string
      */
-    public $targetLanguage;
+    public $clientToken;
 
     /**
      * @var string
@@ -31,19 +31,19 @@ class CreateDocTranslateTaskRequest extends Model
     /**
      * @var string
      */
-    public $callbackUrl;
+    public $sourceLanguage;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $targetLanguage;
     protected $_name = [
-        'sourceLanguage' => 'SourceLanguage',
-        'targetLanguage' => 'TargetLanguage',
-        'fileUrl'        => 'FileUrl',
-        'scene'          => 'Scene',
         'callbackUrl'    => 'CallbackUrl',
         'clientToken'    => 'ClientToken',
+        'fileUrl'        => 'FileUrl',
+        'scene'          => 'Scene',
+        'sourceLanguage' => 'SourceLanguage',
+        'targetLanguage' => 'TargetLanguage',
     ];
 
     public function validate()
@@ -53,11 +53,11 @@ class CreateDocTranslateTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceLanguage) {
-            $res['SourceLanguage'] = $this->sourceLanguage;
+        if (null !== $this->callbackUrl) {
+            $res['CallbackUrl'] = $this->callbackUrl;
         }
-        if (null !== $this->targetLanguage) {
-            $res['TargetLanguage'] = $this->targetLanguage;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
@@ -65,11 +65,11 @@ class CreateDocTranslateTaskRequest extends Model
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
-        if (null !== $this->callbackUrl) {
-            $res['CallbackUrl'] = $this->callbackUrl;
+        if (null !== $this->sourceLanguage) {
+            $res['SourceLanguage'] = $this->sourceLanguage;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->targetLanguage) {
+            $res['TargetLanguage'] = $this->targetLanguage;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class CreateDocTranslateTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceLanguage'])) {
-            $model->sourceLanguage = $map['SourceLanguage'];
+        if (isset($map['CallbackUrl'])) {
+            $model->callbackUrl = $map['CallbackUrl'];
         }
-        if (isset($map['TargetLanguage'])) {
-            $model->targetLanguage = $map['TargetLanguage'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
@@ -95,11 +95,11 @@ class CreateDocTranslateTaskRequest extends Model
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
-        if (isset($map['CallbackUrl'])) {
-            $model->callbackUrl = $map['CallbackUrl'];
+        if (isset($map['SourceLanguage'])) {
+            $model->sourceLanguage = $map['SourceLanguage'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['TargetLanguage'])) {
+            $model->targetLanguage = $map['TargetLanguage'];
         }
 
         return $model;

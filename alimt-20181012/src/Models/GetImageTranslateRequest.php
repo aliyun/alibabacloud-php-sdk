@@ -11,7 +11,7 @@ class GetImageTranslateRequest extends Model
     /**
      * @var string
      */
-    public $url;
+    public $extra;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class GetImageTranslateRequest extends Model
     /**
      * @var string
      */
-    public $extra;
+    public $url;
     protected $_name = [
-        'url'            => 'Url',
+        'extra'          => 'Extra',
         'sourceLanguage' => 'SourceLanguage',
         'targetLanguage' => 'TargetLanguage',
-        'extra'          => 'Extra',
+        'url'            => 'Url',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class GetImageTranslateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->extra) {
+            $res['Extra'] = $this->extra;
         }
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
@@ -50,8 +50,8 @@ class GetImageTranslateRequest extends Model
         if (null !== $this->targetLanguage) {
             $res['TargetLanguage'] = $this->targetLanguage;
         }
-        if (null !== $this->extra) {
-            $res['Extra'] = $this->extra;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class GetImageTranslateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['Extra'])) {
+            $model->extra = $map['Extra'];
         }
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];
@@ -74,8 +74,8 @@ class GetImageTranslateRequest extends Model
         if (isset($map['TargetLanguage'])) {
             $model->targetLanguage = $map['TargetLanguage'];
         }
-        if (isset($map['Extra'])) {
-            $model->extra = $map['Extra'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

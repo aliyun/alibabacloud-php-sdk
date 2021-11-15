@@ -11,15 +11,15 @@ class GetImageDiagnoseRequest extends Model
     /**
      * @var string
      */
-    public $url;
+    public $extra;
 
     /**
      * @var string
      */
-    public $extra;
+    public $url;
     protected $_name = [
-        'url'   => 'Url',
         'extra' => 'Extra',
+        'url'   => 'Url',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetImageDiagnoseRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->extra) {
             $res['Extra'] = $this->extra;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetImageDiagnoseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['Extra'])) {
             $model->extra = $map['Extra'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

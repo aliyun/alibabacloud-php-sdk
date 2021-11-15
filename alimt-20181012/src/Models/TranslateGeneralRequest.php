@@ -16,12 +16,12 @@ class TranslateGeneralRequest extends Model
     /**
      * @var string
      */
-    public $sourceLanguage;
+    public $scene;
 
     /**
      * @var string
      */
-    public $targetLanguage;
+    public $sourceLanguage;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class TranslateGeneralRequest extends Model
     /**
      * @var string
      */
-    public $scene;
+    public $targetLanguage;
     protected $_name = [
         'formatType'     => 'FormatType',
-        'sourceLanguage' => 'SourceLanguage',
-        'targetLanguage' => 'TargetLanguage',
-        'sourceText'     => 'SourceText',
         'scene'          => 'Scene',
+        'sourceLanguage' => 'SourceLanguage',
+        'sourceText'     => 'SourceText',
+        'targetLanguage' => 'TargetLanguage',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class TranslateGeneralRequest extends Model
         if (null !== $this->formatType) {
             $res['FormatType'] = $this->formatType;
         }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
+        }
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
-        }
-        if (null !== $this->targetLanguage) {
-            $res['TargetLanguage'] = $this->targetLanguage;
         }
         if (null !== $this->sourceText) {
             $res['SourceText'] = $this->sourceText;
         }
-        if (null !== $this->scene) {
-            $res['Scene'] = $this->scene;
+        if (null !== $this->targetLanguage) {
+            $res['TargetLanguage'] = $this->targetLanguage;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class TranslateGeneralRequest extends Model
         if (isset($map['FormatType'])) {
             $model->formatType = $map['FormatType'];
         }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
+        }
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];
-        }
-        if (isset($map['TargetLanguage'])) {
-            $model->targetLanguage = $map['TargetLanguage'];
         }
         if (isset($map['SourceText'])) {
             $model->sourceText = $map['SourceText'];
         }
-        if (isset($map['Scene'])) {
-            $model->scene = $map['Scene'];
+        if (isset($map['TargetLanguage'])) {
+            $model->targetLanguage = $map['TargetLanguage'];
         }
 
         return $model;

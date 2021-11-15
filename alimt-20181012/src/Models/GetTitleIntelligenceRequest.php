@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetTitleIntelligenceRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $platform;
-
-    /**
-     * @var string
-     */
-    public $extra;
-
-    /**
      * @var int
      */
     public $catLevelThreeId;
@@ -31,13 +21,23 @@ class GetTitleIntelligenceRequest extends Model
     /**
      * @var string
      */
+    public $extra;
+
+    /**
+     * @var string
+     */
     public $keywords;
+
+    /**
+     * @var string
+     */
+    public $platform;
     protected $_name = [
-        'platform'        => 'Platform',
-        'extra'           => 'Extra',
         'catLevelThreeId' => 'CatLevelThreeId',
         'catLevelTwoId'   => 'CatLevelTwoId',
+        'extra'           => 'Extra',
         'keywords'        => 'Keywords',
+        'platform'        => 'Platform',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GetTitleIntelligenceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->platform) {
-            $res['Platform'] = $this->platform;
-        }
-        if (null !== $this->extra) {
-            $res['Extra'] = $this->extra;
-        }
         if (null !== $this->catLevelThreeId) {
             $res['CatLevelThreeId'] = $this->catLevelThreeId;
         }
         if (null !== $this->catLevelTwoId) {
             $res['CatLevelTwoId'] = $this->catLevelTwoId;
         }
+        if (null !== $this->extra) {
+            $res['Extra'] = $this->extra;
+        }
         if (null !== $this->keywords) {
             $res['Keywords'] = $this->keywords;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GetTitleIntelligenceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Platform'])) {
-            $model->platform = $map['Platform'];
-        }
-        if (isset($map['Extra'])) {
-            $model->extra = $map['Extra'];
-        }
         if (isset($map['CatLevelThreeId'])) {
             $model->catLevelThreeId = $map['CatLevelThreeId'];
         }
         if (isset($map['CatLevelTwoId'])) {
             $model->catLevelTwoId = $map['CatLevelTwoId'];
         }
+        if (isset($map['Extra'])) {
+            $model->extra = $map['Extra'];
+        }
         if (isset($map['Keywords'])) {
             $model->keywords = $map['Keywords'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
 
         return $model;

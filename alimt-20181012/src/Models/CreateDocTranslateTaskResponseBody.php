@@ -11,20 +11,20 @@ class CreateDocTranslateTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $status;
 
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'status'    => 'Status',
         'requestId' => 'RequestId',
+        'status'    => 'Status',
         'taskId'    => 'TaskId',
     ];
 
@@ -35,11 +35,11 @@ class CreateDocTranslateTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -56,11 +56,11 @@ class CreateDocTranslateTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

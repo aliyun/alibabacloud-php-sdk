@@ -16,7 +16,7 @@ class TranslateRequest extends Model
     /**
      * @var string
      */
-    public $targetLanguage;
+    public $scene;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class TranslateRequest extends Model
     /**
      * @var string
      */
-    public $scene;
+    public $targetLanguage;
     protected $_name = [
         'formatType'     => 'FormatType',
-        'targetLanguage' => 'TargetLanguage',
+        'scene'          => 'Scene',
         'sourceLanguage' => 'SourceLanguage',
         'sourceText'     => 'SourceText',
-        'scene'          => 'Scene',
+        'targetLanguage' => 'TargetLanguage',
     ];
 
     public function validate()
@@ -50,8 +50,8 @@ class TranslateRequest extends Model
         if (null !== $this->formatType) {
             $res['FormatType'] = $this->formatType;
         }
-        if (null !== $this->targetLanguage) {
-            $res['TargetLanguage'] = $this->targetLanguage;
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
         }
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
@@ -59,8 +59,8 @@ class TranslateRequest extends Model
         if (null !== $this->sourceText) {
             $res['SourceText'] = $this->sourceText;
         }
-        if (null !== $this->scene) {
-            $res['Scene'] = $this->scene;
+        if (null !== $this->targetLanguage) {
+            $res['TargetLanguage'] = $this->targetLanguage;
         }
 
         return $res;
@@ -77,8 +77,8 @@ class TranslateRequest extends Model
         if (isset($map['FormatType'])) {
             $model->formatType = $map['FormatType'];
         }
-        if (isset($map['TargetLanguage'])) {
-            $model->targetLanguage = $map['TargetLanguage'];
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
         }
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];
@@ -86,8 +86,8 @@ class TranslateRequest extends Model
         if (isset($map['SourceText'])) {
             $model->sourceText = $map['SourceText'];
         }
-        if (isset($map['Scene'])) {
-            $model->scene = $map['Scene'];
+        if (isset($map['TargetLanguage'])) {
+            $model->targetLanguage = $map['TargetLanguage'];
         }
 
         return $model;

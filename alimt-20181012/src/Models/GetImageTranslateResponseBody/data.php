@@ -11,21 +11,21 @@ class data extends Model
     /**
      * @var string
      */
-    public $url;
-
-    /**
-     * @var string
-     */
     public $orc;
 
     /**
      * @var string
      */
     public $pictureEditor;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'url'           => 'Url',
         'orc'           => 'Orc',
         'pictureEditor' => 'PictureEditor',
+        'url'           => 'Url',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->orc) {
             $res['Orc'] = $this->orc;
         }
         if (null !== $this->pictureEditor) {
             $res['PictureEditor'] = $this->pictureEditor;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['Orc'])) {
             $model->orc = $map['Orc'];
         }
         if (isset($map['PictureEditor'])) {
             $model->pictureEditor = $map['PictureEditor'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

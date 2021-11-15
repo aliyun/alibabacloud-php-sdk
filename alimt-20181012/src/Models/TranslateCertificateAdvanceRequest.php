@@ -17,28 +17,28 @@ class TranslateCertificateAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $sourceLanguage;
-
-    /**
-     * @var string
-     */
-    public $targetLanguage;
-
-    /**
-     * @var string
-     */
     public $certificateType;
 
     /**
      * @var string
      */
     public $resultType;
+
+    /**
+     * @var string
+     */
+    public $sourceLanguage;
+
+    /**
+     * @var string
+     */
+    public $targetLanguage;
     protected $_name = [
         'imageUrlObject'  => 'ImageUrlObject',
-        'sourceLanguage'  => 'SourceLanguage',
-        'targetLanguage'  => 'TargetLanguage',
         'certificateType' => 'CertificateType',
         'resultType'      => 'ResultType',
+        'sourceLanguage'  => 'SourceLanguage',
+        'targetLanguage'  => 'TargetLanguage',
     ];
 
     public function validate()
@@ -52,17 +52,17 @@ class TranslateCertificateAdvanceRequest extends Model
         if (null !== $this->imageUrlObject) {
             $res['ImageUrlObject'] = $this->imageUrlObject;
         }
-        if (null !== $this->sourceLanguage) {
-            $res['SourceLanguage'] = $this->sourceLanguage;
-        }
-        if (null !== $this->targetLanguage) {
-            $res['TargetLanguage'] = $this->targetLanguage;
-        }
         if (null !== $this->certificateType) {
             $res['CertificateType'] = $this->certificateType;
         }
         if (null !== $this->resultType) {
             $res['ResultType'] = $this->resultType;
+        }
+        if (null !== $this->sourceLanguage) {
+            $res['SourceLanguage'] = $this->sourceLanguage;
+        }
+        if (null !== $this->targetLanguage) {
+            $res['TargetLanguage'] = $this->targetLanguage;
         }
 
         return $res;
@@ -79,17 +79,17 @@ class TranslateCertificateAdvanceRequest extends Model
         if (isset($map['ImageUrlObject'])) {
             $model->imageUrlObject = $map['ImageUrlObject'];
         }
-        if (isset($map['SourceLanguage'])) {
-            $model->sourceLanguage = $map['SourceLanguage'];
-        }
-        if (isset($map['TargetLanguage'])) {
-            $model->targetLanguage = $map['TargetLanguage'];
-        }
         if (isset($map['CertificateType'])) {
             $model->certificateType = $map['CertificateType'];
         }
         if (isset($map['ResultType'])) {
             $model->resultType = $map['ResultType'];
+        }
+        if (isset($map['SourceLanguage'])) {
+            $model->sourceLanguage = $map['SourceLanguage'];
+        }
+        if (isset($map['TargetLanguage'])) {
+            $model->targetLanguage = $map['TargetLanguage'];
         }
 
         return $model;

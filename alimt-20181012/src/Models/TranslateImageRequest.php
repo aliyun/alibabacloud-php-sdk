@@ -6,17 +6,27 @@ namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateImageTranslateTaskRequest extends Model
+class TranslateImageRequest extends Model
 {
     /**
      * @var string
      */
-    public $clientToken;
+    public $ext;
 
     /**
      * @var string
      */
-    public $extra;
+    public $field;
+
+    /**
+     * @var string
+     */
+    public $imageBase64;
+
+    /**
+     * @var string
+     */
+    public $imageUrl;
 
     /**
      * @var string
@@ -27,17 +37,13 @@ class CreateImageTranslateTaskRequest extends Model
      * @var string
      */
     public $targetLanguage;
-
-    /**
-     * @var string
-     */
-    public $urlList;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'extra'          => 'Extra',
+        'ext'            => 'Ext',
+        'field'          => 'Field',
+        'imageBase64'    => 'ImageBase64',
+        'imageUrl'       => 'ImageUrl',
         'sourceLanguage' => 'SourceLanguage',
         'targetLanguage' => 'TargetLanguage',
-        'urlList'        => 'UrlList',
     ];
 
     public function validate()
@@ -47,20 +53,23 @@ class CreateImageTranslateTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->ext) {
+            $res['Ext'] = $this->ext;
         }
-        if (null !== $this->extra) {
-            $res['Extra'] = $this->extra;
+        if (null !== $this->field) {
+            $res['Field'] = $this->field;
+        }
+        if (null !== $this->imageBase64) {
+            $res['ImageBase64'] = $this->imageBase64;
+        }
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
         }
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
         }
         if (null !== $this->targetLanguage) {
             $res['TargetLanguage'] = $this->targetLanguage;
-        }
-        if (null !== $this->urlList) {
-            $res['UrlList'] = $this->urlList;
         }
 
         return $res;
@@ -69,25 +78,28 @@ class CreateImageTranslateTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateImageTranslateTaskRequest
+     * @return TranslateImageRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['Ext'])) {
+            $model->ext = $map['Ext'];
         }
-        if (isset($map['Extra'])) {
-            $model->extra = $map['Extra'];
+        if (isset($map['Field'])) {
+            $model->field = $map['Field'];
+        }
+        if (isset($map['ImageBase64'])) {
+            $model->imageBase64 = $map['ImageBase64'];
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
         }
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];
         }
         if (isset($map['TargetLanguage'])) {
             $model->targetLanguage = $map['TargetLanguage'];
-        }
-        if (isset($map['UrlList'])) {
-            $model->urlList = $map['UrlList'];
         }
 
         return $model;

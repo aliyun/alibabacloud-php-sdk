@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDocTranslateTaskResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $status;
+    public $pageCount;
 
     /**
      * @var string
@@ -21,17 +21,7 @@ class GetDocTranslateTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $translateFileUrl;
-
-    /**
-     * @var string
-     */
-    public $translateErrorCode;
-
-    /**
-     * @var int
-     */
-    public $pageCount;
+    public $status;
 
     /**
      * @var string
@@ -41,15 +31,25 @@ class GetDocTranslateTaskResponseBody extends Model
     /**
      * @var string
      */
+    public $translateErrorCode;
+
+    /**
+     * @var string
+     */
     public $translateErrorMessage;
+
+    /**
+     * @var string
+     */
+    public $translateFileUrl;
     protected $_name = [
-        'status'                => 'Status',
-        'requestId'             => 'RequestId',
-        'translateFileUrl'      => 'TranslateFileUrl',
-        'translateErrorCode'    => 'TranslateErrorCode',
         'pageCount'             => 'PageCount',
+        'requestId'             => 'RequestId',
+        'status'                => 'Status',
         'taskId'                => 'TaskId',
+        'translateErrorCode'    => 'TranslateErrorCode',
         'translateErrorMessage' => 'TranslateErrorMessage',
+        'translateFileUrl'      => 'TranslateFileUrl',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class GetDocTranslateTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->translateFileUrl) {
-            $res['TranslateFileUrl'] = $this->translateFileUrl;
-        }
-        if (null !== $this->translateErrorCode) {
-            $res['TranslateErrorCode'] = $this->translateErrorCode;
-        }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+        if (null !== $this->translateErrorCode) {
+            $res['TranslateErrorCode'] = $this->translateErrorCode;
+        }
         if (null !== $this->translateErrorMessage) {
             $res['TranslateErrorMessage'] = $this->translateErrorMessage;
+        }
+        if (null !== $this->translateFileUrl) {
+            $res['TranslateFileUrl'] = $this->translateFileUrl;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class GetDocTranslateTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TranslateFileUrl'])) {
-            $model->translateFileUrl = $map['TranslateFileUrl'];
-        }
-        if (isset($map['TranslateErrorCode'])) {
-            $model->translateErrorCode = $map['TranslateErrorCode'];
-        }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+        if (isset($map['TranslateErrorCode'])) {
+            $model->translateErrorCode = $map['TranslateErrorCode'];
+        }
         if (isset($map['TranslateErrorMessage'])) {
             $model->translateErrorMessage = $map['TranslateErrorMessage'];
+        }
+        if (isset($map['TranslateFileUrl'])) {
+            $model->translateFileUrl = $map['TranslateFileUrl'];
         }
 
         return $model;

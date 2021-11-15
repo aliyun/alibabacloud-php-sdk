@@ -41,6 +41,8 @@ use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateECommerceRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateECommerceResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateGeneralRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateGeneralResponse;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageRequest;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
@@ -184,14 +186,20 @@ class Alimt extends OpenApiClient
         // Step 0: init client
         $accessKeyId          = $this->_credential->getAccessKeyId();
         $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::isUnset($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
             'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
@@ -671,14 +679,20 @@ class Alimt extends OpenApiClient
         // Step 0: init client
         $accessKeyId          = $this->_credential->getAccessKeyId();
         $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::isUnset($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
             'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
@@ -786,5 +800,33 @@ class Alimt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->translateGeneralWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TranslateImageRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return TranslateImageResponse
+     */
+    public function translateImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TranslateImageResponse::fromMap($this->doRPCRequest('TranslateImage', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TranslateImageRequest $request
+     *
+     * @return TranslateImageResponse
+     */
+    public function translateImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->translateImageWithOptions($request, $runtime);
     }
 }

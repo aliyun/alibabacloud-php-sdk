@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateECommerceResponseBody\data;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class TranslateECommerceResponseBody extends Model
+class TranslateImageResponseBody extends Model
 {
     /**
      * @var int
@@ -61,7 +61,7 @@ class TranslateECommerceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return TranslateECommerceResponseBody
+     * @return TranslateImageResponseBody
      */
     public static function fromMap($map = [])
     {

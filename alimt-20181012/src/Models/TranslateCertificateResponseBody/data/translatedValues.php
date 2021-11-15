@@ -11,12 +11,12 @@ class translatedValues extends Model
     /**
      * @var string
      */
-    public $keyTranslation;
+    public $key;
 
     /**
      * @var string
      */
-    public $key;
+    public $keyTranslation;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class translatedValues extends Model
      */
     public $valueTranslation;
     protected $_name = [
-        'keyTranslation'   => 'KeyTranslation',
         'key'              => 'Key',
+        'keyTranslation'   => 'KeyTranslation',
         'value'            => 'Value',
         'valueTranslation' => 'ValueTranslation',
     ];
@@ -41,11 +41,11 @@ class translatedValues extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keyTranslation) {
-            $res['KeyTranslation'] = $this->keyTranslation;
-        }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
+        }
+        if (null !== $this->keyTranslation) {
+            $res['KeyTranslation'] = $this->keyTranslation;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
@@ -65,11 +65,11 @@ class translatedValues extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KeyTranslation'])) {
-            $model->keyTranslation = $map['KeyTranslation'];
-        }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
+        }
+        if (isset($map['KeyTranslation'])) {
+            $model->keyTranslation = $map['KeyTranslation'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];

@@ -17,12 +17,12 @@ class CreateDocTranslateTaskAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $sourceLanguage;
+    public $callbackUrl;
 
     /**
      * @var string
      */
-    public $targetLanguage;
+    public $clientToken;
 
     /**
      * @var string
@@ -32,19 +32,19 @@ class CreateDocTranslateTaskAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $callbackUrl;
+    public $sourceLanguage;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $targetLanguage;
     protected $_name = [
         'fileUrlObject'  => 'FileUrlObject',
-        'sourceLanguage' => 'SourceLanguage',
-        'targetLanguage' => 'TargetLanguage',
-        'scene'          => 'Scene',
         'callbackUrl'    => 'CallbackUrl',
         'clientToken'    => 'ClientToken',
+        'scene'          => 'Scene',
+        'sourceLanguage' => 'SourceLanguage',
+        'targetLanguage' => 'TargetLanguage',
     ];
 
     public function validate()
@@ -58,20 +58,20 @@ class CreateDocTranslateTaskAdvanceRequest extends Model
         if (null !== $this->fileUrlObject) {
             $res['FileUrlObject'] = $this->fileUrlObject;
         }
-        if (null !== $this->sourceLanguage) {
-            $res['SourceLanguage'] = $this->sourceLanguage;
-        }
-        if (null !== $this->targetLanguage) {
-            $res['TargetLanguage'] = $this->targetLanguage;
-        }
-        if (null !== $this->scene) {
-            $res['Scene'] = $this->scene;
-        }
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
+        }
+        if (null !== $this->sourceLanguage) {
+            $res['SourceLanguage'] = $this->sourceLanguage;
+        }
+        if (null !== $this->targetLanguage) {
+            $res['TargetLanguage'] = $this->targetLanguage;
         }
 
         return $res;
@@ -88,20 +88,20 @@ class CreateDocTranslateTaskAdvanceRequest extends Model
         if (isset($map['FileUrlObject'])) {
             $model->fileUrlObject = $map['FileUrlObject'];
         }
-        if (isset($map['SourceLanguage'])) {
-            $model->sourceLanguage = $map['SourceLanguage'];
-        }
-        if (isset($map['TargetLanguage'])) {
-            $model->targetLanguage = $map['TargetLanguage'];
-        }
-        if (isset($map['Scene'])) {
-            $model->scene = $map['Scene'];
-        }
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
+        }
+        if (isset($map['SourceLanguage'])) {
+            $model->sourceLanguage = $map['SourceLanguage'];
+        }
+        if (isset($map['TargetLanguage'])) {
+            $model->targetLanguage = $map['TargetLanguage'];
         }
 
         return $model;

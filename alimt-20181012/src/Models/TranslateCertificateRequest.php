@@ -11,12 +11,7 @@ class TranslateCertificateRequest extends Model
     /**
      * @var string
      */
-    public $sourceLanguage;
-
-    /**
-     * @var string
-     */
-    public $targetLanguage;
+    public $certificateType;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class TranslateCertificateRequest extends Model
     /**
      * @var string
      */
-    public $certificateType;
+    public $resultType;
 
     /**
      * @var string
      */
-    public $resultType;
+    public $sourceLanguage;
+
+    /**
+     * @var string
+     */
+    public $targetLanguage;
     protected $_name = [
+        'certificateType' => 'CertificateType',
+        'imageUrl'        => 'ImageUrl',
+        'resultType'      => 'ResultType',
         'sourceLanguage'  => 'SourceLanguage',
         'targetLanguage'  => 'TargetLanguage',
-        'imageUrl'        => 'ImageUrl',
-        'certificateType' => 'CertificateType',
-        'resultType'      => 'ResultType',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class TranslateCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certificateType) {
+            $res['CertificateType'] = $this->certificateType;
+        }
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
+        }
+        if (null !== $this->resultType) {
+            $res['ResultType'] = $this->resultType;
+        }
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
         }
         if (null !== $this->targetLanguage) {
             $res['TargetLanguage'] = $this->targetLanguage;
-        }
-        if (null !== $this->imageUrl) {
-            $res['ImageUrl'] = $this->imageUrl;
-        }
-        if (null !== $this->certificateType) {
-            $res['CertificateType'] = $this->certificateType;
-        }
-        if (null !== $this->resultType) {
-            $res['ResultType'] = $this->resultType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class TranslateCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertificateType'])) {
+            $model->certificateType = $map['CertificateType'];
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
+        }
+        if (isset($map['ResultType'])) {
+            $model->resultType = $map['ResultType'];
+        }
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];
         }
         if (isset($map['TargetLanguage'])) {
             $model->targetLanguage = $map['TargetLanguage'];
-        }
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrl = $map['ImageUrl'];
-        }
-        if (isset($map['CertificateType'])) {
-            $model->certificateType = $map['CertificateType'];
-        }
-        if (isset($map['ResultType'])) {
-            $model->resultType = $map['ResultType'];
         }
 
         return $model;
