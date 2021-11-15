@@ -16,6 +16,13 @@ class result extends Model
     public $endTime;
 
     /**
+     * @description 点赞数。
+     *
+     * @var int
+     */
+    public $likeCount;
+
+    /**
      * @description 直播ID。
      *
      * @var string
@@ -28,6 +35,13 @@ class result extends Model
      * @var int
      */
     public $messageCount;
+
+    /**
+     * @description 在线用户数。
+     *
+     * @var int
+     */
+    public $onlineCount;
 
     /**
      * @description 访问用户人次。
@@ -65,8 +79,10 @@ class result extends Model
     public $watchLiveTime;
     protected $_name = [
         'endTime'       => 'EndTime',
+        'likeCount'     => 'LikeCount',
         'liveId'        => 'LiveId',
         'messageCount'  => 'MessageCount',
+        'onlineCount'   => 'OnlineCount',
         'pv'            => 'Pv',
         'startTime'     => 'StartTime',
         'status'        => 'Status',
@@ -84,11 +100,17 @@ class result extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->likeCount) {
+            $res['LikeCount'] = $this->likeCount;
+        }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
         }
         if (null !== $this->messageCount) {
             $res['MessageCount'] = $this->messageCount;
+        }
+        if (null !== $this->onlineCount) {
+            $res['OnlineCount'] = $this->onlineCount;
         }
         if (null !== $this->pv) {
             $res['Pv'] = $this->pv;
@@ -120,11 +142,17 @@ class result extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['LikeCount'])) {
+            $model->likeCount = $map['LikeCount'];
+        }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
         }
         if (isset($map['MessageCount'])) {
             $model->messageCount = $map['MessageCount'];
+        }
+        if (isset($map['OnlineCount'])) {
+            $model->onlineCount = $map['OnlineCount'];
         }
         if (isset($map['Pv'])) {
             $model->pv = $map['Pv'];
