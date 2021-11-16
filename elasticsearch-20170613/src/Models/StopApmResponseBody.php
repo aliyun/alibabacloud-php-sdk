@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class StopApmResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $result;
     protected $_name = [
-        'requestId' => 'requestId',
+        'requestId' => 'RequestId',
+        'result'    => 'Result',
     ];
 
     public function validate()
@@ -26,7 +30,10 @@ class StopApmResponseBody extends Model
     {
         $res = [];
         if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
         }
 
         return $res;
@@ -40,8 +47,11 @@ class StopApmResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
         }
 
         return $model;

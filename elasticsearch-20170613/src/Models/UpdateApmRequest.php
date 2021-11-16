@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class UpdateApmRequest extends Model
 {
     /**
+     * @description apm实例名
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description es实例id
+     *
      * @var string
      */
     public $outputES;
 
     /**
+     * @description es实例密码
+     *
      * @var string
      */
     public $outputESPassword;
 
     /**
+     * @description es实例用户名
+     *
      * @var string
      */
     public $outputESUserName;
 
     /**
+     * @description apm server密码
+     *
      * @var string
      */
     public $token;
-
-    /**
-     * @var string
-     */
-    public $yml;
     protected $_name = [
+        'description'      => 'description',
         'outputES'         => 'outputES',
         'outputESPassword' => 'outputESPassword',
         'outputESUserName' => 'outputESUserName',
         'token'            => 'token',
-        'yml'              => 'yml',
     ];
 
     public function validate()
@@ -47,6 +57,9 @@ class UpdateApmRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
         if (null !== $this->outputES) {
             $res['outputES'] = $this->outputES;
         }
@@ -58,9 +71,6 @@ class UpdateApmRequest extends Model
         }
         if (null !== $this->token) {
             $res['token'] = $this->token;
-        }
-        if (null !== $this->yml) {
-            $res['yml'] = $this->yml;
         }
 
         return $res;
@@ -74,6 +84,9 @@ class UpdateApmRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
         if (isset($map['outputES'])) {
             $model->outputES = $map['outputES'];
         }
@@ -85,9 +98,6 @@ class UpdateApmRequest extends Model
         }
         if (isset($map['token'])) {
             $model->token = $map['token'];
-        }
-        if (isset($map['yml'])) {
-            $model->yml = $map['yml'];
         }
 
         return $model;

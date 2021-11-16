@@ -130,6 +130,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAllNodeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAllNodeResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAlternativeSnapshotReposRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAlternativeSnapshotReposResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListApmRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAvailableEsInstanceIdsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListCollectorsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListCollectorsResponse;
@@ -3009,6 +3011,53 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @param ListApmRequest $request
+     *
+     * @return ListApmResponse
+     */
+    public function listApm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listApmWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListApmRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListApmResponse
+     */
+    public function listApmWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            @$query['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->output)) {
+            @$query['output'] = $request->output;
+        }
+        if (!Utils::isUnset($request->page)) {
+            @$query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->size)) {
+            @$query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+
+        return ListApmResponse::fromMap($this->doROARequest('ListApm', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/apm', 'json', $req, $runtime));
+    }
+
+    /**
      * @param string $InstanceId
      *
      * @return ListAvailableEsInstanceIdsResponse
@@ -5789,25 +5838,25 @@ class Elasticsearch extends OpenApiClient
     {
         Utils::validateModel($request);
         $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $query      = [];
+        $body       = [];
+        if (!Utils::isUnset($request->description)) {
+            @$body['description'] = $request->description;
+        }
         if (!Utils::isUnset($request->outputES)) {
-            @$query['outputES'] = $request->outputES;
+            @$body['outputES'] = $request->outputES;
         }
         if (!Utils::isUnset($request->outputESPassword)) {
-            @$query['outputESPassword'] = $request->outputESPassword;
+            @$body['outputESPassword'] = $request->outputESPassword;
         }
         if (!Utils::isUnset($request->outputESUserName)) {
-            @$query['outputESUserName'] = $request->outputESUserName;
+            @$body['outputESUserName'] = $request->outputESUserName;
         }
         if (!Utils::isUnset($request->token)) {
-            @$query['token'] = $request->token;
-        }
-        if (!Utils::isUnset($request->yml)) {
-            @$query['yml'] = $request->yml;
+            @$body['token'] = $request->token;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
         return UpdateApmResponse::fromMap($this->doROARequest('UpdateApm', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/apm/' . $instanceId . '', 'json', $req, $runtime));

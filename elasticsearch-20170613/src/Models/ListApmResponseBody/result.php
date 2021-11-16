@@ -2,17 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeApmResponseBody;
+namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListApmResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
-    /**
-     * @var string
-     */
-    public $apmServerDomain;
-
     /**
      * @var string
      */
@@ -27,11 +22,6 @@ class result extends Model
      * @var string
      */
     public $description;
-
-    /**
-     * @var int
-     */
-    public $endTime;
 
     /**
      * @var string
@@ -52,11 +42,6 @@ class result extends Model
      * @var string
      */
     public $outputESUserName;
-
-    /**
-     * @var string
-     */
-    public $outputEsDescription;
 
     /**
      * @var string
@@ -108,26 +93,23 @@ class result extends Model
      */
     public $vswitchId;
     protected $_name = [
-        'apmServerDomain'     => 'apmServerDomain',
-        'createdAt'           => 'createdAt',
-        'deployedReplica'     => 'deployedReplica',
-        'description'         => 'description',
-        'endTime'             => 'endTime',
-        'instanceId'          => 'instanceId',
-        'nodeAmount'          => 'nodeAmount',
-        'outputES'            => 'outputES',
-        'outputESUserName'    => 'outputESUserName',
-        'outputEsDescription' => 'outputEsDescription',
-        'ownerId'             => 'ownerId',
-        'paymentType'         => 'paymentType',
-        'region'              => 'region',
-        'replica'             => 'replica',
-        'resourceSpec'        => 'resourceSpec',
-        'status'              => 'status',
-        'version'             => 'version',
-        'vpcId'               => 'vpcId',
-        'vsArea'              => 'vsArea',
-        'vswitchId'           => 'vswitchId',
+        'createdAt'        => 'createdAt',
+        'deployedReplica'  => 'deployedReplica',
+        'description'      => 'description',
+        'instanceId'       => 'instanceId',
+        'nodeAmount'       => 'nodeAmount',
+        'outputES'         => 'outputES',
+        'outputESUserName' => 'outputESUserName',
+        'ownerId'          => 'ownerId',
+        'paymentType'      => 'paymentType',
+        'region'           => 'region',
+        'replica'          => 'replica',
+        'resourceSpec'     => 'resourceSpec',
+        'status'           => 'status',
+        'version'          => 'version',
+        'vpcId'            => 'vpcId',
+        'vsArea'           => 'vsArea',
+        'vswitchId'        => 'vswitchId',
     ];
 
     public function validate()
@@ -137,9 +119,6 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apmServerDomain) {
-            $res['apmServerDomain'] = $this->apmServerDomain;
-        }
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
@@ -148,9 +127,6 @@ class result extends Model
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
-        }
-        if (null !== $this->endTime) {
-            $res['endTime'] = $this->endTime;
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
@@ -163,9 +139,6 @@ class result extends Model
         }
         if (null !== $this->outputESUserName) {
             $res['outputESUserName'] = $this->outputESUserName;
-        }
-        if (null !== $this->outputEsDescription) {
-            $res['outputEsDescription'] = $this->outputEsDescription;
         }
         if (null !== $this->ownerId) {
             $res['ownerId'] = $this->ownerId;
@@ -209,9 +182,6 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['apmServerDomain'])) {
-            $model->apmServerDomain = $map['apmServerDomain'];
-        }
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
@@ -220,9 +190,6 @@ class result extends Model
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
-        }
-        if (isset($map['endTime'])) {
-            $model->endTime = $map['endTime'];
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
@@ -235,9 +202,6 @@ class result extends Model
         }
         if (isset($map['outputESUserName'])) {
             $model->outputESUserName = $map['outputESUserName'];
-        }
-        if (isset($map['outputEsDescription'])) {
-            $model->outputEsDescription = $map['outputEsDescription'];
         }
         if (isset($map['ownerId'])) {
             $model->ownerId = $map['ownerId'];
