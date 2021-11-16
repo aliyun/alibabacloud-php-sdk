@@ -23,6 +23,13 @@ class project extends Model
     public $businessStatus;
 
     /**
+     * @description 模板素材参数
+     *
+     * @var string
+     */
+    public $clipsParam;
+
+    /**
      * @description 云剪辑工程封面。
      *
      * @var string
@@ -100,6 +107,13 @@ class project extends Model
     public $statusName;
 
     /**
+     * @description 模板Id
+     *
+     * @var string
+     */
+    public $templateId;
+
+    /**
      * @var string
      */
     public $templateType;
@@ -120,6 +134,7 @@ class project extends Model
     protected $_name = [
         'businessConfig' => 'BusinessConfig',
         'businessStatus' => 'BusinessStatus',
+        'clipsParam'     => 'ClipsParam',
         'coverURL'       => 'CoverURL',
         'createSource'   => 'CreateSource',
         'createTime'     => 'CreateTime',
@@ -131,6 +146,7 @@ class project extends Model
         'projectType'    => 'ProjectType',
         'status'         => 'Status',
         'statusName'     => 'StatusName',
+        'templateId'     => 'TemplateId',
         'templateType'   => 'TemplateType',
         'timeline'       => 'Timeline',
         'title'          => 'Title',
@@ -148,6 +164,9 @@ class project extends Model
         }
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
+        }
+        if (null !== $this->clipsParam) {
+            $res['ClipsParam'] = $this->clipsParam;
         }
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
@@ -182,6 +201,9 @@ class project extends Model
         if (null !== $this->statusName) {
             $res['StatusName'] = $this->statusName;
         }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
@@ -208,6 +230,9 @@ class project extends Model
         }
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];
+        }
+        if (isset($map['ClipsParam'])) {
+            $model->clipsParam = $map['ClipsParam'];
         }
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
@@ -241,6 +266,9 @@ class project extends Model
         }
         if (isset($map['StatusName'])) {
             $model->statusName = $map['StatusName'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];

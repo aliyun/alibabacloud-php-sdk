@@ -14,6 +14,13 @@ class UpdateEditingProjectRequest extends Model
     public $businessStatus;
 
     /**
+     * @description 模板对应的素材参数
+     *
+     * @var string
+     */
+    public $clipsParam;
+
+    /**
      * @description 云剪辑工程封面
      *
      * @var string
@@ -35,6 +42,13 @@ class UpdateEditingProjectRequest extends Model
     public $projectId;
 
     /**
+     * @description 模板Id
+     *
+     * @var string
+     */
+    public $templateId;
+
+    /**
      * @description 云剪辑工程时间线，Json格式
      *
      * @var string
@@ -49,9 +63,11 @@ class UpdateEditingProjectRequest extends Model
     public $title;
     protected $_name = [
         'businessStatus' => 'BusinessStatus',
+        'clipsParam'     => 'ClipsParam',
         'coverURL'       => 'CoverURL',
         'description'    => 'Description',
         'projectId'      => 'ProjectId',
+        'templateId'     => 'TemplateId',
         'timeline'       => 'Timeline',
         'title'          => 'Title',
     ];
@@ -66,6 +82,9 @@ class UpdateEditingProjectRequest extends Model
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
         }
+        if (null !== $this->clipsParam) {
+            $res['ClipsParam'] = $this->clipsParam;
+        }
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
         }
@@ -74,6 +93,9 @@ class UpdateEditingProjectRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->timeline) {
             $res['Timeline'] = $this->timeline;
@@ -96,6 +118,9 @@ class UpdateEditingProjectRequest extends Model
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];
         }
+        if (isset($map['ClipsParam'])) {
+            $model->clipsParam = $map['ClipsParam'];
+        }
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
         }
@@ -104,6 +129,9 @@ class UpdateEditingProjectRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['Timeline'])) {
             $model->timeline = $map['Timeline'];

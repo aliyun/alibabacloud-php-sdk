@@ -21,6 +21,11 @@ class SubmitMediaProducingJobRequest extends Model
     /**
      * @var string
      */
+    public $editingProduceConfig;
+
+    /**
+     * @var string
+     */
     public $outputMediaConfig;
 
     /**
@@ -58,16 +63,17 @@ class SubmitMediaProducingJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'clipsParam'        => 'ClipsParam',
-        'outputMediaConfig' => 'OutputMediaConfig',
-        'outputMediaTarget' => 'OutputMediaTarget',
-        'projectId'         => 'ProjectId',
-        'projectMetadata'   => 'ProjectMetadata',
-        'source'            => 'Source',
-        'templateId'        => 'TemplateId',
-        'timeline'          => 'Timeline',
-        'userData'          => 'UserData',
+        'clientToken'          => 'ClientToken',
+        'clipsParam'           => 'ClipsParam',
+        'editingProduceConfig' => 'EditingProduceConfig',
+        'outputMediaConfig'    => 'OutputMediaConfig',
+        'outputMediaTarget'    => 'OutputMediaTarget',
+        'projectId'            => 'ProjectId',
+        'projectMetadata'      => 'ProjectMetadata',
+        'source'               => 'Source',
+        'templateId'           => 'TemplateId',
+        'timeline'             => 'Timeline',
+        'userData'             => 'UserData',
     ];
 
     public function validate()
@@ -82,6 +88,9 @@ class SubmitMediaProducingJobRequest extends Model
         }
         if (null !== $this->clipsParam) {
             $res['ClipsParam'] = $this->clipsParam;
+        }
+        if (null !== $this->editingProduceConfig) {
+            $res['EditingProduceConfig'] = $this->editingProduceConfig;
         }
         if (null !== $this->outputMediaConfig) {
             $res['OutputMediaConfig'] = $this->outputMediaConfig;
@@ -124,6 +133,9 @@ class SubmitMediaProducingJobRequest extends Model
         }
         if (isset($map['ClipsParam'])) {
             $model->clipsParam = $map['ClipsParam'];
+        }
+        if (isset($map['EditingProduceConfig'])) {
+            $model->editingProduceConfig = $map['EditingProduceConfig'];
         }
         if (isset($map['OutputMediaConfig'])) {
             $model->outputMediaConfig = $map['OutputMediaConfig'];

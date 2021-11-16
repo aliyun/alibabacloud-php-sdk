@@ -16,6 +16,13 @@ class CreateEditingProjectRequest extends Model
     public $businessConfig;
 
     /**
+     * @description 模板素材参数
+     *
+     * @var string
+     */
+    public $clipsParam;
+
+    /**
      * @description 云剪辑工程封面
      *
      * @var string
@@ -44,6 +51,13 @@ class CreateEditingProjectRequest extends Model
     public $projectType;
 
     /**
+     * @description 模板Id
+     *
+     * @var string
+     */
+    public $templateId;
+
+    /**
      * @description 云剪辑工程时间线，Json格式
      *
      * @var string
@@ -58,10 +72,12 @@ class CreateEditingProjectRequest extends Model
     public $title;
     protected $_name = [
         'businessConfig' => 'BusinessConfig',
+        'clipsParam'     => 'ClipsParam',
         'coverURL'       => 'CoverURL',
         'description'    => 'Description',
         'materialMaps'   => 'MaterialMaps',
         'projectType'    => 'ProjectType',
+        'templateId'     => 'TemplateId',
         'timeline'       => 'Timeline',
         'title'          => 'Title',
     ];
@@ -76,6 +92,9 @@ class CreateEditingProjectRequest extends Model
         if (null !== $this->businessConfig) {
             $res['BusinessConfig'] = $this->businessConfig;
         }
+        if (null !== $this->clipsParam) {
+            $res['ClipsParam'] = $this->clipsParam;
+        }
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
         }
@@ -87,6 +106,9 @@ class CreateEditingProjectRequest extends Model
         }
         if (null !== $this->projectType) {
             $res['ProjectType'] = $this->projectType;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->timeline) {
             $res['Timeline'] = $this->timeline;
@@ -109,6 +131,9 @@ class CreateEditingProjectRequest extends Model
         if (isset($map['BusinessConfig'])) {
             $model->businessConfig = $map['BusinessConfig'];
         }
+        if (isset($map['ClipsParam'])) {
+            $model->clipsParam = $map['ClipsParam'];
+        }
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
         }
@@ -120,6 +145,9 @@ class CreateEditingProjectRequest extends Model
         }
         if (isset($map['ProjectType'])) {
             $model->projectType = $map['ProjectType'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['Timeline'])) {
             $model->timeline = $map['Timeline'];

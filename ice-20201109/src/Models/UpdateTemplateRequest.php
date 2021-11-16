@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
-     * @description 参见Timeline模板Config文档
+     * @description 参见模板Config文档
      *
      * @var string
      */
@@ -37,6 +37,13 @@ class UpdateTemplateRequest extends Model
     public $previewMedia;
 
     /**
+     * @description 模板相关素材，模板编辑器使用
+     *
+     * @var string
+     */
+    public $relatedMediaids;
+
+    /**
      * @description 修改来源，默认OpenAPI
      *
      * @var string
@@ -57,13 +64,14 @@ class UpdateTemplateRequest extends Model
      */
     public $templateId;
     protected $_name = [
-        'config'       => 'Config',
-        'coverUrl'     => 'CoverUrl',
-        'name'         => 'Name',
-        'previewMedia' => 'PreviewMedia',
-        'source'       => 'Source',
-        'status'       => 'Status',
-        'templateId'   => 'TemplateId',
+        'config'          => 'Config',
+        'coverUrl'        => 'CoverUrl',
+        'name'            => 'Name',
+        'previewMedia'    => 'PreviewMedia',
+        'relatedMediaids' => 'RelatedMediaids',
+        'source'          => 'Source',
+        'status'          => 'Status',
+        'templateId'      => 'TemplateId',
     ];
 
     public function validate()
@@ -84,6 +92,9 @@ class UpdateTemplateRequest extends Model
         }
         if (null !== $this->previewMedia) {
             $res['PreviewMedia'] = $this->previewMedia;
+        }
+        if (null !== $this->relatedMediaids) {
+            $res['RelatedMediaids'] = $this->relatedMediaids;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -117,6 +128,9 @@ class UpdateTemplateRequest extends Model
         }
         if (isset($map['PreviewMedia'])) {
             $model->previewMedia = $map['PreviewMedia'];
+        }
+        if (isset($map['RelatedMediaids'])) {
+            $model->relatedMediaids = $map['RelatedMediaids'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

@@ -16,7 +16,7 @@ class SubmitMediaProducingJobResponseBody extends Model
     public $jobId;
 
     /**
-     * @description 合成媒资Id
+     * @description 合成ICE媒资Id
      *
      * @var string
      */
@@ -35,11 +35,19 @@ class SubmitMediaProducingJobResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description vod媒资id
+     *
+     * @var string
+     */
+    public $vodMediaId;
     protected $_name = [
-        'jobId'     => 'JobId',
-        'mediaId'   => 'MediaId',
-        'projectId' => 'ProjectId',
-        'requestId' => 'RequestId',
+        'jobId'      => 'JobId',
+        'mediaId'    => 'MediaId',
+        'projectId'  => 'ProjectId',
+        'requestId'  => 'RequestId',
+        'vodMediaId' => 'VodMediaId',
     ];
 
     public function validate()
@@ -60,6 +68,9 @@ class SubmitMediaProducingJobResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vodMediaId) {
+            $res['VodMediaId'] = $this->vodMediaId;
         }
 
         return $res;
@@ -84,6 +95,9 @@ class SubmitMediaProducingJobResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VodMediaId'])) {
+            $model->vodMediaId = $map['VodMediaId'];
         }
 
         return $model;
