@@ -19,6 +19,13 @@ class UploadStreamByURLRequest extends Model
     public $fileExtension;
 
     /**
+     * @description 视频流HDR类型
+     *
+     * @var string
+     */
+    public $HDRType;
+
+    /**
      * @var string
      */
     public $mediaId;
@@ -35,6 +42,7 @@ class UploadStreamByURLRequest extends Model
     protected $_name = [
         'definition'    => 'Definition',
         'fileExtension' => 'FileExtension',
+        'HDRType'       => 'HDRType',
         'mediaId'       => 'MediaId',
         'streamURL'     => 'StreamURL',
         'userData'      => 'UserData',
@@ -52,6 +60,9 @@ class UploadStreamByURLRequest extends Model
         }
         if (null !== $this->fileExtension) {
             $res['FileExtension'] = $this->fileExtension;
+        }
+        if (null !== $this->HDRType) {
+            $res['HDRType'] = $this->HDRType;
         }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
@@ -79,6 +90,9 @@ class UploadStreamByURLRequest extends Model
         }
         if (isset($map['FileExtension'])) {
             $model->fileExtension = $map['FileExtension'];
+        }
+        if (isset($map['HDRType'])) {
+            $model->HDRType = $map['HDRType'];
         }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];

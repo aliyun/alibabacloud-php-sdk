@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetVideoPlayAuthRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $apiVersion;
+
+    /**
      * @var int
      */
     public $authInfoTimeout;
@@ -18,6 +23,7 @@ class GetVideoPlayAuthRequest extends Model
      */
     public $videoId;
     protected $_name = [
+        'apiVersion'      => 'ApiVersion',
         'authInfoTimeout' => 'AuthInfoTimeout',
         'videoId'         => 'VideoId',
     ];
@@ -29,6 +35,9 @@ class GetVideoPlayAuthRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->apiVersion) {
+            $res['ApiVersion'] = $this->apiVersion;
+        }
         if (null !== $this->authInfoTimeout) {
             $res['AuthInfoTimeout'] = $this->authInfoTimeout;
         }
@@ -47,6 +56,9 @@ class GetVideoPlayAuthRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiVersion'])) {
+            $model->apiVersion = $map['ApiVersion'];
+        }
         if (isset($map['AuthInfoTimeout'])) {
             $model->authInfoTimeout = $map['AuthInfoTimeout'];
         }

@@ -59,6 +59,13 @@ class videoStreamList extends Model
     public $fps;
 
     /**
+     * @description 视频流HDR类型
+     *
+     * @var string
+     */
+    public $HDRType;
+
+    /**
      * @var string
      */
     public $hasBFrames;
@@ -133,6 +140,7 @@ class videoStreamList extends Model
         'dar'            => 'Dar',
         'duration'       => 'Duration',
         'fps'            => 'Fps',
+        'HDRType'        => 'HDRType',
         'hasBFrames'     => 'HasBFrames',
         'height'         => 'Height',
         'index'          => 'Index',
@@ -184,6 +192,9 @@ class videoStreamList extends Model
         }
         if (null !== $this->fps) {
             $res['Fps'] = $this->fps;
+        }
+        if (null !== $this->HDRType) {
+            $res['HDRType'] = $this->HDRType;
         }
         if (null !== $this->hasBFrames) {
             $res['HasBFrames'] = $this->hasBFrames;
@@ -265,6 +276,9 @@ class videoStreamList extends Model
         }
         if (isset($map['Fps'])) {
             $model->fps = $map['Fps'];
+        }
+        if (isset($map['HDRType'])) {
+            $model->HDRType = $map['HDRType'];
         }
         if (isset($map['HasBFrames'])) {
             $model->hasBFrames = $map['HasBFrames'];

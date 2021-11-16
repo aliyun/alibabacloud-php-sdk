@@ -49,6 +49,13 @@ class playInfo extends Model
     public $fps;
 
     /**
+     * @description 视频流HDR类型
+     *
+     * @var string
+     */
+    public $HDRType;
+
+    /**
      * @var int
      */
     public $height;
@@ -111,6 +118,7 @@ class playInfo extends Model
         'encryptType'      => 'EncryptType',
         'format'           => 'Format',
         'fps'              => 'Fps',
+        'HDRType'          => 'HDRType',
         'height'           => 'Height',
         'jobId'            => 'JobId',
         'modificationTime' => 'ModificationTime',
@@ -154,6 +162,9 @@ class playInfo extends Model
         }
         if (null !== $this->fps) {
             $res['Fps'] = $this->fps;
+        }
+        if (null !== $this->HDRType) {
+            $res['HDRType'] = $this->HDRType;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
@@ -223,6 +234,9 @@ class playInfo extends Model
         }
         if (isset($map['Fps'])) {
             $model->fps = $map['Fps'];
+        }
+        if (isset($map['HDRType'])) {
+            $model->HDRType = $map['HDRType'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];

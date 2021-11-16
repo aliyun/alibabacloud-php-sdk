@@ -320,6 +320,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateEditingProjectRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateEditingProjectResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateImageInfosRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateImageInfosResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateStreamInfoRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateStreamInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateTranscodeTemplateGroupRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateTranscodeTemplateGroupResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateVideoInfoRequest;
@@ -4833,6 +4835,34 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateImageInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateStreamInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateStreamInfoResponse
+     */
+    public function updateStreamInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateStreamInfoResponse::fromMap($this->doRPCRequest('UpdateStreamInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateStreamInfoRequest $request
+     *
+     * @return UpdateStreamInfoResponse
+     */
+    public function updateStreamInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStreamInfoWithOptions($request, $runtime);
     }
 
     /**
