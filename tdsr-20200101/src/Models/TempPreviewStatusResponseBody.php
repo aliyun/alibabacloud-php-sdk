@@ -30,7 +30,7 @@ class TempPreviewStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description processing：处理中 success：成功 failed：失败
+     * @description 状态标识
      *
      * @var string
      */

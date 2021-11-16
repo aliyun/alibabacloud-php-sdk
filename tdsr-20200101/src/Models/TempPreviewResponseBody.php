@@ -16,13 +16,6 @@ class TempPreviewResponseBody extends Model
     public $code;
 
     /**
-     * @description 任务ID
-     *
-     * @var string
-     */
-    public $key;
-
-    /**
      * @description 错误消息
      *
      * @var string
@@ -44,6 +37,13 @@ class TempPreviewResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 场景ID
+     *
+     * @var string
+     */
+    public $sceneId;
+
+    /**
      * @description 是否请求成功
      *
      * @var bool
@@ -51,10 +51,10 @@ class TempPreviewResponseBody extends Model
     public $success;
     protected $_name = [
         'code'       => 'Code',
-        'key'        => 'Key',
         'message'    => 'Message',
         'previewUrl' => 'PreviewUrl',
         'requestId'  => 'RequestId',
+        'sceneId'    => 'SceneId',
         'success'    => 'Success',
     ];
 
@@ -68,9 +68,6 @@ class TempPreviewResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -79,6 +76,9 @@ class TempPreviewResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -98,9 +98,6 @@ class TempPreviewResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -109,6 +106,9 @@ class TempPreviewResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

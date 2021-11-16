@@ -30,13 +30,6 @@ class GetSceneBuildTaskStatusResponseBody extends Model
     public $errorMsg;
 
     /**
-     * @description 任务ID
-     *
-     * @var string
-     */
-    public $id;
-
-    /**
      * @description 错误消息
      *
      * @var string
@@ -58,7 +51,7 @@ class GetSceneBuildTaskStatusResponseBody extends Model
     public $sceneId;
 
     /**
-     * @description 未开始  init 处理中 失败     failure   processing  完成     succeed 取消     canceled
+     * @description 未开始  init 处理中 失败     failed   processing  完成     succeed 取消     canceled
      *
      * @var string
      */
@@ -70,24 +63,15 @@ class GetSceneBuildTaskStatusResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @description 墙线预测: wall_line  切图: cut_image  重建: build  直角优化：right_angle_optimization 其他：other
-     *
-     * @var string
-     */
-    public $type;
     protected $_name = [
         'code'      => 'Code',
         'errorCode' => 'ErrorCode',
         'errorMsg'  => 'ErrorMsg',
-        'id'        => 'Id',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'sceneId'   => 'SceneId',
         'status'    => 'Status',
         'success'   => 'Success',
-        'type'      => 'Type',
     ];
 
     public function validate()
@@ -106,9 +90,6 @@ class GetSceneBuildTaskStatusResponseBody extends Model
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -123,9 +104,6 @@ class GetSceneBuildTaskStatusResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -148,9 +126,6 @@ class GetSceneBuildTaskStatusResponseBody extends Model
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -165,9 +140,6 @@ class GetSceneBuildTaskStatusResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

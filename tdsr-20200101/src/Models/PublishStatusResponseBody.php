@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetJobResponseBody extends Model
+class PublishStatusResponseBody extends Model
 {
     /**
      * @description 返回码
@@ -32,7 +32,7 @@ class GetJobResponseBody extends Model
     /**
      * @description 任务运行状态
      *
-     * @var int
+     * @var string
      */
     public $status;
 
@@ -79,7 +79,7 @@ class GetJobResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetJobResponseBody
+     * @return PublishStatusResponseBody
      */
     public static function fromMap($map = [])
     {

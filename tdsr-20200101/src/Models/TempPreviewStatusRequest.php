@@ -13,9 +13,9 @@ class TempPreviewStatusRequest extends Model
      *
      * @var string
      */
-    public $key;
+    public $sceneId;
     protected $_name = [
-        'key' => 'Key',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class TempPreviewStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -40,8 +40,8 @@ class TempPreviewStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;

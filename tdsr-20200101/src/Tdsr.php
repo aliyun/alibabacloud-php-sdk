@@ -45,8 +45,6 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotSceneDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotSceneDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotTagRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotTagResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetJobRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetJobResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetLayoutDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetLayoutDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetOriginLayoutDataRequest;
@@ -91,6 +89,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishSceneResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishStatusRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishStatusResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RecoveryOriginImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RecoveryOriginImageResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectifyImageRequest;
@@ -721,34 +721,6 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param GetJobRequest  $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetJobResponse
-     */
-    public function getJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetJobResponse::fromMap($this->doRPCRequest('GetJob', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetJobRequest $request
-     *
-     * @return GetJobResponse
-     */
-    public function getJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getJobWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetLayoutDataRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1362,6 +1334,34 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->publishSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublishStatusRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PublishStatusResponse
+     */
+    public function publishStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PublishStatusResponse::fromMap($this->doRPCRequest('PublishStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PublishStatusRequest $request
+     *
+     * @return PublishStatusResponse
+     */
+    public function publishStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishStatusWithOptions($request, $runtime);
     }
 
     /**

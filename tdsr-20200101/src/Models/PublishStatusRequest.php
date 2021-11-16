@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetJobRequest extends Model
+class PublishStatusRequest extends Model
 {
     /**
-     * @description 任务实例ID
+     * @description 场景ID
      *
      * @var string
      */
-    public $instanceId;
+    public $sceneId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class GetJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class GetJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetJobRequest
+     * @return PublishStatusRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;
