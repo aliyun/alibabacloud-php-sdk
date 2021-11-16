@@ -35,17 +35,11 @@ class WeatherforecastTimeRequest extends Model
      * @var string
      */
     public $orderId;
-
-    /**
-     * @var string
-     */
-    public $sourceIp;
     protected $_name = [
-        'curHour'  => 'CurHour',
-        'lat'      => 'Lat',
-        'lon'      => 'Lon',
-        'orderId'  => 'OrderId',
-        'sourceIp' => 'SourceIp',
+        'curHour' => 'CurHour',
+        'lat'     => 'Lat',
+        'lon'     => 'Lon',
+        'orderId' => 'OrderId',
     ];
 
     public function validate()
@@ -66,9 +60,6 @@ class WeatherforecastTimeRequest extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -93,9 +84,6 @@ class WeatherforecastTimeRequest extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;
