@@ -3408,6 +3408,9 @@ class GEMP extends OpenApiClient
         if (!Utils::isUnset($request->alertSourceName)) {
             @$body['alertSourceName'] = $request->alertSourceName;
         }
+        if (!Utils::isUnset($request->endTime)) {
+            @$body['endTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             @$body['pageNumber'] = $request->pageNumber;
         }
@@ -3416,6 +3419,9 @@ class GEMP extends OpenApiClient
         }
         if (!Utils::isUnset($request->relatedServiceId)) {
             @$body['relatedServiceId'] = $request->relatedServiceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            @$body['startTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4496,6 +4502,9 @@ class GEMP extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             @$body['clientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->endTime)) {
+            @$body['endTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             @$body['instanceId'] = $request->instanceId;
         }
@@ -4510,6 +4519,9 @@ class GEMP extends OpenApiClient
         }
         if (!Utils::isUnset($request->startRowKey)) {
             @$body['startRowKey'] = $request->startRowKey;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            @$body['startTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->stopRowKey)) {
             @$body['stopRowKey'] = $request->stopRowKey;

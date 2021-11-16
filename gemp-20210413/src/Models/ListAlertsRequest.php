@@ -30,6 +30,13 @@ class ListAlertsRequest extends Model
     public $alertSourceName;
 
     /**
+     * @description 结束时间
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @description 当前页
      *
      * @var int
@@ -49,13 +56,22 @@ class ListAlertsRequest extends Model
      * @var int
      */
     public $relatedServiceId;
+
+    /**
+     * @description 开始时间
+     *
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'alertLevel'       => 'alertLevel',
         'alertName'        => 'alertName',
         'alertSourceName'  => 'alertSourceName',
+        'endTime'          => 'endTime',
         'pageNumber'       => 'pageNumber',
         'pageSize'         => 'pageSize',
         'relatedServiceId' => 'relatedServiceId',
+        'startTime'        => 'startTime',
     ];
 
     public function validate()
@@ -74,6 +90,9 @@ class ListAlertsRequest extends Model
         if (null !== $this->alertSourceName) {
             $res['alertSourceName'] = $this->alertSourceName;
         }
+        if (null !== $this->endTime) {
+            $res['endTime'] = $this->endTime;
+        }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
@@ -82,6 +101,9 @@ class ListAlertsRequest extends Model
         }
         if (null !== $this->relatedServiceId) {
             $res['relatedServiceId'] = $this->relatedServiceId;
+        }
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
         }
 
         return $res;
@@ -104,6 +126,9 @@ class ListAlertsRequest extends Model
         if (isset($map['alertSourceName'])) {
             $model->alertSourceName = $map['alertSourceName'];
         }
+        if (isset($map['endTime'])) {
+            $model->endTime = $map['endTime'];
+        }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
@@ -112,6 +137,9 @@ class ListAlertsRequest extends Model
         }
         if (isset($map['relatedServiceId'])) {
             $model->relatedServiceId = $map['relatedServiceId'];
+        }
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
         }
 
         return $model;

@@ -16,6 +16,13 @@ class ListSourceEventsRequest extends Model
     public $clientToken;
 
     /**
+     * @description 结束时间
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @description 报警或者事件ID
      *
      * @var int
@@ -51,6 +58,13 @@ class ListSourceEventsRequest extends Model
     public $startRowKey;
 
     /**
+     * @description 开始时间
+     *
+     * @var string
+     */
+    public $startTime;
+
+    /**
      * @description stopRowKey 用来查询上一页的数据
      *
      * @var string
@@ -58,11 +72,13 @@ class ListSourceEventsRequest extends Model
     public $stopRowKey;
     protected $_name = [
         'clientToken'  => 'clientToken',
+        'endTime'      => 'endTime',
         'instanceId'   => 'instanceId',
         'instanceType' => 'instanceType',
         'pageNumber'   => 'pageNumber',
         'pageSize'     => 'pageSize',
         'startRowKey'  => 'startRowKey',
+        'startTime'    => 'startTime',
         'stopRowKey'   => 'stopRowKey',
     ];
 
@@ -75,6 +91,9 @@ class ListSourceEventsRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->endTime) {
+            $res['endTime'] = $this->endTime;
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
@@ -90,6 +109,9 @@ class ListSourceEventsRequest extends Model
         }
         if (null !== $this->startRowKey) {
             $res['startRowKey'] = $this->startRowKey;
+        }
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
         }
         if (null !== $this->stopRowKey) {
             $res['stopRowKey'] = $this->stopRowKey;
@@ -109,6 +131,9 @@ class ListSourceEventsRequest extends Model
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
+        if (isset($map['endTime'])) {
+            $model->endTime = $map['endTime'];
+        }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
@@ -123,6 +148,9 @@ class ListSourceEventsRequest extends Model
         }
         if (isset($map['startRowKey'])) {
             $model->startRowKey = $map['startRowKey'];
+        }
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
         }
         if (isset($map['stopRowKey'])) {
             $model->stopRowKey = $map['stopRowKey'];
