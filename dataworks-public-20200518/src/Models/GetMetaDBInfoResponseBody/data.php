@@ -11,7 +11,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $type;
+    public $appGuid;
+
+    /**
+     * @var string
+     */
+    public $clusterBizId;
 
     /**
      * @var string
@@ -22,6 +27,41 @@ class data extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $endpoint;
+
+    /**
+     * @var int
+     */
+    public $envType;
+
+    /**
+     * @var string
+     */
+    public $location;
+
+    /**
+     * @var int
+     */
+    public $modifyTime;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $ownerName;
 
     /**
      * @var int
@@ -36,47 +76,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $appGuid;
-
-    /**
-     * @var string
-     */
-    public $ownerName;
-
-    /**
-     * @var string
-     */
-    public $ownerId;
-
-    /**
-     * @var int
-     */
-    public $envType;
-
-    /**
-     * @var string
-     */
     public $projectNameCn;
-
-    /**
-     * @var string
-     */
-    public $endpoint;
-
-    /**
-     * @var string
-     */
-    public $clusterBizId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $location;
 
     /**
      * @var int
@@ -84,26 +84,26 @@ class data extends Model
     public $tenantId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $modifyTime;
+    public $type;
     protected $_name = [
-        'type'          => 'Type',
+        'appGuid'       => 'AppGuid',
+        'clusterBizId'  => 'ClusterBizId',
         'comment'       => 'Comment',
         'createTime'    => 'CreateTime',
+        'endpoint'      => 'Endpoint',
+        'envType'       => 'EnvType',
+        'location'      => 'Location',
+        'modifyTime'    => 'ModifyTime',
+        'name'          => 'Name',
+        'ownerId'       => 'OwnerId',
+        'ownerName'     => 'OwnerName',
         'projectId'     => 'ProjectId',
         'projectName'   => 'ProjectName',
-        'appGuid'       => 'AppGuid',
-        'ownerName'     => 'OwnerName',
-        'ownerId'       => 'OwnerId',
-        'envType'       => 'EnvType',
         'projectNameCn' => 'ProjectNameCn',
-        'endpoint'      => 'Endpoint',
-        'clusterBizId'  => 'ClusterBizId',
-        'name'          => 'Name',
-        'location'      => 'Location',
         'tenantId'      => 'TenantId',
-        'modifyTime'    => 'ModifyTime',
+        'type'          => 'Type',
     ];
 
     public function validate()
@@ -113,8 +113,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->appGuid) {
+            $res['AppGuid'] = $this->appGuid;
+        }
+        if (null !== $this->clusterBizId) {
+            $res['ClusterBizId'] = $this->clusterBizId;
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
@@ -122,44 +125,41 @@ class data extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->endpoint) {
+            $res['Endpoint'] = $this->endpoint;
+        }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
+        }
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->ownerName) {
+            $res['OwnerName'] = $this->ownerName;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
-        if (null !== $this->appGuid) {
-            $res['AppGuid'] = $this->appGuid;
-        }
-        if (null !== $this->ownerName) {
-            $res['OwnerName'] = $this->ownerName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->envType) {
-            $res['EnvType'] = $this->envType;
-        }
         if (null !== $this->projectNameCn) {
             $res['ProjectNameCn'] = $this->projectNameCn;
-        }
-        if (null !== $this->endpoint) {
-            $res['Endpoint'] = $this->endpoint;
-        }
-        if (null !== $this->clusterBizId) {
-            $res['ClusterBizId'] = $this->clusterBizId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -173,8 +173,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['AppGuid'])) {
+            $model->appGuid = $map['AppGuid'];
+        }
+        if (isset($map['ClusterBizId'])) {
+            $model->clusterBizId = $map['ClusterBizId'];
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
@@ -182,44 +185,41 @@ class data extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['Endpoint'])) {
+            $model->endpoint = $map['Endpoint'];
+        }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
+        }
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['OwnerName'])) {
+            $model->ownerName = $map['OwnerName'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
-        if (isset($map['AppGuid'])) {
-            $model->appGuid = $map['AppGuid'];
-        }
-        if (isset($map['OwnerName'])) {
-            $model->ownerName = $map['OwnerName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['EnvType'])) {
-            $model->envType = $map['EnvType'];
-        }
         if (isset($map['ProjectNameCn'])) {
             $model->projectNameCn = $map['ProjectNameCn'];
-        }
-        if (isset($map['Endpoint'])) {
-            $model->endpoint = $map['Endpoint'];
-        }
-        if (isset($map['ClusterBizId'])) {
-            $model->clusterBizId = $map['ClusterBizId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $taskStatus;
+    public $taskName;
 
     /**
      * @var string
      */
-    public $taskName;
+    public $taskStatus;
     protected $_name = [
-        'taskStatus' => 'TaskStatus',
         'taskName'   => 'TaskName',
+        'taskStatus' => 'TaskStatus',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
-        }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
-        }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
 
         return $model;

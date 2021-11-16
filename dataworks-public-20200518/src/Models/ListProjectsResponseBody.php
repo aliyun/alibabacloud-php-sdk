@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var pageResult
      */
     public $pageResult;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'pageResult' => 'PageResult',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ListProjectsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->pageResult) {
             $res['PageResult'] = null !== $this->pageResult ? $this->pageResult->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ListProjectsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PageResult'])) {
             $model->pageResult = pageResult::fromMap($map['PageResult']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

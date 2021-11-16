@@ -11,27 +11,27 @@ class column extends Model
     /**
      * @var string
      */
-    public $columnNameCn;
-
-    /**
-     * @var string
-     */
     public $columnName;
 
     /**
      * @var string
      */
-    public $comment;
+    public $columnNameCn;
 
     /**
      * @var string
      */
     public $columnType;
+
+    /**
+     * @var string
+     */
+    public $comment;
     protected $_name = [
-        'columnNameCn' => 'ColumnNameCn',
         'columnName'   => 'ColumnName',
-        'comment'      => 'Comment',
+        'columnNameCn' => 'ColumnNameCn',
         'columnType'   => 'ColumnType',
+        'comment'      => 'Comment',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class column extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->columnNameCn) {
-            $res['ColumnNameCn'] = $this->columnNameCn;
-        }
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
+        if (null !== $this->columnNameCn) {
+            $res['ColumnNameCn'] = $this->columnNameCn;
         }
         if (null !== $this->columnType) {
             $res['ColumnType'] = $this->columnType;
+        }
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class column extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ColumnNameCn'])) {
-            $model->columnNameCn = $map['ColumnNameCn'];
-        }
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
+        if (isset($map['ColumnNameCn'])) {
+            $model->columnNameCn = $map['ColumnNameCn'];
         }
         if (isset($map['ColumnType'])) {
             $model->columnType = $map['ColumnType'];
+        }
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
 
         return $model;

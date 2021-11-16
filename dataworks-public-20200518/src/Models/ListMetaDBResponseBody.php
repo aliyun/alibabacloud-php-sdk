@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListMetaDBResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var databaseInfo
      */
     public $databaseInfo;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'databaseInfo' => 'DatabaseInfo',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ListMetaDBResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->databaseInfo) {
             $res['DatabaseInfo'] = null !== $this->databaseInfo ? $this->databaseInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ListMetaDBResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DatabaseInfo'])) {
             $model->databaseInfo = databaseInfo::fromMap($map['DatabaseInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

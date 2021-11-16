@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateNodeOwnerRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $projectEnv;
-
-    /**
      * @var int
      */
     public $nodeId;
@@ -21,10 +16,15 @@ class UpdateNodeOwnerRequest extends Model
     /**
      * @var string
      */
+    public $projectEnv;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
-        'projectEnv' => 'ProjectEnv',
         'nodeId'     => 'NodeId',
+        'projectEnv' => 'ProjectEnv',
         'userId'     => 'UserId',
     ];
 
@@ -35,11 +35,11 @@ class UpdateNodeOwnerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectEnv) {
-            $res['ProjectEnv'] = $this->projectEnv;
-        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->projectEnv) {
+            $res['ProjectEnv'] = $this->projectEnv;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -56,11 +56,11 @@ class UpdateNodeOwnerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectEnv'])) {
-            $model->projectEnv = $map['ProjectEnv'];
-        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['ProjectEnv'])) {
+            $model->projectEnv = $map['ProjectEnv'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

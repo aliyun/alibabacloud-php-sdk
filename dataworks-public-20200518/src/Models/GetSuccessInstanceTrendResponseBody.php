@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetSuccessInstanceTrendResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var instanceStatusTrend
      */
     public $instanceStatusTrend;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'instanceStatusTrend' => 'InstanceStatusTrend',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetSuccessInstanceTrendResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instanceStatusTrend) {
             $res['InstanceStatusTrend'] = null !== $this->instanceStatusTrend ? $this->instanceStatusTrend->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetSuccessInstanceTrendResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InstanceStatusTrend'])) {
             $model->instanceStatusTrend = instanceStatusTrend::fromMap($map['InstanceStatusTrend']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

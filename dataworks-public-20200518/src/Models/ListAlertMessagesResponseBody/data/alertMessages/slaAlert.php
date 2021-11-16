@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class slaAlert extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $baselineOwner;
-
-    /**
      * @var int
      */
     public $baselineId;
@@ -29,6 +19,11 @@ class slaAlert extends Model
     public $baselineName;
 
     /**
+     * @var string
+     */
+    public $baselineOwner;
+
+    /**
      * @var int
      */
     public $bizdate;
@@ -36,20 +31,25 @@ class slaAlert extends Model
     /**
      * @var int
      */
-    public $projectId;
+    public $inGroupId;
 
     /**
      * @var int
      */
-    public $inGroupId;
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'        => 'Status',
-        'baselineOwner' => 'BaselineOwner',
         'baselineId'    => 'BaselineId',
         'baselineName'  => 'BaselineName',
+        'baselineOwner' => 'BaselineOwner',
         'bizdate'       => 'Bizdate',
-        'projectId'     => 'ProjectId',
         'inGroupId'     => 'InGroupId',
+        'projectId'     => 'ProjectId',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class slaAlert extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->baselineOwner) {
-            $res['BaselineOwner'] = $this->baselineOwner;
-        }
         if (null !== $this->baselineId) {
             $res['BaselineId'] = $this->baselineId;
         }
         if (null !== $this->baselineName) {
             $res['BaselineName'] = $this->baselineName;
         }
+        if (null !== $this->baselineOwner) {
+            $res['BaselineOwner'] = $this->baselineOwner;
+        }
         if (null !== $this->bizdate) {
             $res['Bizdate'] = $this->bizdate;
+        }
+        if (null !== $this->inGroupId) {
+            $res['InGroupId'] = $this->inGroupId;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->inGroupId) {
-            $res['InGroupId'] = $this->inGroupId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class slaAlert extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['BaselineOwner'])) {
-            $model->baselineOwner = $map['BaselineOwner'];
-        }
         if (isset($map['BaselineId'])) {
             $model->baselineId = $map['BaselineId'];
         }
         if (isset($map['BaselineName'])) {
             $model->baselineName = $map['BaselineName'];
         }
+        if (isset($map['BaselineOwner'])) {
+            $model->baselineOwner = $map['BaselineOwner'];
+        }
         if (isset($map['Bizdate'])) {
             $model->bizdate = $map['Bizdate'];
+        }
+        if (isset($map['InGroupId'])) {
+            $model->inGroupId = $map['InGroupId'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['InGroupId'])) {
-            $model->inGroupId = $map['InGroupId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

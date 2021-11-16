@@ -16,28 +16,28 @@ class ListFileVersionsRequest extends Model
     /**
      * @var int
      */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $projectIdentifier;
-
-    /**
-     * @var int
-     */
     public $pageNumber;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $projectIdentifier;
     protected $_name = [
         'fileId'            => 'FileId',
-        'projectId'         => 'ProjectId',
-        'projectIdentifier' => 'ProjectIdentifier',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
+        'projectId'         => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class ListFileVersionsRequest extends Model
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->projectIdentifier) {
-            $res['ProjectIdentifier'] = $this->projectIdentifier;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->projectIdentifier) {
+            $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class ListFileVersionsRequest extends Model
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ProjectIdentifier'])) {
-            $model->projectIdentifier = $map['ProjectIdentifier'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ProjectIdentifier'])) {
+            $model->projectIdentifier = $map['ProjectIdentifier'];
         }
 
         return $model;

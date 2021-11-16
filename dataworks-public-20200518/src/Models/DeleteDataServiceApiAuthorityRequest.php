@@ -11,7 +11,12 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     /**
      * @var int
      */
-    public $tenantId;
+    public $apiId;
+
+    /**
+     * @var int
+     */
+    public $authorizedProjectId;
 
     /**
      * @var int
@@ -21,17 +26,12 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     /**
      * @var int
      */
-    public $apiId;
-
-    /**
-     * @var int
-     */
-    public $authorizedProjectId;
+    public $tenantId;
     protected $_name = [
-        'tenantId'            => 'TenantId',
-        'projectId'           => 'ProjectId',
         'apiId'               => 'ApiId',
         'authorizedProjectId' => 'AuthorizedProjectId',
+        'projectId'           => 'ProjectId',
+        'tenantId'            => 'TenantId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
         if (null !== $this->authorizedProjectId) {
             $res['AuthorizedProjectId'] = $this->authorizedProjectId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
         if (isset($map['AuthorizedProjectId'])) {
             $model->authorizedProjectId = $map['AuthorizedProjectId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

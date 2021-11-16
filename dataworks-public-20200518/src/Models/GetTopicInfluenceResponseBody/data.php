@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $topicId;
-
-    /**
      * @var influences[]
      */
     public $influences;
+
+    /**
+     * @var int
+     */
+    public $topicId;
     protected $_name = [
-        'topicId'    => 'TopicId',
         'influences' => 'Influences',
+        'topicId'    => 'TopicId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topicId) {
-            $res['TopicId'] = $this->topicId;
-        }
         if (null !== $this->influences) {
             $res['Influences'] = [];
             if (null !== $this->influences && \is_array($this->influences)) {
@@ -41,6 +38,9 @@ class data extends Model
                     $res['Influences'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->topicId) {
+            $res['TopicId'] = $this->topicId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TopicId'])) {
-            $model->topicId = $map['TopicId'];
-        }
         if (isset($map['Influences'])) {
             if (!empty($map['Influences'])) {
                 $model->influences = [];
@@ -65,6 +62,9 @@ class data extends Model
                     $model->influences[$n++] = null !== $item ? influences::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TopicId'])) {
+            $model->topicId = $map['TopicId'];
         }
 
         return $model;

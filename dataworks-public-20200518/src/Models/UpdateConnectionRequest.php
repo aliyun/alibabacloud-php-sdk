@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateConnectionRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $connectionId;
+
+    /**
+     * @var string
+     */
+    public $content;
+
+    /**
      * @var string
      */
     public $description;
@@ -21,23 +31,13 @@ class UpdateConnectionRequest extends Model
     /**
      * @var string
      */
-    public $content;
-
-    /**
-     * @var string
-     */
     public $status;
-
-    /**
-     * @var int
-     */
-    public $connectionId;
     protected $_name = [
+        'connectionId' => 'ConnectionId',
+        'content'      => 'Content',
         'description'  => 'Description',
         'envType'      => 'EnvType',
-        'content'      => 'Content',
         'status'       => 'Status',
-        'connectionId' => 'ConnectionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class UpdateConnectionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectionId) {
+            $res['ConnectionId'] = $this->connectionId;
+        }
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->connectionId) {
-            $res['ConnectionId'] = $this->connectionId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class UpdateConnectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionId'])) {
+            $model->connectionId = $map['ConnectionId'];
+        }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['ConnectionId'])) {
-            $model->connectionId = $map['ConnectionId'];
         }
 
         return $model;

@@ -20,19 +20,19 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var tableEntityList[]
      */
     public $tableEntityList;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'totalCount'      => 'TotalCount',
         'tableEntityList' => 'TableEntityList',
+        'totalCount'      => 'TotalCount',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->tableEntityList) {
             $res['TableEntityList'] = [];
             if (null !== $this->tableEntityList && \is_array($this->tableEntityList)) {
@@ -59,6 +56,9 @@ class data extends Model
                     $res['TableEntityList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['TableEntityList'])) {
             if (!empty($map['TableEntityList'])) {
                 $model->tableEntityList = [];
@@ -89,6 +86,9 @@ class data extends Model
                     $model->tableEntityList[$n++] = null !== $item ? tableEntityList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

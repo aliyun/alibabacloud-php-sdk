@@ -11,15 +11,15 @@ class QueryPublicModelEngineRequest extends Model
     /**
      * @var string
      */
-    public $text;
+    public $projectId;
 
     /**
      * @var string
      */
-    public $projectId;
+    public $text;
     protected $_name = [
-        'text'      => 'Text',
         'projectId' => 'ProjectId',
+        'text'      => 'Text',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QueryPublicModelEngineRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
-        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->text) {
+            $res['Text'] = $this->text;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QueryPublicModelEngineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
-        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Text'])) {
+            $model->text = $map['Text'];
         }
 
         return $model;

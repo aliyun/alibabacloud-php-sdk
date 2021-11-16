@@ -11,15 +11,15 @@ class columnMetaList extends Model
     /**
      * @var string
      */
-    public $columnName;
+    public $columnComment;
 
     /**
      * @var string
      */
-    public $columnComment;
+    public $columnName;
     protected $_name = [
-        'columnName'    => 'ColumnName',
         'columnComment' => 'ColumnComment',
+        'columnName'    => 'ColumnName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class columnMetaList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->columnName) {
-            $res['ColumnName'] = $this->columnName;
-        }
         if (null !== $this->columnComment) {
             $res['ColumnComment'] = $this->columnComment;
+        }
+        if (null !== $this->columnName) {
+            $res['ColumnName'] = $this->columnName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class columnMetaList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ColumnName'])) {
-            $model->columnName = $map['ColumnName'];
-        }
         if (isset($map['ColumnComment'])) {
             $model->columnComment = $map['ColumnComment'];
+        }
+        if (isset($map['ColumnName'])) {
+            $model->columnName = $map['ColumnName'];
         }
 
         return $model;

@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListQualityResultsByEntityRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $entityId;
-
-    /**
-     * @var string
-     */
-    public $startDate;
-
-    /**
      * @var string
      */
     public $endDate;
@@ -26,7 +16,7 @@ class ListQualityResultsByEntityRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $entityId;
 
     /**
      * @var int
@@ -34,16 +24,26 @@ class ListQualityResultsByEntityRequest extends Model
     public $pageNumber;
 
     /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $projectName;
+
+    /**
+     * @var string
+     */
+    public $startDate;
     protected $_name = [
-        'entityId'    => 'EntityId',
-        'startDate'   => 'StartDate',
         'endDate'     => 'EndDate',
-        'pageSize'    => 'PageSize',
+        'entityId'    => 'EntityId',
         'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
         'projectName' => 'ProjectName',
+        'startDate'   => 'StartDate',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ListQualityResultsByEntityRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->entityId) {
-            $res['EntityId'] = $this->entityId;
-        }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->entityId) {
+            $res['EntityId'] = $this->entityId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ListQualityResultsByEntityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EntityId'])) {
-            $model->entityId = $map['EntityId'];
-        }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['EntityId'])) {
+            $model->entityId = $map['EntityId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
 
         return $model;

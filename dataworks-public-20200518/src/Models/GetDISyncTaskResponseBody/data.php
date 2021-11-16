@@ -17,22 +17,22 @@ class data extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $message;
 
     /**
      * @var solutionDetail
      */
     public $solutionDetail;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'code'           => 'Code',
-        'status'         => 'Status',
         'message'        => 'Message',
         'solutionDetail' => 'SolutionDetail',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class data extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->solutionDetail) {
             $res['SolutionDetail'] = null !== $this->solutionDetail ? $this->solutionDetail->toMap() : null;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class data extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['SolutionDetail'])) {
             $model->solutionDetail = solutionDetail::fromMap($map['SolutionDetail']);
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

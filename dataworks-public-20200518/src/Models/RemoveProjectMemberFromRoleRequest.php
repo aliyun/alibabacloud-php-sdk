@@ -16,16 +16,16 @@ class RemoveProjectMemberFromRoleRequest extends Model
     /**
      * @var string
      */
-    public $userId;
+    public $roleCode;
 
     /**
      * @var string
      */
-    public $roleCode;
+    public $userId;
     protected $_name = [
         'projectId' => 'ProjectId',
-        'userId'    => 'UserId',
         'roleCode'  => 'RoleCode',
+        'userId'    => 'UserId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class RemoveProjectMemberFromRoleRequest extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->roleCode) {
             $res['RoleCode'] = $this->roleCode;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class RemoveProjectMemberFromRoleRequest extends Model
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['RoleCode'])) {
             $model->roleCode = $map['RoleCode'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

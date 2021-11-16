@@ -11,27 +11,27 @@ class StartDISyncInstanceRequest extends Model
     /**
      * @var int
      */
+    public $fileId;
+
+    /**
+     * @var int
+     */
     public $projectId;
 
     /**
      * @var string
      */
-    public $taskType;
-
-    /**
-     * @var int
-     */
-    public $fileId;
+    public $startParam;
 
     /**
      * @var string
      */
-    public $startParam;
+    public $taskType;
     protected $_name = [
-        'projectId'  => 'ProjectId',
-        'taskType'   => 'TaskType',
         'fileId'     => 'FileId',
+        'projectId'  => 'ProjectId',
         'startParam' => 'StartParam',
+        'taskType'   => 'TaskType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class StartDISyncInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
         if (null !== $this->startParam) {
             $res['StartParam'] = $this->startParam;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class StartDISyncInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
         if (isset($map['StartParam'])) {
             $model->startParam = $map['StartParam'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

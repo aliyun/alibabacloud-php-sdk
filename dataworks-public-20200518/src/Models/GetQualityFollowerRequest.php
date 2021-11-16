@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetQualityFollowerRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $projectName;
-
-    /**
      * @var int
      */
     public $entityId;
+
+    /**
+     * @var string
+     */
+    public $projectName;
     protected $_name = [
-        'projectName' => 'ProjectName',
         'entityId'    => 'EntityId',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetQualityFollowerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetQualityFollowerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

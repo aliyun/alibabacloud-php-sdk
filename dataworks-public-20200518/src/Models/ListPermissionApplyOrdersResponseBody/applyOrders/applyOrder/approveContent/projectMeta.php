@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class projectMeta extends Model
 {
     /**
-     * @var string
-     */
-    public $workspaceName;
-
-    /**
      * @var objectMetaList[]
      */
     public $objectMetaList;
+
+    /**
+     * @var string
+     */
+    public $workspaceName;
     protected $_name = [
-        'workspaceName'  => 'WorkspaceName',
         'objectMetaList' => 'ObjectMetaList',
+        'workspaceName'  => 'WorkspaceName',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class projectMeta extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workspaceName) {
-            $res['WorkspaceName'] = $this->workspaceName;
-        }
         if (null !== $this->objectMetaList) {
             $res['ObjectMetaList'] = [];
             if (null !== $this->objectMetaList && \is_array($this->objectMetaList)) {
@@ -41,6 +38,9 @@ class projectMeta extends Model
                     $res['ObjectMetaList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->workspaceName) {
+            $res['WorkspaceName'] = $this->workspaceName;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class projectMeta extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkspaceName'])) {
-            $model->workspaceName = $map['WorkspaceName'];
-        }
         if (isset($map['ObjectMetaList'])) {
             if (!empty($map['ObjectMetaList'])) {
                 $model->objectMetaList = [];
@@ -65,6 +62,9 @@ class projectMeta extends Model
                     $model->objectMetaList[$n++] = null !== $item ? objectMetaList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['WorkspaceName'])) {
+            $model->workspaceName = $map['WorkspaceName'];
         }
 
         return $model;

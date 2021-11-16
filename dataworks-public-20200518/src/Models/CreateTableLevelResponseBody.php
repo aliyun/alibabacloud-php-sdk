@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateTableLevelResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
      * @var string
      */
-    public $requestId;
+    public $errorCode;
 
     /**
      * @var string
@@ -24,26 +19,31 @@ class CreateTableLevelResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var string
+     * @var int
      */
-    public $errorCode;
-
-    /**
-     * @var bool
-     */
-    public $success;
+    public $httpStatusCode;
 
     /**
      * @var int
      */
     public $levelId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'errorMessage'   => 'ErrorMessage',
         'errorCode'      => 'ErrorCode',
-        'success'        => 'Success',
+        'errorMessage'   => 'ErrorMessage',
+        'httpStatusCode' => 'HttpStatusCode',
         'levelId'        => 'LevelId',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateTableLevelResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->levelId) {
             $res['LevelId'] = $this->levelId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateTableLevelResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['LevelId'])) {
             $model->levelId = $map['LevelId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

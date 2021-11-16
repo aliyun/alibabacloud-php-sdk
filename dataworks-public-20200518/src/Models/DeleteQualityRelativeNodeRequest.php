@@ -31,11 +31,6 @@ class DeleteQualityRelativeNodeRequest extends Model
     /**
      * @var string
      */
-    public $targetNodeProjectName;
-
-    /**
-     * @var string
-     */
     public $projectName;
 
     /**
@@ -47,15 +42,20 @@ class DeleteQualityRelativeNodeRequest extends Model
      * @var int
      */
     public $targetNodeProjectId;
+
+    /**
+     * @var string
+     */
+    public $targetNodeProjectName;
     protected $_name = [
         'envType'               => 'EnvType',
         'matchExpression'       => 'MatchExpression',
         'nodeId'                => 'NodeId',
         'projectId'             => 'ProjectId',
-        'targetNodeProjectName' => 'TargetNodeProjectName',
         'projectName'           => 'ProjectName',
         'tableName'             => 'TableName',
         'targetNodeProjectId'   => 'TargetNodeProjectId',
+        'targetNodeProjectName' => 'TargetNodeProjectName',
     ];
 
     public function validate()
@@ -77,9 +77,6 @@ class DeleteQualityRelativeNodeRequest extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->targetNodeProjectName) {
-            $res['TargetNodeProjectName'] = $this->targetNodeProjectName;
-        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -88,6 +85,9 @@ class DeleteQualityRelativeNodeRequest extends Model
         }
         if (null !== $this->targetNodeProjectId) {
             $res['TargetNodeProjectId'] = $this->targetNodeProjectId;
+        }
+        if (null !== $this->targetNodeProjectName) {
+            $res['TargetNodeProjectName'] = $this->targetNodeProjectName;
         }
 
         return $res;
@@ -113,9 +113,6 @@ class DeleteQualityRelativeNodeRequest extends Model
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['TargetNodeProjectName'])) {
-            $model->targetNodeProjectName = $map['TargetNodeProjectName'];
-        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
@@ -124,6 +121,9 @@ class DeleteQualityRelativeNodeRequest extends Model
         }
         if (isset($map['TargetNodeProjectId'])) {
             $model->targetNodeProjectId = $map['TargetNodeProjectId'];
+        }
+        if (isset($map['TargetNodeProjectName'])) {
+            $model->targetNodeProjectName = $map['TargetNodeProjectName'];
         }
 
         return $model;

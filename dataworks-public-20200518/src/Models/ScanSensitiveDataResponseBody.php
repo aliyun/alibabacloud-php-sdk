@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ScanSensitiveDataResponseBody extends Model
 {
     /**
-     * @var mixed[]
-     */
-    public $sensitives;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var mixed[]
+     */
+    public $sensitives;
     protected $_name = [
-        'sensitives' => 'Sensitives',
         'requestId'  => 'RequestId',
+        'sensitives' => 'Sensitives',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ScanSensitiveDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sensitives) {
-            $res['Sensitives'] = $this->sensitives;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->sensitives) {
+            $res['Sensitives'] = $this->sensitives;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ScanSensitiveDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Sensitives'])) {
-            $model->sensitives = $map['Sensitives'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Sensitives'])) {
+            $model->sensitives = $map['Sensitives'];
         }
 
         return $model;

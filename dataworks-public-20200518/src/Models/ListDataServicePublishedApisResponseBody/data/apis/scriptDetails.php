@@ -13,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 class scriptDetails extends Model
 {
     /**
+     * @var string
+     */
+    public $failedResultSample;
+
+    /**
      * @var bool
      */
     public $isPagedResponse;
@@ -20,17 +25,12 @@ class scriptDetails extends Model
     /**
      * @var string
      */
-    public $successfulResultSample;
-
-    /**
-     * @var string
-     */
-    public $failedResultSample;
-
-    /**
-     * @var string
-     */
     public $script;
+
+    /**
+     * @var scriptConnection
+     */
+    public $scriptConnection;
 
     /**
      * @var scriptErrorCodes[]
@@ -48,18 +48,18 @@ class scriptDetails extends Model
     public $scriptResponseParameters;
 
     /**
-     * @var scriptConnection
+     * @var string
      */
-    public $scriptConnection;
+    public $successfulResultSample;
     protected $_name = [
-        'isPagedResponse'          => 'IsPagedResponse',
-        'successfulResultSample'   => 'SuccessfulResultSample',
         'failedResultSample'       => 'FailedResultSample',
+        'isPagedResponse'          => 'IsPagedResponse',
         'script'                   => 'Script',
+        'scriptConnection'         => 'ScriptConnection',
         'scriptErrorCodes'         => 'ScriptErrorCodes',
         'scriptRequestParameters'  => 'ScriptRequestParameters',
         'scriptResponseParameters' => 'ScriptResponseParameters',
-        'scriptConnection'         => 'ScriptConnection',
+        'successfulResultSample'   => 'SuccessfulResultSample',
     ];
 
     public function validate()
@@ -69,17 +69,17 @@ class scriptDetails extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isPagedResponse) {
-            $res['IsPagedResponse'] = $this->isPagedResponse;
-        }
-        if (null !== $this->successfulResultSample) {
-            $res['SuccessfulResultSample'] = $this->successfulResultSample;
-        }
         if (null !== $this->failedResultSample) {
             $res['FailedResultSample'] = $this->failedResultSample;
         }
+        if (null !== $this->isPagedResponse) {
+            $res['IsPagedResponse'] = $this->isPagedResponse;
+        }
         if (null !== $this->script) {
             $res['Script'] = $this->script;
+        }
+        if (null !== $this->scriptConnection) {
+            $res['ScriptConnection'] = null !== $this->scriptConnection ? $this->scriptConnection->toMap() : null;
         }
         if (null !== $this->scriptErrorCodes) {
             $res['ScriptErrorCodes'] = [];
@@ -108,8 +108,8 @@ class scriptDetails extends Model
                 }
             }
         }
-        if (null !== $this->scriptConnection) {
-            $res['ScriptConnection'] = null !== $this->scriptConnection ? $this->scriptConnection->toMap() : null;
+        if (null !== $this->successfulResultSample) {
+            $res['SuccessfulResultSample'] = $this->successfulResultSample;
         }
 
         return $res;
@@ -123,17 +123,17 @@ class scriptDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsPagedResponse'])) {
-            $model->isPagedResponse = $map['IsPagedResponse'];
-        }
-        if (isset($map['SuccessfulResultSample'])) {
-            $model->successfulResultSample = $map['SuccessfulResultSample'];
-        }
         if (isset($map['FailedResultSample'])) {
             $model->failedResultSample = $map['FailedResultSample'];
         }
+        if (isset($map['IsPagedResponse'])) {
+            $model->isPagedResponse = $map['IsPagedResponse'];
+        }
         if (isset($map['Script'])) {
             $model->script = $map['Script'];
+        }
+        if (isset($map['ScriptConnection'])) {
+            $model->scriptConnection = scriptConnection::fromMap($map['ScriptConnection']);
         }
         if (isset($map['ScriptErrorCodes'])) {
             if (!empty($map['ScriptErrorCodes'])) {
@@ -162,8 +162,8 @@ class scriptDetails extends Model
                 }
             }
         }
-        if (isset($map['ScriptConnection'])) {
-            $model->scriptConnection = scriptConnection::fromMap($map['ScriptConnection']);
+        if (isset($map['SuccessfulResultSample'])) {
+            $model->successfulResultSample = $map['SuccessfulResultSample'];
         }
 
         return $model;

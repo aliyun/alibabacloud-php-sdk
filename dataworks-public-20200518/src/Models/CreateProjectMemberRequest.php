@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectMemberRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -16,22 +21,17 @@ class CreateProjectMemberRequest extends Model
     /**
      * @var string
      */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $roleCode;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'projectId'   => 'ProjectId',
-        'userId'      => 'UserId',
         'clientToken' => 'ClientToken',
+        'projectId'   => 'ProjectId',
         'roleCode'    => 'RoleCode',
+        'userId'      => 'UserId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateProjectMemberRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
         if (null !== $this->roleCode) {
             $res['RoleCode'] = $this->roleCode;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateProjectMemberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
         if (isset($map['RoleCode'])) {
             $model->roleCode = $map['RoleCode'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

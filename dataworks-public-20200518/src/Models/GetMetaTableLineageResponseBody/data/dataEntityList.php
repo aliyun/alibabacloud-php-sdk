@@ -11,15 +11,15 @@ class dataEntityList extends Model
     /**
      * @var string
      */
-    public $tableName;
+    public $tableGuid;
 
     /**
      * @var string
      */
-    public $tableGuid;
+    public $tableName;
     protected $_name = [
-        'tableName' => 'TableName',
         'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class dataEntityList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class dataEntityList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

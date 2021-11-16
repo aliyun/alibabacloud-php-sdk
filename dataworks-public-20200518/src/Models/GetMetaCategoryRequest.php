@@ -11,21 +11,21 @@ class GetMetaCategoryRequest extends Model
     /**
      * @var int
      */
-    public $parentCategoryId;
-
-    /**
-     * @var int
-     */
     public $pageNum;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $parentCategoryId;
     protected $_name = [
-        'parentCategoryId' => 'ParentCategoryId',
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
+        'parentCategoryId' => 'ParentCategoryId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetMetaCategoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parentCategoryId) {
-            $res['ParentCategoryId'] = $this->parentCategoryId;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->parentCategoryId) {
+            $res['ParentCategoryId'] = $this->parentCategoryId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetMetaCategoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParentCategoryId'])) {
-            $model->parentCategoryId = $map['ParentCategoryId'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ParentCategoryId'])) {
+            $model->parentCategoryId = $map['ParentCategoryId'];
         }
 
         return $model;

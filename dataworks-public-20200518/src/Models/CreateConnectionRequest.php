@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateConnectionRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
      * @var string
      */
     public $connectionType;
@@ -31,7 +16,12 @@ class CreateConnectionRequest extends Model
     /**
      * @var string
      */
-    public $subType;
+    public $content;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var int
@@ -41,15 +31,25 @@ class CreateConnectionRequest extends Model
     /**
      * @var string
      */
-    public $content;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $subType;
     protected $_name = [
-        'projectId'      => 'ProjectId',
-        'name'           => 'Name',
-        'description'    => 'Description',
         'connectionType' => 'ConnectionType',
-        'subType'        => 'SubType',
-        'envType'        => 'EnvType',
         'content'        => 'Content',
+        'description'    => 'Description',
+        'envType'        => 'EnvType',
+        'name'           => 'Name',
+        'projectId'      => 'ProjectId',
+        'subType'        => 'SubType',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class CreateConnectionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->connectionType) {
+            $res['ConnectionType'] = $this->connectionType;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->connectionType) {
-            $res['ConnectionType'] = $this->connectionType;
-        }
-        if (null !== $this->subType) {
-            $res['SubType'] = $this->subType;
-        }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->subType) {
+            $res['SubType'] = $this->subType;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class CreateConnectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['ConnectionType'])) {
+            $model->connectionType = $map['ConnectionType'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['ConnectionType'])) {
-            $model->connectionType = $map['ConnectionType'];
-        }
-        if (isset($map['SubType'])) {
-            $model->subType = $map['SubType'];
-        }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['SubType'])) {
+            $model->subType = $map['SubType'];
         }
 
         return $model;

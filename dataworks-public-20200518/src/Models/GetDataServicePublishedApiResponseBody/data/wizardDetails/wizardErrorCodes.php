@@ -11,20 +11,20 @@ class wizardErrorCodes extends Model
     /**
      * @var string
      */
-    public $errorMessage;
+    public $errorCode;
 
     /**
      * @var string
      */
-    public $errorCode;
+    public $errorMessage;
 
     /**
      * @var string
      */
     public $errorSolution;
     protected $_name = [
-        'errorMessage'  => 'ErrorMessage',
         'errorCode'     => 'ErrorCode',
+        'errorMessage'  => 'ErrorMessage',
         'errorSolution' => 'ErrorSolution',
     ];
 
@@ -35,11 +35,11 @@ class wizardErrorCodes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->errorSolution) {
             $res['ErrorSolution'] = $this->errorSolution;
@@ -56,11 +56,11 @@ class wizardErrorCodes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['ErrorSolution'])) {
             $model->errorSolution = $map['ErrorSolution'];

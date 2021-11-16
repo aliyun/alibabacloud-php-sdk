@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceStatusCountRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $projectId;
+    public $bizDate;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class GetInstanceStatusCountRequest extends Model
     public $projectEnv;
 
     /**
-     * @var string
+     * @var int
      */
-    public $bizDate;
+    public $projectId;
     protected $_name = [
-        'projectId'  => 'ProjectId',
-        'projectEnv' => 'ProjectEnv',
         'bizDate'    => 'BizDate',
+        'projectEnv' => 'ProjectEnv',
+        'projectId'  => 'ProjectId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetInstanceStatusCountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->bizDate) {
+            $res['BizDate'] = $this->bizDate;
         }
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
-        if (null !== $this->bizDate) {
-            $res['BizDate'] = $this->bizDate;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetInstanceStatusCountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['BizDate'])) {
+            $model->bizDate = $map['BizDate'];
         }
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }
-        if (isset($map['BizDate'])) {
-            $model->bizDate = $map['BizDate'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

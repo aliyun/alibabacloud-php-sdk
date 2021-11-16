@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class GetTopicInfluenceResponseBody extends Model
 {
     /**
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @var int
      */
     public $httpStatusCode;
@@ -20,31 +35,16 @@ class GetTopicInfluenceResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var data
-     */
-    public $data;
     protected $_name = [
+        'data'           => 'Data',
+        'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
         'requestId'      => 'RequestId',
-        'errorMessage'   => 'ErrorMessage',
-        'errorCode'      => 'ErrorCode',
         'success'        => 'Success',
-        'data'           => 'Data',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class GetTopicInfluenceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class GetTopicInfluenceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

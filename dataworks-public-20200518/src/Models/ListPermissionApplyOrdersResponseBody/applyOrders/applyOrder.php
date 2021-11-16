@@ -20,6 +20,11 @@ class applyOrder extends Model
     public $applyTimestamp;
 
     /**
+     * @var approveContent
+     */
+    public $approveContent;
+
+    /**
      * @var string
      */
     public $flowId;
@@ -28,17 +33,12 @@ class applyOrder extends Model
      * @var int
      */
     public $flowStatus;
-
-    /**
-     * @var approveContent
-     */
-    public $approveContent;
     protected $_name = [
         'applyBaseId'    => 'ApplyBaseId',
         'applyTimestamp' => 'ApplyTimestamp',
+        'approveContent' => 'ApproveContent',
         'flowId'         => 'FlowId',
         'flowStatus'     => 'FlowStatus',
-        'approveContent' => 'ApproveContent',
     ];
 
     public function validate()
@@ -54,14 +54,14 @@ class applyOrder extends Model
         if (null !== $this->applyTimestamp) {
             $res['ApplyTimestamp'] = $this->applyTimestamp;
         }
+        if (null !== $this->approveContent) {
+            $res['ApproveContent'] = null !== $this->approveContent ? $this->approveContent->toMap() : null;
+        }
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
         }
         if (null !== $this->flowStatus) {
             $res['FlowStatus'] = $this->flowStatus;
-        }
-        if (null !== $this->approveContent) {
-            $res['ApproveContent'] = null !== $this->approveContent ? $this->approveContent->toMap() : null;
         }
 
         return $res;
@@ -81,14 +81,14 @@ class applyOrder extends Model
         if (isset($map['ApplyTimestamp'])) {
             $model->applyTimestamp = $map['ApplyTimestamp'];
         }
+        if (isset($map['ApproveContent'])) {
+            $model->approveContent = approveContent::fromMap($map['ApproveContent']);
+        }
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
         }
         if (isset($map['FlowStatus'])) {
             $model->flowStatus = $map['FlowStatus'];
-        }
-        if (isset($map['ApproveContent'])) {
-            $model->approveContent = approveContent::fromMap($map['ApproveContent']);
         }
 
         return $model;

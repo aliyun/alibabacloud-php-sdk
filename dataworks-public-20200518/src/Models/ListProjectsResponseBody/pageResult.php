@@ -20,19 +20,19 @@ class pageResult extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var projectList[]
      */
     public $projectList;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
         'projectList' => 'ProjectList',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class pageResult extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->projectList) {
             $res['ProjectList'] = [];
             if (null !== $this->projectList && \is_array($this->projectList)) {
@@ -59,6 +56,9 @@ class pageResult extends Model
                     $res['ProjectList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class pageResult extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['ProjectList'])) {
             if (!empty($map['ProjectList'])) {
                 $model->projectList = [];
@@ -89,6 +86,9 @@ class pageResult extends Model
                     $model->projectList[$n++] = null !== $item ? projectList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

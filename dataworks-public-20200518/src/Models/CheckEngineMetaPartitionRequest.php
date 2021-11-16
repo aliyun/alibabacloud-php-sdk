@@ -11,7 +11,7 @@ class CheckEngineMetaPartitionRequest extends Model
     /**
      * @var string
      */
-    public $tableGuid;
+    public $dataSourceType;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class CheckEngineMetaPartitionRequest extends Model
     /**
      * @var string
      */
-    public $dataSourceType;
+    public $tableGuid;
     protected $_name = [
-        'tableGuid'      => 'TableGuid',
-        'partition'      => 'Partition',
         'dataSourceType' => 'DataSourceType',
+        'partition'      => 'Partition',
+        'tableGuid'      => 'TableGuid',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CheckEngineMetaPartitionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableGuid) {
-            $res['TableGuid'] = $this->tableGuid;
+        if (null !== $this->dataSourceType) {
+            $res['DataSourceType'] = $this->dataSourceType;
         }
         if (null !== $this->partition) {
             $res['Partition'] = $this->partition;
         }
-        if (null !== $this->dataSourceType) {
-            $res['DataSourceType'] = $this->dataSourceType;
+        if (null !== $this->tableGuid) {
+            $res['TableGuid'] = $this->tableGuid;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CheckEngineMetaPartitionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableGuid'])) {
-            $model->tableGuid = $map['TableGuid'];
+        if (isset($map['DataSourceType'])) {
+            $model->dataSourceType = $map['DataSourceType'];
         }
         if (isset($map['Partition'])) {
             $model->partition = $map['Partition'];
         }
-        if (isset($map['DataSourceType'])) {
-            $model->dataSourceType = $map['DataSourceType'];
+        if (isset($map['TableGuid'])) {
+            $model->tableGuid = $map['TableGuid'];
         }
 
         return $model;

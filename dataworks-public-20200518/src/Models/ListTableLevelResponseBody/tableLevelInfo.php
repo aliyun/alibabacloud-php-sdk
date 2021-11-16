@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class tableLevelInfo extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var levelList[]
      */
     public $levelList;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'levelList'  => 'LevelList',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class tableLevelInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->levelList) {
             $res['LevelList'] = [];
             if (null !== $this->levelList && \is_array($this->levelList)) {
@@ -41,6 +38,9 @@ class tableLevelInfo extends Model
                     $res['LevelList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class tableLevelInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['LevelList'])) {
             if (!empty($map['LevelList'])) {
                 $model->levelList = [];
@@ -65,6 +62,9 @@ class tableLevelInfo extends Model
                     $model->levelList[$n++] = null !== $item ? levelList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

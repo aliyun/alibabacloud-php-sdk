@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourcesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dataSourceType;
+
+    /**
      * @var int
      */
-    public $projectId;
+    public $envType;
 
     /**
      * @var string
@@ -19,24 +24,9 @@ class ListDataSourcesRequest extends Model
     public $name;
 
     /**
-     * @var string
-     */
-    public $dataSourceType;
-
-    /**
-     * @var string
-     */
-    public $subType;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
-    public $envType;
+    public $pageNumber;
 
     /**
      * @var int
@@ -46,16 +36,26 @@ class ListDataSourcesRequest extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $subType;
     protected $_name = [
-        'projectId'      => 'ProjectId',
-        'name'           => 'Name',
         'dataSourceType' => 'DataSourceType',
-        'subType'        => 'SubType',
-        'status'         => 'Status',
         'envType'        => 'EnvType',
-        'pageSize'       => 'PageSize',
+        'name'           => 'Name',
         'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
+        'projectId'      => 'ProjectId',
+        'status'         => 'Status',
+        'subType'        => 'SubType',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class ListDataSourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
-        }
-        if (null !== $this->subType) {
-            $res['SubType'] = $this->subType;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
         }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->subType) {
+            $res['SubType'] = $this->subType;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class ListDataSourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
-        }
-        if (isset($map['SubType'])) {
-            $model->subType = $map['SubType'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
         }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['SubType'])) {
+            $model->subType = $map['SubType'];
         }
 
         return $model;

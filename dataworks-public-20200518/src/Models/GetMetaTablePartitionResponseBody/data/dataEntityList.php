@@ -11,27 +11,7 @@ class dataEntityList extends Model
     /**
      * @var string
      */
-    public $partitionPath;
-
-    /**
-     * @var int
-     */
-    public $dataSize;
-
-    /**
-     * @var string
-     */
-    public $partitionName;
-
-    /**
-     * @var string
-     */
     public $comment;
-
-    /**
-     * @var int
-     */
-    public $modifiedTime;
 
     /**
      * @var int
@@ -41,12 +21,12 @@ class dataEntityList extends Model
     /**
      * @var int
      */
-    public $recordCount;
+    public $dataSize;
 
     /**
-     * @var string
+     * @var int
      */
-    public $partitionType;
+    public $modifiedTime;
 
     /**
      * @var string
@@ -61,18 +41,38 @@ class dataEntityList extends Model
     /**
      * @var string
      */
+    public $partitionName;
+
+    /**
+     * @var string
+     */
+    public $partitionPath;
+
+    /**
+     * @var string
+     */
+    public $partitionType;
+
+    /**
+     * @var int
+     */
+    public $recordCount;
+
+    /**
+     * @var string
+     */
     public $tableGuid;
     protected $_name = [
-        'partitionPath'     => 'PartitionPath',
-        'dataSize'          => 'DataSize',
-        'partitionName'     => 'PartitionName',
         'comment'           => 'Comment',
-        'modifiedTime'      => 'ModifiedTime',
         'createTime'        => 'CreateTime',
-        'recordCount'       => 'RecordCount',
-        'partitionType'     => 'PartitionType',
+        'dataSize'          => 'DataSize',
+        'modifiedTime'      => 'ModifiedTime',
         'partitionGuid'     => 'PartitionGuid',
         'partitionLocation' => 'PartitionLocation',
+        'partitionName'     => 'PartitionName',
+        'partitionPath'     => 'PartitionPath',
+        'partitionType'     => 'PartitionType',
+        'recordCount'       => 'RecordCount',
         'tableGuid'         => 'TableGuid',
     ];
 
@@ -83,35 +83,35 @@ class dataEntityList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->partitionPath) {
-            $res['PartitionPath'] = $this->partitionPath;
-        }
-        if (null !== $this->dataSize) {
-            $res['DataSize'] = $this->dataSize;
-        }
-        if (null !== $this->partitionName) {
-            $res['PartitionName'] = $this->partitionName;
-        }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
-        }
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->recordCount) {
-            $res['RecordCount'] = $this->recordCount;
+        if (null !== $this->dataSize) {
+            $res['DataSize'] = $this->dataSize;
         }
-        if (null !== $this->partitionType) {
-            $res['PartitionType'] = $this->partitionType;
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
         }
         if (null !== $this->partitionGuid) {
             $res['PartitionGuid'] = $this->partitionGuid;
         }
         if (null !== $this->partitionLocation) {
             $res['PartitionLocation'] = $this->partitionLocation;
+        }
+        if (null !== $this->partitionName) {
+            $res['PartitionName'] = $this->partitionName;
+        }
+        if (null !== $this->partitionPath) {
+            $res['PartitionPath'] = $this->partitionPath;
+        }
+        if (null !== $this->partitionType) {
+            $res['PartitionType'] = $this->partitionType;
+        }
+        if (null !== $this->recordCount) {
+            $res['RecordCount'] = $this->recordCount;
         }
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
@@ -128,35 +128,35 @@ class dataEntityList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PartitionPath'])) {
-            $model->partitionPath = $map['PartitionPath'];
-        }
-        if (isset($map['DataSize'])) {
-            $model->dataSize = $map['DataSize'];
-        }
-        if (isset($map['PartitionName'])) {
-            $model->partitionName = $map['PartitionName'];
-        }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
-        }
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['RecordCount'])) {
-            $model->recordCount = $map['RecordCount'];
+        if (isset($map['DataSize'])) {
+            $model->dataSize = $map['DataSize'];
         }
-        if (isset($map['PartitionType'])) {
-            $model->partitionType = $map['PartitionType'];
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
         }
         if (isset($map['PartitionGuid'])) {
             $model->partitionGuid = $map['PartitionGuid'];
         }
         if (isset($map['PartitionLocation'])) {
             $model->partitionLocation = $map['PartitionLocation'];
+        }
+        if (isset($map['PartitionName'])) {
+            $model->partitionName = $map['PartitionName'];
+        }
+        if (isset($map['PartitionPath'])) {
+            $model->partitionPath = $map['PartitionPath'];
+        }
+        if (isset($map['PartitionType'])) {
+            $model->partitionType = $map['PartitionType'];
+        }
+        if (isset($map['RecordCount'])) {
+            $model->recordCount = $map['RecordCount'];
         }
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];

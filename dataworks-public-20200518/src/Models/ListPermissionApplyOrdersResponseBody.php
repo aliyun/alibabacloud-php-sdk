@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListPermissionApplyOrdersResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var applyOrders
      */
     public $applyOrders;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'applyOrders' => 'ApplyOrders',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ListPermissionApplyOrdersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->applyOrders) {
             $res['ApplyOrders'] = null !== $this->applyOrders ? $this->applyOrders->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ListPermissionApplyOrdersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ApplyOrders'])) {
             $model->applyOrders = applyOrders::fromMap($map['ApplyOrders']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

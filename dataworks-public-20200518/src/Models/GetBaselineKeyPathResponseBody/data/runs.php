@@ -9,39 +9,9 @@ use AlibabaCloud\Tea\Model;
 class runs extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
     public $absTime;
-
-    /**
-     * @var int
-     */
-    public $beginRunningTime;
-
-    /**
-     * @var int
-     */
-    public $cycTime;
-
-    /**
-     * @var string
-     */
-    public $owner;
-
-    /**
-     * @var int
-     */
-    public $finishTime;
-
-    /**
-     * @var int
-     */
-    public $projectId;
 
     /**
      * @var int
@@ -51,12 +21,7 @@ class runs extends Model
     /**
      * @var int
      */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $endCast;
+    public $beginRunningTime;
 
     /**
      * @var int
@@ -66,12 +31,7 @@ class runs extends Model
     /**
      * @var int
      */
-    public $inGroupId;
-
-    /**
-     * @var string
-     */
-    public $nodeName;
+    public $beginWaitTimeTime;
 
     /**
      * @var int
@@ -81,29 +41,69 @@ class runs extends Model
     /**
      * @var int
      */
-    public $beginWaitTimeTime;
+    public $cycTime;
+
+    /**
+     * @var int
+     */
+    public $endCast;
+
+    /**
+     * @var int
+     */
+    public $finishTime;
+
+    /**
+     * @var int
+     */
+    public $inGroupId;
+
+    /**
+     * @var int
+     */
+    public $instanceId;
 
     /**
      * @var int
      */
     public $nodeId;
+
+    /**
+     * @var string
+     */
+    public $nodeName;
+
+    /**
+     * @var string
+     */
+    public $owner;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'            => 'Status',
         'absTime'           => 'AbsTime',
-        'beginRunningTime'  => 'BeginRunningTime',
-        'cycTime'           => 'CycTime',
-        'owner'             => 'Owner',
-        'finishTime'        => 'FinishTime',
-        'projectId'         => 'ProjectId',
         'beginCast'         => 'BeginCast',
-        'instanceId'        => 'InstanceId',
-        'endCast'           => 'EndCast',
+        'beginRunningTime'  => 'BeginRunningTime',
         'beginWaitResTime'  => 'BeginWaitResTime',
-        'inGroupId'         => 'InGroupId',
-        'nodeName'          => 'NodeName',
-        'bizdate'           => 'Bizdate',
         'beginWaitTimeTime' => 'BeginWaitTimeTime',
+        'bizdate'           => 'Bizdate',
+        'cycTime'           => 'CycTime',
+        'endCast'           => 'EndCast',
+        'finishTime'        => 'FinishTime',
+        'inGroupId'         => 'InGroupId',
+        'instanceId'        => 'InstanceId',
         'nodeId'            => 'NodeId',
+        'nodeName'          => 'NodeName',
+        'owner'             => 'Owner',
+        'projectId'         => 'ProjectId',
+        'status'            => 'Status',
     ];
 
     public function validate()
@@ -113,53 +113,53 @@ class runs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->absTime) {
             $res['AbsTime'] = $this->absTime;
-        }
-        if (null !== $this->beginRunningTime) {
-            $res['BeginRunningTime'] = $this->beginRunningTime;
-        }
-        if (null !== $this->cycTime) {
-            $res['CycTime'] = $this->cycTime;
-        }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-        if (null !== $this->finishTime) {
-            $res['FinishTime'] = $this->finishTime;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->beginCast) {
             $res['BeginCast'] = $this->beginCast;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->endCast) {
-            $res['EndCast'] = $this->endCast;
+        if (null !== $this->beginRunningTime) {
+            $res['BeginRunningTime'] = $this->beginRunningTime;
         }
         if (null !== $this->beginWaitResTime) {
             $res['BeginWaitResTime'] = $this->beginWaitResTime;
         }
-        if (null !== $this->inGroupId) {
-            $res['InGroupId'] = $this->inGroupId;
-        }
-        if (null !== $this->nodeName) {
-            $res['NodeName'] = $this->nodeName;
+        if (null !== $this->beginWaitTimeTime) {
+            $res['BeginWaitTimeTime'] = $this->beginWaitTimeTime;
         }
         if (null !== $this->bizdate) {
             $res['Bizdate'] = $this->bizdate;
         }
-        if (null !== $this->beginWaitTimeTime) {
-            $res['BeginWaitTimeTime'] = $this->beginWaitTimeTime;
+        if (null !== $this->cycTime) {
+            $res['CycTime'] = $this->cycTime;
+        }
+        if (null !== $this->endCast) {
+            $res['EndCast'] = $this->endCast;
+        }
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
+        }
+        if (null !== $this->inGroupId) {
+            $res['InGroupId'] = $this->inGroupId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -173,53 +173,53 @@ class runs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['AbsTime'])) {
             $model->absTime = $map['AbsTime'];
-        }
-        if (isset($map['BeginRunningTime'])) {
-            $model->beginRunningTime = $map['BeginRunningTime'];
-        }
-        if (isset($map['CycTime'])) {
-            $model->cycTime = $map['CycTime'];
-        }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-        if (isset($map['FinishTime'])) {
-            $model->finishTime = $map['FinishTime'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['BeginCast'])) {
             $model->beginCast = $map['BeginCast'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['EndCast'])) {
-            $model->endCast = $map['EndCast'];
+        if (isset($map['BeginRunningTime'])) {
+            $model->beginRunningTime = $map['BeginRunningTime'];
         }
         if (isset($map['BeginWaitResTime'])) {
             $model->beginWaitResTime = $map['BeginWaitResTime'];
         }
-        if (isset($map['InGroupId'])) {
-            $model->inGroupId = $map['InGroupId'];
-        }
-        if (isset($map['NodeName'])) {
-            $model->nodeName = $map['NodeName'];
+        if (isset($map['BeginWaitTimeTime'])) {
+            $model->beginWaitTimeTime = $map['BeginWaitTimeTime'];
         }
         if (isset($map['Bizdate'])) {
             $model->bizdate = $map['Bizdate'];
         }
-        if (isset($map['BeginWaitTimeTime'])) {
-            $model->beginWaitTimeTime = $map['BeginWaitTimeTime'];
+        if (isset($map['CycTime'])) {
+            $model->cycTime = $map['CycTime'];
+        }
+        if (isset($map['EndCast'])) {
+            $model->endCast = $map['EndCast'];
+        }
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
+        }
+        if (isset($map['InGroupId'])) {
+            $model->inGroupId = $map['InGroupId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIProjectConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $destinationType;
@@ -21,17 +16,22 @@ class UpdateDIProjectConfigRequest extends Model
     /**
      * @var string
      */
-    public $sourceType;
+    public $projectConfig;
+
+    /**
+     * @var int
+     */
+    public $projectId;
 
     /**
      * @var string
      */
-    public $projectConfig;
+    public $sourceType;
     protected $_name = [
-        'projectId'       => 'ProjectId',
         'destinationType' => 'DestinationType',
-        'sourceType'      => 'SourceType',
         'projectConfig'   => 'ProjectConfig',
+        'projectId'       => 'ProjectId',
+        'sourceType'      => 'SourceType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpdateDIProjectConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
         }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
-        }
         if (null !== $this->projectConfig) {
             $res['ProjectConfig'] = $this->projectConfig;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpdateDIProjectConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
         }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
-        }
         if (isset($map['ProjectConfig'])) {
             $model->projectConfig = $map['ProjectConfig'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
 
         return $model;

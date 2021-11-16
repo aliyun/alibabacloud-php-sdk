@@ -12,32 +12,27 @@ class apiAuthorizationList extends Model
     /**
      * @var int
      */
-    public $apiStatus;
-
-    /**
-     * @var int
-     */
     public $apiId;
 
     /**
      * @var string
      */
-    public $modifiedTime;
+    public $apiName;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $apiPath;
 
     /**
      * @var int
      */
-    public $projectId;
+    public $apiStatus;
 
     /**
-     * @var string
+     * @var authorizationRecords[]
      */
-    public $creatorId;
+    public $authorizationRecords;
 
     /**
      * @var string
@@ -47,34 +42,39 @@ class apiAuthorizationList extends Model
     /**
      * @var string
      */
-    public $apiName;
+    public $creatorId;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $modifiedTime;
+
+    /**
+     * @var int
+     */
+    public $projectId;
 
     /**
      * @var int
      */
     public $tenantId;
-
-    /**
-     * @var string
-     */
-    public $apiPath;
-
-    /**
-     * @var authorizationRecords[]
-     */
-    public $authorizationRecords;
     protected $_name = [
-        'apiStatus'            => 'ApiStatus',
         'apiId'                => 'ApiId',
-        'modifiedTime'         => 'ModifiedTime',
-        'groupId'              => 'GroupId',
-        'projectId'            => 'ProjectId',
-        'creatorId'            => 'CreatorId',
-        'createdTime'          => 'CreatedTime',
         'apiName'              => 'ApiName',
-        'tenantId'             => 'TenantId',
         'apiPath'              => 'ApiPath',
+        'apiStatus'            => 'ApiStatus',
         'authorizationRecords' => 'AuthorizationRecords',
+        'createdTime'          => 'CreatedTime',
+        'creatorId'            => 'CreatorId',
+        'groupId'              => 'GroupId',
+        'modifiedTime'         => 'ModifiedTime',
+        'projectId'            => 'ProjectId',
+        'tenantId'             => 'TenantId',
     ];
 
     public function validate()
@@ -84,35 +84,17 @@ class apiAuthorizationList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiStatus) {
-            $res['ApiStatus'] = $this->apiStatus;
-        }
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
-        }
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->creatorId) {
-            $res['CreatorId'] = $this->creatorId;
-        }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
         }
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
         }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
-        }
         if (null !== $this->apiPath) {
             $res['ApiPath'] = $this->apiPath;
+        }
+        if (null !== $this->apiStatus) {
+            $res['ApiStatus'] = $this->apiStatus;
         }
         if (null !== $this->authorizationRecords) {
             $res['AuthorizationRecords'] = [];
@@ -122,6 +104,24 @@ class apiAuthorizationList extends Model
                     $res['AuthorizationRecords'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
+        }
+        if (null !== $this->creatorId) {
+            $res['CreatorId'] = $this->creatorId;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -135,35 +135,17 @@ class apiAuthorizationList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiStatus'])) {
-            $model->apiStatus = $map['ApiStatus'];
-        }
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
-        }
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['CreatorId'])) {
-            $model->creatorId = $map['CreatorId'];
-        }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
         }
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
-        }
         if (isset($map['ApiPath'])) {
             $model->apiPath = $map['ApiPath'];
+        }
+        if (isset($map['ApiStatus'])) {
+            $model->apiStatus = $map['ApiStatus'];
         }
         if (isset($map['AuthorizationRecords'])) {
             if (!empty($map['AuthorizationRecords'])) {
@@ -173,6 +155,24 @@ class apiAuthorizationList extends Model
                     $model->authorizationRecords[$n++] = null !== $item ? authorizationRecords::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
+        }
+        if (isset($map['CreatorId'])) {
+            $model->creatorId = $map['CreatorId'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

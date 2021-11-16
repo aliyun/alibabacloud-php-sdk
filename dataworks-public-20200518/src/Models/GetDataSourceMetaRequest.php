@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetDataSourceMetaRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $projectId;
+    public $datasourceName;
 
     /**
      * @var string
      */
-    public $datasourceName;
+    public $envType;
 
     /**
      * @var int
@@ -29,15 +29,15 @@ class GetDataSourceMetaRequest extends Model
     public $pageSize;
 
     /**
-     * @var string
+     * @var int
      */
-    public $envType;
+    public $projectId;
     protected $_name = [
-        'projectId'      => 'ProjectId',
         'datasourceName' => 'DatasourceName',
+        'envType'        => 'EnvType',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
-        'envType'        => 'EnvType',
+        'projectId'      => 'ProjectId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class GetDataSourceMetaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->datasourceName) {
             $res['DatasourceName'] = $this->datasourceName;
+        }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -59,8 +59,8 @@ class GetDataSourceMetaRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->envType) {
-            $res['EnvType'] = $this->envType;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class GetDataSourceMetaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['DatasourceName'])) {
             $model->datasourceName = $map['DatasourceName'];
+        }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -86,8 +86,8 @@ class GetDataSourceMetaRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['EnvType'])) {
-            $model->envType = $map['EnvType'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

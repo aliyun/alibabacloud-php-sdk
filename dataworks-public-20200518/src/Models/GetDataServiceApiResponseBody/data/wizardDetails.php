@@ -17,6 +17,11 @@ class wizardDetails extends Model
     public $isPagedResponse;
 
     /**
+     * @var wizardConnection
+     */
+    public $wizardConnection;
+
+    /**
      * @var wizardRequestParameters[]
      */
     public $wizardRequestParameters;
@@ -25,16 +30,11 @@ class wizardDetails extends Model
      * @var wizardResponseParameters[]
      */
     public $wizardResponseParameters;
-
-    /**
-     * @var wizardConnection
-     */
-    public $wizardConnection;
     protected $_name = [
         'isPagedResponse'          => 'IsPagedResponse',
+        'wizardConnection'         => 'WizardConnection',
         'wizardRequestParameters'  => 'WizardRequestParameters',
         'wizardResponseParameters' => 'WizardResponseParameters',
-        'wizardConnection'         => 'WizardConnection',
     ];
 
     public function validate()
@@ -46,6 +46,9 @@ class wizardDetails extends Model
         $res = [];
         if (null !== $this->isPagedResponse) {
             $res['IsPagedResponse'] = $this->isPagedResponse;
+        }
+        if (null !== $this->wizardConnection) {
+            $res['WizardConnection'] = null !== $this->wizardConnection ? $this->wizardConnection->toMap() : null;
         }
         if (null !== $this->wizardRequestParameters) {
             $res['WizardRequestParameters'] = [];
@@ -65,9 +68,6 @@ class wizardDetails extends Model
                 }
             }
         }
-        if (null !== $this->wizardConnection) {
-            $res['WizardConnection'] = null !== $this->wizardConnection ? $this->wizardConnection->toMap() : null;
-        }
 
         return $res;
     }
@@ -82,6 +82,9 @@ class wizardDetails extends Model
         $model = new self();
         if (isset($map['IsPagedResponse'])) {
             $model->isPagedResponse = $map['IsPagedResponse'];
+        }
+        if (isset($map['WizardConnection'])) {
+            $model->wizardConnection = wizardConnection::fromMap($map['WizardConnection']);
         }
         if (isset($map['WizardRequestParameters'])) {
             if (!empty($map['WizardRequestParameters'])) {
@@ -100,9 +103,6 @@ class wizardDetails extends Model
                     $model->wizardResponseParameters[$n++] = null !== $item ? wizardResponseParameters::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['WizardConnection'])) {
-            $model->wizardConnection = wizardConnection::fromMap($map['WizardConnection']);
         }
 
         return $model;

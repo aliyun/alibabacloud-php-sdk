@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class todayTrend extends Model
 {
     /**
-     * @var string
-     */
-    public $timePoint;
-
-    /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $timePoint;
     protected $_name = [
-        'timePoint' => 'TimePoint',
         'count'     => 'Count',
+        'timePoint' => 'TimePoint',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class todayTrend extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timePoint) {
-            $res['TimePoint'] = $this->timePoint;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->timePoint) {
+            $res['TimePoint'] = $this->timePoint;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class todayTrend extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimePoint'])) {
-            $model->timePoint = $map['TimePoint'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['TimePoint'])) {
+            $model->timePoint = $map['TimePoint'];
         }
 
         return $model;

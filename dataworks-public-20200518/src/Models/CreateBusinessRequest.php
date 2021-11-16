@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateBusinessRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $projectIdentifier;
-
-    /**
      * @var string
      */
     public $businessName;
@@ -34,15 +24,25 @@ class CreateBusinessRequest extends Model
     public $owner;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $projectIdentifier;
+
+    /**
      * @var string
      */
     public $useType;
     protected $_name = [
-        'projectId'         => 'ProjectId',
-        'projectIdentifier' => 'ProjectIdentifier',
         'businessName'      => 'BusinessName',
         'description'       => 'Description',
         'owner'             => 'Owner',
+        'projectId'         => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
         'useType'           => 'UseType',
     ];
 
@@ -53,12 +53,6 @@ class CreateBusinessRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->projectIdentifier) {
-            $res['ProjectIdentifier'] = $this->projectIdentifier;
-        }
         if (null !== $this->businessName) {
             $res['BusinessName'] = $this->businessName;
         }
@@ -67,6 +61,12 @@ class CreateBusinessRequest extends Model
         }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->projectIdentifier) {
+            $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
         if (null !== $this->useType) {
             $res['UseType'] = $this->useType;
@@ -83,12 +83,6 @@ class CreateBusinessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ProjectIdentifier'])) {
-            $model->projectIdentifier = $map['ProjectIdentifier'];
-        }
         if (isset($map['BusinessName'])) {
             $model->businessName = $map['BusinessName'];
         }
@@ -97,6 +91,12 @@ class CreateBusinessRequest extends Model
         }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ProjectIdentifier'])) {
+            $model->projectIdentifier = $map['ProjectIdentifier'];
         }
         if (isset($map['UseType'])) {
             $model->useType = $map['UseType'];

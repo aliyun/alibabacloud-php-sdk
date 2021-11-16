@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetDataSourceShareRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $datasourceName;
@@ -22,6 +17,11 @@ class SetDataSourceShareRequest extends Model
      * @var string
      */
     public $envType;
+
+    /**
+     * @var int
+     */
+    public $projectId;
 
     /**
      * @var string
@@ -33,9 +33,9 @@ class SetDataSourceShareRequest extends Model
      */
     public $userPermissions;
     protected $_name = [
-        'projectId'          => 'ProjectId',
         'datasourceName'     => 'DatasourceName',
         'envType'            => 'EnvType',
+        'projectId'          => 'ProjectId',
         'projectPermissions' => 'ProjectPermissions',
         'userPermissions'    => 'UserPermissions',
     ];
@@ -47,14 +47,14 @@ class SetDataSourceShareRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->datasourceName) {
             $res['DatasourceName'] = $this->datasourceName;
         }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectPermissions) {
             $res['ProjectPermissions'] = $this->projectPermissions;
@@ -74,14 +74,14 @@ class SetDataSourceShareRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['DatasourceName'])) {
             $model->datasourceName = $map['DatasourceName'];
         }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectPermissions'])) {
             $model->projectPermissions = $map['ProjectPermissions'];

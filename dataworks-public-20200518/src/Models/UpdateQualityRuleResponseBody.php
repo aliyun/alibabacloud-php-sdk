@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateQualityRuleResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
      * @var bool
      */
     public $data;
@@ -21,7 +16,17 @@ class UpdateQualityRuleResponseBody extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
     public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
 
     /**
      * @var string
@@ -29,20 +34,15 @@ class UpdateQualityRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'httpStatusCode' => 'HttpStatusCode',
         'data'           => 'Data',
-        'errorMessage'   => 'ErrorMessage',
-        'requestId'      => 'RequestId',
         'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId'      => 'RequestId',
         'success'        => 'Success',
     ];
 
@@ -53,20 +53,20 @@ class UpdateQualityRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -83,20 +83,20 @@ class UpdateQualityRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

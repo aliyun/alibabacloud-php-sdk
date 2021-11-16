@@ -11,17 +11,12 @@ class CreateUdfFileResponseBody extends Model
     /**
      * @var int
      */
-    public $httpStatusCode;
-
-    /**
-     * @var int
-     */
     public $data;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $errorCode;
 
     /**
      * @var string
@@ -29,21 +24,26 @@ class CreateUdfFileResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $success;
+    public $httpStatusCode;
 
     /**
      * @var string
      */
-    public $errorCode;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'httpStatusCode' => 'HttpStatusCode',
         'data'           => 'Data',
-        'requestId'      => 'RequestId',
-        'errorMessage'   => 'ErrorMessage',
-        'success'        => 'Success',
         'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateUdfFileResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateUdfFileResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
         }
 
         return $model;

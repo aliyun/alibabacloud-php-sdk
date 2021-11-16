@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListResourceGroupsRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceGroupType;
+    public $bizExtKey;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class ListResourceGroupsRequest extends Model
     public $keyword;
 
     /**
-     * @var string
+     * @var int
      */
-    public $bizExtKey;
+    public $resourceGroupType;
     protected $_name = [
-        'resourceGroupType' => 'ResourceGroupType',
-        'keyword'           => 'Keyword',
         'bizExtKey'         => 'BizExtKey',
+        'keyword'           => 'Keyword',
+        'resourceGroupType' => 'ResourceGroupType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListResourceGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupType) {
-            $res['ResourceGroupType'] = $this->resourceGroupType;
+        if (null !== $this->bizExtKey) {
+            $res['BizExtKey'] = $this->bizExtKey;
         }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
-        if (null !== $this->bizExtKey) {
-            $res['BizExtKey'] = $this->bizExtKey;
+        if (null !== $this->resourceGroupType) {
+            $res['ResourceGroupType'] = $this->resourceGroupType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListResourceGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupType'])) {
-            $model->resourceGroupType = $map['ResourceGroupType'];
+        if (isset($map['BizExtKey'])) {
+            $model->bizExtKey = $map['BizExtKey'];
         }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
-        if (isset($map['BizExtKey'])) {
-            $model->bizExtKey = $map['BizExtKey'];
+        if (isset($map['ResourceGroupType'])) {
+            $model->resourceGroupType = $map['ResourceGroupType'];
         }
 
         return $model;

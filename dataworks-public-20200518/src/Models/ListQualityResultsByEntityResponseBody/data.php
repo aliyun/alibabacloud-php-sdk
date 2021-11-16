@@ -20,19 +20,19 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var ruleChecks[]
      */
     public $ruleChecks;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'totalCount' => 'TotalCount',
         'ruleChecks' => 'RuleChecks',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->ruleChecks) {
             $res['RuleChecks'] = [];
             if (null !== $this->ruleChecks && \is_array($this->ruleChecks)) {
@@ -59,6 +56,9 @@ class data extends Model
                     $res['RuleChecks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RuleChecks'])) {
             if (!empty($map['RuleChecks'])) {
                 $model->ruleChecks = [];
@@ -89,6 +86,9 @@ class data extends Model
                     $model->ruleChecks[$n++] = null !== $item ? ruleChecks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

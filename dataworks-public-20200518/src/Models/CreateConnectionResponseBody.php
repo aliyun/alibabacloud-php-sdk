@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateConnectionResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $httpStatusCode;
-
-    /**
      * @var int
      */
     public $data;
+
+    /**
+     * @var string
+     */
+    public $httpStatusCode;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class CreateConnectionResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'httpStatusCode' => 'HttpStatusCode',
         'data'           => 'Data',
+        'httpStatusCode' => 'HttpStatusCode',
         'requestId'      => 'RequestId',
         'success'        => 'Success',
     ];
@@ -41,11 +41,11 @@ class CreateConnectionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -65,11 +65,11 @@ class CreateConnectionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

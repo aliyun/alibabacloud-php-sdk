@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dbList extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
      * @var int
      */
     public $createTimeStamp;
@@ -21,7 +16,7 @@ class dbList extends Model
     /**
      * @var string
      */
-    public $UUID;
+    public $location;
 
     /**
      * @var int
@@ -41,15 +36,20 @@ class dbList extends Model
     /**
      * @var string
      */
-    public $location;
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $UUID;
     protected $_name = [
-        'type'              => 'Type',
         'createTimeStamp'   => 'CreateTimeStamp',
-        'UUID'              => 'UUID',
+        'location'          => 'Location',
         'modifiedTimeStamp' => 'ModifiedTimeStamp',
         'name'              => 'Name',
         'ownerId'           => 'OwnerId',
-        'location'          => 'Location',
+        'type'              => 'Type',
+        'UUID'              => 'UUID',
     ];
 
     public function validate()
@@ -59,14 +59,11 @@ class dbList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->createTimeStamp) {
             $res['CreateTimeStamp'] = $this->createTimeStamp;
         }
-        if (null !== $this->UUID) {
-            $res['UUID'] = $this->UUID;
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
         }
         if (null !== $this->modifiedTimeStamp) {
             $res['ModifiedTimeStamp'] = $this->modifiedTimeStamp;
@@ -77,8 +74,11 @@ class dbList extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->UUID) {
+            $res['UUID'] = $this->UUID;
         }
 
         return $res;
@@ -92,14 +92,11 @@ class dbList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['CreateTimeStamp'])) {
             $model->createTimeStamp = $map['CreateTimeStamp'];
         }
-        if (isset($map['UUID'])) {
-            $model->UUID = $map['UUID'];
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
         }
         if (isset($map['ModifiedTimeStamp'])) {
             $model->modifiedTimeStamp = $map['ModifiedTimeStamp'];
@@ -110,8 +107,11 @@ class dbList extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['UUID'])) {
+            $model->UUID = $map['UUID'];
         }
 
         return $model;

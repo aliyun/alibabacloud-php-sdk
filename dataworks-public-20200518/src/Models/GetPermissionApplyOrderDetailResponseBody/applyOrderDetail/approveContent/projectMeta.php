@@ -15,18 +15,18 @@ class projectMeta extends Model
     public $maxComputeProjectName;
 
     /**
-     * @var int
-     */
-    public $workspaceId;
-
-    /**
      * @var objectMetaList[]
      */
     public $objectMetaList;
+
+    /**
+     * @var int
+     */
+    public $workspaceId;
     protected $_name = [
         'maxComputeProjectName' => 'MaxComputeProjectName',
-        'workspaceId'           => 'WorkspaceId',
         'objectMetaList'        => 'ObjectMetaList',
+        'workspaceId'           => 'WorkspaceId',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class projectMeta extends Model
         if (null !== $this->maxComputeProjectName) {
             $res['MaxComputeProjectName'] = $this->maxComputeProjectName;
         }
-        if (null !== $this->workspaceId) {
-            $res['WorkspaceId'] = $this->workspaceId;
-        }
         if (null !== $this->objectMetaList) {
             $res['ObjectMetaList'] = [];
             if (null !== $this->objectMetaList && \is_array($this->objectMetaList)) {
@@ -50,6 +47,9 @@ class projectMeta extends Model
                     $res['ObjectMetaList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class projectMeta extends Model
         if (isset($map['MaxComputeProjectName'])) {
             $model->maxComputeProjectName = $map['MaxComputeProjectName'];
         }
-        if (isset($map['WorkspaceId'])) {
-            $model->workspaceId = $map['WorkspaceId'];
-        }
         if (isset($map['ObjectMetaList'])) {
             if (!empty($map['ObjectMetaList'])) {
                 $model->objectMetaList = [];
@@ -77,6 +74,9 @@ class projectMeta extends Model
                     $model->objectMetaList[$n++] = null !== $item ? objectMetaList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

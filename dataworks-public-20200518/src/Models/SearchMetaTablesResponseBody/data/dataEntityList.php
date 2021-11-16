@@ -11,7 +11,7 @@ class dataEntityList extends Model
     /**
      * @var string
      */
-    public $tableName;
+    public $clusterId;
 
     /**
      * @var string
@@ -24,9 +24,14 @@ class dataEntityList extends Model
     public $entityType;
 
     /**
+     * @var int
+     */
+    public $envType;
+
+    /**
      * @var string
      */
-    public $projectName;
+    public $ownerId;
 
     /**
      * @var int
@@ -36,37 +41,32 @@ class dataEntityList extends Model
     /**
      * @var string
      */
+    public $projectName;
+
+    /**
+     * @var string
+     */
     public $tableGuid;
 
     /**
      * @var string
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
-
-    /**
-     * @var int
-     */
-    public $envType;
+    public $tableName;
 
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'tableName'    => 'TableName',
+        'clusterId'    => 'ClusterId',
         'databaseName' => 'DatabaseName',
         'entityType'   => 'EntityType',
-        'projectName'  => 'ProjectName',
-        'projectId'    => 'ProjectId',
-        'tableGuid'    => 'TableGuid',
-        'ownerId'      => 'OwnerId',
-        'clusterId'    => 'ClusterId',
         'envType'      => 'EnvType',
+        'ownerId'      => 'OwnerId',
+        'projectId'    => 'ProjectId',
+        'projectName'  => 'ProjectName',
+        'tableGuid'    => 'TableGuid',
+        'tableName'    => 'TableName',
         'tenantId'     => 'TenantId',
     ];
 
@@ -77,8 +77,8 @@ class dataEntityList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
@@ -86,23 +86,23 @@ class dataEntityList extends Model
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
         }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->tableGuid) {
-            $res['TableGuid'] = $this->tableGuid;
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->envType) {
-            $res['EnvType'] = $this->envType;
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->tableGuid) {
+            $res['TableGuid'] = $this->tableGuid;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -119,8 +119,8 @@ class dataEntityList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
@@ -128,23 +128,23 @@ class dataEntityList extends Model
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
         }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['TableGuid'])) {
-            $model->tableGuid = $map['TableGuid'];
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['EnvType'])) {
-            $model->envType = $map['EnvType'];
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['TableGuid'])) {
+            $model->tableGuid = $map['TableGuid'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

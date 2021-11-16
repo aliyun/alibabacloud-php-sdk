@@ -11,20 +11,20 @@ class sampleValue extends Model
     /**
      * @var string
      */
-    public $discreteProperty;
+    public $bizDate;
 
     /**
      * @var string
      */
-    public $bizDate;
+    public $discreteProperty;
 
     /**
      * @var float
      */
     public $value;
     protected $_name = [
-        'discreteProperty' => 'DiscreteProperty',
         'bizDate'          => 'BizDate',
+        'discreteProperty' => 'DiscreteProperty',
         'value'            => 'Value',
     ];
 
@@ -35,11 +35,11 @@ class sampleValue extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->discreteProperty) {
-            $res['DiscreteProperty'] = $this->discreteProperty;
-        }
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
+        }
+        if (null !== $this->discreteProperty) {
+            $res['DiscreteProperty'] = $this->discreteProperty;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
@@ -56,11 +56,11 @@ class sampleValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DiscreteProperty'])) {
-            $model->discreteProperty = $map['DiscreteProperty'];
-        }
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
+        }
+        if (isset($map['DiscreteProperty'])) {
+            $model->discreteProperty = $map['DiscreteProperty'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];

@@ -11,27 +11,7 @@ class RunManualDagNodesRequest extends Model
     /**
      * @var string
      */
-    public $projectEnv;
-
-    /**
-     * @var string
-     */
-    public $projectName;
-
-    /**
-     * @var string
-     */
-    public $flowName;
-
-    /**
-     * @var string
-     */
     public $bizDate;
-
-    /**
-     * @var string
-     */
-    public $nodeParameters;
 
     /**
      * @var string
@@ -41,27 +21,47 @@ class RunManualDagNodesRequest extends Model
     /**
      * @var string
      */
+    public $excludeNodeIds;
+
+    /**
+     * @var string
+     */
+    public $flowName;
+
+    /**
+     * @var string
+     */
     public $includeNodeIds;
 
     /**
      * @var string
      */
-    public $excludeNodeIds;
+    public $nodeParameters;
+
+    /**
+     * @var string
+     */
+    public $projectEnv;
 
     /**
      * @var int
      */
     public $projectId;
+
+    /**
+     * @var string
+     */
+    public $projectName;
     protected $_name = [
-        'projectEnv'     => 'ProjectEnv',
-        'projectName'    => 'ProjectName',
-        'flowName'       => 'FlowName',
         'bizDate'        => 'BizDate',
-        'nodeParameters' => 'NodeParameters',
         'dagParameters'  => 'DagParameters',
-        'includeNodeIds' => 'IncludeNodeIds',
         'excludeNodeIds' => 'ExcludeNodeIds',
+        'flowName'       => 'FlowName',
+        'includeNodeIds' => 'IncludeNodeIds',
+        'nodeParameters' => 'NodeParameters',
+        'projectEnv'     => 'ProjectEnv',
         'projectId'      => 'ProjectId',
+        'projectName'    => 'ProjectName',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class RunManualDagNodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectEnv) {
-            $res['ProjectEnv'] = $this->projectEnv;
-        }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->flowName) {
-            $res['FlowName'] = $this->flowName;
-        }
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
-        }
-        if (null !== $this->nodeParameters) {
-            $res['NodeParameters'] = $this->nodeParameters;
         }
         if (null !== $this->dagParameters) {
             $res['DagParameters'] = $this->dagParameters;
         }
-        if (null !== $this->includeNodeIds) {
-            $res['IncludeNodeIds'] = $this->includeNodeIds;
-        }
         if (null !== $this->excludeNodeIds) {
             $res['ExcludeNodeIds'] = $this->excludeNodeIds;
         }
+        if (null !== $this->flowName) {
+            $res['FlowName'] = $this->flowName;
+        }
+        if (null !== $this->includeNodeIds) {
+            $res['IncludeNodeIds'] = $this->includeNodeIds;
+        }
+        if (null !== $this->nodeParameters) {
+            $res['NodeParameters'] = $this->nodeParameters;
+        }
+        if (null !== $this->projectEnv) {
+            $res['ProjectEnv'] = $this->projectEnv;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class RunManualDagNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectEnv'])) {
-            $model->projectEnv = $map['ProjectEnv'];
-        }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['FlowName'])) {
-            $model->flowName = $map['FlowName'];
-        }
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
-        }
-        if (isset($map['NodeParameters'])) {
-            $model->nodeParameters = $map['NodeParameters'];
         }
         if (isset($map['DagParameters'])) {
             $model->dagParameters = $map['DagParameters'];
         }
-        if (isset($map['IncludeNodeIds'])) {
-            $model->includeNodeIds = $map['IncludeNodeIds'];
-        }
         if (isset($map['ExcludeNodeIds'])) {
             $model->excludeNodeIds = $map['ExcludeNodeIds'];
         }
+        if (isset($map['FlowName'])) {
+            $model->flowName = $map['FlowName'];
+        }
+        if (isset($map['IncludeNodeIds'])) {
+            $model->includeNodeIds = $map['IncludeNodeIds'];
+        }
+        if (isset($map['NodeParameters'])) {
+            $model->nodeParameters = $map['NodeParameters'];
+        }
+        if (isset($map['ProjectEnv'])) {
+            $model->projectEnv = $map['ProjectEnv'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

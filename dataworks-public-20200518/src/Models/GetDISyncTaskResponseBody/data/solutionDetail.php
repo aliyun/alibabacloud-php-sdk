@@ -11,22 +11,27 @@ class solutionDetail extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $creatorName;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $processContent;
+
+    /**
+     * @var string
+     */
+    public $processExtra;
 
     /**
      * @var int
@@ -41,17 +46,12 @@ class solutionDetail extends Model
     /**
      * @var string
      */
-    public $processContent;
+    public $startTime;
 
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $processExtra;
+    public $status;
 
     /**
      * @var string
@@ -59,21 +59,21 @@ class solutionDetail extends Model
     public $submitTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $type;
     protected $_name = [
-        'status'         => 'Status',
-        'type'           => 'Type',
-        'startTime'      => 'StartTime',
         'creatorName'    => 'CreatorName',
+        'id'             => 'Id',
+        'name'           => 'Name',
+        'processContent' => 'ProcessContent',
+        'processExtra'   => 'ProcessExtra',
         'projectId'      => 'ProjectId',
         'sourceType'     => 'SourceType',
-        'processContent' => 'ProcessContent',
-        'name'           => 'Name',
-        'processExtra'   => 'ProcessExtra',
+        'startTime'      => 'StartTime',
+        'status'         => 'Status',
         'submitTime'     => 'SubmitTime',
-        'id'             => 'Id',
+        'type'           => 'Type',
     ];
 
     public function validate()
@@ -83,17 +83,20 @@ class solutionDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->creatorName) {
             $res['CreatorName'] = $this->creatorName;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->processContent) {
+            $res['ProcessContent'] = $this->processContent;
+        }
+        if (null !== $this->processExtra) {
+            $res['ProcessExtra'] = $this->processExtra;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -101,20 +104,17 @@ class solutionDetail extends Model
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
-        if (null !== $this->processContent) {
-            $res['ProcessContent'] = $this->processContent;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->processExtra) {
-            $res['ProcessExtra'] = $this->processExtra;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->submitTime) {
             $res['SubmitTime'] = $this->submitTime;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -128,17 +128,20 @@ class solutionDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['CreatorName'])) {
             $model->creatorName = $map['CreatorName'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ProcessContent'])) {
+            $model->processContent = $map['ProcessContent'];
+        }
+        if (isset($map['ProcessExtra'])) {
+            $model->processExtra = $map['ProcessExtra'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
@@ -146,20 +149,17 @@ class solutionDetail extends Model
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
-        if (isset($map['ProcessContent'])) {
-            $model->processContent = $map['ProcessContent'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['ProcessExtra'])) {
-            $model->processExtra = $map['ProcessExtra'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['SubmitTime'])) {
             $model->submitTime = $map['SubmitTime'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

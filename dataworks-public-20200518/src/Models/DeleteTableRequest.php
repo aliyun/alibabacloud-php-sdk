@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appGuid;
+
+    /**
+     * @var int
+     */
+    public $envType;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -17,21 +27,11 @@ class DeleteTableRequest extends Model
      * @var string
      */
     public $tableName;
-
-    /**
-     * @var int
-     */
-    public $envType;
-
-    /**
-     * @var string
-     */
-    public $appGuid;
     protected $_name = [
+        'appGuid'   => 'AppGuid',
+        'envType'   => 'EnvType',
         'projectId' => 'ProjectId',
         'tableName' => 'TableName',
-        'envType'   => 'EnvType',
-        'appGuid'   => 'AppGuid',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DeleteTableRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appGuid) {
+            $res['AppGuid'] = $this->appGuid;
+        }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->envType) {
-            $res['EnvType'] = $this->envType;
-        }
-        if (null !== $this->appGuid) {
-            $res['AppGuid'] = $this->appGuid;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DeleteTableRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppGuid'])) {
+            $model->appGuid = $map['AppGuid'];
+        }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
-        }
-        if (isset($map['EnvType'])) {
-            $model->envType = $map['EnvType'];
-        }
-        if (isset($map['AppGuid'])) {
-            $model->appGuid = $map['AppGuid'];
         }
 
         return $model;

@@ -12,17 +12,12 @@ class projectMemberList extends Model
     /**
      * @var string
      */
-    public $status;
+    public $nick;
 
     /**
      * @var string
      */
     public $projectMemberId;
-
-    /**
-     * @var string
-     */
-    public $nick;
 
     /**
      * @var string
@@ -38,13 +33,18 @@ class projectMemberList extends Model
      * @var projectRoleList[]
      */
     public $projectRoleList;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'            => 'Status',
-        'projectMemberId'   => 'ProjectMemberId',
         'nick'              => 'Nick',
+        'projectMemberId'   => 'ProjectMemberId',
         'projectMemberName' => 'ProjectMemberName',
         'projectMemberType' => 'ProjectMemberType',
         'projectRoleList'   => 'ProjectRoleList',
+        'status'            => 'Status',
     ];
 
     public function validate()
@@ -54,14 +54,11 @@ class projectMemberList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->nick) {
+            $res['Nick'] = $this->nick;
         }
         if (null !== $this->projectMemberId) {
             $res['ProjectMemberId'] = $this->projectMemberId;
-        }
-        if (null !== $this->nick) {
-            $res['Nick'] = $this->nick;
         }
         if (null !== $this->projectMemberName) {
             $res['ProjectMemberName'] = $this->projectMemberName;
@@ -78,6 +75,9 @@ class projectMemberList extends Model
                 }
             }
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
 
         return $res;
     }
@@ -90,14 +90,11 @@ class projectMemberList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Nick'])) {
+            $model->nick = $map['Nick'];
         }
         if (isset($map['ProjectMemberId'])) {
             $model->projectMemberId = $map['ProjectMemberId'];
-        }
-        if (isset($map['Nick'])) {
-            $model->nick = $map['Nick'];
         }
         if (isset($map['ProjectMemberName'])) {
             $model->projectMemberName = $map['ProjectMemberName'];
@@ -113,6 +110,9 @@ class projectMemberList extends Model
                     $model->projectRoleList[$n++] = null !== $item ? projectRoleList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

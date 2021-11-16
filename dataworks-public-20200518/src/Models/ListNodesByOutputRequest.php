@@ -11,15 +11,15 @@ class ListNodesByOutputRequest extends Model
     /**
      * @var string
      */
-    public $projectEnv;
+    public $outputs;
 
     /**
      * @var string
      */
-    public $outputs;
+    public $projectEnv;
     protected $_name = [
-        'projectEnv' => 'ProjectEnv',
         'outputs'    => 'Outputs',
+        'projectEnv' => 'ProjectEnv',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListNodesByOutputRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectEnv) {
-            $res['ProjectEnv'] = $this->projectEnv;
-        }
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
+        }
+        if (null !== $this->projectEnv) {
+            $res['ProjectEnv'] = $this->projectEnv;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListNodesByOutputRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectEnv'])) {
-            $model->projectEnv = $map['ProjectEnv'];
-        }
         if (isset($map['Outputs'])) {
             $model->outputs = $map['Outputs'];
+        }
+        if (isset($map['ProjectEnv'])) {
+            $model->projectEnv = $map['ProjectEnv'];
         }
 
         return $model;

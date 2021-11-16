@@ -180,6 +180,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileVersionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileVersionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFolderRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFolderResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetIDEEventDetailRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetIDEEventDetailResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceConsumeTimeRankRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceConsumeTimeRankResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceCountTrendRequest;
@@ -298,6 +300,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServicePublishedAp
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServicePublishedApisResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataSourcesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataSourcesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDISyncTasksRequest;
@@ -432,6 +436,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateFolderRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateFolderResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateIDEEventResultRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateIDEEventResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateMetaCategoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateMetaTableIntroWikiRequest;
@@ -863,6 +869,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param CreateDISyncTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDISyncTaskResponse
+     */
+    public function createDISyncTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDISyncTaskResponse::fromMap($this->doRPCRequest('CreateDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDISyncTaskRequest $request
+     *
+     * @return CreateDISyncTaskResponse
+     */
+    public function createDISyncTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDISyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDagComplementRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1056,34 +1090,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataSourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDISyncTaskRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateDISyncTaskResponse
-     */
-    public function createDISyncTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateDISyncTaskResponse::fromMap($this->doRPCRequest('CreateDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateDISyncTaskRequest $request
-     *
-     * @return CreateDISyncTaskResponse
-     */
-    public function createDISyncTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDISyncTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1697,6 +1703,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param DeleteDISyncTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDISyncTaskResponse
+     */
+    public function deleteDISyncTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDISyncTaskResponse::fromMap($this->doRPCRequest('DeleteDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDISyncTaskRequest $request
+     *
+     * @return DeleteDISyncTaskResponse
+     */
+    public function deleteDISyncTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDISyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDataServiceApiRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1778,34 +1812,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDataSourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteDISyncTaskRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteDISyncTaskResponse
-     */
-    public function deleteDISyncTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteDISyncTaskResponse::fromMap($this->doRPCRequest('DeleteDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteDISyncTaskRequest $request
-     *
-     * @return DeleteDISyncTaskResponse
-     */
-    public function deleteDISyncTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteDISyncTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -2344,6 +2350,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param ExportDISyncTasksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExportDISyncTasksResponse
+     */
+    public function exportDISyncTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ExportDISyncTasksResponse::fromMap($this->doRPCRequest('ExportDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ExportDISyncTasksRequest $request
+     *
+     * @return ExportDISyncTasksResponse
+     */
+    public function exportDISyncTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportDISyncTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ExportDataSourcesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2370,34 +2404,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->exportDataSourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ExportDISyncTasksRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ExportDISyncTasksResponse
-     */
-    public function exportDISyncTasksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ExportDISyncTasksResponse::fromMap($this->doRPCRequest('ExportDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ExportDISyncTasksRequest $request
-     *
-     * @return ExportDISyncTasksResponse
-     */
-    public function exportDISyncTasks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->exportDISyncTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -2597,6 +2603,120 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param GetDDLJobStatusRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDDLJobStatusResponse
+     */
+    public function getDDLJobStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetDDLJobStatusResponse::fromMap($this->doRPCRequest('GetDDLJobStatus', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDDLJobStatusRequest $request
+     *
+     * @return GetDDLJobStatusResponse
+     */
+    public function getDDLJobStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDDLJobStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDISyncInstanceInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDISyncInstanceInfoResponse
+     */
+    public function getDISyncInstanceInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDISyncInstanceInfoResponse::fromMap($this->doRPCRequest('GetDISyncInstanceInfo', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDISyncInstanceInfoRequest $request
+     *
+     * @return GetDISyncInstanceInfoResponse
+     */
+    public function getDISyncInstanceInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDISyncInstanceInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDISyncTaskRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDISyncTaskResponse
+     */
+    public function getDISyncTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDISyncTaskResponse::fromMap($this->doRPCRequest('GetDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDISyncTaskRequest $request
+     *
+     * @return GetDISyncTaskResponse
+     */
+    public function getDISyncTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDISyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDISyncTaskMetricInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetDISyncTaskMetricInfoResponse
+     */
+    public function getDISyncTaskMetricInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetDISyncTaskMetricInfoResponse::fromMap($this->doRPCRequest('GetDISyncTaskMetricInfo', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDISyncTaskMetricInfoRequest $request
+     *
+     * @return GetDISyncTaskMetricInfoResponse
+     */
+    public function getDISyncTaskMetricInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDISyncTaskMetricInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDagRequest  $request
      * @param RuntimeOptions $runtime
      *
@@ -2793,35 +2913,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDDLJobStatusRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetDDLJobStatusResponse
-     */
-    public function getDDLJobStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetDDLJobStatusResponse::fromMap($this->doRPCRequest('GetDDLJobStatus', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDDLJobStatusRequest $request
-     *
-     * @return GetDDLJobStatusResponse
-     */
-    public function getDDLJobStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDDLJobStatusWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetDeploymentRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2847,91 +2938,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDeploymentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDISyncInstanceInfoRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetDISyncInstanceInfoResponse
-     */
-    public function getDISyncInstanceInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDISyncInstanceInfoResponse::fromMap($this->doRPCRequest('GetDISyncInstanceInfo', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDISyncInstanceInfoRequest $request
-     *
-     * @return GetDISyncInstanceInfoResponse
-     */
-    public function getDISyncInstanceInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDISyncInstanceInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDISyncTaskRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetDISyncTaskResponse
-     */
-    public function getDISyncTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDISyncTaskResponse::fromMap($this->doRPCRequest('GetDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDISyncTaskRequest $request
-     *
-     * @return GetDISyncTaskResponse
-     */
-    public function getDISyncTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDISyncTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDISyncTaskMetricInfoRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetDISyncTaskMetricInfoResponse
-     */
-    public function getDISyncTaskMetricInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetDISyncTaskMetricInfoResponse::fromMap($this->doRPCRequest('GetDISyncTaskMetricInfo', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDISyncTaskMetricInfoRequest $request
-     *
-     * @return GetDISyncTaskMetricInfoResponse
-     */
-    public function getDISyncTaskMetricInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDISyncTaskMetricInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -3044,6 +3050,34 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getFolderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetIDEEventDetailRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetIDEEventDetailResponse
+     */
+    public function getIDEEventDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetIDEEventDetailResponse::fromMap($this->doRPCRequest('GetIDEEventDetail', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetIDEEventDetailRequest $request
+     *
+     * @return GetIDEEventDetailResponse
+     */
+    public function getIDEEventDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIDEEventDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -4260,34 +4294,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ImportDataSourcesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ImportDataSourcesResponse
-     */
-    public function importDataSourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ImportDataSourcesResponse::fromMap($this->doRPCRequest('ImportDataSources', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ImportDataSourcesRequest $request
-     *
-     * @return ImportDataSourcesResponse
-     */
-    public function importDataSources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->importDataSourcesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ImportDISyncTasksRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4313,6 +4319,34 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importDISyncTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportDataSourcesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ImportDataSourcesResponse
+     */
+    public function importDataSourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ImportDataSourcesResponse::fromMap($this->doRPCRequest('ImportDataSources', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ImportDataSourcesRequest $request
+     *
+     * @return ImportDataSourcesResponse
+     */
+    public function importDataSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importDataSourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -4482,6 +4516,62 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConnectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDIProjectConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDIProjectConfigResponse
+     */
+    public function listDIProjectConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDIProjectConfigResponse::fromMap($this->doRPCRequest('ListDIProjectConfig', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDIProjectConfigRequest $request
+     *
+     * @return ListDIProjectConfigResponse
+     */
+    public function listDIProjectConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDIProjectConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDISyncTasksRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDISyncTasksResponse
+     */
+    public function listDISyncTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDISyncTasksResponse::fromMap($this->doRPCRequest('ListDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDISyncTasksRequest $request
+     *
+     * @return ListDISyncTasksResponse
+     */
+    public function listDISyncTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDISyncTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -4710,87 +4800,31 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDIProjectConfigRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListDIProjectConfigResponse
-     */
-    public function listDIProjectConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListDIProjectConfigResponse::fromMap($this->doRPCRequest('ListDIProjectConfig', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDIProjectConfigRequest $request
-     *
-     * @return ListDIProjectConfigResponse
-     */
-    public function listDIProjectConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDIProjectConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDISyncTasksRequest $request
+     * @param ListDeploymentsRequest $request
      * @param RuntimeOptions         $runtime
      *
-     * @return ListDISyncTasksResponse
+     * @return ListDeploymentsResponse
      */
-    public function listDISyncTasksWithOptions($request, $runtime)
+    public function listDeploymentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListDISyncTasksResponse::fromMap($this->doRPCRequest('ListDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDeploymentsResponse::fromMap($this->doRPCRequest('ListDeployments', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListDISyncTasksRequest $request
+     * @param ListDeploymentsRequest $request
      *
-     * @return ListDISyncTasksResponse
+     * @return ListDeploymentsResponse
      */
-    public function listDISyncTasks($request)
+    public function listDeployments($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listDISyncTasksWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListFilesRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListFilesResponse
-     */
-    public function listFilesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListFilesResponse::fromMap($this->doRPCRequest('ListFiles', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListFilesRequest $request
-     *
-     * @return ListFilesResponse
-     */
-    public function listFiles($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFilesWithOptions($request, $runtime);
+        return $this->listDeploymentsWithOptions($request, $runtime);
     }
 
     /**
@@ -4847,6 +4881,34 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFileVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListFilesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListFilesResponse
+     */
+    public function listFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListFilesResponse::fromMap($this->doRPCRequest('ListFiles', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListFilesRequest $request
+     *
+     * @return ListFilesResponse
+     */
+    public function listFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -4991,34 +5053,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListNodeInputOrOutputRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListNodeInputOrOutputResponse
-     */
-    public function listNodeInputOrOutputWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListNodeInputOrOutputResponse::fromMap($this->doRPCRequest('ListNodeInputOrOutput', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListNodeInputOrOutputRequest $request
-     *
-     * @return ListNodeInputOrOutputResponse
-     */
-    public function listNodeInputOrOutput($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listNodeInputOrOutputWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListNodeIORequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -5044,6 +5078,34 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNodeIOWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListNodeInputOrOutputRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListNodeInputOrOutputResponse
+     */
+    public function listNodeInputOrOutputWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListNodeInputOrOutputResponse::fromMap($this->doRPCRequest('ListNodeInputOrOutput', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListNodeInputOrOutputRequest $request
+     *
+     * @return ListNodeInputOrOutputResponse
+     */
+    public function listNodeInputOrOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNodeInputOrOutputWithOptions($request, $runtime);
     }
 
     /**
@@ -6422,62 +6484,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDataServiceApiRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateDataServiceApiResponse
-     */
-    public function updateDataServiceApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateDataServiceApiResponse::fromMap($this->doRPCRequest('UpdateDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateDataServiceApiRequest $request
-     *
-     * @return UpdateDataServiceApiResponse
-     */
-    public function updateDataServiceApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDataServiceApiWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateDataSourceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateDataSourceResponse
-     */
-    public function updateDataSourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateDataSourceResponse::fromMap($this->doRPCRequest('UpdateDataSource', '2020-05-18', 'HTTPS', 'PUT', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateDataSourceRequest $request
-     *
-     * @return UpdateDataSourceResponse
-     */
-    public function updateDataSource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDataSourceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateDIProjectConfigRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -6534,6 +6540,62 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param UpdateDataServiceApiRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateDataServiceApiResponse
+     */
+    public function updateDataServiceApiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDataServiceApiResponse::fromMap($this->doRPCRequest('UpdateDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDataServiceApiRequest $request
+     *
+     * @return UpdateDataServiceApiResponse
+     */
+    public function updateDataServiceApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataServiceApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDataSourceResponse
+     */
+    public function updateDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDataSourceResponse::fromMap($this->doRPCRequest('UpdateDataSource', '2020-05-18', 'HTTPS', 'PUT', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDataSourceRequest $request
+     *
+     * @return UpdateDataSourceResponse
+     */
+    public function updateDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateFileRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -6587,6 +6649,34 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFolderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateIDEEventResultRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateIDEEventResultResponse
+     */
+    public function updateIDEEventResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateIDEEventResultResponse::fromMap($this->doRPCRequest('UpdateIDEEventResult', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateIDEEventResultRequest $request
+     *
+     * @return UpdateIDEEventResultResponse
+     */
+    public function updateIDEEventResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIDEEventResultWithOptions($request, $runtime);
     }
 
     /**

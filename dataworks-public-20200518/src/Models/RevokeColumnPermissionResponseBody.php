@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RevokeColumnPermissionResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $revokeSuccess;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $revokeSuccess;
     protected $_name = [
-        'revokeSuccess' => 'RevokeSuccess',
         'requestId'     => 'RequestId',
+        'revokeSuccess' => 'RevokeSuccess',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RevokeColumnPermissionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->revokeSuccess) {
-            $res['RevokeSuccess'] = $this->revokeSuccess;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->revokeSuccess) {
+            $res['RevokeSuccess'] = $this->revokeSuccess;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RevokeColumnPermissionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RevokeSuccess'])) {
-            $model->revokeSuccess = $map['RevokeSuccess'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RevokeSuccess'])) {
+            $model->revokeSuccess = $map['RevokeSuccess'];
         }
 
         return $model;

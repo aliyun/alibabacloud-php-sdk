@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $status;
+    public $instanceId;
 
     /**
      * @var int
      */
-    public $instanceId;
+    public $nodeId;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class instances extends Model
     /**
      * @var int
      */
-    public $nodeId;
+    public $projectId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $projectId;
+    public $status;
     protected $_name = [
-        'status'     => 'Status',
         'instanceId' => 'InstanceId',
-        'nodeName'   => 'NodeName',
         'nodeId'     => 'NodeId',
+        'nodeName'   => 'NodeName',
         'projectId'  => 'ProjectId',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->nodeName) {
-            $res['NodeName'] = $this->nodeName;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['NodeName'])) {
-            $model->nodeName = $map['NodeName'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

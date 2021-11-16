@@ -19,19 +19,19 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string[]
      */
     public $tableGuidList;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'totalCount'    => 'TotalCount',
         'tableGuidList' => 'TableGuidList',
+        'totalCount'    => 'TotalCount',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->tableGuidList) {
             $res['TableGuidList'] = $this->tableGuidList;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -71,13 +71,13 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['TableGuidList'])) {
             if (!empty($map['TableGuidList'])) {
                 $model->tableGuidList = $map['TableGuidList'];
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

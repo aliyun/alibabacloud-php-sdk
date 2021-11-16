@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableThemeRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $name;
@@ -21,10 +16,15 @@ class UpdateTableThemeRequest extends Model
     /**
      * @var int
      */
+    public $projectId;
+
+    /**
+     * @var int
+     */
     public $themeId;
     protected $_name = [
-        'projectId' => 'ProjectId',
         'name'      => 'Name',
+        'projectId' => 'ProjectId',
         'themeId'   => 'ThemeId',
     ];
 
@@ -35,11 +35,11 @@ class UpdateTableThemeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->themeId) {
             $res['ThemeId'] = $this->themeId;
@@ -56,11 +56,11 @@ class UpdateTableThemeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ThemeId'])) {
             $model->themeId = $map['ThemeId'];

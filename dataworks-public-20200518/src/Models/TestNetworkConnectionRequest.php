@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class TestNetworkConnectionRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $datasourceName;
@@ -24,13 +19,18 @@ class TestNetworkConnectionRequest extends Model
     public $envType;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $resourceGroup;
     protected $_name = [
-        'projectId'      => 'ProjectId',
         'datasourceName' => 'DatasourceName',
         'envType'        => 'EnvType',
+        'projectId'      => 'ProjectId',
         'resourceGroup'  => 'ResourceGroup',
     ];
 
@@ -41,14 +41,14 @@ class TestNetworkConnectionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->datasourceName) {
             $res['DatasourceName'] = $this->datasourceName;
         }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->resourceGroup) {
             $res['ResourceGroup'] = $this->resourceGroup;
@@ -65,14 +65,14 @@ class TestNetworkConnectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['DatasourceName'])) {
             $model->datasourceName = $map['DatasourceName'];
         }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ResourceGroup'])) {
             $model->resourceGroup = $map['ResourceGroup'];

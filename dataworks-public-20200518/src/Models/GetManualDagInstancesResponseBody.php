@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetManualDagInstancesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var instances[]
      */
     public $instances;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'instances' => 'Instances',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class GetManualDagInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instances) {
             $res['Instances'] = [];
             if (null !== $this->instances && \is_array($this->instances)) {
@@ -41,6 +38,9 @@ class GetManualDagInstancesResponseBody extends Model
                     $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class GetManualDagInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
@@ -65,6 +62,9 @@ class GetManualDagInstancesResponseBody extends Model
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

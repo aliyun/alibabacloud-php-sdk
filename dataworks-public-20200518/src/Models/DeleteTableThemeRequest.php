@@ -11,15 +11,15 @@ class DeleteTableThemeRequest extends Model
     /**
      * @var int
      */
-    public $themeId;
+    public $projectId;
 
     /**
      * @var int
      */
-    public $projectId;
+    public $themeId;
     protected $_name = [
-        'themeId'   => 'ThemeId',
         'projectId' => 'ProjectId',
+        'themeId'   => 'ThemeId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteTableThemeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->themeId) {
-            $res['ThemeId'] = $this->themeId;
-        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->themeId) {
+            $res['ThemeId'] = $this->themeId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteTableThemeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ThemeId'])) {
-            $model->themeId = $map['ThemeId'];
-        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ThemeId'])) {
+            $model->themeId = $map['ThemeId'];
         }
 
         return $model;

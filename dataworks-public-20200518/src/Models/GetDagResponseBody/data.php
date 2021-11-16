@@ -9,44 +9,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
-    public $finishTime;
+    public $bizdate;
 
     /**
      * @var int
      */
     public $createTime;
-
-    /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
-     * @var int
-     */
-    public $dagId;
-
-    /**
-     * @var int
-     */
-    public $gmtdate;
-
-    /**
-     * @var int
-     */
-    public $startTime;
 
     /**
      * @var string
@@ -56,7 +26,22 @@ class data extends Model
     /**
      * @var int
      */
-    public $bizdate;
+    public $dagId;
+
+    /**
+     * @var int
+     */
+    public $finishTime;
+
+    /**
+     * @var int
+     */
+    public $gmtdate;
+
+    /**
+     * @var int
+     */
+    public $modifyTime;
 
     /**
      * @var string
@@ -66,20 +51,35 @@ class data extends Model
     /**
      * @var int
      */
-    public $modifyTime;
+    public $projectId;
+
+    /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'       => 'Type',
-        'status'     => 'Status',
-        'finishTime' => 'FinishTime',
-        'createTime' => 'CreateTime',
-        'projectId'  => 'ProjectId',
-        'dagId'      => 'DagId',
-        'gmtdate'    => 'Gmtdate',
-        'startTime'  => 'StartTime',
-        'createUser' => 'CreateUser',
         'bizdate'    => 'Bizdate',
-        'name'       => 'Name',
+        'createTime' => 'CreateTime',
+        'createUser' => 'CreateUser',
+        'dagId'      => 'DagId',
+        'finishTime' => 'FinishTime',
+        'gmtdate'    => 'Gmtdate',
         'modifyTime' => 'ModifyTime',
+        'name'       => 'Name',
+        'projectId'  => 'ProjectId',
+        'startTime'  => 'StartTime',
+        'status'     => 'Status',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -89,41 +89,41 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->finishTime) {
-            $res['FinishTime'] = $this->finishTime;
+        if (null !== $this->bizdate) {
+            $res['Bizdate'] = $this->bizdate;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->createUser) {
+            $res['CreateUser'] = $this->createUser;
         }
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
         }
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
+        }
         if (null !== $this->gmtdate) {
             $res['Gmtdate'] = $this->gmtdate;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->createUser) {
-            $res['CreateUser'] = $this->createUser;
-        }
-        if (null !== $this->bizdate) {
-            $res['Bizdate'] = $this->bizdate;
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -137,41 +137,41 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['FinishTime'])) {
-            $model->finishTime = $map['FinishTime'];
+        if (isset($map['Bizdate'])) {
+            $model->bizdate = $map['Bizdate'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['CreateUser'])) {
+            $model->createUser = $map['CreateUser'];
         }
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
         }
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
+        }
         if (isset($map['Gmtdate'])) {
             $model->gmtdate = $map['Gmtdate'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['CreateUser'])) {
-            $model->createUser = $map['CreateUser'];
-        }
-        if (isset($map['Bizdate'])) {
-            $model->bizdate = $map['Bizdate'];
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListMetaDBRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $dataSourceType;
@@ -27,11 +22,16 @@ class ListMetaDBRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $projectId;
     protected $_name = [
-        'projectId'      => 'ProjectId',
         'dataSourceType' => 'DataSourceType',
         'pageNum'        => 'PageNum',
         'pageSize'       => 'PageSize',
+        'projectId'      => 'ProjectId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class ListMetaDBRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
         }
@@ -52,6 +49,9 @@ class ListMetaDBRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class ListMetaDBRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
         }
@@ -76,6 +73,9 @@ class ListMetaDBRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

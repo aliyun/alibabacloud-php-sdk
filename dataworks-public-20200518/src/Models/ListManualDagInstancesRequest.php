@@ -11,21 +11,21 @@ class ListManualDagInstancesRequest extends Model
     /**
      * @var string
      */
+    public $dagId;
+
+    /**
+     * @var string
+     */
     public $projectEnv;
 
     /**
      * @var string
      */
     public $projectName;
-
-    /**
-     * @var string
-     */
-    public $dagId;
     protected $_name = [
+        'dagId'       => 'DagId',
         'projectEnv'  => 'ProjectEnv',
         'projectName' => 'ProjectName',
-        'dagId'       => 'DagId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListManualDagInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dagId) {
+            $res['DagId'] = $this->dagId;
+        }
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->dagId) {
-            $res['DagId'] = $this->dagId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListManualDagInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DagId'])) {
+            $model->dagId = $map['DagId'];
+        }
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['DagId'])) {
-            $model->dagId = $map['DagId'];
         }
 
         return $model;

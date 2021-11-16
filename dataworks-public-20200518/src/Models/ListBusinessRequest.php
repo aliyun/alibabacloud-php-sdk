@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListBusinessRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
-    public $projectIdentifier;
+    public $keyword;
 
     /**
      * @var int
@@ -29,15 +24,20 @@ class ListBusinessRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
-    public $keyword;
+    public $projectIdentifier;
     protected $_name = [
-        'projectId'         => 'ProjectId',
-        'projectIdentifier' => 'ProjectIdentifier',
+        'keyword'           => 'Keyword',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
-        'keyword'           => 'Keyword',
+        'projectId'         => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class ListBusinessRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->projectIdentifier) {
-            $res['ProjectIdentifier'] = $this->projectIdentifier;
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -59,8 +56,11 @@ class ListBusinessRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->projectIdentifier) {
+            $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class ListBusinessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ProjectIdentifier'])) {
-            $model->projectIdentifier = $map['ProjectIdentifier'];
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -86,8 +83,11 @@ class ListBusinessRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ProjectIdentifier'])) {
+            $model->projectIdentifier = $map['ProjectIdentifier'];
         }
 
         return $model;

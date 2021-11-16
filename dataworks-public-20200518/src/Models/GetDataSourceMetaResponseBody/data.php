@@ -11,21 +11,21 @@ class data extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $message;
 
     /**
      * @var string
      */
     public $meta;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'  => 'Status',
         'message' => 'Message',
         'meta'    => 'Meta',
+        'status'  => 'Status',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->meta) {
             $res['Meta'] = $this->meta;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['Meta'])) {
             $model->meta = $map['Meta'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

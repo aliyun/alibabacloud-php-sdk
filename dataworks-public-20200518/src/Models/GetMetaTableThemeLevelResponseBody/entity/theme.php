@@ -11,7 +11,7 @@ class theme extends Model
     /**
      * @var int
      */
-    public $parentId;
+    public $level;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class theme extends Model
     /**
      * @var int
      */
-    public $themeId;
+    public $parentId;
 
     /**
      * @var int
      */
-    public $level;
+    public $themeId;
     protected $_name = [
-        'parentId' => 'ParentId',
-        'name'     => 'Name',
-        'themeId'  => 'ThemeId',
         'level'    => 'Level',
+        'name'     => 'Name',
+        'parentId' => 'ParentId',
+        'themeId'  => 'ThemeId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class theme extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
+        }
         if (null !== $this->themeId) {
             $res['ThemeId'] = $this->themeId;
-        }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class theme extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
+        }
         if (isset($map['ThemeId'])) {
             $model->themeId = $map['ThemeId'];
-        }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
         }
 
         return $model;

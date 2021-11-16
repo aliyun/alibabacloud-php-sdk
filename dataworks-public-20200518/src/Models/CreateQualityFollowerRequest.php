@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityFollowerRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $projectName;
-
-    /**
-     * @var string
-     */
-    public $follower;
-
-    /**
      * @var int
      */
     public $alarmMode;
@@ -27,11 +17,21 @@ class CreateQualityFollowerRequest extends Model
      * @var int
      */
     public $entityId;
+
+    /**
+     * @var string
+     */
+    public $follower;
+
+    /**
+     * @var string
+     */
+    public $projectName;
     protected $_name = [
-        'projectName' => 'ProjectName',
-        'follower'    => 'Follower',
         'alarmMode'   => 'AlarmMode',
         'entityId'    => 'EntityId',
+        'follower'    => 'Follower',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateQualityFollowerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->follower) {
-            $res['Follower'] = $this->follower;
-        }
         if (null !== $this->alarmMode) {
             $res['AlarmMode'] = $this->alarmMode;
         }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
+        }
+        if (null !== $this->follower) {
+            $res['Follower'] = $this->follower;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateQualityFollowerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['Follower'])) {
-            $model->follower = $map['Follower'];
-        }
         if (isset($map['AlarmMode'])) {
             $model->alarmMode = $map['AlarmMode'];
         }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
+        }
+        if (isset($map['Follower'])) {
+            $model->follower = $map['Follower'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

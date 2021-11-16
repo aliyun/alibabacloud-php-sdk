@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListDIProjectConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $destinationType;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -16,15 +21,10 @@ class ListDIProjectConfigRequest extends Model
     /**
      * @var string
      */
-    public $destinationType;
-
-    /**
-     * @var string
-     */
     public $sourceType;
     protected $_name = [
-        'projectId'       => 'ProjectId',
         'destinationType' => 'DestinationType',
+        'projectId'       => 'ProjectId',
         'sourceType'      => 'SourceType',
     ];
 
@@ -35,11 +35,11 @@ class ListDIProjectConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -56,11 +56,11 @@ class ListDIProjectConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];

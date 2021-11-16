@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class robots extends Model
 {
     /**
-     * @var string
-     */
-    public $webUrl;
-
-    /**
      * @var bool
      */
     public $atAll;
+
+    /**
+     * @var string
+     */
+    public $webUrl;
     protected $_name = [
-        'webUrl' => 'WebUrl',
         'atAll'  => 'AtAll',
+        'webUrl' => 'WebUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class robots extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->webUrl) {
-            $res['WebUrl'] = $this->webUrl;
-        }
         if (null !== $this->atAll) {
             $res['AtAll'] = $this->atAll;
+        }
+        if (null !== $this->webUrl) {
+            $res['WebUrl'] = $this->webUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class robots extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WebUrl'])) {
-            $model->webUrl = $map['WebUrl'];
-        }
         if (isset($map['AtAll'])) {
             $model->atAll = $map['AtAll'];
+        }
+        if (isset($map['WebUrl'])) {
+            $model->webUrl = $map['WebUrl'];
         }
 
         return $model;

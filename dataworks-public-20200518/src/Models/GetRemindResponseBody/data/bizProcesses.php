@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class bizProcesses extends Model
 {
     /**
-     * @var string
-     */
-    public $bizProcessName;
-
-    /**
      * @var int
      */
     public $bizId;
+
+    /**
+     * @var string
+     */
+    public $bizProcessName;
     protected $_name = [
-        'bizProcessName' => 'BizProcessName',
         'bizId'          => 'BizId',
+        'bizProcessName' => 'BizProcessName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class bizProcesses extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bizProcessName) {
-            $res['BizProcessName'] = $this->bizProcessName;
-        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+        if (null !== $this->bizProcessName) {
+            $res['BizProcessName'] = $this->bizProcessName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class bizProcesses extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BizProcessName'])) {
-            $model->bizProcessName = $map['BizProcessName'];
-        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+        if (isset($map['BizProcessName'])) {
+            $model->bizProcessName = $map['BizProcessName'];
         }
 
         return $model;

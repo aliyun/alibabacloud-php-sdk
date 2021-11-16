@@ -11,21 +11,21 @@ class DeleteBusinessRequest extends Model
     /**
      * @var int
      */
+    public $businessId;
+
+    /**
+     * @var int
+     */
     public $projectId;
 
     /**
      * @var string
      */
     public $projectIdentifier;
-
-    /**
-     * @var int
-     */
-    public $businessId;
     protected $_name = [
+        'businessId'        => 'BusinessId',
         'projectId'         => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
-        'businessId'        => 'BusinessId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteBusinessRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessId) {
+            $res['BusinessId'] = $this->businessId;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
-        }
-        if (null !== $this->businessId) {
-            $res['BusinessId'] = $this->businessId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteBusinessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessId'])) {
+            $model->businessId = $map['BusinessId'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
-        }
-        if (isset($map['BusinessId'])) {
-            $model->businessId = $map['BusinessId'];
         }
 
         return $model;

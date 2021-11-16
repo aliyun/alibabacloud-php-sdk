@@ -11,27 +11,27 @@ class GetQualityEntityRequest extends Model
     /**
      * @var string
      */
-    public $projectName;
-
-    /**
-     * @var string
-     */
-    public $tableName;
-
-    /**
-     * @var string
-     */
     public $envType;
 
     /**
      * @var string
      */
     public $matchExpression;
+
+    /**
+     * @var string
+     */
+    public $projectName;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
-        'projectName'     => 'ProjectName',
-        'tableName'       => 'TableName',
         'envType'         => 'EnvType',
         'matchExpression' => 'MatchExpression',
+        'projectName'     => 'ProjectName',
+        'tableName'       => 'TableName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class GetQualityEntityRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
         if (null !== $this->matchExpression) {
             $res['MatchExpression'] = $this->matchExpression;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class GetQualityEntityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
         if (isset($map['MatchExpression'])) {
             $model->matchExpression = $map['MatchExpression'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class instanceConsumeTimeRank extends Model
 {
     /**
-     * @var int
-     */
-    public $updateTime;
-
-    /**
      * @var consumeTimeRank[]
      */
     public $consumeTimeRank;
+
+    /**
+     * @var int
+     */
+    public $updateTime;
     protected $_name = [
-        'updateTime'      => 'UpdateTime',
         'consumeTimeRank' => 'ConsumeTimeRank',
+        'updateTime'      => 'UpdateTime',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class instanceConsumeTimeRank extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
         if (null !== $this->consumeTimeRank) {
             $res['ConsumeTimeRank'] = [];
             if (null !== $this->consumeTimeRank && \is_array($this->consumeTimeRank)) {
@@ -41,6 +38,9 @@ class instanceConsumeTimeRank extends Model
                     $res['ConsumeTimeRank'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class instanceConsumeTimeRank extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
         if (isset($map['ConsumeTimeRank'])) {
             if (!empty($map['ConsumeTimeRank'])) {
                 $model->consumeTimeRank = [];
@@ -65,6 +62,9 @@ class instanceConsumeTimeRank extends Model
                     $model->consumeTimeRank[$n++] = null !== $item ? consumeTimeRank::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

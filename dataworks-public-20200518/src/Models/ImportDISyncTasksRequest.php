@@ -16,22 +16,22 @@ class ImportDISyncTasksRequest extends Model
     /**
      * @var string
      */
+    public $taskParam;
+
+    /**
+     * @var string
+     */
     public $taskType;
 
     /**
      * @var string
      */
     public $body;
-
-    /**
-     * @var string
-     */
-    public $taskParam;
     protected $_name = [
         'projectId' => 'ProjectId',
+        'taskParam' => 'TaskParam',
         'taskType'  => 'TaskType',
         'body'      => 'body',
-        'taskParam' => 'TaskParam',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ImportDISyncTasksRequest extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+        if (null !== $this->taskParam) {
+            $res['TaskParam'] = $this->taskParam;
+        }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
         if (null !== $this->body) {
             $res['body'] = $this->body;
-        }
-        if (null !== $this->taskParam) {
-            $res['TaskParam'] = $this->taskParam;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ImportDISyncTasksRequest extends Model
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+        if (isset($map['TaskParam'])) {
+            $model->taskParam = $map['TaskParam'];
+        }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
         if (isset($map['body'])) {
             $model->body = $map['body'];
-        }
-        if (isset($map['TaskParam'])) {
-            $model->taskParam = $map['TaskParam'];
         }
 
         return $model;

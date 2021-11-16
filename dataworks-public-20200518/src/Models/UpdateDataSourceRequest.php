@@ -11,6 +11,16 @@ class UpdateDataSourceRequest extends Model
     /**
      * @var string
      */
+    public $content;
+
+    /**
+     * @var int
+     */
+    public $dataSourceId;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -21,23 +31,13 @@ class UpdateDataSourceRequest extends Model
     /**
      * @var string
      */
-    public $content;
-
-    /**
-     * @var string
-     */
     public $status;
-
-    /**
-     * @var int
-     */
-    public $dataSourceId;
     protected $_name = [
+        'content'      => 'Content',
+        'dataSourceId' => 'DataSourceId',
         'description'  => 'Description',
         'envType'      => 'EnvType',
-        'content'      => 'Content',
         'status'       => 'Status',
-        'dataSourceId' => 'DataSourceId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class UpdateDataSourceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
+        if (null !== $this->dataSourceId) {
+            $res['DataSourceId'] = $this->dataSourceId;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->dataSourceId) {
-            $res['DataSourceId'] = $this->dataSourceId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class UpdateDataSourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
+        if (isset($map['DataSourceId'])) {
+            $model->dataSourceId = $map['DataSourceId'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['DataSourceId'])) {
-            $model->dataSourceId = $map['DataSourceId'];
         }
 
         return $model;

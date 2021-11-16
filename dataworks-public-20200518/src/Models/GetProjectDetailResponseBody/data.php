@@ -9,14 +9,39 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $defaultDiResourceGroupIdentifier;
+
+    /**
      * @var int
      */
-    public $status;
+    public $developmentType;
+
+    /**
+     * @var string[]
+     */
+    public $envTypes;
 
     /**
      * @var string
      */
-    public $residentArea;
+    public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $gmtModified;
+
+    /**
+     * @var int
+     */
+    public $isAllowDownload;
+
+    /**
+     * @var string
+     */
+    public $projectDescription;
 
     /**
      * @var int
@@ -29,16 +54,6 @@ class data extends Model
     public $projectIdentifier;
 
     /**
-     * @var string
-     */
-    public $projectName;
-
-    /**
-     * @var int
-     */
-    public $isAllowDownload;
-
-    /**
      * @var int
      */
     public $projectMode;
@@ -46,12 +61,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $projectDescription;
-
-    /**
-     * @var string
-     */
-    public $gmtModified;
+    public $projectName;
 
     /**
      * @var string
@@ -61,17 +71,12 @@ class data extends Model
     /**
      * @var int
      */
-    public $developmentType;
+    public $protectedMode;
 
     /**
      * @var string
      */
-    public $defaultDiResourceGroupIdentifier;
-
-    /**
-     * @var string
-     */
-    public $gmtCreate;
+    public $residentArea;
 
     /**
      * @var int
@@ -81,41 +86,36 @@ class data extends Model
     /**
      * @var int
      */
-    public $protectedMode;
+    public $schedulerRetryInterval;
+
+    /**
+     * @var int
+     */
+    public $status;
 
     /**
      * @var int
      */
     public $tenantId;
-
-    /**
-     * @var int
-     */
-    public $schedulerRetryInterval;
-
-    /**
-     * @var string[]
-     */
-    public $envTypes;
     protected $_name = [
-        'status'                           => 'Status',
-        'residentArea'                     => 'ResidentArea',
+        'defaultDiResourceGroupIdentifier' => 'DefaultDiResourceGroupIdentifier',
+        'developmentType'                  => 'DevelopmentType',
+        'envTypes'                         => 'EnvTypes',
+        'gmtCreate'                        => 'GmtCreate',
+        'gmtModified'                      => 'GmtModified',
+        'isAllowDownload'                  => 'IsAllowDownload',
+        'projectDescription'               => 'ProjectDescription',
         'projectId'                        => 'ProjectId',
         'projectIdentifier'                => 'ProjectIdentifier',
-        'projectName'                      => 'ProjectName',
-        'isAllowDownload'                  => 'IsAllowDownload',
         'projectMode'                      => 'ProjectMode',
-        'projectDescription'               => 'ProjectDescription',
-        'gmtModified'                      => 'GmtModified',
+        'projectName'                      => 'ProjectName',
         'projectOwnerBaseId'               => 'ProjectOwnerBaseId',
-        'developmentType'                  => 'DevelopmentType',
-        'defaultDiResourceGroupIdentifier' => 'DefaultDiResourceGroupIdentifier',
-        'gmtCreate'                        => 'GmtCreate',
-        'schedulerMaxRetryTimes'           => 'SchedulerMaxRetryTimes',
         'protectedMode'                    => 'ProtectedMode',
-        'tenantId'                         => 'TenantId',
+        'residentArea'                     => 'ResidentArea',
+        'schedulerMaxRetryTimes'           => 'SchedulerMaxRetryTimes',
         'schedulerRetryInterval'           => 'SchedulerRetryInterval',
-        'envTypes'                         => 'EnvTypes',
+        'status'                           => 'Status',
+        'tenantId'                         => 'TenantId',
     ];
 
     public function validate()
@@ -125,11 +125,26 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->defaultDiResourceGroupIdentifier) {
+            $res['DefaultDiResourceGroupIdentifier'] = $this->defaultDiResourceGroupIdentifier;
         }
-        if (null !== $this->residentArea) {
-            $res['ResidentArea'] = $this->residentArea;
+        if (null !== $this->developmentType) {
+            $res['DevelopmentType'] = $this->developmentType;
+        }
+        if (null !== $this->envTypes) {
+            $res['EnvTypes'] = $this->envTypes;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->isAllowDownload) {
+            $res['IsAllowDownload'] = $this->isAllowDownload;
+        }
+        if (null !== $this->projectDescription) {
+            $res['ProjectDescription'] = $this->projectDescription;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -137,47 +152,32 @@ class data extends Model
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->isAllowDownload) {
-            $res['IsAllowDownload'] = $this->isAllowDownload;
-        }
         if (null !== $this->projectMode) {
             $res['ProjectMode'] = $this->projectMode;
         }
-        if (null !== $this->projectDescription) {
-            $res['ProjectDescription'] = $this->projectDescription;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->projectOwnerBaseId) {
             $res['ProjectOwnerBaseId'] = $this->projectOwnerBaseId;
         }
-        if (null !== $this->developmentType) {
-            $res['DevelopmentType'] = $this->developmentType;
+        if (null !== $this->protectedMode) {
+            $res['ProtectedMode'] = $this->protectedMode;
         }
-        if (null !== $this->defaultDiResourceGroupIdentifier) {
-            $res['DefaultDiResourceGroupIdentifier'] = $this->defaultDiResourceGroupIdentifier;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
+        if (null !== $this->residentArea) {
+            $res['ResidentArea'] = $this->residentArea;
         }
         if (null !== $this->schedulerMaxRetryTimes) {
             $res['SchedulerMaxRetryTimes'] = $this->schedulerMaxRetryTimes;
         }
-        if (null !== $this->protectedMode) {
-            $res['ProtectedMode'] = $this->protectedMode;
-        }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
-        }
         if (null !== $this->schedulerRetryInterval) {
             $res['SchedulerRetryInterval'] = $this->schedulerRetryInterval;
         }
-        if (null !== $this->envTypes) {
-            $res['EnvTypes'] = $this->envTypes;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -191,11 +191,28 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['DefaultDiResourceGroupIdentifier'])) {
+            $model->defaultDiResourceGroupIdentifier = $map['DefaultDiResourceGroupIdentifier'];
         }
-        if (isset($map['ResidentArea'])) {
-            $model->residentArea = $map['ResidentArea'];
+        if (isset($map['DevelopmentType'])) {
+            $model->developmentType = $map['DevelopmentType'];
+        }
+        if (isset($map['EnvTypes'])) {
+            if (!empty($map['EnvTypes'])) {
+                $model->envTypes = $map['EnvTypes'];
+            }
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['IsAllowDownload'])) {
+            $model->isAllowDownload = $map['IsAllowDownload'];
+        }
+        if (isset($map['ProjectDescription'])) {
+            $model->projectDescription = $map['ProjectDescription'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
@@ -203,49 +220,32 @@ class data extends Model
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
         }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['IsAllowDownload'])) {
-            $model->isAllowDownload = $map['IsAllowDownload'];
-        }
         if (isset($map['ProjectMode'])) {
             $model->projectMode = $map['ProjectMode'];
         }
-        if (isset($map['ProjectDescription'])) {
-            $model->projectDescription = $map['ProjectDescription'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
         if (isset($map['ProjectOwnerBaseId'])) {
             $model->projectOwnerBaseId = $map['ProjectOwnerBaseId'];
         }
-        if (isset($map['DevelopmentType'])) {
-            $model->developmentType = $map['DevelopmentType'];
+        if (isset($map['ProtectedMode'])) {
+            $model->protectedMode = $map['ProtectedMode'];
         }
-        if (isset($map['DefaultDiResourceGroupIdentifier'])) {
-            $model->defaultDiResourceGroupIdentifier = $map['DefaultDiResourceGroupIdentifier'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
+        if (isset($map['ResidentArea'])) {
+            $model->residentArea = $map['ResidentArea'];
         }
         if (isset($map['SchedulerMaxRetryTimes'])) {
             $model->schedulerMaxRetryTimes = $map['SchedulerMaxRetryTimes'];
         }
-        if (isset($map['ProtectedMode'])) {
-            $model->protectedMode = $map['ProtectedMode'];
-        }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
-        }
         if (isset($map['SchedulerRetryInterval'])) {
             $model->schedulerRetryInterval = $map['SchedulerRetryInterval'];
         }
-        if (isset($map['EnvTypes'])) {
-            if (!empty($map['EnvTypes'])) {
-                $model->envTypes = $map['EnvTypes'];
-            }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

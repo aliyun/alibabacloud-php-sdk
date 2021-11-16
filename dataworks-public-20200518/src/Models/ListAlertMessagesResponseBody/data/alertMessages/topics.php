@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class topics extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $topicName;
+    public $instanceId;
 
     /**
      * @var int
      */
-    public $instanceId;
+    public $nodeId;
 
     /**
      * @var int
@@ -26,23 +26,23 @@ class topics extends Model
     /**
      * @var string
      */
-    public $topicOwner;
+    public $topicName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $nodeId;
+    public $topicOwner;
 
     /**
      * @var string
      */
     public $topicStatus;
     protected $_name = [
-        'topicName'   => 'TopicName',
         'instanceId'  => 'InstanceId',
-        'topicId'     => 'TopicId',
-        'topicOwner'  => 'TopicOwner',
         'nodeId'      => 'NodeId',
+        'topicId'     => 'TopicId',
+        'topicName'   => 'TopicName',
+        'topicOwner'  => 'TopicOwner',
         'topicStatus' => 'TopicStatus',
     ];
 
@@ -53,20 +53,20 @@ class topics extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topicName) {
-            $res['TopicName'] = $this->topicName;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->topicId) {
             $res['TopicId'] = $this->topicId;
         }
+        if (null !== $this->topicName) {
+            $res['TopicName'] = $this->topicName;
+        }
         if (null !== $this->topicOwner) {
             $res['TopicOwner'] = $this->topicOwner;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->topicStatus) {
             $res['TopicStatus'] = $this->topicStatus;
@@ -83,20 +83,20 @@ class topics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TopicName'])) {
-            $model->topicName = $map['TopicName'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['TopicId'])) {
             $model->topicId = $map['TopicId'];
         }
+        if (isset($map['TopicName'])) {
+            $model->topicName = $map['TopicName'];
+        }
         if (isset($map['TopicOwner'])) {
             $model->topicOwner = $map['TopicOwner'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['TopicStatus'])) {
             $model->topicStatus = $map['TopicStatus'];

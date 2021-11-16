@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceErrorRankResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var instanceErrorRank
      */
     public $instanceErrorRank;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'instanceErrorRank' => 'InstanceErrorRank',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetInstanceErrorRankResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instanceErrorRank) {
             $res['InstanceErrorRank'] = null !== $this->instanceErrorRank ? $this->instanceErrorRank->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetInstanceErrorRankResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InstanceErrorRank'])) {
             $model->instanceErrorRank = instanceErrorRank::fromMap($map['InstanceErrorRank']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

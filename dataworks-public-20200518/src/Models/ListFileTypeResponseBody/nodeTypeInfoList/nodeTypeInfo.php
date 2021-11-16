@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class nodeTypeInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $nodeTypeName;
-
-    /**
      * @var int
      */
     public $nodeType;
+
+    /**
+     * @var string
+     */
+    public $nodeTypeName;
     protected $_name = [
-        'nodeTypeName' => 'NodeTypeName',
         'nodeType'     => 'NodeType',
+        'nodeTypeName' => 'NodeTypeName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class nodeTypeInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nodeTypeName) {
-            $res['NodeTypeName'] = $this->nodeTypeName;
-        }
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
+        }
+        if (null !== $this->nodeTypeName) {
+            $res['NodeTypeName'] = $this->nodeTypeName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class nodeTypeInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NodeTypeName'])) {
-            $model->nodeTypeName = $map['NodeTypeName'];
-        }
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
+        }
+        if (isset($map['NodeTypeName'])) {
+            $model->nodeTypeName = $map['NodeTypeName'];
         }
 
         return $model;

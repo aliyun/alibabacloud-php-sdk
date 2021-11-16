@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class instanceErrorRank extends Model
 {
     /**
-     * @var int
-     */
-    public $updateTime;
-
-    /**
      * @var errorRank[]
      */
     public $errorRank;
+
+    /**
+     * @var int
+     */
+    public $updateTime;
     protected $_name = [
-        'updateTime' => 'UpdateTime',
         'errorRank'  => 'ErrorRank',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class instanceErrorRank extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
         if (null !== $this->errorRank) {
             $res['ErrorRank'] = [];
             if (null !== $this->errorRank && \is_array($this->errorRank)) {
@@ -41,6 +38,9 @@ class instanceErrorRank extends Model
                     $res['ErrorRank'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class instanceErrorRank extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
         if (isset($map['ErrorRank'])) {
             if (!empty($map['ErrorRank'])) {
                 $model->errorRank = [];
@@ -65,6 +62,9 @@ class instanceErrorRank extends Model
                     $model->errorRank[$n++] = null !== $item ? errorRank::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

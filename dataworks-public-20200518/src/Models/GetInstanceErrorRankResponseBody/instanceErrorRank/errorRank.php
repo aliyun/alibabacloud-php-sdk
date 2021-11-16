@@ -9,26 +9,6 @@ use AlibabaCloud\Tea\Model;
 class errorRank extends Model
 {
     /**
-     * @var string
-     */
-    public $owner;
-
-    /**
-     * @var string
-     */
-    public $nodeName;
-
-    /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
-     * @var int
-     */
-    public $nodeId;
-
-    /**
      * @var int
      */
     public $count;
@@ -36,14 +16,34 @@ class errorRank extends Model
     /**
      * @var int
      */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
+    public $nodeName;
+
+    /**
+     * @var string
+     */
+    public $owner;
+
+    /**
+     * @var int
+     */
     public $prgType;
+
+    /**
+     * @var int
+     */
+    public $projectId;
     protected $_name = [
-        'owner'     => 'Owner',
-        'nodeName'  => 'NodeName',
-        'projectId' => 'ProjectId',
-        'nodeId'    => 'NodeId',
         'count'     => 'Count',
+        'nodeId'    => 'NodeId',
+        'nodeName'  => 'NodeName',
+        'owner'     => 'Owner',
         'prgType'   => 'PrgType',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class errorRank extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-        if (null !== $this->nodeName) {
-            $res['NodeName'] = $this->nodeName;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
         if (null !== $this->prgType) {
             $res['PrgType'] = $this->prgType;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class errorRank extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-        if (isset($map['NodeName'])) {
-            $model->nodeName = $map['NodeName'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
         if (isset($map['PrgType'])) {
             $model->prgType = $map['PrgType'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

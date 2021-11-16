@@ -11,21 +11,21 @@ class GetDeploymentRequest extends Model
     /**
      * @var int
      */
+    public $deploymentId;
+
+    /**
+     * @var int
+     */
     public $projectId;
 
     /**
      * @var string
      */
     public $projectIdentifier;
-
-    /**
-     * @var int
-     */
-    public $deploymentId;
     protected $_name = [
+        'deploymentId'      => 'DeploymentId',
         'projectId'         => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
-        'deploymentId'      => 'DeploymentId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetDeploymentRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deploymentId) {
+            $res['DeploymentId'] = $this->deploymentId;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
-        }
-        if (null !== $this->deploymentId) {
-            $res['DeploymentId'] = $this->deploymentId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetDeploymentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeploymentId'])) {
+            $model->deploymentId = $map['DeploymentId'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
-        }
-        if (isset($map['DeploymentId'])) {
-            $model->deploymentId = $map['DeploymentId'];
         }
 
         return $model;

@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CreatePermissionApplyOrderRequest extends Model
 {
     /**
+     * @var applyObject[]
+     */
+    public $applyObject;
+
+    /**
+     * @var string
+     */
+    public $applyReason;
+
+    /**
      * @var string
      */
     public $applyUserIds;
@@ -22,7 +32,7 @@ class CreatePermissionApplyOrderRequest extends Model
     /**
      * @var string
      */
-    public $applyReason;
+    public $engineType;
 
     /**
      * @var string
@@ -32,31 +42,21 @@ class CreatePermissionApplyOrderRequest extends Model
     /**
      * @var int
      */
-    public $workspaceId;
+    public $orderType;
 
     /**
      * @var int
      */
-    public $orderType;
-
-    /**
-     * @var string
-     */
-    public $engineType;
-
-    /**
-     * @var applyObject[]
-     */
-    public $applyObject;
+    public $workspaceId;
     protected $_name = [
+        'applyObject'           => 'ApplyObject',
+        'applyReason'           => 'ApplyReason',
         'applyUserIds'          => 'ApplyUserIds',
         'deadline'              => 'Deadline',
-        'applyReason'           => 'ApplyReason',
-        'maxComputeProjectName' => 'MaxComputeProjectName',
-        'workspaceId'           => 'WorkspaceId',
-        'orderType'             => 'OrderType',
         'engineType'            => 'EngineType',
-        'applyObject'           => 'ApplyObject',
+        'maxComputeProjectName' => 'MaxComputeProjectName',
+        'orderType'             => 'OrderType',
+        'workspaceId'           => 'WorkspaceId',
     ];
 
     public function validate()
@@ -66,27 +66,6 @@ class CreatePermissionApplyOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->applyUserIds) {
-            $res['ApplyUserIds'] = $this->applyUserIds;
-        }
-        if (null !== $this->deadline) {
-            $res['Deadline'] = $this->deadline;
-        }
-        if (null !== $this->applyReason) {
-            $res['ApplyReason'] = $this->applyReason;
-        }
-        if (null !== $this->maxComputeProjectName) {
-            $res['MaxComputeProjectName'] = $this->maxComputeProjectName;
-        }
-        if (null !== $this->workspaceId) {
-            $res['WorkspaceId'] = $this->workspaceId;
-        }
-        if (null !== $this->orderType) {
-            $res['OrderType'] = $this->orderType;
-        }
-        if (null !== $this->engineType) {
-            $res['EngineType'] = $this->engineType;
-        }
         if (null !== $this->applyObject) {
             $res['ApplyObject'] = [];
             if (null !== $this->applyObject && \is_array($this->applyObject)) {
@@ -95,6 +74,27 @@ class CreatePermissionApplyOrderRequest extends Model
                     $res['ApplyObject'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->applyReason) {
+            $res['ApplyReason'] = $this->applyReason;
+        }
+        if (null !== $this->applyUserIds) {
+            $res['ApplyUserIds'] = $this->applyUserIds;
+        }
+        if (null !== $this->deadline) {
+            $res['Deadline'] = $this->deadline;
+        }
+        if (null !== $this->engineType) {
+            $res['EngineType'] = $this->engineType;
+        }
+        if (null !== $this->maxComputeProjectName) {
+            $res['MaxComputeProjectName'] = $this->maxComputeProjectName;
+        }
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -108,27 +108,6 @@ class CreatePermissionApplyOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApplyUserIds'])) {
-            $model->applyUserIds = $map['ApplyUserIds'];
-        }
-        if (isset($map['Deadline'])) {
-            $model->deadline = $map['Deadline'];
-        }
-        if (isset($map['ApplyReason'])) {
-            $model->applyReason = $map['ApplyReason'];
-        }
-        if (isset($map['MaxComputeProjectName'])) {
-            $model->maxComputeProjectName = $map['MaxComputeProjectName'];
-        }
-        if (isset($map['WorkspaceId'])) {
-            $model->workspaceId = $map['WorkspaceId'];
-        }
-        if (isset($map['OrderType'])) {
-            $model->orderType = $map['OrderType'];
-        }
-        if (isset($map['EngineType'])) {
-            $model->engineType = $map['EngineType'];
-        }
         if (isset($map['ApplyObject'])) {
             if (!empty($map['ApplyObject'])) {
                 $model->applyObject = [];
@@ -137,6 +116,27 @@ class CreatePermissionApplyOrderRequest extends Model
                     $model->applyObject[$n++] = null !== $item ? applyObject::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ApplyReason'])) {
+            $model->applyReason = $map['ApplyReason'];
+        }
+        if (isset($map['ApplyUserIds'])) {
+            $model->applyUserIds = $map['ApplyUserIds'];
+        }
+        if (isset($map['Deadline'])) {
+            $model->deadline = $map['Deadline'];
+        }
+        if (isset($map['EngineType'])) {
+            $model->engineType = $map['EngineType'];
+        }
+        if (isset($map['MaxComputeProjectName'])) {
+            $model->maxComputeProjectName = $map['MaxComputeProjectName'];
+        }
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

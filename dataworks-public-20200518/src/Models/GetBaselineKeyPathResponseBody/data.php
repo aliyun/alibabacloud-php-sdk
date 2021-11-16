@@ -11,16 +11,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $owner;
-
-    /**
-     * @var string
-     */
-    public $nodeName;
-
-    /**
      * @var int
      */
     public $bizdate;
@@ -28,7 +18,7 @@ class data extends Model
     /**
      * @var int
      */
-    public $projectId;
+    public $inGroupId;
 
     /**
      * @var int
@@ -38,17 +28,27 @@ class data extends Model
     /**
      * @var int
      */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
+    public $nodeName;
+
+    /**
+     * @var string
+     */
+    public $owner;
+
+    /**
+     * @var int
+     */
     public $prgType;
 
     /**
      * @var int
      */
-    public $nodeId;
-
-    /**
-     * @var int
-     */
-    public $inGroupId;
+    public $projectId;
 
     /**
      * @var runs[]
@@ -60,14 +60,14 @@ class data extends Model
      */
     public $topics;
     protected $_name = [
-        'owner'      => 'Owner',
-        'nodeName'   => 'NodeName',
         'bizdate'    => 'Bizdate',
-        'projectId'  => 'ProjectId',
-        'instanceId' => 'InstanceId',
-        'prgType'    => 'PrgType',
-        'nodeId'     => 'NodeId',
         'inGroupId'  => 'InGroupId',
+        'instanceId' => 'InstanceId',
+        'nodeId'     => 'NodeId',
+        'nodeName'   => 'NodeName',
+        'owner'      => 'Owner',
+        'prgType'    => 'PrgType',
+        'projectId'  => 'ProjectId',
         'runs'       => 'Runs',
         'topics'     => 'Topics',
     ];
@@ -79,29 +79,29 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-        if (null !== $this->nodeName) {
-            $res['NodeName'] = $this->nodeName;
-        }
         if (null !== $this->bizdate) {
             $res['Bizdate'] = $this->bizdate;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->inGroupId) {
+            $res['InGroupId'] = $this->inGroupId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->prgType) {
-            $res['PrgType'] = $this->prgType;
-        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-        if (null !== $this->inGroupId) {
-            $res['InGroupId'] = $this->inGroupId;
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->prgType) {
+            $res['PrgType'] = $this->prgType;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->runs) {
             $res['Runs'] = [];
@@ -133,29 +133,29 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-        if (isset($map['NodeName'])) {
-            $model->nodeName = $map['NodeName'];
-        }
         if (isset($map['Bizdate'])) {
             $model->bizdate = $map['Bizdate'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['InGroupId'])) {
+            $model->inGroupId = $map['InGroupId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['PrgType'])) {
-            $model->prgType = $map['PrgType'];
-        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-        if (isset($map['InGroupId'])) {
-            $model->inGroupId = $map['InGroupId'];
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
+        }
+        if (isset($map['PrgType'])) {
+            $model->prgType = $map['PrgType'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['Runs'])) {
             if (!empty($map['Runs'])) {

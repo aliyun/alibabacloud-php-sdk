@@ -9,46 +9,6 @@ use AlibabaCloud\Tea\Model;
 class baselineStatuses extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $owner;
-
-    /**
-     * @var int
-     */
-    public $finishTime;
-
-    /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
-     * @var int
-     */
-    public $priority;
-
-    /**
-     * @var int
-     */
-    public $endCast;
-
-    /**
-     * @var int
-     */
-    public $inGroupId;
-
-    /**
-     * @var string
-     */
-    public $baselineName;
-
-    /**
      * @var int
      */
     public $baselineId;
@@ -56,7 +16,7 @@ class baselineStatuses extends Model
     /**
      * @var string
      */
-    public $finishStatus;
+    public $baselineName;
 
     /**
      * @var int
@@ -71,27 +31,67 @@ class baselineStatuses extends Model
     /**
      * @var int
      */
-    public $slaTime;
+    public $endCast;
 
     /**
      * @var int
      */
     public $expTime;
+
+    /**
+     * @var string
+     */
+    public $finishStatus;
+
+    /**
+     * @var int
+     */
+    public $finishTime;
+
+    /**
+     * @var int
+     */
+    public $inGroupId;
+
+    /**
+     * @var string
+     */
+    public $owner;
+
+    /**
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var int
+     */
+    public $slaTime;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
-        'owner'        => 'Owner',
-        'finishTime'   => 'FinishTime',
-        'projectId'    => 'ProjectId',
-        'priority'     => 'Priority',
-        'endCast'      => 'EndCast',
-        'inGroupId'    => 'InGroupId',
-        'baselineName' => 'BaselineName',
         'baselineId'   => 'BaselineId',
-        'finishStatus' => 'FinishStatus',
+        'baselineName' => 'BaselineName',
         'bizdate'      => 'Bizdate',
         'buffer'       => 'Buffer',
-        'slaTime'      => 'SlaTime',
+        'endCast'      => 'EndCast',
         'expTime'      => 'ExpTime',
+        'finishStatus' => 'FinishStatus',
+        'finishTime'   => 'FinishTime',
+        'inGroupId'    => 'InGroupId',
+        'owner'        => 'Owner',
+        'priority'     => 'Priority',
+        'projectId'    => 'ProjectId',
+        'slaTime'      => 'SlaTime',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -101,35 +101,11 @@ class baselineStatuses extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-        if (null !== $this->finishTime) {
-            $res['FinishTime'] = $this->finishTime;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
-        }
-        if (null !== $this->endCast) {
-            $res['EndCast'] = $this->endCast;
-        }
-        if (null !== $this->inGroupId) {
-            $res['InGroupId'] = $this->inGroupId;
-        }
-        if (null !== $this->baselineName) {
-            $res['BaselineName'] = $this->baselineName;
-        }
         if (null !== $this->baselineId) {
             $res['BaselineId'] = $this->baselineId;
         }
-        if (null !== $this->finishStatus) {
-            $res['FinishStatus'] = $this->finishStatus;
+        if (null !== $this->baselineName) {
+            $res['BaselineName'] = $this->baselineName;
         }
         if (null !== $this->bizdate) {
             $res['Bizdate'] = $this->bizdate;
@@ -137,11 +113,35 @@ class baselineStatuses extends Model
         if (null !== $this->buffer) {
             $res['Buffer'] = $this->buffer;
         }
-        if (null !== $this->slaTime) {
-            $res['SlaTime'] = $this->slaTime;
+        if (null !== $this->endCast) {
+            $res['EndCast'] = $this->endCast;
         }
         if (null !== $this->expTime) {
             $res['ExpTime'] = $this->expTime;
+        }
+        if (null !== $this->finishStatus) {
+            $res['FinishStatus'] = $this->finishStatus;
+        }
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
+        }
+        if (null !== $this->inGroupId) {
+            $res['InGroupId'] = $this->inGroupId;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->slaTime) {
+            $res['SlaTime'] = $this->slaTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -155,35 +155,11 @@ class baselineStatuses extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-        if (isset($map['FinishTime'])) {
-            $model->finishTime = $map['FinishTime'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
-        }
-        if (isset($map['EndCast'])) {
-            $model->endCast = $map['EndCast'];
-        }
-        if (isset($map['InGroupId'])) {
-            $model->inGroupId = $map['InGroupId'];
-        }
-        if (isset($map['BaselineName'])) {
-            $model->baselineName = $map['BaselineName'];
-        }
         if (isset($map['BaselineId'])) {
             $model->baselineId = $map['BaselineId'];
         }
-        if (isset($map['FinishStatus'])) {
-            $model->finishStatus = $map['FinishStatus'];
+        if (isset($map['BaselineName'])) {
+            $model->baselineName = $map['BaselineName'];
         }
         if (isset($map['Bizdate'])) {
             $model->bizdate = $map['Bizdate'];
@@ -191,11 +167,35 @@ class baselineStatuses extends Model
         if (isset($map['Buffer'])) {
             $model->buffer = $map['Buffer'];
         }
-        if (isset($map['SlaTime'])) {
-            $model->slaTime = $map['SlaTime'];
+        if (isset($map['EndCast'])) {
+            $model->endCast = $map['EndCast'];
         }
         if (isset($map['ExpTime'])) {
             $model->expTime = $map['ExpTime'];
+        }
+        if (isset($map['FinishStatus'])) {
+            $model->finishStatus = $map['FinishStatus'];
+        }
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
+        }
+        if (isset($map['InGroupId'])) {
+            $model->inGroupId = $map['InGroupId'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['SlaTime'])) {
+            $model->slaTime = $map['SlaTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

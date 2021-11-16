@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $status;
+    public $content;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class data extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $status;
 
     /**
      * @var string
      */
-    public $content;
+    public $taskId;
     protected $_name = [
-        'status'     => 'Status',
-        'nextTaskId' => 'NextTaskId',
-        'taskId'     => 'TaskId',
         'content'    => 'Content',
+        'nextTaskId' => 'NextTaskId',
+        'status'     => 'Status',
+        'taskId'     => 'TaskId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->nextTaskId) {
             $res['NextTaskId'] = $this->nextTaskId;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['NextTaskId'])) {
             $model->nextTaskId = $map['NextTaskId'];
         }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
         }
 
         return $model;

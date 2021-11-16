@@ -11,12 +11,7 @@ class UpdateBusinessRequest extends Model
     /**
      * @var int
      */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $projectIdentifier;
+    public $businessId;
 
     /**
      * @var string
@@ -36,14 +31,19 @@ class UpdateBusinessRequest extends Model
     /**
      * @var int
      */
-    public $businessId;
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $projectIdentifier;
     protected $_name = [
-        'projectId'         => 'ProjectId',
-        'projectIdentifier' => 'ProjectIdentifier',
+        'businessId'        => 'BusinessId',
         'businessName'      => 'BusinessName',
         'description'       => 'Description',
         'owner'             => 'Owner',
-        'businessId'        => 'BusinessId',
+        'projectId'         => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
     ];
 
     public function validate()
@@ -53,11 +53,8 @@ class UpdateBusinessRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->projectIdentifier) {
-            $res['ProjectIdentifier'] = $this->projectIdentifier;
+        if (null !== $this->businessId) {
+            $res['BusinessId'] = $this->businessId;
         }
         if (null !== $this->businessName) {
             $res['BusinessName'] = $this->businessName;
@@ -68,8 +65,11 @@ class UpdateBusinessRequest extends Model
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
-        if (null !== $this->businessId) {
-            $res['BusinessId'] = $this->businessId;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->projectIdentifier) {
+            $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
 
         return $res;
@@ -83,11 +83,8 @@ class UpdateBusinessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ProjectIdentifier'])) {
-            $model->projectIdentifier = $map['ProjectIdentifier'];
+        if (isset($map['BusinessId'])) {
+            $model->businessId = $map['BusinessId'];
         }
         if (isset($map['BusinessName'])) {
             $model->businessName = $map['BusinessName'];
@@ -98,8 +95,11 @@ class UpdateBusinessRequest extends Model
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
-        if (isset($map['BusinessId'])) {
-            $model->businessId = $map['BusinessId'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ProjectIdentifier'])) {
+            $model->projectIdentifier = $map['ProjectIdentifier'];
         }
 
         return $model;

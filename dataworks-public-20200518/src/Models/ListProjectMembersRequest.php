@@ -11,21 +11,21 @@ class ListProjectMembersRequest extends Model
     /**
      * @var int
      */
-    public $projectId;
-
-    /**
-     * @var int
-     */
     public $pageNumber;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $projectId;
     protected $_name = [
-        'projectId'  => 'ProjectId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'projectId'  => 'ProjectId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListProjectMembersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListProjectMembersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

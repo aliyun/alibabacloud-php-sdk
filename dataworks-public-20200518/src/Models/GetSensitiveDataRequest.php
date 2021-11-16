@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetSensitiveDataRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $name;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class GetSensitiveDataRequest extends Model
     public $pageNo;
 
     /**
-     * @var string
+     * @var int
      */
-    public $name;
+    public $pageSize;
     protected $_name = [
-        'pageSize' => 'PageSize',
-        'pageNo'   => 'PageNo',
         'name'     => 'Name',
+        'pageNo'   => 'PageNo',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetSensitiveDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetSensitiveDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

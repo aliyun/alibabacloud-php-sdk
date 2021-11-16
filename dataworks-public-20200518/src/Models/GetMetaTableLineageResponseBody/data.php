@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
+     * @var dataEntityList[]
      */
-    public $nextPrimaryKey;
+    public $dataEntityList;
 
     /**
      * @var bool
@@ -20,13 +20,13 @@ class data extends Model
     public $hasNext;
 
     /**
-     * @var dataEntityList[]
+     * @var string
      */
-    public $dataEntityList;
+    public $nextPrimaryKey;
     protected $_name = [
-        'nextPrimaryKey' => 'NextPrimaryKey',
-        'hasNext'        => 'HasNext',
         'dataEntityList' => 'DataEntityList',
+        'hasNext'        => 'HasNext',
+        'nextPrimaryKey' => 'NextPrimaryKey',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextPrimaryKey) {
-            $res['NextPrimaryKey'] = $this->nextPrimaryKey;
-        }
-        if (null !== $this->hasNext) {
-            $res['HasNext'] = $this->hasNext;
-        }
         if (null !== $this->dataEntityList) {
             $res['DataEntityList'] = [];
             if (null !== $this->dataEntityList && \is_array($this->dataEntityList)) {
@@ -50,6 +44,12 @@ class data extends Model
                     $res['DataEntityList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->hasNext) {
+            $res['HasNext'] = $this->hasNext;
+        }
+        if (null !== $this->nextPrimaryKey) {
+            $res['NextPrimaryKey'] = $this->nextPrimaryKey;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextPrimaryKey'])) {
-            $model->nextPrimaryKey = $map['NextPrimaryKey'];
-        }
-        if (isset($map['HasNext'])) {
-            $model->hasNext = $map['HasNext'];
-        }
         if (isset($map['DataEntityList'])) {
             if (!empty($map['DataEntityList'])) {
                 $model->dataEntityList = [];
@@ -77,6 +71,12 @@ class data extends Model
                     $model->dataEntityList[$n++] = null !== $item ? dataEntityList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['HasNext'])) {
+            $model->hasNext = $map['HasNext'];
+        }
+        if (isset($map['NextPrimaryKey'])) {
+            $model->nextPrimaryKey = $map['NextPrimaryKey'];
         }
 
         return $model;

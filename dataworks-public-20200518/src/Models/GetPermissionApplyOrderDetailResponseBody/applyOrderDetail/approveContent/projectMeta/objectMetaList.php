@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class objectMetaList extends Model
 {
     /**
-     * @var string
-     */
-    public $objectName;
-
-    /**
      * @var columnMetaList[]
      */
     public $columnMetaList;
+
+    /**
+     * @var string
+     */
+    public $objectName;
     protected $_name = [
-        'objectName'     => 'ObjectName',
         'columnMetaList' => 'ColumnMetaList',
+        'objectName'     => 'ObjectName',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class objectMetaList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->objectName) {
-            $res['ObjectName'] = $this->objectName;
-        }
         if (null !== $this->columnMetaList) {
             $res['ColumnMetaList'] = [];
             if (null !== $this->columnMetaList && \is_array($this->columnMetaList)) {
@@ -41,6 +38,9 @@ class objectMetaList extends Model
                     $res['ColumnMetaList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->objectName) {
+            $res['ObjectName'] = $this->objectName;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class objectMetaList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ObjectName'])) {
-            $model->objectName = $map['ObjectName'];
-        }
         if (isset($map['ColumnMetaList'])) {
             if (!empty($map['ColumnMetaList'])) {
                 $model->columnMetaList = [];
@@ -65,6 +62,9 @@ class objectMetaList extends Model
                     $model->columnMetaList[$n++] = null !== $item ? columnMetaList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ObjectName'])) {
+            $model->objectName = $map['ObjectName'];
         }
 
         return $model;

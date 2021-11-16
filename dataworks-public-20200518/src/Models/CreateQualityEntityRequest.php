@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityEntityRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $projectName;
-
-    /**
-     * @var string
-     */
-    public $tableName;
+    public $entityLevel;
 
     /**
      * @var string
@@ -29,15 +24,20 @@ class CreateQualityEntityRequest extends Model
     public $matchExpression;
 
     /**
-     * @var int
+     * @var string
      */
-    public $entityLevel;
+    public $projectName;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
-        'projectName'     => 'ProjectName',
-        'tableName'       => 'TableName',
+        'entityLevel'     => 'EntityLevel',
         'envType'         => 'EnvType',
         'matchExpression' => 'MatchExpression',
-        'entityLevel'     => 'EntityLevel',
+        'projectName'     => 'ProjectName',
+        'tableName'       => 'TableName',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class CreateQualityEntityRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
+        if (null !== $this->entityLevel) {
+            $res['EntityLevel'] = $this->entityLevel;
         }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
@@ -59,8 +56,11 @@ class CreateQualityEntityRequest extends Model
         if (null !== $this->matchExpression) {
             $res['MatchExpression'] = $this->matchExpression;
         }
-        if (null !== $this->entityLevel) {
-            $res['EntityLevel'] = $this->entityLevel;
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class CreateQualityEntityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
+        if (isset($map['EntityLevel'])) {
+            $model->entityLevel = $map['EntityLevel'];
         }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
@@ -86,8 +83,11 @@ class CreateQualityEntityRequest extends Model
         if (isset($map['MatchExpression'])) {
             $model->matchExpression = $map['MatchExpression'];
         }
-        if (isset($map['EntityLevel'])) {
-            $model->entityLevel = $map['EntityLevel'];
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

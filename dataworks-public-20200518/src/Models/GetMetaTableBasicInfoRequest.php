@@ -11,22 +11,7 @@ class GetMetaTableBasicInfoRequest extends Model
     /**
      * @var string
      */
-    public $tableGuid;
-
-    /**
-     * @var string
-     */
     public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $databaseName;
-
-    /**
-     * @var string
-     */
-    public $tableName;
 
     /**
      * @var string
@@ -34,16 +19,31 @@ class GetMetaTableBasicInfoRequest extends Model
     public $dataSourceType;
 
     /**
+     * @var string
+     */
+    public $databaseName;
+
+    /**
      * @var bool
      */
     public $extension;
+
+    /**
+     * @var string
+     */
+    public $tableGuid;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
-        'tableGuid'      => 'TableGuid',
         'clusterId'      => 'ClusterId',
-        'databaseName'   => 'DatabaseName',
-        'tableName'      => 'TableName',
         'dataSourceType' => 'DataSourceType',
+        'databaseName'   => 'DatabaseName',
         'extension'      => 'Extension',
+        'tableGuid'      => 'TableGuid',
+        'tableName'      => 'TableName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class GetMetaTableBasicInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableGuid) {
-            $res['TableGuid'] = $this->tableGuid;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->databaseName) {
-            $res['DatabaseName'] = $this->databaseName;
-        }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
         }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
         }
+        if (null !== $this->databaseName) {
+            $res['DatabaseName'] = $this->databaseName;
+        }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
+        }
+        if (null !== $this->tableGuid) {
+            $res['TableGuid'] = $this->tableGuid;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class GetMetaTableBasicInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableGuid'])) {
-            $model->tableGuid = $map['TableGuid'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['DatabaseName'])) {
-            $model->databaseName = $map['DatabaseName'];
-        }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
         }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
         }
+        if (isset($map['DatabaseName'])) {
+            $model->databaseName = $map['DatabaseName'];
+        }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
+        }
+        if (isset($map['TableGuid'])) {
+            $model->tableGuid = $map['TableGuid'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

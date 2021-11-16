@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class GetMigrationProcessResponseBody extends Model
 {
     /**
+     * @var data[]
+     */
+    public $data;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @var int
      */
     public $httpStatusCode;
@@ -20,31 +35,16 @@ class GetMigrationProcessResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var data[]
-     */
-    public $data;
     protected $_name = [
+        'data'           => 'Data',
+        'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
         'requestId'      => 'RequestId',
-        'errorMessage'   => 'ErrorMessage',
         'success'        => 'Success',
-        'errorCode'      => 'ErrorCode',
-        'data'           => 'Data',
     ];
 
     public function validate()
@@ -54,21 +54,6 @@ class GetMigrationProcessResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
         if (null !== $this->data) {
             $res['Data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -77,6 +62,21 @@ class GetMigrationProcessResponseBody extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -90,21 +90,6 @@ class GetMigrationProcessResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
@@ -113,6 +98,21 @@ class GetMigrationProcessResponseBody extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

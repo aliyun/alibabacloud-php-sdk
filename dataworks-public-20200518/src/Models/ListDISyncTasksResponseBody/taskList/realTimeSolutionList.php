@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class realTimeSolutionList extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $processName;
-
-    /**
-     * @var string
-     */
-    public $taskType;
+    public $createTime;
 
     /**
      * @var int
@@ -26,18 +21,23 @@ class realTimeSolutionList extends Model
     /**
      * @var string
      */
+    public $processName;
+
+    /**
+     * @var string
+     */
     public $taskStatus;
 
     /**
-     * @var int
+     * @var string
      */
-    public $createTime;
+    public $taskType;
     protected $_name = [
-        'processName' => 'ProcessName',
-        'taskType'    => 'TaskType',
-        'processId'   => 'ProcessId',
-        'taskStatus'  => 'TaskStatus',
         'createTime'  => 'CreateTime',
+        'processId'   => 'ProcessId',
+        'processName' => 'ProcessName',
+        'taskStatus'  => 'TaskStatus',
+        'taskType'    => 'TaskType',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class realTimeSolutionList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->processName) {
-            $res['ProcessName'] = $this->processName;
-        }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->processId) {
             $res['ProcessId'] = $this->processId;
         }
+        if (null !== $this->processName) {
+            $res['ProcessName'] = $this->processName;
+        }
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class realTimeSolutionList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProcessName'])) {
-            $model->processName = $map['ProcessName'];
-        }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['ProcessId'])) {
             $model->processId = $map['ProcessId'];
         }
+        if (isset($map['ProcessName'])) {
+            $model->processName = $map['ProcessName'];
+        }
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

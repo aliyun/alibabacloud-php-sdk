@@ -11,15 +11,15 @@ class GetMetaTableThemeLevelRequest extends Model
     /**
      * @var string
      */
-    public $tableGuid;
+    public $dataSourceType;
 
     /**
      * @var string
      */
-    public $dataSourceType;
+    public $tableGuid;
     protected $_name = [
-        'tableGuid'      => 'TableGuid',
         'dataSourceType' => 'DataSourceType',
+        'tableGuid'      => 'TableGuid',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetMetaTableThemeLevelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableGuid) {
-            $res['TableGuid'] = $this->tableGuid;
-        }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
+        }
+        if (null !== $this->tableGuid) {
+            $res['TableGuid'] = $this->tableGuid;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetMetaTableThemeLevelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableGuid'])) {
-            $model->tableGuid = $map['TableGuid'];
-        }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
+        }
+        if (isset($map['TableGuid'])) {
+            $model->tableGuid = $map['TableGuid'];
         }
 
         return $model;

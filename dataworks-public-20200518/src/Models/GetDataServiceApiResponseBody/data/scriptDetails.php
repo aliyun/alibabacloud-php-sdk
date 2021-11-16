@@ -12,14 +12,19 @@ use AlibabaCloud\Tea\Model;
 class scriptDetails extends Model
 {
     /**
+     * @var bool
+     */
+    public $isPagedResponse;
+
+    /**
      * @var string
      */
     public $script;
 
     /**
-     * @var bool
+     * @var scriptConnection
      */
-    public $isPagedResponse;
+    public $scriptConnection;
 
     /**
      * @var scriptRequestParameters[]
@@ -30,17 +35,12 @@ class scriptDetails extends Model
      * @var scriptResponseParameters[]
      */
     public $scriptResponseParameters;
-
-    /**
-     * @var scriptConnection
-     */
-    public $scriptConnection;
     protected $_name = [
-        'script'                   => 'Script',
         'isPagedResponse'          => 'IsPagedResponse',
+        'script'                   => 'Script',
+        'scriptConnection'         => 'ScriptConnection',
         'scriptRequestParameters'  => 'ScriptRequestParameters',
         'scriptResponseParameters' => 'ScriptResponseParameters',
-        'scriptConnection'         => 'ScriptConnection',
     ];
 
     public function validate()
@@ -50,11 +50,14 @@ class scriptDetails extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isPagedResponse) {
+            $res['IsPagedResponse'] = $this->isPagedResponse;
+        }
         if (null !== $this->script) {
             $res['Script'] = $this->script;
         }
-        if (null !== $this->isPagedResponse) {
-            $res['IsPagedResponse'] = $this->isPagedResponse;
+        if (null !== $this->scriptConnection) {
+            $res['ScriptConnection'] = null !== $this->scriptConnection ? $this->scriptConnection->toMap() : null;
         }
         if (null !== $this->scriptRequestParameters) {
             $res['ScriptRequestParameters'] = [];
@@ -74,9 +77,6 @@ class scriptDetails extends Model
                 }
             }
         }
-        if (null !== $this->scriptConnection) {
-            $res['ScriptConnection'] = null !== $this->scriptConnection ? $this->scriptConnection->toMap() : null;
-        }
 
         return $res;
     }
@@ -89,11 +89,14 @@ class scriptDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IsPagedResponse'])) {
+            $model->isPagedResponse = $map['IsPagedResponse'];
+        }
         if (isset($map['Script'])) {
             $model->script = $map['Script'];
         }
-        if (isset($map['IsPagedResponse'])) {
-            $model->isPagedResponse = $map['IsPagedResponse'];
+        if (isset($map['ScriptConnection'])) {
+            $model->scriptConnection = scriptConnection::fromMap($map['ScriptConnection']);
         }
         if (isset($map['ScriptRequestParameters'])) {
             if (!empty($map['ScriptRequestParameters'])) {
@@ -112,9 +115,6 @@ class scriptDetails extends Model
                     $model->scriptResponseParameters[$n++] = null !== $item ? scriptResponseParameters::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ScriptConnection'])) {
-            $model->scriptConnection = scriptConnection::fromMap($map['ScriptConnection']);
         }
 
         return $model;

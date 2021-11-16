@@ -16,7 +16,7 @@ class statusCount extends Model
     /**
      * @var int
      */
-    public $waitTimeCount;
+    public $notRunCount;
 
     /**
      * @var int
@@ -36,20 +36,20 @@ class statusCount extends Model
     /**
      * @var int
      */
-    public $notRunCount;
+    public $waitResCount;
 
     /**
      * @var int
      */
-    public $waitResCount;
+    public $waitTimeCount;
     protected $_name = [
         'failureCount'  => 'FailureCount',
-        'waitTimeCount' => 'WaitTimeCount',
+        'notRunCount'   => 'NotRunCount',
         'runningCount'  => 'RunningCount',
         'successCount'  => 'SuccessCount',
         'totalCount'    => 'TotalCount',
-        'notRunCount'   => 'NotRunCount',
         'waitResCount'  => 'WaitResCount',
+        'waitTimeCount' => 'WaitTimeCount',
     ];
 
     public function validate()
@@ -62,8 +62,8 @@ class statusCount extends Model
         if (null !== $this->failureCount) {
             $res['FailureCount'] = $this->failureCount;
         }
-        if (null !== $this->waitTimeCount) {
-            $res['WaitTimeCount'] = $this->waitTimeCount;
+        if (null !== $this->notRunCount) {
+            $res['NotRunCount'] = $this->notRunCount;
         }
         if (null !== $this->runningCount) {
             $res['RunningCount'] = $this->runningCount;
@@ -74,11 +74,11 @@ class statusCount extends Model
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-        if (null !== $this->notRunCount) {
-            $res['NotRunCount'] = $this->notRunCount;
-        }
         if (null !== $this->waitResCount) {
             $res['WaitResCount'] = $this->waitResCount;
+        }
+        if (null !== $this->waitTimeCount) {
+            $res['WaitTimeCount'] = $this->waitTimeCount;
         }
 
         return $res;
@@ -95,8 +95,8 @@ class statusCount extends Model
         if (isset($map['FailureCount'])) {
             $model->failureCount = $map['FailureCount'];
         }
-        if (isset($map['WaitTimeCount'])) {
-            $model->waitTimeCount = $map['WaitTimeCount'];
+        if (isset($map['NotRunCount'])) {
+            $model->notRunCount = $map['NotRunCount'];
         }
         if (isset($map['RunningCount'])) {
             $model->runningCount = $map['RunningCount'];
@@ -107,11 +107,11 @@ class statusCount extends Model
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-        if (isset($map['NotRunCount'])) {
-            $model->notRunCount = $map['NotRunCount'];
-        }
         if (isset($map['WaitResCount'])) {
             $model->waitResCount = $map['WaitResCount'];
+        }
+        if (isset($map['WaitTimeCount'])) {
+            $model->waitTimeCount = $map['WaitTimeCount'];
         }
 
         return $model;

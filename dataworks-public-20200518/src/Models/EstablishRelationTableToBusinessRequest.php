@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class EstablishRelationTableToBusinessRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessId;
+
+    /**
+     * @var string
+     */
+    public $folderId;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -21,23 +31,13 @@ class EstablishRelationTableToBusinessRequest extends Model
     /**
      * @var string
      */
-    public $businessId;
-
-    /**
-     * @var string
-     */
     public $tableGuid;
-
-    /**
-     * @var string
-     */
-    public $folderId;
     protected $_name = [
+        'businessId'        => 'BusinessId',
+        'folderId'          => 'FolderId',
         'projectId'         => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
-        'businessId'        => 'BusinessId',
         'tableGuid'         => 'TableGuid',
-        'folderId'          => 'FolderId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class EstablishRelationTableToBusinessRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessId) {
+            $res['BusinessId'] = $this->businessId;
+        }
+        if (null !== $this->folderId) {
+            $res['FolderId'] = $this->folderId;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
-        if (null !== $this->businessId) {
-            $res['BusinessId'] = $this->businessId;
-        }
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
-        }
-        if (null !== $this->folderId) {
-            $res['FolderId'] = $this->folderId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class EstablishRelationTableToBusinessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessId'])) {
+            $model->businessId = $map['BusinessId'];
+        }
+        if (isset($map['FolderId'])) {
+            $model->folderId = $map['FolderId'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
         }
-        if (isset($map['BusinessId'])) {
-            $model->businessId = $map['BusinessId'];
-        }
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
-        }
-        if (isset($map['FolderId'])) {
-            $model->folderId = $map['FolderId'];
         }
 
         return $model;

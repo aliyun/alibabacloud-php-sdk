@@ -21,17 +21,17 @@ class GetMetaDBInfoRequest extends Model
     /**
      * @var string
      */
-    public $databaseName;
+    public $dataSourceType;
 
     /**
      * @var string
      */
-    public $dataSourceType;
+    public $databaseName;
     protected $_name = [
         'appGuid'        => 'AppGuid',
         'clusterId'      => 'ClusterId',
-        'databaseName'   => 'DatabaseName',
         'dataSourceType' => 'DataSourceType',
+        'databaseName'   => 'DatabaseName',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class GetMetaDBInfoRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->databaseName) {
-            $res['DatabaseName'] = $this->databaseName;
-        }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
+        }
+        if (null !== $this->databaseName) {
+            $res['DatabaseName'] = $this->databaseName;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class GetMetaDBInfoRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['DatabaseName'])) {
-            $model->databaseName = $map['DatabaseName'];
-        }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
+        }
+        if (isset($map['DatabaseName'])) {
+            $model->databaseName = $map['DatabaseName'];
         }
 
         return $model;

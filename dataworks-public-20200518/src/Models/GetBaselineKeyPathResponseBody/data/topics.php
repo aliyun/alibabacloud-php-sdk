@@ -11,7 +11,7 @@ class topics extends Model
     /**
      * @var int
      */
-    public $topicName;
+    public $addTime;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class topics extends Model
     /**
      * @var int
      */
-    public $addTime;
+    public $topicName;
     protected $_name = [
-        'topicName'  => 'TopicName',
+        'addTime'    => 'AddTime',
         'instanceId' => 'InstanceId',
         'topicId'    => 'TopicId',
-        'addTime'    => 'AddTime',
+        'topicName'  => 'TopicName',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class topics extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topicName) {
-            $res['TopicName'] = $this->topicName;
+        if (null !== $this->addTime) {
+            $res['AddTime'] = $this->addTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -50,8 +50,8 @@ class topics extends Model
         if (null !== $this->topicId) {
             $res['TopicId'] = $this->topicId;
         }
-        if (null !== $this->addTime) {
-            $res['AddTime'] = $this->addTime;
+        if (null !== $this->topicName) {
+            $res['TopicName'] = $this->topicName;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class topics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TopicName'])) {
-            $model->topicName = $map['TopicName'];
+        if (isset($map['AddTime'])) {
+            $model->addTime = $map['AddTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -74,8 +74,8 @@ class topics extends Model
         if (isset($map['TopicId'])) {
             $model->topicId = $map['TopicId'];
         }
-        if (isset($map['AddTime'])) {
-            $model->addTime = $map['AddTime'];
+        if (isset($map['TopicName'])) {
+            $model->topicName = $map['TopicName'];
         }
 
         return $model;

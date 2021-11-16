@@ -11,34 +11,19 @@ use AlibabaCloud\Tea\Model;
 class nodeConfiguration extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $rerunMode;
-
-    /**
-     * @var string
-     */
-    public $schedulerType;
-
-    /**
-     * @var bool
-     */
-    public $stop;
-
-    /**
-     * @var string
-     */
-    public $paraValue;
+    public $autoRerunIntervalMillis;
 
     /**
      * @var int
      */
-    public $startEffectDate;
+    public $autoRerunTimes;
 
     /**
-     * @var int
+     * @var string
      */
-    public $endEffectDate;
+    public $cronExpress;
 
     /**
      * @var string
@@ -51,11 +36,6 @@ class nodeConfiguration extends Model
     public $dependentNodeIdList;
 
     /**
-     * @var int
-     */
-    public $resourceGroupId;
-
-    /**
      * @var string
      */
     public $dependentType;
@@ -63,17 +43,7 @@ class nodeConfiguration extends Model
     /**
      * @var int
      */
-    public $autoRerunTimes;
-
-    /**
-     * @var int
-     */
-    public $autoRerunIntervalMillis;
-
-    /**
-     * @var string
-     */
-    public $cronExpress;
+    public $endEffectDate;
 
     /**
      * @var inputList[]
@@ -84,22 +54,52 @@ class nodeConfiguration extends Model
      * @var outputList[]
      */
     public $outputList;
+
+    /**
+     * @var string
+     */
+    public $paraValue;
+
+    /**
+     * @var string
+     */
+    public $rerunMode;
+
+    /**
+     * @var int
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $schedulerType;
+
+    /**
+     * @var int
+     */
+    public $startEffectDate;
+
+    /**
+     * @var bool
+     */
+    public $stop;
     protected $_name = [
-        'rerunMode'               => 'RerunMode',
-        'schedulerType'           => 'SchedulerType',
-        'stop'                    => 'Stop',
-        'paraValue'               => 'ParaValue',
-        'startEffectDate'         => 'StartEffectDate',
-        'endEffectDate'           => 'EndEffectDate',
+        'autoRerunIntervalMillis' => 'AutoRerunIntervalMillis',
+        'autoRerunTimes'          => 'AutoRerunTimes',
+        'cronExpress'             => 'CronExpress',
         'cycleType'               => 'CycleType',
         'dependentNodeIdList'     => 'DependentNodeIdList',
-        'resourceGroupId'         => 'ResourceGroupId',
         'dependentType'           => 'DependentType',
-        'autoRerunTimes'          => 'AutoRerunTimes',
-        'autoRerunIntervalMillis' => 'AutoRerunIntervalMillis',
-        'cronExpress'             => 'CronExpress',
+        'endEffectDate'           => 'EndEffectDate',
         'inputList'               => 'InputList',
         'outputList'              => 'OutputList',
+        'paraValue'               => 'ParaValue',
+        'rerunMode'               => 'RerunMode',
+        'resourceGroupId'         => 'ResourceGroupId',
+        'schedulerType'           => 'SchedulerType',
+        'startEffectDate'         => 'StartEffectDate',
+        'stop'                    => 'Stop',
     ];
 
     public function validate()
@@ -109,23 +109,14 @@ class nodeConfiguration extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rerunMode) {
-            $res['RerunMode'] = $this->rerunMode;
+        if (null !== $this->autoRerunIntervalMillis) {
+            $res['AutoRerunIntervalMillis'] = $this->autoRerunIntervalMillis;
         }
-        if (null !== $this->schedulerType) {
-            $res['SchedulerType'] = $this->schedulerType;
+        if (null !== $this->autoRerunTimes) {
+            $res['AutoRerunTimes'] = $this->autoRerunTimes;
         }
-        if (null !== $this->stop) {
-            $res['Stop'] = $this->stop;
-        }
-        if (null !== $this->paraValue) {
-            $res['ParaValue'] = $this->paraValue;
-        }
-        if (null !== $this->startEffectDate) {
-            $res['StartEffectDate'] = $this->startEffectDate;
-        }
-        if (null !== $this->endEffectDate) {
-            $res['EndEffectDate'] = $this->endEffectDate;
+        if (null !== $this->cronExpress) {
+            $res['CronExpress'] = $this->cronExpress;
         }
         if (null !== $this->cycleType) {
             $res['CycleType'] = $this->cycleType;
@@ -133,20 +124,11 @@ class nodeConfiguration extends Model
         if (null !== $this->dependentNodeIdList) {
             $res['DependentNodeIdList'] = $this->dependentNodeIdList;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->dependentType) {
             $res['DependentType'] = $this->dependentType;
         }
-        if (null !== $this->autoRerunTimes) {
-            $res['AutoRerunTimes'] = $this->autoRerunTimes;
-        }
-        if (null !== $this->autoRerunIntervalMillis) {
-            $res['AutoRerunIntervalMillis'] = $this->autoRerunIntervalMillis;
-        }
-        if (null !== $this->cronExpress) {
-            $res['CronExpress'] = $this->cronExpress;
+        if (null !== $this->endEffectDate) {
+            $res['EndEffectDate'] = $this->endEffectDate;
         }
         if (null !== $this->inputList) {
             $res['InputList'] = [];
@@ -166,6 +148,24 @@ class nodeConfiguration extends Model
                 }
             }
         }
+        if (null !== $this->paraValue) {
+            $res['ParaValue'] = $this->paraValue;
+        }
+        if (null !== $this->rerunMode) {
+            $res['RerunMode'] = $this->rerunMode;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->schedulerType) {
+            $res['SchedulerType'] = $this->schedulerType;
+        }
+        if (null !== $this->startEffectDate) {
+            $res['StartEffectDate'] = $this->startEffectDate;
+        }
+        if (null !== $this->stop) {
+            $res['Stop'] = $this->stop;
+        }
 
         return $res;
     }
@@ -178,23 +178,14 @@ class nodeConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RerunMode'])) {
-            $model->rerunMode = $map['RerunMode'];
+        if (isset($map['AutoRerunIntervalMillis'])) {
+            $model->autoRerunIntervalMillis = $map['AutoRerunIntervalMillis'];
         }
-        if (isset($map['SchedulerType'])) {
-            $model->schedulerType = $map['SchedulerType'];
+        if (isset($map['AutoRerunTimes'])) {
+            $model->autoRerunTimes = $map['AutoRerunTimes'];
         }
-        if (isset($map['Stop'])) {
-            $model->stop = $map['Stop'];
-        }
-        if (isset($map['ParaValue'])) {
-            $model->paraValue = $map['ParaValue'];
-        }
-        if (isset($map['StartEffectDate'])) {
-            $model->startEffectDate = $map['StartEffectDate'];
-        }
-        if (isset($map['EndEffectDate'])) {
-            $model->endEffectDate = $map['EndEffectDate'];
+        if (isset($map['CronExpress'])) {
+            $model->cronExpress = $map['CronExpress'];
         }
         if (isset($map['CycleType'])) {
             $model->cycleType = $map['CycleType'];
@@ -202,20 +193,11 @@ class nodeConfiguration extends Model
         if (isset($map['DependentNodeIdList'])) {
             $model->dependentNodeIdList = $map['DependentNodeIdList'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['DependentType'])) {
             $model->dependentType = $map['DependentType'];
         }
-        if (isset($map['AutoRerunTimes'])) {
-            $model->autoRerunTimes = $map['AutoRerunTimes'];
-        }
-        if (isset($map['AutoRerunIntervalMillis'])) {
-            $model->autoRerunIntervalMillis = $map['AutoRerunIntervalMillis'];
-        }
-        if (isset($map['CronExpress'])) {
-            $model->cronExpress = $map['CronExpress'];
+        if (isset($map['EndEffectDate'])) {
+            $model->endEffectDate = $map['EndEffectDate'];
         }
         if (isset($map['InputList'])) {
             if (!empty($map['InputList'])) {
@@ -234,6 +216,24 @@ class nodeConfiguration extends Model
                     $model->outputList[$n++] = null !== $item ? outputList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ParaValue'])) {
+            $model->paraValue = $map['ParaValue'];
+        }
+        if (isset($map['RerunMode'])) {
+            $model->rerunMode = $map['RerunMode'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SchedulerType'])) {
+            $model->schedulerType = $map['SchedulerType'];
+        }
+        if (isset($map['StartEffectDate'])) {
+            $model->startEffectDate = $map['StartEffectDate'];
+        }
+        if (isset($map['Stop'])) {
+            $model->stop = $map['Stop'];
         }
 
         return $model;

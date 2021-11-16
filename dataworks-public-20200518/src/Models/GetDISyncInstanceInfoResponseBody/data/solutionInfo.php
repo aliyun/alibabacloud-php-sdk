@@ -12,7 +12,7 @@ class solutionInfo extends Model
     /**
      * @var string
      */
-    public $status;
+    public $creatorName;
 
     /**
      * @var int
@@ -22,16 +22,16 @@ class solutionInfo extends Model
     /**
      * @var string
      */
-    public $creatorName;
+    public $status;
 
     /**
      * @var stepDetail[]
      */
     public $stepDetail;
     protected $_name = [
-        'status'      => 'Status',
-        'id'          => 'Id',
         'creatorName' => 'CreatorName',
+        'id'          => 'Id',
+        'status'      => 'Status',
         'stepDetail'  => 'StepDetail',
     ];
 
@@ -42,14 +42,14 @@ class solutionInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->creatorName) {
+            $res['CreatorName'] = $this->creatorName;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->creatorName) {
-            $res['CreatorName'] = $this->creatorName;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->stepDetail) {
             $res['StepDetail'] = [];
@@ -72,14 +72,14 @@ class solutionInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreatorName'])) {
+            $model->creatorName = $map['CreatorName'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['CreatorName'])) {
-            $model->creatorName = $map['CreatorName'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['StepDetail'])) {
             if (!empty($map['StepDetail'])) {

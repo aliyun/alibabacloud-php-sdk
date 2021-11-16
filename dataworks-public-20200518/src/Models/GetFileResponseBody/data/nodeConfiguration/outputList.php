@@ -11,15 +11,15 @@ class outputList extends Model
     /**
      * @var string
      */
-    public $refTableName;
+    public $output;
 
     /**
      * @var string
      */
-    public $output;
+    public $refTableName;
     protected $_name = [
-        'refTableName' => 'RefTableName',
         'output'       => 'Output',
+        'refTableName' => 'RefTableName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class outputList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->refTableName) {
-            $res['RefTableName'] = $this->refTableName;
-        }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
+        }
+        if (null !== $this->refTableName) {
+            $res['RefTableName'] = $this->refTableName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class outputList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RefTableName'])) {
-            $model->refTableName = $map['RefTableName'];
-        }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
+        }
+        if (isset($map['RefTableName'])) {
+            $model->refTableName = $map['RefTableName'];
         }
 
         return $model;

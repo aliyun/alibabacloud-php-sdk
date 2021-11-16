@@ -11,7 +11,7 @@ class authorizationRecords extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $createdTime;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class authorizationRecords extends Model
     /**
      * @var string
      */
-    public $createdTime;
+    public $endTime;
 
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'endTime'     => 'EndTime',
-        'creatorId'   => 'CreatorId',
         'createdTime' => 'CreatedTime',
+        'creatorId'   => 'CreatorId',
+        'endTime'     => 'EndTime',
         'projectId'   => 'ProjectId',
     ];
 
@@ -41,14 +41,14 @@ class authorizationRecords extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
         }
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -65,14 +65,14 @@ class authorizationRecords extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
         }
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];

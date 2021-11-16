@@ -14,24 +14,64 @@ class rules extends Model
     public $blockType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $onDutyAccountName;
+    public $checkerId;
 
     /**
      * @var string
      */
-    public $property;
+    public $comment;
 
     /**
      * @var string
      */
-    public $warningThreshold;
+    public $criticalThreshold;
+
+    /**
+     * @var int
+     */
+    public $entityId;
 
     /**
      * @var string
      */
-    public $tableName;
+    public $expectValue;
+
+    /**
+     * @var bool
+     */
+    public $fixCheck;
+
+    /**
+     * @var string
+     */
+    public $historyCriticalThreshold;
+
+    /**
+     * @var string
+     */
+    public $historyWarningThreshold;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $matchExpression;
+
+    /**
+     * @var int
+     */
+    public $methodId;
+
+    /**
+     * @var string
+     */
+    public $methodName;
 
     /**
      * @var string
@@ -41,7 +81,22 @@ class rules extends Model
     /**
      * @var string
      */
-    public $comment;
+    public $onDutyAccountName;
+
+    /**
+     * @var string
+     */
+    public $projectName;
+
+    /**
+     * @var string
+     */
+    public $property;
+
+    /**
+     * @var string
+     */
+    public $propertyKey;
 
     /**
      * @var int
@@ -49,14 +104,26 @@ class rules extends Model
     public $ruleCheckerRelationId;
 
     /**
-     * @var bool
+     * @description 规则名称
+     *
+     * @var string
      */
-    public $fixCheck;
+    public $ruleName;
 
     /**
      * @var int
      */
-    public $methodId;
+    public $ruleType;
+
+    /**
+     * @var string
+     */
+    public $tableName;
+
+    /**
+     * @var int
+     */
+    public $templateId;
 
     /**
      * @var string
@@ -71,93 +138,34 @@ class rules extends Model
     /**
      * @var string
      */
-    public $historyWarningThreshold;
-
-    /**
-     * @var int
-     */
-    public $ruleType;
-
-    /**
-     * @var string
-     */
-    public $matchExpression;
-
-    /**
-     * @var string
-     */
-    public $projectName;
-
-    /**
-     * @var string
-     */
-    public $propertyKey;
-
-    /**
-     * @var string
-     */
-    public $criticalThreshold;
-
-    /**
-     * @var string
-     */
-    public $historyCriticalThreshold;
-
-    /**
-     * @var string
-     */
-    public $methodName;
-
-    /**
-     * @var int
-     */
-    public $checkerId;
-
-    /**
-     * @var int
-     */
-    public $entityId;
-
-    /**
-     * @var string
-     */
-    public $expectValue;
-
-    /**
-     * @var int
-     */
-    public $templateId;
-
-    /**
-     * @var int
-     */
-    public $id;
+    public $warningThreshold;
     protected $_name = [
         'blockType'                => 'BlockType',
-        'onDutyAccountName'        => 'OnDutyAccountName',
-        'property'                 => 'Property',
-        'warningThreshold'         => 'WarningThreshold',
-        'tableName'                => 'TableName',
-        'onDuty'                   => 'OnDuty',
-        'comment'                  => 'Comment',
-        'ruleCheckerRelationId'    => 'RuleCheckerRelationId',
-        'fixCheck'                 => 'FixCheck',
-        'methodId'                 => 'MethodId',
-        'templateName'             => 'TemplateName',
-        'trend'                    => 'Trend',
-        'historyWarningThreshold'  => 'HistoryWarningThreshold',
-        'ruleType'                 => 'RuleType',
-        'matchExpression'          => 'MatchExpression',
-        'projectName'              => 'ProjectName',
-        'propertyKey'              => 'PropertyKey',
-        'criticalThreshold'        => 'CriticalThreshold',
-        'historyCriticalThreshold' => 'HistoryCriticalThreshold',
-        'methodName'               => 'MethodName',
         'checkerId'                => 'CheckerId',
+        'comment'                  => 'Comment',
+        'criticalThreshold'        => 'CriticalThreshold',
         'entityId'                 => 'EntityId',
         'expectValue'              => 'ExpectValue',
-        'templateId'               => 'TemplateId',
+        'fixCheck'                 => 'FixCheck',
+        'historyCriticalThreshold' => 'HistoryCriticalThreshold',
+        'historyWarningThreshold'  => 'HistoryWarningThreshold',
         'id'                       => 'Id',
+        'matchExpression'          => 'MatchExpression',
+        'methodId'                 => 'MethodId',
+        'methodName'               => 'MethodName',
+        'onDuty'                   => 'OnDuty',
+        'onDutyAccountName'        => 'OnDutyAccountName',
+        'projectName'              => 'ProjectName',
+        'property'                 => 'Property',
+        'propertyKey'              => 'PropertyKey',
+        'ruleCheckerRelationId'    => 'RuleCheckerRelationId',
+        'ruleName'                 => 'RuleName',
+        'ruleType'                 => 'RuleType',
+        'tableName'                => 'TableName',
+        'templateId'               => 'TemplateId',
+        'templateName'             => 'TemplateName',
+        'trend'                    => 'Trend',
+        'warningThreshold'         => 'WarningThreshold',
     ];
 
     public function validate()
@@ -170,65 +178,14 @@ class rules extends Model
         if (null !== $this->blockType) {
             $res['BlockType'] = $this->blockType;
         }
-        if (null !== $this->onDutyAccountName) {
-            $res['OnDutyAccountName'] = $this->onDutyAccountName;
-        }
-        if (null !== $this->property) {
-            $res['Property'] = $this->property;
-        }
-        if (null !== $this->warningThreshold) {
-            $res['WarningThreshold'] = $this->warningThreshold;
-        }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->onDuty) {
-            $res['OnDuty'] = $this->onDuty;
+        if (null !== $this->checkerId) {
+            $res['CheckerId'] = $this->checkerId;
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-        if (null !== $this->ruleCheckerRelationId) {
-            $res['RuleCheckerRelationId'] = $this->ruleCheckerRelationId;
-        }
-        if (null !== $this->fixCheck) {
-            $res['FixCheck'] = $this->fixCheck;
-        }
-        if (null !== $this->methodId) {
-            $res['MethodId'] = $this->methodId;
-        }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->trend) {
-            $res['Trend'] = $this->trend;
-        }
-        if (null !== $this->historyWarningThreshold) {
-            $res['HistoryWarningThreshold'] = $this->historyWarningThreshold;
-        }
-        if (null !== $this->ruleType) {
-            $res['RuleType'] = $this->ruleType;
-        }
-        if (null !== $this->matchExpression) {
-            $res['MatchExpression'] = $this->matchExpression;
-        }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->propertyKey) {
-            $res['PropertyKey'] = $this->propertyKey;
-        }
         if (null !== $this->criticalThreshold) {
             $res['CriticalThreshold'] = $this->criticalThreshold;
-        }
-        if (null !== $this->historyCriticalThreshold) {
-            $res['HistoryCriticalThreshold'] = $this->historyCriticalThreshold;
-        }
-        if (null !== $this->methodName) {
-            $res['MethodName'] = $this->methodName;
-        }
-        if (null !== $this->checkerId) {
-            $res['CheckerId'] = $this->checkerId;
         }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
@@ -236,11 +193,65 @@ class rules extends Model
         if (null !== $this->expectValue) {
             $res['ExpectValue'] = $this->expectValue;
         }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->fixCheck) {
+            $res['FixCheck'] = $this->fixCheck;
+        }
+        if (null !== $this->historyCriticalThreshold) {
+            $res['HistoryCriticalThreshold'] = $this->historyCriticalThreshold;
+        }
+        if (null !== $this->historyWarningThreshold) {
+            $res['HistoryWarningThreshold'] = $this->historyWarningThreshold;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->matchExpression) {
+            $res['MatchExpression'] = $this->matchExpression;
+        }
+        if (null !== $this->methodId) {
+            $res['MethodId'] = $this->methodId;
+        }
+        if (null !== $this->methodName) {
+            $res['MethodName'] = $this->methodName;
+        }
+        if (null !== $this->onDuty) {
+            $res['OnDuty'] = $this->onDuty;
+        }
+        if (null !== $this->onDutyAccountName) {
+            $res['OnDutyAccountName'] = $this->onDutyAccountName;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->property) {
+            $res['Property'] = $this->property;
+        }
+        if (null !== $this->propertyKey) {
+            $res['PropertyKey'] = $this->propertyKey;
+        }
+        if (null !== $this->ruleCheckerRelationId) {
+            $res['RuleCheckerRelationId'] = $this->ruleCheckerRelationId;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->ruleType) {
+            $res['RuleType'] = $this->ruleType;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->trend) {
+            $res['Trend'] = $this->trend;
+        }
+        if (null !== $this->warningThreshold) {
+            $res['WarningThreshold'] = $this->warningThreshold;
         }
 
         return $res;
@@ -257,65 +268,14 @@ class rules extends Model
         if (isset($map['BlockType'])) {
             $model->blockType = $map['BlockType'];
         }
-        if (isset($map['OnDutyAccountName'])) {
-            $model->onDutyAccountName = $map['OnDutyAccountName'];
-        }
-        if (isset($map['Property'])) {
-            $model->property = $map['Property'];
-        }
-        if (isset($map['WarningThreshold'])) {
-            $model->warningThreshold = $map['WarningThreshold'];
-        }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
-        if (isset($map['OnDuty'])) {
-            $model->onDuty = $map['OnDuty'];
+        if (isset($map['CheckerId'])) {
+            $model->checkerId = $map['CheckerId'];
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-        if (isset($map['RuleCheckerRelationId'])) {
-            $model->ruleCheckerRelationId = $map['RuleCheckerRelationId'];
-        }
-        if (isset($map['FixCheck'])) {
-            $model->fixCheck = $map['FixCheck'];
-        }
-        if (isset($map['MethodId'])) {
-            $model->methodId = $map['MethodId'];
-        }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['Trend'])) {
-            $model->trend = $map['Trend'];
-        }
-        if (isset($map['HistoryWarningThreshold'])) {
-            $model->historyWarningThreshold = $map['HistoryWarningThreshold'];
-        }
-        if (isset($map['RuleType'])) {
-            $model->ruleType = $map['RuleType'];
-        }
-        if (isset($map['MatchExpression'])) {
-            $model->matchExpression = $map['MatchExpression'];
-        }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['PropertyKey'])) {
-            $model->propertyKey = $map['PropertyKey'];
-        }
         if (isset($map['CriticalThreshold'])) {
             $model->criticalThreshold = $map['CriticalThreshold'];
-        }
-        if (isset($map['HistoryCriticalThreshold'])) {
-            $model->historyCriticalThreshold = $map['HistoryCriticalThreshold'];
-        }
-        if (isset($map['MethodName'])) {
-            $model->methodName = $map['MethodName'];
-        }
-        if (isset($map['CheckerId'])) {
-            $model->checkerId = $map['CheckerId'];
         }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
@@ -323,11 +283,65 @@ class rules extends Model
         if (isset($map['ExpectValue'])) {
             $model->expectValue = $map['ExpectValue'];
         }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['FixCheck'])) {
+            $model->fixCheck = $map['FixCheck'];
+        }
+        if (isset($map['HistoryCriticalThreshold'])) {
+            $model->historyCriticalThreshold = $map['HistoryCriticalThreshold'];
+        }
+        if (isset($map['HistoryWarningThreshold'])) {
+            $model->historyWarningThreshold = $map['HistoryWarningThreshold'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['MatchExpression'])) {
+            $model->matchExpression = $map['MatchExpression'];
+        }
+        if (isset($map['MethodId'])) {
+            $model->methodId = $map['MethodId'];
+        }
+        if (isset($map['MethodName'])) {
+            $model->methodName = $map['MethodName'];
+        }
+        if (isset($map['OnDuty'])) {
+            $model->onDuty = $map['OnDuty'];
+        }
+        if (isset($map['OnDutyAccountName'])) {
+            $model->onDutyAccountName = $map['OnDutyAccountName'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['Property'])) {
+            $model->property = $map['Property'];
+        }
+        if (isset($map['PropertyKey'])) {
+            $model->propertyKey = $map['PropertyKey'];
+        }
+        if (isset($map['RuleCheckerRelationId'])) {
+            $model->ruleCheckerRelationId = $map['RuleCheckerRelationId'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['RuleType'])) {
+            $model->ruleType = $map['RuleType'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['Trend'])) {
+            $model->trend = $map['Trend'];
+        }
+        if (isset($map['WarningThreshold'])) {
+            $model->warningThreshold = $map['WarningThreshold'];
         }
 
         return $model;

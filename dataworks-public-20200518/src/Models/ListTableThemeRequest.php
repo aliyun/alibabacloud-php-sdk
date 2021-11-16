@@ -11,7 +11,12 @@ class ListTableThemeRequest extends Model
     /**
      * @var int
      */
-    public $projectId;
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var int
@@ -21,17 +26,12 @@ class ListTableThemeRequest extends Model
     /**
      * @var int
      */
-    public $pageNum;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $projectId;
     protected $_name = [
-        'projectId' => 'ProjectId',
-        'parentId'  => 'ParentId',
         'pageNum'   => 'PageNum',
         'pageSize'  => 'PageSize',
+        'parentId'  => 'ParentId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListTableThemeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListTableThemeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

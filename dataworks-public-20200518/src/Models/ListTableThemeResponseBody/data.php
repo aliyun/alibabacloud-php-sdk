@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var themeList[]
      */
     public $themeList;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'themeList'  => 'ThemeList',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->themeList) {
             $res['ThemeList'] = [];
             if (null !== $this->themeList && \is_array($this->themeList)) {
@@ -41,6 +38,9 @@ class data extends Model
                     $res['ThemeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['ThemeList'])) {
             if (!empty($map['ThemeList'])) {
                 $model->themeList = [];
@@ -65,6 +62,9 @@ class data extends Model
                     $model->themeList[$n++] = null !== $item ? themeList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

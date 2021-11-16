@@ -15,31 +15,6 @@ class CreateImportMigrationAdvanceRequest extends Model
     public $packageFileObject;
 
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $packageType;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupMap;
-
-    /**
-     * @var string
-     */
-    public $workspaceMap;
-
-    /**
      * @var string
      */
     public $calculateEngineMap;
@@ -53,16 +28,41 @@ class CreateImportMigrationAdvanceRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $packageType;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupMap;
+
+    /**
+     * @var string
+     */
+    public $workspaceMap;
     protected $_name = [
         'packageFileObject'  => 'PackageFileObject',
-        'projectId'          => 'ProjectId',
-        'name'               => 'Name',
-        'packageType'        => 'PackageType',
-        'resourceGroupMap'   => 'ResourceGroupMap',
-        'workspaceMap'       => 'WorkspaceMap',
         'calculateEngineMap' => 'CalculateEngineMap',
         'commitRule'         => 'CommitRule',
         'description'        => 'Description',
+        'name'               => 'Name',
+        'packageType'        => 'PackageType',
+        'projectId'          => 'ProjectId',
+        'resourceGroupMap'   => 'ResourceGroupMap',
+        'workspaceMap'       => 'WorkspaceMap',
     ];
 
     public function validate()
@@ -76,21 +76,6 @@ class CreateImportMigrationAdvanceRequest extends Model
         if (null !== $this->packageFileObject) {
             $res['PackageFileObject'] = $this->packageFileObject;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->packageType) {
-            $res['PackageType'] = $this->packageType;
-        }
-        if (null !== $this->resourceGroupMap) {
-            $res['ResourceGroupMap'] = $this->resourceGroupMap;
-        }
-        if (null !== $this->workspaceMap) {
-            $res['WorkspaceMap'] = $this->workspaceMap;
-        }
         if (null !== $this->calculateEngineMap) {
             $res['CalculateEngineMap'] = $this->calculateEngineMap;
         }
@@ -99,6 +84,21 @@ class CreateImportMigrationAdvanceRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->packageType) {
+            $res['PackageType'] = $this->packageType;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->resourceGroupMap) {
+            $res['ResourceGroupMap'] = $this->resourceGroupMap;
+        }
+        if (null !== $this->workspaceMap) {
+            $res['WorkspaceMap'] = $this->workspaceMap;
         }
 
         return $res;
@@ -115,21 +115,6 @@ class CreateImportMigrationAdvanceRequest extends Model
         if (isset($map['PackageFileObject'])) {
             $model->packageFileObject = $map['PackageFileObject'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['PackageType'])) {
-            $model->packageType = $map['PackageType'];
-        }
-        if (isset($map['ResourceGroupMap'])) {
-            $model->resourceGroupMap = $map['ResourceGroupMap'];
-        }
-        if (isset($map['WorkspaceMap'])) {
-            $model->workspaceMap = $map['WorkspaceMap'];
-        }
         if (isset($map['CalculateEngineMap'])) {
             $model->calculateEngineMap = $map['CalculateEngineMap'];
         }
@@ -138,6 +123,21 @@ class CreateImportMigrationAdvanceRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['PackageType'])) {
+            $model->packageType = $map['PackageType'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ResourceGroupMap'])) {
+            $model->resourceGroupMap = $map['ResourceGroupMap'];
+        }
+        if (isset($map['WorkspaceMap'])) {
+            $model->workspaceMap = $map['WorkspaceMap'];
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaCategoryRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $name;
+    public $categoryId;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class UpdateMetaCategoryRequest extends Model
     public $comment;
 
     /**
-     * @var int
+     * @var string
      */
-    public $categoryId;
+    public $name;
     protected $_name = [
-        'name'       => 'Name',
-        'comment'    => 'Comment',
         'categoryId' => 'CategoryId',
+        'comment'    => 'Comment',
+        'name'       => 'Name',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateMetaCategoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateMetaCategoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

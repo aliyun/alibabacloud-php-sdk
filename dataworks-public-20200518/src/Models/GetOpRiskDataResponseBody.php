@@ -11,15 +11,15 @@ class GetOpRiskDataResponseBody extends Model
     /**
      * @var string
      */
-    public $riskData;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $riskData;
     protected $_name = [
-        'riskData'  => 'RiskData',
         'requestId' => 'RequestId',
+        'riskData'  => 'RiskData',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetOpRiskDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->riskData) {
-            $res['RiskData'] = $this->riskData;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->riskData) {
+            $res['RiskData'] = $this->riskData;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetOpRiskDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RiskData'])) {
-            $model->riskData = $map['RiskData'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RiskData'])) {
+            $model->riskData = $map['RiskData'];
         }
 
         return $model;

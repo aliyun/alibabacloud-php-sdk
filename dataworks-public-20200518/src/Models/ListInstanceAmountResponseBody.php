@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceAmountResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var instanceCounts[]
      */
     public $instanceCounts;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'instanceCounts' => 'InstanceCounts',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListInstanceAmountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instanceCounts) {
             $res['InstanceCounts'] = [];
             if (null !== $this->instanceCounts && \is_array($this->instanceCounts)) {
@@ -41,6 +38,9 @@ class ListInstanceAmountResponseBody extends Model
                     $res['InstanceCounts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListInstanceAmountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InstanceCounts'])) {
             if (!empty($map['InstanceCounts'])) {
                 $model->instanceCounts = [];
@@ -65,6 +62,9 @@ class ListInstanceAmountResponseBody extends Model
                     $model->instanceCounts[$n++] = null !== $item ? instanceCounts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

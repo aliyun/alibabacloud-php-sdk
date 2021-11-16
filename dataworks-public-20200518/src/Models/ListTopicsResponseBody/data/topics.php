@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class topics extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $topicName;
+    public $addTime;
 
     /**
      * @var int
      */
-    public $projectId;
+    public $fixTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $nodeOwner;
+    public $happenTime;
 
     /**
      * @var int
@@ -31,22 +31,7 @@ class topics extends Model
     /**
      * @var int
      */
-    public $fixTime;
-
-    /**
-     * @var string
-     */
-    public $topicType;
-
-    /**
-     * @var string
-     */
-    public $topicStatus;
-
-    /**
-     * @var int
-     */
-    public $happenTime;
+    public $nodeId;
 
     /**
      * @var string
@@ -54,32 +39,47 @@ class topics extends Model
     public $nodeName;
 
     /**
+     * @var string
+     */
+    public $nodeOwner;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var int
      */
     public $topicId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $addTime;
+    public $topicName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $nodeId;
+    public $topicStatus;
+
+    /**
+     * @var string
+     */
+    public $topicType;
     protected $_name = [
-        'topicName'   => 'TopicName',
-        'projectId'   => 'ProjectId',
-        'nodeOwner'   => 'NodeOwner',
-        'instanceId'  => 'InstanceId',
-        'fixTime'     => 'FixTime',
-        'topicType'   => 'TopicType',
-        'topicStatus' => 'TopicStatus',
-        'happenTime'  => 'HappenTime',
-        'nodeName'    => 'NodeName',
-        'topicId'     => 'TopicId',
         'addTime'     => 'AddTime',
+        'fixTime'     => 'FixTime',
+        'happenTime'  => 'HappenTime',
+        'instanceId'  => 'InstanceId',
         'nodeId'      => 'NodeId',
+        'nodeName'    => 'NodeName',
+        'nodeOwner'   => 'NodeOwner',
+        'projectId'   => 'ProjectId',
+        'topicId'     => 'TopicId',
+        'topicName'   => 'TopicName',
+        'topicStatus' => 'TopicStatus',
+        'topicType'   => 'TopicType',
     ];
 
     public function validate()
@@ -89,41 +89,41 @@ class topics extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topicName) {
-            $res['TopicName'] = $this->topicName;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->nodeOwner) {
-            $res['NodeOwner'] = $this->nodeOwner;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->addTime) {
+            $res['AddTime'] = $this->addTime;
         }
         if (null !== $this->fixTime) {
             $res['FixTime'] = $this->fixTime;
         }
-        if (null !== $this->topicType) {
-            $res['TopicType'] = $this->topicType;
-        }
-        if (null !== $this->topicStatus) {
-            $res['TopicStatus'] = $this->topicStatus;
-        }
         if (null !== $this->happenTime) {
             $res['HappenTime'] = $this->happenTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
+        if (null !== $this->nodeOwner) {
+            $res['NodeOwner'] = $this->nodeOwner;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
         if (null !== $this->topicId) {
             $res['TopicId'] = $this->topicId;
         }
-        if (null !== $this->addTime) {
-            $res['AddTime'] = $this->addTime;
+        if (null !== $this->topicName) {
+            $res['TopicName'] = $this->topicName;
         }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
+        if (null !== $this->topicStatus) {
+            $res['TopicStatus'] = $this->topicStatus;
+        }
+        if (null !== $this->topicType) {
+            $res['TopicType'] = $this->topicType;
         }
 
         return $res;
@@ -137,41 +137,41 @@ class topics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TopicName'])) {
-            $model->topicName = $map['TopicName'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['NodeOwner'])) {
-            $model->nodeOwner = $map['NodeOwner'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['AddTime'])) {
+            $model->addTime = $map['AddTime'];
         }
         if (isset($map['FixTime'])) {
             $model->fixTime = $map['FixTime'];
         }
-        if (isset($map['TopicType'])) {
-            $model->topicType = $map['TopicType'];
-        }
-        if (isset($map['TopicStatus'])) {
-            $model->topicStatus = $map['TopicStatus'];
-        }
         if (isset($map['HappenTime'])) {
             $model->happenTime = $map['HappenTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
+        if (isset($map['NodeOwner'])) {
+            $model->nodeOwner = $map['NodeOwner'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
         if (isset($map['TopicId'])) {
             $model->topicId = $map['TopicId'];
         }
-        if (isset($map['AddTime'])) {
-            $model->addTime = $map['AddTime'];
+        if (isset($map['TopicName'])) {
+            $model->topicName = $map['TopicName'];
         }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
+        if (isset($map['TopicStatus'])) {
+            $model->topicStatus = $map['TopicStatus'];
+        }
+        if (isset($map['TopicType'])) {
+            $model->topicType = $map['TopicType'];
         }
 
         return $model;

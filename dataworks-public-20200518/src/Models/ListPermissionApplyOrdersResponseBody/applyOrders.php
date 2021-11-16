@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class applyOrders extends Model
 {
     /**
-     * @var int
+     * @var applyOrder[]
      */
-    public $pageSize;
+    public $applyOrder;
 
     /**
      * @var int
@@ -22,17 +22,17 @@ class applyOrders extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageSize;
 
     /**
-     * @var applyOrder[]
+     * @var int
      */
-    public $applyOrder;
+    public $totalCount;
     protected $_name = [
-        'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
-        'totalCount' => 'TotalCount',
         'applyOrder' => 'ApplyOrder',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class applyOrders extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->applyOrder) {
             $res['ApplyOrder'] = [];
             if (null !== $this->applyOrder && \is_array($this->applyOrder)) {
@@ -59,6 +50,15 @@ class applyOrders extends Model
                     $res['ApplyOrder'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class applyOrders extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['ApplyOrder'])) {
             if (!empty($map['ApplyOrder'])) {
                 $model->applyOrder = [];
@@ -89,6 +80,15 @@ class applyOrders extends Model
                     $model->applyOrder[$n++] = null !== $item ? applyOrder::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

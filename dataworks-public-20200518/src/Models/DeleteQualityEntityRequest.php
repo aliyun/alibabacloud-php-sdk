@@ -16,16 +16,16 @@ class DeleteQualityEntityRequest extends Model
     /**
      * @var string
      */
-    public $projectName;
+    public $envType;
 
     /**
      * @var string
      */
-    public $envType;
+    public $projectName;
     protected $_name = [
         'entityId'    => 'EntityId',
-        'projectName' => 'ProjectName',
         'envType'     => 'EnvType',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteQualityEntityRequest extends Model
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DeleteQualityEntityRequest extends Model
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

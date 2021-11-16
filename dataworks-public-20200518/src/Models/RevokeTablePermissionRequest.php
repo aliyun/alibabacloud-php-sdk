@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RevokeTablePermissionRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $workspaceId;
+    public $actions;
 
     /**
      * @var string
@@ -21,12 +21,7 @@ class RevokeTablePermissionRequest extends Model
     /**
      * @var string
      */
-    public $tableName;
-
-    /**
-     * @var string
-     */
-    public $actions;
+    public $revokeUserId;
 
     /**
      * @var string
@@ -36,14 +31,19 @@ class RevokeTablePermissionRequest extends Model
     /**
      * @var string
      */
-    public $revokeUserId;
+    public $tableName;
+
+    /**
+     * @var int
+     */
+    public $workspaceId;
     protected $_name = [
-        'workspaceId'           => 'WorkspaceId',
-        'maxComputeProjectName' => 'MaxComputeProjectName',
-        'tableName'             => 'TableName',
         'actions'               => 'Actions',
-        'revokeUserName'        => 'RevokeUserName',
+        'maxComputeProjectName' => 'MaxComputeProjectName',
         'revokeUserId'          => 'RevokeUserId',
+        'revokeUserName'        => 'RevokeUserName',
+        'tableName'             => 'TableName',
+        'workspaceId'           => 'WorkspaceId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class RevokeTablePermissionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workspaceId) {
-            $res['WorkspaceId'] = $this->workspaceId;
+        if (null !== $this->actions) {
+            $res['Actions'] = $this->actions;
         }
         if (null !== $this->maxComputeProjectName) {
             $res['MaxComputeProjectName'] = $this->maxComputeProjectName;
         }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->actions) {
-            $res['Actions'] = $this->actions;
+        if (null !== $this->revokeUserId) {
+            $res['RevokeUserId'] = $this->revokeUserId;
         }
         if (null !== $this->revokeUserName) {
             $res['RevokeUserName'] = $this->revokeUserName;
         }
-        if (null !== $this->revokeUserId) {
-            $res['RevokeUserId'] = $this->revokeUserId;
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class RevokeTablePermissionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkspaceId'])) {
-            $model->workspaceId = $map['WorkspaceId'];
+        if (isset($map['Actions'])) {
+            $model->actions = $map['Actions'];
         }
         if (isset($map['MaxComputeProjectName'])) {
             $model->maxComputeProjectName = $map['MaxComputeProjectName'];
         }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
-        if (isset($map['Actions'])) {
-            $model->actions = $map['Actions'];
+        if (isset($map['RevokeUserId'])) {
+            $model->revokeUserId = $map['RevokeUserId'];
         }
         if (isset($map['RevokeUserName'])) {
             $model->revokeUserName = $map['RevokeUserName'];
         }
-        if (isset($map['RevokeUserId'])) {
-            $model->revokeUserId = $map['RevokeUserId'];
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

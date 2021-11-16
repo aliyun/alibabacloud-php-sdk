@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class influences extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $owner;
+    public $baselineId;
 
     /**
      * @var string
      */
     public $baselineName;
-
-    /**
-     * @var int
-     */
-    public $baselineId;
 
     /**
      * @var int
@@ -41,7 +31,12 @@ class influences extends Model
     /**
      * @var int
      */
-    public $projectId;
+    public $inGroupId;
+
+    /**
+     * @var string
+     */
+    public $owner;
 
     /**
      * @var int
@@ -51,17 +46,22 @@ class influences extends Model
     /**
      * @var int
      */
-    public $inGroupId;
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
-        'owner'        => 'Owner',
-        'baselineName' => 'BaselineName',
         'baselineId'   => 'BaselineId',
+        'baselineName' => 'BaselineName',
         'bizdate'      => 'Bizdate',
         'buffer'       => 'Buffer',
-        'projectId'    => 'ProjectId',
-        'priority'     => 'Priority',
         'inGroupId'    => 'InGroupId',
+        'owner'        => 'Owner',
+        'priority'     => 'Priority',
+        'projectId'    => 'ProjectId',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -71,17 +71,11 @@ class influences extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
+        if (null !== $this->baselineId) {
+            $res['BaselineId'] = $this->baselineId;
         }
         if (null !== $this->baselineName) {
             $res['BaselineName'] = $this->baselineName;
-        }
-        if (null !== $this->baselineId) {
-            $res['BaselineId'] = $this->baselineId;
         }
         if (null !== $this->bizdate) {
             $res['Bizdate'] = $this->bizdate;
@@ -89,14 +83,20 @@ class influences extends Model
         if (null !== $this->buffer) {
             $res['Buffer'] = $this->buffer;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->inGroupId) {
+            $res['InGroupId'] = $this->inGroupId;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-        if (null !== $this->inGroupId) {
-            $res['InGroupId'] = $this->inGroupId;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -110,17 +110,11 @@ class influences extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
+        if (isset($map['BaselineId'])) {
+            $model->baselineId = $map['BaselineId'];
         }
         if (isset($map['BaselineName'])) {
             $model->baselineName = $map['BaselineName'];
-        }
-        if (isset($map['BaselineId'])) {
-            $model->baselineId = $map['BaselineId'];
         }
         if (isset($map['Bizdate'])) {
             $model->bizdate = $map['Bizdate'];
@@ -128,14 +122,20 @@ class influences extends Model
         if (isset($map['Buffer'])) {
             $model->buffer = $map['Buffer'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['InGroupId'])) {
+            $model->inGroupId = $map['InGroupId'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-        if (isset($map['InGroupId'])) {
-            $model->inGroupId = $map['InGroupId'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

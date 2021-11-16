@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetQualityRuleRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ruleId;
-
-    /**
      * @var string
      */
     public $projectName;
+
+    /**
+     * @var int
+     */
+    public $ruleId;
     protected $_name = [
-        'ruleId'      => 'RuleId',
         'projectName' => 'ProjectName',
+        'ruleId'      => 'RuleId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetQualityRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
-        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetQualityRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
-        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

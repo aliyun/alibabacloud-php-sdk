@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddToMetaCategoryResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
      * @var bool
      */
     public $data;
@@ -21,7 +16,7 @@ class AddToMetaCategoryResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $errorCode;
 
     /**
      * @var string
@@ -29,20 +24,25 @@ class AddToMetaCategoryResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
      * @var string
      */
-    public $errorCode;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'httpStatusCode' => 'HttpStatusCode',
         'data'           => 'Data',
-        'requestId'      => 'RequestId',
-        'errorMessage'   => 'ErrorMessage',
         'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId'      => 'RequestId',
         'success'        => 'Success',
     ];
 
@@ -53,20 +53,20 @@ class AddToMetaCategoryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -83,20 +83,20 @@ class AddToMetaCategoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

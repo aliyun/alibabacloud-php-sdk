@@ -11,15 +11,15 @@ class StartMigrationRequest extends Model
     /**
      * @var int
      */
-    public $projectId;
+    public $migrationId;
 
     /**
      * @var int
      */
-    public $migrationId;
+    public $projectId;
     protected $_name = [
-        'projectId'   => 'ProjectId',
         'migrationId' => 'MigrationId',
+        'projectId'   => 'ProjectId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class StartMigrationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->migrationId) {
             $res['MigrationId'] = $this->migrationId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class StartMigrationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['MigrationId'])) {
             $model->migrationId = $map['MigrationId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

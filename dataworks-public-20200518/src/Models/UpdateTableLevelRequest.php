@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableLevelRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var int
      */
-    public $projectId;
+    public $levelId;
 
     /**
      * @var int
@@ -24,20 +29,15 @@ class UpdateTableLevelRequest extends Model
     public $name;
 
     /**
-     * @var string
-     */
-    public $description;
-
-    /**
      * @var int
      */
-    public $levelId;
+    public $projectId;
     protected $_name = [
-        'projectId'   => 'ProjectId',
-        'levelType'   => 'LevelType',
-        'name'        => 'Name',
         'description' => 'Description',
         'levelId'     => 'LevelId',
+        'levelType'   => 'LevelType',
+        'name'        => 'Name',
+        'projectId'   => 'ProjectId',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class UpdateTableLevelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->levelId) {
+            $res['LevelId'] = $this->levelId;
         }
         if (null !== $this->levelType) {
             $res['LevelType'] = $this->levelType;
@@ -56,11 +59,8 @@ class UpdateTableLevelRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->levelId) {
-            $res['LevelId'] = $this->levelId;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class UpdateTableLevelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['LevelId'])) {
+            $model->levelId = $map['LevelId'];
         }
         if (isset($map['LevelType'])) {
             $model->levelType = $map['LevelType'];
@@ -83,11 +86,8 @@ class UpdateTableLevelRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['LevelId'])) {
-            $model->levelId = $map['LevelId'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

@@ -14,9 +14,19 @@ class data extends Model
     public $applicationCode;
 
     /**
+     * @var int
+     */
+    public $applicationId;
+
+    /**
      * @var string
      */
     public $applicationKey;
+
+    /**
+     * @var string
+     */
+    public $applicationName;
 
     /**
      * @var string
@@ -27,23 +37,13 @@ class data extends Model
      * @var int
      */
     public $projectId;
-
-    /**
-     * @var string
-     */
-    public $applicationName;
-
-    /**
-     * @var int
-     */
-    public $applicationId;
     protected $_name = [
         'applicationCode'   => 'ApplicationCode',
+        'applicationId'     => 'ApplicationId',
         'applicationKey'    => 'ApplicationKey',
+        'applicationName'   => 'ApplicationName',
         'applicationSecret' => 'ApplicationSecret',
         'projectId'         => 'ProjectId',
-        'applicationName'   => 'ApplicationName',
-        'applicationId'     => 'ApplicationId',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class data extends Model
         if (null !== $this->applicationCode) {
             $res['ApplicationCode'] = $this->applicationCode;
         }
+        if (null !== $this->applicationId) {
+            $res['ApplicationId'] = $this->applicationId;
+        }
         if (null !== $this->applicationKey) {
             $res['ApplicationKey'] = $this->applicationKey;
+        }
+        if (null !== $this->applicationName) {
+            $res['ApplicationName'] = $this->applicationName;
         }
         if (null !== $this->applicationSecret) {
             $res['ApplicationSecret'] = $this->applicationSecret;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->applicationName) {
-            $res['ApplicationName'] = $this->applicationName;
-        }
-        if (null !== $this->applicationId) {
-            $res['ApplicationId'] = $this->applicationId;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class data extends Model
         if (isset($map['ApplicationCode'])) {
             $model->applicationCode = $map['ApplicationCode'];
         }
+        if (isset($map['ApplicationId'])) {
+            $model->applicationId = $map['ApplicationId'];
+        }
         if (isset($map['ApplicationKey'])) {
             $model->applicationKey = $map['ApplicationKey'];
+        }
+        if (isset($map['ApplicationName'])) {
+            $model->applicationName = $map['ApplicationName'];
         }
         if (isset($map['ApplicationSecret'])) {
             $model->applicationSecret = $map['ApplicationSecret'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ApplicationName'])) {
-            $model->applicationName = $map['ApplicationName'];
-        }
-        if (isset($map['ApplicationId'])) {
-            $model->applicationId = $map['ApplicationId'];
         }
 
         return $model;

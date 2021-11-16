@@ -11,15 +11,15 @@ class instanceCounts extends Model
     /**
      * @var int
      */
-    public $date;
+    public $count;
 
     /**
      * @var int
      */
-    public $count;
+    public $date;
     protected $_name = [
-        'date'  => 'Date',
         'count' => 'Count',
+        'date'  => 'Date',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class instanceCounts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->date) {
-            $res['Date'] = $this->date;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->date) {
+            $res['Date'] = $this->date;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class instanceCounts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Date'])) {
-            $model->date = $map['Date'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['Date'])) {
+            $model->date = $map['Date'];
         }
 
         return $model;

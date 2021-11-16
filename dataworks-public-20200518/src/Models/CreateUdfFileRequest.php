@@ -11,12 +11,22 @@ class CreateUdfFileRequest extends Model
     /**
      * @var string
      */
-    public $fileFolderPath;
+    public $className;
 
     /**
-     * @var int
+     * @var string
      */
-    public $projectId;
+    public $cmdDescription;
+
+    /**
+     * @var string
+     */
+    public $example;
+
+    /**
+     * @var string
+     */
+    public $fileFolderPath;
 
     /**
      * @var string
@@ -31,7 +41,17 @@ class CreateUdfFileRequest extends Model
     /**
      * @var string
      */
-    public $className;
+    public $parameterDescription;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $projectIdentifier;
 
     /**
      * @var string
@@ -41,45 +61,25 @@ class CreateUdfFileRequest extends Model
     /**
      * @var string
      */
-    public $udfDescription;
-
-    /**
-     * @var string
-     */
-    public $cmdDescription;
-
-    /**
-     * @var string
-     */
-    public $parameterDescription;
-
-    /**
-     * @var string
-     */
     public $returnValue;
 
     /**
      * @var string
      */
-    public $example;
-
-    /**
-     * @var string
-     */
-    public $projectIdentifier;
+    public $udfDescription;
     protected $_name = [
+        'className'            => 'ClassName',
+        'cmdDescription'       => 'CmdDescription',
+        'example'              => 'Example',
         'fileFolderPath'       => 'FileFolderPath',
-        'projectId'            => 'ProjectId',
         'fileName'             => 'FileName',
         'functionType'         => 'FunctionType',
-        'className'            => 'ClassName',
-        'resources'            => 'Resources',
-        'udfDescription'       => 'UdfDescription',
-        'cmdDescription'       => 'CmdDescription',
         'parameterDescription' => 'ParameterDescription',
-        'returnValue'          => 'ReturnValue',
-        'example'              => 'Example',
+        'projectId'            => 'ProjectId',
         'projectIdentifier'    => 'ProjectIdentifier',
+        'resources'            => 'Resources',
+        'returnValue'          => 'ReturnValue',
+        'udfDescription'       => 'UdfDescription',
     ];
 
     public function validate()
@@ -89,11 +89,17 @@ class CreateUdfFileRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->className) {
+            $res['ClassName'] = $this->className;
+        }
+        if (null !== $this->cmdDescription) {
+            $res['CmdDescription'] = $this->cmdDescription;
+        }
+        if (null !== $this->example) {
+            $res['Example'] = $this->example;
+        }
         if (null !== $this->fileFolderPath) {
             $res['FileFolderPath'] = $this->fileFolderPath;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
@@ -101,29 +107,23 @@ class CreateUdfFileRequest extends Model
         if (null !== $this->functionType) {
             $res['FunctionType'] = $this->functionType;
         }
-        if (null !== $this->className) {
-            $res['ClassName'] = $this->className;
+        if (null !== $this->parameterDescription) {
+            $res['ParameterDescription'] = $this->parameterDescription;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->projectIdentifier) {
+            $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
         }
-        if (null !== $this->udfDescription) {
-            $res['UdfDescription'] = $this->udfDescription;
-        }
-        if (null !== $this->cmdDescription) {
-            $res['CmdDescription'] = $this->cmdDescription;
-        }
-        if (null !== $this->parameterDescription) {
-            $res['ParameterDescription'] = $this->parameterDescription;
-        }
         if (null !== $this->returnValue) {
             $res['ReturnValue'] = $this->returnValue;
         }
-        if (null !== $this->example) {
-            $res['Example'] = $this->example;
-        }
-        if (null !== $this->projectIdentifier) {
-            $res['ProjectIdentifier'] = $this->projectIdentifier;
+        if (null !== $this->udfDescription) {
+            $res['UdfDescription'] = $this->udfDescription;
         }
 
         return $res;
@@ -137,11 +137,17 @@ class CreateUdfFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClassName'])) {
+            $model->className = $map['ClassName'];
+        }
+        if (isset($map['CmdDescription'])) {
+            $model->cmdDescription = $map['CmdDescription'];
+        }
+        if (isset($map['Example'])) {
+            $model->example = $map['Example'];
+        }
         if (isset($map['FileFolderPath'])) {
             $model->fileFolderPath = $map['FileFolderPath'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
@@ -149,29 +155,23 @@ class CreateUdfFileRequest extends Model
         if (isset($map['FunctionType'])) {
             $model->functionType = $map['FunctionType'];
         }
-        if (isset($map['ClassName'])) {
-            $model->className = $map['ClassName'];
+        if (isset($map['ParameterDescription'])) {
+            $model->parameterDescription = $map['ParameterDescription'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ProjectIdentifier'])) {
+            $model->projectIdentifier = $map['ProjectIdentifier'];
         }
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
         }
-        if (isset($map['UdfDescription'])) {
-            $model->udfDescription = $map['UdfDescription'];
-        }
-        if (isset($map['CmdDescription'])) {
-            $model->cmdDescription = $map['CmdDescription'];
-        }
-        if (isset($map['ParameterDescription'])) {
-            $model->parameterDescription = $map['ParameterDescription'];
-        }
         if (isset($map['ReturnValue'])) {
             $model->returnValue = $map['ReturnValue'];
         }
-        if (isset($map['Example'])) {
-            $model->example = $map['Example'];
-        }
-        if (isset($map['ProjectIdentifier'])) {
-            $model->projectIdentifier = $map['ProjectIdentifier'];
+        if (isset($map['UdfDescription'])) {
+            $model->udfDescription = $map['UdfDescription'];
         }
 
         return $model;

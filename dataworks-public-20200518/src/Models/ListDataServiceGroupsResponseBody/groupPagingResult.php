@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class groupPagingResult extends Model
 {
     /**
+     * @var groups[]
+     */
+    public $groups;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -23,16 +28,11 @@ class groupPagingResult extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var groups[]
-     */
-    public $groups;
     protected $_name = [
+        'groups'     => 'Groups',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'totalCount' => 'TotalCount',
-        'groups'     => 'Groups',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class groupPagingResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->groups) {
             $res['Groups'] = [];
             if (null !== $this->groups && \is_array($this->groups)) {
@@ -59,6 +50,15 @@ class groupPagingResult extends Model
                     $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class groupPagingResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
                 $model->groups = [];
@@ -89,6 +80,15 @@ class groupPagingResult extends Model
                     $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $folderPath;
+    public $folderId;
 
     /**
      * @var string
      */
-    public $folderId;
+    public $folderPath;
     protected $_name = [
-        'folderPath' => 'FolderPath',
         'folderId'   => 'FolderId',
+        'folderPath' => 'FolderPath',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->folderPath) {
-            $res['FolderPath'] = $this->folderPath;
-        }
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
+        }
+        if (null !== $this->folderPath) {
+            $res['FolderPath'] = $this->folderPath;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FolderPath'])) {
-            $model->folderPath = $map['FolderPath'];
-        }
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
+        }
+        if (isset($map['FolderPath'])) {
+            $model->folderPath = $map['FolderPath'];
         }
 
         return $model;

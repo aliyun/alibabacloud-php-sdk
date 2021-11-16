@@ -11,12 +11,12 @@ class UpdateDISyncTaskRequest extends Model
     /**
      * @var int
      */
-    public $projectId;
+    public $fileId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $taskType;
+    public $projectId;
 
     /**
      * @var string
@@ -29,15 +29,15 @@ class UpdateDISyncTaskRequest extends Model
     public $taskParam;
 
     /**
-     * @var int
+     * @var string
      */
-    public $fileId;
+    public $taskType;
     protected $_name = [
+        'fileId'      => 'FileId',
         'projectId'   => 'ProjectId',
-        'taskType'    => 'TaskType',
         'taskContent' => 'TaskContent',
         'taskParam'   => 'TaskParam',
-        'fileId'      => 'FileId',
+        'taskType'    => 'TaskType',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class UpdateDISyncTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
         }
         if (null !== $this->taskContent) {
             $res['TaskContent'] = $this->taskContent;
@@ -59,8 +59,8 @@ class UpdateDISyncTaskRequest extends Model
         if (null !== $this->taskParam) {
             $res['TaskParam'] = $this->taskParam;
         }
-        if (null !== $this->fileId) {
-            $res['FileId'] = $this->fileId;
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class UpdateDISyncTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
         }
         if (isset($map['TaskContent'])) {
             $model->taskContent = $map['TaskContent'];
@@ -86,8 +86,8 @@ class UpdateDISyncTaskRequest extends Model
         if (isset($map['TaskParam'])) {
             $model->taskParam = $map['TaskParam'];
         }
-        if (isset($map['FileId'])) {
-            $model->fileId = $map['FileId'];
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

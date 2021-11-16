@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ExportDISyncTasksResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var data
      */
-    public $success;
+    public $data;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class ExportDISyncTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data
+     * @var bool
      */
-    public $data;
+    public $success;
     protected $_name = [
-        'success'   => 'success',
-        'requestId' => 'requestId',
         'data'      => 'data',
+        'requestId' => 'requestId',
+        'success'   => 'success',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class ExportDISyncTasksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
+        if (null !== $this->data) {
+            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-        if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->success) {
+            $res['success'] = $this->success;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class ExportDISyncTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
+        if (isset($map['data'])) {
+            $model->data = data::fromMap($map['data']);
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-        if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
+        if (isset($map['success'])) {
+            $model->success = $map['success'];
         }
 
         return $model;

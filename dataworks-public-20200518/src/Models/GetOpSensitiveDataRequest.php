@@ -11,12 +11,17 @@ class GetOpSensitiveDataRequest extends Model
     /**
      * @var string
      */
+    public $date;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $opType;
 
     /**
      * @var int
@@ -24,20 +29,15 @@ class GetOpSensitiveDataRequest extends Model
     public $pageNo;
 
     /**
-     * @var string
+     * @var int
      */
-    public $date;
-
-    /**
-     * @var string
-     */
-    public $opType;
+    public $pageSize;
     protected $_name = [
-        'name'     => 'Name',
-        'pageSize' => 'PageSize',
-        'pageNo'   => 'PageNo',
         'date'     => 'Date',
+        'name'     => 'Name',
         'opType'   => 'OpType',
+        'pageNo'   => 'PageNo',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GetOpSensitiveDataRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->date) {
+            $res['Date'] = $this->date;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->opType) {
+            $res['OpType'] = $this->opType;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
-        if (null !== $this->date) {
-            $res['Date'] = $this->date;
-        }
-        if (null !== $this->opType) {
-            $res['OpType'] = $this->opType;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GetOpSensitiveDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Date'])) {
+            $model->date = $map['Date'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['OpType'])) {
+            $model->opType = $map['OpType'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
-        if (isset($map['Date'])) {
-            $model->date = $map['Date'];
-        }
-        if (isset($map['OpType'])) {
-            $model->opType = $map['OpType'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

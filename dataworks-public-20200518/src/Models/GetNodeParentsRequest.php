@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetNodeParentsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $projectEnv;
-
-    /**
      * @var int
      */
     public $nodeId;
+
+    /**
+     * @var string
+     */
+    public $projectEnv;
     protected $_name = [
-        'projectEnv' => 'ProjectEnv',
         'nodeId'     => 'NodeId',
+        'projectEnv' => 'ProjectEnv',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetNodeParentsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectEnv) {
-            $res['ProjectEnv'] = $this->projectEnv;
-        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->projectEnv) {
+            $res['ProjectEnv'] = $this->projectEnv;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetNodeParentsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectEnv'])) {
-            $model->projectEnv = $map['ProjectEnv'];
-        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['ProjectEnv'])) {
+            $model->projectEnv = $map['ProjectEnv'];
         }
 
         return $model;

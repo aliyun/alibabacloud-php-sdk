@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetOpRiskDataRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNo;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var string
      */
     public $date;
@@ -31,12 +16,27 @@ class GetOpRiskDataRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $pageNo;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
     public $riskType;
     protected $_name = [
-        'pageSize' => 'PageSize',
-        'pageNo'   => 'PageNo',
-        'name'     => 'Name',
         'date'     => 'Date',
+        'name'     => 'Name',
+        'pageNo'   => 'PageNo',
+        'pageSize' => 'PageSize',
         'riskType' => 'RiskType',
     ];
 
@@ -47,17 +47,17 @@ class GetOpRiskDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
+        if (null !== $this->date) {
+            $res['Date'] = $this->date;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->date) {
-            $res['Date'] = $this->date;
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->riskType) {
             $res['RiskType'] = $this->riskType;
@@ -74,17 +74,17 @@ class GetOpRiskDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
+        if (isset($map['Date'])) {
+            $model->date = $map['Date'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Date'])) {
-            $model->date = $map['Date'];
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RiskType'])) {
             $model->riskType = $map['RiskType'];

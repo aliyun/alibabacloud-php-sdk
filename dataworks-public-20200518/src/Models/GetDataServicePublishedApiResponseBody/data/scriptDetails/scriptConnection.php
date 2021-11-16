@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class scriptConnection extends Model
 {
     /**
-     * @var string
-     */
-    public $tableName;
-
-    /**
      * @var int
      */
     public $connectionId;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
-        'tableName'    => 'TableName',
         'connectionId' => 'ConnectionId',
+        'tableName'    => 'TableName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class scriptConnection extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
         if (null !== $this->connectionId) {
             $res['ConnectionId'] = $this->connectionId;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class scriptConnection extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
         if (isset($map['ConnectionId'])) {
             $model->connectionId = $map['ConnectionId'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

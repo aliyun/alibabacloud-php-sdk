@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GenerateDISyncTaskConfigForUpdatingRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var int
      */
     public $projectId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $taskType;
+    public $taskId;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class GenerateDISyncTaskConfigForUpdatingRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var int
-     */
-    public $taskId;
+    public $taskType;
     protected $_name = [
-        'projectId'   => 'ProjectId',
-        'taskType'    => 'TaskType',
-        'taskParam'   => 'TaskParam',
         'clientToken' => 'ClientToken',
+        'projectId'   => 'ProjectId',
         'taskId'      => 'TaskId',
+        'taskParam'   => 'TaskParam',
+        'taskType'    => 'TaskType',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GenerateDISyncTaskConfigForUpdatingRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->taskParam) {
             $res['TaskParam'] = $this->taskParam;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GenerateDISyncTaskConfigForUpdatingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['TaskParam'])) {
             $model->taskParam = $map['TaskParam'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DeleteViewRequest extends Model
     /**
      * @var string
      */
-    public $viewName;
+    public $appGuid;
 
     /**
      * @var string
      */
-    public $appGuid;
+    public $viewName;
     protected $_name = [
-        'viewName' => 'ViewName',
         'appGuid'  => 'AppGuid',
+        'viewName' => 'ViewName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteViewRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->viewName) {
-            $res['ViewName'] = $this->viewName;
-        }
         if (null !== $this->appGuid) {
             $res['AppGuid'] = $this->appGuid;
+        }
+        if (null !== $this->viewName) {
+            $res['ViewName'] = $this->viewName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteViewRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ViewName'])) {
-            $model->viewName = $map['ViewName'];
-        }
         if (isset($map['AppGuid'])) {
             $model->appGuid = $map['AppGuid'];
+        }
+        if (isset($map['ViewName'])) {
+            $model->viewName = $map['ViewName'];
         }
 
         return $model;

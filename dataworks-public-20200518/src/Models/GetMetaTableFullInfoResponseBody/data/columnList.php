@@ -11,7 +11,7 @@ class columnList extends Model
     /**
      * @var string
      */
-    public $columnName;
+    public $caption;
 
     /**
      * @var string
@@ -19,9 +19,14 @@ class columnList extends Model
     public $columnGuid;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $isPartitionColumn;
+    public $columnName;
+
+    /**
+     * @var string
+     */
+    public $columnType;
 
     /**
      * @var string
@@ -29,9 +34,14 @@ class columnList extends Model
     public $comment;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $columnType;
+    public $isForeignKey;
+
+    /**
+     * @var bool
+     */
+    public $isPartitionColumn;
 
     /**
      * @var bool
@@ -42,26 +52,16 @@ class columnList extends Model
      * @var int
      */
     public $position;
-
-    /**
-     * @var string
-     */
-    public $caption;
-
-    /**
-     * @var bool
-     */
-    public $isForeignKey;
     protected $_name = [
-        'columnName'        => 'ColumnName',
+        'caption'           => 'Caption',
         'columnGuid'        => 'ColumnGuid',
-        'isPartitionColumn' => 'IsPartitionColumn',
-        'comment'           => 'Comment',
+        'columnName'        => 'ColumnName',
         'columnType'        => 'ColumnType',
+        'comment'           => 'Comment',
+        'isForeignKey'      => 'IsForeignKey',
+        'isPartitionColumn' => 'IsPartitionColumn',
         'isPrimaryKey'      => 'IsPrimaryKey',
         'position'          => 'Position',
-        'caption'           => 'Caption',
-        'isForeignKey'      => 'IsForeignKey',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class columnList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->columnName) {
-            $res['ColumnName'] = $this->columnName;
+        if (null !== $this->caption) {
+            $res['Caption'] = $this->caption;
         }
         if (null !== $this->columnGuid) {
             $res['ColumnGuid'] = $this->columnGuid;
         }
-        if (null !== $this->isPartitionColumn) {
-            $res['IsPartitionColumn'] = $this->isPartitionColumn;
+        if (null !== $this->columnName) {
+            $res['ColumnName'] = $this->columnName;
+        }
+        if (null !== $this->columnType) {
+            $res['ColumnType'] = $this->columnType;
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-        if (null !== $this->columnType) {
-            $res['ColumnType'] = $this->columnType;
+        if (null !== $this->isForeignKey) {
+            $res['IsForeignKey'] = $this->isForeignKey;
+        }
+        if (null !== $this->isPartitionColumn) {
+            $res['IsPartitionColumn'] = $this->isPartitionColumn;
         }
         if (null !== $this->isPrimaryKey) {
             $res['IsPrimaryKey'] = $this->isPrimaryKey;
         }
         if (null !== $this->position) {
             $res['Position'] = $this->position;
-        }
-        if (null !== $this->caption) {
-            $res['Caption'] = $this->caption;
-        }
-        if (null !== $this->isForeignKey) {
-            $res['IsForeignKey'] = $this->isForeignKey;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class columnList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ColumnName'])) {
-            $model->columnName = $map['ColumnName'];
+        if (isset($map['Caption'])) {
+            $model->caption = $map['Caption'];
         }
         if (isset($map['ColumnGuid'])) {
             $model->columnGuid = $map['ColumnGuid'];
         }
-        if (isset($map['IsPartitionColumn'])) {
-            $model->isPartitionColumn = $map['IsPartitionColumn'];
+        if (isset($map['ColumnName'])) {
+            $model->columnName = $map['ColumnName'];
+        }
+        if (isset($map['ColumnType'])) {
+            $model->columnType = $map['ColumnType'];
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-        if (isset($map['ColumnType'])) {
-            $model->columnType = $map['ColumnType'];
+        if (isset($map['IsForeignKey'])) {
+            $model->isForeignKey = $map['IsForeignKey'];
+        }
+        if (isset($map['IsPartitionColumn'])) {
+            $model->isPartitionColumn = $map['IsPartitionColumn'];
         }
         if (isset($map['IsPrimaryKey'])) {
             $model->isPrimaryKey = $map['IsPrimaryKey'];
         }
         if (isset($map['Position'])) {
             $model->position = $map['Position'];
-        }
-        if (isset($map['Caption'])) {
-            $model->caption = $map['Caption'];
-        }
-        if (isset($map['IsForeignKey'])) {
-            $model->isForeignKey = $map['IsForeignKey'];
         }
 
         return $model;

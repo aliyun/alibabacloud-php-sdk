@@ -11,6 +11,21 @@ class CreateBusinessResponseBody extends Model
     /**
      * @var int
      */
+    public $businessId;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var int
+     */
     public $httpStatusCode;
 
     /**
@@ -19,31 +34,16 @@ class CreateBusinessResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var int
-     */
-    public $businessId;
     protected $_name = [
+        'businessId'     => 'BusinessId',
+        'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
         'requestId'      => 'RequestId',
-        'errorMessage'   => 'ErrorMessage',
         'success'        => 'Success',
-        'errorCode'      => 'ErrorCode',
-        'businessId'     => 'BusinessId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateBusinessResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessId) {
+            $res['BusinessId'] = $this->businessId;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->businessId) {
-            $res['BusinessId'] = $this->businessId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateBusinessResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessId'])) {
+            $model->businessId = $map['BusinessId'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['BusinessId'])) {
-            $model->businessId = $map['BusinessId'];
         }
 
         return $model;

@@ -14,64 +14,9 @@ class data extends Model
     public $blockType;
 
     /**
-     * @var string
-     */
-    public $onDutyAccountName;
-
-    /**
-     * @var string
-     */
-    public $warningThreshold;
-
-    /**
-     * @var string
-     */
-    public $property;
-
-    /**
-     * @var int
-     */
-    public $ruleType;
-
-    /**
-     * @var string
-     */
-    public $comment;
-
-    /**
-     * @var string
-     */
-    public $onDuty;
-
-    /**
      * @var int
      */
     public $checker;
-
-    /**
-     * @var bool
-     */
-    public $fixCheck;
-
-    /**
-     * @var int
-     */
-    public $methodId;
-
-    /**
-     * @var string
-     */
-    public $criticalThreshold;
-
-    /**
-     * @var int
-     */
-    public $predictType;
-
-    /**
-     * @var string
-     */
-    public $templateName;
 
     /**
      * @var string
@@ -81,12 +26,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $ruleName;
+    public $comment;
 
     /**
      * @var string
      */
-    public $methodName;
+    public $criticalThreshold;
 
     /**
      * @var int
@@ -96,7 +41,37 @@ class data extends Model
     /**
      * @var string
      */
-    public $whereCondition;
+    public $expectValue;
+
+    /**
+     * @var bool
+     */
+    public $fixCheck;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $methodId;
+
+    /**
+     * @var string
+     */
+    public $methodName;
+
+    /**
+     * @var string
+     */
+    public $onDuty;
+
+    /**
+     * @var string
+     */
+    public $onDutyAccountName;
 
     /**
      * @var string
@@ -104,14 +79,24 @@ class data extends Model
     public $operator;
 
     /**
-     * @var string
+     * @var int
      */
-    public $expectValue;
+    public $predictType;
 
     /**
      * @var string
      */
-    public $trend;
+    public $property;
+
+    /**
+     * @var string
+     */
+    public $ruleName;
+
+    /**
+     * @var int
+     */
+    public $ruleType;
 
     /**
      * @var int
@@ -119,33 +104,48 @@ class data extends Model
     public $templateId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $templateName;
+
+    /**
+     * @var string
+     */
+    public $trend;
+
+    /**
+     * @var string
+     */
+    public $warningThreshold;
+
+    /**
+     * @var string
+     */
+    public $whereCondition;
     protected $_name = [
         'blockType'         => 'BlockType',
-        'onDutyAccountName' => 'OnDutyAccountName',
-        'warningThreshold'  => 'WarningThreshold',
-        'property'          => 'Property',
-        'ruleType'          => 'RuleType',
-        'comment'           => 'Comment',
-        'onDuty'            => 'OnDuty',
         'checker'           => 'Checker',
-        'fixCheck'          => 'FixCheck',
-        'methodId'          => 'MethodId',
-        'criticalThreshold' => 'CriticalThreshold',
-        'predictType'       => 'PredictType',
-        'templateName'      => 'TemplateName',
         'checkerName'       => 'CheckerName',
-        'ruleName'          => 'RuleName',
-        'methodName'        => 'MethodName',
+        'comment'           => 'Comment',
+        'criticalThreshold' => 'CriticalThreshold',
         'entityId'          => 'EntityId',
-        'whereCondition'    => 'WhereCondition',
-        'operator'          => 'Operator',
         'expectValue'       => 'ExpectValue',
-        'trend'             => 'Trend',
-        'templateId'        => 'TemplateId',
+        'fixCheck'          => 'FixCheck',
         'id'                => 'Id',
+        'methodId'          => 'MethodId',
+        'methodName'        => 'MethodName',
+        'onDuty'            => 'OnDuty',
+        'onDutyAccountName' => 'OnDutyAccountName',
+        'operator'          => 'Operator',
+        'predictType'       => 'PredictType',
+        'property'          => 'Property',
+        'ruleName'          => 'RuleName',
+        'ruleType'          => 'RuleType',
+        'templateId'        => 'TemplateId',
+        'templateName'      => 'TemplateName',
+        'trend'             => 'Trend',
+        'warningThreshold'  => 'WarningThreshold',
+        'whereCondition'    => 'WhereCondition',
     ];
 
     public function validate()
@@ -158,71 +158,71 @@ class data extends Model
         if (null !== $this->blockType) {
             $res['BlockType'] = $this->blockType;
         }
-        if (null !== $this->onDutyAccountName) {
-            $res['OnDutyAccountName'] = $this->onDutyAccountName;
-        }
-        if (null !== $this->warningThreshold) {
-            $res['WarningThreshold'] = $this->warningThreshold;
-        }
-        if (null !== $this->property) {
-            $res['Property'] = $this->property;
-        }
-        if (null !== $this->ruleType) {
-            $res['RuleType'] = $this->ruleType;
-        }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
-        }
-        if (null !== $this->onDuty) {
-            $res['OnDuty'] = $this->onDuty;
-        }
         if (null !== $this->checker) {
             $res['Checker'] = $this->checker;
-        }
-        if (null !== $this->fixCheck) {
-            $res['FixCheck'] = $this->fixCheck;
-        }
-        if (null !== $this->methodId) {
-            $res['MethodId'] = $this->methodId;
-        }
-        if (null !== $this->criticalThreshold) {
-            $res['CriticalThreshold'] = $this->criticalThreshold;
-        }
-        if (null !== $this->predictType) {
-            $res['PredictType'] = $this->predictType;
-        }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
         }
         if (null !== $this->checkerName) {
             $res['CheckerName'] = $this->checkerName;
         }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
-        if (null !== $this->methodName) {
-            $res['MethodName'] = $this->methodName;
+        if (null !== $this->criticalThreshold) {
+            $res['CriticalThreshold'] = $this->criticalThreshold;
         }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
-        if (null !== $this->whereCondition) {
-            $res['WhereCondition'] = $this->whereCondition;
+        if (null !== $this->expectValue) {
+            $res['ExpectValue'] = $this->expectValue;
+        }
+        if (null !== $this->fixCheck) {
+            $res['FixCheck'] = $this->fixCheck;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->methodId) {
+            $res['MethodId'] = $this->methodId;
+        }
+        if (null !== $this->methodName) {
+            $res['MethodName'] = $this->methodName;
+        }
+        if (null !== $this->onDuty) {
+            $res['OnDuty'] = $this->onDuty;
+        }
+        if (null !== $this->onDutyAccountName) {
+            $res['OnDutyAccountName'] = $this->onDutyAccountName;
         }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-        if (null !== $this->expectValue) {
-            $res['ExpectValue'] = $this->expectValue;
+        if (null !== $this->predictType) {
+            $res['PredictType'] = $this->predictType;
         }
-        if (null !== $this->trend) {
-            $res['Trend'] = $this->trend;
+        if (null !== $this->property) {
+            $res['Property'] = $this->property;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->ruleType) {
+            $res['RuleType'] = $this->ruleType;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->trend) {
+            $res['Trend'] = $this->trend;
+        }
+        if (null !== $this->warningThreshold) {
+            $res['WarningThreshold'] = $this->warningThreshold;
+        }
+        if (null !== $this->whereCondition) {
+            $res['WhereCondition'] = $this->whereCondition;
         }
 
         return $res;
@@ -239,71 +239,71 @@ class data extends Model
         if (isset($map['BlockType'])) {
             $model->blockType = $map['BlockType'];
         }
-        if (isset($map['OnDutyAccountName'])) {
-            $model->onDutyAccountName = $map['OnDutyAccountName'];
-        }
-        if (isset($map['WarningThreshold'])) {
-            $model->warningThreshold = $map['WarningThreshold'];
-        }
-        if (isset($map['Property'])) {
-            $model->property = $map['Property'];
-        }
-        if (isset($map['RuleType'])) {
-            $model->ruleType = $map['RuleType'];
-        }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
-        }
-        if (isset($map['OnDuty'])) {
-            $model->onDuty = $map['OnDuty'];
-        }
         if (isset($map['Checker'])) {
             $model->checker = $map['Checker'];
-        }
-        if (isset($map['FixCheck'])) {
-            $model->fixCheck = $map['FixCheck'];
-        }
-        if (isset($map['MethodId'])) {
-            $model->methodId = $map['MethodId'];
-        }
-        if (isset($map['CriticalThreshold'])) {
-            $model->criticalThreshold = $map['CriticalThreshold'];
-        }
-        if (isset($map['PredictType'])) {
-            $model->predictType = $map['PredictType'];
-        }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
         }
         if (isset($map['CheckerName'])) {
             $model->checkerName = $map['CheckerName'];
         }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
-        if (isset($map['MethodName'])) {
-            $model->methodName = $map['MethodName'];
+        if (isset($map['CriticalThreshold'])) {
+            $model->criticalThreshold = $map['CriticalThreshold'];
         }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
-        if (isset($map['WhereCondition'])) {
-            $model->whereCondition = $map['WhereCondition'];
+        if (isset($map['ExpectValue'])) {
+            $model->expectValue = $map['ExpectValue'];
+        }
+        if (isset($map['FixCheck'])) {
+            $model->fixCheck = $map['FixCheck'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['MethodId'])) {
+            $model->methodId = $map['MethodId'];
+        }
+        if (isset($map['MethodName'])) {
+            $model->methodName = $map['MethodName'];
+        }
+        if (isset($map['OnDuty'])) {
+            $model->onDuty = $map['OnDuty'];
+        }
+        if (isset($map['OnDutyAccountName'])) {
+            $model->onDutyAccountName = $map['OnDutyAccountName'];
         }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-        if (isset($map['ExpectValue'])) {
-            $model->expectValue = $map['ExpectValue'];
+        if (isset($map['PredictType'])) {
+            $model->predictType = $map['PredictType'];
         }
-        if (isset($map['Trend'])) {
-            $model->trend = $map['Trend'];
+        if (isset($map['Property'])) {
+            $model->property = $map['Property'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['RuleType'])) {
+            $model->ruleType = $map['RuleType'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['Trend'])) {
+            $model->trend = $map['Trend'];
+        }
+        if (isset($map['WarningThreshold'])) {
+            $model->warningThreshold = $map['WarningThreshold'];
+        }
+        if (isset($map['WhereCondition'])) {
+            $model->whereCondition = $map['WhereCondition'];
         }
 
         return $model;

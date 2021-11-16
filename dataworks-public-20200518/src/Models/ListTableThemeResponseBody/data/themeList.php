@@ -14,24 +14,9 @@ class themeList extends Model
     public $createTimeStamp;
 
     /**
-     * @var int
-     */
-    public $parentId;
-
-    /**
-     * @var int
-     */
-    public $themeId;
-
-    /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
-    public $name;
+    public $creator;
 
     /**
      * @var int
@@ -41,15 +26,30 @@ class themeList extends Model
     /**
      * @var string
      */
-    public $creator;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $parentId;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var int
+     */
+    public $themeId;
     protected $_name = [
         'createTimeStamp' => 'CreateTimeStamp',
-        'parentId'        => 'ParentId',
-        'themeId'         => 'ThemeId',
-        'projectId'       => 'ProjectId',
-        'name'            => 'Name',
-        'level'           => 'Level',
         'creator'         => 'Creator',
+        'level'           => 'Level',
+        'name'            => 'Name',
+        'parentId'        => 'ParentId',
+        'projectId'       => 'ProjectId',
+        'themeId'         => 'ThemeId',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class themeList extends Model
         if (null !== $this->createTimeStamp) {
             $res['CreateTimeStamp'] = $this->createTimeStamp;
         }
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
-        if (null !== $this->themeId) {
-            $res['ThemeId'] = $this->themeId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->creator) {
+            $res['Creator'] = $this->creator;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
-        if (null !== $this->creator) {
-            $res['Creator'] = $this->creator;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->themeId) {
+            $res['ThemeId'] = $this->themeId;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class themeList extends Model
         if (isset($map['CreateTimeStamp'])) {
             $model->createTimeStamp = $map['CreateTimeStamp'];
         }
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
-        if (isset($map['ThemeId'])) {
-            $model->themeId = $map['ThemeId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Creator'])) {
+            $model->creator = $map['Creator'];
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
-        if (isset($map['Creator'])) {
-            $model->creator = $map['Creator'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ThemeId'])) {
+            $model->themeId = $map['ThemeId'];
         }
 
         return $model;

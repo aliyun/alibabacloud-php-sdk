@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceApiAuthoritiesRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $projectId;
+    public $apiNameKeyword;
 
     /**
      * @var int
@@ -26,18 +26,18 @@ class ListDataServiceApiAuthoritiesRequest extends Model
     /**
      * @var int
      */
-    public $tenantId;
+    public $projectId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $apiNameKeyword;
+    public $tenantId;
     protected $_name = [
-        'projectId'      => 'ProjectId',
+        'apiNameKeyword' => 'ApiNameKeyword',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
+        'projectId'      => 'ProjectId',
         'tenantId'       => 'TenantId',
-        'apiNameKeyword' => 'ApiNameKeyword',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class ListDataServiceApiAuthoritiesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->apiNameKeyword) {
+            $res['ApiNameKeyword'] = $this->apiNameKeyword;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -56,11 +56,11 @@ class ListDataServiceApiAuthoritiesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
-        }
-        if (null !== $this->apiNameKeyword) {
-            $res['ApiNameKeyword'] = $this->apiNameKeyword;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class ListDataServiceApiAuthoritiesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['ApiNameKeyword'])) {
+            $model->apiNameKeyword = $map['ApiNameKeyword'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -83,11 +83,11 @@ class ListDataServiceApiAuthoritiesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
-        }
-        if (isset($map['ApiNameKeyword'])) {
-            $model->apiNameKeyword = $map['ApiNameKeyword'];
         }
 
         return $model;

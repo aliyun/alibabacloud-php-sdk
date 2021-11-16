@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceFolderRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $tenantId;
-
-    /**
-     * @var int
-     */
-    public $projectId;
+    public $folderName;
 
     /**
      * @var string
      */
-    public $folderName;
+    public $groupId;
 
     /**
      * @var int
@@ -29,15 +24,20 @@ class CreateDataServiceFolderRequest extends Model
     public $parentId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $groupId;
+    public $projectId;
+
+    /**
+     * @var int
+     */
+    public $tenantId;
     protected $_name = [
-        'tenantId'   => 'TenantId',
-        'projectId'  => 'ProjectId',
         'folderName' => 'FolderName',
-        'parentId'   => 'ParentId',
         'groupId'    => 'GroupId',
+        'parentId'   => 'ParentId',
+        'projectId'  => 'ProjectId',
+        'tenantId'   => 'TenantId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateDataServiceFolderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->folderName) {
             $res['FolderName'] = $this->folderName;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateDataServiceFolderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['FolderName'])) {
             $model->folderName = $map['FolderName'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

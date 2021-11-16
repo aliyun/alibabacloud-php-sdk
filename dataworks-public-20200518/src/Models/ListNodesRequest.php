@@ -11,17 +11,17 @@ class ListNodesRequest extends Model
     /**
      * @var string
      */
-    public $owner;
-
-    /**
-     * @var string
-     */
     public $bizName;
 
     /**
      * @var string
      */
-    public $programType;
+    public $nodeName;
+
+    /**
+     * @var string
+     */
+    public $owner;
 
     /**
      * @var int
@@ -34,9 +34,9 @@ class ListNodesRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $projectId;
+    public $programType;
 
     /**
      * @var string
@@ -44,18 +44,18 @@ class ListNodesRequest extends Model
     public $projectEnv;
 
     /**
-     * @var string
+     * @var int
      */
-    public $nodeName;
+    public $projectId;
     protected $_name = [
-        'owner'       => 'Owner',
         'bizName'     => 'BizName',
-        'programType' => 'ProgramType',
+        'nodeName'    => 'NodeName',
+        'owner'       => 'Owner',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
-        'projectId'   => 'ProjectId',
+        'programType' => 'ProgramType',
         'projectEnv'  => 'ProjectEnv',
-        'nodeName'    => 'NodeName',
+        'projectId'   => 'ProjectId',
     ];
 
     public function validate()
@@ -65,14 +65,14 @@ class ListNodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
         if (null !== $this->bizName) {
             $res['BizName'] = $this->bizName;
         }
-        if (null !== $this->programType) {
-            $res['ProgramType'] = $this->programType;
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -80,14 +80,14 @@ class ListNodesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->programType) {
+            $res['ProgramType'] = $this->programType;
         }
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
-        if (null !== $this->nodeName) {
-            $res['NodeName'] = $this->nodeName;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -101,14 +101,14 @@ class ListNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
         if (isset($map['BizName'])) {
             $model->bizName = $map['BizName'];
         }
-        if (isset($map['ProgramType'])) {
-            $model->programType = $map['ProgramType'];
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -116,14 +116,14 @@ class ListNodesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['ProgramType'])) {
+            $model->programType = $map['ProgramType'];
         }
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }
-        if (isset($map['NodeName'])) {
-            $model->nodeName = $map['NodeName'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

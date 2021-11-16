@@ -9,29 +9,14 @@ use AlibabaCloud\Tea\Model;
 class folder extends Model
 {
     /**
-     * @var int
-     */
-    public $parentId;
-
-    /**
      * @var string
      */
-    public $modifiedTime;
-
-    /**
-     * @var string
-     */
-    public $groupId;
+    public $createdTime;
 
     /**
      * @var int
      */
     public $folderId;
-
-    /**
-     * @var int
-     */
-    public $projectId;
 
     /**
      * @var string
@@ -41,20 +26,35 @@ class folder extends Model
     /**
      * @var string
      */
-    public $createdTime;
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $modifiedTime;
+
+    /**
+     * @var int
+     */
+    public $parentId;
+
+    /**
+     * @var int
+     */
+    public $projectId;
 
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'parentId'     => 'ParentId',
-        'modifiedTime' => 'ModifiedTime',
-        'groupId'      => 'GroupId',
-        'folderId'     => 'FolderId',
-        'projectId'    => 'ProjectId',
-        'folderName'   => 'FolderName',
         'createdTime'  => 'CreatedTime',
+        'folderId'     => 'FolderId',
+        'folderName'   => 'FolderName',
+        'groupId'      => 'GroupId',
+        'modifiedTime' => 'ModifiedTime',
+        'parentId'     => 'ParentId',
+        'projectId'    => 'ProjectId',
         'tenantId'     => 'TenantId',
     ];
 
@@ -65,26 +65,26 @@ class folder extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
         }
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->folderName) {
             $res['FolderName'] = $this->folderName;
         }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -101,26 +101,26 @@ class folder extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
         }
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['FolderName'])) {
             $model->folderName = $map['FolderName'];
         }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateTableThemeResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @var int
      */
     public $httpStatusCode;
@@ -17,16 +27,6 @@ class CreateTableThemeResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
 
     /**
      * @var bool
@@ -38,10 +38,10 @@ class CreateTableThemeResponseBody extends Model
      */
     public $themeId;
     protected $_name = [
+        'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
         'requestId'      => 'RequestId',
-        'errorMessage'   => 'ErrorMessage',
-        'errorCode'      => 'ErrorCode',
         'success'        => 'Success',
         'themeId'        => 'ThemeId',
     ];
@@ -53,17 +53,17 @@ class CreateTableThemeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -83,17 +83,17 @@ class CreateTableThemeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

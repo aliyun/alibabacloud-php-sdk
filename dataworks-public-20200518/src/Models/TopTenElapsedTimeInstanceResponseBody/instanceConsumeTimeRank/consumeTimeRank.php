@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class consumeTimeRank extends Model
 {
     /**
-     * @var string
-     */
-    public $owner;
-
-    /**
-     * @var string
-     */
-    public $nodeName;
-
-    /**
      * @var int
      */
     public $businessDate;
@@ -26,7 +16,7 @@ class consumeTimeRank extends Model
     /**
      * @var int
      */
-    public $programType;
+    public $consumed;
 
     /**
      * @var int
@@ -39,17 +29,27 @@ class consumeTimeRank extends Model
     public $nodeId;
 
     /**
+     * @var string
+     */
+    public $nodeName;
+
+    /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @var int
      */
-    public $consumed;
+    public $programType;
     protected $_name = [
-        'owner'        => 'Owner',
-        'nodeName'     => 'NodeName',
         'businessDate' => 'BusinessDate',
-        'programType'  => 'ProgramType',
+        'consumed'     => 'Consumed',
         'instanceId'   => 'InstanceId',
         'nodeId'       => 'NodeId',
-        'consumed'     => 'Consumed',
+        'nodeName'     => 'NodeName',
+        'owner'        => 'Owner',
+        'programType'  => 'ProgramType',
     ];
 
     public function validate()
@@ -59,17 +59,11 @@ class consumeTimeRank extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-        if (null !== $this->nodeName) {
-            $res['NodeName'] = $this->nodeName;
-        }
         if (null !== $this->businessDate) {
             $res['BusinessDate'] = $this->businessDate;
         }
-        if (null !== $this->programType) {
-            $res['ProgramType'] = $this->programType;
+        if (null !== $this->consumed) {
+            $res['Consumed'] = $this->consumed;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -77,8 +71,14 @@ class consumeTimeRank extends Model
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-        if (null !== $this->consumed) {
-            $res['Consumed'] = $this->consumed;
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->programType) {
+            $res['ProgramType'] = $this->programType;
         }
 
         return $res;
@@ -92,17 +92,11 @@ class consumeTimeRank extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-        if (isset($map['NodeName'])) {
-            $model->nodeName = $map['NodeName'];
-        }
         if (isset($map['BusinessDate'])) {
             $model->businessDate = $map['BusinessDate'];
         }
-        if (isset($map['ProgramType'])) {
-            $model->programType = $map['ProgramType'];
+        if (isset($map['Consumed'])) {
+            $model->consumed = $map['Consumed'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -110,8 +104,14 @@ class consumeTimeRank extends Model
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-        if (isset($map['Consumed'])) {
-            $model->consumed = $map['Consumed'];
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
+        }
+        if (isset($map['ProgramType'])) {
+            $model->programType = $map['ProgramType'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableAddColumnRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $tableGuid;
-
-    /**
      * @var column[]
      */
     public $column;
+
+    /**
+     * @var string
+     */
+    public $tableGuid;
     protected $_name = [
-        'tableGuid' => 'TableGuid',
         'column'    => 'Column',
+        'tableGuid' => 'TableGuid',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class UpdateTableAddColumnRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableGuid) {
-            $res['TableGuid'] = $this->tableGuid;
-        }
         if (null !== $this->column) {
             $res['Column'] = [];
             if (null !== $this->column && \is_array($this->column)) {
@@ -41,6 +38,9 @@ class UpdateTableAddColumnRequest extends Model
                     $res['Column'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->tableGuid) {
+            $res['TableGuid'] = $this->tableGuid;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class UpdateTableAddColumnRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableGuid'])) {
-            $model->tableGuid = $map['TableGuid'];
-        }
         if (isset($map['Column'])) {
             if (!empty($map['Column'])) {
                 $model->column = [];
@@ -65,6 +62,9 @@ class UpdateTableAddColumnRequest extends Model
                     $model->column[$n++] = null !== $item ? column::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TableGuid'])) {
+            $model->tableGuid = $map['TableGuid'];
         }
 
         return $model;

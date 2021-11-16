@@ -19,24 +19,14 @@ class ListTopicsRequest extends Model
     public $endTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $topicTypes;
-
-    /**
-     * @var string
-     */
-    public $topicStatuses;
+    public $instanceId;
 
     /**
      * @var int
      */
     public $nodeId;
-
-    /**
-     * @var int
-     */
-    public $instanceId;
 
     /**
      * @var string
@@ -52,16 +42,26 @@ class ListTopicsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $topicStatuses;
+
+    /**
+     * @var string
+     */
+    public $topicTypes;
     protected $_name = [
         'beginTime'     => 'BeginTime',
         'endTime'       => 'EndTime',
-        'topicTypes'    => 'TopicTypes',
-        'topicStatuses' => 'TopicStatuses',
-        'nodeId'        => 'NodeId',
         'instanceId'    => 'InstanceId',
+        'nodeId'        => 'NodeId',
         'owner'         => 'Owner',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'topicStatuses' => 'TopicStatuses',
+        'topicTypes'    => 'TopicTypes',
     ];
 
     public function validate()
@@ -77,17 +77,11 @@ class ListTopicsRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->topicTypes) {
-            $res['TopicTypes'] = $this->topicTypes;
-        }
-        if (null !== $this->topicStatuses) {
-            $res['TopicStatuses'] = $this->topicStatuses;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
@@ -97,6 +91,12 @@ class ListTopicsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->topicStatuses) {
+            $res['TopicStatuses'] = $this->topicStatuses;
+        }
+        if (null !== $this->topicTypes) {
+            $res['TopicTypes'] = $this->topicTypes;
         }
 
         return $res;
@@ -116,17 +116,11 @@ class ListTopicsRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['TopicTypes'])) {
-            $model->topicTypes = $map['TopicTypes'];
-        }
-        if (isset($map['TopicStatuses'])) {
-            $model->topicStatuses = $map['TopicStatuses'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
@@ -136,6 +130,12 @@ class ListTopicsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TopicStatuses'])) {
+            $model->topicStatuses = $map['TopicStatuses'];
+        }
+        if (isset($map['TopicTypes'])) {
+            $model->topicTypes = $map['TopicTypes'];
         }
 
         return $model;

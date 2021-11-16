@@ -11,7 +11,7 @@ class GetDataServiceApplicationRequest extends Model
     /**
      * @var int
      */
-    public $tenantId;
+    public $applicationId;
 
     /**
      * @var int
@@ -21,11 +21,11 @@ class GetDataServiceApplicationRequest extends Model
     /**
      * @var int
      */
-    public $applicationId;
+    public $tenantId;
     protected $_name = [
-        'tenantId'      => 'TenantId',
-        'projectId'     => 'ProjectId',
         'applicationId' => 'ApplicationId',
+        'projectId'     => 'ProjectId',
+        'tenantId'      => 'TenantId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetDataServiceApplicationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
+        if (null !== $this->applicationId) {
+            $res['ApplicationId'] = $this->applicationId;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->applicationId) {
-            $res['ApplicationId'] = $this->applicationId;
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetDataServiceApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
+        if (isset($map['ApplicationId'])) {
+            $model->applicationId = $map['ApplicationId'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['ApplicationId'])) {
-            $model->applicationId = $map['ApplicationId'];
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class GetDISyncTaskMetricInfoRequest extends Model
     /**
      * @var int
      */
-    public $projectId;
+    public $endDate;
 
     /**
      * @var int
@@ -21,17 +21,17 @@ class GetDISyncTaskMetricInfoRequest extends Model
     /**
      * @var int
      */
-    public $startDate;
+    public $projectId;
 
     /**
      * @var int
      */
-    public $endDate;
+    public $startDate;
     protected $_name = [
-        'projectId' => 'ProjectId',
-        'fileId'    => 'FileId',
-        'startDate' => 'StartDate',
         'endDate'   => 'EndDate',
+        'fileId'    => 'FileId',
+        'projectId' => 'ProjectId',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class GetDISyncTaskMetricInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
         }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
-        }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class GetDISyncTaskMetricInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
         }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
-        }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class ListFoldersRequest extends Model
     /**
      * @var int
      */
-    public $projectId;
+    public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $projectIdentifier;
+    public $pageSize;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class ListFoldersRequest extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $projectId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $projectIdentifier;
     protected $_name = [
-        'projectId'         => 'ProjectId',
-        'projectIdentifier' => 'ProjectIdentifier',
-        'parentFolderPath'  => 'ParentFolderPath',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
+        'parentFolderPath'  => 'ParentFolderPath',
+        'projectId'         => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ListFoldersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->projectIdentifier) {
-            $res['ProjectIdentifier'] = $this->projectIdentifier;
-        }
-        if (null !== $this->parentFolderPath) {
-            $res['ParentFolderPath'] = $this->parentFolderPath;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->parentFolderPath) {
+            $res['ParentFolderPath'] = $this->parentFolderPath;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->projectIdentifier) {
+            $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ListFoldersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ProjectIdentifier'])) {
-            $model->projectIdentifier = $map['ProjectIdentifier'];
-        }
-        if (isset($map['ParentFolderPath'])) {
-            $model->parentFolderPath = $map['ParentFolderPath'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ParentFolderPath'])) {
+            $model->parentFolderPath = $map['ParentFolderPath'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ProjectIdentifier'])) {
+            $model->projectIdentifier = $map['ProjectIdentifier'];
         }
 
         return $model;

@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeployFileRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $comment;
+
+    /**
+     * @var int
+     */
+    public $fileId;
+
+    /**
+     * @var int
+     */
+    public $nodeId;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -17,27 +32,12 @@ class DeployFileRequest extends Model
      * @var string
      */
     public $projectIdentifier;
-
-    /**
-     * @var int
-     */
-    public $fileId;
-
-    /**
-     * @var string
-     */
-    public $comment;
-
-    /**
-     * @var int
-     */
-    public $nodeId;
     protected $_name = [
+        'comment'           => 'Comment',
+        'fileId'            => 'FileId',
+        'nodeId'            => 'NodeId',
         'projectId'         => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
-        'fileId'            => 'FileId',
-        'comment'           => 'Comment',
-        'nodeId'            => 'NodeId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DeployFileRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
-        }
-        if (null !== $this->fileId) {
-            $res['FileId'] = $this->fileId;
-        }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DeployFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
-        }
-        if (isset($map['FileId'])) {
-            $model->fileId = $map['FileId'];
-        }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
         }
 
         return $model;

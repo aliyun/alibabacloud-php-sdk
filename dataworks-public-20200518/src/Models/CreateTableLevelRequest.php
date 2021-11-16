@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateTableLevelRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $projectId;
+    public $description;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class CreateTableLevelRequest extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $description;
+    public $projectId;
     protected $_name = [
-        'projectId'   => 'ProjectId',
+        'description' => 'Description',
         'levelType'   => 'LevelType',
         'name'        => 'Name',
-        'description' => 'Description',
+        'projectId'   => 'ProjectId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class CreateTableLevelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->levelType) {
             $res['LevelType'] = $this->levelType;
@@ -50,8 +50,8 @@ class CreateTableLevelRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class CreateTableLevelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['LevelType'])) {
             $model->levelType = $map['LevelType'];
@@ -74,8 +74,8 @@ class CreateTableLevelRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

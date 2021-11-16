@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceConsumeTimeRankRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $bizdate;
+
+    /**
+     * @var int
+     */
+    public $projectId;
     protected $_name = [
-        'projectId' => 'ProjectId',
         'bizdate'   => 'Bizdate',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetInstanceConsumeTimeRankRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->bizdate) {
             $res['Bizdate'] = $this->bizdate;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetInstanceConsumeTimeRankRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['Bizdate'])) {
             $model->bizdate = $map['Bizdate'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

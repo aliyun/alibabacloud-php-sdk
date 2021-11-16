@@ -13,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 class wizardDetails extends Model
 {
     /**
+     * @var string
+     */
+    public $failedResultSample;
+
+    /**
      * @var bool
      */
     public $isPagedResponse;
@@ -23,9 +28,9 @@ class wizardDetails extends Model
     public $successfulResultSample;
 
     /**
-     * @var string
+     * @var wizardConnection
      */
-    public $failedResultSample;
+    public $wizardConnection;
 
     /**
      * @var wizardErrorCodes[]
@@ -41,19 +46,14 @@ class wizardDetails extends Model
      * @var wizardResponseParameters[]
      */
     public $wizardResponseParameters;
-
-    /**
-     * @var wizardConnection
-     */
-    public $wizardConnection;
     protected $_name = [
+        'failedResultSample'       => 'FailedResultSample',
         'isPagedResponse'          => 'IsPagedResponse',
         'successfulResultSample'   => 'SuccessfulResultSample',
-        'failedResultSample'       => 'FailedResultSample',
+        'wizardConnection'         => 'WizardConnection',
         'wizardErrorCodes'         => 'WizardErrorCodes',
         'wizardRequestParameters'  => 'WizardRequestParameters',
         'wizardResponseParameters' => 'WizardResponseParameters',
-        'wizardConnection'         => 'WizardConnection',
     ];
 
     public function validate()
@@ -63,14 +63,17 @@ class wizardDetails extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->failedResultSample) {
+            $res['FailedResultSample'] = $this->failedResultSample;
+        }
         if (null !== $this->isPagedResponse) {
             $res['IsPagedResponse'] = $this->isPagedResponse;
         }
         if (null !== $this->successfulResultSample) {
             $res['SuccessfulResultSample'] = $this->successfulResultSample;
         }
-        if (null !== $this->failedResultSample) {
-            $res['FailedResultSample'] = $this->failedResultSample;
+        if (null !== $this->wizardConnection) {
+            $res['WizardConnection'] = null !== $this->wizardConnection ? $this->wizardConnection->toMap() : null;
         }
         if (null !== $this->wizardErrorCodes) {
             $res['WizardErrorCodes'] = [];
@@ -99,9 +102,6 @@ class wizardDetails extends Model
                 }
             }
         }
-        if (null !== $this->wizardConnection) {
-            $res['WizardConnection'] = null !== $this->wizardConnection ? $this->wizardConnection->toMap() : null;
-        }
 
         return $res;
     }
@@ -114,14 +114,17 @@ class wizardDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FailedResultSample'])) {
+            $model->failedResultSample = $map['FailedResultSample'];
+        }
         if (isset($map['IsPagedResponse'])) {
             $model->isPagedResponse = $map['IsPagedResponse'];
         }
         if (isset($map['SuccessfulResultSample'])) {
             $model->successfulResultSample = $map['SuccessfulResultSample'];
         }
-        if (isset($map['FailedResultSample'])) {
-            $model->failedResultSample = $map['FailedResultSample'];
+        if (isset($map['WizardConnection'])) {
+            $model->wizardConnection = wizardConnection::fromMap($map['WizardConnection']);
         }
         if (isset($map['WizardErrorCodes'])) {
             if (!empty($map['WizardErrorCodes'])) {
@@ -149,9 +152,6 @@ class wizardDetails extends Model
                     $model->wizardResponseParameters[$n++] = null !== $item ? wizardResponseParameters::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['WizardConnection'])) {
-            $model->wizardConnection = wizardConnection::fromMap($map['WizardConnection']);
         }
 
         return $model;

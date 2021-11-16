@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListQualityRulesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $projectName;
-
-    /**
      * @var int
      */
     public $entityId;
@@ -27,11 +22,16 @@ class ListQualityRulesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $projectName;
     protected $_name = [
-        'projectName' => 'ProjectName',
         'entityId'    => 'EntityId',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class ListQualityRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
@@ -52,6 +49,9 @@ class ListQualityRulesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class ListQualityRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
@@ -76,6 +73,9 @@ class ListQualityRulesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

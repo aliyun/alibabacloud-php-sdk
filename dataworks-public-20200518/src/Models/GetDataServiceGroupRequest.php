@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceGroupRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $tenantId;
+    public $groupId;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class GetDataServiceGroupRequest extends Model
     public $projectId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $groupId;
+    public $tenantId;
     protected $_name = [
-        'tenantId'  => 'TenantId',
-        'projectId' => 'ProjectId',
         'groupId'   => 'GroupId',
+        'projectId' => 'ProjectId',
+        'tenantId'  => 'TenantId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetDataServiceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetDataServiceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

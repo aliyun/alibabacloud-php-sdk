@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceFoldersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $folderNameKeyword;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -27,23 +37,13 @@ class ListDataServiceFoldersRequest extends Model
      * @var int
      */
     public $tenantId;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $folderNameKeyword;
     protected $_name = [
+        'folderNameKeyword' => 'FolderNameKeyword',
+        'groupId'           => 'GroupId',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
         'projectId'         => 'ProjectId',
         'tenantId'          => 'TenantId',
-        'groupId'           => 'GroupId',
-        'folderNameKeyword' => 'FolderNameKeyword',
     ];
 
     public function validate()
@@ -53,6 +53,12 @@ class ListDataServiceFoldersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->folderNameKeyword) {
+            $res['FolderNameKeyword'] = $this->folderNameKeyword;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -64,12 +70,6 @@ class ListDataServiceFoldersRequest extends Model
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->folderNameKeyword) {
-            $res['FolderNameKeyword'] = $this->folderNameKeyword;
         }
 
         return $res;
@@ -83,6 +83,12 @@ class ListDataServiceFoldersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FolderNameKeyword'])) {
+            $model->folderNameKeyword = $map['FolderNameKeyword'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -94,12 +100,6 @@ class ListDataServiceFoldersRequest extends Model
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['FolderNameKeyword'])) {
-            $model->folderNameKeyword = $map['FolderNameKeyword'];
         }
 
         return $model;

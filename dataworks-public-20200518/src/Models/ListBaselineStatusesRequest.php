@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListBaselineStatusesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $baselineTypes;
+
+    /**
+     * @var string
+     */
+    public $bizdate;
+
+    /**
+     * @var string
+     */
+    public $finishStatus;
+
+    /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -17,11 +37,6 @@ class ListBaselineStatusesRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $bizdate;
 
     /**
      * @var string
@@ -36,38 +51,23 @@ class ListBaselineStatusesRequest extends Model
     /**
      * @var string
      */
-    public $owner;
+    public $status;
 
     /**
      * @var int
      */
     public $topicId;
-
-    /**
-     * @var string
-     */
-    public $finishStatus;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $baselineTypes;
     protected $_name = [
+        'baselineTypes' => 'BaselineTypes',
+        'bizdate'       => 'Bizdate',
+        'finishStatus'  => 'FinishStatus',
+        'owner'         => 'Owner',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'bizdate'       => 'Bizdate',
         'priority'      => 'Priority',
         'searchText'    => 'SearchText',
-        'owner'         => 'Owner',
-        'topicId'       => 'TopicId',
-        'finishStatus'  => 'FinishStatus',
         'status'        => 'Status',
-        'baselineTypes' => 'BaselineTypes',
+        'topicId'       => 'TopicId',
     ];
 
     public function validate()
@@ -77,14 +77,23 @@ class ListBaselineStatusesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baselineTypes) {
+            $res['BaselineTypes'] = $this->baselineTypes;
+        }
+        if (null !== $this->bizdate) {
+            $res['Bizdate'] = $this->bizdate;
+        }
+        if (null !== $this->finishStatus) {
+            $res['FinishStatus'] = $this->finishStatus;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->bizdate) {
-            $res['Bizdate'] = $this->bizdate;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -92,20 +101,11 @@ class ListBaselineStatusesRequest extends Model
         if (null !== $this->searchText) {
             $res['SearchText'] = $this->searchText;
         }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-        if (null !== $this->topicId) {
-            $res['TopicId'] = $this->topicId;
-        }
-        if (null !== $this->finishStatus) {
-            $res['FinishStatus'] = $this->finishStatus;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->baselineTypes) {
-            $res['BaselineTypes'] = $this->baselineTypes;
+        if (null !== $this->topicId) {
+            $res['TopicId'] = $this->topicId;
         }
 
         return $res;
@@ -119,14 +119,23 @@ class ListBaselineStatusesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaselineTypes'])) {
+            $model->baselineTypes = $map['BaselineTypes'];
+        }
+        if (isset($map['Bizdate'])) {
+            $model->bizdate = $map['Bizdate'];
+        }
+        if (isset($map['FinishStatus'])) {
+            $model->finishStatus = $map['FinishStatus'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Bizdate'])) {
-            $model->bizdate = $map['Bizdate'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
@@ -134,20 +143,11 @@ class ListBaselineStatusesRequest extends Model
         if (isset($map['SearchText'])) {
             $model->searchText = $map['SearchText'];
         }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-        if (isset($map['TopicId'])) {
-            $model->topicId = $map['TopicId'];
-        }
-        if (isset($map['FinishStatus'])) {
-            $model->finishStatus = $map['FinishStatus'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['BaselineTypes'])) {
-            $model->baselineTypes = $map['BaselineTypes'];
+        if (isset($map['TopicId'])) {
+            $model->topicId = $map['TopicId'];
         }
 
         return $model;

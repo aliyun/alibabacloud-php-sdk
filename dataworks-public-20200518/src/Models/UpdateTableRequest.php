@@ -11,19 +11,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $isView;
-
-    /**
-     * @var int
-     */
-    public $visibility;
-
-    /**
-     * @var int
-     */
-    public $lifeCycle;
+    public $appGuid;
 
     /**
      * @var int
@@ -31,34 +21,19 @@ class UpdateTableRequest extends Model
     public $categoryId;
 
     /**
-     * @var int
+     * @var columns[]
      */
-    public $logicalLevelId;
-
-    /**
-     * @var int
-     */
-    public $physicsLevelId;
+    public $columns;
 
     /**
      * @var string
      */
-    public $externalTableType;
+    public $comment;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $location;
-
-    /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $tableName;
+    public $createIfNotExists;
 
     /**
      * @var string
@@ -73,12 +48,32 @@ class UpdateTableRequest extends Model
     /**
      * @var string
      */
-    public $appGuid;
+    public $externalTableType;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $createIfNotExists;
+    public $hasPart;
+
+    /**
+     * @var int
+     */
+    public $isView;
+
+    /**
+     * @var int
+     */
+    public $lifeCycle;
+
+    /**
+     * @var string
+     */
+    public $location;
+
+    /**
+     * @var int
+     */
+    public $logicalLevelId;
 
     /**
      * @var string
@@ -88,42 +83,47 @@ class UpdateTableRequest extends Model
     /**
      * @var int
      */
-    public $hasPart;
+    public $physicsLevelId;
+
+    /**
+     * @var int
+     */
+    public $projectId;
 
     /**
      * @var string
      */
-    public $comment;
-
-    /**
-     * @var columns[]
-     */
-    public $columns;
+    public $tableName;
 
     /**
      * @var themes[]
      */
     public $themes;
+
+    /**
+     * @var int
+     */
+    public $visibility;
     protected $_name = [
-        'isView'            => 'IsView',
-        'visibility'        => 'Visibility',
-        'lifeCycle'         => 'LifeCycle',
+        'appGuid'           => 'AppGuid',
         'categoryId'        => 'CategoryId',
-        'logicalLevelId'    => 'LogicalLevelId',
-        'physicsLevelId'    => 'PhysicsLevelId',
-        'externalTableType' => 'ExternalTableType',
-        'location'          => 'Location',
-        'projectId'         => 'ProjectId',
-        'tableName'         => 'TableName',
+        'columns'           => 'Columns',
+        'comment'           => 'Comment',
+        'createIfNotExists' => 'CreateIfNotExists',
         'endpoint'          => 'Endpoint',
         'envType'           => 'EnvType',
-        'appGuid'           => 'AppGuid',
-        'createIfNotExists' => 'CreateIfNotExists',
-        'ownerId'           => 'OwnerId',
+        'externalTableType' => 'ExternalTableType',
         'hasPart'           => 'HasPart',
-        'comment'           => 'Comment',
-        'columns'           => 'Columns',
+        'isView'            => 'IsView',
+        'lifeCycle'         => 'LifeCycle',
+        'location'          => 'Location',
+        'logicalLevelId'    => 'LogicalLevelId',
+        'ownerId'           => 'OwnerId',
+        'physicsLevelId'    => 'PhysicsLevelId',
+        'projectId'         => 'ProjectId',
+        'tableName'         => 'TableName',
         'themes'            => 'Themes',
+        'visibility'        => 'Visibility',
     ];
 
     public function validate()
@@ -133,56 +133,11 @@ class UpdateTableRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isView) {
-            $res['IsView'] = $this->isView;
-        }
-        if (null !== $this->visibility) {
-            $res['Visibility'] = $this->visibility;
-        }
-        if (null !== $this->lifeCycle) {
-            $res['LifeCycle'] = $this->lifeCycle;
-        }
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
-        }
-        if (null !== $this->logicalLevelId) {
-            $res['LogicalLevelId'] = $this->logicalLevelId;
-        }
-        if (null !== $this->physicsLevelId) {
-            $res['PhysicsLevelId'] = $this->physicsLevelId;
-        }
-        if (null !== $this->externalTableType) {
-            $res['ExternalTableType'] = $this->externalTableType;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->endpoint) {
-            $res['Endpoint'] = $this->endpoint;
-        }
-        if (null !== $this->envType) {
-            $res['EnvType'] = $this->envType;
-        }
         if (null !== $this->appGuid) {
             $res['AppGuid'] = $this->appGuid;
         }
-        if (null !== $this->createIfNotExists) {
-            $res['CreateIfNotExists'] = $this->createIfNotExists;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->hasPart) {
-            $res['HasPart'] = $this->hasPart;
-        }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->columns) {
             $res['Columns'] = [];
@@ -193,6 +148,48 @@ class UpdateTableRequest extends Model
                 }
             }
         }
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->createIfNotExists) {
+            $res['CreateIfNotExists'] = $this->createIfNotExists;
+        }
+        if (null !== $this->endpoint) {
+            $res['Endpoint'] = $this->endpoint;
+        }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
+        }
+        if (null !== $this->externalTableType) {
+            $res['ExternalTableType'] = $this->externalTableType;
+        }
+        if (null !== $this->hasPart) {
+            $res['HasPart'] = $this->hasPart;
+        }
+        if (null !== $this->isView) {
+            $res['IsView'] = $this->isView;
+        }
+        if (null !== $this->lifeCycle) {
+            $res['LifeCycle'] = $this->lifeCycle;
+        }
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
+        }
+        if (null !== $this->logicalLevelId) {
+            $res['LogicalLevelId'] = $this->logicalLevelId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->physicsLevelId) {
+            $res['PhysicsLevelId'] = $this->physicsLevelId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
         if (null !== $this->themes) {
             $res['Themes'] = [];
             if (null !== $this->themes && \is_array($this->themes)) {
@@ -201,6 +198,9 @@ class UpdateTableRequest extends Model
                     $res['Themes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->visibility) {
+            $res['Visibility'] = $this->visibility;
         }
 
         return $res;
@@ -214,56 +214,11 @@ class UpdateTableRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsView'])) {
-            $model->isView = $map['IsView'];
-        }
-        if (isset($map['Visibility'])) {
-            $model->visibility = $map['Visibility'];
-        }
-        if (isset($map['LifeCycle'])) {
-            $model->lifeCycle = $map['LifeCycle'];
-        }
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
-        }
-        if (isset($map['LogicalLevelId'])) {
-            $model->logicalLevelId = $map['LogicalLevelId'];
-        }
-        if (isset($map['PhysicsLevelId'])) {
-            $model->physicsLevelId = $map['PhysicsLevelId'];
-        }
-        if (isset($map['ExternalTableType'])) {
-            $model->externalTableType = $map['ExternalTableType'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
-        if (isset($map['Endpoint'])) {
-            $model->endpoint = $map['Endpoint'];
-        }
-        if (isset($map['EnvType'])) {
-            $model->envType = $map['EnvType'];
-        }
         if (isset($map['AppGuid'])) {
             $model->appGuid = $map['AppGuid'];
         }
-        if (isset($map['CreateIfNotExists'])) {
-            $model->createIfNotExists = $map['CreateIfNotExists'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['HasPart'])) {
-            $model->hasPart = $map['HasPart'];
-        }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
@@ -274,6 +229,48 @@ class UpdateTableRequest extends Model
                 }
             }
         }
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+        if (isset($map['CreateIfNotExists'])) {
+            $model->createIfNotExists = $map['CreateIfNotExists'];
+        }
+        if (isset($map['Endpoint'])) {
+            $model->endpoint = $map['Endpoint'];
+        }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
+        }
+        if (isset($map['ExternalTableType'])) {
+            $model->externalTableType = $map['ExternalTableType'];
+        }
+        if (isset($map['HasPart'])) {
+            $model->hasPart = $map['HasPart'];
+        }
+        if (isset($map['IsView'])) {
+            $model->isView = $map['IsView'];
+        }
+        if (isset($map['LifeCycle'])) {
+            $model->lifeCycle = $map['LifeCycle'];
+        }
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
+        }
+        if (isset($map['LogicalLevelId'])) {
+            $model->logicalLevelId = $map['LogicalLevelId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PhysicsLevelId'])) {
+            $model->physicsLevelId = $map['PhysicsLevelId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
         if (isset($map['Themes'])) {
             if (!empty($map['Themes'])) {
                 $model->themes = [];
@@ -282,6 +279,9 @@ class UpdateTableRequest extends Model
                     $model->themes[$n++] = null !== $item ? themes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Visibility'])) {
+            $model->visibility = $map['Visibility'];
         }
 
         return $model;

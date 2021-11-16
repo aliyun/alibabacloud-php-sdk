@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceGroupRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $tenantId;
-
-    /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $apiGatewayGroupId;
@@ -26,18 +16,28 @@ class CreateDataServiceGroupRequest extends Model
     /**
      * @var string
      */
-    public $groupName;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $groupName;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var int
+     */
+    public $tenantId;
     protected $_name = [
-        'tenantId'          => 'TenantId',
-        'projectId'         => 'ProjectId',
         'apiGatewayGroupId' => 'ApiGatewayGroupId',
-        'groupName'         => 'GroupName',
         'description'       => 'Description',
+        'groupName'         => 'GroupName',
+        'projectId'         => 'ProjectId',
+        'tenantId'          => 'TenantId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateDataServiceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->apiGatewayGroupId) {
             $res['ApiGatewayGroupId'] = $this->apiGatewayGroupId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateDataServiceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['ApiGatewayGroupId'])) {
             $model->apiGatewayGroupId = $map['ApiGatewayGroupId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

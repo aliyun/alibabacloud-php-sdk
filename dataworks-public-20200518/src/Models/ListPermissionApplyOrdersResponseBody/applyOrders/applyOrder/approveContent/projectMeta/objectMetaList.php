@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class objectMetaList extends Model
 {
     /**
-     * @var string
-     */
-    public $objectName;
-
-    /**
      * @var string[]
      */
     public $actions;
+
+    /**
+     * @var string
+     */
+    public $objectName;
     protected $_name = [
-        'objectName' => 'ObjectName',
         'actions'    => 'Actions',
+        'objectName' => 'ObjectName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class objectMetaList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->objectName) {
-            $res['ObjectName'] = $this->objectName;
-        }
         if (null !== $this->actions) {
             $res['Actions'] = $this->actions;
+        }
+        if (null !== $this->objectName) {
+            $res['ObjectName'] = $this->objectName;
         }
 
         return $res;
@@ -47,13 +47,13 @@ class objectMetaList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ObjectName'])) {
-            $model->objectName = $map['ObjectName'];
-        }
         if (isset($map['Actions'])) {
             if (!empty($map['Actions'])) {
                 $model->actions = $map['Actions'];
             }
+        }
+        if (isset($map['ObjectName'])) {
+            $model->objectName = $map['ObjectName'];
         }
 
         return $model;

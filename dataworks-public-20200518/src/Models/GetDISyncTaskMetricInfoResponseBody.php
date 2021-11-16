@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetDISyncTaskMetricInfoResponseBody extends Model
 {
     /**
+     * @var metricInfo
+     */
+    public $metricInfo;
+
+    /**
      * @description Id of the request
      *
      * @var string
@@ -22,15 +27,10 @@ class GetDISyncTaskMetricInfoResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var metricInfo
-     */
-    public $metricInfo;
     protected $_name = [
+        'metricInfo' => 'MetricInfo',
         'requestId'  => 'RequestId',
         'success'    => 'Success',
-        'metricInfo' => 'MetricInfo',
     ];
 
     public function validate()
@@ -40,14 +40,14 @@ class GetDISyncTaskMetricInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->metricInfo) {
+            $res['MetricInfo'] = null !== $this->metricInfo ? $this->metricInfo->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->metricInfo) {
-            $res['MetricInfo'] = null !== $this->metricInfo ? $this->metricInfo->toMap() : null;
         }
 
         return $res;
@@ -61,14 +61,14 @@ class GetDISyncTaskMetricInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MetricInfo'])) {
+            $model->metricInfo = metricInfo::fromMap($map['MetricInfo']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['MetricInfo'])) {
-            $model->metricInfo = metricInfo::fromMap($map['MetricInfo']);
         }
 
         return $model;

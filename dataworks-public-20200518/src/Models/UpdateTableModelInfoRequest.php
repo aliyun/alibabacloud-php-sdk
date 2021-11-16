@@ -16,28 +16,28 @@ class UpdateTableModelInfoRequest extends Model
     /**
      * @var int
      */
-    public $secondLevelThemeId;
-
-    /**
-     * @var int
-     */
     public $levelId;
-
-    /**
-     * @var string
-     */
-    public $tableGuid;
 
     /**
      * @var int
      */
     public $levelType;
+
+    /**
+     * @var int
+     */
+    public $secondLevelThemeId;
+
+    /**
+     * @var string
+     */
+    public $tableGuid;
     protected $_name = [
         'firstLevelThemeId'  => 'FirstLevelThemeId',
-        'secondLevelThemeId' => 'SecondLevelThemeId',
         'levelId'            => 'LevelId',
-        'tableGuid'          => 'TableGuid',
         'levelType'          => 'LevelType',
+        'secondLevelThemeId' => 'SecondLevelThemeId',
+        'tableGuid'          => 'TableGuid',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class UpdateTableModelInfoRequest extends Model
         if (null !== $this->firstLevelThemeId) {
             $res['FirstLevelThemeId'] = $this->firstLevelThemeId;
         }
-        if (null !== $this->secondLevelThemeId) {
-            $res['SecondLevelThemeId'] = $this->secondLevelThemeId;
-        }
         if (null !== $this->levelId) {
             $res['LevelId'] = $this->levelId;
         }
-        if (null !== $this->tableGuid) {
-            $res['TableGuid'] = $this->tableGuid;
-        }
         if (null !== $this->levelType) {
             $res['LevelType'] = $this->levelType;
+        }
+        if (null !== $this->secondLevelThemeId) {
+            $res['SecondLevelThemeId'] = $this->secondLevelThemeId;
+        }
+        if (null !== $this->tableGuid) {
+            $res['TableGuid'] = $this->tableGuid;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class UpdateTableModelInfoRequest extends Model
         if (isset($map['FirstLevelThemeId'])) {
             $model->firstLevelThemeId = $map['FirstLevelThemeId'];
         }
-        if (isset($map['SecondLevelThemeId'])) {
-            $model->secondLevelThemeId = $map['SecondLevelThemeId'];
-        }
         if (isset($map['LevelId'])) {
             $model->levelId = $map['LevelId'];
         }
-        if (isset($map['TableGuid'])) {
-            $model->tableGuid = $map['TableGuid'];
-        }
         if (isset($map['LevelType'])) {
             $model->levelType = $map['LevelType'];
+        }
+        if (isset($map['SecondLevelThemeId'])) {
+            $model->secondLevelThemeId = $map['SecondLevelThemeId'];
+        }
+        if (isset($map['TableGuid'])) {
+            $model->tableGuid = $map['TableGuid'];
         }
 
         return $model;

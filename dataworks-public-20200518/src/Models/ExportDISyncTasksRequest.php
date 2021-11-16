@@ -16,16 +16,16 @@ class ExportDISyncTasksRequest extends Model
     /**
      * @var string
      */
-    public $taskType;
+    public $taskParam;
 
     /**
      * @var string
      */
-    public $taskParam;
+    public $taskType;
     protected $_name = [
         'projectId' => 'ProjectId',
-        'taskType'  => 'TaskType',
         'taskParam' => 'TaskParam',
+        'taskType'  => 'TaskType',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ExportDISyncTasksRequest extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
         if (null !== $this->taskParam) {
             $res['TaskParam'] = $this->taskParam;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ExportDISyncTasksRequest extends Model
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
         if (isset($map['TaskParam'])) {
             $model->taskParam = $map['TaskParam'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ImportConnectionsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $connections;
+
+    /**
+     * @var int
+     */
+    public $projectId;
     protected $_name = [
-        'projectId'   => 'ProjectId',
         'connections' => 'Connections',
+        'projectId'   => 'ProjectId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ImportConnectionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->connections) {
             $res['Connections'] = $this->connections;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ImportConnectionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['Connections'])) {
             $model->connections = $map['Connections'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

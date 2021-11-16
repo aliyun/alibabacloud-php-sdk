@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class level extends Model
 {
     /**
-     * @var int
-     */
-    public $type;
-
-    /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var int
+     */
+    public $levelId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class level extends Model
     /**
      * @var int
      */
-    public $levelId;
+    public $type;
     protected $_name = [
-        'type'        => 'Type',
         'description' => 'Description',
-        'name'        => 'Name',
         'levelId'     => 'LevelId',
+        'name'        => 'Name',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class level extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->levelId) {
+            $res['LevelId'] = $this->levelId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->levelId) {
-            $res['LevelId'] = $this->levelId;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class level extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['LevelId'])) {
+            $model->levelId = $map['LevelId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['LevelId'])) {
-            $model->levelId = $map['LevelId'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

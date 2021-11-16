@@ -11,11 +11,6 @@ class CreateDagTestRequest extends Model
     /**
      * @var string
      */
-    public $projectEnv;
-
-    /**
-     * @var string
-     */
     public $bizdate;
 
     /**
@@ -32,12 +27,17 @@ class CreateDagTestRequest extends Model
      * @var string
      */
     public $nodeParams;
+
+    /**
+     * @var string
+     */
+    public $projectEnv;
     protected $_name = [
-        'projectEnv' => 'ProjectEnv',
         'bizdate'    => 'Bizdate',
         'name'       => 'Name',
         'nodeId'     => 'NodeId',
         'nodeParams' => 'NodeParams',
+        'projectEnv' => 'ProjectEnv',
     ];
 
     public function validate()
@@ -47,9 +47,6 @@ class CreateDagTestRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectEnv) {
-            $res['ProjectEnv'] = $this->projectEnv;
-        }
         if (null !== $this->bizdate) {
             $res['Bizdate'] = $this->bizdate;
         }
@@ -61,6 +58,9 @@ class CreateDagTestRequest extends Model
         }
         if (null !== $this->nodeParams) {
             $res['NodeParams'] = $this->nodeParams;
+        }
+        if (null !== $this->projectEnv) {
+            $res['ProjectEnv'] = $this->projectEnv;
         }
 
         return $res;
@@ -74,9 +74,6 @@ class CreateDagTestRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectEnv'])) {
-            $model->projectEnv = $map['ProjectEnv'];
-        }
         if (isset($map['Bizdate'])) {
             $model->bizdate = $map['Bizdate'];
         }
@@ -88,6 +85,9 @@ class CreateDagTestRequest extends Model
         }
         if (isset($map['NodeParams'])) {
             $model->nodeParams = $map['NodeParams'];
+        }
+        if (isset($map['ProjectEnv'])) {
+            $model->projectEnv = $map['ProjectEnv'];
         }
 
         return $model;

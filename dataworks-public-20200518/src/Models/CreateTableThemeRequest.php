@@ -11,11 +11,6 @@ class CreateTableThemeRequest extends Model
     /**
      * @var int
      */
-    public $projectId;
-
-    /**
-     * @var int
-     */
     public $level;
 
     /**
@@ -27,11 +22,16 @@ class CreateTableThemeRequest extends Model
      * @var int
      */
     public $parentId;
+
+    /**
+     * @var int
+     */
+    public $projectId;
     protected $_name = [
-        'projectId' => 'ProjectId',
         'level'     => 'Level',
         'name'      => 'Name',
         'parentId'  => 'ParentId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class CreateTableThemeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
@@ -52,6 +49,9 @@ class CreateTableThemeRequest extends Model
         }
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class CreateTableThemeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
@@ -76,6 +73,9 @@ class CreateTableThemeRequest extends Model
         }
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

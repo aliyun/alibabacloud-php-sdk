@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceGroupsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $groupNameKeyword;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -27,17 +32,12 @@ class ListDataServiceGroupsRequest extends Model
      * @var int
      */
     public $tenantId;
-
-    /**
-     * @var string
-     */
-    public $groupNameKeyword;
     protected $_name = [
+        'groupNameKeyword' => 'GroupNameKeyword',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'projectId'        => 'ProjectId',
         'tenantId'         => 'TenantId',
-        'groupNameKeyword' => 'GroupNameKeyword',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class ListDataServiceGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupNameKeyword) {
+            $res['GroupNameKeyword'] = $this->groupNameKeyword;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -58,9 +61,6 @@ class ListDataServiceGroupsRequest extends Model
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
-        }
-        if (null !== $this->groupNameKeyword) {
-            $res['GroupNameKeyword'] = $this->groupNameKeyword;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class ListDataServiceGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupNameKeyword'])) {
+            $model->groupNameKeyword = $map['GroupNameKeyword'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -85,9 +88,6 @@ class ListDataServiceGroupsRequest extends Model
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
-        }
-        if (isset($map['GroupNameKeyword'])) {
-            $model->groupNameKeyword = $map['GroupNameKeyword'];
         }
 
         return $model;

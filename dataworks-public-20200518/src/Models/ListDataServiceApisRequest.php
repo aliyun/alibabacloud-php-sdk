@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceApisRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $apiNameKeyword;
+
+    /**
+     * @var string
+     */
+    public $apiPathKeyword;
+
+    /**
+     * @var string
+     */
+    public $creatorId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -27,29 +42,14 @@ class ListDataServiceApisRequest extends Model
      * @var int
      */
     public $tenantId;
-
-    /**
-     * @var string
-     */
-    public $apiNameKeyword;
-
-    /**
-     * @var string
-     */
-    public $apiPathKeyword;
-
-    /**
-     * @var string
-     */
-    public $creatorId;
     protected $_name = [
+        'apiNameKeyword' => 'ApiNameKeyword',
+        'apiPathKeyword' => 'ApiPathKeyword',
+        'creatorId'      => 'CreatorId',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'projectId'      => 'ProjectId',
         'tenantId'       => 'TenantId',
-        'apiNameKeyword' => 'ApiNameKeyword',
-        'apiPathKeyword' => 'ApiPathKeyword',
-        'creatorId'      => 'CreatorId',
     ];
 
     public function validate()
@@ -59,6 +59,15 @@ class ListDataServiceApisRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->apiNameKeyword) {
+            $res['ApiNameKeyword'] = $this->apiNameKeyword;
+        }
+        if (null !== $this->apiPathKeyword) {
+            $res['ApiPathKeyword'] = $this->apiPathKeyword;
+        }
+        if (null !== $this->creatorId) {
+            $res['CreatorId'] = $this->creatorId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -70,15 +79,6 @@ class ListDataServiceApisRequest extends Model
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
-        }
-        if (null !== $this->apiNameKeyword) {
-            $res['ApiNameKeyword'] = $this->apiNameKeyword;
-        }
-        if (null !== $this->apiPathKeyword) {
-            $res['ApiPathKeyword'] = $this->apiPathKeyword;
-        }
-        if (null !== $this->creatorId) {
-            $res['CreatorId'] = $this->creatorId;
         }
 
         return $res;
@@ -92,6 +92,15 @@ class ListDataServiceApisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiNameKeyword'])) {
+            $model->apiNameKeyword = $map['ApiNameKeyword'];
+        }
+        if (isset($map['ApiPathKeyword'])) {
+            $model->apiPathKeyword = $map['ApiPathKeyword'];
+        }
+        if (isset($map['CreatorId'])) {
+            $model->creatorId = $map['CreatorId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -103,15 +112,6 @@ class ListDataServiceApisRequest extends Model
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
-        }
-        if (isset($map['ApiNameKeyword'])) {
-            $model->apiNameKeyword = $map['ApiNameKeyword'];
-        }
-        if (isset($map['ApiPathKeyword'])) {
-            $model->apiPathKeyword = $map['ApiPathKeyword'];
-        }
-        if (isset($map['CreatorId'])) {
-            $model->creatorId = $map['CreatorId'];
         }
 
         return $model;

@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListRefDISyncTasksRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $datasourceName;
-
-    /**
-     * @var string
-     */
-    public $taskType;
-
-    /**
-     * @var string
-     */
-    public $refType;
 
     /**
      * @var int
@@ -37,13 +22,28 @@ class ListRefDISyncTasksRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $refType;
+
+    /**
+     * @var string
+     */
+    public $taskType;
     protected $_name = [
-        'projectId'      => 'ProjectId',
         'datasourceName' => 'DatasourceName',
-        'taskType'       => 'TaskType',
-        'refType'        => 'RefType',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
+        'projectId'      => 'ProjectId',
+        'refType'        => 'RefType',
+        'taskType'       => 'TaskType',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ListRefDISyncTasksRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->datasourceName) {
             $res['DatasourceName'] = $this->datasourceName;
-        }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
-        if (null !== $this->refType) {
-            $res['RefType'] = $this->refType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->refType) {
+            $res['RefType'] = $this->refType;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ListRefDISyncTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['DatasourceName'])) {
             $model->datasourceName = $map['DatasourceName'];
-        }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
-        if (isset($map['RefType'])) {
-            $model->refType = $map['RefType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RefType'])) {
+            $model->refType = $map['RefType'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

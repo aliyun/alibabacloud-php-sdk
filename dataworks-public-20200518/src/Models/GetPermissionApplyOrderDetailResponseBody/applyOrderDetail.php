@@ -22,6 +22,16 @@ class applyOrderDetail extends Model
     public $applyTimestamp;
 
     /**
+     * @var approveAccountList[]
+     */
+    public $approveAccountList;
+
+    /**
+     * @var approveContent
+     */
+    public $approveContent;
+
+    /**
      * @var string
      */
     public $flowId;
@@ -32,27 +42,17 @@ class applyOrderDetail extends Model
     public $flowStatus;
 
     /**
-     * @var approveAccountList[]
-     */
-    public $approveAccountList;
-
-    /**
      * @var granteeObjectList[]
      */
     public $granteeObjectList;
-
-    /**
-     * @var approveContent
-     */
-    public $approveContent;
     protected $_name = [
         'applyBaseId'        => 'ApplyBaseId',
         'applyTimestamp'     => 'ApplyTimestamp',
+        'approveAccountList' => 'ApproveAccountList',
+        'approveContent'     => 'ApproveContent',
         'flowId'             => 'FlowId',
         'flowStatus'         => 'FlowStatus',
-        'approveAccountList' => 'ApproveAccountList',
         'granteeObjectList'  => 'GranteeObjectList',
-        'approveContent'     => 'ApproveContent',
     ];
 
     public function validate()
@@ -68,12 +68,6 @@ class applyOrderDetail extends Model
         if (null !== $this->applyTimestamp) {
             $res['ApplyTimestamp'] = $this->applyTimestamp;
         }
-        if (null !== $this->flowId) {
-            $res['FlowId'] = $this->flowId;
-        }
-        if (null !== $this->flowStatus) {
-            $res['FlowStatus'] = $this->flowStatus;
-        }
         if (null !== $this->approveAccountList) {
             $res['ApproveAccountList'] = [];
             if (null !== $this->approveAccountList && \is_array($this->approveAccountList)) {
@@ -83,6 +77,15 @@ class applyOrderDetail extends Model
                 }
             }
         }
+        if (null !== $this->approveContent) {
+            $res['ApproveContent'] = null !== $this->approveContent ? $this->approveContent->toMap() : null;
+        }
+        if (null !== $this->flowId) {
+            $res['FlowId'] = $this->flowId;
+        }
+        if (null !== $this->flowStatus) {
+            $res['FlowStatus'] = $this->flowStatus;
+        }
         if (null !== $this->granteeObjectList) {
             $res['GranteeObjectList'] = [];
             if (null !== $this->granteeObjectList && \is_array($this->granteeObjectList)) {
@@ -91,9 +94,6 @@ class applyOrderDetail extends Model
                     $res['GranteeObjectList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->approveContent) {
-            $res['ApproveContent'] = null !== $this->approveContent ? $this->approveContent->toMap() : null;
         }
 
         return $res;
@@ -113,12 +113,6 @@ class applyOrderDetail extends Model
         if (isset($map['ApplyTimestamp'])) {
             $model->applyTimestamp = $map['ApplyTimestamp'];
         }
-        if (isset($map['FlowId'])) {
-            $model->flowId = $map['FlowId'];
-        }
-        if (isset($map['FlowStatus'])) {
-            $model->flowStatus = $map['FlowStatus'];
-        }
         if (isset($map['ApproveAccountList'])) {
             if (!empty($map['ApproveAccountList'])) {
                 $model->approveAccountList = [];
@@ -128,6 +122,15 @@ class applyOrderDetail extends Model
                 }
             }
         }
+        if (isset($map['ApproveContent'])) {
+            $model->approveContent = approveContent::fromMap($map['ApproveContent']);
+        }
+        if (isset($map['FlowId'])) {
+            $model->flowId = $map['FlowId'];
+        }
+        if (isset($map['FlowStatus'])) {
+            $model->flowStatus = $map['FlowStatus'];
+        }
         if (isset($map['GranteeObjectList'])) {
             if (!empty($map['GranteeObjectList'])) {
                 $model->granteeObjectList = [];
@@ -136,9 +139,6 @@ class applyOrderDetail extends Model
                     $model->granteeObjectList[$n++] = null !== $item ? granteeObjectList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ApproveContent'])) {
-            $model->approveContent = approveContent::fromMap($map['ApproveContent']);
         }
 
         return $model;

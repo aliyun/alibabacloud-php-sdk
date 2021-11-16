@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableOutputRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $endDate;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -21,23 +26,18 @@ class GetMetaTableOutputRequest extends Model
     /**
      * @var string
      */
-    public $tableGuid;
-
-    /**
-     * @var string
-     */
     public $startDate;
 
     /**
      * @var string
      */
-    public $endDate;
+    public $tableGuid;
     protected $_name = [
+        'endDate'    => 'EndDate',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'tableGuid'  => 'TableGuid',
         'startDate'  => 'StartDate',
-        'endDate'    => 'EndDate',
+        'tableGuid'  => 'TableGuid',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GetMetaTableOutputRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->tableGuid) {
-            $res['TableGuid'] = $this->tableGuid;
-        }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
+        if (null !== $this->tableGuid) {
+            $res['TableGuid'] = $this->tableGuid;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GetMetaTableOutputRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TableGuid'])) {
-            $model->tableGuid = $map['TableGuid'];
-        }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
+        if (isset($map['TableGuid'])) {
+            $model->tableGuid = $map['TableGuid'];
         }
 
         return $model;

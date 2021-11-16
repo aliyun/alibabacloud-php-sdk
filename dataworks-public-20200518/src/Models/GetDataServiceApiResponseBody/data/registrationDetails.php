@@ -13,32 +13,7 @@ class registrationDetails extends Model
     /**
      * @var string
      */
-    public $serviceHost;
-
-    /**
-     * @var int
-     */
-    public $serviceContentType;
-
-    /**
-     * @var string
-     */
-    public $servicePath;
-
-    /**
-     * @var string
-     */
-    public $successfulResultSample;
-
-    /**
-     * @var string
-     */
     public $failedResultSample;
-
-    /**
-     * @var string
-     */
-    public $serviceRequestBodyDescription;
 
     /**
      * @var registrationErrorCodes[]
@@ -49,15 +24,40 @@ class registrationDetails extends Model
      * @var registrationRequestParameters[]
      */
     public $registrationRequestParameters;
+
+    /**
+     * @var int
+     */
+    public $serviceContentType;
+
+    /**
+     * @var string
+     */
+    public $serviceHost;
+
+    /**
+     * @var string
+     */
+    public $servicePath;
+
+    /**
+     * @var string
+     */
+    public $serviceRequestBodyDescription;
+
+    /**
+     * @var string
+     */
+    public $successfulResultSample;
     protected $_name = [
-        'serviceHost'                   => 'ServiceHost',
-        'serviceContentType'            => 'ServiceContentType',
-        'servicePath'                   => 'ServicePath',
-        'successfulResultSample'        => 'SuccessfulResultSample',
         'failedResultSample'            => 'FailedResultSample',
-        'serviceRequestBodyDescription' => 'ServiceRequestBodyDescription',
         'registrationErrorCodes'        => 'RegistrationErrorCodes',
         'registrationRequestParameters' => 'RegistrationRequestParameters',
+        'serviceContentType'            => 'ServiceContentType',
+        'serviceHost'                   => 'ServiceHost',
+        'servicePath'                   => 'ServicePath',
+        'serviceRequestBodyDescription' => 'ServiceRequestBodyDescription',
+        'successfulResultSample'        => 'SuccessfulResultSample',
     ];
 
     public function validate()
@@ -67,23 +67,8 @@ class registrationDetails extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceHost) {
-            $res['ServiceHost'] = $this->serviceHost;
-        }
-        if (null !== $this->serviceContentType) {
-            $res['ServiceContentType'] = $this->serviceContentType;
-        }
-        if (null !== $this->servicePath) {
-            $res['ServicePath'] = $this->servicePath;
-        }
-        if (null !== $this->successfulResultSample) {
-            $res['SuccessfulResultSample'] = $this->successfulResultSample;
-        }
         if (null !== $this->failedResultSample) {
             $res['FailedResultSample'] = $this->failedResultSample;
-        }
-        if (null !== $this->serviceRequestBodyDescription) {
-            $res['ServiceRequestBodyDescription'] = $this->serviceRequestBodyDescription;
         }
         if (null !== $this->registrationErrorCodes) {
             $res['RegistrationErrorCodes'] = [];
@@ -103,6 +88,21 @@ class registrationDetails extends Model
                 }
             }
         }
+        if (null !== $this->serviceContentType) {
+            $res['ServiceContentType'] = $this->serviceContentType;
+        }
+        if (null !== $this->serviceHost) {
+            $res['ServiceHost'] = $this->serviceHost;
+        }
+        if (null !== $this->servicePath) {
+            $res['ServicePath'] = $this->servicePath;
+        }
+        if (null !== $this->serviceRequestBodyDescription) {
+            $res['ServiceRequestBodyDescription'] = $this->serviceRequestBodyDescription;
+        }
+        if (null !== $this->successfulResultSample) {
+            $res['SuccessfulResultSample'] = $this->successfulResultSample;
+        }
 
         return $res;
     }
@@ -115,23 +115,8 @@ class registrationDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceHost'])) {
-            $model->serviceHost = $map['ServiceHost'];
-        }
-        if (isset($map['ServiceContentType'])) {
-            $model->serviceContentType = $map['ServiceContentType'];
-        }
-        if (isset($map['ServicePath'])) {
-            $model->servicePath = $map['ServicePath'];
-        }
-        if (isset($map['SuccessfulResultSample'])) {
-            $model->successfulResultSample = $map['SuccessfulResultSample'];
-        }
         if (isset($map['FailedResultSample'])) {
             $model->failedResultSample = $map['FailedResultSample'];
-        }
-        if (isset($map['ServiceRequestBodyDescription'])) {
-            $model->serviceRequestBodyDescription = $map['ServiceRequestBodyDescription'];
         }
         if (isset($map['RegistrationErrorCodes'])) {
             if (!empty($map['RegistrationErrorCodes'])) {
@@ -150,6 +135,21 @@ class registrationDetails extends Model
                     $model->registrationRequestParameters[$n++] = null !== $item ? registrationRequestParameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ServiceContentType'])) {
+            $model->serviceContentType = $map['ServiceContentType'];
+        }
+        if (isset($map['ServiceHost'])) {
+            $model->serviceHost = $map['ServiceHost'];
+        }
+        if (isset($map['ServicePath'])) {
+            $model->servicePath = $map['ServicePath'];
+        }
+        if (isset($map['ServiceRequestBodyDescription'])) {
+            $model->serviceRequestBodyDescription = $map['ServiceRequestBodyDescription'];
+        }
+        if (isset($map['SuccessfulResultSample'])) {
+            $model->successfulResultSample = $map['SuccessfulResultSample'];
         }
 
         return $model;

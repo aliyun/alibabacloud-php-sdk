@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteQualityFollowerRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $projectName;
-
-    /**
      * @var int
      */
     public $followerId;
+
+    /**
+     * @var string
+     */
+    public $projectName;
     protected $_name = [
-        'projectName' => 'ProjectName',
         'followerId'  => 'FollowerId',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteQualityFollowerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->followerId) {
             $res['FollowerId'] = $this->followerId;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteQualityFollowerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
         if (isset($map['FollowerId'])) {
             $model->followerId = $map['FollowerId'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

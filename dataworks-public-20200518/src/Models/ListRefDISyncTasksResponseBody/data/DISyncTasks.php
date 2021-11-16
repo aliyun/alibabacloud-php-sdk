@@ -11,17 +11,17 @@ class DISyncTasks extends Model
     /**
      * @var string
      */
+    public $diDestinationDatasource;
+
+    /**
+     * @var string
+     */
     public $diSourceDatasource;
 
     /**
-     * @var string
+     * @var int
      */
-    public $taskType;
-
-    /**
-     * @var string
-     */
-    public $diDestinationDatasource;
+    public $nodeId;
 
     /**
      * @var string
@@ -29,15 +29,15 @@ class DISyncTasks extends Model
     public $nodeName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $nodeId;
+    public $taskType;
     protected $_name = [
-        'diSourceDatasource'      => 'DiSourceDatasource',
-        'taskType'                => 'TaskType',
         'diDestinationDatasource' => 'DiDestinationDatasource',
-        'nodeName'                => 'NodeName',
+        'diSourceDatasource'      => 'DiSourceDatasource',
         'nodeId'                  => 'NodeId',
+        'nodeName'                => 'NodeName',
+        'taskType'                => 'TaskType',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DISyncTasks extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->diDestinationDatasource) {
+            $res['DiDestinationDatasource'] = $this->diDestinationDatasource;
+        }
         if (null !== $this->diSourceDatasource) {
             $res['DiSourceDatasource'] = $this->diSourceDatasource;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
-        if (null !== $this->diDestinationDatasource) {
-            $res['DiDestinationDatasource'] = $this->diDestinationDatasource;
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DISyncTasks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DiDestinationDatasource'])) {
+            $model->diDestinationDatasource = $map['DiDestinationDatasource'];
+        }
         if (isset($map['DiSourceDatasource'])) {
             $model->diSourceDatasource = $map['DiSourceDatasource'];
         }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
-        if (isset($map['DiDestinationDatasource'])) {
-            $model->diDestinationDatasource = $map['DiDestinationDatasource'];
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListProgramTypeCountRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $projectEnv;
+
+    /**
+     * @var int
+     */
+    public $projectId;
     protected $_name = [
-        'projectId'  => 'ProjectId',
         'projectEnv' => 'ProjectEnv',
+        'projectId'  => 'ProjectId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListProgramTypeCountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListProgramTypeCountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

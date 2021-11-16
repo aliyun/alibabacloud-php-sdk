@@ -20,19 +20,19 @@ class taskList extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var realTimeSolutionList[]
      */
     public $realTimeSolutionList;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'totalCount'           => 'TotalCount',
         'realTimeSolutionList' => 'RealTimeSolutionList',
+        'totalCount'           => 'TotalCount',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class taskList extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->realTimeSolutionList) {
             $res['RealTimeSolutionList'] = [];
             if (null !== $this->realTimeSolutionList && \is_array($this->realTimeSolutionList)) {
@@ -59,6 +56,9 @@ class taskList extends Model
                     $res['RealTimeSolutionList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class taskList extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RealTimeSolutionList'])) {
             if (!empty($map['RealTimeSolutionList'])) {
                 $model->realTimeSolutionList = [];
@@ -89,6 +86,9 @@ class taskList extends Model
                     $model->realTimeSolutionList[$n++] = null !== $item ? realTimeSolutionList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

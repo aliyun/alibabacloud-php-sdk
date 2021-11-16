@@ -11,7 +11,27 @@ class GetMetaColumnLineageRequest extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $columnGuid;
+
+    /**
+     * @var string
+     */
+    public $columnName;
+
+    /**
+     * @var string
+     */
+    public $dataSourceType;
+
+    /**
+     * @var string
+     */
+    public $databaseName;
 
     /**
      * @var string
@@ -31,37 +51,17 @@ class GetMetaColumnLineageRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $databaseName;
-
-    /**
-     * @var string
-     */
     public $tableName;
-
-    /**
-     * @var string
-     */
-    public $columnName;
-
-    /**
-     * @var string
-     */
-    public $dataSourceType;
     protected $_name = [
+        'clusterId'      => 'ClusterId',
         'columnGuid'     => 'ColumnGuid',
+        'columnName'     => 'ColumnName',
+        'dataSourceType' => 'DataSourceType',
+        'databaseName'   => 'DatabaseName',
         'direction'      => 'Direction',
         'pageNum'        => 'PageNum',
         'pageSize'       => 'PageSize',
-        'clusterId'      => 'ClusterId',
-        'databaseName'   => 'DatabaseName',
         'tableName'      => 'TableName',
-        'columnName'     => 'ColumnName',
-        'dataSourceType' => 'DataSourceType',
     ];
 
     public function validate()
@@ -71,8 +71,20 @@ class GetMetaColumnLineageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->columnGuid) {
             $res['ColumnGuid'] = $this->columnGuid;
+        }
+        if (null !== $this->columnName) {
+            $res['ColumnName'] = $this->columnName;
+        }
+        if (null !== $this->dataSourceType) {
+            $res['DataSourceType'] = $this->dataSourceType;
+        }
+        if (null !== $this->databaseName) {
+            $res['DatabaseName'] = $this->databaseName;
         }
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
@@ -83,20 +95,8 @@ class GetMetaColumnLineageRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->databaseName) {
-            $res['DatabaseName'] = $this->databaseName;
-        }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->columnName) {
-            $res['ColumnName'] = $this->columnName;
-        }
-        if (null !== $this->dataSourceType) {
-            $res['DataSourceType'] = $this->dataSourceType;
         }
 
         return $res;
@@ -110,8 +110,20 @@ class GetMetaColumnLineageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['ColumnGuid'])) {
             $model->columnGuid = $map['ColumnGuid'];
+        }
+        if (isset($map['ColumnName'])) {
+            $model->columnName = $map['ColumnName'];
+        }
+        if (isset($map['DataSourceType'])) {
+            $model->dataSourceType = $map['DataSourceType'];
+        }
+        if (isset($map['DatabaseName'])) {
+            $model->databaseName = $map['DatabaseName'];
         }
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
@@ -122,20 +134,8 @@ class GetMetaColumnLineageRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['DatabaseName'])) {
-            $model->databaseName = $map['DatabaseName'];
-        }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
-        }
-        if (isset($map['ColumnName'])) {
-            $model->columnName = $map['ColumnName'];
-        }
-        if (isset($map['DataSourceType'])) {
-            $model->dataSourceType = $map['DataSourceType'];
         }
 
         return $model;

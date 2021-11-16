@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListAlertMessagesRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $alertMethods;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $alertRuleTypes;
+
+    /**
+     * @var string
+     */
+    public $alertUser;
 
     /**
      * @var string
@@ -31,31 +36,26 @@ class ListAlertMessagesRequest extends Model
     /**
      * @var int
      */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var int
+     */
     public $remindId;
-
-    /**
-     * @var string
-     */
-    public $alertMethods;
-
-    /**
-     * @var string
-     */
-    public $alertUser;
-
-    /**
-     * @var string
-     */
-    public $alertRuleTypes;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'alertMethods'   => 'AlertMethods',
+        'alertRuleTypes' => 'AlertRuleTypes',
+        'alertUser'      => 'AlertUser',
         'beginTime'      => 'BeginTime',
         'endTime'        => 'EndTime',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
         'remindId'       => 'RemindId',
-        'alertMethods'   => 'AlertMethods',
-        'alertUser'      => 'AlertUser',
-        'alertRuleTypes' => 'AlertRuleTypes',
     ];
 
     public function validate()
@@ -65,11 +65,14 @@ class ListAlertMessagesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->alertMethods) {
+            $res['AlertMethods'] = $this->alertMethods;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->alertRuleTypes) {
+            $res['AlertRuleTypes'] = $this->alertRuleTypes;
+        }
+        if (null !== $this->alertUser) {
+            $res['AlertUser'] = $this->alertUser;
         }
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
@@ -77,17 +80,14 @@ class ListAlertMessagesRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->remindId) {
             $res['RemindId'] = $this->remindId;
-        }
-        if (null !== $this->alertMethods) {
-            $res['AlertMethods'] = $this->alertMethods;
-        }
-        if (null !== $this->alertUser) {
-            $res['AlertUser'] = $this->alertUser;
-        }
-        if (null !== $this->alertRuleTypes) {
-            $res['AlertRuleTypes'] = $this->alertRuleTypes;
         }
 
         return $res;
@@ -101,11 +101,14 @@ class ListAlertMessagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['AlertMethods'])) {
+            $model->alertMethods = $map['AlertMethods'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['AlertRuleTypes'])) {
+            $model->alertRuleTypes = $map['AlertRuleTypes'];
+        }
+        if (isset($map['AlertUser'])) {
+            $model->alertUser = $map['AlertUser'];
         }
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
@@ -113,17 +116,14 @@ class ListAlertMessagesRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RemindId'])) {
             $model->remindId = $map['RemindId'];
-        }
-        if (isset($map['AlertMethods'])) {
-            $model->alertMethods = $map['AlertMethods'];
-        }
-        if (isset($map['AlertUser'])) {
-            $model->alertUser = $map['AlertUser'];
-        }
-        if (isset($map['AlertRuleTypes'])) {
-            $model->alertRuleTypes = $map['AlertRuleTypes'];
         }
 
         return $model;

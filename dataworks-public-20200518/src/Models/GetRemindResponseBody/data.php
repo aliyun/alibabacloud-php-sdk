@@ -16,32 +16,37 @@ class data extends Model
     /**
      * @var int
      */
-    public $maxAlertTimes;
-
-    /**
-     * @var string
-     */
-    public $remindUnit;
-
-    /**
-     * @var int
-     */
     public $alertInterval;
 
     /**
-     * @var bool
+     * @var string[]
      */
-    public $useflag;
+    public $alertMethods;
+
+    /**
+     * @var string[]
+     */
+    public $alertTargets;
 
     /**
      * @var string
      */
-    public $founder;
+    public $alertUnit;
 
     /**
-     * @var int
+     * @var baselines[]
      */
-    public $remindId;
+    public $baselines;
+
+    /**
+     * @var bizProcesses[]
+     */
+    public $bizProcesses;
+
+    /**
+     * @var string
+     */
+    public $detail;
 
     /**
      * @var string
@@ -51,17 +56,32 @@ class data extends Model
     /**
      * @var string
      */
-    public $remindType;
-
-    /**
-     * @var string
-     */
-    public $alertUnit;
-
-    /**
-     * @var string
-     */
     public $dndStart;
+
+    /**
+     * @var string
+     */
+    public $founder;
+
+    /**
+     * @var int
+     */
+    public $maxAlertTimes;
+
+    /**
+     * @var nodes[]
+     */
+    public $nodes;
+
+    /**
+     * @var projects[]
+     */
+    public $projects;
+
+    /**
+     * @var int
+     */
+    public $remindId;
 
     /**
      * @var string
@@ -71,7 +91,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $detail;
+    public $remindType;
+
+    /**
+     * @var string
+     */
+    public $remindUnit;
 
     /**
      * @var robots[]
@@ -79,54 +104,29 @@ class data extends Model
     public $robots;
 
     /**
-     * @var nodes[]
+     * @var bool
      */
-    public $nodes;
-
-    /**
-     * @var baselines[]
-     */
-    public $baselines;
-
-    /**
-     * @var projects[]
-     */
-    public $projects;
-
-    /**
-     * @var bizProcesses[]
-     */
-    public $bizProcesses;
-
-    /**
-     * @var string[]
-     */
-    public $alertTargets;
-
-    /**
-     * @var string[]
-     */
-    public $alertMethods;
+    public $useflag;
     protected $_name = [
-        'maxAlertTimes' => 'MaxAlertTimes',
-        'remindUnit'    => 'RemindUnit',
         'alertInterval' => 'AlertInterval',
-        'useflag'       => 'Useflag',
-        'founder'       => 'Founder',
-        'remindId'      => 'RemindId',
-        'dndEnd'        => 'DndEnd',
-        'remindType'    => 'RemindType',
-        'alertUnit'     => 'AlertUnit',
-        'dndStart'      => 'DndStart',
-        'remindName'    => 'RemindName',
-        'detail'        => 'Detail',
-        'robots'        => 'Robots',
-        'nodes'         => 'Nodes',
-        'baselines'     => 'Baselines',
-        'projects'      => 'Projects',
-        'bizProcesses'  => 'BizProcesses',
-        'alertTargets'  => 'AlertTargets',
         'alertMethods'  => 'AlertMethods',
+        'alertTargets'  => 'AlertTargets',
+        'alertUnit'     => 'AlertUnit',
+        'baselines'     => 'Baselines',
+        'bizProcesses'  => 'BizProcesses',
+        'detail'        => 'Detail',
+        'dndEnd'        => 'DndEnd',
+        'dndStart'      => 'DndStart',
+        'founder'       => 'Founder',
+        'maxAlertTimes' => 'MaxAlertTimes',
+        'nodes'         => 'Nodes',
+        'projects'      => 'Projects',
+        'remindId'      => 'RemindId',
+        'remindName'    => 'RemindName',
+        'remindType'    => 'RemindType',
+        'remindUnit'    => 'RemindUnit',
+        'robots'        => 'Robots',
+        'useflag'       => 'Useflag',
     ];
 
     public function validate()
@@ -136,59 +136,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxAlertTimes) {
-            $res['MaxAlertTimes'] = $this->maxAlertTimes;
-        }
-        if (null !== $this->remindUnit) {
-            $res['RemindUnit'] = $this->remindUnit;
-        }
         if (null !== $this->alertInterval) {
             $res['AlertInterval'] = $this->alertInterval;
         }
-        if (null !== $this->useflag) {
-            $res['Useflag'] = $this->useflag;
+        if (null !== $this->alertMethods) {
+            $res['AlertMethods'] = $this->alertMethods;
         }
-        if (null !== $this->founder) {
-            $res['Founder'] = $this->founder;
-        }
-        if (null !== $this->remindId) {
-            $res['RemindId'] = $this->remindId;
-        }
-        if (null !== $this->dndEnd) {
-            $res['DndEnd'] = $this->dndEnd;
-        }
-        if (null !== $this->remindType) {
-            $res['RemindType'] = $this->remindType;
+        if (null !== $this->alertTargets) {
+            $res['AlertTargets'] = $this->alertTargets;
         }
         if (null !== $this->alertUnit) {
             $res['AlertUnit'] = $this->alertUnit;
-        }
-        if (null !== $this->dndStart) {
-            $res['DndStart'] = $this->dndStart;
-        }
-        if (null !== $this->remindName) {
-            $res['RemindName'] = $this->remindName;
-        }
-        if (null !== $this->detail) {
-            $res['Detail'] = $this->detail;
-        }
-        if (null !== $this->robots) {
-            $res['Robots'] = [];
-            if (null !== $this->robots && \is_array($this->robots)) {
-                $n = 0;
-                foreach ($this->robots as $item) {
-                    $res['Robots'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->nodes) {
-            $res['Nodes'] = [];
-            if (null !== $this->nodes && \is_array($this->nodes)) {
-                $n = 0;
-                foreach ($this->nodes as $item) {
-                    $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->baselines) {
             $res['Baselines'] = [];
@@ -196,15 +154,6 @@ class data extends Model
                 $n = 0;
                 foreach ($this->baselines as $item) {
                     $res['Baselines'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->projects) {
-            $res['Projects'] = [];
-            if (null !== $this->projects && \is_array($this->projects)) {
-                $n = 0;
-                foreach ($this->projects as $item) {
-                    $res['Projects'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -217,11 +166,62 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->alertTargets) {
-            $res['AlertTargets'] = $this->alertTargets;
+        if (null !== $this->detail) {
+            $res['Detail'] = $this->detail;
         }
-        if (null !== $this->alertMethods) {
-            $res['AlertMethods'] = $this->alertMethods;
+        if (null !== $this->dndEnd) {
+            $res['DndEnd'] = $this->dndEnd;
+        }
+        if (null !== $this->dndStart) {
+            $res['DndStart'] = $this->dndStart;
+        }
+        if (null !== $this->founder) {
+            $res['Founder'] = $this->founder;
+        }
+        if (null !== $this->maxAlertTimes) {
+            $res['MaxAlertTimes'] = $this->maxAlertTimes;
+        }
+        if (null !== $this->nodes) {
+            $res['Nodes'] = [];
+            if (null !== $this->nodes && \is_array($this->nodes)) {
+                $n = 0;
+                foreach ($this->nodes as $item) {
+                    $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->projects) {
+            $res['Projects'] = [];
+            if (null !== $this->projects && \is_array($this->projects)) {
+                $n = 0;
+                foreach ($this->projects as $item) {
+                    $res['Projects'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->remindId) {
+            $res['RemindId'] = $this->remindId;
+        }
+        if (null !== $this->remindName) {
+            $res['RemindName'] = $this->remindName;
+        }
+        if (null !== $this->remindType) {
+            $res['RemindType'] = $this->remindType;
+        }
+        if (null !== $this->remindUnit) {
+            $res['RemindUnit'] = $this->remindUnit;
+        }
+        if (null !== $this->robots) {
+            $res['Robots'] = [];
+            if (null !== $this->robots && \is_array($this->robots)) {
+                $n = 0;
+                foreach ($this->robots as $item) {
+                    $res['Robots'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->useflag) {
+            $res['Useflag'] = $this->useflag;
         }
 
         return $res;
@@ -235,59 +235,21 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxAlertTimes'])) {
-            $model->maxAlertTimes = $map['MaxAlertTimes'];
-        }
-        if (isset($map['RemindUnit'])) {
-            $model->remindUnit = $map['RemindUnit'];
-        }
         if (isset($map['AlertInterval'])) {
             $model->alertInterval = $map['AlertInterval'];
         }
-        if (isset($map['Useflag'])) {
-            $model->useflag = $map['Useflag'];
+        if (isset($map['AlertMethods'])) {
+            if (!empty($map['AlertMethods'])) {
+                $model->alertMethods = $map['AlertMethods'];
+            }
         }
-        if (isset($map['Founder'])) {
-            $model->founder = $map['Founder'];
-        }
-        if (isset($map['RemindId'])) {
-            $model->remindId = $map['RemindId'];
-        }
-        if (isset($map['DndEnd'])) {
-            $model->dndEnd = $map['DndEnd'];
-        }
-        if (isset($map['RemindType'])) {
-            $model->remindType = $map['RemindType'];
+        if (isset($map['AlertTargets'])) {
+            if (!empty($map['AlertTargets'])) {
+                $model->alertTargets = $map['AlertTargets'];
+            }
         }
         if (isset($map['AlertUnit'])) {
             $model->alertUnit = $map['AlertUnit'];
-        }
-        if (isset($map['DndStart'])) {
-            $model->dndStart = $map['DndStart'];
-        }
-        if (isset($map['RemindName'])) {
-            $model->remindName = $map['RemindName'];
-        }
-        if (isset($map['Detail'])) {
-            $model->detail = $map['Detail'];
-        }
-        if (isset($map['Robots'])) {
-            if (!empty($map['Robots'])) {
-                $model->robots = [];
-                $n             = 0;
-                foreach ($map['Robots'] as $item) {
-                    $model->robots[$n++] = null !== $item ? robots::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Nodes'])) {
-            if (!empty($map['Nodes'])) {
-                $model->nodes = [];
-                $n            = 0;
-                foreach ($map['Nodes'] as $item) {
-                    $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Baselines'])) {
             if (!empty($map['Baselines'])) {
@@ -295,15 +257,6 @@ class data extends Model
                 $n                = 0;
                 foreach ($map['Baselines'] as $item) {
                     $model->baselines[$n++] = null !== $item ? baselines::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Projects'])) {
-            if (!empty($map['Projects'])) {
-                $model->projects = [];
-                $n               = 0;
-                foreach ($map['Projects'] as $item) {
-                    $model->projects[$n++] = null !== $item ? projects::fromMap($item) : $item;
                 }
             }
         }
@@ -316,15 +269,62 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['AlertTargets'])) {
-            if (!empty($map['AlertTargets'])) {
-                $model->alertTargets = $map['AlertTargets'];
+        if (isset($map['Detail'])) {
+            $model->detail = $map['Detail'];
+        }
+        if (isset($map['DndEnd'])) {
+            $model->dndEnd = $map['DndEnd'];
+        }
+        if (isset($map['DndStart'])) {
+            $model->dndStart = $map['DndStart'];
+        }
+        if (isset($map['Founder'])) {
+            $model->founder = $map['Founder'];
+        }
+        if (isset($map['MaxAlertTimes'])) {
+            $model->maxAlertTimes = $map['MaxAlertTimes'];
+        }
+        if (isset($map['Nodes'])) {
+            if (!empty($map['Nodes'])) {
+                $model->nodes = [];
+                $n            = 0;
+                foreach ($map['Nodes'] as $item) {
+                    $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
+                }
             }
         }
-        if (isset($map['AlertMethods'])) {
-            if (!empty($map['AlertMethods'])) {
-                $model->alertMethods = $map['AlertMethods'];
+        if (isset($map['Projects'])) {
+            if (!empty($map['Projects'])) {
+                $model->projects = [];
+                $n               = 0;
+                foreach ($map['Projects'] as $item) {
+                    $model->projects[$n++] = null !== $item ? projects::fromMap($item) : $item;
+                }
             }
+        }
+        if (isset($map['RemindId'])) {
+            $model->remindId = $map['RemindId'];
+        }
+        if (isset($map['RemindName'])) {
+            $model->remindName = $map['RemindName'];
+        }
+        if (isset($map['RemindType'])) {
+            $model->remindType = $map['RemindType'];
+        }
+        if (isset($map['RemindUnit'])) {
+            $model->remindUnit = $map['RemindUnit'];
+        }
+        if (isset($map['Robots'])) {
+            if (!empty($map['Robots'])) {
+                $model->robots = [];
+                $n             = 0;
+                foreach ($map['Robots'] as $item) {
+                    $model->robots[$n++] = null !== $item ? robots::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Useflag'])) {
+            $model->useflag = $map['Useflag'];
         }
 
         return $model;

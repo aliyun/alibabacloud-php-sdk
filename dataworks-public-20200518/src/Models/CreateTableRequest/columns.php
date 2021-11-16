@@ -11,17 +11,12 @@ class columns extends Model
     /**
      * @var string
      */
-    public $columnNameCn;
-
-    /**
-     * @var string
-     */
     public $columnName;
 
     /**
      * @var string
      */
-    public $comment;
+    public $columnNameCn;
 
     /**
      * @var string
@@ -29,9 +24,14 @@ class columns extends Model
     public $columnType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $seqNumber;
+    public $comment;
+
+    /**
+     * @var bool
+     */
+    public $isPartitionCol;
 
     /**
      * @var int
@@ -39,17 +39,17 @@ class columns extends Model
     public $length;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $isPartitionCol;
+    public $seqNumber;
     protected $_name = [
-        'columnNameCn'   => 'ColumnNameCn',
         'columnName'     => 'ColumnName',
-        'comment'        => 'Comment',
+        'columnNameCn'   => 'ColumnNameCn',
         'columnType'     => 'ColumnType',
-        'seqNumber'      => 'SeqNumber',
-        'length'         => 'Length',
+        'comment'        => 'Comment',
         'isPartitionCol' => 'IsPartitionCol',
+        'length'         => 'Length',
+        'seqNumber'      => 'SeqNumber',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class columns extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->columnNameCn) {
-            $res['ColumnNameCn'] = $this->columnNameCn;
-        }
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
+        if (null !== $this->columnNameCn) {
+            $res['ColumnNameCn'] = $this->columnNameCn;
         }
         if (null !== $this->columnType) {
             $res['ColumnType'] = $this->columnType;
         }
-        if (null !== $this->seqNumber) {
-            $res['SeqNumber'] = $this->seqNumber;
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->isPartitionCol) {
+            $res['IsPartitionCol'] = $this->isPartitionCol;
         }
         if (null !== $this->length) {
             $res['Length'] = $this->length;
         }
-        if (null !== $this->isPartitionCol) {
-            $res['IsPartitionCol'] = $this->isPartitionCol;
+        if (null !== $this->seqNumber) {
+            $res['SeqNumber'] = $this->seqNumber;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class columns extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ColumnNameCn'])) {
-            $model->columnNameCn = $map['ColumnNameCn'];
-        }
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
+        if (isset($map['ColumnNameCn'])) {
+            $model->columnNameCn = $map['ColumnNameCn'];
         }
         if (isset($map['ColumnType'])) {
             $model->columnType = $map['ColumnType'];
         }
-        if (isset($map['SeqNumber'])) {
-            $model->seqNumber = $map['SeqNumber'];
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+        if (isset($map['IsPartitionCol'])) {
+            $model->isPartitionCol = $map['IsPartitionCol'];
         }
         if (isset($map['Length'])) {
             $model->length = $map['Length'];
         }
-        if (isset($map['IsPartitionCol'])) {
-            $model->isPartitionCol = $map['IsPartitionCol'];
+        if (isset($map['SeqNumber'])) {
+            $model->seqNumber = $map['SeqNumber'];
         }
 
         return $model;

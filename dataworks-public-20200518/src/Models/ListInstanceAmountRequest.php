@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceAmountRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
     public $beginDate;
@@ -22,10 +17,15 @@ class ListInstanceAmountRequest extends Model
      * @var string
      */
     public $endDate;
+
+    /**
+     * @var int
+     */
+    public $projectId;
     protected $_name = [
-        'projectId' => 'ProjectId',
         'beginDate' => 'BeginDate',
         'endDate'   => 'EndDate',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListInstanceAmountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->beginDate) {
             $res['BeginDate'] = $this->beginDate;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListInstanceAmountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['BeginDate'])) {
             $model->beginDate = $map['BeginDate'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

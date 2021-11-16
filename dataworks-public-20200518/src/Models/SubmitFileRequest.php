@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SubmitFileRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $comment;
+
+    /**
+     * @var int
+     */
+    public $fileId;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -17,21 +27,11 @@ class SubmitFileRequest extends Model
      * @var string
      */
     public $projectIdentifier;
-
-    /**
-     * @var int
-     */
-    public $fileId;
-
-    /**
-     * @var string
-     */
-    public $comment;
     protected $_name = [
+        'comment'           => 'Comment',
+        'fileId'            => 'FileId',
         'projectId'         => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
-        'fileId'            => 'FileId',
-        'comment'           => 'Comment',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class SubmitFileRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
-        }
-        if (null !== $this->fileId) {
-            $res['FileId'] = $this->fileId;
-        }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class SubmitFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
-        }
-        if (isset($map['FileId'])) {
-            $model->fileId = $map['FileId'];
-        }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
         }
 
         return $model;

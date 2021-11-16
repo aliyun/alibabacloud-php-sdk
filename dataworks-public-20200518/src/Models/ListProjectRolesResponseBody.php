@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListProjectRolesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var projectRoleList[]
      */
     public $projectRoleList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'projectRoleList' => 'ProjectRoleList',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListProjectRolesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->projectRoleList) {
             $res['ProjectRoleList'] = [];
             if (null !== $this->projectRoleList && \is_array($this->projectRoleList)) {
@@ -41,6 +38,9 @@ class ListProjectRolesResponseBody extends Model
                     $res['ProjectRoleList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListProjectRolesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ProjectRoleList'])) {
             if (!empty($map['ProjectRoleList'])) {
                 $model->projectRoleList = [];
@@ -65,6 +62,9 @@ class ListProjectRolesResponseBody extends Model
                     $model->projectRoleList[$n++] = null !== $item ? projectRoleList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

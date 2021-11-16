@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDataSourceRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $content;
 
     /**
      * @var string
@@ -31,7 +21,7 @@ class CreateDataSourceRequest extends Model
     /**
      * @var string
      */
-    public $subType;
+    public $description;
 
     /**
      * @var int
@@ -41,15 +31,25 @@ class CreateDataSourceRequest extends Model
     /**
      * @var string
      */
-    public $content;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $subType;
     protected $_name = [
-        'projectId'      => 'ProjectId',
-        'name'           => 'Name',
-        'description'    => 'Description',
-        'dataSourceType' => 'DataSourceType',
-        'subType'        => 'SubType',
-        'envType'        => 'EnvType',
         'content'        => 'Content',
+        'dataSourceType' => 'DataSourceType',
+        'description'    => 'Description',
+        'envType'        => 'EnvType',
+        'name'           => 'Name',
+        'projectId'      => 'ProjectId',
+        'subType'        => 'SubType',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class CreateDataSourceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
         }
-        if (null !== $this->subType) {
-            $res['SubType'] = $this->subType;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->subType) {
+            $res['SubType'] = $this->subType;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class CreateDataSourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
         }
-        if (isset($map['SubType'])) {
-            $model->subType = $map['SubType'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['SubType'])) {
+            $model->subType = $map['SubType'];
         }
 
         return $model;

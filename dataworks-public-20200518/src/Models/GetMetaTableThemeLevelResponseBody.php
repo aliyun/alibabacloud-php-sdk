@@ -10,14 +10,24 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableThemeLevelResponseBody extends Model
 {
     /**
-     * @var int
+     * @var entity
      */
-    public $httpStatusCode;
+    public $entity;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
 
     /**
      * @var string
      */
     public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
 
     /**
      * @var string
@@ -28,23 +38,13 @@ class GetMetaTableThemeLevelResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var entity
-     */
-    public $entity;
     protected $_name = [
-        'httpStatusCode' => 'HttpStatusCode',
+        'entity'         => 'Entity',
+        'errorCode'      => 'ErrorCode',
         'errorMessage'   => 'ErrorMessage',
+        'httpStatusCode' => 'HttpStatusCode',
         'requestId'      => 'RequestId',
         'success'        => 'Success',
-        'errorCode'      => 'ErrorCode',
-        'entity'         => 'Entity',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class GetMetaTableThemeLevelResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
+        if (null !== $this->entity) {
+            $res['Entity'] = null !== $this->entity ? $this->entity->toMap() : null;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->entity) {
-            $res['Entity'] = null !== $this->entity ? $this->entity->toMap() : null;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class GetMetaTableThemeLevelResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
+        if (isset($map['Entity'])) {
+            $model->entity = entity::fromMap($map['Entity']);
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['Entity'])) {
-            $model->entity = entity::fromMap($map['Entity']);
         }
 
         return $model;

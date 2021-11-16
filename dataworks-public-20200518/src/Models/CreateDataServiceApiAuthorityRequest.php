@@ -11,16 +11,6 @@ class CreateDataServiceApiAuthorityRequest extends Model
     /**
      * @var int
      */
-    public $tenantId;
-
-    /**
-     * @var int
-     */
-    public $projectId;
-
-    /**
-     * @var int
-     */
     public $apiId;
 
     /**
@@ -32,12 +22,22 @@ class CreateDataServiceApiAuthorityRequest extends Model
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var int
+     */
+    public $tenantId;
     protected $_name = [
-        'tenantId'            => 'TenantId',
-        'projectId'           => 'ProjectId',
         'apiId'               => 'ApiId',
         'authorizedProjectId' => 'AuthorizedProjectId',
         'endTime'             => 'EndTime',
+        'projectId'           => 'ProjectId',
+        'tenantId'            => 'TenantId',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class CreateDataServiceApiAuthorityRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
@@ -61,6 +55,12 @@ class CreateDataServiceApiAuthorityRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class CreateDataServiceApiAuthorityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
@@ -88,6 +82,12 @@ class CreateDataServiceApiAuthorityRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

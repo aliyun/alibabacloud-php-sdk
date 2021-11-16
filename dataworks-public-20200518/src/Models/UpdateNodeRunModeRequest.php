@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateNodeRunModeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $nodeId;
+
+    /**
      * @var string
      */
     public $projectEnv;
@@ -16,15 +21,10 @@ class UpdateNodeRunModeRequest extends Model
     /**
      * @var int
      */
-    public $nodeId;
-
-    /**
-     * @var int
-     */
     public $schedulerType;
     protected $_name = [
-        'projectEnv'    => 'ProjectEnv',
         'nodeId'        => 'NodeId',
+        'projectEnv'    => 'ProjectEnv',
         'schedulerType' => 'SchedulerType',
     ];
 
@@ -35,11 +35,11 @@ class UpdateNodeRunModeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectEnv) {
-            $res['ProjectEnv'] = $this->projectEnv;
-        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->projectEnv) {
+            $res['ProjectEnv'] = $this->projectEnv;
         }
         if (null !== $this->schedulerType) {
             $res['SchedulerType'] = $this->schedulerType;
@@ -56,11 +56,11 @@ class UpdateNodeRunModeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectEnv'])) {
-            $model->projectEnv = $map['ProjectEnv'];
-        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['ProjectEnv'])) {
+            $model->projectEnv = $map['ProjectEnv'];
         }
         if (isset($map['SchedulerType'])) {
             $model->schedulerType = $map['SchedulerType'];

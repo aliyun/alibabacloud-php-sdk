@@ -9,14 +9,39 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $owner;
+    public $addTime;
+
+    /**
+     * @var int
+     */
+    public $alertTime;
 
     /**
      * @var string
      */
-    public $topicName;
+    public $assigner;
+
+    /**
+     * @var int
+     */
+    public $baselineBuffer;
+
+    /**
+     * @var int
+     */
+    public $baselineId;
+
+    /**
+     * @var int
+     */
+    public $baselineInGroupId;
+
+    /**
+     * @var string
+     */
+    public $baselineName;
 
     /**
      * @var string
@@ -26,47 +51,7 @@ class data extends Model
     /**
      * @var int
      */
-    public $projectId;
-
-    /**
-     * @var int
-     */
-    public $nextAlertTime;
-
-    /**
-     * @var int
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $fixTime;
-
-    /**
-     * @var int
-     */
-    public $baselineInGroupId;
-
-    /**
-     * @var int
-     */
-    public $baselineBuffer;
-
-    /**
-     * @var string
-     */
-    public $topicType;
-
-    /**
-     * @var string
-     */
-    public $topicStatus;
-
-    /**
-     * @var int
-     */
-    public $happenTime;
+    public $buffer;
 
     /**
      * @var int
@@ -79,14 +64,29 @@ class data extends Model
     public $dealUser;
 
     /**
-     * @var string
+     * @var int
      */
-    public $baselineName;
+    public $fixTime;
 
     /**
      * @var int
      */
-    public $baselineId;
+    public $happenTime;
+
+    /**
+     * @var int
+     */
+    public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $nextAlertTime;
+
+    /**
+     * @var int
+     */
+    public $nodeId;
 
     /**
      * @var string
@@ -94,19 +94,14 @@ class data extends Model
     public $nodeName;
 
     /**
-     * @var int
-     */
-    public $alertTime;
-
-    /**
-     * @var int
-     */
-    public $buffer;
-
-    /**
      * @var string
      */
-    public $assigner;
+    public $owner;
+
+    /**
+     * @var int
+     */
+    public $projectId;
 
     /**
      * @var int
@@ -114,38 +109,43 @@ class data extends Model
     public $topicId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $addTime;
+    public $topicName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $nodeId;
+    public $topicStatus;
+
+    /**
+     * @var string
+     */
+    public $topicType;
     protected $_name = [
-        'owner'             => 'Owner',
-        'topicName'         => 'TopicName',
-        'baselineStatus'    => 'BaselineStatus',
-        'projectId'         => 'ProjectId',
-        'nextAlertTime'     => 'NextAlertTime',
-        'instanceId'        => 'InstanceId',
-        'fixTime'           => 'FixTime',
-        'baselineInGroupId' => 'BaselineInGroupId',
+        'addTime'           => 'AddTime',
+        'alertTime'         => 'AlertTime',
+        'assigner'          => 'Assigner',
         'baselineBuffer'    => 'BaselineBuffer',
-        'topicType'         => 'TopicType',
-        'topicStatus'       => 'TopicStatus',
-        'happenTime'        => 'HappenTime',
+        'baselineId'        => 'BaselineId',
+        'baselineInGroupId' => 'BaselineInGroupId',
+        'baselineName'      => 'BaselineName',
+        'baselineStatus'    => 'BaselineStatus',
+        'buffer'            => 'Buffer',
         'dealTime'          => 'DealTime',
         'dealUser'          => 'DealUser',
-        'baselineName'      => 'BaselineName',
-        'baselineId'        => 'BaselineId',
-        'nodeName'          => 'NodeName',
-        'alertTime'         => 'AlertTime',
-        'buffer'            => 'Buffer',
-        'assigner'          => 'Assigner',
-        'topicId'           => 'TopicId',
-        'addTime'           => 'AddTime',
+        'fixTime'           => 'FixTime',
+        'happenTime'        => 'HappenTime',
+        'instanceId'        => 'InstanceId',
+        'nextAlertTime'     => 'NextAlertTime',
         'nodeId'            => 'NodeId',
+        'nodeName'          => 'NodeName',
+        'owner'             => 'Owner',
+        'projectId'         => 'ProjectId',
+        'topicId'           => 'TopicId',
+        'topicName'         => 'TopicName',
+        'topicStatus'       => 'TopicStatus',
+        'topicType'         => 'TopicType',
     ];
 
     public function validate()
@@ -155,41 +155,32 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
+        if (null !== $this->addTime) {
+            $res['AddTime'] = $this->addTime;
         }
-        if (null !== $this->topicName) {
-            $res['TopicName'] = $this->topicName;
+        if (null !== $this->alertTime) {
+            $res['AlertTime'] = $this->alertTime;
         }
-        if (null !== $this->baselineStatus) {
-            $res['BaselineStatus'] = $this->baselineStatus;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->nextAlertTime) {
-            $res['NextAlertTime'] = $this->nextAlertTime;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->fixTime) {
-            $res['FixTime'] = $this->fixTime;
-        }
-        if (null !== $this->baselineInGroupId) {
-            $res['BaselineInGroupId'] = $this->baselineInGroupId;
+        if (null !== $this->assigner) {
+            $res['Assigner'] = $this->assigner;
         }
         if (null !== $this->baselineBuffer) {
             $res['BaselineBuffer'] = $this->baselineBuffer;
         }
-        if (null !== $this->topicType) {
-            $res['TopicType'] = $this->topicType;
+        if (null !== $this->baselineId) {
+            $res['BaselineId'] = $this->baselineId;
         }
-        if (null !== $this->topicStatus) {
-            $res['TopicStatus'] = $this->topicStatus;
+        if (null !== $this->baselineInGroupId) {
+            $res['BaselineInGroupId'] = $this->baselineInGroupId;
         }
-        if (null !== $this->happenTime) {
-            $res['HappenTime'] = $this->happenTime;
+        if (null !== $this->baselineName) {
+            $res['BaselineName'] = $this->baselineName;
+        }
+        if (null !== $this->baselineStatus) {
+            $res['BaselineStatus'] = $this->baselineStatus;
+        }
+        if (null !== $this->buffer) {
+            $res['Buffer'] = $this->buffer;
         }
         if (null !== $this->dealTime) {
             $res['DealTime'] = $this->dealTime;
@@ -197,32 +188,41 @@ class data extends Model
         if (null !== $this->dealUser) {
             $res['DealUser'] = $this->dealUser;
         }
-        if (null !== $this->baselineName) {
-            $res['BaselineName'] = $this->baselineName;
+        if (null !== $this->fixTime) {
+            $res['FixTime'] = $this->fixTime;
         }
-        if (null !== $this->baselineId) {
-            $res['BaselineId'] = $this->baselineId;
+        if (null !== $this->happenTime) {
+            $res['HappenTime'] = $this->happenTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->nextAlertTime) {
+            $res['NextAlertTime'] = $this->nextAlertTime;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
-        if (null !== $this->alertTime) {
-            $res['AlertTime'] = $this->alertTime;
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
-        if (null !== $this->buffer) {
-            $res['Buffer'] = $this->buffer;
-        }
-        if (null !== $this->assigner) {
-            $res['Assigner'] = $this->assigner;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->topicId) {
             $res['TopicId'] = $this->topicId;
         }
-        if (null !== $this->addTime) {
-            $res['AddTime'] = $this->addTime;
+        if (null !== $this->topicName) {
+            $res['TopicName'] = $this->topicName;
         }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
+        if (null !== $this->topicStatus) {
+            $res['TopicStatus'] = $this->topicStatus;
+        }
+        if (null !== $this->topicType) {
+            $res['TopicType'] = $this->topicType;
         }
 
         return $res;
@@ -236,41 +236,32 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
+        if (isset($map['AddTime'])) {
+            $model->addTime = $map['AddTime'];
         }
-        if (isset($map['TopicName'])) {
-            $model->topicName = $map['TopicName'];
+        if (isset($map['AlertTime'])) {
+            $model->alertTime = $map['AlertTime'];
         }
-        if (isset($map['BaselineStatus'])) {
-            $model->baselineStatus = $map['BaselineStatus'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['NextAlertTime'])) {
-            $model->nextAlertTime = $map['NextAlertTime'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['FixTime'])) {
-            $model->fixTime = $map['FixTime'];
-        }
-        if (isset($map['BaselineInGroupId'])) {
-            $model->baselineInGroupId = $map['BaselineInGroupId'];
+        if (isset($map['Assigner'])) {
+            $model->assigner = $map['Assigner'];
         }
         if (isset($map['BaselineBuffer'])) {
             $model->baselineBuffer = $map['BaselineBuffer'];
         }
-        if (isset($map['TopicType'])) {
-            $model->topicType = $map['TopicType'];
+        if (isset($map['BaselineId'])) {
+            $model->baselineId = $map['BaselineId'];
         }
-        if (isset($map['TopicStatus'])) {
-            $model->topicStatus = $map['TopicStatus'];
+        if (isset($map['BaselineInGroupId'])) {
+            $model->baselineInGroupId = $map['BaselineInGroupId'];
         }
-        if (isset($map['HappenTime'])) {
-            $model->happenTime = $map['HappenTime'];
+        if (isset($map['BaselineName'])) {
+            $model->baselineName = $map['BaselineName'];
+        }
+        if (isset($map['BaselineStatus'])) {
+            $model->baselineStatus = $map['BaselineStatus'];
+        }
+        if (isset($map['Buffer'])) {
+            $model->buffer = $map['Buffer'];
         }
         if (isset($map['DealTime'])) {
             $model->dealTime = $map['DealTime'];
@@ -278,32 +269,41 @@ class data extends Model
         if (isset($map['DealUser'])) {
             $model->dealUser = $map['DealUser'];
         }
-        if (isset($map['BaselineName'])) {
-            $model->baselineName = $map['BaselineName'];
+        if (isset($map['FixTime'])) {
+            $model->fixTime = $map['FixTime'];
         }
-        if (isset($map['BaselineId'])) {
-            $model->baselineId = $map['BaselineId'];
+        if (isset($map['HappenTime'])) {
+            $model->happenTime = $map['HappenTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NextAlertTime'])) {
+            $model->nextAlertTime = $map['NextAlertTime'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
-        if (isset($map['AlertTime'])) {
-            $model->alertTime = $map['AlertTime'];
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
-        if (isset($map['Buffer'])) {
-            $model->buffer = $map['Buffer'];
-        }
-        if (isset($map['Assigner'])) {
-            $model->assigner = $map['Assigner'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['TopicId'])) {
             $model->topicId = $map['TopicId'];
         }
-        if (isset($map['AddTime'])) {
-            $model->addTime = $map['AddTime'];
+        if (isset($map['TopicName'])) {
+            $model->topicName = $map['TopicName'];
         }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
+        if (isset($map['TopicStatus'])) {
+            $model->topicStatus = $map['TopicStatus'];
+        }
+        if (isset($map['TopicType'])) {
+            $model->topicType = $map['TopicType'];
         }
 
         return $model;
