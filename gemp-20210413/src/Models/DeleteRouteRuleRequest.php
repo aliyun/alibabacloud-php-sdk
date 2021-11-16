@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouteRuleRequest extends Model
 {
     /**
-     * @description 规则ID
-     *
-     * @var int
-     */
-    public $routeRuleId;
-
-    /**
      * @description 幂等号
      *
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @description 规则ID
+     *
+     * @var int
+     */
+    public $routeRuleId;
     protected $_name = [
-        'routeRuleId' => 'routeRuleId',
         'clientToken' => 'clientToken',
+        'routeRuleId' => 'routeRuleId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class DeleteRouteRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->routeRuleId) {
-            $res['routeRuleId'] = $this->routeRuleId;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->routeRuleId) {
+            $res['routeRuleId'] = $this->routeRuleId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class DeleteRouteRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['routeRuleId'])) {
-            $model->routeRuleId = $map['routeRuleId'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['routeRuleId'])) {
+            $model->routeRuleId = $map['routeRuleId'];
         }
 
         return $model;

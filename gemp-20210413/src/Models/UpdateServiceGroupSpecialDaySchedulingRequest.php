@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceGroupSpecialDaySchedulingRequest extends Model
 {
     /**
-     * @description 服务组ID
+     * @description 幂等号
      *
-     * @var int
+     * @var string
      */
-    public $serviceGroupId;
+    public $clientToken;
 
     /**
      * @description 排班日期
@@ -31,16 +31,16 @@ class UpdateServiceGroupSpecialDaySchedulingRequest extends Model
     public $schedulingSpecialDays;
 
     /**
-     * @description 幂等号
+     * @description 服务组ID
      *
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $serviceGroupId;
     protected $_name = [
-        'serviceGroupId'        => 'serviceGroupId',
+        'clientToken'           => 'clientToken',
         'schedulingDate'        => 'schedulingDate',
         'schedulingSpecialDays' => 'schedulingSpecialDays',
-        'clientToken'           => 'clientToken',
+        'serviceGroupId'        => 'serviceGroupId',
     ];
 
     public function validate()
@@ -50,8 +50,8 @@ class UpdateServiceGroupSpecialDaySchedulingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceGroupId) {
-            $res['serviceGroupId'] = $this->serviceGroupId;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->schedulingDate) {
             $res['schedulingDate'] = $this->schedulingDate;
@@ -65,8 +65,8 @@ class UpdateServiceGroupSpecialDaySchedulingRequest extends Model
                 }
             }
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->serviceGroupId) {
+            $res['serviceGroupId'] = $this->serviceGroupId;
         }
 
         return $res;
@@ -80,8 +80,8 @@ class UpdateServiceGroupSpecialDaySchedulingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['serviceGroupId'])) {
-            $model->serviceGroupId = $map['serviceGroupId'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['schedulingDate'])) {
             $model->schedulingDate = $map['schedulingDate'];
@@ -95,8 +95,8 @@ class UpdateServiceGroupSpecialDaySchedulingRequest extends Model
                 }
             }
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['serviceGroupId'])) {
+            $model->serviceGroupId = $map['serviceGroupId'];
         }
 
         return $model;

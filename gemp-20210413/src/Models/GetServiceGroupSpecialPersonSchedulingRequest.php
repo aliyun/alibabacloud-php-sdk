@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetServiceGroupSpecialPersonSchedulingRequest extends Model
 {
     /**
-     * @description 用户ID
+     * @description 幂等号
      *
-     * @var int
+     * @var string
      */
-    public $userId;
+    public $clientToken;
 
     /**
      * @description 服务组ID
@@ -23,15 +23,15 @@ class GetServiceGroupSpecialPersonSchedulingRequest extends Model
     public $serviceGroupId;
 
     /**
-     * @description 幂等号
+     * @description 用户ID
      *
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $userId;
     protected $_name = [
-        'userId'         => 'userId',
-        'serviceGroupId' => 'serviceGroupId',
         'clientToken'    => 'clientToken',
+        'serviceGroupId' => 'serviceGroupId',
+        'userId'         => 'userId',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class GetServiceGroupSpecialPersonSchedulingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['userId'] = $this->userId;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->serviceGroupId) {
             $res['serviceGroupId'] = $this->serviceGroupId;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->userId) {
+            $res['userId'] = $this->userId;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class GetServiceGroupSpecialPersonSchedulingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['userId'])) {
-            $model->userId = $map['userId'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['serviceGroupId'])) {
             $model->serviceGroupId = $map['serviceGroupId'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
         }
 
         return $model;

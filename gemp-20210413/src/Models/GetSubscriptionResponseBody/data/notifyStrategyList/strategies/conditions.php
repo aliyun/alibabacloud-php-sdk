@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
+     * @description 事件动作
+     *
+     * @var string
+     */
+    public $action;
+
+    /**
      * @description 影响范围
      *
      * @var string
      */
     public $effection;
-
-    /**
-     * @description 故障通知类型
-     *
-     * @var string
-     */
-    public $problemNotifyType;
 
     /**
      * @description 等级
@@ -30,16 +30,16 @@ class conditions extends Model
     public $level;
 
     /**
-     * @description 事件动作
+     * @description 故障通知类型
      *
      * @var string
      */
-    public $action;
+    public $problemNotifyType;
     protected $_name = [
-        'effection'         => 'effection',
-        'problemNotifyType' => 'problemNotifyType',
-        'level'             => 'level',
         'action'            => 'action',
+        'effection'         => 'effection',
+        'level'             => 'level',
+        'problemNotifyType' => 'problemNotifyType',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class conditions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->action) {
+            $res['action'] = $this->action;
+        }
         if (null !== $this->effection) {
             $res['effection'] = $this->effection;
-        }
-        if (null !== $this->problemNotifyType) {
-            $res['problemNotifyType'] = $this->problemNotifyType;
         }
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
-        if (null !== $this->action) {
-            $res['action'] = $this->action;
+        if (null !== $this->problemNotifyType) {
+            $res['problemNotifyType'] = $this->problemNotifyType;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class conditions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['action'])) {
+            $model->action = $map['action'];
+        }
         if (isset($map['effection'])) {
             $model->effection = $map['effection'];
-        }
-        if (isset($map['problemNotifyType'])) {
-            $model->problemNotifyType = $map['problemNotifyType'];
         }
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
-        if (isset($map['action'])) {
-            $model->action = $map['action'];
+        if (isset($map['problemNotifyType'])) {
+            $model->problemNotifyType = $map['problemNotifyType'];
         }
 
         return $model;

@@ -10,13 +10,6 @@ use AlibabaCloud\Tea\Model;
 class fastScheduling extends Model
 {
     /**
-     * @description 每人排班时长
-     *
-     * @var int
-     */
-    public $singleDuration;
-
-    /**
      * @description 值班方案 dutyPlan FAST_CHOICE 快速选择   CUSTOM  自定义
      *
      * @var string
@@ -24,11 +17,11 @@ class fastScheduling extends Model
     public $dutyPlan;
 
     /**
-     * @description 每人排班时长单位 HOUR 小时 DAY 天
+     * @description 快速排班ID
      *
-     * @var string
+     * @var int
      */
-    public $singleDurationUnit;
+    public $id;
 
     /**
      * @description 快速轮班用户
@@ -38,17 +31,24 @@ class fastScheduling extends Model
     public $schedulingUsers;
 
     /**
-     * @description 快速排班ID
+     * @description 每人排班时长
      *
      * @var int
      */
-    public $id;
+    public $singleDuration;
+
+    /**
+     * @description 每人排班时长单位 HOUR 小时 DAY 天
+     *
+     * @var string
+     */
+    public $singleDurationUnit;
     protected $_name = [
-        'singleDuration'     => 'singleDuration',
         'dutyPlan'           => 'dutyPlan',
-        'singleDurationUnit' => 'singleDurationUnit',
-        'schedulingUsers'    => 'schedulingUsers',
         'id'                 => 'id',
+        'schedulingUsers'    => 'schedulingUsers',
+        'singleDuration'     => 'singleDuration',
+        'singleDurationUnit' => 'singleDurationUnit',
     ];
 
     public function validate()
@@ -58,14 +58,11 @@ class fastScheduling extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->singleDuration) {
-            $res['singleDuration'] = $this->singleDuration;
-        }
         if (null !== $this->dutyPlan) {
             $res['dutyPlan'] = $this->dutyPlan;
         }
-        if (null !== $this->singleDurationUnit) {
-            $res['singleDurationUnit'] = $this->singleDurationUnit;
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
         if (null !== $this->schedulingUsers) {
             $res['schedulingUsers'] = [];
@@ -76,8 +73,11 @@ class fastScheduling extends Model
                 }
             }
         }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
+        if (null !== $this->singleDuration) {
+            $res['singleDuration'] = $this->singleDuration;
+        }
+        if (null !== $this->singleDurationUnit) {
+            $res['singleDurationUnit'] = $this->singleDurationUnit;
         }
 
         return $res;
@@ -91,14 +91,11 @@ class fastScheduling extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['singleDuration'])) {
-            $model->singleDuration = $map['singleDuration'];
-        }
         if (isset($map['dutyPlan'])) {
             $model->dutyPlan = $map['dutyPlan'];
         }
-        if (isset($map['singleDurationUnit'])) {
-            $model->singleDurationUnit = $map['singleDurationUnit'];
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
         if (isset($map['schedulingUsers'])) {
             if (!empty($map['schedulingUsers'])) {
@@ -109,8 +106,11 @@ class fastScheduling extends Model
                 }
             }
         }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
+        if (isset($map['singleDuration'])) {
+            $model->singleDuration = $map['singleDuration'];
+        }
+        if (isset($map['singleDurationUnit'])) {
+            $model->singleDurationUnit = $map['singleDurationUnit'];
         }
 
         return $model;

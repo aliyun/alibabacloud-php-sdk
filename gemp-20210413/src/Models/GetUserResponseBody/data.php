@@ -4,37 +4,24 @@
 
 namespace AlibabaCloud\SDK\GEMP\V20210413\Models\GetUserResponseBody;
 
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetUserResponseBody\data\serviceGroups;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
-    /**
-     * @description 用户ID
-     *
-     * @var int
-     */
-    public $userId;
-
-    /**
-     * @description ramId
-     *
-     * @var string
-     */
-    public $ramId;
-
-    /**
-     * @description 是否当前用户
-     *
-     * @var bool
-     */
-    public $isEditableUser;
-
     /**
      * @description CUSTOMER:主账号，SUB:子账号
      *
      * @var string
      */
     public $accountType;
+
+    /**
+     * @description 创建时间
+     *
+     * @var string
+     */
+    public $createTime;
 
     /**
      * @description email
@@ -44,11 +31,18 @@ class data extends Model
     public $email;
 
     /**
-     * @description 用户昵称
+     * @description 是否可编辑
+     *
+     * @var bool
+     */
+    public $isEditableUser;
+
+    /**
+     * @description 是否关联
      *
      * @var string
      */
-    public $username;
+    public $isRelated;
 
     /**
      * @description 用户手机号
@@ -56,14 +50,45 @@ class data extends Model
      * @var string
      */
     public $phone;
+
+    /**
+     * @description ramId
+     *
+     * @var string
+     */
+    public $ramId;
+
+    /**
+     * @description 所属服务组
+     *
+     * @var serviceGroups[]
+     */
+    public $serviceGroups;
+
+    /**
+     * @description 用户ID
+     *
+     * @var int
+     */
+    public $userId;
+
+    /**
+     * @description 用户昵称
+     *
+     * @var string
+     */
+    public $username;
     protected $_name = [
-        'userId'         => 'userId',
-        'ramId'          => 'ramId',
-        'isEditableUser' => 'isEditableUser',
         'accountType'    => 'accountType',
+        'createTime'     => 'createTime',
         'email'          => 'email',
-        'username'       => 'username',
+        'isEditableUser' => 'isEditableUser',
+        'isRelated'      => 'isRelated',
         'phone'          => 'phone',
+        'ramId'          => 'ramId',
+        'serviceGroups'  => 'serviceGroups',
+        'userId'         => 'userId',
+        'username'       => 'username',
     ];
 
     public function validate()
@@ -73,26 +98,41 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['userId'] = $this->userId;
-        }
-        if (null !== $this->ramId) {
-            $res['ramId'] = $this->ramId;
-        }
-        if (null !== $this->isEditableUser) {
-            $res['isEditableUser'] = $this->isEditableUser;
-        }
         if (null !== $this->accountType) {
             $res['accountType'] = $this->accountType;
+        }
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
         }
         if (null !== $this->email) {
             $res['email'] = $this->email;
         }
-        if (null !== $this->username) {
-            $res['username'] = $this->username;
+        if (null !== $this->isEditableUser) {
+            $res['isEditableUser'] = $this->isEditableUser;
+        }
+        if (null !== $this->isRelated) {
+            $res['isRelated'] = $this->isRelated;
         }
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
+        }
+        if (null !== $this->ramId) {
+            $res['ramId'] = $this->ramId;
+        }
+        if (null !== $this->serviceGroups) {
+            $res['serviceGroups'] = [];
+            if (null !== $this->serviceGroups && \is_array($this->serviceGroups)) {
+                $n = 0;
+                foreach ($this->serviceGroups as $item) {
+                    $res['serviceGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->userId) {
+            $res['userId'] = $this->userId;
+        }
+        if (null !== $this->username) {
+            $res['username'] = $this->username;
         }
 
         return $res;
@@ -106,26 +146,41 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['userId'])) {
-            $model->userId = $map['userId'];
-        }
-        if (isset($map['ramId'])) {
-            $model->ramId = $map['ramId'];
-        }
-        if (isset($map['isEditableUser'])) {
-            $model->isEditableUser = $map['isEditableUser'];
-        }
         if (isset($map['accountType'])) {
             $model->accountType = $map['accountType'];
+        }
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
         }
         if (isset($map['email'])) {
             $model->email = $map['email'];
         }
-        if (isset($map['username'])) {
-            $model->username = $map['username'];
+        if (isset($map['isEditableUser'])) {
+            $model->isEditableUser = $map['isEditableUser'];
+        }
+        if (isset($map['isRelated'])) {
+            $model->isRelated = $map['isRelated'];
         }
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
+        }
+        if (isset($map['ramId'])) {
+            $model->ramId = $map['ramId'];
+        }
+        if (isset($map['serviceGroups'])) {
+            if (!empty($map['serviceGroups'])) {
+                $model->serviceGroups = [];
+                $n                    = 0;
+                foreach ($map['serviceGroups'] as $item) {
+                    $model->serviceGroups[$n++] = null !== $item ? serviceGroups::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
+        }
+        if (isset($map['username'])) {
+            $model->username = $map['username'];
         }
 
         return $model;

@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 描述
+     * @description 操作人
      *
      * @var string
      */
-    public $description;
+    public $createRamName;
 
     /**
      * @description 创建时间
@@ -23,11 +23,11 @@ class data extends Model
     public $createTime;
 
     /**
-     * @description 操作人
+     * @description 人员id
      *
-     * @var string
+     * @var int
      */
-    public $createRamName;
+    public $createUserId;
 
     /**
      * @description 操作人手机号
@@ -35,11 +35,19 @@ class data extends Model
      * @var string
      */
     public $createUserPhone;
+
+    /**
+     * @description 描述
+     *
+     * @var string
+     */
+    public $description;
     protected $_name = [
-        'description'     => 'description',
-        'createTime'      => 'createTime',
         'createRamName'   => 'createRamName',
+        'createTime'      => 'createTime',
+        'createUserId'    => 'createUserId',
         'createUserPhone' => 'createUserPhone',
+        'description'     => 'description',
     ];
 
     public function validate()
@@ -49,17 +57,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
+        if (null !== $this->createRamName) {
+            $res['createRamName'] = $this->createRamName;
         }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
-        if (null !== $this->createRamName) {
-            $res['createRamName'] = $this->createRamName;
+        if (null !== $this->createUserId) {
+            $res['createUserId'] = $this->createUserId;
         }
         if (null !== $this->createUserPhone) {
             $res['createUserPhone'] = $this->createUserPhone;
+        }
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
 
         return $res;
@@ -73,17 +84,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
+        if (isset($map['createRamName'])) {
+            $model->createRamName = $map['createRamName'];
         }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
-        if (isset($map['createRamName'])) {
-            $model->createRamName = $map['createRamName'];
+        if (isset($map['createUserId'])) {
+            $model->createUserId = $map['createUserId'];
         }
         if (isset($map['createUserPhone'])) {
             $model->createUserPhone = $map['createUserPhone'];
+        }
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
 
         return $model;

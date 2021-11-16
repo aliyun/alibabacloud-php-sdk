@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateProblemSubtotalRequest extends Model
 {
     /**
-     * @description 故障Id
+     * @description 幂等校验token
      *
-     * @var int
+     * @var string
      */
-    public $problemId;
+    public $clientToken;
 
     /**
      * @description 小计文本
@@ -23,15 +23,15 @@ class CreateProblemSubtotalRequest extends Model
     public $description;
 
     /**
-     * @description 幂等校验token
+     * @description 故障Id
      *
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $problemId;
     protected $_name = [
-        'problemId'   => 'problemId',
-        'description' => 'description',
         'clientToken' => 'clientToken',
+        'description' => 'description',
+        'problemId'   => 'problemId',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class CreateProblemSubtotalRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->problemId) {
-            $res['problemId'] = $this->problemId;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->problemId) {
+            $res['problemId'] = $this->problemId;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class CreateProblemSubtotalRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['problemId'])) {
-            $model->problemId = $map['problemId'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['problemId'])) {
+            $model->problemId = $map['problemId'];
         }
 
         return $model;

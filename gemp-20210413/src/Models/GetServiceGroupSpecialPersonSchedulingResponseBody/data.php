@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 排班开始时间
+     * @description 排班日期
      *
      * @var string
      */
-    public $schedulingStartTime;
+    public $schedulingDate;
 
     /**
      * @description 排班结束时间
@@ -23,11 +23,18 @@ class data extends Model
     public $schedulingEndTime;
 
     /**
-     * @description 排班日期
+     * @description 排班开始时间
      *
      * @var string
      */
-    public $schedulingDate;
+    public $schedulingStartTime;
+
+    /**
+     * @description 排班用户ID
+     *
+     * @var int
+     */
+    public $schedulingUserId;
 
     /**
      * @description 服务组id
@@ -42,20 +49,13 @@ class data extends Model
      * @var string
      */
     public $serviceGroupName;
-
-    /**
-     * @description 排班用户ID
-     *
-     * @var int
-     */
-    public $schedulingUserId;
     protected $_name = [
-        'schedulingStartTime' => 'schedulingStartTime',
-        'schedulingEndTime'   => 'schedulingEndTime',
         'schedulingDate'      => 'schedulingDate',
+        'schedulingEndTime'   => 'schedulingEndTime',
+        'schedulingStartTime' => 'schedulingStartTime',
+        'schedulingUserId'    => 'schedulingUserId',
         'serviceGroupId'      => 'serviceGroupId',
         'serviceGroupName'    => 'serviceGroupName',
-        'schedulingUserId'    => 'schedulingUserId',
     ];
 
     public function validate()
@@ -65,23 +65,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->schedulingStartTime) {
-            $res['schedulingStartTime'] = $this->schedulingStartTime;
+        if (null !== $this->schedulingDate) {
+            $res['schedulingDate'] = $this->schedulingDate;
         }
         if (null !== $this->schedulingEndTime) {
             $res['schedulingEndTime'] = $this->schedulingEndTime;
         }
-        if (null !== $this->schedulingDate) {
-            $res['schedulingDate'] = $this->schedulingDate;
+        if (null !== $this->schedulingStartTime) {
+            $res['schedulingStartTime'] = $this->schedulingStartTime;
+        }
+        if (null !== $this->schedulingUserId) {
+            $res['schedulingUserId'] = $this->schedulingUserId;
         }
         if (null !== $this->serviceGroupId) {
             $res['serviceGroupId'] = $this->serviceGroupId;
         }
         if (null !== $this->serviceGroupName) {
             $res['serviceGroupName'] = $this->serviceGroupName;
-        }
-        if (null !== $this->schedulingUserId) {
-            $res['schedulingUserId'] = $this->schedulingUserId;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['schedulingStartTime'])) {
-            $model->schedulingStartTime = $map['schedulingStartTime'];
+        if (isset($map['schedulingDate'])) {
+            $model->schedulingDate = $map['schedulingDate'];
         }
         if (isset($map['schedulingEndTime'])) {
             $model->schedulingEndTime = $map['schedulingEndTime'];
         }
-        if (isset($map['schedulingDate'])) {
-            $model->schedulingDate = $map['schedulingDate'];
+        if (isset($map['schedulingStartTime'])) {
+            $model->schedulingStartTime = $map['schedulingStartTime'];
+        }
+        if (isset($map['schedulingUserId'])) {
+            $model->schedulingUserId = $map['schedulingUserId'];
         }
         if (isset($map['serviceGroupId'])) {
             $model->serviceGroupId = $map['serviceGroupId'];
         }
         if (isset($map['serviceGroupName'])) {
             $model->serviceGroupName = $map['serviceGroupName'];
-        }
-        if (isset($map['schedulingUserId'])) {
-            $model->schedulingUserId = $map['schedulingUserId'];
         }
 
         return $model;

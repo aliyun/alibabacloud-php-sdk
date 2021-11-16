@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetProblemEffectionServiceRequest extends Model
 {
     /**
+     * @description clientToken
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description id主键
      *
      * @var int
@@ -21,17 +28,10 @@ class GetProblemEffectionServiceRequest extends Model
      * @var int
      */
     public $problemId;
-
-    /**
-     * @description clientToken
-     *
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken'        => 'clientToken',
         'effectionServiceId' => 'effectionServiceId',
         'problemId'          => 'problemId',
-        'clientToken'        => 'clientToken',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class GetProblemEffectionServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
         if (null !== $this->effectionServiceId) {
             $res['effectionServiceId'] = $this->effectionServiceId;
         }
         if (null !== $this->problemId) {
             $res['problemId'] = $this->problemId;
-        }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class GetProblemEffectionServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
         if (isset($map['effectionServiceId'])) {
             $model->effectionServiceId = $map['effectionServiceId'];
         }
         if (isset($map['problemId'])) {
             $model->problemId = $map['problemId'];
-        }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

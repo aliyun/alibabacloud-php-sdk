@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceRequest extends Model
 {
     /**
+     * @description 幂等号
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description 服务描述
      *
      * @var string
@@ -21,17 +28,10 @@ class CreateServiceRequest extends Model
      * @var string
      */
     public $serviceName;
-
-    /**
-     * @description 幂等号
-     *
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken'        => 'clientToken',
         'serviceDescription' => 'serviceDescription',
         'serviceName'        => 'serviceName',
-        'clientToken'        => 'clientToken',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class CreateServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
         if (null !== $this->serviceDescription) {
             $res['serviceDescription'] = $this->serviceDescription;
         }
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
-        }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class CreateServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
         if (isset($map['serviceDescription'])) {
             $model->serviceDescription = $map['serviceDescription'];
         }
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];
-        }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

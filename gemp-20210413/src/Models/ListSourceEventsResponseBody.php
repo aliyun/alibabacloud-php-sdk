@@ -10,18 +10,23 @@ use AlibabaCloud\Tea\Model;
 class ListSourceEventsResponseBody extends Model
 {
     /**
-     * @description 请求ID
+     * @var data[]
+     */
+    public $data;
+
+    /**
+     * @description firstRowKey
      *
      * @var string
      */
-    public $requestId;
+    public $firstRowKey;
 
     /**
-     * @description 总条数
+     * @description lastRowKey
      *
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $lastRowKey;
 
     /**
      * @description 当前页
@@ -38,31 +43,26 @@ class ListSourceEventsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var data[]
-     */
-    public $data;
-
-    /**
-     * @description lastRowKey
+     * @description 请求ID
      *
      * @var string
      */
-    public $lastRowKey;
+    public $requestId;
 
     /**
-     * @description firstRowKey
+     * @description 总条数
      *
-     * @var string
+     * @var int
      */
-    public $firstRowKey;
+    public $totalCount;
     protected $_name = [
-        'requestId'   => 'requestId',
-        'totalCount'  => 'totalCount',
+        'data'        => 'data',
+        'firstRowKey' => 'firstRowKey',
+        'lastRowKey'  => 'lastRowKey',
         'pageNumber'  => 'pageNumber',
         'pageSize'    => 'pageSize',
-        'data'        => 'data',
-        'lastRowKey'  => 'lastRowKey',
-        'firstRowKey' => 'firstRowKey',
+        'requestId'   => 'requestId',
+        'totalCount'  => 'totalCount',
     ];
 
     public function validate()
@@ -72,18 +72,6 @@ class ListSourceEventsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['totalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageNumber) {
-            $res['pageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
-        }
         if (null !== $this->data) {
             $res['data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -93,11 +81,23 @@ class ListSourceEventsResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->firstRowKey) {
+            $res['firstRowKey'] = $this->firstRowKey;
+        }
         if (null !== $this->lastRowKey) {
             $res['lastRowKey'] = $this->lastRowKey;
         }
-        if (null !== $this->firstRowKey) {
-            $res['firstRowKey'] = $this->firstRowKey;
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -111,18 +111,6 @@ class ListSourceEventsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
-        }
-        if (isset($map['totalCount'])) {
-            $model->totalCount = $map['totalCount'];
-        }
-        if (isset($map['pageNumber'])) {
-            $model->pageNumber = $map['pageNumber'];
-        }
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
-        }
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
@@ -132,11 +120,23 @@ class ListSourceEventsResponseBody extends Model
                 }
             }
         }
+        if (isset($map['firstRowKey'])) {
+            $model->firstRowKey = $map['firstRowKey'];
+        }
         if (isset($map['lastRowKey'])) {
             $model->lastRowKey = $map['lastRowKey'];
         }
-        if (isset($map['firstRowKey'])) {
-            $model->firstRowKey = $map['firstRowKey'];
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
+        }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

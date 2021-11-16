@@ -10,11 +10,32 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 邮箱
+     *
+     * @var string
+     */
+    public $email;
+
+    /**
+     * @description 手机号
+     *
+     * @var string
+     */
+    public $phone;
+
+    /**
      * @description RAM子账号ID
      *
      * @var int
      */
     public $ramId;
+
+    /**
+     * @description 人员所属服务组
+     *
+     * @var serviceGroups[]
+     */
+    public $serviceGroups;
 
     /**
      * @description 用户ID
@@ -29,34 +50,13 @@ class data extends Model
      * @var string
      */
     public $username;
-
-    /**
-     * @description 手机号
-     *
-     * @var string
-     */
-    public $phone;
-
-    /**
-     * @description 邮箱
-     *
-     * @var string
-     */
-    public $email;
-
-    /**
-     * @description 人员所属服务组
-     *
-     * @var serviceGroups[]
-     */
-    public $serviceGroups;
     protected $_name = [
+        'email'         => 'email',
+        'phone'         => 'phone',
         'ramId'         => 'ramId',
+        'serviceGroups' => 'serviceGroups',
         'userId'        => 'userId',
         'username'      => 'username',
-        'phone'         => 'phone',
-        'email'         => 'email',
-        'serviceGroups' => 'serviceGroups',
     ];
 
     public function validate()
@@ -66,20 +66,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ramId) {
-            $res['ramId'] = $this->ramId;
-        }
-        if (null !== $this->userId) {
-            $res['userId'] = $this->userId;
-        }
-        if (null !== $this->username) {
-            $res['username'] = $this->username;
+        if (null !== $this->email) {
+            $res['email'] = $this->email;
         }
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
         }
-        if (null !== $this->email) {
-            $res['email'] = $this->email;
+        if (null !== $this->ramId) {
+            $res['ramId'] = $this->ramId;
         }
         if (null !== $this->serviceGroups) {
             $res['serviceGroups'] = [];
@@ -89,6 +83,12 @@ class data extends Model
                     $res['serviceGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->userId) {
+            $res['userId'] = $this->userId;
+        }
+        if (null !== $this->username) {
+            $res['username'] = $this->username;
         }
 
         return $res;
@@ -102,20 +102,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ramId'])) {
-            $model->ramId = $map['ramId'];
-        }
-        if (isset($map['userId'])) {
-            $model->userId = $map['userId'];
-        }
-        if (isset($map['username'])) {
-            $model->username = $map['username'];
+        if (isset($map['email'])) {
+            $model->email = $map['email'];
         }
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
         }
-        if (isset($map['email'])) {
-            $model->email = $map['email'];
+        if (isset($map['ramId'])) {
+            $model->ramId = $map['ramId'];
         }
         if (isset($map['serviceGroups'])) {
             if (!empty($map['serviceGroups'])) {
@@ -125,6 +119,12 @@ class data extends Model
                     $model->serviceGroups[$n++] = null !== $item ? serviceGroups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
+        }
+        if (isset($map['username'])) {
+            $model->username = $map['username'];
         }
 
         return $model;

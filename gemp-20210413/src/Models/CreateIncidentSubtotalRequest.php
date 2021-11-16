@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateIncidentSubtotalRequest extends Model
 {
     /**
-     * @description 事件id
+     * @description 幂等校验Id
      *
-     * @var int
+     * @var string
      */
-    public $incidentId;
+    public $clientToken;
 
     /**
      * @description 描述
@@ -23,15 +23,15 @@ class CreateIncidentSubtotalRequest extends Model
     public $description;
 
     /**
-     * @description 幂等校验Id
+     * @description 事件id
      *
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $incidentId;
     protected $_name = [
-        'incidentId'  => 'incidentId',
-        'description' => 'description',
         'clientToken' => 'clientToken',
+        'description' => 'description',
+        'incidentId'  => 'incidentId',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class CreateIncidentSubtotalRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->incidentId) {
-            $res['incidentId'] = $this->incidentId;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->incidentId) {
+            $res['incidentId'] = $this->incidentId;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class CreateIncidentSubtotalRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['incidentId'])) {
-            $model->incidentId = $map['incidentId'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['incidentId'])) {
+            $model->incidentId = $map['incidentId'];
         }
 
         return $model;

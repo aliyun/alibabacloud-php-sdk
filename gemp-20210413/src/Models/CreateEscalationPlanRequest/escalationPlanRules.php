@@ -11,13 +11,6 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanRules extends Model
 {
     /**
-     * @description 升级类型
-     *
-     * @var string
-     */
-    public $escalationPlanType;
-
-    /**
      * @description 升级条件
      *
      * @var escalationPlanConditions[]
@@ -30,10 +23,17 @@ class escalationPlanRules extends Model
      * @var escalationPlanStrategies[]
      */
     public $escalationPlanStrategies;
+
+    /**
+     * @description 升级类型
+     *
+     * @var string
+     */
+    public $escalationPlanType;
     protected $_name = [
-        'escalationPlanType'       => 'escalationPlanType',
         'escalationPlanConditions' => 'escalationPlanConditions',
         'escalationPlanStrategies' => 'escalationPlanStrategies',
+        'escalationPlanType'       => 'escalationPlanType',
     ];
 
     public function validate()
@@ -43,9 +43,6 @@ class escalationPlanRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->escalationPlanType) {
-            $res['escalationPlanType'] = $this->escalationPlanType;
-        }
         if (null !== $this->escalationPlanConditions) {
             $res['escalationPlanConditions'] = [];
             if (null !== $this->escalationPlanConditions && \is_array($this->escalationPlanConditions)) {
@@ -64,6 +61,9 @@ class escalationPlanRules extends Model
                 }
             }
         }
+        if (null !== $this->escalationPlanType) {
+            $res['escalationPlanType'] = $this->escalationPlanType;
+        }
 
         return $res;
     }
@@ -76,9 +76,6 @@ class escalationPlanRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['escalationPlanType'])) {
-            $model->escalationPlanType = $map['escalationPlanType'];
-        }
         if (isset($map['escalationPlanConditions'])) {
             if (!empty($map['escalationPlanConditions'])) {
                 $model->escalationPlanConditions = [];
@@ -96,6 +93,9 @@ class escalationPlanRules extends Model
                     $model->escalationPlanStrategies[$n++] = null !== $item ? escalationPlanStrategies::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['escalationPlanType'])) {
+            $model->escalationPlanType = $map['escalationPlanType'];
         }
 
         return $model;

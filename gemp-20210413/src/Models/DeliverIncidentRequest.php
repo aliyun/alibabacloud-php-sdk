@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeliverIncidentRequest extends Model
 {
     /**
-     * @description 事件ID
-     *
-     * @var int
-     */
-    public $incidentId;
-
-    /**
      * @description 转交用户ID
      *
      * @var int
@@ -28,10 +21,17 @@ class DeliverIncidentRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @description 事件ID
+     *
+     * @var int
+     */
+    public $incidentId;
     protected $_name = [
-        'incidentId'   => 'incidentId',
         'assignUserId' => 'assignUserId',
         'clientToken'  => 'clientToken',
+        'incidentId'   => 'incidentId',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class DeliverIncidentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->incidentId) {
-            $res['incidentId'] = $this->incidentId;
-        }
         if (null !== $this->assignUserId) {
             $res['assignUserId'] = $this->assignUserId;
         }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->incidentId) {
+            $res['incidentId'] = $this->incidentId;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class DeliverIncidentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['incidentId'])) {
-            $model->incidentId = $map['incidentId'];
-        }
         if (isset($map['assignUserId'])) {
             $model->assignUserId = $map['assignUserId'];
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['incidentId'])) {
+            $model->incidentId = $map['incidentId'];
         }
 
         return $model;

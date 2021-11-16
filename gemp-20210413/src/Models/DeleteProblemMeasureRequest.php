@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DeleteProblemMeasureRequest extends Model
 {
     /**
+     * @description 幂等校验token
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description 故障改成措施id
      *
      * @var int
@@ -21,17 +28,10 @@ class DeleteProblemMeasureRequest extends Model
      * @var string
      */
     public $problemId;
-
-    /**
-     * @description 幂等校验token
-     *
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken' => 'clientToken',
         'measureId'   => 'measureId',
         'problemId'   => 'problemId',
-        'clientToken' => 'clientToken',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class DeleteProblemMeasureRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
         if (null !== $this->measureId) {
             $res['measureId'] = $this->measureId;
         }
         if (null !== $this->problemId) {
             $res['problemId'] = $this->problemId;
-        }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class DeleteProblemMeasureRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
         if (isset($map['measureId'])) {
             $model->measureId = $map['measureId'];
         }
         if (isset($map['problemId'])) {
             $model->problemId = $map['problemId'];
-        }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

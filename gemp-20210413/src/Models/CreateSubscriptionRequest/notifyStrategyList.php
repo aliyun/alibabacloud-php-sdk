@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\GEMP\V20210413\Models\CreateSubscriptionRequest;
 
+use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateSubscriptionRequest\notifyStrategyList\periodChannel;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateSubscriptionRequest\notifyStrategyList\strategies;
 use AlibabaCloud\Tea\Model;
 
 class notifyStrategyList extends Model
 {
+    /**
+     * @description 渠道，多个逗号分隔
+     *
+     * @var string
+     */
+    public $channels;
+
     /**
      * @description 订阅实例类型，事件、报警、故障
      *
@@ -17,22 +25,23 @@ class notifyStrategyList extends Model
     public $instanceType;
 
     /**
+     * @description 分时段渠道
+     *
+     * @var periodChannel
+     */
+    public $periodChannel;
+
+    /**
      * @description 条件。json格式，包含多个条件，比如级别、影响程度 kv格式
      *
      * @var strategies[]
      */
     public $strategies;
-
-    /**
-     * @description 渠道，多个逗号分隔
-     *
-     * @var string
-     */
-    public $channels;
     protected $_name = [
-        'instanceType' => 'instanceType',
-        'strategies'   => 'strategies',
-        'channels'     => 'channels',
+        'channels'      => 'channels',
+        'instanceType'  => 'instanceType',
+        'periodChannel' => 'periodChannel',
+        'strategies'    => 'strategies',
     ];
 
     public function validate()
@@ -42,8 +51,14 @@ class notifyStrategyList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channels) {
+            $res['channels'] = $this->channels;
+        }
         if (null !== $this->instanceType) {
             $res['instanceType'] = $this->instanceType;
+        }
+        if (null !== $this->periodChannel) {
+            $res['periodChannel'] = null !== $this->periodChannel ? $this->periodChannel->toMap() : null;
         }
         if (null !== $this->strategies) {
             $res['strategies'] = [];
@@ -53,9 +68,6 @@ class notifyStrategyList extends Model
                     $res['strategies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->channels) {
-            $res['channels'] = $this->channels;
         }
 
         return $res;
@@ -69,8 +81,14 @@ class notifyStrategyList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['channels'])) {
+            $model->channels = $map['channels'];
+        }
         if (isset($map['instanceType'])) {
             $model->instanceType = $map['instanceType'];
+        }
+        if (isset($map['periodChannel'])) {
+            $model->periodChannel = periodChannel::fromMap($map['periodChannel']);
         }
         if (isset($map['strategies'])) {
             if (!empty($map['strategies'])) {
@@ -80,9 +98,6 @@ class notifyStrategyList extends Model
                     $model->strategies[$n++] = null !== $item ? strategies::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['channels'])) {
-            $model->channels = $map['channels'];
         }
 
         return $model;

@@ -10,11 +10,44 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 故障id
+     * @var affectServices[]
+     */
+    public $affectServices;
+
+    /**
+     * @description 取消时间
+     *
+     * @var string
+     */
+    public $cancelTime;
+
+    /**
+     * @description 创建时间
+     *
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @description 发现时间
+     *
+     * @var string
+     */
+    public $discoverTime;
+
+    /**
+     * @description 完结时间
+     *
+     * @var string
+     */
+    public $finishTime;
+
+    /**
+     * @description 事件ID
      *
      * @var int
      */
-    public $problemId;
+    public $incidentId;
 
     /**
      * @description 是否手动
@@ -31,46 +64,25 @@ class data extends Model
     public $isUpgrade;
 
     /**
-     * @description 事件ID
+     * @description 主要处理人ID
      *
      * @var int
      */
-    public $incidentId;
+    public $mainHandlerId;
 
     /**
-     * @description 创建时间
+     * @description 主要处理人名称
      *
      * @var string
      */
-    public $createTime;
+    public $mainHandlerName;
 
     /**
-     * @description 修改时间
+     * @description 故障id
      *
-     * @var string
+     * @var int
      */
-    public $updateTime;
-
-    /**
-     * @description 故障编号
-     *
-     * @var string
-     */
-    public $problemNumber;
-
-    /**
-     * @description 故障名称
-     *
-     * @var string
-     */
-    public $problemName;
-
-    /**
-     * @description 故障状态  HANDLING    处理中 RECOVERED  已恢复  REPLAYING   复盘中  REPLAYED     已复盘 CANCEL        已取消
-     *
-     * @var string
-     */
-    public $problemStatus;
+    public $problemId;
 
     /**
      * @description 故障等级 1=P1 2=P2 3=P3 4=P4
@@ -80,11 +92,25 @@ class data extends Model
     public $problemLevel;
 
     /**
-     * @description 发现时间
+     * @description 故障名称
      *
      * @var string
      */
-    public $discoverTime;
+    public $problemName;
+
+    /**
+     * @description 故障编号
+     *
+     * @var string
+     */
+    public $problemNumber;
+
+    /**
+     * @description 故障状态  HANDLING    处理中 RECOVERED  已恢复  REPLAYING   复盘中  REPLAYED     已复盘 CANCEL        已取消
+     *
+     * @var string
+     */
+    public $problemStatus;
 
     /**
      * @description 恢复时间
@@ -101,6 +127,13 @@ class data extends Model
     public $relatedServiceId;
 
     /**
+     * @description 复盘时间
+     *
+     * @var string
+     */
+    public $replayTime;
+
+    /**
      * @description 关联服务名称
      *
      * @var string
@@ -108,65 +141,32 @@ class data extends Model
     public $serviceName;
 
     /**
-     * @var affectServices[]
-     */
-    public $affectServices;
-
-    /**
-     * @description 主要处理人ID
-     *
-     * @var int
-     */
-    public $mainHandlerId;
-
-    /**
-     * @description 主要处理人名称
+     * @description 修改时间
      *
      * @var string
      */
-    public $mainHandlerName;
-
-    /**
-     * @description 取消时间
-     *
-     * @var string
-     */
-    public $cancelTime;
-
-    /**
-     * @description 完结时间
-     *
-     * @var string
-     */
-    public $finishTime;
-
-    /**
-     * @description 复盘时间
-     *
-     * @var string
-     */
-    public $replayTime;
+    public $updateTime;
     protected $_name = [
-        'problemId'        => 'problemId',
+        'affectServices'   => 'affectServices',
+        'cancelTime'       => 'cancelTime',
+        'createTime'       => 'createTime',
+        'discoverTime'     => 'discoverTime',
+        'finishTime'       => 'finishTime',
+        'incidentId'       => 'incidentId',
         'isManual'         => 'isManual',
         'isUpgrade'        => 'isUpgrade',
-        'incidentId'       => 'incidentId',
-        'createTime'       => 'createTime',
-        'updateTime'       => 'updateTime',
-        'problemNumber'    => 'problemNumber',
-        'problemName'      => 'problemName',
-        'problemStatus'    => 'problemStatus',
-        'problemLevel'     => 'problemLevel',
-        'discoverTime'     => 'discoverTime',
-        'recoveryTime'     => 'recoveryTime',
-        'relatedServiceId' => 'relatedServiceId',
-        'serviceName'      => 'serviceName',
-        'affectServices'   => 'affectServices',
         'mainHandlerId'    => 'mainHandlerId',
         'mainHandlerName'  => 'mainHandlerName',
-        'cancelTime'       => 'cancelTime',
-        'finishTime'       => 'finishTime',
+        'problemId'        => 'problemId',
+        'problemLevel'     => 'problemLevel',
+        'problemName'      => 'problemName',
+        'problemNumber'    => 'problemNumber',
+        'problemStatus'    => 'problemStatus',
+        'recoveryTime'     => 'recoveryTime',
+        'relatedServiceId' => 'relatedServiceId',
         'replayTime'       => 'replayTime',
+        'serviceName'      => 'serviceName',
+        'updateTime'       => 'updateTime',
     ];
 
     public function validate()
@@ -176,48 +176,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->problemId) {
-            $res['problemId'] = $this->problemId;
-        }
-        if (null !== $this->isManual) {
-            $res['isManual'] = $this->isManual;
-        }
-        if (null !== $this->isUpgrade) {
-            $res['isUpgrade'] = $this->isUpgrade;
-        }
-        if (null !== $this->incidentId) {
-            $res['incidentId'] = $this->incidentId;
-        }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
-        }
-        if (null !== $this->updateTime) {
-            $res['updateTime'] = $this->updateTime;
-        }
-        if (null !== $this->problemNumber) {
-            $res['problemNumber'] = $this->problemNumber;
-        }
-        if (null !== $this->problemName) {
-            $res['problemName'] = $this->problemName;
-        }
-        if (null !== $this->problemStatus) {
-            $res['problemStatus'] = $this->problemStatus;
-        }
-        if (null !== $this->problemLevel) {
-            $res['problemLevel'] = $this->problemLevel;
-        }
-        if (null !== $this->discoverTime) {
-            $res['discoverTime'] = $this->discoverTime;
-        }
-        if (null !== $this->recoveryTime) {
-            $res['recoveryTime'] = $this->recoveryTime;
-        }
-        if (null !== $this->relatedServiceId) {
-            $res['relatedServiceId'] = $this->relatedServiceId;
-        }
-        if (null !== $this->serviceName) {
-            $res['serviceName'] = $this->serviceName;
-        }
         if (null !== $this->affectServices) {
             $res['affectServices'] = [];
             if (null !== $this->affectServices && \is_array($this->affectServices)) {
@@ -227,20 +185,62 @@ class data extends Model
                 }
             }
         }
+        if (null !== $this->cancelTime) {
+            $res['cancelTime'] = $this->cancelTime;
+        }
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
+        if (null !== $this->discoverTime) {
+            $res['discoverTime'] = $this->discoverTime;
+        }
+        if (null !== $this->finishTime) {
+            $res['finishTime'] = $this->finishTime;
+        }
+        if (null !== $this->incidentId) {
+            $res['incidentId'] = $this->incidentId;
+        }
+        if (null !== $this->isManual) {
+            $res['isManual'] = $this->isManual;
+        }
+        if (null !== $this->isUpgrade) {
+            $res['isUpgrade'] = $this->isUpgrade;
+        }
         if (null !== $this->mainHandlerId) {
             $res['mainHandlerId'] = $this->mainHandlerId;
         }
         if (null !== $this->mainHandlerName) {
             $res['mainHandlerName'] = $this->mainHandlerName;
         }
-        if (null !== $this->cancelTime) {
-            $res['cancelTime'] = $this->cancelTime;
+        if (null !== $this->problemId) {
+            $res['problemId'] = $this->problemId;
         }
-        if (null !== $this->finishTime) {
-            $res['finishTime'] = $this->finishTime;
+        if (null !== $this->problemLevel) {
+            $res['problemLevel'] = $this->problemLevel;
+        }
+        if (null !== $this->problemName) {
+            $res['problemName'] = $this->problemName;
+        }
+        if (null !== $this->problemNumber) {
+            $res['problemNumber'] = $this->problemNumber;
+        }
+        if (null !== $this->problemStatus) {
+            $res['problemStatus'] = $this->problemStatus;
+        }
+        if (null !== $this->recoveryTime) {
+            $res['recoveryTime'] = $this->recoveryTime;
+        }
+        if (null !== $this->relatedServiceId) {
+            $res['relatedServiceId'] = $this->relatedServiceId;
         }
         if (null !== $this->replayTime) {
             $res['replayTime'] = $this->replayTime;
+        }
+        if (null !== $this->serviceName) {
+            $res['serviceName'] = $this->serviceName;
+        }
+        if (null !== $this->updateTime) {
+            $res['updateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -254,48 +254,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['problemId'])) {
-            $model->problemId = $map['problemId'];
-        }
-        if (isset($map['isManual'])) {
-            $model->isManual = $map['isManual'];
-        }
-        if (isset($map['isUpgrade'])) {
-            $model->isUpgrade = $map['isUpgrade'];
-        }
-        if (isset($map['incidentId'])) {
-            $model->incidentId = $map['incidentId'];
-        }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
-        }
-        if (isset($map['updateTime'])) {
-            $model->updateTime = $map['updateTime'];
-        }
-        if (isset($map['problemNumber'])) {
-            $model->problemNumber = $map['problemNumber'];
-        }
-        if (isset($map['problemName'])) {
-            $model->problemName = $map['problemName'];
-        }
-        if (isset($map['problemStatus'])) {
-            $model->problemStatus = $map['problemStatus'];
-        }
-        if (isset($map['problemLevel'])) {
-            $model->problemLevel = $map['problemLevel'];
-        }
-        if (isset($map['discoverTime'])) {
-            $model->discoverTime = $map['discoverTime'];
-        }
-        if (isset($map['recoveryTime'])) {
-            $model->recoveryTime = $map['recoveryTime'];
-        }
-        if (isset($map['relatedServiceId'])) {
-            $model->relatedServiceId = $map['relatedServiceId'];
-        }
-        if (isset($map['serviceName'])) {
-            $model->serviceName = $map['serviceName'];
-        }
         if (isset($map['affectServices'])) {
             if (!empty($map['affectServices'])) {
                 $model->affectServices = [];
@@ -305,20 +263,62 @@ class data extends Model
                 }
             }
         }
+        if (isset($map['cancelTime'])) {
+            $model->cancelTime = $map['cancelTime'];
+        }
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
+        if (isset($map['discoverTime'])) {
+            $model->discoverTime = $map['discoverTime'];
+        }
+        if (isset($map['finishTime'])) {
+            $model->finishTime = $map['finishTime'];
+        }
+        if (isset($map['incidentId'])) {
+            $model->incidentId = $map['incidentId'];
+        }
+        if (isset($map['isManual'])) {
+            $model->isManual = $map['isManual'];
+        }
+        if (isset($map['isUpgrade'])) {
+            $model->isUpgrade = $map['isUpgrade'];
+        }
         if (isset($map['mainHandlerId'])) {
             $model->mainHandlerId = $map['mainHandlerId'];
         }
         if (isset($map['mainHandlerName'])) {
             $model->mainHandlerName = $map['mainHandlerName'];
         }
-        if (isset($map['cancelTime'])) {
-            $model->cancelTime = $map['cancelTime'];
+        if (isset($map['problemId'])) {
+            $model->problemId = $map['problemId'];
         }
-        if (isset($map['finishTime'])) {
-            $model->finishTime = $map['finishTime'];
+        if (isset($map['problemLevel'])) {
+            $model->problemLevel = $map['problemLevel'];
+        }
+        if (isset($map['problemName'])) {
+            $model->problemName = $map['problemName'];
+        }
+        if (isset($map['problemNumber'])) {
+            $model->problemNumber = $map['problemNumber'];
+        }
+        if (isset($map['problemStatus'])) {
+            $model->problemStatus = $map['problemStatus'];
+        }
+        if (isset($map['recoveryTime'])) {
+            $model->recoveryTime = $map['recoveryTime'];
+        }
+        if (isset($map['relatedServiceId'])) {
+            $model->relatedServiceId = $map['relatedServiceId'];
         }
         if (isset($map['replayTime'])) {
             $model->replayTime = $map['replayTime'];
+        }
+        if (isset($map['serviceName'])) {
+            $model->serviceName = $map['serviceName'];
+        }
+        if (isset($map['updateTime'])) {
+            $model->updateTime = $map['updateTime'];
         }
 
         return $model;

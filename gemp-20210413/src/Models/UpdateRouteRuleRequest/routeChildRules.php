@@ -24,23 +24,23 @@ class routeChildRules extends Model
     public $conditions;
 
     /**
-     * @description 监控源ID
-     *
-     * @var int
-     */
-    public $monitorSourceId;
-
-    /**
      * @description true  删除子规则  false编辑子规则
      *
      * @var bool
      */
     public $isValidChildRule;
+
+    /**
+     * @description 监控源ID
+     *
+     * @var int
+     */
+    public $monitorSourceId;
     protected $_name = [
         'childRouteRuleId' => 'childRouteRuleId',
         'conditions'       => 'conditions',
-        'monitorSourceId'  => 'monitorSourceId',
         'isValidChildRule' => 'isValidChildRule',
+        'monitorSourceId'  => 'monitorSourceId',
     ];
 
     public function validate()
@@ -62,11 +62,11 @@ class routeChildRules extends Model
                 }
             }
         }
-        if (null !== $this->monitorSourceId) {
-            $res['monitorSourceId'] = $this->monitorSourceId;
-        }
         if (null !== $this->isValidChildRule) {
             $res['isValidChildRule'] = $this->isValidChildRule;
+        }
+        if (null !== $this->monitorSourceId) {
+            $res['monitorSourceId'] = $this->monitorSourceId;
         }
 
         return $res;
@@ -92,11 +92,11 @@ class routeChildRules extends Model
                 }
             }
         }
-        if (isset($map['monitorSourceId'])) {
-            $model->monitorSourceId = $map['monitorSourceId'];
-        }
         if (isset($map['isValidChildRule'])) {
             $model->isValidChildRule = $map['isValidChildRule'];
+        }
+        if (isset($map['monitorSourceId'])) {
+            $model->monitorSourceId = $map['monitorSourceId'];
         }
 
         return $model;

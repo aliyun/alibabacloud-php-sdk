@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class schedulingFineShifts extends Model
 {
     /**
-     * @description 排班开始时间
-     *
-     * @var string
-     */
-    public $schedulingStartTime;
-
-    /**
      * @description 排班结束时间
      *
      * @var string
@@ -30,15 +23,22 @@ class schedulingFineShifts extends Model
     public $schedulingOrder;
 
     /**
+     * @description 排班开始时间
+     *
+     * @var string
+     */
+    public $schedulingStartTime;
+
+    /**
      * @description 班次名称
      *
      * @var string
      */
     public $shiftName;
     protected $_name = [
-        'schedulingStartTime' => 'schedulingStartTime',
         'schedulingEndTime'   => 'schedulingEndTime',
         'schedulingOrder'     => 'schedulingOrder',
+        'schedulingStartTime' => 'schedulingStartTime',
         'shiftName'           => 'shiftName',
     ];
 
@@ -49,14 +49,14 @@ class schedulingFineShifts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->schedulingStartTime) {
-            $res['schedulingStartTime'] = $this->schedulingStartTime;
-        }
         if (null !== $this->schedulingEndTime) {
             $res['schedulingEndTime'] = $this->schedulingEndTime;
         }
         if (null !== $this->schedulingOrder) {
             $res['schedulingOrder'] = $this->schedulingOrder;
+        }
+        if (null !== $this->schedulingStartTime) {
+            $res['schedulingStartTime'] = $this->schedulingStartTime;
         }
         if (null !== $this->shiftName) {
             $res['shiftName'] = $this->shiftName;
@@ -73,14 +73,14 @@ class schedulingFineShifts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['schedulingStartTime'])) {
-            $model->schedulingStartTime = $map['schedulingStartTime'];
-        }
         if (isset($map['schedulingEndTime'])) {
             $model->schedulingEndTime = $map['schedulingEndTime'];
         }
         if (isset($map['schedulingOrder'])) {
             $model->schedulingOrder = $map['schedulingOrder'];
+        }
+        if (isset($map['schedulingStartTime'])) {
+            $model->schedulingStartTime = $map['schedulingStartTime'];
         }
         if (isset($map['shiftName'])) {
             $model->shiftName = $map['shiftName'];

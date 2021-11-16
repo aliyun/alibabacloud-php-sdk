@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string[]
+     */
+    public $fieldKeys;
+
+    /**
      * @var int
      */
     public $monitorSourceId;
@@ -17,15 +22,10 @@ class data extends Model
      * @var string
      */
     public $monitorSourceName;
-
-    /**
-     * @var string[]
-     */
-    public $fieldKeys;
     protected $_name = [
+        'fieldKeys'         => 'fieldKeys',
         'monitorSourceId'   => 'monitorSourceId',
         'monitorSourceName' => 'monitorSourceName',
-        'fieldKeys'         => 'fieldKeys',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fieldKeys) {
+            $res['fieldKeys'] = $this->fieldKeys;
+        }
         if (null !== $this->monitorSourceId) {
             $res['monitorSourceId'] = $this->monitorSourceId;
         }
         if (null !== $this->monitorSourceName) {
             $res['monitorSourceName'] = $this->monitorSourceName;
-        }
-        if (null !== $this->fieldKeys) {
-            $res['fieldKeys'] = $this->fieldKeys;
         }
 
         return $res;
@@ -56,16 +56,16 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['fieldKeys'])) {
+            if (!empty($map['fieldKeys'])) {
+                $model->fieldKeys = $map['fieldKeys'];
+            }
+        }
         if (isset($map['monitorSourceId'])) {
             $model->monitorSourceId = $map['monitorSourceId'];
         }
         if (isset($map['monitorSourceName'])) {
             $model->monitorSourceName = $map['monitorSourceName'];
-        }
-        if (isset($map['fieldKeys'])) {
-            if (!empty($map['fieldKeys'])) {
-                $model->fieldKeys = $map['fieldKeys'];
-            }
         }
 
         return $model;

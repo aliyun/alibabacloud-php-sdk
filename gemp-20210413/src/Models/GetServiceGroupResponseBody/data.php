@@ -10,6 +10,41 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 创建时间
+     *
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @description ENABLE 启用 DISABLE 禁用
+     *
+     * @var string
+     */
+    public $enableWebhook;
+
+    /**
+     * @description 服务组描述
+     *
+     * @var string
+     */
+    public $serviceGroupDescription;
+
+    /**
+     * @description 服务组ID
+     *
+     * @var int
+     */
+    public $serviceGroupId;
+
+    /**
+     * @description 服务组名称
+     *
+     * @var string
+     */
+    public $serviceGroupName;
+
+    /**
      * @description 修改时间
      *
      * @var string
@@ -24,13 +59,6 @@ class data extends Model
     public $users;
 
     /**
-     * @description 服务组描述
-     *
-     * @var string
-     */
-    public $serviceGroupDescription;
-
-    /**
      * @description webhook 跳转地址
      *
      * @var string
@@ -43,44 +71,16 @@ class data extends Model
      * @var string
      */
     public $webhookType;
-
-    /**
-     * @description ENABLE 启用 DISABLE 禁用
-     *
-     * @var string
-     */
-    public $enableWebhook;
-
-    /**
-     * @description 服务组名称
-     *
-     * @var string
-     */
-    public $serviceGroupName;
-
-    /**
-     * @description 服务组ID
-     *
-     * @var int
-     */
-    public $serviceGroupId;
-
-    /**
-     * @description 创建时间
-     *
-     * @var string
-     */
-    public $createTime;
     protected $_name = [
+        'createTime'              => 'createTime',
+        'enableWebhook'           => 'enableWebhook',
+        'serviceGroupDescription' => 'serviceGroupDescription',
+        'serviceGroupId'          => 'serviceGroupId',
+        'serviceGroupName'        => 'serviceGroupName',
         'updateTime'              => 'updateTime',
         'users'                   => 'users',
-        'serviceGroupDescription' => 'serviceGroupDescription',
         'webhookLink'             => 'webhookLink',
         'webhookType'             => 'webhookType',
-        'enableWebhook'           => 'enableWebhook',
-        'serviceGroupName'        => 'serviceGroupName',
-        'serviceGroupId'          => 'serviceGroupId',
-        'createTime'              => 'createTime',
     ];
 
     public function validate()
@@ -90,6 +90,21 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
+        if (null !== $this->enableWebhook) {
+            $res['enableWebhook'] = $this->enableWebhook;
+        }
+        if (null !== $this->serviceGroupDescription) {
+            $res['serviceGroupDescription'] = $this->serviceGroupDescription;
+        }
+        if (null !== $this->serviceGroupId) {
+            $res['serviceGroupId'] = $this->serviceGroupId;
+        }
+        if (null !== $this->serviceGroupName) {
+            $res['serviceGroupName'] = $this->serviceGroupName;
+        }
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
         }
@@ -102,26 +117,11 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->serviceGroupDescription) {
-            $res['serviceGroupDescription'] = $this->serviceGroupDescription;
-        }
         if (null !== $this->webhookLink) {
             $res['webhookLink'] = $this->webhookLink;
         }
         if (null !== $this->webhookType) {
             $res['webhookType'] = $this->webhookType;
-        }
-        if (null !== $this->enableWebhook) {
-            $res['enableWebhook'] = $this->enableWebhook;
-        }
-        if (null !== $this->serviceGroupName) {
-            $res['serviceGroupName'] = $this->serviceGroupName;
-        }
-        if (null !== $this->serviceGroupId) {
-            $res['serviceGroupId'] = $this->serviceGroupId;
-        }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
         }
 
         return $res;
@@ -135,6 +135,21 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
+        if (isset($map['enableWebhook'])) {
+            $model->enableWebhook = $map['enableWebhook'];
+        }
+        if (isset($map['serviceGroupDescription'])) {
+            $model->serviceGroupDescription = $map['serviceGroupDescription'];
+        }
+        if (isset($map['serviceGroupId'])) {
+            $model->serviceGroupId = $map['serviceGroupId'];
+        }
+        if (isset($map['serviceGroupName'])) {
+            $model->serviceGroupName = $map['serviceGroupName'];
+        }
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
         }
@@ -147,26 +162,11 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['serviceGroupDescription'])) {
-            $model->serviceGroupDescription = $map['serviceGroupDescription'];
-        }
         if (isset($map['webhookLink'])) {
             $model->webhookLink = $map['webhookLink'];
         }
         if (isset($map['webhookType'])) {
             $model->webhookType = $map['webhookType'];
-        }
-        if (isset($map['enableWebhook'])) {
-            $model->enableWebhook = $map['enableWebhook'];
-        }
-        if (isset($map['serviceGroupName'])) {
-            $model->serviceGroupName = $map['serviceGroupName'];
-        }
-        if (isset($map['serviceGroupId'])) {
-            $model->serviceGroupId = $map['serviceGroupId'];
-        }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
         }
 
         return $model;

@@ -16,18 +16,18 @@ class GenerateProblemPictureUploadSignRequest extends Model
     public $fileName;
 
     /**
-     * @description 文件类型
-     *
-     * @var string
-     */
-    public $fileType;
-
-    /**
      * @description 文件大小KB
      *
      * @var int
      */
     public $fileSize;
+
+    /**
+     * @description 文件类型
+     *
+     * @var string
+     */
+    public $fileType;
 
     /**
      * @description 故障id
@@ -37,8 +37,8 @@ class GenerateProblemPictureUploadSignRequest extends Model
     public $problemId;
     protected $_name = [
         'fileName'  => 'fileName',
-        'fileType'  => 'fileType',
         'fileSize'  => 'fileSize',
+        'fileType'  => 'fileType',
         'problemId' => 'problemId',
     ];
 
@@ -52,11 +52,11 @@ class GenerateProblemPictureUploadSignRequest extends Model
         if (null !== $this->fileName) {
             $res['fileName'] = $this->fileName;
         }
-        if (null !== $this->fileType) {
-            $res['fileType'] = $this->fileType;
-        }
         if (null !== $this->fileSize) {
             $res['fileSize'] = $this->fileSize;
+        }
+        if (null !== $this->fileType) {
+            $res['fileType'] = $this->fileType;
         }
         if (null !== $this->problemId) {
             $res['problemId'] = $this->problemId;
@@ -76,11 +76,11 @@ class GenerateProblemPictureUploadSignRequest extends Model
         if (isset($map['fileName'])) {
             $model->fileName = $map['fileName'];
         }
-        if (isset($map['fileType'])) {
-            $model->fileType = $map['fileType'];
-        }
         if (isset($map['fileSize'])) {
             $model->fileSize = $map['fileSize'];
+        }
+        if (isset($map['fileType'])) {
+            $model->fileType = $map['fileType'];
         }
         if (isset($map['problemId'])) {
             $model->problemId = $map['problemId'];

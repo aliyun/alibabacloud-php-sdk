@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class CreateProblemMeasureResponseBody extends Model
 {
     /**
+     * @var data
+     */
+    public $data;
+
+    /**
      * @description Id of the request
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var data
-     */
-    public $data;
     protected $_name = [
-        'requestId' => 'requestId',
         'data'      => 'data',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -32,11 +32,11 @@ class CreateProblemMeasureResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
-        }
         if (null !== $this->data) {
             $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -50,11 +50,11 @@ class CreateProblemMeasureResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
-        }
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

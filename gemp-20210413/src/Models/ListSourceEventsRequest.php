@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListSourceEventsRequest extends Model
 {
     /**
+     * @description 幂等号
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description 报警或者事件ID
      *
      * @var int
@@ -23,6 +30,20 @@ class ListSourceEventsRequest extends Model
     public $instanceType;
 
     /**
+     * @description 当前页
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @description 页大小
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @description startRowKey 用来查询下一页的数据
      *
      * @var string
@@ -35,35 +56,14 @@ class ListSourceEventsRequest extends Model
      * @var string
      */
     public $stopRowKey;
-
-    /**
-     * @description 页大小
-     *
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @description 幂等号
-     *
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @description 当前页
-     *
-     * @var int
-     */
-    public $pageNumber;
     protected $_name = [
+        'clientToken'  => 'clientToken',
         'instanceId'   => 'instanceId',
         'instanceType' => 'instanceType',
+        'pageNumber'   => 'pageNumber',
+        'pageSize'     => 'pageSize',
         'startRowKey'  => 'startRowKey',
         'stopRowKey'   => 'stopRowKey',
-        'pageSize'     => 'pageSize',
-        'clientToken'  => 'clientToken',
-        'pageNumber'   => 'pageNumber',
     ];
 
     public function validate()
@@ -73,26 +73,26 @@ class ListSourceEventsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceType) {
             $res['instanceType'] = $this->instanceType;
         }
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
+        }
         if (null !== $this->startRowKey) {
             $res['startRowKey'] = $this->startRowKey;
         }
         if (null !== $this->stopRowKey) {
             $res['stopRowKey'] = $this->stopRowKey;
-        }
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
-        }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
-        }
-        if (null !== $this->pageNumber) {
-            $res['pageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -106,26 +106,26 @@ class ListSourceEventsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
         if (isset($map['instanceType'])) {
             $model->instanceType = $map['instanceType'];
         }
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
+        }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
+        }
         if (isset($map['startRowKey'])) {
             $model->startRowKey = $map['startRowKey'];
         }
         if (isset($map['stopRowKey'])) {
             $model->stopRowKey = $map['stopRowKey'];
-        }
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
-        }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
-        }
-        if (isset($map['pageNumber'])) {
-            $model->pageNumber = $map['pageNumber'];
         }
 
         return $model;

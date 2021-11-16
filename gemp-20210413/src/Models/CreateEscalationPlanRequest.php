@@ -11,11 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateEscalationPlanRequest extends Model
 {
     /**
-     * @description 升级计划名称
+     * @description clientToken
      *
      * @var string
      */
-    public $escalationPlanName;
+    public $clientToken;
 
     /**
      * @description 升级计划描述
@@ -25,11 +25,11 @@ class CreateEscalationPlanRequest extends Model
     public $escalationPlanDescription;
 
     /**
-     * @description 升级计划范围对象列表
+     * @description 升级计划名称
      *
-     * @var escalationPlanScopeObjects[]
+     * @var string
      */
-    public $escalationPlanScopeObjects;
+    public $escalationPlanName;
 
     /**
      * @description 升级计划规则列表
@@ -39,17 +39,17 @@ class CreateEscalationPlanRequest extends Model
     public $escalationPlanRules;
 
     /**
-     * @description clientToken
+     * @description 升级计划范围对象列表
      *
-     * @var string
+     * @var escalationPlanScopeObjects[]
      */
-    public $clientToken;
+    public $escalationPlanScopeObjects;
     protected $_name = [
-        'escalationPlanName'         => 'escalationPlanName',
-        'escalationPlanDescription'  => 'escalationPlanDescription',
-        'escalationPlanScopeObjects' => 'escalationPlanScopeObjects',
-        'escalationPlanRules'        => 'escalationPlanRules',
         'clientToken'                => 'clientToken',
+        'escalationPlanDescription'  => 'escalationPlanDescription',
+        'escalationPlanName'         => 'escalationPlanName',
+        'escalationPlanRules'        => 'escalationPlanRules',
+        'escalationPlanScopeObjects' => 'escalationPlanScopeObjects',
     ];
 
     public function validate()
@@ -59,20 +59,14 @@ class CreateEscalationPlanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->escalationPlanName) {
-            $res['escalationPlanName'] = $this->escalationPlanName;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->escalationPlanDescription) {
             $res['escalationPlanDescription'] = $this->escalationPlanDescription;
         }
-        if (null !== $this->escalationPlanScopeObjects) {
-            $res['escalationPlanScopeObjects'] = [];
-            if (null !== $this->escalationPlanScopeObjects && \is_array($this->escalationPlanScopeObjects)) {
-                $n = 0;
-                foreach ($this->escalationPlanScopeObjects as $item) {
-                    $res['escalationPlanScopeObjects'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->escalationPlanName) {
+            $res['escalationPlanName'] = $this->escalationPlanName;
         }
         if (null !== $this->escalationPlanRules) {
             $res['escalationPlanRules'] = [];
@@ -83,8 +77,14 @@ class CreateEscalationPlanRequest extends Model
                 }
             }
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->escalationPlanScopeObjects) {
+            $res['escalationPlanScopeObjects'] = [];
+            if (null !== $this->escalationPlanScopeObjects && \is_array($this->escalationPlanScopeObjects)) {
+                $n = 0;
+                foreach ($this->escalationPlanScopeObjects as $item) {
+                    $res['escalationPlanScopeObjects'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -98,20 +98,14 @@ class CreateEscalationPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['escalationPlanName'])) {
-            $model->escalationPlanName = $map['escalationPlanName'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['escalationPlanDescription'])) {
             $model->escalationPlanDescription = $map['escalationPlanDescription'];
         }
-        if (isset($map['escalationPlanScopeObjects'])) {
-            if (!empty($map['escalationPlanScopeObjects'])) {
-                $model->escalationPlanScopeObjects = [];
-                $n                                 = 0;
-                foreach ($map['escalationPlanScopeObjects'] as $item) {
-                    $model->escalationPlanScopeObjects[$n++] = null !== $item ? escalationPlanScopeObjects::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['escalationPlanName'])) {
+            $model->escalationPlanName = $map['escalationPlanName'];
         }
         if (isset($map['escalationPlanRules'])) {
             if (!empty($map['escalationPlanRules'])) {
@@ -122,8 +116,14 @@ class CreateEscalationPlanRequest extends Model
                 }
             }
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['escalationPlanScopeObjects'])) {
+            if (!empty($map['escalationPlanScopeObjects'])) {
+                $model->escalationPlanScopeObjects = [];
+                $n                                 = 0;
+                foreach ($map['escalationPlanScopeObjects'] as $item) {
+                    $model->escalationPlanScopeObjects[$n++] = null !== $item ? escalationPlanScopeObjects::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

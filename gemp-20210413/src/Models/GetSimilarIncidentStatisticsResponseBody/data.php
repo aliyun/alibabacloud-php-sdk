@@ -11,11 +11,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description topFiveIncidents
+     * @description 7天内相似事件数量
      *
-     * @var topFiveIncidents[]
+     * @var int
      */
-    public $topFiveIncidents;
+    public $countInSevenDays;
 
     /**
      * @description 6月内相似事件数量
@@ -23,13 +23,6 @@ class data extends Model
      * @var int
      */
     public $countInSixMonths;
-
-    /**
-     * @description 7天内相似事件数量
-     *
-     * @var int
-     */
-    public $countInSevenDays;
 
     /**
      * @description 根据日期分类
@@ -44,12 +37,19 @@ class data extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description topFiveIncidents
+     *
+     * @var topFiveIncidents[]
+     */
+    public $topFiveIncidents;
     protected $_name = [
-        'topFiveIncidents'      => 'topFiveIncidents',
-        'countInSixMonths'      => 'countInSixMonths',
         'countInSevenDays'      => 'countInSevenDays',
+        'countInSixMonths'      => 'countInSixMonths',
         'dailySimilarIncidents' => 'dailySimilarIncidents',
         'requestId'             => 'requestId',
+        'topFiveIncidents'      => 'topFiveIncidents',
     ];
 
     public function validate()
@@ -59,20 +59,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topFiveIncidents) {
-            $res['topFiveIncidents'] = [];
-            if (null !== $this->topFiveIncidents && \is_array($this->topFiveIncidents)) {
-                $n = 0;
-                foreach ($this->topFiveIncidents as $item) {
-                    $res['topFiveIncidents'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->countInSevenDays) {
+            $res['countInSevenDays'] = $this->countInSevenDays;
         }
         if (null !== $this->countInSixMonths) {
             $res['countInSixMonths'] = $this->countInSixMonths;
-        }
-        if (null !== $this->countInSevenDays) {
-            $res['countInSevenDays'] = $this->countInSevenDays;
         }
         if (null !== $this->dailySimilarIncidents) {
             $res['dailySimilarIncidents'] = [];
@@ -86,6 +77,15 @@ class data extends Model
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+        if (null !== $this->topFiveIncidents) {
+            $res['topFiveIncidents'] = [];
+            if (null !== $this->topFiveIncidents && \is_array($this->topFiveIncidents)) {
+                $n = 0;
+                foreach ($this->topFiveIncidents as $item) {
+                    $res['topFiveIncidents'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -98,20 +98,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['topFiveIncidents'])) {
-            if (!empty($map['topFiveIncidents'])) {
-                $model->topFiveIncidents = [];
-                $n                       = 0;
-                foreach ($map['topFiveIncidents'] as $item) {
-                    $model->topFiveIncidents[$n++] = null !== $item ? topFiveIncidents::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['countInSevenDays'])) {
+            $model->countInSevenDays = $map['countInSevenDays'];
         }
         if (isset($map['countInSixMonths'])) {
             $model->countInSixMonths = $map['countInSixMonths'];
-        }
-        if (isset($map['countInSevenDays'])) {
-            $model->countInSevenDays = $map['countInSevenDays'];
         }
         if (isset($map['dailySimilarIncidents'])) {
             if (!empty($map['dailySimilarIncidents'])) {
@@ -124,6 +115,15 @@ class data extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['topFiveIncidents'])) {
+            if (!empty($map['topFiveIncidents'])) {
+                $model->topFiveIncidents = [];
+                $n                       = 0;
+                foreach ($map['topFiveIncidents'] as $item) {
+                    $model->topFiveIncidents[$n++] = null !== $item ? topFiveIncidents::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

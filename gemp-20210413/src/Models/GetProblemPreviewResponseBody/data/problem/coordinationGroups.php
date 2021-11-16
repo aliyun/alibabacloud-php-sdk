@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class coordinationGroups extends Model
 {
     /**
-     * @description 服务组名称
+     * @description 服务组Maison
      *
      * @var string
      */
-    public $serviceGroupName;
+    public $serviceGroupDescription;
 
     /**
      * @description 服务Id
@@ -23,15 +23,15 @@ class coordinationGroups extends Model
     public $serviceGroupId;
 
     /**
-     * @description 服务组Maison
+     * @description 服务组名称
      *
      * @var string
      */
-    public $serviceGroupDescription;
+    public $serviceGroupName;
     protected $_name = [
-        'serviceGroupName'        => 'serviceGroupName',
-        'serviceGroupId'          => 'serviceGroupId',
         'serviceGroupDescription' => 'serviceGroupDescription',
+        'serviceGroupId'          => 'serviceGroupId',
+        'serviceGroupName'        => 'serviceGroupName',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class coordinationGroups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceGroupName) {
-            $res['serviceGroupName'] = $this->serviceGroupName;
+        if (null !== $this->serviceGroupDescription) {
+            $res['serviceGroupDescription'] = $this->serviceGroupDescription;
         }
         if (null !== $this->serviceGroupId) {
             $res['serviceGroupId'] = $this->serviceGroupId;
         }
-        if (null !== $this->serviceGroupDescription) {
-            $res['serviceGroupDescription'] = $this->serviceGroupDescription;
+        if (null !== $this->serviceGroupName) {
+            $res['serviceGroupName'] = $this->serviceGroupName;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class coordinationGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['serviceGroupName'])) {
-            $model->serviceGroupName = $map['serviceGroupName'];
+        if (isset($map['serviceGroupDescription'])) {
+            $model->serviceGroupDescription = $map['serviceGroupDescription'];
         }
         if (isset($map['serviceGroupId'])) {
             $model->serviceGroupId = $map['serviceGroupId'];
         }
-        if (isset($map['serviceGroupDescription'])) {
-            $model->serviceGroupDescription = $map['serviceGroupDescription'];
+        if (isset($map['serviceGroupName'])) {
+            $model->serviceGroupName = $map['serviceGroupName'];
         }
 
         return $model;

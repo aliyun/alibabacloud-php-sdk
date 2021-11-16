@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class schedulingUsers extends Model
 {
     /**
-     * @description 轮班用户ID
-     *
-     * @var int
-     */
-    public $schedulingUserId;
-
-    /**
      * @description 排班顺序
      *
      * @var int
      */
     public $schedulingOrder;
+
+    /**
+     * @description 轮班用户ID
+     *
+     * @var int
+     */
+    public $schedulingUserId;
 
     /**
      * @description 轮班用户名字
@@ -29,8 +29,8 @@ class schedulingUsers extends Model
      */
     public $schedulingUserName;
     protected $_name = [
-        'schedulingUserId'   => 'schedulingUserId',
         'schedulingOrder'    => 'schedulingOrder',
+        'schedulingUserId'   => 'schedulingUserId',
         'schedulingUserName' => 'schedulingUserName',
     ];
 
@@ -41,11 +41,11 @@ class schedulingUsers extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->schedulingUserId) {
-            $res['schedulingUserId'] = $this->schedulingUserId;
-        }
         if (null !== $this->schedulingOrder) {
             $res['schedulingOrder'] = $this->schedulingOrder;
+        }
+        if (null !== $this->schedulingUserId) {
+            $res['schedulingUserId'] = $this->schedulingUserId;
         }
         if (null !== $this->schedulingUserName) {
             $res['schedulingUserName'] = $this->schedulingUserName;
@@ -62,11 +62,11 @@ class schedulingUsers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['schedulingUserId'])) {
-            $model->schedulingUserId = $map['schedulingUserId'];
-        }
         if (isset($map['schedulingOrder'])) {
             $model->schedulingOrder = $map['schedulingOrder'];
+        }
+        if (isset($map['schedulingUserId'])) {
+            $model->schedulingUserId = $map['schedulingUserId'];
         }
         if (isset($map['schedulingUserName'])) {
             $model->schedulingUserName = $map['schedulingUserName'];

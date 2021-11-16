@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ReplayProblemRequest extends Model
 {
     /**
+     * @description 幂等校验token
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description 故障ID
      *
      * @var int
@@ -21,17 +28,10 @@ class ReplayProblemRequest extends Model
      * @var int
      */
     public $replayDutyUserId;
-
-    /**
-     * @description 幂等校验token
-     *
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken'      => 'clientToken',
         'problemId'        => 'problemId',
         'replayDutyUserId' => 'replayDutyUserId',
-        'clientToken'      => 'clientToken',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class ReplayProblemRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
         if (null !== $this->problemId) {
             $res['problemId'] = $this->problemId;
         }
         if (null !== $this->replayDutyUserId) {
             $res['replayDutyUserId'] = $this->replayDutyUserId;
-        }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class ReplayProblemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
         if (isset($map['problemId'])) {
             $model->problemId = $map['problemId'];
         }
         if (isset($map['replayDutyUserId'])) {
             $model->replayDutyUserId = $map['replayDutyUserId'];
-        }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

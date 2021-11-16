@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 规则ID
-     *
-     * @var int
-     */
-    public $routeRuleId;
-
-    /**
-     * @description INCIDENT 事件、ALERT 报警、PROBLEM 故障
+     * @description 告警内容json
      *
      * @var string
      */
-    public $instanceType;
+    public $eventJson;
+
+    /**
+     * @description 告警上报时间
+     *
+     * @var string
+     */
+    public $eventTime;
 
     /**
      * @description 关联对象ID
@@ -28,6 +28,13 @@ class data extends Model
      * @var int
      */
     public $instanceId;
+
+    /**
+     * @description INCIDENT 事件、ALERT 报警、PROBLEM 故障
+     *
+     * @var string
+     */
+    public $instanceType;
 
     /**
      * @description 监控告警源ID
@@ -44,11 +51,11 @@ class data extends Model
     public $monitorSourceName;
 
     /**
-     * @description 告警上报时间
+     * @description 规则ID
      *
-     * @var string
+     * @var int
      */
-    public $eventTime;
+    public $routeRuleId;
 
     /**
      * @description 租户ID
@@ -56,22 +63,15 @@ class data extends Model
      * @var int
      */
     public $tenantRamId;
-
-    /**
-     * @description 告警内容json
-     *
-     * @var string
-     */
-    public $eventJson;
     protected $_name = [
-        'routeRuleId'       => 'routeRuleId',
-        'instanceType'      => 'instanceType',
+        'eventJson'         => 'eventJson',
+        'eventTime'         => 'eventTime',
         'instanceId'        => 'instanceId',
+        'instanceType'      => 'instanceType',
         'monitorSourceId'   => 'monitorSourceId',
         'monitorSourceName' => 'monitorSourceName',
-        'eventTime'         => 'eventTime',
+        'routeRuleId'       => 'routeRuleId',
         'tenantRamId'       => 'tenantRamId',
-        'eventJson'         => 'eventJson',
     ];
 
     public function validate()
@@ -81,14 +81,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->routeRuleId) {
-            $res['routeRuleId'] = $this->routeRuleId;
+        if (null !== $this->eventJson) {
+            $res['eventJson'] = $this->eventJson;
         }
-        if (null !== $this->instanceType) {
-            $res['instanceType'] = $this->instanceType;
+        if (null !== $this->eventTime) {
+            $res['eventTime'] = $this->eventTime;
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceType) {
+            $res['instanceType'] = $this->instanceType;
         }
         if (null !== $this->monitorSourceId) {
             $res['monitorSourceId'] = $this->monitorSourceId;
@@ -96,14 +99,11 @@ class data extends Model
         if (null !== $this->monitorSourceName) {
             $res['monitorSourceName'] = $this->monitorSourceName;
         }
-        if (null !== $this->eventTime) {
-            $res['eventTime'] = $this->eventTime;
+        if (null !== $this->routeRuleId) {
+            $res['routeRuleId'] = $this->routeRuleId;
         }
         if (null !== $this->tenantRamId) {
             $res['tenantRamId'] = $this->tenantRamId;
-        }
-        if (null !== $this->eventJson) {
-            $res['eventJson'] = $this->eventJson;
         }
 
         return $res;
@@ -117,14 +117,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['routeRuleId'])) {
-            $model->routeRuleId = $map['routeRuleId'];
+        if (isset($map['eventJson'])) {
+            $model->eventJson = $map['eventJson'];
         }
-        if (isset($map['instanceType'])) {
-            $model->instanceType = $map['instanceType'];
+        if (isset($map['eventTime'])) {
+            $model->eventTime = $map['eventTime'];
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
+        }
+        if (isset($map['instanceType'])) {
+            $model->instanceType = $map['instanceType'];
         }
         if (isset($map['monitorSourceId'])) {
             $model->monitorSourceId = $map['monitorSourceId'];
@@ -132,14 +135,11 @@ class data extends Model
         if (isset($map['monitorSourceName'])) {
             $model->monitorSourceName = $map['monitorSourceName'];
         }
-        if (isset($map['eventTime'])) {
-            $model->eventTime = $map['eventTime'];
+        if (isset($map['routeRuleId'])) {
+            $model->routeRuleId = $map['routeRuleId'];
         }
         if (isset($map['tenantRamId'])) {
             $model->tenantRamId = $map['tenantRamId'];
-        }
-        if (isset($map['eventJson'])) {
-            $model->eventJson = $map['eventJson'];
         }
 
         return $model;

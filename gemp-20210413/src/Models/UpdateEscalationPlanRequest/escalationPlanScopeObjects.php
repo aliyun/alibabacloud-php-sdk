@@ -16,22 +16,22 @@ class escalationPlanScopeObjects extends Model
     public $id;
 
     /**
-     * @description 范围对象id
-     *
-     * @var int
-     */
-    public $scopeObjectId;
-
-    /**
      * @description 范围对象类型
      *
      * @var string
      */
     public $scope;
+
+    /**
+     * @description 范围对象id
+     *
+     * @var int
+     */
+    public $scopeObjectId;
     protected $_name = [
         'id'            => 'id',
-        'scopeObjectId' => 'scopeObjectId',
         'scope'         => 'scope',
+        'scopeObjectId' => 'scopeObjectId',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class escalationPlanScopeObjects extends Model
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-        if (null !== $this->scopeObjectId) {
-            $res['scopeObjectId'] = $this->scopeObjectId;
-        }
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
+        }
+        if (null !== $this->scopeObjectId) {
+            $res['scopeObjectId'] = $this->scopeObjectId;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class escalationPlanScopeObjects extends Model
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-        if (isset($map['scopeObjectId'])) {
-            $model->scopeObjectId = $map['scopeObjectId'];
-        }
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
+        }
+        if (isset($map['scopeObjectId'])) {
+            $model->scopeObjectId = $map['scopeObjectId'];
         }
 
         return $model;

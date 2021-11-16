@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description map
-     *
-     * @var mixed[]
-     */
-    public $subtotalCount;
-
-    /**
      * @description id of the request
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description map
+     *
+     * @var mixed[]
+     */
+    public $subtotalCount;
     protected $_name = [
-        'subtotalCount' => 'subtotalCount',
         'requestId'     => 'requestId',
+        'subtotalCount' => 'subtotalCount',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subtotalCount) {
-            $res['subtotalCount'] = $this->subtotalCount;
-        }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->subtotalCount) {
+            $res['subtotalCount'] = $this->subtotalCount;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['subtotalCount'])) {
-            $model->subtotalCount = $map['subtotalCount'];
-        }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['subtotalCount'])) {
+            $model->subtotalCount = $map['subtotalCount'];
         }
 
         return $model;

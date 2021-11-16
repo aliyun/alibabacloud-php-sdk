@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class serviceGroups extends Model
 {
     /**
+     * @description 服务组描述
+     *
+     * @var string
+     */
+    public $serviceGroupDescription;
+
+    /**
      * @description 服务组id
      *
      * @var int
@@ -21,17 +28,10 @@ class serviceGroups extends Model
      * @var string
      */
     public $serviceGroupName;
-
-    /**
-     * @description 服务组描述
-     *
-     * @var string
-     */
-    public $serviceGroupDescription;
     protected $_name = [
+        'serviceGroupDescription' => 'serviceGroupDescription',
         'serviceGroupId'          => 'serviceGroupId',
         'serviceGroupName'        => 'serviceGroupName',
-        'serviceGroupDescription' => 'serviceGroupDescription',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class serviceGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->serviceGroupDescription) {
+            $res['serviceGroupDescription'] = $this->serviceGroupDescription;
+        }
         if (null !== $this->serviceGroupId) {
             $res['serviceGroupId'] = $this->serviceGroupId;
         }
         if (null !== $this->serviceGroupName) {
             $res['serviceGroupName'] = $this->serviceGroupName;
-        }
-        if (null !== $this->serviceGroupDescription) {
-            $res['serviceGroupDescription'] = $this->serviceGroupDescription;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class serviceGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['serviceGroupDescription'])) {
+            $model->serviceGroupDescription = $map['serviceGroupDescription'];
+        }
         if (isset($map['serviceGroupId'])) {
             $model->serviceGroupId = $map['serviceGroupId'];
         }
         if (isset($map['serviceGroupName'])) {
             $model->serviceGroupName = $map['serviceGroupName'];
-        }
-        if (isset($map['serviceGroupDescription'])) {
-            $model->serviceGroupDescription = $map['serviceGroupDescription'];
         }
 
         return $model;

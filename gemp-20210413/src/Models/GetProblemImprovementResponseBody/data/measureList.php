@@ -9,27 +9,6 @@ use AlibabaCloud\Tea\Model;
 class measureList extends Model
 {
     /**
-     * @description 改进措施id 用于删除或更新
-     *
-     * @var int
-     */
-    public $measureId;
-
-    /**
-     * @description 措施类型
-     *
-     * @var int
-     */
-    public $type;
-
-    /**
-     * @description 措施内容
-     *
-     * @var string
-     */
-    public $content;
-
-    /**
      * @description 验收标准
      *
      * @var string
@@ -51,25 +30,11 @@ class measureList extends Model
     public $checkUserName;
 
     /**
-     * @description 负责人名称
+     * @description 措施内容
      *
      * @var string
      */
-    public $directorName;
-
-    /**
-     * @description 跟踪人名称
-     *
-     * @var string
-     */
-    public $stalkerName;
-
-    /**
-     * @description 计划完成时间
-     *
-     * @var string
-     */
-    public $planFinishTime;
+    public $content;
 
     /**
      * @description 负责人id
@@ -79,6 +44,27 @@ class measureList extends Model
     public $directorId;
 
     /**
+     * @description 负责人名称
+     *
+     * @var string
+     */
+    public $directorName;
+
+    /**
+     * @description 改进措施id 用于删除或更新
+     *
+     * @var int
+     */
+    public $measureId;
+
+    /**
+     * @description 计划完成时间
+     *
+     * @var string
+     */
+    public $planFinishTime;
+
+    /**
      * @description 跟踪人id
      *
      * @var int
@@ -86,24 +72,38 @@ class measureList extends Model
     public $stalkerId;
 
     /**
+     * @description 跟踪人名称
+     *
+     * @var string
+     */
+    public $stalkerName;
+
+    /**
      * @description UNIMPROVED	状态 IMPROVED 改进 2 未改进UNIMPROVED
      *
      * @var string
      */
     public $status;
+
+    /**
+     * @description 措施类型
+     *
+     * @var int
+     */
+    public $type;
     protected $_name = [
-        'measureId'      => 'measureId',
-        'type'           => 'type',
-        'content'        => 'content',
         'checkStandard'  => 'checkStandard',
         'checkUserId'    => 'checkUserId',
         'checkUserName'  => 'checkUserName',
-        'directorName'   => 'directorName',
-        'stalkerName'    => 'stalkerName',
-        'planFinishTime' => 'planFinishTime',
+        'content'        => 'content',
         'directorId'     => 'directorId',
+        'directorName'   => 'directorName',
+        'measureId'      => 'measureId',
+        'planFinishTime' => 'planFinishTime',
         'stalkerId'      => 'stalkerId',
+        'stalkerName'    => 'stalkerName',
         'status'         => 'status',
+        'type'           => 'type',
     ];
 
     public function validate()
@@ -113,15 +113,6 @@ class measureList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->measureId) {
-            $res['measureId'] = $this->measureId;
-        }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
-        }
-        if (null !== $this->content) {
-            $res['content'] = $this->content;
-        }
         if (null !== $this->checkStandard) {
             $res['checkStandard'] = $this->checkStandard;
         }
@@ -131,23 +122,32 @@ class measureList extends Model
         if (null !== $this->checkUserName) {
             $res['checkUserName'] = $this->checkUserName;
         }
-        if (null !== $this->directorName) {
-            $res['directorName'] = $this->directorName;
-        }
-        if (null !== $this->stalkerName) {
-            $res['stalkerName'] = $this->stalkerName;
-        }
-        if (null !== $this->planFinishTime) {
-            $res['planFinishTime'] = $this->planFinishTime;
+        if (null !== $this->content) {
+            $res['content'] = $this->content;
         }
         if (null !== $this->directorId) {
             $res['directorId'] = $this->directorId;
         }
+        if (null !== $this->directorName) {
+            $res['directorName'] = $this->directorName;
+        }
+        if (null !== $this->measureId) {
+            $res['measureId'] = $this->measureId;
+        }
+        if (null !== $this->planFinishTime) {
+            $res['planFinishTime'] = $this->planFinishTime;
+        }
         if (null !== $this->stalkerId) {
             $res['stalkerId'] = $this->stalkerId;
         }
+        if (null !== $this->stalkerName) {
+            $res['stalkerName'] = $this->stalkerName;
+        }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -161,15 +161,6 @@ class measureList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['measureId'])) {
-            $model->measureId = $map['measureId'];
-        }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
-        }
-        if (isset($map['content'])) {
-            $model->content = $map['content'];
-        }
         if (isset($map['checkStandard'])) {
             $model->checkStandard = $map['checkStandard'];
         }
@@ -179,23 +170,32 @@ class measureList extends Model
         if (isset($map['checkUserName'])) {
             $model->checkUserName = $map['checkUserName'];
         }
-        if (isset($map['directorName'])) {
-            $model->directorName = $map['directorName'];
-        }
-        if (isset($map['stalkerName'])) {
-            $model->stalkerName = $map['stalkerName'];
-        }
-        if (isset($map['planFinishTime'])) {
-            $model->planFinishTime = $map['planFinishTime'];
+        if (isset($map['content'])) {
+            $model->content = $map['content'];
         }
         if (isset($map['directorId'])) {
             $model->directorId = $map['directorId'];
         }
+        if (isset($map['directorName'])) {
+            $model->directorName = $map['directorName'];
+        }
+        if (isset($map['measureId'])) {
+            $model->measureId = $map['measureId'];
+        }
+        if (isset($map['planFinishTime'])) {
+            $model->planFinishTime = $map['planFinishTime'];
+        }
         if (isset($map['stalkerId'])) {
             $model->stalkerId = $map['stalkerId'];
         }
+        if (isset($map['stalkerName'])) {
+            $model->stalkerName = $map['stalkerName'];
+        }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

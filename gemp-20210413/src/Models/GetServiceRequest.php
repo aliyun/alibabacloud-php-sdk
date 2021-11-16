@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetServiceRequest extends Model
 {
     /**
-     * @description 服务ID
-     *
-     * @var int
-     */
-    public $serviceId;
-
-    /**
      * @description 幂等号
      *
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @description 服务ID
+     *
+     * @var int
+     */
+    public $serviceId;
     protected $_name = [
-        'serviceId'   => 'serviceId',
         'clientToken' => 'clientToken',
+        'serviceId'   => 'serviceId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class GetServiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceId) {
-            $res['serviceId'] = $this->serviceId;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->serviceId) {
+            $res['serviceId'] = $this->serviceId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class GetServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['serviceId'])) {
-            $model->serviceId = $map['serviceId'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['serviceId'])) {
+            $model->serviceId = $map['serviceId'];
         }
 
         return $model;

@@ -9,18 +9,25 @@ use AlibabaCloud\Tea\Model;
 class ListServiceGroupsRequest extends Model
 {
     /**
-     * @description 搜索名称
+     * @description 幂等号
      *
      * @var string
      */
-    public $queryName;
+    public $clientToken;
 
     /**
-     * @description 搜索类型。USER用户 SERVICEGROUP服务组
+     * @description 是否已经排班
      *
-     * @var string
+     * @var bool
      */
-    public $queryType;
+    public $isScheduled;
+
+    /**
+     * @description 是否根据排班状态排序
+     *
+     * @var bool
+     */
+    public $orderByScheduleStatus;
 
     /**
      * @description 当前页
@@ -37,25 +44,34 @@ class ListServiceGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description 幂等号
+     * @description 搜索名称
      *
      * @var string
      */
-    public $clientToken;
+    public $queryName;
 
     /**
-     * @description 是否已经排班
+     * @description 搜索类型。USER用户 SERVICEGROUP服务组
      *
-     * @var bool
+     * @var string
      */
-    public $isScheduled;
+    public $queryType;
+
+    /**
+     * @description 用户ID
+     *
+     * @var int
+     */
+    public $userId;
     protected $_name = [
-        'queryName'   => 'queryName',
-        'queryType'   => 'queryType',
-        'pageNumber'  => 'pageNumber',
-        'pageSize'    => 'pageSize',
-        'clientToken' => 'clientToken',
-        'isScheduled' => 'isScheduled',
+        'clientToken'           => 'clientToken',
+        'isScheduled'           => 'isScheduled',
+        'orderByScheduleStatus' => 'orderByScheduleStatus',
+        'pageNumber'            => 'pageNumber',
+        'pageSize'              => 'pageSize',
+        'queryName'             => 'queryName',
+        'queryType'             => 'queryType',
+        'userId'                => 'userId',
     ];
 
     public function validate()
@@ -65,11 +81,14 @@ class ListServiceGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->queryName) {
-            $res['queryName'] = $this->queryName;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
-        if (null !== $this->queryType) {
-            $res['queryType'] = $this->queryType;
+        if (null !== $this->isScheduled) {
+            $res['isScheduled'] = $this->isScheduled;
+        }
+        if (null !== $this->orderByScheduleStatus) {
+            $res['orderByScheduleStatus'] = $this->orderByScheduleStatus;
         }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
@@ -77,11 +96,14 @@ class ListServiceGroupsRequest extends Model
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->queryName) {
+            $res['queryName'] = $this->queryName;
         }
-        if (null !== $this->isScheduled) {
-            $res['isScheduled'] = $this->isScheduled;
+        if (null !== $this->queryType) {
+            $res['queryType'] = $this->queryType;
+        }
+        if (null !== $this->userId) {
+            $res['userId'] = $this->userId;
         }
 
         return $res;
@@ -95,11 +117,14 @@ class ListServiceGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['queryName'])) {
-            $model->queryName = $map['queryName'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
-        if (isset($map['queryType'])) {
-            $model->queryType = $map['queryType'];
+        if (isset($map['isScheduled'])) {
+            $model->isScheduled = $map['isScheduled'];
+        }
+        if (isset($map['orderByScheduleStatus'])) {
+            $model->orderByScheduleStatus = $map['orderByScheduleStatus'];
         }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
@@ -107,11 +132,14 @@ class ListServiceGroupsRequest extends Model
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['queryName'])) {
+            $model->queryName = $map['queryName'];
         }
-        if (isset($map['isScheduled'])) {
-            $model->isScheduled = $map['isScheduled'];
+        if (isset($map['queryType'])) {
+            $model->queryType = $map['queryType'];
+        }
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
         }
 
         return $model;

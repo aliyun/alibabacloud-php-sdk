@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class ListUsersRequest extends Model
 {
     /**
-     * @description 人员名称
+     * @description clientToken
      *
      * @var string
      */
-    public $username;
+    public $clientToken;
+
+    /**
+     * @description 分页参数
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @description 分页参数
+     *
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @description 人员手机号
@@ -37,41 +51,27 @@ class ListUsersRequest extends Model
     public $scene;
 
     /**
-     * @description clientToken
-     *
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @description 分页参数
-     *
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @description 分页参数
-     *
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @description 移动应用协同渠道
      *
      * @var string
      */
     public $synergyChannel;
+
+    /**
+     * @description 人员名称
+     *
+     * @var string
+     */
+    public $username;
     protected $_name = [
-        'username'       => 'username',
-        'phone'          => 'phone',
-        'ramId'          => 'ramId',
-        'scene'          => 'scene',
         'clientToken'    => 'clientToken',
         'pageNumber'     => 'pageNumber',
         'pageSize'       => 'pageSize',
+        'phone'          => 'phone',
+        'ramId'          => 'ramId',
+        'scene'          => 'scene',
         'synergyChannel' => 'synergyChannel',
+        'username'       => 'username',
     ];
 
     public function validate()
@@ -81,8 +81,14 @@ class ListUsersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->username) {
-            $res['username'] = $this->username;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
         }
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
@@ -93,17 +99,11 @@ class ListUsersRequest extends Model
         if (null !== $this->scene) {
             $res['scene'] = $this->scene;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
-        }
-        if (null !== $this->pageNumber) {
-            $res['pageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
-        }
         if (null !== $this->synergyChannel) {
             $res['synergyChannel'] = $this->synergyChannel;
+        }
+        if (null !== $this->username) {
+            $res['username'] = $this->username;
         }
 
         return $res;
@@ -117,8 +117,14 @@ class ListUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['username'])) {
-            $model->username = $map['username'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
+        }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
         }
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
@@ -129,17 +135,11 @@ class ListUsersRequest extends Model
         if (isset($map['scene'])) {
             $model->scene = $map['scene'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
-        }
-        if (isset($map['pageNumber'])) {
-            $model->pageNumber = $map['pageNumber'];
-        }
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
-        }
         if (isset($map['synergyChannel'])) {
             $model->synergyChannel = $map['synergyChannel'];
+        }
+        if (isset($map['username'])) {
+            $model->username = $map['username'];
         }
 
         return $model;

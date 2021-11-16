@@ -15,20 +15,6 @@ class ListIntegrationConfigTimelinesResponseBody extends Model
     public $data;
 
     /**
-     * @description requestId
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description totalCount
-     *
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @description pageNumber
      *
      * @var int
@@ -41,12 +27,26 @@ class ListIntegrationConfigTimelinesResponseBody extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description requestId
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description totalCount
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'data'       => 'data',
-        'requestId'  => 'requestId',
-        'totalCount' => 'totalCount',
         'pageNumber' => 'pageNumber',
         'pageSize'   => 'pageSize',
+        'requestId'  => 'requestId',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
@@ -65,17 +65,17 @@ class ListIntegrationConfigTimelinesResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['totalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -98,17 +98,17 @@ class ListIntegrationConfigTimelinesResponseBody extends Model
                 }
             }
         }
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
-        }
-        if (isset($map['totalCount'])) {
-            $model->totalCount = $map['totalCount'];
-        }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class effectionServices extends Model
 {
     /**
-     * @description 服务ID
+     * @description 影响描述
      *
-     * @var int
+     * @var string
      */
-    public $effectionServiceId;
+    public $description;
 
     /**
      * @description 影响等级 P1 . P2 P3 P4
@@ -23,18 +23,18 @@ class effectionServices extends Model
     public $effectionLevel;
 
     /**
+     * @description 服务ID
+     *
+     * @var int
+     */
+    public $effectionServiceId;
+
+    /**
      * @description 影响服务状态  RECOVERED 已经恢复 ,UN_RECOVERED 未恢复
      *
      * @var int
      */
     public $effectionStatus;
-
-    /**
-     * @description 影响描述
-     *
-     * @var string
-     */
-    public $description;
 
     /**
      * @description 服务名称
@@ -43,10 +43,10 @@ class effectionServices extends Model
      */
     public $serviceName;
     protected $_name = [
-        'effectionServiceId' => 'effectionServiceId',
-        'effectionLevel'     => 'effectionLevel',
-        'effectionStatus'    => 'effectionStatus',
         'description'        => 'description',
+        'effectionLevel'     => 'effectionLevel',
+        'effectionServiceId' => 'effectionServiceId',
+        'effectionStatus'    => 'effectionStatus',
         'serviceName'        => 'serviceName',
     ];
 
@@ -57,17 +57,17 @@ class effectionServices extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->effectionServiceId) {
-            $res['effectionServiceId'] = $this->effectionServiceId;
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
         if (null !== $this->effectionLevel) {
             $res['effectionLevel'] = $this->effectionLevel;
         }
+        if (null !== $this->effectionServiceId) {
+            $res['effectionServiceId'] = $this->effectionServiceId;
+        }
         if (null !== $this->effectionStatus) {
             $res['effectionStatus'] = $this->effectionStatus;
-        }
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
         }
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
@@ -84,17 +84,17 @@ class effectionServices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['effectionServiceId'])) {
-            $model->effectionServiceId = $map['effectionServiceId'];
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
         if (isset($map['effectionLevel'])) {
             $model->effectionLevel = $map['effectionLevel'];
         }
+        if (isset($map['effectionServiceId'])) {
+            $model->effectionServiceId = $map['effectionServiceId'];
+        }
         if (isset($map['effectionStatus'])) {
             $model->effectionStatus = $map['effectionStatus'];
-        }
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
         }
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];

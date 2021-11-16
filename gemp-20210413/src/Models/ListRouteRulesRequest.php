@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListRouteRulesRequest extends Model
 {
     /**
-     * @description 规则名称
+     * @description 幂等号
      *
-     * @var int[]
+     * @var string
      */
-    public $ruleName;
-
-    /**
-     * @description 服务名称
-     *
-     * @var int[]
-     */
-    public $serviceName;
+    public $clientToken;
 
     /**
      * @description 第几页
@@ -37,17 +30,24 @@ class ListRouteRulesRequest extends Model
     public $pageSize;
 
     /**
-     * @description 幂等号
+     * @description 规则名称
      *
-     * @var string
+     * @var int[]
      */
-    public $clientToken;
+    public $ruleName;
+
+    /**
+     * @description 服务名称
+     *
+     * @var int[]
+     */
+    public $serviceName;
     protected $_name = [
-        'ruleName'    => 'ruleName',
-        'serviceName' => 'serviceName',
+        'clientToken' => 'clientToken',
         'pageNumber'  => 'pageNumber',
         'pageSize'    => 'pageSize',
-        'clientToken' => 'clientToken',
+        'ruleName'    => 'ruleName',
+        'serviceName' => 'serviceName',
     ];
 
     public function validate()
@@ -57,11 +57,8 @@ class ListRouteRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleName) {
-            $res['ruleName'] = $this->ruleName;
-        }
-        if (null !== $this->serviceName) {
-            $res['serviceName'] = $this->serviceName;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
@@ -69,8 +66,11 @@ class ListRouteRulesRequest extends Model
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->ruleName) {
+            $res['ruleName'] = $this->ruleName;
+        }
+        if (null !== $this->serviceName) {
+            $res['serviceName'] = $this->serviceName;
         }
 
         return $res;
@@ -84,11 +84,8 @@ class ListRouteRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ruleName'])) {
-            $model->ruleName = $map['ruleName'];
-        }
-        if (isset($map['serviceName'])) {
-            $model->serviceName = $map['serviceName'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
@@ -96,8 +93,11 @@ class ListRouteRulesRequest extends Model
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['ruleName'])) {
+            $model->ruleName = $map['ruleName'];
+        }
+        if (isset($map['serviceName'])) {
+            $model->serviceName = $map['serviceName'];
         }
 
         return $model;

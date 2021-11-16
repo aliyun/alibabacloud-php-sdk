@@ -9,25 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ListEscalationPlansRequest extends Model
 {
     /**
-     * @description 升级计划名
-     *
-     * @var string
-     */
-    public $escalationPlanName;
-
-    /**
-     * @description 服务名称
-     *
-     * @var string
-     */
-    public $serviceName;
-
-    /**
      * @description clientToken
      *
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @description 升级计划名
+     *
+     * @var string
+     */
+    public $escalationPlanName;
 
     /**
      * @description pageNumber
@@ -42,12 +35,19 @@ class ListEscalationPlansRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description 服务名称
+     *
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
-        'escalationPlanName' => 'escalationPlanName',
-        'serviceName'        => 'serviceName',
         'clientToken'        => 'clientToken',
+        'escalationPlanName' => 'escalationPlanName',
         'pageNumber'         => 'pageNumber',
         'pageSize'           => 'pageSize',
+        'serviceName'        => 'serviceName',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class ListEscalationPlansRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->escalationPlanName) {
-            $res['escalationPlanName'] = $this->escalationPlanName;
-        }
-        if (null !== $this->serviceName) {
-            $res['serviceName'] = $this->serviceName;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->escalationPlanName) {
+            $res['escalationPlanName'] = $this->escalationPlanName;
         }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->serviceName) {
+            $res['serviceName'] = $this->serviceName;
         }
 
         return $res;
@@ -84,20 +84,20 @@ class ListEscalationPlansRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['escalationPlanName'])) {
-            $model->escalationPlanName = $map['escalationPlanName'];
-        }
-        if (isset($map['serviceName'])) {
-            $model->serviceName = $map['serviceName'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['escalationPlanName'])) {
+            $model->escalationPlanName = $map['escalationPlanName'];
         }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['serviceName'])) {
+            $model->serviceName = $map['serviceName'];
         }
 
         return $model;

@@ -11,6 +11,13 @@ use AlibabaCloud\Tea\Model;
 class fineScheduling extends Model
 {
     /**
+     * @description 精细排班ID
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @description 循环周期
      *
      * @var int
@@ -23,13 +30,6 @@ class fineScheduling extends Model
      * @var string
      */
     public $periodUnit;
-
-    /**
-     * @description 班次类型 MORNING_NIGHT 早晚班 MORNING_NOON_NIGHT 早中晚班 CUSTOM 自定义
-     *
-     * @var string
-     */
-    public $shiftType;
 
     /**
      * @description 精细排班班次人员信息
@@ -46,18 +46,18 @@ class fineScheduling extends Model
     public $schedulingTemplateFineShifts;
 
     /**
-     * @description 精细排班ID
+     * @description 班次类型 MORNING_NIGHT 早晚班 MORNING_NOON_NIGHT 早中晚班 CUSTOM 自定义
      *
-     * @var int
+     * @var string
      */
-    public $id;
+    public $shiftType;
     protected $_name = [
+        'id'                           => 'id',
         'period'                       => 'period',
         'periodUnit'                   => 'periodUnit',
-        'shiftType'                    => 'shiftType',
         'schedulingFineShifts'         => 'schedulingFineShifts',
         'schedulingTemplateFineShifts' => 'schedulingTemplateFineShifts',
-        'id'                           => 'id',
+        'shiftType'                    => 'shiftType',
     ];
 
     public function validate()
@@ -67,14 +67,14 @@ class fineScheduling extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
+        }
         if (null !== $this->period) {
             $res['period'] = $this->period;
         }
         if (null !== $this->periodUnit) {
             $res['periodUnit'] = $this->periodUnit;
-        }
-        if (null !== $this->shiftType) {
-            $res['shiftType'] = $this->shiftType;
         }
         if (null !== $this->schedulingFineShifts) {
             $res['schedulingFineShifts'] = [];
@@ -94,8 +94,8 @@ class fineScheduling extends Model
                 }
             }
         }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
+        if (null !== $this->shiftType) {
+            $res['shiftType'] = $this->shiftType;
         }
 
         return $res;
@@ -109,14 +109,14 @@ class fineScheduling extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
+        }
         if (isset($map['period'])) {
             $model->period = $map['period'];
         }
         if (isset($map['periodUnit'])) {
             $model->periodUnit = $map['periodUnit'];
-        }
-        if (isset($map['shiftType'])) {
-            $model->shiftType = $map['shiftType'];
         }
         if (isset($map['schedulingFineShifts'])) {
             if (!empty($map['schedulingFineShifts'])) {
@@ -136,8 +136,8 @@ class fineScheduling extends Model
                 }
             }
         }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
+        if (isset($map['shiftType'])) {
+            $model->shiftType = $map['shiftType'];
         }
 
         return $model;

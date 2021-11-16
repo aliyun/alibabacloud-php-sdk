@@ -16,22 +16,22 @@ class conditions extends Model
     public $key;
 
     /**
-     * @description 字段取值
-     *
-     * @var string
-     */
-    public $value;
-
-    /**
      * @description 操作符
      *
      * @var string
      */
     public $operationSymbol;
+
+    /**
+     * @description 字段取值
+     *
+     * @var string
+     */
+    public $value;
     protected $_name = [
         'key'             => 'key',
-        'value'           => 'value',
         'operationSymbol' => 'operationSymbol',
+        'value'           => 'value',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class conditions extends Model
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
-        if (null !== $this->value) {
-            $res['value'] = $this->value;
-        }
         if (null !== $this->operationSymbol) {
             $res['operationSymbol'] = $this->operationSymbol;
+        }
+        if (null !== $this->value) {
+            $res['value'] = $this->value;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class conditions extends Model
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
-        if (isset($map['value'])) {
-            $model->value = $map['value'];
-        }
         if (isset($map['operationSymbol'])) {
             $model->operationSymbol = $map['operationSymbol'];
+        }
+        if (isset($map['value'])) {
+            $model->value = $map['value'];
         }
 
         return $model;

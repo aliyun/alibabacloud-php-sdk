@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class FinishIncidentRequest extends Model
 {
     /**
-     * @description 事件ID数组
+     * @description 幂等校验Id
      *
-     * @var int[]
+     * @var string
      */
-    public $incidentIds;
+    public $clientToken;
 
     /**
      * @description 完结原因
@@ -44,18 +44,18 @@ class FinishIncidentRequest extends Model
     public $incidentFinishSolutionDescription;
 
     /**
-     * @description 幂等校验Id
+     * @description 事件ID数组
      *
-     * @var string
+     * @var int[]
      */
-    public $clientToken;
+    public $incidentIds;
     protected $_name = [
-        'incidentIds'                       => 'incidentIds',
+        'clientToken'                       => 'clientToken',
         'incidentFinishReason'              => 'incidentFinishReason',
         'incidentFinishReasonDescription'   => 'incidentFinishReasonDescription',
         'incidentFinishSolution'            => 'incidentFinishSolution',
         'incidentFinishSolutionDescription' => 'incidentFinishSolutionDescription',
-        'clientToken'                       => 'clientToken',
+        'incidentIds'                       => 'incidentIds',
     ];
 
     public function validate()
@@ -65,8 +65,8 @@ class FinishIncidentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->incidentIds) {
-            $res['incidentIds'] = $this->incidentIds;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->incidentFinishReason) {
             $res['incidentFinishReason'] = $this->incidentFinishReason;
@@ -80,8 +80,8 @@ class FinishIncidentRequest extends Model
         if (null !== $this->incidentFinishSolutionDescription) {
             $res['incidentFinishSolutionDescription'] = $this->incidentFinishSolutionDescription;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->incidentIds) {
+            $res['incidentIds'] = $this->incidentIds;
         }
 
         return $res;
@@ -95,10 +95,8 @@ class FinishIncidentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['incidentIds'])) {
-            if (!empty($map['incidentIds'])) {
-                $model->incidentIds = $map['incidentIds'];
-            }
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['incidentFinishReason'])) {
             $model->incidentFinishReason = $map['incidentFinishReason'];
@@ -112,8 +110,10 @@ class FinishIncidentRequest extends Model
         if (isset($map['incidentFinishSolutionDescription'])) {
             $model->incidentFinishSolutionDescription = $map['incidentFinishSolutionDescription'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['incidentIds'])) {
+            if (!empty($map['incidentIds'])) {
+                $model->incidentIds = $map['incidentIds'];
+            }
         }
 
         return $model;

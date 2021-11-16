@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetServiceGroupSchedulingRequest extends Model
 {
     /**
-     * @description 服务组ID
-     *
-     * @var int
-     */
-    public $serviceGroupId;
-
-    /**
      * @description 幂等号
      *
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @description 服务组ID
+     *
+     * @var int
+     */
+    public $serviceGroupId;
     protected $_name = [
-        'serviceGroupId' => 'serviceGroupId',
         'clientToken'    => 'clientToken',
+        'serviceGroupId' => 'serviceGroupId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class GetServiceGroupSchedulingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceGroupId) {
-            $res['serviceGroupId'] = $this->serviceGroupId;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->serviceGroupId) {
+            $res['serviceGroupId'] = $this->serviceGroupId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class GetServiceGroupSchedulingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['serviceGroupId'])) {
-            $model->serviceGroupId = $map['serviceGroupId'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['serviceGroupId'])) {
+            $model->serviceGroupId = $map['serviceGroupId'];
         }
 
         return $model;

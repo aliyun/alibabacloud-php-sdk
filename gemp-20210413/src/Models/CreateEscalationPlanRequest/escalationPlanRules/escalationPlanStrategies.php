@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanStrategies extends Model
 {
     /**
-     * @description 通知时间
+     * @description 升级通知策略
      *
-     * @var string
+     * @var string[]
      */
-    public $noticeTime;
+    public $noticeChannels;
 
     /**
      * @description 升级通知对象id列表
@@ -23,15 +23,15 @@ class escalationPlanStrategies extends Model
     public $noticeObjects;
 
     /**
-     * @description 升级通知策略
+     * @description 通知时间
      *
-     * @var string[]
+     * @var string
      */
-    public $noticeChannels;
+    public $noticeTime;
     protected $_name = [
-        'noticeTime'     => 'noticeTime',
-        'noticeObjects'  => 'noticeObjects',
         'noticeChannels' => 'noticeChannels',
+        'noticeObjects'  => 'noticeObjects',
+        'noticeTime'     => 'noticeTime',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class escalationPlanStrategies extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->noticeTime) {
-            $res['noticeTime'] = $this->noticeTime;
+        if (null !== $this->noticeChannels) {
+            $res['noticeChannels'] = $this->noticeChannels;
         }
         if (null !== $this->noticeObjects) {
             $res['noticeObjects'] = $this->noticeObjects;
         }
-        if (null !== $this->noticeChannels) {
-            $res['noticeChannels'] = $this->noticeChannels;
+        if (null !== $this->noticeTime) {
+            $res['noticeTime'] = $this->noticeTime;
         }
 
         return $res;
@@ -62,18 +62,18 @@ class escalationPlanStrategies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['noticeTime'])) {
-            $model->noticeTime = $map['noticeTime'];
+        if (isset($map['noticeChannels'])) {
+            if (!empty($map['noticeChannels'])) {
+                $model->noticeChannels = $map['noticeChannels'];
+            }
         }
         if (isset($map['noticeObjects'])) {
             if (!empty($map['noticeObjects'])) {
                 $model->noticeObjects = $map['noticeObjects'];
             }
         }
-        if (isset($map['noticeChannels'])) {
-            if (!empty($map['noticeChannels'])) {
-                $model->noticeChannels = $map['noticeChannels'];
-            }
+        if (isset($map['noticeTime'])) {
+            $model->noticeTime = $map['noticeTime'];
         }
 
         return $model;

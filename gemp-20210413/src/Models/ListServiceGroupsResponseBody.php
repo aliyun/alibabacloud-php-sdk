@@ -10,13 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListServiceGroupsResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description 服务组列表
      *
      * @var data[]
@@ -38,16 +31,23 @@ class ListServiceGroupsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @description 总条数
      *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'requestId',
         'data'       => 'data',
         'pageNumber' => 'pageNumber',
         'pageSize'   => 'pageSize',
+        'requestId'  => 'requestId',
         'totalCount' => 'totalCount',
     ];
 
@@ -58,9 +58,6 @@ class ListServiceGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
-        }
         if (null !== $this->data) {
             $res['data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -75,6 +72,9 @@ class ListServiceGroupsResponseBody extends Model
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
@@ -91,9 +91,6 @@ class ListServiceGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
-        }
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
@@ -108,6 +105,9 @@ class ListServiceGroupsResponseBody extends Model
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];

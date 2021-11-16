@@ -17,11 +17,32 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description ID
+     * @description 已取消故障操作日志
+     *
+     * @var cancelProblemOperateLogs[]
+     */
+    public $cancelProblemOperateLogs;
+
+    /**
+     * @description 取消原因
      *
      * @var int
      */
-    public $problemId;
+    public $cancelReason;
+
+    /**
+     * @description 取消原因描述
+     *
+     * @var string
+     */
+    public $cancelReasonDescription;
+
+    /**
+     * @description 应急协同组
+     *
+     * @var coordinationGroups[]
+     */
+    public $coordinationGroups;
 
     /**
      * @description 创建时间
@@ -31,11 +52,39 @@ class data extends Model
     public $createTime;
 
     /**
-     * @description 事件编号
+     * @description 发现时间
      *
      * @var string
      */
-    public $incidentNumber;
+    public $discoverTime;
+
+    /**
+     * @description 持续时间
+     *
+     * @var int
+     */
+    public $durationTime;
+
+    /**
+     * @description 影响服务
+     *
+     * @var effectionServices[]
+     */
+    public $effectionServices;
+
+    /**
+     * @description 舆情反馈
+     *
+     * @var string
+     */
+    public $feedback;
+
+    /**
+     * @description 处理中故障操作日志
+     *
+     * @var handingProblemOperateLogs[]
+     */
+    public $handingProblemOperateLogs;
 
     /**
      * @description 事件id
@@ -45,74 +94,11 @@ class data extends Model
     public $incidentId;
 
     /**
-     * @description 故障编号
+     * @description 事件编号
      *
      * @var string
      */
-    public $problemNumber;
-
-    /**
-     * @description 故障名称
-     *
-     * @var string
-     */
-    public $problemName;
-
-    /**
-     * @description 故障状态  HANDLING    处理中 RECOVERED  已恢复  REPLAYING   复盘中  REPLAYED     已复盘 CANCEL        已取消
-     *
-     * @var int
-     */
-    public $problemStatus;
-
-    /**
-     * @description 故障等级 P1 P2 P3 P4
-     *
-     * @var int
-     */
-    public $problemLevel;
-
-    /**
-     * @description 发现时间
-     *
-     * @var string
-     */
-    public $discoverTime;
-
-    /**
-     * @description 恢复时间
-     *
-     * @var string
-     */
-    public $recoveryTime;
-
-    /**
-     * @description 关联服务ID
-     *
-     * @var int
-     */
-    public $relatedServiceId;
-
-    /**
-     * @description 关联服务 名称
-     *
-     * @var string
-     */
-    public $serviceName;
-
-    /**
-     * @description 进展摘要
-     *
-     * @var string
-     */
-    public $progressSummary;
-
-    /**
-     * @description 初步原因
-     *
-     * @var string
-     */
-    public $preliminaryReason;
+    public $incidentNumber;
 
     /**
      * @description 主要处理人
@@ -136,53 +122,67 @@ class data extends Model
     public $mainHandlerPhone;
 
     /**
-     * @description 舆情反馈
+     * @description 初步原因
      *
      * @var string
      */
-    public $feedback;
+    public $preliminaryReason;
 
     /**
-     * @description 取消原因描述
+     * @description ID
+     *
+     * @var int
+     */
+    public $problemId;
+
+    /**
+     * @description 故障等级 P1 P2 P3 P4
+     *
+     * @var int
+     */
+    public $problemLevel;
+
+    /**
+     * @description 故障名称
      *
      * @var string
      */
-    public $cancelReasonDescription;
+    public $problemName;
 
     /**
-     * @description 取消原因
+     * @description 故障编号
+     *
+     * @var string
+     */
+    public $problemNumber;
+
+    /**
+     * @description 故障状态  HANDLING    处理中 RECOVERED  已恢复  REPLAYING   复盘中  REPLAYED     已复盘 CANCEL        已取消
      *
      * @var int
      */
-    public $cancelReason;
+    public $problemStatus;
 
     /**
-     * @description 持续时间
+     * @description 进展摘要
+     *
+     * @var string
+     */
+    public $progressSummary;
+
+    /**
+     * @description 恢复时间
+     *
+     * @var string
+     */
+    public $recoveryTime;
+
+    /**
+     * @description 关联服务ID
      *
      * @var int
      */
-    public $durationTime;
-
-    /**
-     * @description 处理中故障操作日志
-     *
-     * @var handingProblemOperateLogs[]
-     */
-    public $handingProblemOperateLogs;
-
-    /**
-     * @description 已恢复故障操作日志
-     *
-     * @var restoredProblemOperateLogs[]
-     */
-    public $restoredProblemOperateLogs;
-
-    /**
-     * @description 复盘中故障操作日志
-     *
-     * @var replayingProblemOperateLogs[]
-     */
-    public $replayingProblemOperateLogs;
+    public $relatedServiceId;
 
     /**
      * @description 已复盘故障操作日志
@@ -192,18 +192,25 @@ class data extends Model
     public $replayProblemOperateLogs;
 
     /**
-     * @description 影响服务
+     * @description 复盘中故障操作日志
      *
-     * @var effectionServices[]
+     * @var replayingProblemOperateLogs[]
      */
-    public $effectionServices;
+    public $replayingProblemOperateLogs;
 
     /**
-     * @description 应急协同组
+     * @description 已恢复故障操作日志
      *
-     * @var coordinationGroups[]
+     * @var restoredProblemOperateLogs[]
      */
-    public $coordinationGroups;
+    public $restoredProblemOperateLogs;
+
+    /**
+     * @description 关联服务 名称
+     *
+     * @var string
+     */
+    public $serviceName;
 
     /**
      * @description 故障操作时间线
@@ -211,43 +218,36 @@ class data extends Model
      * @var timelines[]
      */
     public $timelines;
-
-    /**
-     * @description 已取消故障操作日志
-     *
-     * @var cancelProblemOperateLogs[]
-     */
-    public $cancelProblemOperateLogs;
     protected $_name = [
-        'problemId'                   => 'problemId',
+        'cancelProblemOperateLogs'    => 'cancelProblemOperateLogs',
+        'cancelReason'                => 'cancelReason',
+        'cancelReasonDescription'     => 'cancelReasonDescription',
+        'coordinationGroups'          => 'coordinationGroups',
         'createTime'                  => 'createTime',
-        'incidentNumber'              => 'incidentNumber',
-        'incidentId'                  => 'incidentId',
-        'problemNumber'               => 'problemNumber',
-        'problemName'                 => 'problemName',
-        'problemStatus'               => 'problemStatus',
-        'problemLevel'                => 'problemLevel',
         'discoverTime'                => 'discoverTime',
-        'recoveryTime'                => 'recoveryTime',
-        'relatedServiceId'            => 'relatedServiceId',
-        'serviceName'                 => 'serviceName',
-        'progressSummary'             => 'progressSummary',
-        'preliminaryReason'           => 'preliminaryReason',
+        'durationTime'                => 'durationTime',
+        'effectionServices'           => 'effectionServices',
+        'feedback'                    => 'feedback',
+        'handingProblemOperateLogs'   => 'handingProblemOperateLogs',
+        'incidentId'                  => 'incidentId',
+        'incidentNumber'              => 'incidentNumber',
         'mainHandler'                 => 'mainHandler',
         'mainHandlerId'               => 'mainHandlerId',
         'mainHandlerPhone'            => 'mainHandlerPhone',
-        'feedback'                    => 'feedback',
-        'cancelReasonDescription'     => 'cancelReasonDescription',
-        'cancelReason'                => 'cancelReason',
-        'durationTime'                => 'durationTime',
-        'handingProblemOperateLogs'   => 'handingProblemOperateLogs',
-        'restoredProblemOperateLogs'  => 'restoredProblemOperateLogs',
-        'replayingProblemOperateLogs' => 'replayingProblemOperateLogs',
+        'preliminaryReason'           => 'preliminaryReason',
+        'problemId'                   => 'problemId',
+        'problemLevel'                => 'problemLevel',
+        'problemName'                 => 'problemName',
+        'problemNumber'               => 'problemNumber',
+        'problemStatus'               => 'problemStatus',
+        'progressSummary'             => 'progressSummary',
+        'recoveryTime'                => 'recoveryTime',
+        'relatedServiceId'            => 'relatedServiceId',
         'replayProblemOperateLogs'    => 'replayProblemOperateLogs',
-        'effectionServices'           => 'effectionServices',
-        'coordinationGroups'          => 'coordinationGroups',
+        'replayingProblemOperateLogs' => 'replayingProblemOperateLogs',
+        'restoredProblemOperateLogs'  => 'restoredProblemOperateLogs',
+        'serviceName'                 => 'serviceName',
         'timelines'                   => 'timelines',
-        'cancelProblemOperateLogs'    => 'cancelProblemOperateLogs',
     ];
 
     public function validate()
@@ -257,68 +257,50 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->problemId) {
-            $res['problemId'] = $this->problemId;
-        }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
-        }
-        if (null !== $this->incidentNumber) {
-            $res['incidentNumber'] = $this->incidentNumber;
-        }
-        if (null !== $this->incidentId) {
-            $res['incidentId'] = $this->incidentId;
-        }
-        if (null !== $this->problemNumber) {
-            $res['problemNumber'] = $this->problemNumber;
-        }
-        if (null !== $this->problemName) {
-            $res['problemName'] = $this->problemName;
-        }
-        if (null !== $this->problemStatus) {
-            $res['problemStatus'] = $this->problemStatus;
-        }
-        if (null !== $this->problemLevel) {
-            $res['problemLevel'] = $this->problemLevel;
-        }
-        if (null !== $this->discoverTime) {
-            $res['discoverTime'] = $this->discoverTime;
-        }
-        if (null !== $this->recoveryTime) {
-            $res['recoveryTime'] = $this->recoveryTime;
-        }
-        if (null !== $this->relatedServiceId) {
-            $res['relatedServiceId'] = $this->relatedServiceId;
-        }
-        if (null !== $this->serviceName) {
-            $res['serviceName'] = $this->serviceName;
-        }
-        if (null !== $this->progressSummary) {
-            $res['progressSummary'] = $this->progressSummary;
-        }
-        if (null !== $this->preliminaryReason) {
-            $res['preliminaryReason'] = $this->preliminaryReason;
-        }
-        if (null !== $this->mainHandler) {
-            $res['mainHandler'] = $this->mainHandler;
-        }
-        if (null !== $this->mainHandlerId) {
-            $res['mainHandlerId'] = $this->mainHandlerId;
-        }
-        if (null !== $this->mainHandlerPhone) {
-            $res['mainHandlerPhone'] = $this->mainHandlerPhone;
-        }
-        if (null !== $this->feedback) {
-            $res['feedback'] = $this->feedback;
-        }
-        if (null !== $this->cancelReasonDescription) {
-            $res['cancelReasonDescription'] = $this->cancelReasonDescription;
+        if (null !== $this->cancelProblemOperateLogs) {
+            $res['cancelProblemOperateLogs'] = [];
+            if (null !== $this->cancelProblemOperateLogs && \is_array($this->cancelProblemOperateLogs)) {
+                $n = 0;
+                foreach ($this->cancelProblemOperateLogs as $item) {
+                    $res['cancelProblemOperateLogs'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->cancelReason) {
             $res['cancelReason'] = $this->cancelReason;
         }
+        if (null !== $this->cancelReasonDescription) {
+            $res['cancelReasonDescription'] = $this->cancelReasonDescription;
+        }
+        if (null !== $this->coordinationGroups) {
+            $res['coordinationGroups'] = [];
+            if (null !== $this->coordinationGroups && \is_array($this->coordinationGroups)) {
+                $n = 0;
+                foreach ($this->coordinationGroups as $item) {
+                    $res['coordinationGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
+        if (null !== $this->discoverTime) {
+            $res['discoverTime'] = $this->discoverTime;
+        }
         if (null !== $this->durationTime) {
             $res['durationTime'] = $this->durationTime;
+        }
+        if (null !== $this->effectionServices) {
+            $res['effectionServices'] = [];
+            if (null !== $this->effectionServices && \is_array($this->effectionServices)) {
+                $n = 0;
+                foreach ($this->effectionServices as $item) {
+                    $res['effectionServices'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->feedback) {
+            $res['feedback'] = $this->feedback;
         }
         if (null !== $this->handingProblemOperateLogs) {
             $res['handingProblemOperateLogs'] = [];
@@ -329,12 +311,54 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->restoredProblemOperateLogs) {
-            $res['restoredProblemOperateLogs'] = [];
-            if (null !== $this->restoredProblemOperateLogs && \is_array($this->restoredProblemOperateLogs)) {
+        if (null !== $this->incidentId) {
+            $res['incidentId'] = $this->incidentId;
+        }
+        if (null !== $this->incidentNumber) {
+            $res['incidentNumber'] = $this->incidentNumber;
+        }
+        if (null !== $this->mainHandler) {
+            $res['mainHandler'] = $this->mainHandler;
+        }
+        if (null !== $this->mainHandlerId) {
+            $res['mainHandlerId'] = $this->mainHandlerId;
+        }
+        if (null !== $this->mainHandlerPhone) {
+            $res['mainHandlerPhone'] = $this->mainHandlerPhone;
+        }
+        if (null !== $this->preliminaryReason) {
+            $res['preliminaryReason'] = $this->preliminaryReason;
+        }
+        if (null !== $this->problemId) {
+            $res['problemId'] = $this->problemId;
+        }
+        if (null !== $this->problemLevel) {
+            $res['problemLevel'] = $this->problemLevel;
+        }
+        if (null !== $this->problemName) {
+            $res['problemName'] = $this->problemName;
+        }
+        if (null !== $this->problemNumber) {
+            $res['problemNumber'] = $this->problemNumber;
+        }
+        if (null !== $this->problemStatus) {
+            $res['problemStatus'] = $this->problemStatus;
+        }
+        if (null !== $this->progressSummary) {
+            $res['progressSummary'] = $this->progressSummary;
+        }
+        if (null !== $this->recoveryTime) {
+            $res['recoveryTime'] = $this->recoveryTime;
+        }
+        if (null !== $this->relatedServiceId) {
+            $res['relatedServiceId'] = $this->relatedServiceId;
+        }
+        if (null !== $this->replayProblemOperateLogs) {
+            $res['replayProblemOperateLogs'] = [];
+            if (null !== $this->replayProblemOperateLogs && \is_array($this->replayProblemOperateLogs)) {
                 $n = 0;
-                foreach ($this->restoredProblemOperateLogs as $item) {
-                    $res['restoredProblemOperateLogs'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->replayProblemOperateLogs as $item) {
+                    $res['replayProblemOperateLogs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -347,32 +371,17 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->replayProblemOperateLogs) {
-            $res['replayProblemOperateLogs'] = [];
-            if (null !== $this->replayProblemOperateLogs && \is_array($this->replayProblemOperateLogs)) {
+        if (null !== $this->restoredProblemOperateLogs) {
+            $res['restoredProblemOperateLogs'] = [];
+            if (null !== $this->restoredProblemOperateLogs && \is_array($this->restoredProblemOperateLogs)) {
                 $n = 0;
-                foreach ($this->replayProblemOperateLogs as $item) {
-                    $res['replayProblemOperateLogs'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->restoredProblemOperateLogs as $item) {
+                    $res['restoredProblemOperateLogs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-        if (null !== $this->effectionServices) {
-            $res['effectionServices'] = [];
-            if (null !== $this->effectionServices && \is_array($this->effectionServices)) {
-                $n = 0;
-                foreach ($this->effectionServices as $item) {
-                    $res['effectionServices'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->coordinationGroups) {
-            $res['coordinationGroups'] = [];
-            if (null !== $this->coordinationGroups && \is_array($this->coordinationGroups)) {
-                $n = 0;
-                foreach ($this->coordinationGroups as $item) {
-                    $res['coordinationGroups'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->serviceName) {
+            $res['serviceName'] = $this->serviceName;
         }
         if (null !== $this->timelines) {
             $res['timelines'] = [];
@@ -380,15 +389,6 @@ class data extends Model
                 $n = 0;
                 foreach ($this->timelines as $item) {
                     $res['timelines'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->cancelProblemOperateLogs) {
-            $res['cancelProblemOperateLogs'] = [];
-            if (null !== $this->cancelProblemOperateLogs && \is_array($this->cancelProblemOperateLogs)) {
-                $n = 0;
-                foreach ($this->cancelProblemOperateLogs as $item) {
-                    $res['cancelProblemOperateLogs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -404,68 +404,50 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['problemId'])) {
-            $model->problemId = $map['problemId'];
-        }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
-        }
-        if (isset($map['incidentNumber'])) {
-            $model->incidentNumber = $map['incidentNumber'];
-        }
-        if (isset($map['incidentId'])) {
-            $model->incidentId = $map['incidentId'];
-        }
-        if (isset($map['problemNumber'])) {
-            $model->problemNumber = $map['problemNumber'];
-        }
-        if (isset($map['problemName'])) {
-            $model->problemName = $map['problemName'];
-        }
-        if (isset($map['problemStatus'])) {
-            $model->problemStatus = $map['problemStatus'];
-        }
-        if (isset($map['problemLevel'])) {
-            $model->problemLevel = $map['problemLevel'];
-        }
-        if (isset($map['discoverTime'])) {
-            $model->discoverTime = $map['discoverTime'];
-        }
-        if (isset($map['recoveryTime'])) {
-            $model->recoveryTime = $map['recoveryTime'];
-        }
-        if (isset($map['relatedServiceId'])) {
-            $model->relatedServiceId = $map['relatedServiceId'];
-        }
-        if (isset($map['serviceName'])) {
-            $model->serviceName = $map['serviceName'];
-        }
-        if (isset($map['progressSummary'])) {
-            $model->progressSummary = $map['progressSummary'];
-        }
-        if (isset($map['preliminaryReason'])) {
-            $model->preliminaryReason = $map['preliminaryReason'];
-        }
-        if (isset($map['mainHandler'])) {
-            $model->mainHandler = $map['mainHandler'];
-        }
-        if (isset($map['mainHandlerId'])) {
-            $model->mainHandlerId = $map['mainHandlerId'];
-        }
-        if (isset($map['mainHandlerPhone'])) {
-            $model->mainHandlerPhone = $map['mainHandlerPhone'];
-        }
-        if (isset($map['feedback'])) {
-            $model->feedback = $map['feedback'];
-        }
-        if (isset($map['cancelReasonDescription'])) {
-            $model->cancelReasonDescription = $map['cancelReasonDescription'];
+        if (isset($map['cancelProblemOperateLogs'])) {
+            if (!empty($map['cancelProblemOperateLogs'])) {
+                $model->cancelProblemOperateLogs = [];
+                $n                               = 0;
+                foreach ($map['cancelProblemOperateLogs'] as $item) {
+                    $model->cancelProblemOperateLogs[$n++] = null !== $item ? cancelProblemOperateLogs::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['cancelReason'])) {
             $model->cancelReason = $map['cancelReason'];
         }
+        if (isset($map['cancelReasonDescription'])) {
+            $model->cancelReasonDescription = $map['cancelReasonDescription'];
+        }
+        if (isset($map['coordinationGroups'])) {
+            if (!empty($map['coordinationGroups'])) {
+                $model->coordinationGroups = [];
+                $n                         = 0;
+                foreach ($map['coordinationGroups'] as $item) {
+                    $model->coordinationGroups[$n++] = null !== $item ? coordinationGroups::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
+        if (isset($map['discoverTime'])) {
+            $model->discoverTime = $map['discoverTime'];
+        }
         if (isset($map['durationTime'])) {
             $model->durationTime = $map['durationTime'];
+        }
+        if (isset($map['effectionServices'])) {
+            if (!empty($map['effectionServices'])) {
+                $model->effectionServices = [];
+                $n                        = 0;
+                foreach ($map['effectionServices'] as $item) {
+                    $model->effectionServices[$n++] = null !== $item ? effectionServices::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['feedback'])) {
+            $model->feedback = $map['feedback'];
         }
         if (isset($map['handingProblemOperateLogs'])) {
             if (!empty($map['handingProblemOperateLogs'])) {
@@ -476,12 +458,54 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['restoredProblemOperateLogs'])) {
-            if (!empty($map['restoredProblemOperateLogs'])) {
-                $model->restoredProblemOperateLogs = [];
-                $n                                 = 0;
-                foreach ($map['restoredProblemOperateLogs'] as $item) {
-                    $model->restoredProblemOperateLogs[$n++] = null !== $item ? restoredProblemOperateLogs::fromMap($item) : $item;
+        if (isset($map['incidentId'])) {
+            $model->incidentId = $map['incidentId'];
+        }
+        if (isset($map['incidentNumber'])) {
+            $model->incidentNumber = $map['incidentNumber'];
+        }
+        if (isset($map['mainHandler'])) {
+            $model->mainHandler = $map['mainHandler'];
+        }
+        if (isset($map['mainHandlerId'])) {
+            $model->mainHandlerId = $map['mainHandlerId'];
+        }
+        if (isset($map['mainHandlerPhone'])) {
+            $model->mainHandlerPhone = $map['mainHandlerPhone'];
+        }
+        if (isset($map['preliminaryReason'])) {
+            $model->preliminaryReason = $map['preliminaryReason'];
+        }
+        if (isset($map['problemId'])) {
+            $model->problemId = $map['problemId'];
+        }
+        if (isset($map['problemLevel'])) {
+            $model->problemLevel = $map['problemLevel'];
+        }
+        if (isset($map['problemName'])) {
+            $model->problemName = $map['problemName'];
+        }
+        if (isset($map['problemNumber'])) {
+            $model->problemNumber = $map['problemNumber'];
+        }
+        if (isset($map['problemStatus'])) {
+            $model->problemStatus = $map['problemStatus'];
+        }
+        if (isset($map['progressSummary'])) {
+            $model->progressSummary = $map['progressSummary'];
+        }
+        if (isset($map['recoveryTime'])) {
+            $model->recoveryTime = $map['recoveryTime'];
+        }
+        if (isset($map['relatedServiceId'])) {
+            $model->relatedServiceId = $map['relatedServiceId'];
+        }
+        if (isset($map['replayProblemOperateLogs'])) {
+            if (!empty($map['replayProblemOperateLogs'])) {
+                $model->replayProblemOperateLogs = [];
+                $n                               = 0;
+                foreach ($map['replayProblemOperateLogs'] as $item) {
+                    $model->replayProblemOperateLogs[$n++] = null !== $item ? replayProblemOperateLogs::fromMap($item) : $item;
                 }
             }
         }
@@ -494,32 +518,17 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['replayProblemOperateLogs'])) {
-            if (!empty($map['replayProblemOperateLogs'])) {
-                $model->replayProblemOperateLogs = [];
-                $n                               = 0;
-                foreach ($map['replayProblemOperateLogs'] as $item) {
-                    $model->replayProblemOperateLogs[$n++] = null !== $item ? replayProblemOperateLogs::fromMap($item) : $item;
+        if (isset($map['restoredProblemOperateLogs'])) {
+            if (!empty($map['restoredProblemOperateLogs'])) {
+                $model->restoredProblemOperateLogs = [];
+                $n                                 = 0;
+                foreach ($map['restoredProblemOperateLogs'] as $item) {
+                    $model->restoredProblemOperateLogs[$n++] = null !== $item ? restoredProblemOperateLogs::fromMap($item) : $item;
                 }
             }
         }
-        if (isset($map['effectionServices'])) {
-            if (!empty($map['effectionServices'])) {
-                $model->effectionServices = [];
-                $n                        = 0;
-                foreach ($map['effectionServices'] as $item) {
-                    $model->effectionServices[$n++] = null !== $item ? effectionServices::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['coordinationGroups'])) {
-            if (!empty($map['coordinationGroups'])) {
-                $model->coordinationGroups = [];
-                $n                         = 0;
-                foreach ($map['coordinationGroups'] as $item) {
-                    $model->coordinationGroups[$n++] = null !== $item ? coordinationGroups::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['serviceName'])) {
+            $model->serviceName = $map['serviceName'];
         }
         if (isset($map['timelines'])) {
             if (!empty($map['timelines'])) {
@@ -527,15 +536,6 @@ class data extends Model
                 $n                = 0;
                 foreach ($map['timelines'] as $item) {
                     $model->timelines[$n++] = null !== $item ? timelines::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['cancelProblemOperateLogs'])) {
-            if (!empty($map['cancelProblemOperateLogs'])) {
-                $model->cancelProblemOperateLogs = [];
-                $n                               = 0;
-                foreach ($map['cancelProblemOperateLogs'] as $item) {
-                    $model->cancelProblemOperateLogs[$n++] = null !== $item ? cancelProblemOperateLogs::fromMap($item) : $item;
                 }
             }
         }

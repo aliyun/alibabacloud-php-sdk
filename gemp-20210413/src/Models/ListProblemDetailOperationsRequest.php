@@ -16,6 +16,13 @@ class ListProblemDetailOperationsRequest extends Model
     public $clientToken;
 
     /**
+     * @description 时间排序
+     *
+     * @var string
+     */
+    public $createTimeSort;
+
+    /**
      * @description 页
      *
      * @var int
@@ -30,13 +37,6 @@ class ListProblemDetailOperationsRequest extends Model
     public $pageSize;
 
     /**
-     * @description 时间排序
-     *
-     * @var string
-     */
-    public $createTimeSort;
-
-    /**
      * @description 故障id
      *
      * @var int
@@ -44,9 +44,9 @@ class ListProblemDetailOperationsRequest extends Model
     public $problemId;
     protected $_name = [
         'clientToken'    => 'clientToken',
+        'createTimeSort' => 'createTimeSort',
         'pageNumber'     => 'pageNumber',
         'pageSize'       => 'pageSize',
-        'createTimeSort' => 'createTimeSort',
         'problemId'      => 'problemId',
     ];
 
@@ -60,14 +60,14 @@ class ListProblemDetailOperationsRequest extends Model
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
+        if (null !== $this->createTimeSort) {
+            $res['createTimeSort'] = $this->createTimeSort;
+        }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
-        }
-        if (null !== $this->createTimeSort) {
-            $res['createTimeSort'] = $this->createTimeSort;
         }
         if (null !== $this->problemId) {
             $res['problemId'] = $this->problemId;
@@ -87,14 +87,14 @@ class ListProblemDetailOperationsRequest extends Model
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
+        if (isset($map['createTimeSort'])) {
+            $model->createTimeSort = $map['createTimeSort'];
+        }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
-        }
-        if (isset($map['createTimeSort'])) {
-            $model->createTimeSort = $map['createTimeSort'];
         }
         if (isset($map['problemId'])) {
             $model->problemId = $map['problemId'];

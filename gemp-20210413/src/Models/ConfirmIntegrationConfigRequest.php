@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ConfirmIntegrationConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $integrationConfigId;
-
-    /**
      * @description 幂等id
      *
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var int
+     */
+    public $integrationConfigId;
     protected $_name = [
-        'integrationConfigId' => 'integrationConfigId',
         'clientToken'         => 'clientToken',
+        'integrationConfigId' => 'integrationConfigId',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class ConfirmIntegrationConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->integrationConfigId) {
-            $res['integrationConfigId'] = $this->integrationConfigId;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->integrationConfigId) {
+            $res['integrationConfigId'] = $this->integrationConfigId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class ConfirmIntegrationConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['integrationConfigId'])) {
-            $model->integrationConfigId = $map['integrationConfigId'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['integrationConfigId'])) {
+            $model->integrationConfigId = $map['integrationConfigId'];
         }
 
         return $model;

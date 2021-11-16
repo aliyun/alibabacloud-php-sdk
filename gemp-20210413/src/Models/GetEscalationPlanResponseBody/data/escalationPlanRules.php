@@ -11,18 +11,18 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanRules extends Model
 {
     /**
-     * @description 升级计划id
-     *
-     * @var int
-     */
-    public $escalationPlanRuleId;
-
-    /**
      * @description 升级计划条件
      *
      * @var escalationPlanConditions[]
      */
     public $escalationPlanConditions;
+
+    /**
+     * @description 升级计划id
+     *
+     * @var int
+     */
+    public $escalationPlanRuleId;
 
     /**
      * @description 升级计划策略
@@ -31,8 +31,8 @@ class escalationPlanRules extends Model
      */
     public $escalationPlanStrategies;
     protected $_name = [
-        'escalationPlanRuleId'     => 'escalationPlanRuleId',
         'escalationPlanConditions' => 'escalationPlanConditions',
+        'escalationPlanRuleId'     => 'escalationPlanRuleId',
         'escalationPlanStrategies' => 'escalationPlanStrategies',
     ];
 
@@ -43,9 +43,6 @@ class escalationPlanRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->escalationPlanRuleId) {
-            $res['escalationPlanRuleId'] = $this->escalationPlanRuleId;
-        }
         if (null !== $this->escalationPlanConditions) {
             $res['escalationPlanConditions'] = [];
             if (null !== $this->escalationPlanConditions && \is_array($this->escalationPlanConditions)) {
@@ -54,6 +51,9 @@ class escalationPlanRules extends Model
                     $res['escalationPlanConditions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->escalationPlanRuleId) {
+            $res['escalationPlanRuleId'] = $this->escalationPlanRuleId;
         }
         if (null !== $this->escalationPlanStrategies) {
             $res['escalationPlanStrategies'] = [];
@@ -76,9 +76,6 @@ class escalationPlanRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['escalationPlanRuleId'])) {
-            $model->escalationPlanRuleId = $map['escalationPlanRuleId'];
-        }
         if (isset($map['escalationPlanConditions'])) {
             if (!empty($map['escalationPlanConditions'])) {
                 $model->escalationPlanConditions = [];
@@ -87,6 +84,9 @@ class escalationPlanRules extends Model
                     $model->escalationPlanConditions[$n++] = null !== $item ? escalationPlanConditions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['escalationPlanRuleId'])) {
+            $model->escalationPlanRuleId = $map['escalationPlanRuleId'];
         }
         if (isset($map['escalationPlanStrategies'])) {
             if (!empty($map['escalationPlanStrategies'])) {

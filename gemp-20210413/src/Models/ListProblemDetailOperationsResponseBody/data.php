@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 动态标题
+     * @description 升级 PROBLEM_UPGRADE 撤销 PROBLEM_REVOKE 恢复 PROBLEM_RESTORE 复盘 PROBLEM_IN_REVIEW 完结 PROBLEM_REOPENED 取消 PROBLEM_CANCEL 更新故障通告 PROBLEM_UPDATE_NOTIFY 添加故障小计 PROBLEM_ADD_SUBTOTAL 更新故障 PROBLEM_UPDATE
      *
      * @var string
      */
-    public $title;
+    public $action;
+
+    /**
+     * @description 创建时间
+     *
+     * @var string
+     */
+    public $createTime;
 
     /**
      * @description 描述
@@ -30,13 +37,6 @@ class data extends Model
     public $relatedServiceName;
 
     /**
-     * @description 创建时间
-     *
-     * @var string
-     */
-    public $createTime;
-
-    /**
      * @description 备注
      *
      * @var string
@@ -44,18 +44,26 @@ class data extends Model
     public $remark;
 
     /**
-     * @description 升级 PROBLEM_UPGRADE 撤销 PROBLEM_REVOKE 恢复 PROBLEM_RESTORE 复盘 PROBLEM_IN_REVIEW 完结 PROBLEM_REOPENED 取消 PROBLEM_CANCEL 更新故障通告 PROBLEM_UPDATE_NOTIFY 添加故障小计 PROBLEM_ADD_SUBTOTAL 更新故障 PROBLEM_UPDATE
+     * @description 快照数据
      *
      * @var string
      */
-    public $action;
+    public $snapshotData;
+
+    /**
+     * @description 动态标题
+     *
+     * @var string
+     */
+    public $title;
     protected $_name = [
-        'title'              => 'title',
+        'action'             => 'action',
+        'createTime'         => 'createTime',
         'description'        => 'description',
         'relatedServiceName' => 'relatedServiceName',
-        'createTime'         => 'createTime',
         'remark'             => 'remark',
-        'action'             => 'action',
+        'snapshotData'       => 'snapshotData',
+        'title'              => 'title',
     ];
 
     public function validate()
@@ -65,8 +73,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->title) {
-            $res['title'] = $this->title;
+        if (null !== $this->action) {
+            $res['action'] = $this->action;
+        }
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
@@ -74,14 +85,14 @@ class data extends Model
         if (null !== $this->relatedServiceName) {
             $res['relatedServiceName'] = $this->relatedServiceName;
         }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
-        }
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
-        if (null !== $this->action) {
-            $res['action'] = $this->action;
+        if (null !== $this->snapshotData) {
+            $res['snapshotData'] = $this->snapshotData;
+        }
+        if (null !== $this->title) {
+            $res['title'] = $this->title;
         }
 
         return $res;
@@ -95,8 +106,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['title'])) {
-            $model->title = $map['title'];
+        if (isset($map['action'])) {
+            $model->action = $map['action'];
+        }
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
@@ -104,14 +118,14 @@ class data extends Model
         if (isset($map['relatedServiceName'])) {
             $model->relatedServiceName = $map['relatedServiceName'];
         }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
-        }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }
-        if (isset($map['action'])) {
-            $model->action = $map['action'];
+        if (isset($map['snapshotData'])) {
+            $model->snapshotData = $map['snapshotData'];
+        }
+        if (isset($map['title'])) {
+            $model->title = $map['title'];
         }
 
         return $model;

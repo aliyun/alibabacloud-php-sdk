@@ -16,22 +16,22 @@ class RecoverProblemRequest extends Model
     public $problemId;
 
     /**
-     * @description 恢复时间
-     *
-     * @var string
-     */
-    public $recoveryTime;
-
-    /**
      * @description 通告类型 PROBLEM_NOTIFY：故障通告 PROBLEM_UPDATE：故障更新 PROBLEM_UPGRADE：故障升级 PROBLEM_DEGRADE：故障降级 PROBLEM_RECOVER：故障恢复 PROBLEM_REISSUE： 故障补发 PROBLEM_CANCEL：故障取消
      *
      * @var string
      */
     public $problemNotifyType;
+
+    /**
+     * @description 恢复时间
+     *
+     * @var string
+     */
+    public $recoveryTime;
     protected $_name = [
         'problemId'         => 'problemId',
-        'recoveryTime'      => 'recoveryTime',
         'problemNotifyType' => 'problemNotifyType',
+        'recoveryTime'      => 'recoveryTime',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class RecoverProblemRequest extends Model
         if (null !== $this->problemId) {
             $res['problemId'] = $this->problemId;
         }
-        if (null !== $this->recoveryTime) {
-            $res['recoveryTime'] = $this->recoveryTime;
-        }
         if (null !== $this->problemNotifyType) {
             $res['problemNotifyType'] = $this->problemNotifyType;
+        }
+        if (null !== $this->recoveryTime) {
+            $res['recoveryTime'] = $this->recoveryTime;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class RecoverProblemRequest extends Model
         if (isset($map['problemId'])) {
             $model->problemId = $map['problemId'];
         }
-        if (isset($map['recoveryTime'])) {
-            $model->recoveryTime = $map['recoveryTime'];
-        }
         if (isset($map['problemNotifyType'])) {
             $model->problemNotifyType = $map['problemNotifyType'];
+        }
+        if (isset($map['recoveryTime'])) {
+            $model->recoveryTime = $map['recoveryTime'];
         }
 
         return $model;

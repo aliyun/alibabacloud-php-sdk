@@ -10,18 +10,18 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanStrategies extends Model
 {
     /**
-     * @description 通知时间
-     *
-     * @var int
-     */
-    public $noticeTime;
-
-    /**
      * @description 升级计划类型
      *
      * @var string
      */
     public $escalationPlanType;
+
+    /**
+     * @description 通知对象渠道
+     *
+     * @var string
+     */
+    public $noticeChannels;
 
     /**
      * @description 通知对象列表
@@ -31,16 +31,16 @@ class escalationPlanStrategies extends Model
     public $noticeObjectList;
 
     /**
-     * @description 通知对象渠道
+     * @description 通知时间
      *
-     * @var string
+     * @var int
      */
-    public $noticeChannels;
+    public $noticeTime;
     protected $_name = [
-        'noticeTime'         => 'noticeTime',
         'escalationPlanType' => 'escalationPlanType',
-        'noticeObjectList'   => 'noticeObjectList',
         'noticeChannels'     => 'noticeChannels',
+        'noticeObjectList'   => 'noticeObjectList',
+        'noticeTime'         => 'noticeTime',
     ];
 
     public function validate()
@@ -50,11 +50,11 @@ class escalationPlanStrategies extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->noticeTime) {
-            $res['noticeTime'] = $this->noticeTime;
-        }
         if (null !== $this->escalationPlanType) {
             $res['escalationPlanType'] = $this->escalationPlanType;
+        }
+        if (null !== $this->noticeChannels) {
+            $res['noticeChannels'] = $this->noticeChannels;
         }
         if (null !== $this->noticeObjectList) {
             $res['noticeObjectList'] = [];
@@ -65,8 +65,8 @@ class escalationPlanStrategies extends Model
                 }
             }
         }
-        if (null !== $this->noticeChannels) {
-            $res['noticeChannels'] = $this->noticeChannels;
+        if (null !== $this->noticeTime) {
+            $res['noticeTime'] = $this->noticeTime;
         }
 
         return $res;
@@ -80,11 +80,11 @@ class escalationPlanStrategies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['noticeTime'])) {
-            $model->noticeTime = $map['noticeTime'];
-        }
         if (isset($map['escalationPlanType'])) {
             $model->escalationPlanType = $map['escalationPlanType'];
+        }
+        if (isset($map['noticeChannels'])) {
+            $model->noticeChannels = $map['noticeChannels'];
         }
         if (isset($map['noticeObjectList'])) {
             if (!empty($map['noticeObjectList'])) {
@@ -95,8 +95,8 @@ class escalationPlanStrategies extends Model
                 }
             }
         }
-        if (isset($map['noticeChannels'])) {
-            $model->noticeChannels = $map['noticeChannels'];
+        if (isset($map['noticeTime'])) {
+            $model->noticeTime = $map['noticeTime'];
         }
 
         return $model;

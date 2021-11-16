@@ -12,20 +12,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 排班方式 FAST 快速排班 FINE 精细排班
-     *
-     * @var string
-     */
-    public $schedulingWay;
-
-    /**
-     * @description 服务组ID
-     *
-     * @var int
-     */
-    public $serviceGroupId;
-
-    /**
      * @description 快速排班
      *
      * @var fastScheduling
@@ -40,16 +26,30 @@ class data extends Model
     public $fineScheduling;
 
     /**
+     * @description 排班方式 FAST 快速排班 FINE 精细排班
+     *
+     * @var string
+     */
+    public $schedulingWay;
+
+    /**
+     * @description 服务组ID
+     *
+     * @var int
+     */
+    public $serviceGroupId;
+
+    /**
      * @description 已经排班
      *
      * @var users[]
      */
     public $users;
     protected $_name = [
-        'schedulingWay'  => 'schedulingWay',
-        'serviceGroupId' => 'serviceGroupId',
         'fastScheduling' => 'fastScheduling',
         'fineScheduling' => 'fineScheduling',
+        'schedulingWay'  => 'schedulingWay',
+        'serviceGroupId' => 'serviceGroupId',
         'users'          => 'users',
     ];
 
@@ -60,17 +60,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->schedulingWay) {
-            $res['schedulingWay'] = $this->schedulingWay;
-        }
-        if (null !== $this->serviceGroupId) {
-            $res['serviceGroupId'] = $this->serviceGroupId;
-        }
         if (null !== $this->fastScheduling) {
             $res['fastScheduling'] = null !== $this->fastScheduling ? $this->fastScheduling->toMap() : null;
         }
         if (null !== $this->fineScheduling) {
             $res['fineScheduling'] = null !== $this->fineScheduling ? $this->fineScheduling->toMap() : null;
+        }
+        if (null !== $this->schedulingWay) {
+            $res['schedulingWay'] = $this->schedulingWay;
+        }
+        if (null !== $this->serviceGroupId) {
+            $res['serviceGroupId'] = $this->serviceGroupId;
         }
         if (null !== $this->users) {
             $res['users'] = [];
@@ -93,17 +93,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['schedulingWay'])) {
-            $model->schedulingWay = $map['schedulingWay'];
-        }
-        if (isset($map['serviceGroupId'])) {
-            $model->serviceGroupId = $map['serviceGroupId'];
-        }
         if (isset($map['fastScheduling'])) {
             $model->fastScheduling = fastScheduling::fromMap($map['fastScheduling']);
         }
         if (isset($map['fineScheduling'])) {
             $model->fineScheduling = fineScheduling::fromMap($map['fineScheduling']);
+        }
+        if (isset($map['schedulingWay'])) {
+            $model->schedulingWay = $map['schedulingWay'];
+        }
+        if (isset($map['serviceGroupId'])) {
+            $model->serviceGroupId = $map['serviceGroupId'];
         }
         if (isset($map['users'])) {
             if (!empty($map['users'])) {

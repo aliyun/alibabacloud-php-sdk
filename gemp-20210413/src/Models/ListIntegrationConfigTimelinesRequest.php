@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListIntegrationConfigTimelinesRequest extends Model
 {
     /**
+     * @description 幂等参数
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description 集成配置id
      *
      * @var int
@@ -28,18 +35,11 @@ class ListIntegrationConfigTimelinesRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @description 幂等参数
-     *
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken'         => 'clientToken',
         'integrationConfigId' => 'integrationConfigId',
         'pageNumber'          => 'pageNumber',
         'pageSize'            => 'pageSize',
-        'clientToken'         => 'clientToken',
     ];
 
     public function validate()
@@ -49,6 +49,9 @@ class ListIntegrationConfigTimelinesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
         if (null !== $this->integrationConfigId) {
             $res['integrationConfigId'] = $this->integrationConfigId;
         }
@@ -57,9 +60,6 @@ class ListIntegrationConfigTimelinesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
-        }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -73,6 +73,9 @@ class ListIntegrationConfigTimelinesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
         if (isset($map['integrationConfigId'])) {
             $model->integrationConfigId = $map['integrationConfigId'];
         }
@@ -81,9 +84,6 @@ class ListIntegrationConfigTimelinesRequest extends Model
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
-        }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

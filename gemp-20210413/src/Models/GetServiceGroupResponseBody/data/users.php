@@ -9,20 +9,6 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
-     * @description 用户ID
-     *
-     * @var int
-     */
-    public $userId;
-
-    /**
-     * @description 用户名字
-     *
-     * @var string
-     */
-    public $userName;
-
-    /**
      * @description 手机号
      *
      * @var string
@@ -35,11 +21,25 @@ class users extends Model
      * @var int
      */
     public $serviceGroupId;
+
+    /**
+     * @description 用户ID
+     *
+     * @var int
+     */
+    public $userId;
+
+    /**
+     * @description 用户名字
+     *
+     * @var string
+     */
+    public $userName;
     protected $_name = [
-        'userId'         => 'userId',
-        'userName'       => 'userName',
         'phone'          => 'phone',
         'serviceGroupId' => 'serviceGroupId',
+        'userId'         => 'userId',
+        'userName'       => 'userName',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class users extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['userId'] = $this->userId;
-        }
-        if (null !== $this->userName) {
-            $res['userName'] = $this->userName;
-        }
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
         }
         if (null !== $this->serviceGroupId) {
             $res['serviceGroupId'] = $this->serviceGroupId;
+        }
+        if (null !== $this->userId) {
+            $res['userId'] = $this->userId;
+        }
+        if (null !== $this->userName) {
+            $res['userName'] = $this->userName;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class users extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['userId'])) {
-            $model->userId = $map['userId'];
-        }
-        if (isset($map['userName'])) {
-            $model->userName = $map['userName'];
-        }
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
         }
         if (isset($map['serviceGroupId'])) {
             $model->serviceGroupId = $map['serviceGroupId'];
+        }
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
+        }
+        if (isset($map['userName'])) {
+            $model->userName = $map['userName'];
         }
 
         return $model;

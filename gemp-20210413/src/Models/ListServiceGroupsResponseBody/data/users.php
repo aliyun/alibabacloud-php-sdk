@@ -9,6 +9,27 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description 邮箱
+     *
+     * @var string
+     */
+    public $email;
+
+    /**
+     * @description 手机号
+     *
+     * @var string
+     */
+    public $phone;
+
+    /**
+     * @description 服务组ID
+     *
+     * @var int
+     */
+    public $serviceGroupId;
+
+    /**
      * @description 用户ID
      *
      * @var int
@@ -21,33 +42,12 @@ class users extends Model
      * @var string
      */
     public $userName;
-
-    /**
-     * @description 服务组ID
-     *
-     * @var int
-     */
-    public $serviceGroupId;
-
-    /**
-     * @description 手机号
-     *
-     * @var string
-     */
-    public $phone;
-
-    /**
-     * @description 邮箱
-     *
-     * @var string
-     */
-    public $email;
     protected $_name = [
+        'email'          => 'email',
+        'phone'          => 'phone',
+        'serviceGroupId' => 'serviceGroupId',
         'userId'         => 'userId',
         'userName'       => 'userName',
-        'serviceGroupId' => 'serviceGroupId',
-        'phone'          => 'phone',
-        'email'          => 'email',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class users extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->email) {
+            $res['email'] = $this->email;
+        }
+        if (null !== $this->phone) {
+            $res['phone'] = $this->phone;
+        }
+        if (null !== $this->serviceGroupId) {
+            $res['serviceGroupId'] = $this->serviceGroupId;
+        }
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
         if (null !== $this->userName) {
             $res['userName'] = $this->userName;
-        }
-        if (null !== $this->serviceGroupId) {
-            $res['serviceGroupId'] = $this->serviceGroupId;
-        }
-        if (null !== $this->phone) {
-            $res['phone'] = $this->phone;
-        }
-        if (null !== $this->email) {
-            $res['email'] = $this->email;
         }
 
         return $res;
@@ -84,20 +84,20 @@ class users extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['email'])) {
+            $model->email = $map['email'];
+        }
+        if (isset($map['phone'])) {
+            $model->phone = $map['phone'];
+        }
+        if (isset($map['serviceGroupId'])) {
+            $model->serviceGroupId = $map['serviceGroupId'];
+        }
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }
         if (isset($map['userName'])) {
             $model->userName = $map['userName'];
-        }
-        if (isset($map['serviceGroupId'])) {
-            $model->serviceGroupId = $map['serviceGroupId'];
-        }
-        if (isset($map['phone'])) {
-            $model->phone = $map['phone'];
-        }
-        if (isset($map['email'])) {
-            $model->email = $map['email'];
         }
 
         return $model;

@@ -11,25 +11,18 @@ use AlibabaCloud\Tea\Model;
 class problem extends Model
 {
     /**
-     * @description 故障名称
+     * @description 应急协同组
      *
-     * @var string
+     * @var coordinationGroups[]
      */
-    public $problemName;
+    public $coordinationGroups;
 
     /**
-     * @description 故障状态 1 处理中 2已恢复 3复盘中 4已复盘 5已取消
+     * @description 创建时间
      *
      * @var string
      */
-    public $problemStatus;
-
-    /**
-     * @description 故障等级 1=P1 2=P2 3=P3 4=P4
-     *
-     * @var string
-     */
-    public $problemLevel;
+    public $createTime;
 
     /**
      * @description 发现时间
@@ -39,46 +32,11 @@ class problem extends Model
     public $discoverTime;
 
     /**
-     * @description 恢复时间
+     * @description 影响服务
      *
-     * @var string
+     * @var effectionServices[]
      */
-    public $recoveryTime;
-
-    /**
-     * @description 关联服务 名称
-     *
-     * @var string
-     */
-    public $serviceName;
-
-    /**
-     * @description 进展摘要
-     *
-     * @var string
-     */
-    public $progressSummary;
-
-    /**
-     * @description 初步原因
-     *
-     * @var string
-     */
-    public $preliminaryReason;
-
-    /**
-     * @description 主要处理人
-     *
-     * @var string
-     */
-    public $mainHandlerName;
-
-    /**
-     * @description 主要处理人Id
-     *
-     * @var string
-     */
-    public $mainHandlerId;
+    public $effectionServices;
 
     /**
      * @description 是否手动
@@ -95,11 +53,67 @@ class problem extends Model
     public $isUpgrade;
 
     /**
+     * @description 主要处理人Id
+     *
+     * @var string
+     */
+    public $mainHandlerId;
+
+    /**
+     * @description 主要处理人
+     *
+     * @var string
+     */
+    public $mainHandlerName;
+
+    /**
+     * @description 初步原因
+     *
+     * @var string
+     */
+    public $preliminaryReason;
+
+    /**
      * @description 故障Id
      *
      * @var int
      */
     public $problemId;
+
+    /**
+     * @description 故障等级 1=P1 2=P2 3=P3 4=P4
+     *
+     * @var string
+     */
+    public $problemLevel;
+
+    /**
+     * @description 故障名称
+     *
+     * @var string
+     */
+    public $problemName;
+
+    /**
+     * @description 故障状态 1 处理中 2已恢复 3复盘中 4已复盘 5已取消
+     *
+     * @var string
+     */
+    public $problemStatus;
+
+    /**
+     * @description 进展摘要
+     *
+     * @var string
+     */
+    public $progressSummary;
+
+    /**
+     * @description 恢复时间
+     *
+     * @var string
+     */
+    public $recoveryTime;
 
     /**
      * @description 关联服务ID
@@ -109,43 +123,29 @@ class problem extends Model
     public $relatedServiceId;
 
     /**
-     * @description 创建时间
+     * @description 关联服务 名称
      *
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @description 应急协同组
-     *
-     * @var coordinationGroups[]
-     */
-    public $coordinationGroups;
-
-    /**
-     * @description 影响服务
-     *
-     * @var effectionServices[]
-     */
-    public $effectionServices;
+    public $serviceName;
     protected $_name = [
-        'problemName'        => 'problemName',
-        'problemStatus'      => 'problemStatus',
-        'problemLevel'       => 'problemLevel',
+        'coordinationGroups' => 'coordinationGroups',
+        'createTime'         => 'createTime',
         'discoverTime'       => 'discoverTime',
-        'recoveryTime'       => 'recoveryTime',
-        'serviceName'        => 'serviceName',
-        'progressSummary'    => 'progressSummary',
-        'preliminaryReason'  => 'preliminaryReason',
-        'mainHandlerName'    => 'mainHandlerName',
-        'mainHandlerId'      => 'mainHandlerId',
+        'effectionServices'  => 'effectionServices',
         'isManual'           => 'isManual',
         'isUpgrade'          => 'isUpgrade',
+        'mainHandlerId'      => 'mainHandlerId',
+        'mainHandlerName'    => 'mainHandlerName',
+        'preliminaryReason'  => 'preliminaryReason',
         'problemId'          => 'problemId',
+        'problemLevel'       => 'problemLevel',
+        'problemName'        => 'problemName',
+        'problemStatus'      => 'problemStatus',
+        'progressSummary'    => 'progressSummary',
+        'recoveryTime'       => 'recoveryTime',
         'relatedServiceId'   => 'relatedServiceId',
-        'createTime'         => 'createTime',
-        'coordinationGroups' => 'coordinationGroups',
-        'effectionServices'  => 'effectionServices',
+        'serviceName'        => 'serviceName',
     ];
 
     public function validate()
@@ -155,51 +155,6 @@ class problem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->problemName) {
-            $res['problemName'] = $this->problemName;
-        }
-        if (null !== $this->problemStatus) {
-            $res['problemStatus'] = $this->problemStatus;
-        }
-        if (null !== $this->problemLevel) {
-            $res['problemLevel'] = $this->problemLevel;
-        }
-        if (null !== $this->discoverTime) {
-            $res['discoverTime'] = $this->discoverTime;
-        }
-        if (null !== $this->recoveryTime) {
-            $res['recoveryTime'] = $this->recoveryTime;
-        }
-        if (null !== $this->serviceName) {
-            $res['serviceName'] = $this->serviceName;
-        }
-        if (null !== $this->progressSummary) {
-            $res['progressSummary'] = $this->progressSummary;
-        }
-        if (null !== $this->preliminaryReason) {
-            $res['preliminaryReason'] = $this->preliminaryReason;
-        }
-        if (null !== $this->mainHandlerName) {
-            $res['mainHandlerName'] = $this->mainHandlerName;
-        }
-        if (null !== $this->mainHandlerId) {
-            $res['mainHandlerId'] = $this->mainHandlerId;
-        }
-        if (null !== $this->isManual) {
-            $res['isManual'] = $this->isManual;
-        }
-        if (null !== $this->isUpgrade) {
-            $res['isUpgrade'] = $this->isUpgrade;
-        }
-        if (null !== $this->problemId) {
-            $res['problemId'] = $this->problemId;
-        }
-        if (null !== $this->relatedServiceId) {
-            $res['relatedServiceId'] = $this->relatedServiceId;
-        }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
-        }
         if (null !== $this->coordinationGroups) {
             $res['coordinationGroups'] = [];
             if (null !== $this->coordinationGroups && \is_array($this->coordinationGroups)) {
@@ -209,6 +164,12 @@ class problem extends Model
                 }
             }
         }
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
+        if (null !== $this->discoverTime) {
+            $res['discoverTime'] = $this->discoverTime;
+        }
         if (null !== $this->effectionServices) {
             $res['effectionServices'] = [];
             if (null !== $this->effectionServices && \is_array($this->effectionServices)) {
@@ -217,6 +178,45 @@ class problem extends Model
                     $res['effectionServices'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->isManual) {
+            $res['isManual'] = $this->isManual;
+        }
+        if (null !== $this->isUpgrade) {
+            $res['isUpgrade'] = $this->isUpgrade;
+        }
+        if (null !== $this->mainHandlerId) {
+            $res['mainHandlerId'] = $this->mainHandlerId;
+        }
+        if (null !== $this->mainHandlerName) {
+            $res['mainHandlerName'] = $this->mainHandlerName;
+        }
+        if (null !== $this->preliminaryReason) {
+            $res['preliminaryReason'] = $this->preliminaryReason;
+        }
+        if (null !== $this->problemId) {
+            $res['problemId'] = $this->problemId;
+        }
+        if (null !== $this->problemLevel) {
+            $res['problemLevel'] = $this->problemLevel;
+        }
+        if (null !== $this->problemName) {
+            $res['problemName'] = $this->problemName;
+        }
+        if (null !== $this->problemStatus) {
+            $res['problemStatus'] = $this->problemStatus;
+        }
+        if (null !== $this->progressSummary) {
+            $res['progressSummary'] = $this->progressSummary;
+        }
+        if (null !== $this->recoveryTime) {
+            $res['recoveryTime'] = $this->recoveryTime;
+        }
+        if (null !== $this->relatedServiceId) {
+            $res['relatedServiceId'] = $this->relatedServiceId;
+        }
+        if (null !== $this->serviceName) {
+            $res['serviceName'] = $this->serviceName;
         }
 
         return $res;
@@ -230,51 +230,6 @@ class problem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['problemName'])) {
-            $model->problemName = $map['problemName'];
-        }
-        if (isset($map['problemStatus'])) {
-            $model->problemStatus = $map['problemStatus'];
-        }
-        if (isset($map['problemLevel'])) {
-            $model->problemLevel = $map['problemLevel'];
-        }
-        if (isset($map['discoverTime'])) {
-            $model->discoverTime = $map['discoverTime'];
-        }
-        if (isset($map['recoveryTime'])) {
-            $model->recoveryTime = $map['recoveryTime'];
-        }
-        if (isset($map['serviceName'])) {
-            $model->serviceName = $map['serviceName'];
-        }
-        if (isset($map['progressSummary'])) {
-            $model->progressSummary = $map['progressSummary'];
-        }
-        if (isset($map['preliminaryReason'])) {
-            $model->preliminaryReason = $map['preliminaryReason'];
-        }
-        if (isset($map['mainHandlerName'])) {
-            $model->mainHandlerName = $map['mainHandlerName'];
-        }
-        if (isset($map['mainHandlerId'])) {
-            $model->mainHandlerId = $map['mainHandlerId'];
-        }
-        if (isset($map['isManual'])) {
-            $model->isManual = $map['isManual'];
-        }
-        if (isset($map['isUpgrade'])) {
-            $model->isUpgrade = $map['isUpgrade'];
-        }
-        if (isset($map['problemId'])) {
-            $model->problemId = $map['problemId'];
-        }
-        if (isset($map['relatedServiceId'])) {
-            $model->relatedServiceId = $map['relatedServiceId'];
-        }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
-        }
         if (isset($map['coordinationGroups'])) {
             if (!empty($map['coordinationGroups'])) {
                 $model->coordinationGroups = [];
@@ -284,6 +239,12 @@ class problem extends Model
                 }
             }
         }
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
+        if (isset($map['discoverTime'])) {
+            $model->discoverTime = $map['discoverTime'];
+        }
         if (isset($map['effectionServices'])) {
             if (!empty($map['effectionServices'])) {
                 $model->effectionServices = [];
@@ -292,6 +253,45 @@ class problem extends Model
                     $model->effectionServices[$n++] = null !== $item ? effectionServices::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['isManual'])) {
+            $model->isManual = $map['isManual'];
+        }
+        if (isset($map['isUpgrade'])) {
+            $model->isUpgrade = $map['isUpgrade'];
+        }
+        if (isset($map['mainHandlerId'])) {
+            $model->mainHandlerId = $map['mainHandlerId'];
+        }
+        if (isset($map['mainHandlerName'])) {
+            $model->mainHandlerName = $map['mainHandlerName'];
+        }
+        if (isset($map['preliminaryReason'])) {
+            $model->preliminaryReason = $map['preliminaryReason'];
+        }
+        if (isset($map['problemId'])) {
+            $model->problemId = $map['problemId'];
+        }
+        if (isset($map['problemLevel'])) {
+            $model->problemLevel = $map['problemLevel'];
+        }
+        if (isset($map['problemName'])) {
+            $model->problemName = $map['problemName'];
+        }
+        if (isset($map['problemStatus'])) {
+            $model->problemStatus = $map['problemStatus'];
+        }
+        if (isset($map['progressSummary'])) {
+            $model->progressSummary = $map['progressSummary'];
+        }
+        if (isset($map['recoveryTime'])) {
+            $model->recoveryTime = $map['recoveryTime'];
+        }
+        if (isset($map['relatedServiceId'])) {
+            $model->relatedServiceId = $map['relatedServiceId'];
+        }
+        if (isset($map['serviceName'])) {
+            $model->serviceName = $map['serviceName'];
         }
 
         return $model;

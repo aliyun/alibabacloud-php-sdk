@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description ossaccessKeyId
+     *
+     * @var string
+     */
+    public $accessKeyId;
+
+    /**
      * @description oss bucket name
      *
      * @var string
@@ -42,20 +49,13 @@ class data extends Model
      * @var string
      */
     public $url;
-
-    /**
-     * @description ossaccessKeyId
-     *
-     * @var string
-     */
-    public $accessKeyId;
     protected $_name = [
+        'accessKeyId' => 'accessKeyId',
         'bucketName'  => 'bucketName',
         'key'         => 'key',
         'policy'      => 'policy',
         'signature'   => 'signature',
         'url'         => 'url',
-        'accessKeyId' => 'accessKeyId',
     ];
 
     public function validate()
@@ -65,6 +65,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessKeyId) {
+            $res['accessKeyId'] = $this->accessKeyId;
+        }
         if (null !== $this->bucketName) {
             $res['bucketName'] = $this->bucketName;
         }
@@ -80,9 +83,6 @@ class data extends Model
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
-        if (null !== $this->accessKeyId) {
-            $res['accessKeyId'] = $this->accessKeyId;
-        }
 
         return $res;
     }
@@ -95,6 +95,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['accessKeyId'])) {
+            $model->accessKeyId = $map['accessKeyId'];
+        }
         if (isset($map['bucketName'])) {
             $model->bucketName = $map['bucketName'];
         }
@@ -109,9 +112,6 @@ class data extends Model
         }
         if (isset($map['url'])) {
             $model->url = $map['url'];
-        }
-        if (isset($map['accessKeyId'])) {
-            $model->accessKeyId = $map['accessKeyId'];
         }
 
         return $model;

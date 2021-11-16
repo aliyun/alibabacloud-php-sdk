@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class affectServices extends Model
 {
     /**
-     * @description 影响服务ID
-     *
-     * @var int
-     */
-    public $serviceId;
-
-    /**
      * @description 服务描述
      *
      * @var string
      */
     public $serviceDescription;
+
+    /**
+     * @description 影响服务ID
+     *
+     * @var int
+     */
+    public $serviceId;
 
     /**
      * @description 服务名字
@@ -36,8 +36,8 @@ class affectServices extends Model
      */
     public $updateTime;
     protected $_name = [
-        'serviceId'          => 'serviceId',
         'serviceDescription' => 'serviceDescription',
+        'serviceId'          => 'serviceId',
         'serviceName'        => 'serviceName',
         'updateTime'         => 'updateTime',
     ];
@@ -49,11 +49,11 @@ class affectServices extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceId) {
-            $res['serviceId'] = $this->serviceId;
-        }
         if (null !== $this->serviceDescription) {
             $res['serviceDescription'] = $this->serviceDescription;
+        }
+        if (null !== $this->serviceId) {
+            $res['serviceId'] = $this->serviceId;
         }
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
@@ -73,11 +73,11 @@ class affectServices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['serviceId'])) {
-            $model->serviceId = $map['serviceId'];
-        }
         if (isset($map['serviceDescription'])) {
             $model->serviceDescription = $map['serviceDescription'];
+        }
+        if (isset($map['serviceId'])) {
+            $model->serviceId = $map['serviceId'];
         }
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];

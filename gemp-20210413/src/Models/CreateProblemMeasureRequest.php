@@ -9,27 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateProblemMeasureRequest extends Model
 {
     /**
-     * @description 措施类型
-     *
-     * @var int
-     */
-    public $type;
-
-    /**
-     * @description 故障Id
-     *
-     * @var int
-     */
-    public $problemId;
-
-    /**
-     * @description 措施内容
-     *
-     * @var string
-     */
-    public $content;
-
-    /**
      * @description 验收标准
      *
      * @var string
@@ -44,11 +23,18 @@ class CreateProblemMeasureRequest extends Model
     public $checkUserId;
 
     /**
-     * @description 计划完成时间
+     * @description 幂等校验token
      *
      * @var string
      */
-    public $planFinishTime;
+    public $clientToken;
+
+    /**
+     * @description 措施内容
+     *
+     * @var string
+     */
+    public $content;
 
     /**
      * @description 负责人id
@@ -56,6 +42,20 @@ class CreateProblemMeasureRequest extends Model
      * @var int
      */
     public $directorId;
+
+    /**
+     * @description 计划完成时间
+     *
+     * @var string
+     */
+    public $planFinishTime;
+
+    /**
+     * @description 故障Id
+     *
+     * @var int
+     */
+    public $problemId;
 
     /**
      * @description 跟踪人id
@@ -72,22 +72,22 @@ class CreateProblemMeasureRequest extends Model
     public $status;
 
     /**
-     * @description 幂等校验token
+     * @description 措施类型
      *
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $type;
     protected $_name = [
-        'type'           => 'type',
-        'problemId'      => 'problemId',
-        'content'        => 'content',
         'checkStandard'  => 'checkStandard',
         'checkUserId'    => 'checkUserId',
-        'planFinishTime' => 'planFinishTime',
+        'clientToken'    => 'clientToken',
+        'content'        => 'content',
         'directorId'     => 'directorId',
+        'planFinishTime' => 'planFinishTime',
+        'problemId'      => 'problemId',
         'stalkerId'      => 'stalkerId',
         'status'         => 'status',
-        'clientToken'    => 'clientToken',
+        'type'           => 'type',
     ];
 
     public function validate()
@@ -97,26 +97,26 @@ class CreateProblemMeasureRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
-        }
-        if (null !== $this->problemId) {
-            $res['problemId'] = $this->problemId;
-        }
-        if (null !== $this->content) {
-            $res['content'] = $this->content;
-        }
         if (null !== $this->checkStandard) {
             $res['checkStandard'] = $this->checkStandard;
         }
         if (null !== $this->checkUserId) {
             $res['checkUserId'] = $this->checkUserId;
         }
-        if (null !== $this->planFinishTime) {
-            $res['planFinishTime'] = $this->planFinishTime;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->content) {
+            $res['content'] = $this->content;
         }
         if (null !== $this->directorId) {
             $res['directorId'] = $this->directorId;
+        }
+        if (null !== $this->planFinishTime) {
+            $res['planFinishTime'] = $this->planFinishTime;
+        }
+        if (null !== $this->problemId) {
+            $res['problemId'] = $this->problemId;
         }
         if (null !== $this->stalkerId) {
             $res['stalkerId'] = $this->stalkerId;
@@ -124,8 +124,8 @@ class CreateProblemMeasureRequest extends Model
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -139,26 +139,26 @@ class CreateProblemMeasureRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
-        }
-        if (isset($map['problemId'])) {
-            $model->problemId = $map['problemId'];
-        }
-        if (isset($map['content'])) {
-            $model->content = $map['content'];
-        }
         if (isset($map['checkStandard'])) {
             $model->checkStandard = $map['checkStandard'];
         }
         if (isset($map['checkUserId'])) {
             $model->checkUserId = $map['checkUserId'];
         }
-        if (isset($map['planFinishTime'])) {
-            $model->planFinishTime = $map['planFinishTime'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['content'])) {
+            $model->content = $map['content'];
         }
         if (isset($map['directorId'])) {
             $model->directorId = $map['directorId'];
+        }
+        if (isset($map['planFinishTime'])) {
+            $model->planFinishTime = $map['planFinishTime'];
+        }
+        if (isset($map['problemId'])) {
+            $model->problemId = $map['problemId'];
         }
         if (isset($map['stalkerId'])) {
             $model->stalkerId = $map['stalkerId'];
@@ -166,8 +166,8 @@ class CreateProblemMeasureRequest extends Model
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

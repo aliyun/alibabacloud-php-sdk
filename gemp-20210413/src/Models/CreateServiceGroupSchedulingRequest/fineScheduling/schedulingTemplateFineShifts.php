@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class schedulingTemplateFineShifts extends Model
 {
     /**
-     * @description 排班开始时间
-     *
-     * @var string
-     */
-    public $schedulingStartTime;
-
-    /**
      * @description 排班结束时间
      *
      * @var string
@@ -28,6 +21,13 @@ class schedulingTemplateFineShifts extends Model
      * @var int
      */
     public $schedulingOrder;
+
+    /**
+     * @description 排班开始时间
+     *
+     * @var string
+     */
+    public $schedulingStartTime;
 
     /**
      * @description 用户ID
@@ -50,9 +50,9 @@ class schedulingTemplateFineShifts extends Model
      */
     public $skipOneDay;
     protected $_name = [
-        'schedulingStartTime' => 'schedulingStartTime',
         'schedulingEndTime'   => 'schedulingEndTime',
         'schedulingOrder'     => 'schedulingOrder',
+        'schedulingStartTime' => 'schedulingStartTime',
         'schedulingUserId'    => 'schedulingUserId',
         'schedulingUserName'  => 'schedulingUserName',
         'skipOneDay'          => 'skipOneDay',
@@ -65,14 +65,14 @@ class schedulingTemplateFineShifts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->schedulingStartTime) {
-            $res['schedulingStartTime'] = $this->schedulingStartTime;
-        }
         if (null !== $this->schedulingEndTime) {
             $res['schedulingEndTime'] = $this->schedulingEndTime;
         }
         if (null !== $this->schedulingOrder) {
             $res['schedulingOrder'] = $this->schedulingOrder;
+        }
+        if (null !== $this->schedulingStartTime) {
+            $res['schedulingStartTime'] = $this->schedulingStartTime;
         }
         if (null !== $this->schedulingUserId) {
             $res['schedulingUserId'] = $this->schedulingUserId;
@@ -95,14 +95,14 @@ class schedulingTemplateFineShifts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['schedulingStartTime'])) {
-            $model->schedulingStartTime = $map['schedulingStartTime'];
-        }
         if (isset($map['schedulingEndTime'])) {
             $model->schedulingEndTime = $map['schedulingEndTime'];
         }
         if (isset($map['schedulingOrder'])) {
             $model->schedulingOrder = $map['schedulingOrder'];
+        }
+        if (isset($map['schedulingStartTime'])) {
+            $model->schedulingStartTime = $map['schedulingStartTime'];
         }
         if (isset($map['schedulingUserId'])) {
             $model->schedulingUserId = $map['schedulingUserId'];

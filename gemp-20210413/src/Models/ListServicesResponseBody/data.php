@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 服务描述
+     *
+     * @var string
+     */
+    public $serviceDescription;
+
+    /**
      * @description 服务ID
      *
      * @var int
@@ -23,22 +30,15 @@ class data extends Model
     public $serviceName;
 
     /**
-     * @description 服务描述
-     *
-     * @var string
-     */
-    public $serviceDescription;
-
-    /**
      * @description 修改时间
      *
      * @var string
      */
     public $updateTime;
     protected $_name = [
+        'serviceDescription' => 'serviceDescription',
         'serviceId'          => 'serviceId',
         'serviceName'        => 'serviceName',
-        'serviceDescription' => 'serviceDescription',
         'updateTime'         => 'updateTime',
     ];
 
@@ -49,14 +49,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->serviceDescription) {
+            $res['serviceDescription'] = $this->serviceDescription;
+        }
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
         }
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
-        }
-        if (null !== $this->serviceDescription) {
-            $res['serviceDescription'] = $this->serviceDescription;
         }
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
@@ -73,14 +73,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['serviceDescription'])) {
+            $model->serviceDescription = $map['serviceDescription'];
+        }
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];
         }
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];
-        }
-        if (isset($map['serviceDescription'])) {
-            $model->serviceDescription = $map['serviceDescription'];
         }
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];

@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteProblemTimelineRequest extends Model
 {
     /**
-     * @description ID
+     * @description clientToken
      *
-     * @var int
+     * @var string
      */
-    public $problemTimelineId;
+    public $clientToken;
 
     /**
      * @description 故障id
@@ -23,15 +23,15 @@ class DeleteProblemTimelineRequest extends Model
     public $problemId;
 
     /**
-     * @description clientToken
+     * @description ID
      *
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $problemTimelineId;
     protected $_name = [
-        'problemTimelineId' => 'problemTimelineId',
-        'problemId'         => 'problemId',
         'clientToken'       => 'clientToken',
+        'problemId'         => 'problemId',
+        'problemTimelineId' => 'problemTimelineId',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class DeleteProblemTimelineRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->problemTimelineId) {
-            $res['problemTimelineId'] = $this->problemTimelineId;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->problemId) {
             $res['problemId'] = $this->problemId;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->problemTimelineId) {
+            $res['problemTimelineId'] = $this->problemTimelineId;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class DeleteProblemTimelineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['problemTimelineId'])) {
-            $model->problemTimelineId = $map['problemTimelineId'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['problemId'])) {
             $model->problemId = $map['problemId'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['problemTimelineId'])) {
+            $model->problemTimelineId = $map['problemTimelineId'];
         }
 
         return $model;

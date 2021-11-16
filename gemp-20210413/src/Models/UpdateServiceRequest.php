@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceRequest extends Model
 {
     /**
+     * @description 幂等号
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description 服务描述
      *
      * @var string
      */
     public $serviceDescription;
-
-    /**
-     * @description 服务名字
-     *
-     * @var string
-     */
-    public $serviceName;
 
     /**
      * @description 服务ID
@@ -30,16 +30,16 @@ class UpdateServiceRequest extends Model
     public $serviceId;
 
     /**
-     * @description 幂等号
+     * @description 服务名字
      *
      * @var string
      */
-    public $clientToken;
+    public $serviceName;
     protected $_name = [
-        'serviceDescription' => 'serviceDescription',
-        'serviceName'        => 'serviceName',
-        'serviceId'          => 'serviceId',
         'clientToken'        => 'clientToken',
+        'serviceDescription' => 'serviceDescription',
+        'serviceId'          => 'serviceId',
+        'serviceName'        => 'serviceName',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class UpdateServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
         if (null !== $this->serviceDescription) {
             $res['serviceDescription'] = $this->serviceDescription;
-        }
-        if (null !== $this->serviceName) {
-            $res['serviceName'] = $this->serviceName;
         }
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->serviceName) {
+            $res['serviceName'] = $this->serviceName;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class UpdateServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
         if (isset($map['serviceDescription'])) {
             $model->serviceDescription = $map['serviceDescription'];
-        }
-        if (isset($map['serviceName'])) {
-            $model->serviceName = $map['serviceName'];
         }
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['serviceName'])) {
+            $model->serviceName = $map['serviceName'];
         }
 
         return $model;

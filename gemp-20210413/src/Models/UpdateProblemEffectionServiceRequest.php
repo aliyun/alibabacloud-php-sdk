@@ -9,25 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateProblemEffectionServiceRequest extends Model
 {
     /**
-     * @description 关联服务id
-     *
-     * @var int
-     */
-    public $serviceId;
-
-    /**
-     * @description 影响等级
+     * @description clientToken
      *
      * @var string
      */
-    public $level;
-
-    /**
-     * @description 影响状态 UN_RECOVERED 未恢复 RECOVERED已恢复
-     *
-     * @var string
-     */
-    public $status;
+    public $clientToken;
 
     /**
      * @description 影响描述
@@ -35,6 +21,20 @@ class UpdateProblemEffectionServiceRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @description 影响服务id
+     *
+     * @var int
+     */
+    public $effectionServiceId;
+
+    /**
+     * @description 影响等级
+     *
+     * @var string
+     */
+    public $level;
 
     /**
      * @description 图片地址
@@ -51,27 +51,27 @@ class UpdateProblemEffectionServiceRequest extends Model
     public $problemId;
 
     /**
-     * @description 影响服务id
+     * @description 关联服务id
      *
      * @var int
      */
-    public $effectionServiceId;
+    public $serviceId;
 
     /**
-     * @description clientToken
+     * @description 影响状态 UN_RECOVERED 未恢复 RECOVERED已恢复
      *
      * @var string
      */
-    public $clientToken;
+    public $status;
     protected $_name = [
-        'serviceId'          => 'serviceId',
-        'level'              => 'level',
-        'status'             => 'status',
+        'clientToken'        => 'clientToken',
         'description'        => 'description',
+        'effectionServiceId' => 'effectionServiceId',
+        'level'              => 'level',
         'picUrl'             => 'picUrl',
         'problemId'          => 'problemId',
-        'effectionServiceId' => 'effectionServiceId',
-        'clientToken'        => 'clientToken',
+        'serviceId'          => 'serviceId',
+        'status'             => 'status',
     ];
 
     public function validate()
@@ -81,17 +81,17 @@ class UpdateProblemEffectionServiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceId) {
-            $res['serviceId'] = $this->serviceId;
-        }
-        if (null !== $this->level) {
-            $res['level'] = $this->level;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+        if (null !== $this->effectionServiceId) {
+            $res['effectionServiceId'] = $this->effectionServiceId;
+        }
+        if (null !== $this->level) {
+            $res['level'] = $this->level;
         }
         if (null !== $this->picUrl) {
             $res['picUrl'] = $this->picUrl;
@@ -99,11 +99,11 @@ class UpdateProblemEffectionServiceRequest extends Model
         if (null !== $this->problemId) {
             $res['problemId'] = $this->problemId;
         }
-        if (null !== $this->effectionServiceId) {
-            $res['effectionServiceId'] = $this->effectionServiceId;
+        if (null !== $this->serviceId) {
+            $res['serviceId'] = $this->serviceId;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -117,17 +117,17 @@ class UpdateProblemEffectionServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['serviceId'])) {
-            $model->serviceId = $map['serviceId'];
-        }
-        if (isset($map['level'])) {
-            $model->level = $map['level'];
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+        if (isset($map['effectionServiceId'])) {
+            $model->effectionServiceId = $map['effectionServiceId'];
+        }
+        if (isset($map['level'])) {
+            $model->level = $map['level'];
         }
         if (isset($map['picUrl'])) {
             if (!empty($map['picUrl'])) {
@@ -137,11 +137,11 @@ class UpdateProblemEffectionServiceRequest extends Model
         if (isset($map['problemId'])) {
             $model->problemId = $map['problemId'];
         }
-        if (isset($map['effectionServiceId'])) {
-            $model->effectionServiceId = $map['effectionServiceId'];
+        if (isset($map['serviceId'])) {
+            $model->serviceId = $map['serviceId'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

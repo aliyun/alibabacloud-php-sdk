@@ -16,11 +16,11 @@ class notifyObjectList extends Model
     public $id;
 
     /**
-     * @description 通知对象类型0服务组 1个人
+     * @description 通知对象名
      *
-     * @var int
+     * @var string
      */
-    public $notifyObjectType;
+    public $name;
 
     /**
      * @description 关联主键id
@@ -30,16 +30,16 @@ class notifyObjectList extends Model
     public $notifyObjectId;
 
     /**
-     * @description 通知对象名
+     * @description 通知对象类型0服务组 1个人
      *
-     * @var string
+     * @var int
      */
-    public $name;
+    public $notifyObjectType;
     protected $_name = [
         'id'               => 'id',
-        'notifyObjectType' => 'notifyObjectType',
-        'notifyObjectId'   => 'notifyObjectId',
         'name'             => 'name',
+        'notifyObjectId'   => 'notifyObjectId',
+        'notifyObjectType' => 'notifyObjectType',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class notifyObjectList extends Model
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-        if (null !== $this->notifyObjectType) {
-            $res['notifyObjectType'] = $this->notifyObjectType;
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
         if (null !== $this->notifyObjectId) {
             $res['notifyObjectId'] = $this->notifyObjectId;
         }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
+        if (null !== $this->notifyObjectType) {
+            $res['notifyObjectType'] = $this->notifyObjectType;
         }
 
         return $res;
@@ -76,14 +76,14 @@ class notifyObjectList extends Model
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-        if (isset($map['notifyObjectType'])) {
-            $model->notifyObjectType = $map['notifyObjectType'];
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
         if (isset($map['notifyObjectId'])) {
             $model->notifyObjectId = $map['notifyObjectId'];
         }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
+        if (isset($map['notifyObjectType'])) {
+            $model->notifyObjectType = $map['notifyObjectType'];
         }
 
         return $model;

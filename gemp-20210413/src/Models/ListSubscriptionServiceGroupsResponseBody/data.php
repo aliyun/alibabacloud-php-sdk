@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 服务组描述
+     *
+     * @var string
+     */
+    public $serviceGroupDescription;
+
+    /**
      * @description 主键
      *
      * @var int
@@ -21,17 +28,10 @@ class data extends Model
      * @var string
      */
     public $serviceName;
-
-    /**
-     * @description 服务组描述
-     *
-     * @var string
-     */
-    public $serviceGroupDescription;
     protected $_name = [
+        'serviceGroupDescription' => 'serviceGroupDescription',
         'serviceId'               => 'serviceId',
         'serviceName'             => 'serviceName',
-        'serviceGroupDescription' => 'serviceGroupDescription',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->serviceGroupDescription) {
+            $res['serviceGroupDescription'] = $this->serviceGroupDescription;
+        }
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
         }
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
-        }
-        if (null !== $this->serviceGroupDescription) {
-            $res['serviceGroupDescription'] = $this->serviceGroupDescription;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['serviceGroupDescription'])) {
+            $model->serviceGroupDescription = $map['serviceGroupDescription'];
+        }
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];
         }
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];
-        }
-        if (isset($map['serviceGroupDescription'])) {
-            $model->serviceGroupDescription = $map['serviceGroupDescription'];
         }
 
         return $model;

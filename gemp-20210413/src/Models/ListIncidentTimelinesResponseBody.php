@@ -10,21 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListIncidentTimelinesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var data[]
      */
     public $data;
-
-    /**
-     * @description 总数
-     *
-     * @var int
-     */
-    public $totalCount;
 
     /**
      * @var int
@@ -35,12 +23,24 @@ class ListIncidentTimelinesResponseBody extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description 总数
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'requestId'  => 'requestId',
         'data'       => 'data',
-        'totalCount' => 'totalCount',
         'pageNumber' => 'pageNumber',
         'pageSize'   => 'pageSize',
+        'requestId'  => 'requestId',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class ListIncidentTimelinesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
-        }
         if (null !== $this->data) {
             $res['data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -62,14 +59,17 @@ class ListIncidentTimelinesResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->totalCount) {
-            $res['totalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -83,9 +83,6 @@ class ListIncidentTimelinesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
-        }
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
@@ -95,14 +92,17 @@ class ListIncidentTimelinesResponseBody extends Model
                 }
             }
         }
-        if (isset($map['totalCount'])) {
-            $model->totalCount = $map['totalCount'];
-        }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

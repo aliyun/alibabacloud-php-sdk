@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 集成秘钥
+     *
+     * @var string
+     */
+    public $accessKey;
+
+    /**
      * @description 集成配置id、
      *
      * @var int
      */
     public $integrationConfigId;
+
+    /**
+     * @description 是否接收报警
+     *
+     * @var bool
+     */
+    public $isReceivedEvent;
 
     /**
      * @description 监控源id
@@ -37,32 +51,18 @@ class data extends Model
     public $monitorSourceShortName;
 
     /**
-     * @description 集成秘钥
-     *
-     * @var string
-     */
-    public $accessKey;
-
-    /**
-     * @description 是否接收报警
-     *
-     * @var bool
-     */
-    public $isReceivedEvent;
-
-    /**
      * @description 集成配置状态，DISABLE 禁用，INTEGRATED 已集成，UNINTEGRATED未集成
      *
      * @var string
      */
     public $status;
     protected $_name = [
+        'accessKey'              => 'accessKey',
         'integrationConfigId'    => 'integrationConfigId',
+        'isReceivedEvent'        => 'isReceivedEvent',
         'monitorSourceId'        => 'monitorSourceId',
         'monitorSourceName'      => 'monitorSourceName',
         'monitorSourceShortName' => 'monitorSourceShortName',
-        'accessKey'              => 'accessKey',
-        'isReceivedEvent'        => 'isReceivedEvent',
         'status'                 => 'status',
     ];
 
@@ -73,8 +73,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessKey) {
+            $res['accessKey'] = $this->accessKey;
+        }
         if (null !== $this->integrationConfigId) {
             $res['integrationConfigId'] = $this->integrationConfigId;
+        }
+        if (null !== $this->isReceivedEvent) {
+            $res['isReceivedEvent'] = $this->isReceivedEvent;
         }
         if (null !== $this->monitorSourceId) {
             $res['monitorSourceId'] = $this->monitorSourceId;
@@ -84,12 +90,6 @@ class data extends Model
         }
         if (null !== $this->monitorSourceShortName) {
             $res['monitorSourceShortName'] = $this->monitorSourceShortName;
-        }
-        if (null !== $this->accessKey) {
-            $res['accessKey'] = $this->accessKey;
-        }
-        if (null !== $this->isReceivedEvent) {
-            $res['isReceivedEvent'] = $this->isReceivedEvent;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -106,8 +106,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['accessKey'])) {
+            $model->accessKey = $map['accessKey'];
+        }
         if (isset($map['integrationConfigId'])) {
             $model->integrationConfigId = $map['integrationConfigId'];
+        }
+        if (isset($map['isReceivedEvent'])) {
+            $model->isReceivedEvent = $map['isReceivedEvent'];
         }
         if (isset($map['monitorSourceId'])) {
             $model->monitorSourceId = $map['monitorSourceId'];
@@ -117,12 +123,6 @@ class data extends Model
         }
         if (isset($map['monitorSourceShortName'])) {
             $model->monitorSourceShortName = $map['monitorSourceShortName'];
-        }
-        if (isset($map['accessKey'])) {
-            $model->accessKey = $map['accessKey'];
-        }
-        if (isset($map['isReceivedEvent'])) {
-            $model->isReceivedEvent = $map['isReceivedEvent'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 主题
+     * @description 创建时间
      *
      * @var string
      */
-    public $title;
+    public $createTime;
 
     /**
      * @description 描述
@@ -23,15 +23,15 @@ class data extends Model
     public $description;
 
     /**
-     * @description 创建时间
+     * @description 主题
      *
      * @var string
      */
-    public $createTime;
+    public $title;
     protected $_name = [
-        'title'       => 'title',
-        'description' => 'description',
         'createTime'  => 'createTime',
+        'description' => 'description',
+        'title'       => 'title',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->title) {
-            $res['title'] = $this->title;
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
+        if (null !== $this->title) {
+            $res['title'] = $this->title;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['title'])) {
-            $model->title = $map['title'];
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
+        if (isset($map['title'])) {
+            $model->title = $map['title'];
         }
 
         return $model;

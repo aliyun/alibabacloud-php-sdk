@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DisableRouteRuleResponseBody extends Model
 {
     /**
-     * @description 请求ID
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var int
      */
     public $data;
+
+    /**
+     * @description 请求ID
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'requestId',
         'data'      => 'data',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class DisableRouteRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
-        }
         if (null !== $this->data) {
             $res['data'] = $this->data;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class DisableRouteRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
-        }
         if (isset($map['data'])) {
             $model->data = $map['data'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListIncidentDetailEscalationPlansRequest extends Model
 {
     /**
-     * @description 事件ID
-     *
-     * @var int
-     */
-    public $incidentId;
-
-    /**
      * @description 幂等校验
      *
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @description 事件ID
+     *
+     * @var int
+     */
+    public $incidentId;
     protected $_name = [
-        'incidentId'  => 'incidentId',
         'clientToken' => 'clientToken',
+        'incidentId'  => 'incidentId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class ListIncidentDetailEscalationPlansRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->incidentId) {
-            $res['incidentId'] = $this->incidentId;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->incidentId) {
+            $res['incidentId'] = $this->incidentId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class ListIncidentDetailEscalationPlansRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['incidentId'])) {
-            $model->incidentId = $map['incidentId'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['incidentId'])) {
+            $model->incidentId = $map['incidentId'];
         }
 
         return $model;

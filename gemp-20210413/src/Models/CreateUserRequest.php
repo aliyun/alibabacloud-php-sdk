@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateUserRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ramId;
-
-    /**
      * @var string
      */
-    public $phone;
-
-    /**
-     * @var string
-     */
-    public $username;
+    public $clientToken;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class CreateUserRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $phone;
+
+    /**
+     * @var int
+     */
+    public $ramId;
+
+    /**
+     * @var string
+     */
+    public $username;
     protected $_name = [
-        'ramId'       => 'ramId',
-        'phone'       => 'phone',
-        'username'    => 'username',
-        'email'       => 'email',
         'clientToken' => 'clientToken',
+        'email'       => 'email',
+        'phone'       => 'phone',
+        'ramId'       => 'ramId',
+        'username'    => 'username',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ramId) {
-            $res['ramId'] = $this->ramId;
-        }
-        if (null !== $this->phone) {
-            $res['phone'] = $this->phone;
-        }
-        if (null !== $this->username) {
-            $res['username'] = $this->username;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->email) {
             $res['email'] = $this->email;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->phone) {
+            $res['phone'] = $this->phone;
+        }
+        if (null !== $this->ramId) {
+            $res['ramId'] = $this->ramId;
+        }
+        if (null !== $this->username) {
+            $res['username'] = $this->username;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ramId'])) {
-            $model->ramId = $map['ramId'];
-        }
-        if (isset($map['phone'])) {
-            $model->phone = $map['phone'];
-        }
-        if (isset($map['username'])) {
-            $model->username = $map['username'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['email'])) {
             $model->email = $map['email'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['phone'])) {
+            $model->phone = $map['phone'];
+        }
+        if (isset($map['ramId'])) {
+            $model->ramId = $map['ramId'];
+        }
+        if (isset($map['username'])) {
+            $model->username = $map['username'];
         }
 
         return $model;

@@ -24,23 +24,23 @@ class fineScheduling extends Model
     public $periodUnit;
 
     /**
-     * @description 班次类型 MORNING_NIGHT 早晚班 MORNING_NOON_NIGHT 早中晚班 CUSTOM 自定义
-     *
-     * @var string
-     */
-    public $shiftType;
-
-    /**
      * @description 精细排班班次人员信息
      *
      * @var schedulingFineShifts[]
      */
     public $schedulingFineShifts;
+
+    /**
+     * @description 班次类型 MORNING_NIGHT 早晚班 MORNING_NOON_NIGHT 早中晚班 CUSTOM 自定义
+     *
+     * @var string
+     */
+    public $shiftType;
     protected $_name = [
         'period'               => 'period',
         'periodUnit'           => 'periodUnit',
-        'shiftType'            => 'shiftType',
         'schedulingFineShifts' => 'schedulingFineShifts',
+        'shiftType'            => 'shiftType',
     ];
 
     public function validate()
@@ -56,9 +56,6 @@ class fineScheduling extends Model
         if (null !== $this->periodUnit) {
             $res['periodUnit'] = $this->periodUnit;
         }
-        if (null !== $this->shiftType) {
-            $res['shiftType'] = $this->shiftType;
-        }
         if (null !== $this->schedulingFineShifts) {
             $res['schedulingFineShifts'] = [];
             if (null !== $this->schedulingFineShifts && \is_array($this->schedulingFineShifts)) {
@@ -67,6 +64,9 @@ class fineScheduling extends Model
                     $res['schedulingFineShifts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->shiftType) {
+            $res['shiftType'] = $this->shiftType;
         }
 
         return $res;
@@ -86,9 +86,6 @@ class fineScheduling extends Model
         if (isset($map['periodUnit'])) {
             $model->periodUnit = $map['periodUnit'];
         }
-        if (isset($map['shiftType'])) {
-            $model->shiftType = $map['shiftType'];
-        }
         if (isset($map['schedulingFineShifts'])) {
             if (!empty($map['schedulingFineShifts'])) {
                 $model->schedulingFineShifts = [];
@@ -97,6 +94,9 @@ class fineScheduling extends Model
                     $model->schedulingFineShifts[$n++] = null !== $item ? schedulingFineShifts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['shiftType'])) {
+            $model->shiftType = $map['shiftType'];
         }
 
         return $model;

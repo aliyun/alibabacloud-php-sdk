@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateIntegrationConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $monitorSourceId;
-
-    /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var int
+     */
+    public $monitorSourceId;
     protected $_name = [
-        'monitorSourceId' => 'monitorSourceId',
         'clientToken'     => 'clientToken',
+        'monitorSourceId' => 'monitorSourceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateIntegrationConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->monitorSourceId) {
-            $res['monitorSourceId'] = $this->monitorSourceId;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->monitorSourceId) {
+            $res['monitorSourceId'] = $this->monitorSourceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateIntegrationConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['monitorSourceId'])) {
-            $model->monitorSourceId = $map['monitorSourceId'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['monitorSourceId'])) {
+            $model->monitorSourceId = $map['monitorSourceId'];
         }
 
         return $model;

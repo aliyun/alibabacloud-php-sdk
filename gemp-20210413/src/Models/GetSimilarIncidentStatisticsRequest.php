@@ -9,6 +9,27 @@ use AlibabaCloud\Tea\Model;
 class GetSimilarIncidentStatisticsRequest extends Model
 {
     /**
+     * @description 幂等标识
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @description 触发时间
+     *
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @description 事件告警内容
+     *
+     * @var string[]
+     */
+    public $events;
+
+    /**
      * @description 事件id
      *
      * @var int
@@ -23,39 +44,18 @@ class GetSimilarIncidentStatisticsRequest extends Model
     public $incidentTitle;
 
     /**
-     * @description 触发时间
-     *
-     * @var string
-     */
-    public $createTime;
-
-    /**
      * @description 关联服务id
      *
      * @var int
      */
     public $relatedServiceId;
-
-    /**
-     * @description 事件告警内容
-     *
-     * @var string[]
-     */
-    public $events;
-
-    /**
-     * @description 幂等标识
-     *
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken'      => 'clientToken',
+        'createTime'       => 'createTime',
+        'events'           => 'events',
         'incidentId'       => 'incidentId',
         'incidentTitle'    => 'incidentTitle',
-        'createTime'       => 'createTime',
         'relatedServiceId' => 'relatedServiceId',
-        'events'           => 'events',
-        'clientToken'      => 'clientToken',
     ];
 
     public function validate()
@@ -65,23 +65,23 @@ class GetSimilarIncidentStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
+        if (null !== $this->events) {
+            $res['events'] = $this->events;
+        }
         if (null !== $this->incidentId) {
             $res['incidentId'] = $this->incidentId;
         }
         if (null !== $this->incidentTitle) {
             $res['incidentTitle'] = $this->incidentTitle;
         }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
-        }
         if (null !== $this->relatedServiceId) {
             $res['relatedServiceId'] = $this->relatedServiceId;
-        }
-        if (null !== $this->events) {
-            $res['events'] = $this->events;
-        }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -95,25 +95,25 @@ class GetSimilarIncidentStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['incidentId'])) {
-            $model->incidentId = $map['incidentId'];
-        }
-        if (isset($map['incidentTitle'])) {
-            $model->incidentTitle = $map['incidentTitle'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
-        }
-        if (isset($map['relatedServiceId'])) {
-            $model->relatedServiceId = $map['relatedServiceId'];
         }
         if (isset($map['events'])) {
             if (!empty($map['events'])) {
                 $model->events = $map['events'];
             }
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['incidentId'])) {
+            $model->incidentId = $map['incidentId'];
+        }
+        if (isset($map['incidentTitle'])) {
+            $model->incidentTitle = $map['incidentTitle'];
+        }
+        if (isset($map['relatedServiceId'])) {
+            $model->relatedServiceId = $map['relatedServiceId'];
         }
 
         return $model;

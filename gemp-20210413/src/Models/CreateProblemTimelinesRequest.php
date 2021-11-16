@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateProblemTimelinesRequest extends Model
 {
     /**
+     * @description clientToken
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description 故障id
      *
      * @var int
@@ -21,17 +28,10 @@ class CreateProblemTimelinesRequest extends Model
      * @var string
      */
     public $timelineNodes;
-
-    /**
-     * @description clientToken
-     *
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken'   => 'clientToken',
         'problemId'     => 'problemId',
         'timelineNodes' => 'timelineNodes',
-        'clientToken'   => 'clientToken',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class CreateProblemTimelinesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
         if (null !== $this->problemId) {
             $res['problemId'] = $this->problemId;
         }
         if (null !== $this->timelineNodes) {
             $res['timelineNodes'] = $this->timelineNodes;
-        }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class CreateProblemTimelinesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
         if (isset($map['problemId'])) {
             $model->problemId = $map['problemId'];
         }
         if (isset($map['timelineNodes'])) {
             $model->timelineNodes = $map['timelineNodes'];
-        }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

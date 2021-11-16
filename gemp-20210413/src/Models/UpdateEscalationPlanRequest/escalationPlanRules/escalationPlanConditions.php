@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanConditions extends Model
 {
     /**
-     * @description P1 P2 P3 P4
-     *
-     * @var string
-     */
-    public $level;
-
-    /**
      * @description LOW HIGH
      *
      * @var string
      */
     public $effection;
+
+    /**
+     * @description P1 P2 P3 P4
+     *
+     * @var string
+     */
+    public $level;
     protected $_name = [
-        'level'     => 'level',
         'effection' => 'effection',
+        'level'     => 'level',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class escalationPlanConditions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->level) {
-            $res['level'] = $this->level;
-        }
         if (null !== $this->effection) {
             $res['effection'] = $this->effection;
+        }
+        if (null !== $this->level) {
+            $res['level'] = $this->level;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class escalationPlanConditions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['level'])) {
-            $model->level = $map['level'];
-        }
         if (isset($map['effection'])) {
             $model->effection = $map['effection'];
+        }
+        if (isset($map['level'])) {
+            $model->level = $map['level'];
         }
 
         return $model;

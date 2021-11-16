@@ -16,18 +16,18 @@ class ListAlertsRequest extends Model
     public $alertLevel;
 
     /**
-     * @description 服务id
-     *
-     * @var int
-     */
-    public $relatedServiceId;
-
-    /**
      * @description 报警名称
      *
      * @var string
      */
     public $alertName;
+
+    /**
+     * @description 报警来源
+     *
+     * @var string
+     */
+    public $alertSourceName;
 
     /**
      * @description 当前页
@@ -44,18 +44,18 @@ class ListAlertsRequest extends Model
     public $pageSize;
 
     /**
-     * @description 报警来源
+     * @description 服务id
      *
-     * @var string
+     * @var int
      */
-    public $alertSourceName;
+    public $relatedServiceId;
     protected $_name = [
         'alertLevel'       => 'alertLevel',
-        'relatedServiceId' => 'relatedServiceId',
         'alertName'        => 'alertName',
+        'alertSourceName'  => 'alertSourceName',
         'pageNumber'       => 'pageNumber',
         'pageSize'         => 'pageSize',
-        'alertSourceName'  => 'alertSourceName',
+        'relatedServiceId' => 'relatedServiceId',
     ];
 
     public function validate()
@@ -68,11 +68,11 @@ class ListAlertsRequest extends Model
         if (null !== $this->alertLevel) {
             $res['alertLevel'] = $this->alertLevel;
         }
-        if (null !== $this->relatedServiceId) {
-            $res['relatedServiceId'] = $this->relatedServiceId;
-        }
         if (null !== $this->alertName) {
             $res['alertName'] = $this->alertName;
+        }
+        if (null !== $this->alertSourceName) {
+            $res['alertSourceName'] = $this->alertSourceName;
         }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
@@ -80,8 +80,8 @@ class ListAlertsRequest extends Model
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-        if (null !== $this->alertSourceName) {
-            $res['alertSourceName'] = $this->alertSourceName;
+        if (null !== $this->relatedServiceId) {
+            $res['relatedServiceId'] = $this->relatedServiceId;
         }
 
         return $res;
@@ -98,11 +98,11 @@ class ListAlertsRequest extends Model
         if (isset($map['alertLevel'])) {
             $model->alertLevel = $map['alertLevel'];
         }
-        if (isset($map['relatedServiceId'])) {
-            $model->relatedServiceId = $map['relatedServiceId'];
-        }
         if (isset($map['alertName'])) {
             $model->alertName = $map['alertName'];
+        }
+        if (isset($map['alertSourceName'])) {
+            $model->alertSourceName = $map['alertSourceName'];
         }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
@@ -110,8 +110,8 @@ class ListAlertsRequest extends Model
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-        if (isset($map['alertSourceName'])) {
-            $model->alertSourceName = $map['alertSourceName'];
+        if (isset($map['relatedServiceId'])) {
+            $model->relatedServiceId = $map['relatedServiceId'];
         }
 
         return $model;

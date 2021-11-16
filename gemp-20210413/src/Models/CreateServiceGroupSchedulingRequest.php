@@ -11,18 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceGroupSchedulingRequest extends Model
 {
     /**
-     * @description 服务组ID
-     *
-     * @var int
-     */
-    public $serviceGroupId;
-
-    /**
-     * @description 排班方式 FAST 快速排班 FINE  精细排班
+     * @description 幂等号
      *
      * @var string
      */
-    public $schedulingWay;
+    public $clientToken;
 
     /**
      * @description 快速排班
@@ -39,17 +32,24 @@ class CreateServiceGroupSchedulingRequest extends Model
     public $fineScheduling;
 
     /**
-     * @description 幂等号
+     * @description 排班方式 FAST 快速排班 FINE  精细排班
      *
      * @var string
      */
-    public $clientToken;
+    public $schedulingWay;
+
+    /**
+     * @description 服务组ID
+     *
+     * @var int
+     */
+    public $serviceGroupId;
     protected $_name = [
-        'serviceGroupId' => 'serviceGroupId',
-        'schedulingWay'  => 'schedulingWay',
+        'clientToken'    => 'clientToken',
         'fastScheduling' => 'fastScheduling',
         'fineScheduling' => 'fineScheduling',
-        'clientToken'    => 'clientToken',
+        'schedulingWay'  => 'schedulingWay',
+        'serviceGroupId' => 'serviceGroupId',
     ];
 
     public function validate()
@@ -59,11 +59,8 @@ class CreateServiceGroupSchedulingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceGroupId) {
-            $res['serviceGroupId'] = $this->serviceGroupId;
-        }
-        if (null !== $this->schedulingWay) {
-            $res['schedulingWay'] = $this->schedulingWay;
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
         if (null !== $this->fastScheduling) {
             $res['fastScheduling'] = null !== $this->fastScheduling ? $this->fastScheduling->toMap() : null;
@@ -71,8 +68,11 @@ class CreateServiceGroupSchedulingRequest extends Model
         if (null !== $this->fineScheduling) {
             $res['fineScheduling'] = null !== $this->fineScheduling ? $this->fineScheduling->toMap() : null;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
+        if (null !== $this->schedulingWay) {
+            $res['schedulingWay'] = $this->schedulingWay;
+        }
+        if (null !== $this->serviceGroupId) {
+            $res['serviceGroupId'] = $this->serviceGroupId;
         }
 
         return $res;
@@ -86,11 +86,8 @@ class CreateServiceGroupSchedulingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['serviceGroupId'])) {
-            $model->serviceGroupId = $map['serviceGroupId'];
-        }
-        if (isset($map['schedulingWay'])) {
-            $model->schedulingWay = $map['schedulingWay'];
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
         if (isset($map['fastScheduling'])) {
             $model->fastScheduling = fastScheduling::fromMap($map['fastScheduling']);
@@ -98,8 +95,11 @@ class CreateServiceGroupSchedulingRequest extends Model
         if (isset($map['fineScheduling'])) {
             $model->fineScheduling = fineScheduling::fromMap($map['fineScheduling']);
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
+        if (isset($map['schedulingWay'])) {
+            $model->schedulingWay = $map['schedulingWay'];
+        }
+        if (isset($map['serviceGroupId'])) {
+            $model->serviceGroupId = $map['serviceGroupId'];
         }
 
         return $model;

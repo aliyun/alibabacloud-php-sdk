@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteProblemRequest extends Model
 {
     /**
-     * @description 故障Id
-     *
-     * @var int
-     */
-    public $problemId;
-
-    /**
      * @description 幂等校验
      *
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @description 故障Id
+     *
+     * @var int
+     */
+    public $problemId;
     protected $_name = [
-        'problemId'   => 'problemId',
         'clientToken' => 'clientToken',
+        'problemId'   => 'problemId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class DeleteProblemRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->problemId) {
-            $res['problemId'] = $this->problemId;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->problemId) {
+            $res['problemId'] = $this->problemId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class DeleteProblemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['problemId'])) {
-            $model->problemId = $map['problemId'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['problemId'])) {
+            $model->problemId = $map['problemId'];
         }
 
         return $model;

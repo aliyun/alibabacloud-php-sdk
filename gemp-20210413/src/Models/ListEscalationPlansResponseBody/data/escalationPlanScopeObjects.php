@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanScopeObjects extends Model
 {
     /**
+     * @description 范围对象类型
+     *
+     * @var string
+     */
+    public $scope;
+
+    /**
      * @description 范围对象id（服务id）
      *
      * @var int
@@ -21,17 +28,10 @@ class escalationPlanScopeObjects extends Model
      * @var string
      */
     public $scopeObjectName;
-
-    /**
-     * @description 范围对象类型
-     *
-     * @var string
-     */
-    public $scope;
     protected $_name = [
+        'scope'           => 'scope',
         'scopeObjectId'   => 'scopeObjectId',
         'scopeObjectName' => 'scopeObjectName',
-        'scope'           => 'scope',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class escalationPlanScopeObjects extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->scope) {
+            $res['scope'] = $this->scope;
+        }
         if (null !== $this->scopeObjectId) {
             $res['scopeObjectId'] = $this->scopeObjectId;
         }
         if (null !== $this->scopeObjectName) {
             $res['scopeObjectName'] = $this->scopeObjectName;
-        }
-        if (null !== $this->scope) {
-            $res['scope'] = $this->scope;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class escalationPlanScopeObjects extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['scope'])) {
+            $model->scope = $map['scope'];
+        }
         if (isset($map['scopeObjectId'])) {
             $model->scopeObjectId = $map['scopeObjectId'];
         }
         if (isset($map['scopeObjectName'])) {
             $model->scopeObjectName = $map['scopeObjectName'];
-        }
-        if (isset($map['scope'])) {
-            $model->scope = $map['scope'];
         }
 
         return $model;

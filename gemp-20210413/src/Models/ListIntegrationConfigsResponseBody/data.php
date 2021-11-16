@@ -16,6 +16,13 @@ class data extends Model
     public $integrationConfigId;
 
     /**
+     * @description 是否已接受报警
+     *
+     * @var bool
+     */
+    public $isReceivedEvent;
+
+    /**
      * @description 监控源id
      *
      * @var int
@@ -37,13 +44,6 @@ class data extends Model
     public $monitorSourceShortName;
 
     /**
-     * @description 是否已接受报警
-     *
-     * @var bool
-     */
-    public $isReceivedEvent;
-
-    /**
      * @description 集成配置状态
      *
      * @var string
@@ -51,10 +51,10 @@ class data extends Model
     public $status;
     protected $_name = [
         'integrationConfigId'    => 'integrationConfigId',
+        'isReceivedEvent'        => 'isReceivedEvent',
         'monitorSourceId'        => 'monitorSourceId',
         'monitorSourceName'      => 'monitorSourceName',
         'monitorSourceShortName' => 'monitorSourceShortName',
-        'isReceivedEvent'        => 'isReceivedEvent',
         'status'                 => 'status',
     ];
 
@@ -68,6 +68,9 @@ class data extends Model
         if (null !== $this->integrationConfigId) {
             $res['integrationConfigId'] = $this->integrationConfigId;
         }
+        if (null !== $this->isReceivedEvent) {
+            $res['isReceivedEvent'] = $this->isReceivedEvent;
+        }
         if (null !== $this->monitorSourceId) {
             $res['monitorSourceId'] = $this->monitorSourceId;
         }
@@ -76,9 +79,6 @@ class data extends Model
         }
         if (null !== $this->monitorSourceShortName) {
             $res['monitorSourceShortName'] = $this->monitorSourceShortName;
-        }
-        if (null !== $this->isReceivedEvent) {
-            $res['isReceivedEvent'] = $this->isReceivedEvent;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -98,6 +98,9 @@ class data extends Model
         if (isset($map['integrationConfigId'])) {
             $model->integrationConfigId = $map['integrationConfigId'];
         }
+        if (isset($map['isReceivedEvent'])) {
+            $model->isReceivedEvent = $map['isReceivedEvent'];
+        }
         if (isset($map['monitorSourceId'])) {
             $model->monitorSourceId = $map['monitorSourceId'];
         }
@@ -106,9 +109,6 @@ class data extends Model
         }
         if (isset($map['monitorSourceShortName'])) {
             $model->monitorSourceShortName = $map['monitorSourceShortName'];
-        }
-        if (isset($map['isReceivedEvent'])) {
-            $model->isReceivedEvent = $map['isReceivedEvent'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

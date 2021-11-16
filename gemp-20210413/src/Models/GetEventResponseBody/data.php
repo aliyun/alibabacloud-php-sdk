@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 告警内容
+     *
+     * @var string
+     */
+    public $eventJson;
+
+    /**
+     * @description 告警上报时间
+     *
+     * @var string
+     */
+    public $eventTime;
+
+    /**
      * @description 告警源ID
      *
      * @var int
@@ -21,25 +35,11 @@ class data extends Model
      * @var string
      */
     public $monitorSourceName;
-
-    /**
-     * @description 告警上报时间
-     *
-     * @var string
-     */
-    public $eventTime;
-
-    /**
-     * @description 告警内容
-     *
-     * @var string
-     */
-    public $eventJson;
     protected $_name = [
+        'eventJson'         => 'eventJson',
+        'eventTime'         => 'eventTime',
         'monitorSourceId'   => 'monitorSourceId',
         'monitorSourceName' => 'monitorSourceName',
-        'eventTime'         => 'eventTime',
-        'eventJson'         => 'eventJson',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eventJson) {
+            $res['eventJson'] = $this->eventJson;
+        }
+        if (null !== $this->eventTime) {
+            $res['eventTime'] = $this->eventTime;
+        }
         if (null !== $this->monitorSourceId) {
             $res['monitorSourceId'] = $this->monitorSourceId;
         }
         if (null !== $this->monitorSourceName) {
             $res['monitorSourceName'] = $this->monitorSourceName;
-        }
-        if (null !== $this->eventTime) {
-            $res['eventTime'] = $this->eventTime;
-        }
-        if (null !== $this->eventJson) {
-            $res['eventJson'] = $this->eventJson;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['eventJson'])) {
+            $model->eventJson = $map['eventJson'];
+        }
+        if (isset($map['eventTime'])) {
+            $model->eventTime = $map['eventTime'];
+        }
         if (isset($map['monitorSourceId'])) {
             $model->monitorSourceId = $map['monitorSourceId'];
         }
         if (isset($map['monitorSourceName'])) {
             $model->monitorSourceName = $map['monitorSourceName'];
-        }
-        if (isset($map['eventTime'])) {
-            $model->eventTime = $map['eventTime'];
-        }
-        if (isset($map['eventJson'])) {
-            $model->eventJson = $map['eventJson'];
         }
 
         return $model;

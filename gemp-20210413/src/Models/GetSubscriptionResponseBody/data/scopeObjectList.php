@@ -23,23 +23,23 @@ class scopeObjectList extends Model
     public $scope;
 
     /**
-     * @description 订阅范围对象关联表主键id
-     *
-     * @var int
-     */
-    public $scopeObjectId;
-
-    /**
      * @description 订阅范围对象名称
      *
      * @var string
      */
     public $scopeObject;
+
+    /**
+     * @description 订阅范围对象关联表主键id
+     *
+     * @var int
+     */
+    public $scopeObjectId;
     protected $_name = [
         'id'            => 'id',
         'scope'         => 'scope',
-        'scopeObjectId' => 'scopeObjectId',
         'scopeObject'   => 'scopeObject',
+        'scopeObjectId' => 'scopeObjectId',
     ];
 
     public function validate()
@@ -55,11 +55,11 @@ class scopeObjectList extends Model
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
         }
-        if (null !== $this->scopeObjectId) {
-            $res['scopeObjectId'] = $this->scopeObjectId;
-        }
         if (null !== $this->scopeObject) {
             $res['scopeObject'] = $this->scopeObject;
+        }
+        if (null !== $this->scopeObjectId) {
+            $res['scopeObjectId'] = $this->scopeObjectId;
         }
 
         return $res;
@@ -79,11 +79,11 @@ class scopeObjectList extends Model
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
         }
-        if (isset($map['scopeObjectId'])) {
-            $model->scopeObjectId = $map['scopeObjectId'];
-        }
         if (isset($map['scopeObject'])) {
             $model->scopeObject = $map['scopeObject'];
+        }
+        if (isset($map['scopeObjectId'])) {
+            $model->scopeObjectId = $map['scopeObjectId'];
         }
 
         return $model;

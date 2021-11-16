@@ -31,24 +31,24 @@ class data extends Model
     public $escalationPlanScopeObjects;
 
     /**
-     * @description 启用ENABLE 禁用DISABLE
-     *
-     * @var string
-     */
-    public $status;
-
-    /**
      * @description 修改时间
      *
      * @var string
      */
     public $modifyTime;
+
+    /**
+     * @description 启用ENABLE 禁用DISABLE
+     *
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'escalationPlanId'           => 'escalationPlanId',
         'escalationPlanName'         => 'escalationPlanName',
         'escalationPlanScopeObjects' => 'escalationPlanScopeObjects',
-        'status'                     => 'status',
         'modifyTime'                 => 'modifyTime',
+        'status'                     => 'status',
     ];
 
     public function validate()
@@ -73,11 +73,11 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
         if (null !== $this->modifyTime) {
             $res['modifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -106,11 +106,11 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
         if (isset($map['modifyTime'])) {
             $model->modifyTime = $map['modifyTime'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;
