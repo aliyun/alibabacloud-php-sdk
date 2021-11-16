@@ -23,6 +23,20 @@ class body extends Model
     public $isCustom;
 
     /**
+     * @description 是否是 RAM 角色授权
+     *
+     * @var bool
+     */
+    public $isRamRole;
+
+    /**
+     * @description 命名空间名称
+     *
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @description 预置的角色名称
      *
      * @var string
@@ -35,27 +49,13 @@ class body extends Model
      * @var string
      */
     public $roleType;
-
-    /**
-     * @description 命名空间名称
-     *
-     * @var string
-     */
-    public $namespace;
-
-    /**
-     * @description 是否是 RAM 角色授权
-     *
-     * @var bool
-     */
-    public $isRamRole;
     protected $_name = [
         'cluster'   => 'cluster',
         'isCustom'  => 'is_custom',
+        'isRamRole' => 'is_ram_role',
+        'namespace' => 'namespace',
         'roleName'  => 'role_name',
         'roleType'  => 'role_type',
-        'namespace' => 'namespace',
-        'isRamRole' => 'is_ram_role',
     ];
 
     public function validate()
@@ -71,17 +71,17 @@ class body extends Model
         if (null !== $this->isCustom) {
             $res['is_custom'] = $this->isCustom;
         }
+        if (null !== $this->isRamRole) {
+            $res['is_ram_role'] = $this->isRamRole;
+        }
+        if (null !== $this->namespace) {
+            $res['namespace'] = $this->namespace;
+        }
         if (null !== $this->roleName) {
             $res['role_name'] = $this->roleName;
         }
         if (null !== $this->roleType) {
             $res['role_type'] = $this->roleType;
-        }
-        if (null !== $this->namespace) {
-            $res['namespace'] = $this->namespace;
-        }
-        if (null !== $this->isRamRole) {
-            $res['is_ram_role'] = $this->isRamRole;
         }
 
         return $res;
@@ -101,17 +101,17 @@ class body extends Model
         if (isset($map['is_custom'])) {
             $model->isCustom = $map['is_custom'];
         }
+        if (isset($map['is_ram_role'])) {
+            $model->isRamRole = $map['is_ram_role'];
+        }
+        if (isset($map['namespace'])) {
+            $model->namespace = $map['namespace'];
+        }
         if (isset($map['role_name'])) {
             $model->roleName = $map['role_name'];
         }
         if (isset($map['role_type'])) {
             $model->roleType = $map['role_type'];
-        }
-        if (isset($map['namespace'])) {
-            $model->namespace = $map['namespace'];
-        }
-        if (isset($map['is_ram_role'])) {
-            $model->isRamRole = $map['is_ram_role'];
         }
 
         return $model;

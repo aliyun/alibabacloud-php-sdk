@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description 资源所属的地域ID
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 资源ID列表
      *
      * @var string[]
@@ -23,22 +30,15 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description 资源所属的地域ID
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 资源的标签键值对。数组长度范围：1~20。一旦传值，则不允许为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含http://或者https://。
      *
      * @var Tag[]
      */
     public $tags;
     protected $_name = [
+        'regionId'     => 'region_id',
         'resourceIds'  => 'resource_ids',
         'resourceType' => 'resource_type',
-        'regionId'     => 'region_id',
         'tags'         => 'tags',
     ];
 
@@ -49,14 +49,14 @@ class TagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['region_id'] = $this->regionId;
+        }
         if (null !== $this->resourceIds) {
             $res['resource_ids'] = $this->resourceIds;
         }
         if (null !== $this->resourceType) {
             $res['resource_type'] = $this->resourceType;
-        }
-        if (null !== $this->regionId) {
-            $res['region_id'] = $this->regionId;
         }
         if (null !== $this->tags) {
             $res['tags'] = [];
@@ -79,6 +79,9 @@ class TagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['region_id'])) {
+            $model->regionId = $map['region_id'];
+        }
         if (isset($map['resource_ids'])) {
             if (!empty($map['resource_ids'])) {
                 $model->resourceIds = $map['resource_ids'];
@@ -86,9 +89,6 @@ class TagResourcesRequest extends Model
         }
         if (isset($map['resource_type'])) {
             $model->resourceType = $map['resource_type'];
-        }
-        if (isset($map['region_id'])) {
-            $model->regionId = $map['region_id'];
         }
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {

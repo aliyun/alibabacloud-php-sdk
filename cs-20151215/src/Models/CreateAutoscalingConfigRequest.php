@@ -16,20 +16,6 @@ class CreateAutoscalingConfigRequest extends Model
     public $coolDownDuration;
 
     /**
-     * @description 缩容触发时延，节点缩容时需要连续满足触发时延所设定的时间，方可进行缩容
-     *
-     * @var string
-     */
-    public $unneededDuration;
-
-    /**
-     * @description 缩容阈值，节点上 Request 的资源与总资源量的比值
-     *
-     * @var string
-     */
-    public $utilizationThreshold;
-
-    /**
      * @description GPU缩容阈值，节点上 Request 的资源与总资源量的比值
      *
      * @var string
@@ -42,12 +28,26 @@ class CreateAutoscalingConfigRequest extends Model
      * @var string
      */
     public $scanInterval;
+
+    /**
+     * @description 缩容触发时延，节点缩容时需要连续满足触发时延所设定的时间，方可进行缩容
+     *
+     * @var string
+     */
+    public $unneededDuration;
+
+    /**
+     * @description 缩容阈值，节点上 Request 的资源与总资源量的比值
+     *
+     * @var string
+     */
+    public $utilizationThreshold;
     protected $_name = [
         'coolDownDuration'        => 'cool_down_duration',
-        'unneededDuration'        => 'unneeded_duration',
-        'utilizationThreshold'    => 'utilization_threshold',
         'gpuUtilizationThreshold' => 'gpu_utilization_threshold',
         'scanInterval'            => 'scan_interval',
+        'unneededDuration'        => 'unneeded_duration',
+        'utilizationThreshold'    => 'utilization_threshold',
     ];
 
     public function validate()
@@ -60,17 +60,17 @@ class CreateAutoscalingConfigRequest extends Model
         if (null !== $this->coolDownDuration) {
             $res['cool_down_duration'] = $this->coolDownDuration;
         }
-        if (null !== $this->unneededDuration) {
-            $res['unneeded_duration'] = $this->unneededDuration;
-        }
-        if (null !== $this->utilizationThreshold) {
-            $res['utilization_threshold'] = $this->utilizationThreshold;
-        }
         if (null !== $this->gpuUtilizationThreshold) {
             $res['gpu_utilization_threshold'] = $this->gpuUtilizationThreshold;
         }
         if (null !== $this->scanInterval) {
             $res['scan_interval'] = $this->scanInterval;
+        }
+        if (null !== $this->unneededDuration) {
+            $res['unneeded_duration'] = $this->unneededDuration;
+        }
+        if (null !== $this->utilizationThreshold) {
+            $res['utilization_threshold'] = $this->utilizationThreshold;
         }
 
         return $res;
@@ -87,17 +87,17 @@ class CreateAutoscalingConfigRequest extends Model
         if (isset($map['cool_down_duration'])) {
             $model->coolDownDuration = $map['cool_down_duration'];
         }
-        if (isset($map['unneeded_duration'])) {
-            $model->unneededDuration = $map['unneeded_duration'];
-        }
-        if (isset($map['utilization_threshold'])) {
-            $model->utilizationThreshold = $map['utilization_threshold'];
-        }
         if (isset($map['gpu_utilization_threshold'])) {
             $model->gpuUtilizationThreshold = $map['gpu_utilization_threshold'];
         }
         if (isset($map['scan_interval'])) {
             $model->scanInterval = $map['scan_interval'];
+        }
+        if (isset($map['unneeded_duration'])) {
+            $model->unneededDuration = $map['unneeded_duration'];
+        }
+        if (isset($map['utilization_threshold'])) {
+            $model->utilizationThreshold = $map['utilization_threshold'];
         }
 
         return $model;

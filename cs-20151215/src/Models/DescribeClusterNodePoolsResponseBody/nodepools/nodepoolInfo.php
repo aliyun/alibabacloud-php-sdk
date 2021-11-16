@@ -37,7 +37,7 @@ class nodepoolInfo extends Model
     public $nodepoolId;
 
     /**
-     * @description 节点池所在地域ID。
+     * @description 节点池所在地域ID
      *
      * @var string
      */

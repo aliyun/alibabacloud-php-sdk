@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class upgradeTask extends Model
 {
     /**
-     * @description 任务状态：  emptry、running、success、failed
-     *
-     * @var string
-     */
-    public $status;
-
-    /**
      * @description 任务描述信息。
      *
      * @var string
      */
     public $message;
+
+    /**
+     * @description 任务状态：  emptry、running、success、failed
+     *
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'  => 'status',
         'message' => 'message',
+        'status'  => 'status',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class upgradeTask extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
         if (null !== $this->message) {
             $res['message'] = $this->message;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class upgradeTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

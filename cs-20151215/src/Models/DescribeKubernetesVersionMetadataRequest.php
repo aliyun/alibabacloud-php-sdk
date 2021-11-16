@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeKubernetesVersionMetadataRequest extends Model
 {
     /**
-     * @description 地域ID。
-     *
-     * @var string
-     */
-    public $region;
-
-    /**
      * @description 集群类型。
      *
      * @var string
@@ -35,11 +28,18 @@ class DescribeKubernetesVersionMetadataRequest extends Model
      * @var string
      */
     public $profile;
+
+    /**
+     * @description 地域ID。
+     *
+     * @var string
+     */
+    public $region;
     protected $_name = [
-        'region'            => 'Region',
         'clusterType'       => 'ClusterType',
         'kubernetesVersion' => 'KubernetesVersion',
         'profile'           => 'Profile',
+        'region'            => 'Region',
     ];
 
     public function validate()
@@ -49,9 +49,6 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
@@ -60,6 +57,9 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         }
         if (null !== $this->profile) {
             $res['Profile'] = $this->profile;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -73,9 +73,6 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }
@@ -84,6 +81,9 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         }
         if (isset($map['Profile'])) {
             $model->profile = $map['Profile'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;

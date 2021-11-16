@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description 下一次查询Token。
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @description 地域ID
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 集群ID列表。
      *
      * @var string[]
@@ -23,31 +37,17 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description 地域ID
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 按标签查找。
      *
      * @var Tag[]
      */
     public $tags;
-
-    /**
-     * @description 下一次查询Token。
-     *
-     * @var string
-     */
-    public $nextToken;
     protected $_name = [
+        'nextToken'    => 'next_token',
+        'regionId'     => 'region_id',
         'resourceIds'  => 'resource_ids',
         'resourceType' => 'resource_type',
-        'regionId'     => 'region_id',
         'tags'         => 'tags',
-        'nextToken'    => 'next_token',
     ];
 
     public function validate()
@@ -57,14 +57,17 @@ class ListTagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['next_token'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['region_id'] = $this->regionId;
+        }
         if (null !== $this->resourceIds) {
             $res['resource_ids'] = $this->resourceIds;
         }
         if (null !== $this->resourceType) {
             $res['resource_type'] = $this->resourceType;
-        }
-        if (null !== $this->regionId) {
-            $res['region_id'] = $this->regionId;
         }
         if (null !== $this->tags) {
             $res['tags'] = [];
@@ -74,9 +77,6 @@ class ListTagResourcesRequest extends Model
                     $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nextToken) {
-            $res['next_token'] = $this->nextToken;
         }
 
         return $res;
@@ -90,6 +90,12 @@ class ListTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['next_token'])) {
+            $model->nextToken = $map['next_token'];
+        }
+        if (isset($map['region_id'])) {
+            $model->regionId = $map['region_id'];
+        }
         if (isset($map['resource_ids'])) {
             if (!empty($map['resource_ids'])) {
                 $model->resourceIds = $map['resource_ids'];
@@ -97,9 +103,6 @@ class ListTagResourcesRequest extends Model
         }
         if (isset($map['resource_type'])) {
             $model->resourceType = $map['resource_type'];
-        }
-        if (isset($map['region_id'])) {
-            $model->regionId = $map['region_id'];
         }
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
@@ -109,9 +112,6 @@ class ListTagResourcesRequest extends Model
                     $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['next_token'])) {
-            $model->nextToken = $map['next_token'];
         }
 
         return $model;

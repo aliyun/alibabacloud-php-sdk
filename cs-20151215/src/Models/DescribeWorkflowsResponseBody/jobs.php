@@ -16,22 +16,22 @@ class jobs extends Model
     public $clusterId;
 
     /**
-     * @description 工作流名称。
-     *
-     * @var string
-     */
-    public $jobName;
-
-    /**
      * @description 工作流创建时间。
      *
      * @var string
      */
     public $createTime;
+
+    /**
+     * @description 工作流名称。
+     *
+     * @var string
+     */
+    public $jobName;
     protected $_name = [
         'clusterId'  => 'cluster_id',
-        'jobName'    => 'job_name',
         'createTime' => 'create_time',
+        'jobName'    => 'job_name',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class jobs extends Model
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
-        if (null !== $this->jobName) {
-            $res['job_name'] = $this->jobName;
-        }
         if (null !== $this->createTime) {
             $res['create_time'] = $this->createTime;
+        }
+        if (null !== $this->jobName) {
+            $res['job_name'] = $this->jobName;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class jobs extends Model
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
-        if (isset($map['job_name'])) {
-            $model->jobName = $map['job_name'];
-        }
         if (isset($map['create_time'])) {
             $model->createTime = $map['create_time'];
+        }
+        if (isset($map['job_name'])) {
+            $model->jobName = $map['job_name'];
         }
 
         return $model;

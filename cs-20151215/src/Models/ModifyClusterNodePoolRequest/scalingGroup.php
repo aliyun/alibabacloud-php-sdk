@@ -12,34 +12,6 @@ use AlibabaCloud\Tea\Model;
 class scalingGroup extends Model
 {
     /**
-     * @description 数据盘配置。
-     *
-     * @var DataDisk[]
-     */
-    public $dataDisks;
-
-    /**
-     * @description 节点付费类型。
-     *
-     * @var string
-     */
-    public $instanceChargeType;
-
-    /**
-     * @description 包年包月时长
-     *
-     * @var int
-     */
-    public $period;
-
-    /**
-     * @description 付费周期
-     *
-     * @var string
-     */
-    public $periodUnit;
-
-    /**
      * @description 节点池节点是启用自动续费
      *
      * @var bool
@@ -54,11 +26,18 @@ class scalingGroup extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description 操作系统发行版。
+     * @description 当MultiAZPolicy取值为COST_OPTIMIZED时，如果因价格、库存等原因无法创建足够的抢占式实例，是否允许自动尝试创建按量实例满足ECS实例数量要求。取值范围：true：允许。false：不允许。默认值：true
      *
-     * @var string
+     * @var bool
      */
-    public $platform;
+    public $compensateWithOnDemand;
+
+    /**
+     * @description 数据盘配置。
+     *
+     * @var DataDisk[]
+     */
+    public $dataDisks;
 
     /**
      * @description 自定义镜像
@@ -68,18 +47,11 @@ class scalingGroup extends Model
     public $imageId;
 
     /**
-     * @description 抢占式实例类型
+     * @description 节点付费类型。
      *
      * @var string
      */
-    public $spotStrategy;
-
-    /**
-     * @description 抢占实例价格上限配置
-     *
-     * @var spotPriceLimit[]
-     */
-    public $spotPriceLimit;
+    public $instanceChargeType;
 
     /**
      * @description 节点实例规格。
@@ -87,6 +59,20 @@ class scalingGroup extends Model
      * @var string[]
      */
     public $instanceTypes;
+
+    /**
+     * @description 节点公网IP网络计费类型
+     *
+     * @var string
+     */
+    public $internetChargeType;
+
+    /**
+     * @description 节点公网IP出带宽最大值，单位为Mbps（Mega bit per second），取值范围：1~100
+     *
+     * @var int
+     */
+    public $internetMaxBandwidthOut;
 
     /**
      * @description 密钥对名称，和login_password二选一。
@@ -101,48 +87,6 @@ class scalingGroup extends Model
      * @var string
      */
     public $loginPassword;
-
-    /**
-     * @description RDS实例列表。
-     *
-     * @var string[]
-     */
-    public $rdsInstances;
-
-    /**
-     * @description 扩容策略。
-     *
-     * @var string
-     */
-    public $scalingPolicy;
-
-    /**
-     * @description 节点系统盘类型。
-     *
-     * @var string
-     */
-    public $systemDiskCategory;
-
-    /**
-     * @description 节点系统盘大小。
-     *
-     * @var int
-     */
-    public $systemDiskSize;
-
-    /**
-     * @description ECS标签。
-     *
-     * @var Tag[]
-     */
-    public $tags;
-
-    /**
-     * @description 节点使用的虚拟交换机ID。
-     *
-     * @var string[]
-     */
-    public $vswitchIds;
 
     /**
      * @description 多可用区伸缩组ECS实例扩缩容策略
@@ -166,6 +110,41 @@ class scalingGroup extends Model
     public $onDemandPercentageAboveBaseCapacity;
 
     /**
+     * @description 包年包月时长
+     *
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @description 付费周期
+     *
+     * @var string
+     */
+    public $periodUnit;
+
+    /**
+     * @description 操作系统发行版。
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
+     * @description RDS实例列表。
+     *
+     * @var string[]
+     */
+    public $rdsInstances;
+
+    /**
+     * @description 扩容策略。
+     *
+     * @var string
+     */
+    public $scalingPolicy;
+
+    /**
      * @description 指定可用实例规格的个数，伸缩组将按成本最低的多个规格均衡创建抢占式实例。取值范围：1~10。
      *
      * @var int
@@ -180,53 +159,82 @@ class scalingGroup extends Model
     public $spotInstanceRemedy;
 
     /**
-     * @description 当MultiAZPolicy取值为COST_OPTIMIZED时，如果因价格、库存等原因无法创建足够的抢占式实例，是否允许自动尝试创建按量实例满足ECS实例数量要求。取值范围：true：允许。false：不允许。默认值：true
+     * @description 抢占实例价格上限配置
      *
-     * @var bool
+     * @var spotPriceLimit[]
      */
-    public $compensateWithOnDemand;
+    public $spotPriceLimit;
 
     /**
-     * @description 节点公网IP网络计费类型
+     * @description 抢占式实例类型
      *
      * @var string
      */
-    public $internetChargeType;
+    public $spotStrategy;
 
     /**
-     * @description 节点公网IP出带宽最大值，单位为Mbps（Mega bit per second），取值范围：1~100
+     * @description 节点系统盘类型。
+     *
+     * @var string
+     */
+    public $systemDiskCategory;
+
+    /**
+     * @description 节点系统盘磁盘性能，只针对ESSD磁盘生效
+     *
+     * @var string
+     */
+    public $systemDiskPerformanceLevel;
+
+    /**
+     * @description 节点系统盘大小。
      *
      * @var int
      */
-    public $internetMaxBandwidthOut;
+    public $systemDiskSize;
+
+    /**
+     * @description ECS标签。
+     *
+     * @var Tag[]
+     */
+    public $tags;
+
+    /**
+     * @description 节点使用的虚拟交换机ID。
+     *
+     * @var string[]
+     */
+    public $vswitchIds;
     protected $_name = [
-        'dataDisks'                           => 'data_disks',
-        'instanceChargeType'                  => 'instance_charge_type',
-        'period'                              => 'period',
-        'periodUnit'                          => 'period_unit',
         'autoRenew'                           => 'auto_renew',
         'autoRenewPeriod'                     => 'auto_renew_period',
-        'platform'                            => 'platform',
+        'compensateWithOnDemand'              => 'compensate_with_on_demand',
+        'dataDisks'                           => 'data_disks',
         'imageId'                             => 'image_id',
-        'spotStrategy'                        => 'spot_strategy',
-        'spotPriceLimit'                      => 'spot_price_limit',
+        'instanceChargeType'                  => 'instance_charge_type',
         'instanceTypes'                       => 'instance_types',
+        'internetChargeType'                  => 'internet_charge_type',
+        'internetMaxBandwidthOut'             => 'internet_max_bandwidth_out',
         'keyPair'                             => 'key_pair',
         'loginPassword'                       => 'login_password',
-        'rdsInstances'                        => 'rds_instances',
-        'scalingPolicy'                       => 'scaling_policy',
-        'systemDiskCategory'                  => 'system_disk_category',
-        'systemDiskSize'                      => 'system_disk_size',
-        'tags'                                => 'tags',
-        'vswitchIds'                          => 'vswitch_ids',
         'multiAzPolicy'                       => 'multi_az_policy',
         'onDemandBaseCapacity'                => 'on_demand_base_capacity',
         'onDemandPercentageAboveBaseCapacity' => 'on_demand_percentage_above_base_capacity',
+        'period'                              => 'period',
+        'periodUnit'                          => 'period_unit',
+        'platform'                            => 'platform',
+        'rdsInstances'                        => 'rds_instances',
+        'scalingPolicy'                       => 'scaling_policy',
         'spotInstancePools'                   => 'spot_instance_pools',
         'spotInstanceRemedy'                  => 'spot_instance_remedy',
-        'compensateWithOnDemand'              => 'compensate_with_on_demand',
-        'internetChargeType'                  => 'internet_charge_type',
-        'internetMaxBandwidthOut'             => 'internet_max_bandwidth_out',
+        'spotPriceLimit'                      => 'spot_price_limit',
+        'spotStrategy'                        => 'spot_strategy',
+        'systemDiskCategory'                  => 'system_disk_category',
+        'systemDiskPerformanceLevel'          => 'system_disk_performance_level',
+        'systemDiskSize'                      => 'system_disk_size',
+        'tags'                                => 'tags',
+        'vswitchIds'                          => 'vswitch_ids',
     ];
 
     public function validate()
@@ -236,6 +244,15 @@ class scalingGroup extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoRenew) {
+            $res['auto_renew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewPeriod) {
+            $res['auto_renew_period'] = $this->autoRenewPeriod;
+        }
+        if (null !== $this->compensateWithOnDemand) {
+            $res['compensate_with_on_demand'] = $this->compensateWithOnDemand;
+        }
         if (null !== $this->dataDisks) {
             $res['data_disks'] = [];
             if (null !== $this->dataDisks && \is_array($this->dataDisks)) {
@@ -245,8 +262,35 @@ class scalingGroup extends Model
                 }
             }
         }
+        if (null !== $this->imageId) {
+            $res['image_id'] = $this->imageId;
+        }
         if (null !== $this->instanceChargeType) {
             $res['instance_charge_type'] = $this->instanceChargeType;
+        }
+        if (null !== $this->instanceTypes) {
+            $res['instance_types'] = $this->instanceTypes;
+        }
+        if (null !== $this->internetChargeType) {
+            $res['internet_charge_type'] = $this->internetChargeType;
+        }
+        if (null !== $this->internetMaxBandwidthOut) {
+            $res['internet_max_bandwidth_out'] = $this->internetMaxBandwidthOut;
+        }
+        if (null !== $this->keyPair) {
+            $res['key_pair'] = $this->keyPair;
+        }
+        if (null !== $this->loginPassword) {
+            $res['login_password'] = $this->loginPassword;
+        }
+        if (null !== $this->multiAzPolicy) {
+            $res['multi_az_policy'] = $this->multiAzPolicy;
+        }
+        if (null !== $this->onDemandBaseCapacity) {
+            $res['on_demand_base_capacity'] = $this->onDemandBaseCapacity;
+        }
+        if (null !== $this->onDemandPercentageAboveBaseCapacity) {
+            $res['on_demand_percentage_above_base_capacity'] = $this->onDemandPercentageAboveBaseCapacity;
         }
         if (null !== $this->period) {
             $res['period'] = $this->period;
@@ -254,20 +298,20 @@ class scalingGroup extends Model
         if (null !== $this->periodUnit) {
             $res['period_unit'] = $this->periodUnit;
         }
-        if (null !== $this->autoRenew) {
-            $res['auto_renew'] = $this->autoRenew;
-        }
-        if (null !== $this->autoRenewPeriod) {
-            $res['auto_renew_period'] = $this->autoRenewPeriod;
-        }
         if (null !== $this->platform) {
             $res['platform'] = $this->platform;
         }
-        if (null !== $this->imageId) {
-            $res['image_id'] = $this->imageId;
+        if (null !== $this->rdsInstances) {
+            $res['rds_instances'] = $this->rdsInstances;
         }
-        if (null !== $this->spotStrategy) {
-            $res['spot_strategy'] = $this->spotStrategy;
+        if (null !== $this->scalingPolicy) {
+            $res['scaling_policy'] = $this->scalingPolicy;
+        }
+        if (null !== $this->spotInstancePools) {
+            $res['spot_instance_pools'] = $this->spotInstancePools;
+        }
+        if (null !== $this->spotInstanceRemedy) {
+            $res['spot_instance_remedy'] = $this->spotInstanceRemedy;
         }
         if (null !== $this->spotPriceLimit) {
             $res['spot_price_limit'] = [];
@@ -278,23 +322,14 @@ class scalingGroup extends Model
                 }
             }
         }
-        if (null !== $this->instanceTypes) {
-            $res['instance_types'] = $this->instanceTypes;
-        }
-        if (null !== $this->keyPair) {
-            $res['key_pair'] = $this->keyPair;
-        }
-        if (null !== $this->loginPassword) {
-            $res['login_password'] = $this->loginPassword;
-        }
-        if (null !== $this->rdsInstances) {
-            $res['rds_instances'] = $this->rdsInstances;
-        }
-        if (null !== $this->scalingPolicy) {
-            $res['scaling_policy'] = $this->scalingPolicy;
+        if (null !== $this->spotStrategy) {
+            $res['spot_strategy'] = $this->spotStrategy;
         }
         if (null !== $this->systemDiskCategory) {
             $res['system_disk_category'] = $this->systemDiskCategory;
+        }
+        if (null !== $this->systemDiskPerformanceLevel) {
+            $res['system_disk_performance_level'] = $this->systemDiskPerformanceLevel;
         }
         if (null !== $this->systemDiskSize) {
             $res['system_disk_size'] = $this->systemDiskSize;
@@ -311,30 +346,6 @@ class scalingGroup extends Model
         if (null !== $this->vswitchIds) {
             $res['vswitch_ids'] = $this->vswitchIds;
         }
-        if (null !== $this->multiAzPolicy) {
-            $res['multi_az_policy'] = $this->multiAzPolicy;
-        }
-        if (null !== $this->onDemandBaseCapacity) {
-            $res['on_demand_base_capacity'] = $this->onDemandBaseCapacity;
-        }
-        if (null !== $this->onDemandPercentageAboveBaseCapacity) {
-            $res['on_demand_percentage_above_base_capacity'] = $this->onDemandPercentageAboveBaseCapacity;
-        }
-        if (null !== $this->spotInstancePools) {
-            $res['spot_instance_pools'] = $this->spotInstancePools;
-        }
-        if (null !== $this->spotInstanceRemedy) {
-            $res['spot_instance_remedy'] = $this->spotInstanceRemedy;
-        }
-        if (null !== $this->compensateWithOnDemand) {
-            $res['compensate_with_on_demand'] = $this->compensateWithOnDemand;
-        }
-        if (null !== $this->internetChargeType) {
-            $res['internet_charge_type'] = $this->internetChargeType;
-        }
-        if (null !== $this->internetMaxBandwidthOut) {
-            $res['internet_max_bandwidth_out'] = $this->internetMaxBandwidthOut;
-        }
 
         return $res;
     }
@@ -347,6 +358,15 @@ class scalingGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['auto_renew'])) {
+            $model->autoRenew = $map['auto_renew'];
+        }
+        if (isset($map['auto_renew_period'])) {
+            $model->autoRenewPeriod = $map['auto_renew_period'];
+        }
+        if (isset($map['compensate_with_on_demand'])) {
+            $model->compensateWithOnDemand = $map['compensate_with_on_demand'];
+        }
         if (isset($map['data_disks'])) {
             if (!empty($map['data_disks'])) {
                 $model->dataDisks = [];
@@ -356,8 +376,37 @@ class scalingGroup extends Model
                 }
             }
         }
+        if (isset($map['image_id'])) {
+            $model->imageId = $map['image_id'];
+        }
         if (isset($map['instance_charge_type'])) {
             $model->instanceChargeType = $map['instance_charge_type'];
+        }
+        if (isset($map['instance_types'])) {
+            if (!empty($map['instance_types'])) {
+                $model->instanceTypes = $map['instance_types'];
+            }
+        }
+        if (isset($map['internet_charge_type'])) {
+            $model->internetChargeType = $map['internet_charge_type'];
+        }
+        if (isset($map['internet_max_bandwidth_out'])) {
+            $model->internetMaxBandwidthOut = $map['internet_max_bandwidth_out'];
+        }
+        if (isset($map['key_pair'])) {
+            $model->keyPair = $map['key_pair'];
+        }
+        if (isset($map['login_password'])) {
+            $model->loginPassword = $map['login_password'];
+        }
+        if (isset($map['multi_az_policy'])) {
+            $model->multiAzPolicy = $map['multi_az_policy'];
+        }
+        if (isset($map['on_demand_base_capacity'])) {
+            $model->onDemandBaseCapacity = $map['on_demand_base_capacity'];
+        }
+        if (isset($map['on_demand_percentage_above_base_capacity'])) {
+            $model->onDemandPercentageAboveBaseCapacity = $map['on_demand_percentage_above_base_capacity'];
         }
         if (isset($map['period'])) {
             $model->period = $map['period'];
@@ -365,20 +414,22 @@ class scalingGroup extends Model
         if (isset($map['period_unit'])) {
             $model->periodUnit = $map['period_unit'];
         }
-        if (isset($map['auto_renew'])) {
-            $model->autoRenew = $map['auto_renew'];
-        }
-        if (isset($map['auto_renew_period'])) {
-            $model->autoRenewPeriod = $map['auto_renew_period'];
-        }
         if (isset($map['platform'])) {
             $model->platform = $map['platform'];
         }
-        if (isset($map['image_id'])) {
-            $model->imageId = $map['image_id'];
+        if (isset($map['rds_instances'])) {
+            if (!empty($map['rds_instances'])) {
+                $model->rdsInstances = $map['rds_instances'];
+            }
         }
-        if (isset($map['spot_strategy'])) {
-            $model->spotStrategy = $map['spot_strategy'];
+        if (isset($map['scaling_policy'])) {
+            $model->scalingPolicy = $map['scaling_policy'];
+        }
+        if (isset($map['spot_instance_pools'])) {
+            $model->spotInstancePools = $map['spot_instance_pools'];
+        }
+        if (isset($map['spot_instance_remedy'])) {
+            $model->spotInstanceRemedy = $map['spot_instance_remedy'];
         }
         if (isset($map['spot_price_limit'])) {
             if (!empty($map['spot_price_limit'])) {
@@ -389,27 +440,14 @@ class scalingGroup extends Model
                 }
             }
         }
-        if (isset($map['instance_types'])) {
-            if (!empty($map['instance_types'])) {
-                $model->instanceTypes = $map['instance_types'];
-            }
-        }
-        if (isset($map['key_pair'])) {
-            $model->keyPair = $map['key_pair'];
-        }
-        if (isset($map['login_password'])) {
-            $model->loginPassword = $map['login_password'];
-        }
-        if (isset($map['rds_instances'])) {
-            if (!empty($map['rds_instances'])) {
-                $model->rdsInstances = $map['rds_instances'];
-            }
-        }
-        if (isset($map['scaling_policy'])) {
-            $model->scalingPolicy = $map['scaling_policy'];
+        if (isset($map['spot_strategy'])) {
+            $model->spotStrategy = $map['spot_strategy'];
         }
         if (isset($map['system_disk_category'])) {
             $model->systemDiskCategory = $map['system_disk_category'];
+        }
+        if (isset($map['system_disk_performance_level'])) {
+            $model->systemDiskPerformanceLevel = $map['system_disk_performance_level'];
         }
         if (isset($map['system_disk_size'])) {
             $model->systemDiskSize = $map['system_disk_size'];
@@ -427,30 +465,6 @@ class scalingGroup extends Model
             if (!empty($map['vswitch_ids'])) {
                 $model->vswitchIds = $map['vswitch_ids'];
             }
-        }
-        if (isset($map['multi_az_policy'])) {
-            $model->multiAzPolicy = $map['multi_az_policy'];
-        }
-        if (isset($map['on_demand_base_capacity'])) {
-            $model->onDemandBaseCapacity = $map['on_demand_base_capacity'];
-        }
-        if (isset($map['on_demand_percentage_above_base_capacity'])) {
-            $model->onDemandPercentageAboveBaseCapacity = $map['on_demand_percentage_above_base_capacity'];
-        }
-        if (isset($map['spot_instance_pools'])) {
-            $model->spotInstancePools = $map['spot_instance_pools'];
-        }
-        if (isset($map['spot_instance_remedy'])) {
-            $model->spotInstanceRemedy = $map['spot_instance_remedy'];
-        }
-        if (isset($map['compensate_with_on_demand'])) {
-            $model->compensateWithOnDemand = $map['compensate_with_on_demand'];
-        }
-        if (isset($map['internet_charge_type'])) {
-            $model->internetChargeType = $map['internet_charge_type'];
-        }
-        if (isset($map['internet_max_bandwidth_out'])) {
-            $model->internetMaxBandwidthOut = $map['internet_max_bandwidth_out'];
         }
 
         return $model;

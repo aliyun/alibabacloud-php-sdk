@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateKubernetesTriggerResponseBody extends Model
 {
     /**
-     * @description 触发器ID。
+     * @description 触发器行为。
      *
      * @var string
      */
-    public $id;
+    public $action;
 
     /**
      * @description 集群ID。
@@ -21,6 +21,13 @@ class CreateKubernetesTriggerResponseBody extends Model
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @description 触发器ID。
+     *
+     * @var string
+     */
+    public $id;
 
     /**
      * @description 触发器项目名称。
@@ -35,19 +42,12 @@ class CreateKubernetesTriggerResponseBody extends Model
      * @var string
      */
     public $type;
-
-    /**
-     * @description 触发器行为。
-     *
-     * @var string
-     */
-    public $action;
     protected $_name = [
-        'id'        => 'id',
+        'action'    => 'action',
         'clusterId' => 'cluster_id',
+        'id'        => 'id',
         'projectId' => 'project_id',
         'type'      => 'type',
-        'action'    => 'action',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class CreateKubernetesTriggerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
+        if (null !== $this->action) {
+            $res['action'] = $this->action;
         }
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
+        }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
         if (null !== $this->projectId) {
             $res['project_id'] = $this->projectId;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
-        }
-        if (null !== $this->action) {
-            $res['action'] = $this->action;
         }
 
         return $res;
@@ -84,20 +84,20 @@ class CreateKubernetesTriggerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
+        if (isset($map['action'])) {
+            $model->action = $map['action'];
         }
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
+        }
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
         if (isset($map['project_id'])) {
             $model->projectId = $map['project_id'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];
-        }
-        if (isset($map['action'])) {
-            $model->action = $map['action'];
         }
 
         return $model;

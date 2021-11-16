@@ -1,0 +1,65 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody;
+
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\violations\deny;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\violations\warn;
+use AlibabaCloud\Tea\Model;
+
+class violations extends Model
+{
+    /**
+     * @description 被拦截的不同策略类型的审计计数
+     *
+     * @var deny
+     */
+    public $deny;
+
+    /**
+     * @description 告警的不同策略类型审计计数
+     *
+     * @var warn
+     */
+    public $warn;
+    protected $_name = [
+        'deny' => 'deny',
+        'warn' => 'warn',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->deny) {
+            $res['deny'] = null !== $this->deny ? $this->deny->toMap() : null;
+        }
+        if (null !== $this->warn) {
+            $res['warn'] = null !== $this->warn ? $this->warn->toMap() : null;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return violations
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['deny'])) {
+            $model->deny = deny::fromMap($map['deny']);
+        }
+        if (isset($map['warn'])) {
+            $model->warn = warn::fromMap($map['warn']);
+        }
+
+        return $model;
+    }
+}

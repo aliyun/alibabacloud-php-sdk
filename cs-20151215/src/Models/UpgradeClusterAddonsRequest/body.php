@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description 组件名称。
+     * @description 组件名称
      *
      * @var string
      */
     public $componentName;
 
     /**
-     * @description 可升级版本。
+     * @description 可升级版本
      *
      * @var string
      */
     public $nextVersion;
 
     /**
-     * @description 当前版本。
+     * @description 当前版本
      *
      * @var string
      */

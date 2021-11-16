@@ -37,7 +37,7 @@ class status extends Model
     public $offlineNodes;
 
     /**
-     * @description 真在被移除的节点数。
+     * @description 正在被移除的节点数
      *
      * @var int
      */

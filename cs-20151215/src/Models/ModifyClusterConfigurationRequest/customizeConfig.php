@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class customizeConfig extends Model
 {
     /**
-     * @description 组件名称。
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @description 组件配置。
      *
      * @var configs[]
      */
     public $configs;
+
+    /**
+     * @description 组件名称。
+     *
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'name'    => 'name',
         'configs' => 'configs',
+        'name'    => 'name',
     ];
 
     public function validate()
@@ -34,9 +34,6 @@ class customizeConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
         if (null !== $this->configs) {
             $res['configs'] = [];
             if (null !== $this->configs && \is_array($this->configs)) {
@@ -45,6 +42,9 @@ class customizeConfig extends Model
                     $res['configs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
         return $res;
@@ -58,9 +58,6 @@ class customizeConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
         if (isset($map['configs'])) {
             if (!empty($map['configs'])) {
                 $model->configs = [];
@@ -69,6 +66,9 @@ class customizeConfig extends Model
                     $model->configs[$n++] = null !== $item ? configs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
         return $model;

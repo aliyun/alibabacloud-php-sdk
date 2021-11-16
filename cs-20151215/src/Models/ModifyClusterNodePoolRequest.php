@@ -29,6 +29,13 @@ class ModifyClusterNodePoolRequest extends Model
     public $kubernetesConfig;
 
     /**
+     * @description 托管版节点池配置。
+     *
+     * @var management
+     */
+    public $management;
+
+    /**
      * @description 节点池配置。
      *
      * @var nodepoolInfo
@@ -50,13 +57,6 @@ class ModifyClusterNodePoolRequest extends Model
     public $teeConfig;
 
     /**
-     * @description 托管版节点池配置。
-     *
-     * @var management
-     */
-    public $management;
-
-    /**
      * @description 是否同步更新节点标签及污点。
      *
      * @var bool
@@ -65,10 +65,10 @@ class ModifyClusterNodePoolRequest extends Model
     protected $_name = [
         'autoScaling'      => 'auto_scaling',
         'kubernetesConfig' => 'kubernetes_config',
+        'management'       => 'management',
         'nodepoolInfo'     => 'nodepool_info',
         'scalingGroup'     => 'scaling_group',
         'teeConfig'        => 'tee_config',
-        'management'       => 'management',
         'updateNodes'      => 'update_nodes',
     ];
 
@@ -85,6 +85,9 @@ class ModifyClusterNodePoolRequest extends Model
         if (null !== $this->kubernetesConfig) {
             $res['kubernetes_config'] = null !== $this->kubernetesConfig ? $this->kubernetesConfig->toMap() : null;
         }
+        if (null !== $this->management) {
+            $res['management'] = null !== $this->management ? $this->management->toMap() : null;
+        }
         if (null !== $this->nodepoolInfo) {
             $res['nodepool_info'] = null !== $this->nodepoolInfo ? $this->nodepoolInfo->toMap() : null;
         }
@@ -93,9 +96,6 @@ class ModifyClusterNodePoolRequest extends Model
         }
         if (null !== $this->teeConfig) {
             $res['tee_config'] = null !== $this->teeConfig ? $this->teeConfig->toMap() : null;
-        }
-        if (null !== $this->management) {
-            $res['management'] = null !== $this->management ? $this->management->toMap() : null;
         }
         if (null !== $this->updateNodes) {
             $res['update_nodes'] = $this->updateNodes;
@@ -118,6 +118,9 @@ class ModifyClusterNodePoolRequest extends Model
         if (isset($map['kubernetes_config'])) {
             $model->kubernetesConfig = kubernetesConfig::fromMap($map['kubernetes_config']);
         }
+        if (isset($map['management'])) {
+            $model->management = management::fromMap($map['management']);
+        }
         if (isset($map['nodepool_info'])) {
             $model->nodepoolInfo = nodepoolInfo::fromMap($map['nodepool_info']);
         }
@@ -126,9 +129,6 @@ class ModifyClusterNodePoolRequest extends Model
         }
         if (isset($map['tee_config'])) {
             $model->teeConfig = teeConfig::fromMap($map['tee_config']);
-        }
-        if (isset($map['management'])) {
-            $model->management = management::fromMap($map['management']);
         }
         if (isset($map['update_nodes'])) {
             $model->updateNodes = $map['update_nodes'];

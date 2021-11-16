@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class Addon extends Model
 {
     /**
-     * @description 插件名称。
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @description 插件配置参数。
      *
      * @var string
@@ -28,10 +21,17 @@ class Addon extends Model
      * @var bool
      */
     public $disabled;
+
+    /**
+     * @description 插件名称。
+     *
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'name'     => 'name',
         'config'   => 'config',
         'disabled' => 'disabled',
+        'name'     => 'name',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class Addon extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
         if (null !== $this->config) {
             $res['config'] = $this->config;
         }
         if (null !== $this->disabled) {
             $res['disabled'] = $this->disabled;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class Addon extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
         if (isset($map['config'])) {
             $model->config = $map['config'];
         }
         if (isset($map['disabled'])) {
             $model->disabled = $map['disabled'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
         return $model;

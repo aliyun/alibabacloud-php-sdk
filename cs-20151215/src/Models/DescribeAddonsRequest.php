@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonsRequest extends Model
 {
     /**
-     * @description 地域ID。
-     *
-     * @var string
-     */
-    public $region;
-
-    /**
      * @description 集群类型。  - Kubernetes: 专有版集群。 - ManagedKubernetes：托管版集群。 - Ask：Serverless 集群。 - ExternalKubernetes：注册到ACK的外部集群。
      *
      * @var string
      */
     public $clusterType;
+
+    /**
+     * @description 地域ID。
+     *
+     * @var string
+     */
+    public $region;
     protected $_name = [
-        'region'      => 'region',
         'clusterType' => 'cluster_type',
+        'region'      => 'region',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class DescribeAddonsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->region) {
-            $res['region'] = $this->region;
-        }
         if (null !== $this->clusterType) {
             $res['cluster_type'] = $this->clusterType;
+        }
+        if (null !== $this->region) {
+            $res['region'] = $this->region;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class DescribeAddonsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['region'])) {
-            $model->region = $map['region'];
-        }
         if (isset($map['cluster_type'])) {
             $model->clusterType = $map['cluster_type'];
+        }
+        if (isset($map['region'])) {
+            $model->region = $map['region'];
         }
 
         return $model;

@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description 页数
-     *
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @description 每页记录数量
      *
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @description 页数
+     *
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @description 结果总数
@@ -29,8 +29,8 @@ class pageInfo extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageSize'   => 'page_size',
         'pageNumber' => 'page_number',
+        'pageSize'   => 'page_size',
         'totalCount' => 'total_count',
     ];
 
@@ -41,11 +41,11 @@ class pageInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['page_size'] = $this->pageSize;
-        }
         if (null !== $this->pageNumber) {
             $res['page_number'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['page_size'] = $this->pageSize;
         }
         if (null !== $this->totalCount) {
             $res['total_count'] = $this->totalCount;
@@ -62,11 +62,11 @@ class pageInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['page_size'])) {
-            $model->pageSize = $map['page_size'];
-        }
         if (isset($map['page_number'])) {
             $model->pageNumber = $map['page_number'];
+        }
+        if (isset($map['page_size'])) {
+            $model->pageSize = $map['page_size'];
         }
         if (isset($map['total_count'])) {
             $model->totalCount = $map['total_count'];

@@ -16,22 +16,22 @@ class data extends Model
     public $level;
 
     /**
-     * @description 事件状态
-     *
-     * @var string
-     */
-    public $reason;
-
-    /**
      * @description 事件详情
      *
      * @var string
      */
     public $message;
+
+    /**
+     * @description 事件状态
+     *
+     * @var string
+     */
+    public $reason;
     protected $_name = [
         'level'   => 'level',
-        'reason'  => 'reason',
         'message' => 'message',
+        'reason'  => 'reason',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class data extends Model
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
-        if (null !== $this->reason) {
-            $res['reason'] = $this->reason;
-        }
         if (null !== $this->message) {
             $res['message'] = $this->message;
+        }
+        if (null !== $this->reason) {
+            $res['reason'] = $this->reason;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class data extends Model
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
-        if (isset($map['reason'])) {
-            $model->reason = $map['reason'];
-        }
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+        if (isset($map['reason'])) {
+            $model->reason = $map['reason'];
         }
 
         return $model;

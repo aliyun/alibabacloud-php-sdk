@@ -25,7 +25,7 @@ class kubernetesConfig extends Model
     public $cpuPolicy;
 
     /**
-     * @description ECS标签。
+     * @description ECS标签
      *
      * @var Tag[]
      */

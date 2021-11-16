@@ -18,6 +18,13 @@ class clusters extends Model
     public $clusterId;
 
     /**
+     * @description 托管版集群类型，面向托管集群。 • ack.pro.small：专业托管集群。 • ack.standard ：标准托管集群。
+     *
+     * @var string
+     */
+    public $clusterSpec;
+
+    /**
      * @description 集群类型。
      *
      * @var string
@@ -32,25 +39,11 @@ class clusters extends Model
     public $created;
 
     /**
-     * @description 集群初始化版本。
-     *
-     * @var string
-     */
-    public $initVersion;
-
-    /**
      * @description 集群当前版本。
      *
      * @var string
      */
     public $currentVersion;
-
-    /**
-     * @description 集群可升级版本。
-     *
-     * @var string
-     */
-    public $nextVersion;
 
     /**
      * @description 集群是否开启删除保护。
@@ -72,6 +65,18 @@ class clusters extends Model
      * @var string
      */
     public $externalLoadbalancerId;
+
+    /**
+     * @description 集群初始化版本。
+     *
+     * @var string
+     */
+    public $initVersion;
+
+    /**
+     * @var MaintenanceWindow
+     */
+    public $maintenanceWindow;
 
     /**
      * @description 集群访问地址列表。
@@ -100,6 +105,13 @@ class clusters extends Model
      * @var string
      */
     public $networkMode;
+
+    /**
+     * @description 集群可升级版本。
+     *
+     * @var string
+     */
+    public $nextVersion;
 
     /**
      * @description 集群是否开启Private Zone。
@@ -198,32 +210,22 @@ class clusters extends Model
      * @var string
      */
     public $zoneId;
-
-    /**
-     * @description 托管版集群类型，面向托管集群。 • ack.pro.small：专业托管集群。 • ack.standard ：标准托管集群。
-     *
-     * @var string
-     */
-    public $clusterSpec;
-
-    /**
-     * @var MaintenanceWindow
-     */
-    public $maintenanceWindow;
     protected $_name = [
         'clusterId'              => 'cluster_id',
+        'clusterSpec'            => 'cluster_spec',
         'clusterType'            => 'cluster_type',
         'created'                => 'created',
-        'initVersion'            => 'init_version',
         'currentVersion'         => 'current_version',
-        'nextVersion'            => 'next_version',
         'deletionProtection'     => 'deletion_protection',
         'dockerVersion'          => 'docker_version',
         'externalLoadbalancerId' => 'external_loadbalancer_id',
+        'initVersion'            => 'init_version',
+        'maintenanceWindow'      => 'maintenance_window',
         'masterUrl'              => 'master_url',
         'metaData'               => 'meta_data',
         'name'                   => 'name',
         'networkMode'            => 'network_mode',
+        'nextVersion'            => 'next_version',
         'privateZone'            => 'private_zone',
         'profile'                => 'profile',
         'regionId'               => 'region_id',
@@ -238,8 +240,6 @@ class clusters extends Model
         'vswitchId'              => 'vswitch_id',
         'workerRamRoleName'      => 'worker_ram_role_name',
         'zoneId'                 => 'zone_id',
-        'clusterSpec'            => 'cluster_spec',
-        'maintenanceWindow'      => 'maintenance_window',
     ];
 
     public function validate()
@@ -252,20 +252,17 @@ class clusters extends Model
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
+        if (null !== $this->clusterSpec) {
+            $res['cluster_spec'] = $this->clusterSpec;
+        }
         if (null !== $this->clusterType) {
             $res['cluster_type'] = $this->clusterType;
         }
         if (null !== $this->created) {
             $res['created'] = $this->created;
         }
-        if (null !== $this->initVersion) {
-            $res['init_version'] = $this->initVersion;
-        }
         if (null !== $this->currentVersion) {
             $res['current_version'] = $this->currentVersion;
-        }
-        if (null !== $this->nextVersion) {
-            $res['next_version'] = $this->nextVersion;
         }
         if (null !== $this->deletionProtection) {
             $res['deletion_protection'] = $this->deletionProtection;
@@ -275,6 +272,12 @@ class clusters extends Model
         }
         if (null !== $this->externalLoadbalancerId) {
             $res['external_loadbalancer_id'] = $this->externalLoadbalancerId;
+        }
+        if (null !== $this->initVersion) {
+            $res['init_version'] = $this->initVersion;
+        }
+        if (null !== $this->maintenanceWindow) {
+            $res['maintenance_window'] = null !== $this->maintenanceWindow ? $this->maintenanceWindow->toMap() : null;
         }
         if (null !== $this->masterUrl) {
             $res['master_url'] = $this->masterUrl;
@@ -287,6 +290,9 @@ class clusters extends Model
         }
         if (null !== $this->networkMode) {
             $res['network_mode'] = $this->networkMode;
+        }
+        if (null !== $this->nextVersion) {
+            $res['next_version'] = $this->nextVersion;
         }
         if (null !== $this->privateZone) {
             $res['private_zone'] = $this->privateZone;
@@ -336,12 +342,6 @@ class clusters extends Model
         if (null !== $this->zoneId) {
             $res['zone_id'] = $this->zoneId;
         }
-        if (null !== $this->clusterSpec) {
-            $res['cluster_spec'] = $this->clusterSpec;
-        }
-        if (null !== $this->maintenanceWindow) {
-            $res['maintenance_window'] = null !== $this->maintenanceWindow ? $this->maintenanceWindow->toMap() : null;
-        }
 
         return $res;
     }
@@ -357,20 +357,17 @@ class clusters extends Model
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
+        if (isset($map['cluster_spec'])) {
+            $model->clusterSpec = $map['cluster_spec'];
+        }
         if (isset($map['cluster_type'])) {
             $model->clusterType = $map['cluster_type'];
         }
         if (isset($map['created'])) {
             $model->created = $map['created'];
         }
-        if (isset($map['init_version'])) {
-            $model->initVersion = $map['init_version'];
-        }
         if (isset($map['current_version'])) {
             $model->currentVersion = $map['current_version'];
-        }
-        if (isset($map['next_version'])) {
-            $model->nextVersion = $map['next_version'];
         }
         if (isset($map['deletion_protection'])) {
             $model->deletionProtection = $map['deletion_protection'];
@@ -380,6 +377,12 @@ class clusters extends Model
         }
         if (isset($map['external_loadbalancer_id'])) {
             $model->externalLoadbalancerId = $map['external_loadbalancer_id'];
+        }
+        if (isset($map['init_version'])) {
+            $model->initVersion = $map['init_version'];
+        }
+        if (isset($map['maintenance_window'])) {
+            $model->maintenanceWindow = MaintenanceWindow::fromMap($map['maintenance_window']);
         }
         if (isset($map['master_url'])) {
             $model->masterUrl = $map['master_url'];
@@ -392,6 +395,9 @@ class clusters extends Model
         }
         if (isset($map['network_mode'])) {
             $model->networkMode = $map['network_mode'];
+        }
+        if (isset($map['next_version'])) {
+            $model->nextVersion = $map['next_version'];
         }
         if (isset($map['private_zone'])) {
             $model->privateZone = $map['private_zone'];
@@ -440,12 +446,6 @@ class clusters extends Model
         }
         if (isset($map['zone_id'])) {
             $model->zoneId = $map['zone_id'];
-        }
-        if (isset($map['cluster_spec'])) {
-            $model->clusterSpec = $map['cluster_spec'];
-        }
-        if (isset($map['maintenance_window'])) {
-            $model->maintenanceWindow = MaintenanceWindow::fromMap($map['maintenance_window']);
         }
 
         return $model;

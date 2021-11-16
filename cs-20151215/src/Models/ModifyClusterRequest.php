@@ -30,13 +30,6 @@ class ModifyClusterRequest extends Model
     public $deletionProtection;
 
     /**
-     * @description 实例删除保护，防止通过控制台或API误删除释放节点。
-     *
-     * @var bool
-     */
-    public $instanceDeletionProtection;
-
-    /**
      * @description 域名是否重新绑定到Ingress的SLB地址。
      *
      * @var string
@@ -51,25 +44,32 @@ class ModifyClusterRequest extends Model
     public $ingressLoadbalancerId;
 
     /**
-     * @description 集群资源组ID。
+     * @description 实例删除保护，防止通过控制台或API误删除释放节点。
      *
-     * @var string
+     * @var bool
      */
-    public $resourceGroupId;
+    public $instanceDeletionProtection;
 
     /**
      * @var MaintenanceWindow
      */
     public $maintenanceWindow;
+
+    /**
+     * @description 集群资源组ID。
+     *
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'apiServerEip'               => 'api_server_eip',
         'apiServerEipId'             => 'api_server_eip_id',
         'deletionProtection'         => 'deletion_protection',
-        'instanceDeletionProtection' => 'instance_deletion_protection',
         'ingressDomainRebinding'     => 'ingress_domain_rebinding',
         'ingressLoadbalancerId'      => 'ingress_loadbalancer_id',
-        'resourceGroupId'            => 'resource_group_id',
+        'instanceDeletionProtection' => 'instance_deletion_protection',
         'maintenanceWindow'          => 'maintenance_window',
+        'resourceGroupId'            => 'resource_group_id',
     ];
 
     public function validate()
@@ -88,20 +88,20 @@ class ModifyClusterRequest extends Model
         if (null !== $this->deletionProtection) {
             $res['deletion_protection'] = $this->deletionProtection;
         }
-        if (null !== $this->instanceDeletionProtection) {
-            $res['instance_deletion_protection'] = $this->instanceDeletionProtection;
-        }
         if (null !== $this->ingressDomainRebinding) {
             $res['ingress_domain_rebinding'] = $this->ingressDomainRebinding;
         }
         if (null !== $this->ingressLoadbalancerId) {
             $res['ingress_loadbalancer_id'] = $this->ingressLoadbalancerId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['resource_group_id'] = $this->resourceGroupId;
+        if (null !== $this->instanceDeletionProtection) {
+            $res['instance_deletion_protection'] = $this->instanceDeletionProtection;
         }
         if (null !== $this->maintenanceWindow) {
             $res['maintenance_window'] = null !== $this->maintenanceWindow ? $this->maintenanceWindow->toMap() : null;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resource_group_id'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -124,20 +124,20 @@ class ModifyClusterRequest extends Model
         if (isset($map['deletion_protection'])) {
             $model->deletionProtection = $map['deletion_protection'];
         }
-        if (isset($map['instance_deletion_protection'])) {
-            $model->instanceDeletionProtection = $map['instance_deletion_protection'];
-        }
         if (isset($map['ingress_domain_rebinding'])) {
             $model->ingressDomainRebinding = $map['ingress_domain_rebinding'];
         }
         if (isset($map['ingress_loadbalancer_id'])) {
             $model->ingressLoadbalancerId = $map['ingress_loadbalancer_id'];
         }
-        if (isset($map['resource_group_id'])) {
-            $model->resourceGroupId = $map['resource_group_id'];
+        if (isset($map['instance_deletion_protection'])) {
+            $model->instanceDeletionProtection = $map['instance_deletion_protection'];
         }
         if (isset($map['maintenance_window'])) {
             $model->maintenanceWindow = MaintenanceWindow::fromMap($map['maintenance_window']);
+        }
+        if (isset($map['resource_group_id'])) {
+            $model->resourceGroupId = $map['resource_group_id'];
         }
 
         return $model;

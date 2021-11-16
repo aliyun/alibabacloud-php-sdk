@@ -10,18 +10,25 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @description 集群ID
+     *
+     * @var string
+     */
+    public $clusterId;
+
+    /**
+     * @description 事件描述
+     *
+     * @var data
+     */
+    public $data;
+
+    /**
      * @description 事件ID
      *
      * @var string
      */
     public $eventId;
-
-    /**
-     * @description 事件类型
-     *
-     * @var string
-     */
-    public $type;
 
     /**
      * @description 事件源
@@ -45,26 +52,19 @@ class events extends Model
     public $time;
 
     /**
-     * @description 集群ID
+     * @description 事件类型
      *
      * @var string
      */
-    public $clusterId;
-
-    /**
-     * @description 事件描述
-     *
-     * @var data
-     */
-    public $data;
+    public $type;
     protected $_name = [
+        'clusterId' => 'cluster_id',
+        'data'      => 'data',
         'eventId'   => 'event_id',
-        'type'      => 'type',
         'source'    => 'source',
         'subject'   => 'subject',
         'time'      => 'time',
-        'clusterId' => 'cluster_id',
-        'data'      => 'data',
+        'type'      => 'type',
     ];
 
     public function validate()
@@ -74,11 +74,14 @@ class events extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['cluster_id'] = $this->clusterId;
+        }
+        if (null !== $this->data) {
+            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->eventId) {
             $res['event_id'] = $this->eventId;
-        }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
         }
         if (null !== $this->source) {
             $res['source'] = $this->source;
@@ -89,11 +92,8 @@ class events extends Model
         if (null !== $this->time) {
             $res['time'] = $this->time;
         }
-        if (null !== $this->clusterId) {
-            $res['cluster_id'] = $this->clusterId;
-        }
-        if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -107,11 +107,14 @@ class events extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cluster_id'])) {
+            $model->clusterId = $map['cluster_id'];
+        }
+        if (isset($map['data'])) {
+            $model->data = data::fromMap($map['data']);
+        }
         if (isset($map['event_id'])) {
             $model->eventId = $map['event_id'];
-        }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
         }
         if (isset($map['source'])) {
             $model->source = $map['source'];
@@ -122,11 +125,8 @@ class events extends Model
         if (isset($map['time'])) {
             $model->time = $map['time'];
         }
-        if (isset($map['cluster_id'])) {
-            $model->clusterId = $map['cluster_id'];
-        }
-        if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

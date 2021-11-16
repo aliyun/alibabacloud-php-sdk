@@ -23,11 +23,11 @@ class DescribeClusterNodesRequest extends Model
     public $nodepoolId;
 
     /**
-     * @description 节点状态。默认值：all。
+     * @description 分页数量
      *
      * @var string
      */
-    public $state;
+    public $pageNumber;
 
     /**
      * @description 每页大小。
@@ -37,17 +37,17 @@ class DescribeClusterNodesRequest extends Model
     public $pageSize;
 
     /**
-     * @description 分页数量
+     * @description 节点状态。默认值：all。
      *
      * @var string
      */
-    public $pageNumber;
+    public $state;
     protected $_name = [
         'instanceIds' => 'instanceIds',
         'nodepoolId'  => 'nodepool_id',
-        'state'       => 'state',
-        'pageSize'    => 'pageSize',
         'pageNumber'  => 'pageNumber',
+        'pageSize'    => 'pageSize',
+        'state'       => 'state',
     ];
 
     public function validate()
@@ -63,14 +63,14 @@ class DescribeClusterNodesRequest extends Model
         if (null !== $this->nodepoolId) {
             $res['nodepool_id'] = $this->nodepoolId;
         }
-        if (null !== $this->state) {
-            $res['state'] = $this->state;
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['pageNumber'] = $this->pageNumber;
+        if (null !== $this->state) {
+            $res['state'] = $this->state;
         }
 
         return $res;
@@ -90,14 +90,14 @@ class DescribeClusterNodesRequest extends Model
         if (isset($map['nodepool_id'])) {
             $model->nodepoolId = $map['nodepool_id'];
         }
-        if (isset($map['state'])) {
-            $model->state = $map['state'];
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-        if (isset($map['pageNumber'])) {
-            $model->pageNumber = $map['pageNumber'];
+        if (isset($map['state'])) {
+            $model->state = $map['state'];
         }
 
         return $model;

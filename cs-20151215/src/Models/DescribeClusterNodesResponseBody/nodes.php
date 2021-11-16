@@ -135,18 +135,18 @@ class nodes extends Model
     public $source;
 
     /**
-     * @description ECS运行状态，例如：Running。
-     *
-     * @var string
-     */
-    public $state;
-
-    /**
      * @description 抢占时实例类型
      *
      * @var string
      */
     public $spotStrategy;
+
+    /**
+     * @description ECS运行状态，例如：Running。
+     *
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'creationTime'       => 'creation_time',
         'errorMessage'       => 'error_message',
@@ -166,8 +166,8 @@ class nodes extends Model
         'nodeStatus'         => 'node_status',
         'nodepoolId'         => 'nodepool_id',
         'source'             => 'source',
-        'state'              => 'state',
         'spotStrategy'       => 'spot_strategy',
+        'state'              => 'state',
     ];
 
     public function validate()
@@ -231,11 +231,11 @@ class nodes extends Model
         if (null !== $this->source) {
             $res['source'] = $this->source;
         }
-        if (null !== $this->state) {
-            $res['state'] = $this->state;
-        }
         if (null !== $this->spotStrategy) {
             $res['spot_strategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->state) {
+            $res['state'] = $this->state;
         }
 
         return $res;
@@ -305,11 +305,11 @@ class nodes extends Model
         if (isset($map['source'])) {
             $model->source = $map['source'];
         }
-        if (isset($map['state'])) {
-            $model->state = $map['state'];
-        }
         if (isset($map['spot_strategy'])) {
             $model->spotStrategy = $map['spot_strategy'];
+        }
+        if (isset($map['state'])) {
+            $model->state = $map['state'];
         }
 
         return $model;
