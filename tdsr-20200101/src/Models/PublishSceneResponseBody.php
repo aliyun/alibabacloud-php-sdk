@@ -16,13 +16,6 @@ class PublishSceneResponseBody extends Model
     public $code;
 
     /**
-     * @description 任务实例id
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @description 错误消息
      *
      * @var string
@@ -51,7 +44,6 @@ class PublishSceneResponseBody extends Model
     public $success;
     protected $_name = [
         'code'       => 'Code',
-        'instanceId' => 'InstanceId',
         'message'    => 'Message',
         'previewUrl' => 'PreviewUrl',
         'requestId'  => 'RequestId',
@@ -67,9 +59,6 @@ class PublishSceneResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -97,9 +86,6 @@ class PublishSceneResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
