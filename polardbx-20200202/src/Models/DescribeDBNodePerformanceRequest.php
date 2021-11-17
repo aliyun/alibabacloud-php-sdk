@@ -26,6 +26,11 @@ class DescribeDBNodePerformanceRequest extends Model
     /**
      * @var string
      */
+    public $DBNodeRole;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -46,6 +51,7 @@ class DescribeDBNodePerformanceRequest extends Model
         'characterType'  => 'CharacterType',
         'DBInstanceName' => 'DBInstanceName',
         'DBNodeIds'      => 'DBNodeIds',
+        'DBNodeRole'     => 'DBNodeRole',
         'endTime'        => 'EndTime',
         'key'            => 'Key',
         'regionId'       => 'RegionId',
@@ -67,6 +73,9 @@ class DescribeDBNodePerformanceRequest extends Model
         }
         if (null !== $this->DBNodeIds) {
             $res['DBNodeIds'] = $this->DBNodeIds;
+        }
+        if (null !== $this->DBNodeRole) {
+            $res['DBNodeRole'] = $this->DBNodeRole;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -100,6 +109,9 @@ class DescribeDBNodePerformanceRequest extends Model
         }
         if (isset($map['DBNodeIds'])) {
             $model->DBNodeIds = $map['DBNodeIds'];
+        }
+        if (isset($map['DBNodeRole'])) {
+            $model->DBNodeRole = $map['DBNodeRole'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

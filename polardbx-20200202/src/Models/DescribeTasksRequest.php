@@ -57,16 +57,6 @@ class DescribeTasksRequest extends Model
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $taskAction;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
         'endTime'              => 'EndTime',
@@ -78,8 +68,6 @@ class DescribeTasksRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'startTime'            => 'StartTime',
-        'status'               => 'Status',
-        'taskAction'           => 'TaskAction',
     ];
 
     public function validate()
@@ -118,12 +106,6 @@ class DescribeTasksRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->taskAction) {
-            $res['TaskAction'] = $this->taskAction;
         }
 
         return $res;
@@ -166,12 +148,6 @@ class DescribeTasksRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['TaskAction'])) {
-            $model->taskAction = $map['TaskAction'];
         }
 
         return $model;

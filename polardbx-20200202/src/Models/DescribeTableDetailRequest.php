@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpgradeDBInstanceKernelVersionRequest extends Model
+class DescribeTableDetailRequest extends Model
 {
     /**
      * @var string
@@ -16,10 +16,22 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
     /**
      * @var string
      */
+    public $dbName;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
+        'dbName'         => 'DbName',
         'regionId'       => 'RegionId',
+        'tableName'      => 'TableName',
     ];
 
     public function validate()
@@ -32,8 +44,14 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -42,7 +60,7 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpgradeDBInstanceKernelVersionRequest
+     * @return DescribeTableDetailRequest
      */
     public static function fromMap($map = [])
     {
@@ -50,8 +68,14 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

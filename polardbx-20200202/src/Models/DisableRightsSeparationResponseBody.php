@@ -4,15 +4,14 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePolarxInstanceResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreatePolarxInstanceResponseBody extends Model
+class DisableRightsSeparationResponseBody extends Model
 {
     /**
-     * @var data
+     * @var string
      */
-    public $data;
+    public $message;
 
     /**
      * @var string
@@ -24,7 +23,7 @@ class CreatePolarxInstanceResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'data'      => 'Data',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
@@ -36,8 +35,8 @@ class CreatePolarxInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -52,13 +51,13 @@ class CreatePolarxInstanceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreatePolarxInstanceResponseBody
+     * @return DisableRightsSeparationResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
