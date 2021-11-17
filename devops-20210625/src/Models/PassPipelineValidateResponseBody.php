@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\SDK\Devops\V20210625\Models\ListResourceMembersResponseBody\resourceMembers;
 use AlibabaCloud\Tea\Model;
 
-class ListResourceMembersResponseBody extends Model
+class PassPipelineValidateResponseBody extends Model
 {
     /**
      * @description 错误码
@@ -31,24 +30,16 @@ class ListResourceMembersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 成员
-     *
-     * @var resourceMembers[]
-     */
-    public $resourceMembers;
-
-    /**
-     * @description 请求id，每次请求都是唯一值，便于后续排查问题
+     * @description true 接口调用成功，false 接口调用失败
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'errorCode'       => 'errorCode',
-        'errorMessage'    => 'errorMessage',
-        'requestId'       => 'requestId',
-        'resourceMembers' => 'resourceMembers',
-        'success'         => 'success',
+        'errorCode'    => 'errorCode',
+        'errorMessage' => 'errorMessage',
+        'requestId'    => 'requestId',
+        'success'      => 'success',
     ];
 
     public function validate()
@@ -67,15 +58,6 @@ class ListResourceMembersResponseBody extends Model
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-        if (null !== $this->resourceMembers) {
-            $res['resourceMembers'] = [];
-            if (null !== $this->resourceMembers && \is_array($this->resourceMembers)) {
-                $n = 0;
-                foreach ($this->resourceMembers as $item) {
-                    $res['resourceMembers'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -86,7 +68,7 @@ class ListResourceMembersResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListResourceMembersResponseBody
+     * @return PassPipelineValidateResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -99,15 +81,6 @@ class ListResourceMembersResponseBody extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
-        }
-        if (isset($map['resourceMembers'])) {
-            if (!empty($map['resourceMembers'])) {
-                $model->resourceMembers = [];
-                $n                      = 0;
-                foreach ($map['resourceMembers'] as $item) {
-                    $model->resourceMembers[$n++] = null !== $item ? resourceMembers::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

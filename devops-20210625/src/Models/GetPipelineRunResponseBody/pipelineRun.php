@@ -11,13 +11,6 @@ use AlibabaCloud\Tea\Model;
 class pipelineRun extends Model
 {
     /**
-     * @description 创建者阿里云账号id
-     *
-     * @var string
-     */
-    public $creatorAccountId;
-
-    /**
      * @description 创建时间
      *
      * @var int
@@ -25,11 +18,11 @@ class pipelineRun extends Model
     public $createTime;
 
     /**
-     * @description 更新时间
+     * @description 创建者阿里云账号id
      *
-     * @var int
+     * @var string
      */
-    public $updateTime;
+    public $creatorAccountId;
 
     /**
      * @description 更新人阿里云账号id
@@ -53,6 +46,27 @@ class pipelineRun extends Model
     public $pipelineRunId;
 
     /**
+     * @description 代码源
+     *
+     * @var sources[]
+     */
+    public $sources;
+
+    /**
+     * @description 阶段拓扑信息
+     *
+     * @var string[][]
+     */
+    public $stageGroup;
+
+    /**
+     * @description 阶段信息
+     *
+     * @var stages[]
+     */
+    public $stages;
+
+    /**
      * @description 状态 FAIL 运行失败 SUCCESS 运行成功 RUNNING 运行中
      *
      * @var string
@@ -67,37 +81,23 @@ class pipelineRun extends Model
     public $triggerMode;
 
     /**
-     * @description 阶段拓扑信息
+     * @description 更新时间
      *
-     * @var string[][]
+     * @var int
      */
-    public $stageGroup;
-
-    /**
-     * @description 代码源
-     *
-     * @var sources[]
-     */
-    public $sources;
-
-    /**
-     * @description 阶段信息
-     *
-     * @var stages[]
-     */
-    public $stages;
+    public $updateTime;
     protected $_name = [
-        'creatorAccountId'  => 'creatorAccountId',
         'createTime'        => 'createTime',
-        'updateTime'        => 'updateTime',
+        'creatorAccountId'  => 'creatorAccountId',
         'modifierAccountId' => 'modifierAccountId',
         'pipelineId'        => 'pipelineId',
         'pipelineRunId'     => 'pipelineRunId',
+        'sources'           => 'sources',
+        'stageGroup'        => 'stageGroup',
+        'stages'            => 'stages',
         'status'            => 'status',
         'triggerMode'       => 'triggerMode',
-        'stageGroup'        => 'stageGroup',
-        'sources'           => 'sources',
-        'stages'            => 'stages',
+        'updateTime'        => 'updateTime',
     ];
 
     public function validate()
@@ -107,14 +107,11 @@ class pipelineRun extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creatorAccountId) {
-            $res['creatorAccountId'] = $this->creatorAccountId;
-        }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
-        if (null !== $this->updateTime) {
-            $res['updateTime'] = $this->updateTime;
+        if (null !== $this->creatorAccountId) {
+            $res['creatorAccountId'] = $this->creatorAccountId;
         }
         if (null !== $this->modifierAccountId) {
             $res['modifierAccountId'] = $this->modifierAccountId;
@@ -125,15 +122,6 @@ class pipelineRun extends Model
         if (null !== $this->pipelineRunId) {
             $res['pipelineRunId'] = $this->pipelineRunId;
         }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
-        if (null !== $this->triggerMode) {
-            $res['triggerMode'] = $this->triggerMode;
-        }
-        if (null !== $this->stageGroup) {
-            $res['stageGroup'] = $this->stageGroup;
-        }
         if (null !== $this->sources) {
             $res['sources'] = [];
             if (null !== $this->sources && \is_array($this->sources)) {
@@ -143,6 +131,9 @@ class pipelineRun extends Model
                 }
             }
         }
+        if (null !== $this->stageGroup) {
+            $res['stageGroup'] = $this->stageGroup;
+        }
         if (null !== $this->stages) {
             $res['stages'] = [];
             if (null !== $this->stages && \is_array($this->stages)) {
@@ -151,6 +142,15 @@ class pipelineRun extends Model
                     $res['stages'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+        if (null !== $this->triggerMode) {
+            $res['triggerMode'] = $this->triggerMode;
+        }
+        if (null !== $this->updateTime) {
+            $res['updateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -164,14 +164,11 @@ class pipelineRun extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['creatorAccountId'])) {
-            $model->creatorAccountId = $map['creatorAccountId'];
-        }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
-        if (isset($map['updateTime'])) {
-            $model->updateTime = $map['updateTime'];
+        if (isset($map['creatorAccountId'])) {
+            $model->creatorAccountId = $map['creatorAccountId'];
         }
         if (isset($map['modifierAccountId'])) {
             $model->modifierAccountId = $map['modifierAccountId'];
@@ -182,17 +179,6 @@ class pipelineRun extends Model
         if (isset($map['pipelineRunId'])) {
             $model->pipelineRunId = $map['pipelineRunId'];
         }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
-        if (isset($map['triggerMode'])) {
-            $model->triggerMode = $map['triggerMode'];
-        }
-        if (isset($map['stageGroup'])) {
-            if (!empty($map['stageGroup'])) {
-                $model->stageGroup = $map['stageGroup'];
-            }
-        }
         if (isset($map['sources'])) {
             if (!empty($map['sources'])) {
                 $model->sources = [];
@@ -200,6 +186,11 @@ class pipelineRun extends Model
                 foreach ($map['sources'] as $item) {
                     $model->sources[$n++] = null !== $item ? sources::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['stageGroup'])) {
+            if (!empty($map['stageGroup'])) {
+                $model->stageGroup = $map['stageGroup'];
             }
         }
         if (isset($map['stages'])) {
@@ -210,6 +201,15 @@ class pipelineRun extends Model
                     $model->stages[$n++] = null !== $item ? stages::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+        if (isset($map['triggerMode'])) {
+            $model->triggerMode = $map['triggerMode'];
+        }
+        if (isset($map['updateTime'])) {
+            $model->updateTime = $map['updateTime'];
         }
 
         return $model;

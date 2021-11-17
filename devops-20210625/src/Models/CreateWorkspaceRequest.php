@@ -9,20 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkspaceRequest extends Model
 {
     /**
-     * @description 工作空间名称
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description 技术栈
-     *
-     * @var string
-     */
-    public $workspaceTemplate;
-
-    /**
      * @description 代码来源URL（当前仅支持云效 Codeup 来源）
      *
      * @var string
@@ -44,11 +30,18 @@ class CreateWorkspaceRequest extends Model
     public $filePath;
 
     /**
-     * @description 工作空间复用标识，按照"用户+技术栈+代码地址+版本"进行复用 true - 复用 false - 不复用，每次均为新创建
+     * @description 工作空间名称
      *
-     * @var bool
+     * @var string
      */
-    public $reuse;
+    public $name;
+
+    /**
+     * @description 请求来源（用于统计，云产品集成时需要传入）
+     *
+     * @var string
+     */
+    public $requestFrom;
 
     /**
      * @description 资源标识，提供给非标代码源作为空间复用的唯一标识
@@ -58,20 +51,27 @@ class CreateWorkspaceRequest extends Model
     public $resourceIdentifier;
 
     /**
-     * @description 请求来源（用于统计，云产品集成时需要传入）
+     * @description 工作空间复用标识，按照"用户+技术栈+代码地址+版本"进行复用 true - 复用 false - 不复用，每次均为新创建
+     *
+     * @var bool
+     */
+    public $reuse;
+
+    /**
+     * @description 技术栈
      *
      * @var string
      */
-    public $requestFrom;
+    public $workspaceTemplate;
     protected $_name = [
-        'name'               => 'name',
-        'workspaceTemplate'  => 'workspaceTemplate',
         'codeUrl'            => 'codeUrl',
         'codeVersion'        => 'codeVersion',
         'filePath'           => 'filePath',
-        'reuse'              => 'reuse',
-        'resourceIdentifier' => 'resourceIdentifier',
+        'name'               => 'name',
         'requestFrom'        => 'requestFrom',
+        'resourceIdentifier' => 'resourceIdentifier',
+        'reuse'              => 'reuse',
+        'workspaceTemplate'  => 'workspaceTemplate',
     ];
 
     public function validate()
@@ -81,12 +81,6 @@ class CreateWorkspaceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
-        if (null !== $this->workspaceTemplate) {
-            $res['workspaceTemplate'] = $this->workspaceTemplate;
-        }
         if (null !== $this->codeUrl) {
             $res['codeUrl'] = $this->codeUrl;
         }
@@ -96,14 +90,20 @@ class CreateWorkspaceRequest extends Model
         if (null !== $this->filePath) {
             $res['filePath'] = $this->filePath;
         }
-        if (null !== $this->reuse) {
-            $res['reuse'] = $this->reuse;
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+        if (null !== $this->requestFrom) {
+            $res['requestFrom'] = $this->requestFrom;
         }
         if (null !== $this->resourceIdentifier) {
             $res['resourceIdentifier'] = $this->resourceIdentifier;
         }
-        if (null !== $this->requestFrom) {
-            $res['requestFrom'] = $this->requestFrom;
+        if (null !== $this->reuse) {
+            $res['reuse'] = $this->reuse;
+        }
+        if (null !== $this->workspaceTemplate) {
+            $res['workspaceTemplate'] = $this->workspaceTemplate;
         }
 
         return $res;
@@ -117,12 +117,6 @@ class CreateWorkspaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
-        if (isset($map['workspaceTemplate'])) {
-            $model->workspaceTemplate = $map['workspaceTemplate'];
-        }
         if (isset($map['codeUrl'])) {
             $model->codeUrl = $map['codeUrl'];
         }
@@ -132,14 +126,20 @@ class CreateWorkspaceRequest extends Model
         if (isset($map['filePath'])) {
             $model->filePath = $map['filePath'];
         }
-        if (isset($map['reuse'])) {
-            $model->reuse = $map['reuse'];
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+        if (isset($map['requestFrom'])) {
+            $model->requestFrom = $map['requestFrom'];
         }
         if (isset($map['resourceIdentifier'])) {
             $model->resourceIdentifier = $map['resourceIdentifier'];
         }
-        if (isset($map['requestFrom'])) {
-            $model->requestFrom = $map['requestFrom'];
+        if (isset($map['reuse'])) {
+            $model->reuse = $map['reuse'];
+        }
+        if (isset($map['workspaceTemplate'])) {
+            $model->workspaceTemplate = $map['workspaceTemplate'];
         }
 
         return $model;

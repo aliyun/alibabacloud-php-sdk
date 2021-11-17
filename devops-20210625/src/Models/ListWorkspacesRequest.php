@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspacesRequest extends Model
 {
     /**
-     * @description 用来标记当前开始读取的位置，置空表示从头开始
-     *
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @description 本次读取的最大数据记录数量，默认10，最大100
      *
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @description 用来标记当前开始读取的位置，置空表示从头开始
+     *
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @description 枚举值：CREATING-创建中, SUCCESS-运行中, FROZEN-冻结中, RECOVERING-恢复中
@@ -36,8 +36,8 @@ class ListWorkspacesRequest extends Model
      */
     public $workspaceTemplateList;
     protected $_name = [
-        'nextToken'             => 'nextToken',
         'maxResults'            => 'maxResults',
+        'nextToken'             => 'nextToken',
         'statusList'            => 'statusList',
         'workspaceTemplateList' => 'workspaceTemplateList',
     ];
@@ -49,11 +49,11 @@ class ListWorkspacesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['nextToken'] = $this->nextToken;
-        }
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['nextToken'] = $this->nextToken;
         }
         if (null !== $this->statusList) {
             $res['statusList'] = $this->statusList;
@@ -73,11 +73,11 @@ class ListWorkspacesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['nextToken'])) {
-            $model->nextToken = $map['nextToken'];
-        }
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
+        }
+        if (isset($map['nextToken'])) {
+            $model->nextToken = $map['nextToken'];
         }
         if (isset($map['statusList'])) {
             if (!empty($map['statusList'])) {

@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CreateVariableGroupRequest extends Model
 {
     /**
-     * @description 变量组名称
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @description 变量组描述
      *
      * @var string
      */
     public $description;
+
+    /**
+     * @description 变量组名称
+     *
+     * @var string
+     */
+    public $name;
 
     /**
      * @description 变量信息json字符串 isEncrypted 是否加密 name 变量名称 value 变量值
@@ -29,8 +29,8 @@ class CreateVariableGroupRequest extends Model
      */
     public $variables;
     protected $_name = [
-        'name'        => 'name',
         'description' => 'description',
+        'name'        => 'name',
         'variables'   => 'variables',
     ];
 
@@ -41,11 +41,11 @@ class CreateVariableGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
         if (null !== $this->variables) {
             $res['variables'] = $this->variables;
@@ -62,11 +62,11 @@ class CreateVariableGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
         if (isset($map['variables'])) {
             $model->variables = $map['variables'];

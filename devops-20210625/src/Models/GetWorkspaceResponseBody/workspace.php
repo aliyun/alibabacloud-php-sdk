@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class workspace extends Model
 {
     /**
+     * @description 代码来源URL
+     *
+     * @var string
+     */
+    public $codeUrl;
+
+    /**
      * @description 代码版本，支持 commitSHA、分支、标签
      *
      * @var string
@@ -16,11 +23,18 @@ class workspace extends Model
     public $codeVersion;
 
     /**
-     * @description 代码来源URL
+     * @description 创建时间戳
      *
      * @var string
      */
-    public $codeUrl;
+    public $createTime;
+
+    /**
+     * @description 工作空间唯一标识，字符串形式，可在云效DevStudio访问空间链接中获取
+     *
+     * @var string
+     */
+    public $id;
 
     /**
      * @description 工作空间名称
@@ -51,35 +65,21 @@ class workspace extends Model
     public $template;
 
     /**
-     * @description 工作空间唯一标识，字符串形式，可在云效DevStudio访问空间链接中获取
-     *
-     * @var string
-     */
-    public $id;
-
-    /**
      * @description 用户阿里云PK
      *
      * @var string
      */
     public $userId;
-
-    /**
-     * @description 创建时间戳
-     *
-     * @var string
-     */
-    public $createTime;
     protected $_name = [
-        'codeVersion' => 'codeVersion',
         'codeUrl'     => 'codeUrl',
+        'codeVersion' => 'codeVersion',
+        'createTime'  => 'createTime',
+        'id'          => 'id',
         'name'        => 'name',
         'spec'        => 'spec',
         'status'      => 'status',
         'template'    => 'template',
-        'id'          => 'id',
         'userId'      => 'userId',
-        'createTime'  => 'createTime',
     ];
 
     public function validate()
@@ -89,11 +89,17 @@ class workspace extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->codeUrl) {
+            $res['codeUrl'] = $this->codeUrl;
+        }
         if (null !== $this->codeVersion) {
             $res['codeVersion'] = $this->codeVersion;
         }
-        if (null !== $this->codeUrl) {
-            $res['codeUrl'] = $this->codeUrl;
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
@@ -107,14 +113,8 @@ class workspace extends Model
         if (null !== $this->template) {
             $res['template'] = $this->template;
         }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
-        }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
         }
 
         return $res;
@@ -128,11 +128,17 @@ class workspace extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['codeUrl'])) {
+            $model->codeUrl = $map['codeUrl'];
+        }
         if (isset($map['codeVersion'])) {
             $model->codeVersion = $map['codeVersion'];
         }
-        if (isset($map['codeUrl'])) {
-            $model->codeUrl = $map['codeUrl'];
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
@@ -146,14 +152,8 @@ class workspace extends Model
         if (isset($map['template'])) {
             $model->template = $map['template'];
         }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
-        }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
         }
 
         return $model;

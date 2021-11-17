@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListVariableGroupsRequest extends Model
 {
     /**
-     * @description 排序条件
+     * @description 最大返回数，默认30
      *
-     * @var string
+     * @var int
      */
-    public $pageSort;
-
-    /**
-     * @description 排序顺序
-     *
-     * @var string
-     */
-    public $pageOrder;
+    public $maxResults;
 
     /**
      * @description 分页token，上一次请求的出参nextToken
@@ -30,16 +23,23 @@ class ListVariableGroupsRequest extends Model
     public $nextToken;
 
     /**
-     * @description 最大返回数，默认30
+     * @description 排序顺序
      *
-     * @var int
+     * @var string
      */
-    public $maxResults;
+    public $pageOrder;
+
+    /**
+     * @description 排序条件
+     *
+     * @var string
+     */
+    public $pageSort;
     protected $_name = [
-        'pageSort'   => 'pageSort',
-        'pageOrder'  => 'pageOrder',
-        'nextToken'  => 'nextToken',
         'maxResults' => 'maxResults',
+        'nextToken'  => 'nextToken',
+        'pageOrder'  => 'pageOrder',
+        'pageSort'   => 'pageSort',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class ListVariableGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSort) {
-            $res['pageSort'] = $this->pageSort;
-        }
-        if (null !== $this->pageOrder) {
-            $res['pageOrder'] = $this->pageOrder;
+        if (null !== $this->maxResults) {
+            $res['maxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['maxResults'] = $this->maxResults;
+        if (null !== $this->pageOrder) {
+            $res['pageOrder'] = $this->pageOrder;
+        }
+        if (null !== $this->pageSort) {
+            $res['pageSort'] = $this->pageSort;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class ListVariableGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['pageSort'])) {
-            $model->pageSort = $map['pageSort'];
-        }
-        if (isset($map['pageOrder'])) {
-            $model->pageOrder = $map['pageOrder'];
+        if (isset($map['maxResults'])) {
+            $model->maxResults = $map['maxResults'];
         }
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
-        if (isset($map['maxResults'])) {
-            $model->maxResults = $map['maxResults'];
+        if (isset($map['pageOrder'])) {
+            $model->pageOrder = $map['pageOrder'];
+        }
+        if (isset($map['pageSort'])) {
+            $model->pageSort = $map['pageSort'];
         }
 
         return $model;

@@ -18,18 +18,18 @@ class variableGroup extends Model
     public $ccreatorAccountId;
 
     /**
+     * @description 创建时间
+     *
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @description 变量组描述
      *
      * @var string
      */
     public $description;
-
-    /**
-     * @description 更新时间
-     *
-     * @var int
-     */
-    public $updateTime;
 
     /**
      * @description 变量组id
@@ -60,28 +60,28 @@ class variableGroup extends Model
     public $relatedPipelines;
 
     /**
+     * @description 更新时间
+     *
+     * @var int
+     */
+    public $updateTime;
+
+    /**
      * @description 变量
      *
      * @var variables[]
      */
     public $variables;
-
-    /**
-     * @description 创建时间
-     *
-     * @var int
-     */
-    public $createTime;
     protected $_name = [
         'ccreatorAccountId' => 'ccreatorAccountId',
+        'createTime'        => 'createTime',
         'description'       => 'description',
-        'updateTime'        => 'updateTime',
         'id'                => 'id',
         'modifierAccountId' => 'modifierAccountId',
         'name'              => 'name',
         'relatedPipelines'  => 'relatedPipelines',
+        'updateTime'        => 'updateTime',
         'variables'         => 'variables',
-        'createTime'        => 'createTime',
     ];
 
     public function validate()
@@ -94,11 +94,11 @@ class variableGroup extends Model
         if (null !== $this->ccreatorAccountId) {
             $res['ccreatorAccountId'] = $this->ccreatorAccountId;
         }
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
-        }
-        if (null !== $this->updateTime) {
-            $res['updateTime'] = $this->updateTime;
         }
         if (null !== $this->id) {
             $res['id'] = $this->id;
@@ -118,6 +118,9 @@ class variableGroup extends Model
                 }
             }
         }
+        if (null !== $this->updateTime) {
+            $res['updateTime'] = $this->updateTime;
+        }
         if (null !== $this->variables) {
             $res['variables'] = [];
             if (null !== $this->variables && \is_array($this->variables)) {
@@ -126,9 +129,6 @@ class variableGroup extends Model
                     $res['variables'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
         }
 
         return $res;
@@ -145,11 +145,11 @@ class variableGroup extends Model
         if (isset($map['ccreatorAccountId'])) {
             $model->ccreatorAccountId = $map['ccreatorAccountId'];
         }
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
-        }
-        if (isset($map['updateTime'])) {
-            $model->updateTime = $map['updateTime'];
         }
         if (isset($map['id'])) {
             $model->id = $map['id'];
@@ -169,6 +169,9 @@ class variableGroup extends Model
                 }
             }
         }
+        if (isset($map['updateTime'])) {
+            $model->updateTime = $map['updateTime'];
+        }
         if (isset($map['variables'])) {
             if (!empty($map['variables'])) {
                 $model->variables = [];
@@ -177,9 +180,6 @@ class variableGroup extends Model
                     $model->variables[$n++] = null !== $item ? variables::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
         }
 
         return $model;

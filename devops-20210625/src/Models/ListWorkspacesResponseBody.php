@@ -10,18 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspacesResponseBody extends Model
 {
     /**
-     * @description TotalCount本次请求条件下的数据总量，此参数为可选参数，默认可不返回
-     *
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @description 表示当前调用返回读取到的位置，空代表数据已经读取完毕
+     * @description 错误码
      *
      * @var string
      */
-    public $nextToken;
+    public $errorCode;
+
+    /**
+     * @description 错误信息
+     *
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @description MaxResults本次请求所返回的最大记录条数
@@ -31,11 +31,11 @@ class ListWorkspacesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description 工作空间列表
+     * @description 表示当前调用返回读取到的位置，空代表数据已经读取完毕
      *
-     * @var workspaces[]
+     * @var string
      */
-    public $workspaces;
+    public $nextToken;
 
     /**
      * @description 请求ID
@@ -52,27 +52,27 @@ class ListWorkspacesResponseBody extends Model
     public $success;
 
     /**
-     * @description 错误码
+     * @description TotalCount本次请求条件下的数据总量，此参数为可选参数，默认可不返回
      *
-     * @var string
+     * @var int
      */
-    public $errorCode;
+    public $totalCount;
 
     /**
-     * @description 错误信息
+     * @description 工作空间列表
      *
-     * @var string
+     * @var workspaces[]
      */
-    public $errorMessage;
+    public $workspaces;
     protected $_name = [
-        'totalCount'   => 'totalCount',
-        'nextToken'    => 'nextToken',
-        'maxResults'   => 'maxResults',
-        'workspaces'   => 'workspaces',
-        'requestId'    => 'requestId',
-        'success'      => 'success',
         'errorCode'    => 'errorCode',
         'errorMessage' => 'errorMessage',
+        'maxResults'   => 'maxResults',
+        'nextToken'    => 'nextToken',
+        'requestId'    => 'requestId',
+        'success'      => 'success',
+        'totalCount'   => 'totalCount',
+        'workspaces'   => 'workspaces',
     ];
 
     public function validate()
@@ -82,14 +82,26 @@ class ListWorkspacesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['totalCount'] = $this->totalCount;
+        if (null !== $this->errorCode) {
+            $res['errorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['errorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->maxResults) {
+            $res['maxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['maxResults'] = $this->maxResults;
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['success'] = $this->success;
+        }
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
         }
         if (null !== $this->workspaces) {
             $res['workspaces'] = [];
@@ -99,18 +111,6 @@ class ListWorkspacesResponseBody extends Model
                     $res['workspaces'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
-        }
-        if (null !== $this->errorCode) {
-            $res['errorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['errorMessage'] = $this->errorMessage;
         }
 
         return $res;
@@ -124,14 +124,26 @@ class ListWorkspacesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['totalCount'])) {
-            $model->totalCount = $map['totalCount'];
+        if (isset($map['errorCode'])) {
+            $model->errorCode = $map['errorCode'];
+        }
+        if (isset($map['errorMessage'])) {
+            $model->errorMessage = $map['errorMessage'];
+        }
+        if (isset($map['maxResults'])) {
+            $model->maxResults = $map['maxResults'];
         }
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
-        if (isset($map['maxResults'])) {
-            $model->maxResults = $map['maxResults'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
+        if (isset($map['success'])) {
+            $model->success = $map['success'];
+        }
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
         if (isset($map['workspaces'])) {
             if (!empty($map['workspaces'])) {
@@ -141,18 +153,6 @@ class ListWorkspacesResponseBody extends Model
                     $model->workspaces[$n++] = null !== $item ? workspaces::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
-        }
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
-        }
-        if (isset($map['errorCode'])) {
-            $model->errorCode = $map['errorCode'];
-        }
-        if (isset($map['errorMessage'])) {
-            $model->errorMessage = $map['errorMessage'];
         }
 
         return $model;

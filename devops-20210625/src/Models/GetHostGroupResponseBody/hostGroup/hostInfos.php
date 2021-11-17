@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class hostInfos extends Model
 {
     /**
+     * @var string
+     */
+    public $aliyunRegionId;
+
+    /**
      * @var int
      */
-    public $updateTime;
+    public $createTime;
 
     /**
      * @var string
@@ -26,17 +31,17 @@ class hostInfos extends Model
     /**
      * @var string
      */
-    public $modifierAccountId;
+    public $ip;
 
     /**
      * @var string
      */
-    public $ip;
+    public $machineSn;
 
     /**
-     * @var int
+     * @var string
      */
-    public $createTime;
+    public $modifierAccountId;
 
     /**
      * @var string
@@ -44,24 +49,19 @@ class hostInfos extends Model
     public $objectType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $aliyunRegionId;
-
-    /**
-     * @var string
-     */
-    public $machineSn;
+    public $updateTime;
     protected $_name = [
-        'updateTime'        => 'updateTime',
+        'aliyunRegionId'    => 'aliyunRegionId',
+        'createTime'        => 'createTime',
         'creatorAccountId'  => 'creatorAccountId',
         'instanceName'      => 'instanceName',
-        'modifierAccountId' => 'modifierAccountId',
         'ip'                => 'ip',
-        'createTime'        => 'createTime',
-        'objectType'        => 'objectType',
-        'aliyunRegionId'    => 'aliyunRegionId',
         'machineSn'         => 'machineSn',
+        'modifierAccountId' => 'modifierAccountId',
+        'objectType'        => 'objectType',
+        'updateTime'        => 'updateTime',
     ];
 
     public function validate()
@@ -71,8 +71,11 @@ class hostInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['updateTime'] = $this->updateTime;
+        if (null !== $this->aliyunRegionId) {
+            $res['aliyunRegionId'] = $this->aliyunRegionId;
+        }
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
         }
         if (null !== $this->creatorAccountId) {
             $res['creatorAccountId'] = $this->creatorAccountId;
@@ -80,23 +83,20 @@ class hostInfos extends Model
         if (null !== $this->instanceName) {
             $res['instanceName'] = $this->instanceName;
         }
-        if (null !== $this->modifierAccountId) {
-            $res['modifierAccountId'] = $this->modifierAccountId;
-        }
         if (null !== $this->ip) {
             $res['ip'] = $this->ip;
         }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
+        if (null !== $this->machineSn) {
+            $res['machineSn'] = $this->machineSn;
+        }
+        if (null !== $this->modifierAccountId) {
+            $res['modifierAccountId'] = $this->modifierAccountId;
         }
         if (null !== $this->objectType) {
             $res['objectType'] = $this->objectType;
         }
-        if (null !== $this->aliyunRegionId) {
-            $res['aliyunRegionId'] = $this->aliyunRegionId;
-        }
-        if (null !== $this->machineSn) {
-            $res['machineSn'] = $this->machineSn;
+        if (null !== $this->updateTime) {
+            $res['updateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -110,8 +110,11 @@ class hostInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['updateTime'])) {
-            $model->updateTime = $map['updateTime'];
+        if (isset($map['aliyunRegionId'])) {
+            $model->aliyunRegionId = $map['aliyunRegionId'];
+        }
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
         }
         if (isset($map['creatorAccountId'])) {
             $model->creatorAccountId = $map['creatorAccountId'];
@@ -119,23 +122,20 @@ class hostInfos extends Model
         if (isset($map['instanceName'])) {
             $model->instanceName = $map['instanceName'];
         }
-        if (isset($map['modifierAccountId'])) {
-            $model->modifierAccountId = $map['modifierAccountId'];
-        }
         if (isset($map['ip'])) {
             $model->ip = $map['ip'];
         }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
+        if (isset($map['machineSn'])) {
+            $model->machineSn = $map['machineSn'];
+        }
+        if (isset($map['modifierAccountId'])) {
+            $model->modifierAccountId = $map['modifierAccountId'];
         }
         if (isset($map['objectType'])) {
             $model->objectType = $map['objectType'];
         }
-        if (isset($map['aliyunRegionId'])) {
-            $model->aliyunRegionId = $map['aliyunRegionId'];
-        }
-        if (isset($map['machineSn'])) {
-            $model->machineSn = $map['machineSn'];
+        if (isset($map['updateTime'])) {
+            $model->updateTime = $map['updateTime'];
         }
 
         return $model;

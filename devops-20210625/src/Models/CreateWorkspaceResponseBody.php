@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkspaceResponseBody extends Model
 {
     /**
-     * @description 工作空间信息
+     * @description 错误码
      *
-     * @var workspace
+     * @var string
      */
-    public $workspace;
+    public $errorCode;
+
+    /**
+     * @description 错误信息
+     *
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @description 请求ID
@@ -31,24 +38,17 @@ class CreateWorkspaceResponseBody extends Model
     public $success;
 
     /**
-     * @description 错误码
+     * @description 工作空间信息
      *
-     * @var string
+     * @var workspace
      */
-    public $errorCode;
-
-    /**
-     * @description 错误信息
-     *
-     * @var string
-     */
-    public $errorMessage;
+    public $workspace;
     protected $_name = [
-        'workspace'    => 'workspace',
-        'requestId'    => 'requestId',
-        'success'      => 'success',
         'errorCode'    => 'errorCode',
         'errorMessage' => 'errorMessage',
+        'requestId'    => 'requestId',
+        'success'      => 'success',
+        'workspace'    => 'workspace',
     ];
 
     public function validate()
@@ -58,8 +58,11 @@ class CreateWorkspaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workspace) {
-            $res['workspace'] = null !== $this->workspace ? $this->workspace->toMap() : null;
+        if (null !== $this->errorCode) {
+            $res['errorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['errorMessage'] = $this->errorMessage;
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
@@ -67,11 +70,8 @@ class CreateWorkspaceResponseBody extends Model
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
-        if (null !== $this->errorCode) {
-            $res['errorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['errorMessage'] = $this->errorMessage;
+        if (null !== $this->workspace) {
+            $res['workspace'] = null !== $this->workspace ? $this->workspace->toMap() : null;
         }
 
         return $res;
@@ -85,8 +85,11 @@ class CreateWorkspaceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['workspace'])) {
-            $model->workspace = workspace::fromMap($map['workspace']);
+        if (isset($map['errorCode'])) {
+            $model->errorCode = $map['errorCode'];
+        }
+        if (isset($map['errorMessage'])) {
+            $model->errorMessage = $map['errorMessage'];
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
@@ -94,11 +97,8 @@ class CreateWorkspaceResponseBody extends Model
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
-        if (isset($map['errorCode'])) {
-            $model->errorCode = $map['errorCode'];
-        }
-        if (isset($map['errorMessage'])) {
-            $model->errorMessage = $map['errorMessage'];
+        if (isset($map['workspace'])) {
+            $model->workspace = workspace::fromMap($map['workspace']);
         }
 
         return $model;

@@ -11,7 +11,7 @@ class RetryPipelineJobRunResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $errorCode;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class RetryPipelineJobRunResponseBody extends Model
     /**
      * @var string
      */
-    public $errorCode;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'    => 'requestId',
-        'errorMessage' => 'errorMessage',
         'errorCode'    => 'errorCode',
+        'errorMessage' => 'errorMessage',
+        'requestId'    => 'requestId',
         'success'      => 'success',
     ];
 
@@ -41,14 +41,14 @@ class RetryPipelineJobRunResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+        if (null !== $this->errorCode) {
+            $res['errorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->errorCode) {
-            $res['errorCode'] = $this->errorCode;
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -65,14 +65,14 @@ class RetryPipelineJobRunResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['errorCode'])) {
+            $model->errorCode = $map['errorCode'];
         }
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
-        if (isset($map['errorCode'])) {
-            $model->errorCode = $map['errorCode'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

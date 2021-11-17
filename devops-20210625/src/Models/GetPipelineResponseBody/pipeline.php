@@ -11,6 +11,13 @@ use AlibabaCloud\Tea\Model;
 class pipeline extends Model
 {
     /**
+     * @description 创建时间
+     *
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @description 创建者阿里云账号id
      *
      * @var string
@@ -30,20 +37,6 @@ class pipeline extends Model
      * @var string
      */
     public $envName;
-
-    /**
-     * @description 创建时间
-     *
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @description 更新时间
-     *
-     * @var int
-     */
-    public $updateTime;
 
     /**
      * @description 流水线分组id
@@ -67,6 +60,13 @@ class pipeline extends Model
     public $name;
 
     /**
+     * @description 流水线配置
+     *
+     * @var pipelineConfig
+     */
+    public $pipelineConfig;
+
+    /**
      * @description 标签
      *
      * @var tagList[]
@@ -74,22 +74,22 @@ class pipeline extends Model
     public $tagList;
 
     /**
-     * @description 流水线配置
+     * @description 更新时间
      *
-     * @var pipelineConfig
+     * @var int
      */
-    public $pipelineConfig;
+    public $updateTime;
     protected $_name = [
+        'createTime'        => 'createTime',
         'creatorAccountId'  => 'creatorAccountId',
         'envId'             => 'envId',
         'envName'           => 'envName',
-        'createTime'        => 'createTime',
-        'updateTime'        => 'updateTime',
         'groupId'           => 'groupId',
         'modifierAccountId' => 'modifierAccountId',
         'name'              => 'name',
-        'tagList'           => 'tagList',
         'pipelineConfig'    => 'pipelineConfig',
+        'tagList'           => 'tagList',
+        'updateTime'        => 'updateTime',
     ];
 
     public function validate()
@@ -99,6 +99,9 @@ class pipeline extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
         if (null !== $this->creatorAccountId) {
             $res['creatorAccountId'] = $this->creatorAccountId;
         }
@@ -107,12 +110,6 @@ class pipeline extends Model
         }
         if (null !== $this->envName) {
             $res['envName'] = $this->envName;
-        }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
-        }
-        if (null !== $this->updateTime) {
-            $res['updateTime'] = $this->updateTime;
         }
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
@@ -123,6 +120,9 @@ class pipeline extends Model
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+        if (null !== $this->pipelineConfig) {
+            $res['pipelineConfig'] = null !== $this->pipelineConfig ? $this->pipelineConfig->toMap() : null;
+        }
         if (null !== $this->tagList) {
             $res['tagList'] = [];
             if (null !== $this->tagList && \is_array($this->tagList)) {
@@ -132,8 +132,8 @@ class pipeline extends Model
                 }
             }
         }
-        if (null !== $this->pipelineConfig) {
-            $res['pipelineConfig'] = null !== $this->pipelineConfig ? $this->pipelineConfig->toMap() : null;
+        if (null !== $this->updateTime) {
+            $res['updateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -147,6 +147,9 @@ class pipeline extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
         if (isset($map['creatorAccountId'])) {
             $model->creatorAccountId = $map['creatorAccountId'];
         }
@@ -155,12 +158,6 @@ class pipeline extends Model
         }
         if (isset($map['envName'])) {
             $model->envName = $map['envName'];
-        }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
-        }
-        if (isset($map['updateTime'])) {
-            $model->updateTime = $map['updateTime'];
         }
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
@@ -171,6 +168,9 @@ class pipeline extends Model
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+        if (isset($map['pipelineConfig'])) {
+            $model->pipelineConfig = pipelineConfig::fromMap($map['pipelineConfig']);
+        }
         if (isset($map['tagList'])) {
             if (!empty($map['tagList'])) {
                 $model->tagList = [];
@@ -180,8 +180,8 @@ class pipeline extends Model
                 }
             }
         }
-        if (isset($map['pipelineConfig'])) {
-            $model->pipelineConfig = pipelineConfig::fromMap($map['pipelineConfig']);
+        if (isset($map['updateTime'])) {
+            $model->updateTime = $map['updateTime'];
         }
 
         return $model;

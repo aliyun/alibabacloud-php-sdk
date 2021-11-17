@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupsResponseBody extends Model
 {
     /**
-     * @description 请求id，每次请求都是唯一值，便于后续排查问题
+     * @description 错误码
      *
      * @var string
      */
-    public $requestId;
+    public $errorCode;
 
     /**
      * @description 错误信息
@@ -24,11 +24,25 @@ class ListHostGroupsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description 错误码
+     * @description 主机组
+     *
+     * @var hostGroups[]
+     */
+    public $hostGroups;
+
+    /**
+     * @description 分页token,空表示最后一页
      *
      * @var string
      */
-    public $errorCode;
+    public $nextToken;
+
+    /**
+     * @description 请求id，每次请求都是唯一值，便于后续排查问题
+     *
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @description true 接口调用成功，false 接口调用失败
@@ -38,33 +52,19 @@ class ListHostGroupsResponseBody extends Model
     public $success;
 
     /**
-     * @description 主机组
-     *
-     * @var hostGroups[]
-     */
-    public $hostGroups;
-
-    /**
      * @description 总数
      *
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @description 分页token,空表示最后一页
-     *
-     * @var string
-     */
-    public $nextToken;
     protected $_name = [
-        'requestId'    => 'requestId',
-        'errorMessage' => 'errorMessage',
         'errorCode'    => 'errorCode',
-        'success'      => 'success',
+        'errorMessage' => 'errorMessage',
         'hostGroups'   => 'hostGroups',
-        'totalCount'   => 'totalCount',
         'nextToken'    => 'nextToken',
+        'requestId'    => 'requestId',
+        'success'      => 'success',
+        'totalCount'   => 'totalCount',
     ];
 
     public function validate()
@@ -74,17 +74,11 @@ class ListHostGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
-        }
-        if (null !== $this->errorMessage) {
-            $res['errorMessage'] = $this->errorMessage;
-        }
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
+        if (null !== $this->errorMessage) {
+            $res['errorMessage'] = $this->errorMessage;
         }
         if (null !== $this->hostGroups) {
             $res['hostGroups'] = [];
@@ -95,11 +89,17 @@ class ListHostGroupsResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->totalCount) {
-            $res['totalCount'] = $this->totalCount;
-        }
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['success'] = $this->success;
+        }
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -113,17 +113,11 @@ class ListHostGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
-        }
-        if (isset($map['errorMessage'])) {
-            $model->errorMessage = $map['errorMessage'];
-        }
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
+        if (isset($map['errorMessage'])) {
+            $model->errorMessage = $map['errorMessage'];
         }
         if (isset($map['hostGroups'])) {
             if (!empty($map['hostGroups'])) {
@@ -134,11 +128,17 @@ class ListHostGroupsResponseBody extends Model
                 }
             }
         }
-        if (isset($map['totalCount'])) {
-            $model->totalCount = $map['totalCount'];
-        }
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
+        if (isset($map['success'])) {
+            $model->success = $map['success'];
+        }
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateHostGroupResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
-    public $requestId;
+    public $errorCode;
 
     /**
      * @var string
@@ -21,25 +19,27 @@ class CreateHostGroupResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var int
+     */
+    public $hostGroupId;
+
+    /**
+     * @description Id of the request
+     *
      * @var string
      */
-    public $errorCode;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $hostGroupId;
     protected $_name = [
-        'requestId'    => 'requestId',
-        'errorMessage' => 'errorMessage',
         'errorCode'    => 'errorCode',
-        'success'      => 'success',
+        'errorMessage' => 'errorMessage',
         'hostGroupId'  => 'hostGroupId',
+        'requestId'    => 'requestId',
+        'success'      => 'success',
     ];
 
     public function validate()
@@ -49,20 +49,20 @@ class CreateHostGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+        if (null !== $this->errorCode) {
+            $res['errorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->errorCode) {
-            $res['errorCode'] = $this->errorCode;
+        if (null !== $this->hostGroupId) {
+            $res['hostGroupId'] = $this->hostGroupId;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
-        }
-        if (null !== $this->hostGroupId) {
-            $res['hostGroupId'] = $this->hostGroupId;
         }
 
         return $res;
@@ -76,20 +76,20 @@ class CreateHostGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['errorCode'])) {
+            $model->errorCode = $map['errorCode'];
         }
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
-        if (isset($map['errorCode'])) {
-            $model->errorCode = $map['errorCode'];
+        if (isset($map['hostGroupId'])) {
+            $model->hostGroupId = $map['hostGroupId'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];
-        }
-        if (isset($map['hostGroupId'])) {
-            $model->hostGroupId = $map['hostGroupId'];
         }
 
         return $model;

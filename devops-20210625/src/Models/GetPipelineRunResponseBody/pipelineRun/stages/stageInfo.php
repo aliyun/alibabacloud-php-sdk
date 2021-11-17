@@ -17,11 +17,11 @@ class stageInfo extends Model
     public $endTime;
 
     /**
-     * @description 开始时间
+     * @description 任务
      *
-     * @var int
+     * @var jobs[]
      */
-    public $startTime;
+    public $jobs;
 
     /**
      * @description 阶段名称
@@ -31,24 +31,24 @@ class stageInfo extends Model
     public $name;
 
     /**
+     * @description 开始时间
+     *
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @description 状态
      *
      * @var string
      */
     public $status;
-
-    /**
-     * @description 任务
-     *
-     * @var jobs[]
-     */
-    public $jobs;
     protected $_name = [
         'endTime'   => 'endTime',
-        'startTime' => 'startTime',
-        'name'      => 'name',
-        'status'    => 'status',
         'jobs'      => 'jobs',
+        'name'      => 'name',
+        'startTime' => 'startTime',
+        'status'    => 'status',
     ];
 
     public function validate()
@@ -61,15 +61,6 @@ class stageInfo extends Model
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['startTime'] = $this->startTime;
-        }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
         if (null !== $this->jobs) {
             $res['jobs'] = [];
             if (null !== $this->jobs && \is_array($this->jobs)) {
@@ -78,6 +69,15 @@ class stageInfo extends Model
                     $res['jobs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -94,15 +94,6 @@ class stageInfo extends Model
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
-        if (isset($map['startTime'])) {
-            $model->startTime = $map['startTime'];
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
         if (isset($map['jobs'])) {
             if (!empty($map['jobs'])) {
                 $model->jobs = [];
@@ -111,6 +102,15 @@ class stageInfo extends Model
                     $model->jobs[$n++] = null !== $item ? jobs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

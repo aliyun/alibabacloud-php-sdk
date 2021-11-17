@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationMembersResponseBody extends Model
 {
     /**
-     * @description 请求id，每次请求都是唯一值，便于后续排查问题
+     * @description 错误码
      *
      * @var string
      */
-    public $requestId;
+    public $errorCode;
 
     /**
      * @description 错误信息
@@ -24,18 +24,11 @@ class ListOrganizationMembersResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description true 接口调用成功，false 接口调用失败
+     * @description 成员列表
      *
-     * @var bool
+     * @var members[]
      */
-    public $success;
-
-    /**
-     * @description 错误码
-     *
-     * @var string
-     */
-    public $errorCode;
+    public $members;
 
     /**
      * @description 分页Token
@@ -45,26 +38,33 @@ class ListOrganizationMembersResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description 请求id，每次请求都是唯一值，便于后续排查问题
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description true 接口调用成功，false 接口调用失败
+     *
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @description 总数
      *
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @description 成员列表
-     *
-     * @var members[]
-     */
-    public $members;
     protected $_name = [
-        'requestId'    => 'requestId',
-        'errorMessage' => 'errorMessage',
-        'success'      => 'success',
         'errorCode'    => 'errorCode',
-        'nextToken'    => 'nextToken',
-        'totalCount'   => 'totalCount',
+        'errorMessage' => 'errorMessage',
         'members'      => 'members',
+        'nextToken'    => 'nextToken',
+        'requestId'    => 'requestId',
+        'success'      => 'success',
+        'totalCount'   => 'totalCount',
     ];
 
     public function validate()
@@ -74,23 +74,11 @@ class ListOrganizationMembersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
-        }
-        if (null !== $this->errorMessage) {
-            $res['errorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
-        }
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-        if (null !== $this->nextToken) {
-            $res['nextToken'] = $this->nextToken;
-        }
-        if (null !== $this->totalCount) {
-            $res['totalCount'] = $this->totalCount;
+        if (null !== $this->errorMessage) {
+            $res['errorMessage'] = $this->errorMessage;
         }
         if (null !== $this->members) {
             $res['members'] = [];
@@ -100,6 +88,18 @@ class ListOrganizationMembersResponseBody extends Model
                     $res['members'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['nextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['success'] = $this->success;
+        }
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -113,23 +113,11 @@ class ListOrganizationMembersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
-        }
-        if (isset($map['errorMessage'])) {
-            $model->errorMessage = $map['errorMessage'];
-        }
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
-        }
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-        if (isset($map['nextToken'])) {
-            $model->nextToken = $map['nextToken'];
-        }
-        if (isset($map['totalCount'])) {
-            $model->totalCount = $map['totalCount'];
+        if (isset($map['errorMessage'])) {
+            $model->errorMessage = $map['errorMessage'];
         }
         if (isset($map['members'])) {
             if (!empty($map['members'])) {
@@ -139,6 +127,18 @@ class ListOrganizationMembersResponseBody extends Model
                     $model->members[$n++] = null !== $item ? members::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['nextToken'])) {
+            $model->nextToken = $map['nextToken'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
+        if (isset($map['success'])) {
+            $model->success = $map['success'];
+        }
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

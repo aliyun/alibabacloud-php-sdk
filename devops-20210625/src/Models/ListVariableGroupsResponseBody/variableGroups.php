@@ -11,25 +11,18 @@ use AlibabaCloud\Tea\Model;
 class variableGroups extends Model
 {
     /**
+     * @description 创建时间
+     *
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @description 创建人阿里云账号id
      *
      * @var string
      */
     public $creatorAccountId;
-
-    /**
-     * @description 更新时间
-     *
-     * @var int
-     */
-    public $updateTime;
-
-    /**
-     * @description 更新人阿里云账号id
-     *
-     * @var string
-     */
-    public $modifierAccountId;
 
     /**
      * @description 变量组描述
@@ -39,18 +32,25 @@ class variableGroups extends Model
     public $description;
 
     /**
-     * @description 变量组名称
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @description 变量组id
      *
      * @var int
      */
     public $id;
+
+    /**
+     * @description 更新人阿里云账号id
+     *
+     * @var string
+     */
+    public $modifierAccountId;
+
+    /**
+     * @description 变量组名称
+     *
+     * @var string
+     */
+    public $name;
 
     /**
      * @description 关联的流水线
@@ -60,28 +60,28 @@ class variableGroups extends Model
     public $relatedPipelines;
 
     /**
+     * @description 更新时间
+     *
+     * @var int
+     */
+    public $updateTime;
+
+    /**
      * @description 变量
      *
      * @var variables[]
      */
     public $variables;
-
-    /**
-     * @description 创建时间
-     *
-     * @var int
-     */
-    public $createTime;
     protected $_name = [
-        'creatorAccountId'  => 'creatorAccountId',
-        'updateTime'        => 'updateTime',
-        'modifierAccountId' => 'modifierAccountId',
-        'description'       => 'description',
-        'name'              => 'name',
-        'id'                => 'id',
-        'relatedPipelines'  => 'relatedPipelines',
-        'variables'         => 'variables',
         'createTime'        => 'createTime',
+        'creatorAccountId'  => 'creatorAccountId',
+        'description'       => 'description',
+        'id'                => 'id',
+        'modifierAccountId' => 'modifierAccountId',
+        'name'              => 'name',
+        'relatedPipelines'  => 'relatedPipelines',
+        'updateTime'        => 'updateTime',
+        'variables'         => 'variables',
     ];
 
     public function validate()
@@ -91,23 +91,23 @@ class variableGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
         if (null !== $this->creatorAccountId) {
             $res['creatorAccountId'] = $this->creatorAccountId;
-        }
-        if (null !== $this->updateTime) {
-            $res['updateTime'] = $this->updateTime;
-        }
-        if (null !== $this->modifierAccountId) {
-            $res['modifierAccountId'] = $this->modifierAccountId;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+        if (null !== $this->modifierAccountId) {
+            $res['modifierAccountId'] = $this->modifierAccountId;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
         if (null !== $this->relatedPipelines) {
             $res['relatedPipelines'] = [];
@@ -118,6 +118,9 @@ class variableGroups extends Model
                 }
             }
         }
+        if (null !== $this->updateTime) {
+            $res['updateTime'] = $this->updateTime;
+        }
         if (null !== $this->variables) {
             $res['variables'] = [];
             if (null !== $this->variables && \is_array($this->variables)) {
@@ -126,9 +129,6 @@ class variableGroups extends Model
                     $res['variables'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
         }
 
         return $res;
@@ -142,23 +142,23 @@ class variableGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
         if (isset($map['creatorAccountId'])) {
             $model->creatorAccountId = $map['creatorAccountId'];
-        }
-        if (isset($map['updateTime'])) {
-            $model->updateTime = $map['updateTime'];
-        }
-        if (isset($map['modifierAccountId'])) {
-            $model->modifierAccountId = $map['modifierAccountId'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+        if (isset($map['modifierAccountId'])) {
+            $model->modifierAccountId = $map['modifierAccountId'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
         if (isset($map['relatedPipelines'])) {
             if (!empty($map['relatedPipelines'])) {
@@ -169,6 +169,9 @@ class variableGroups extends Model
                 }
             }
         }
+        if (isset($map['updateTime'])) {
+            $model->updateTime = $map['updateTime'];
+        }
         if (isset($map['variables'])) {
             if (!empty($map['variables'])) {
                 $model->variables = [];
@@ -177,9 +180,6 @@ class variableGroups extends Model
                     $model->variables[$n++] = null !== $item ? variables::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
         }
 
         return $model;

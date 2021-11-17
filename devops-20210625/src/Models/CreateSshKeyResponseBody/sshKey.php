@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class sshKey extends Model
 {
     /**
-     * @description 企业公钥
-     *
-     * @var string
-     */
-    public $publicKey;
-
-    /**
      * @description 企业公钥id
      *
      * @var int
      */
     public $id;
+
+    /**
+     * @description 企业公钥
+     *
+     * @var string
+     */
+    public $publicKey;
     protected $_name = [
-        'publicKey' => 'publicKey',
         'id'        => 'id',
+        'publicKey' => 'publicKey',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class sshKey extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->publicKey) {
-            $res['publicKey'] = $this->publicKey;
-        }
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+        if (null !== $this->publicKey) {
+            $res['publicKey'] = $this->publicKey;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class sshKey extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['publicKey'])) {
-            $model->publicKey = $map['publicKey'];
-        }
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+        if (isset($map['publicKey'])) {
+            $model->publicKey = $map['publicKey'];
         }
 
         return $model;

@@ -9,20 +9,6 @@ use AlibabaCloud\Tea\Model;
 class pipelines extends Model
 {
     /**
-     * @description 流水线名称
-     *
-     * @var string
-     */
-    public $pipelineName;
-
-    /**
-     * @description 流水线id
-     *
-     * @var int
-     */
-    public $pipelineId;
-
-    /**
      * @description 创建时间
      *
      * @var int
@@ -35,11 +21,25 @@ class pipelines extends Model
      * @var string
      */
     public $creatorAccountId;
+
+    /**
+     * @description 流水线id
+     *
+     * @var int
+     */
+    public $pipelineId;
+
+    /**
+     * @description 流水线名称
+     *
+     * @var string
+     */
+    public $pipelineName;
     protected $_name = [
-        'pipelineName'     => 'pipelineName',
-        'pipelineId'       => 'pipelineId',
         'createTime'       => 'createTime',
         'creatorAccountId' => 'creatorAccountId',
+        'pipelineId'       => 'pipelineId',
+        'pipelineName'     => 'pipelineName',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class pipelines extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pipelineName) {
-            $res['pipelineName'] = $this->pipelineName;
-        }
-        if (null !== $this->pipelineId) {
-            $res['pipelineId'] = $this->pipelineId;
-        }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
         if (null !== $this->creatorAccountId) {
             $res['creatorAccountId'] = $this->creatorAccountId;
+        }
+        if (null !== $this->pipelineId) {
+            $res['pipelineId'] = $this->pipelineId;
+        }
+        if (null !== $this->pipelineName) {
+            $res['pipelineName'] = $this->pipelineName;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class pipelines extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['pipelineName'])) {
-            $model->pipelineName = $map['pipelineName'];
-        }
-        if (isset($map['pipelineId'])) {
-            $model->pipelineId = $map['pipelineId'];
-        }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
         if (isset($map['creatorAccountId'])) {
             $model->creatorAccountId = $map['creatorAccountId'];
+        }
+        if (isset($map['pipelineId'])) {
+            $model->pipelineId = $map['pipelineId'];
+        }
+        if (isset($map['pipelineName'])) {
+            $model->pipelineName = $map['pipelineName'];
         }
 
         return $model;

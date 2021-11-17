@@ -4,10 +4,18 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineRunResponseBody\pipelineRun\stages\stageInfo;
 
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineRunResponseBody\pipelineRun\stages\stageInfo\jobs\actions;
 use AlibabaCloud\Tea\Model;
 
 class jobs extends Model
 {
+    /**
+     * @description 后续操作
+     *
+     * @var actions[]
+     */
+    public $actions;
+
     /**
      * @description 结束时间
      *
@@ -37,25 +45,26 @@ class jobs extends Model
     public $params;
 
     /**
-     * @description 状态
-     *
-     * @var string
-     */
-    public $status;
-
-    /**
      * @description 开始时间
      *
      * @var int
      */
     public $startTime;
+
+    /**
+     * @description 状态
+     *
+     * @var string
+     */
+    public $status;
     protected $_name = [
+        'actions'   => 'actions',
         'endTime'   => 'endTime',
         'id'        => 'id',
         'name'      => 'name',
         'params'    => 'params',
-        'status'    => 'status',
         'startTime' => 'startTime',
+        'status'    => 'status',
     ];
 
     public function validate()
@@ -65,6 +74,15 @@ class jobs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->actions) {
+            $res['actions'] = [];
+            if (null !== $this->actions && \is_array($this->actions)) {
+                $n = 0;
+                foreach ($this->actions as $item) {
+                    $res['actions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
@@ -77,11 +95,11 @@ class jobs extends Model
         if (null !== $this->params) {
             $res['params'] = $this->params;
         }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -95,6 +113,15 @@ class jobs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['actions'])) {
+            if (!empty($map['actions'])) {
+                $model->actions = [];
+                $n              = 0;
+                foreach ($map['actions'] as $item) {
+                    $model->actions[$n++] = null !== $item ? actions::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
@@ -107,11 +134,11 @@ class jobs extends Model
         if (isset($map['params'])) {
             $model->params = $map['params'];
         }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

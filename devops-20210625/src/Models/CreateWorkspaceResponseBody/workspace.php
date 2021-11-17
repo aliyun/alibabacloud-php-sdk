@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class workspace extends Model
 {
     /**
+     * @description 创建时间戳
+     *
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @description 创建者，阿里云PK
+     *
+     * @var string
+     */
+    public $creator;
+
+    /**
      * @description 工作空间唯一标识，字符串形式，可在云效DevStudio访问空间链接中获取
      *
      * @var string
@@ -35,27 +49,13 @@ class workspace extends Model
      * @var string
      */
     public $template;
-
-    /**
-     * @description 创建者，阿里云PK
-     *
-     * @var string
-     */
-    public $creator;
-
-    /**
-     * @description 创建时间戳
-     *
-     * @var string
-     */
-    public $createTime;
     protected $_name = [
+        'createTime' => 'createTime',
+        'creator'    => 'creator',
         'id'         => 'id',
         'name'       => 'name',
         'status'     => 'status',
         'template'   => 'template',
-        'creator'    => 'creator',
-        'createTime' => 'createTime',
     ];
 
     public function validate()
@@ -65,6 +65,12 @@ class workspace extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
+        if (null !== $this->creator) {
+            $res['creator'] = $this->creator;
+        }
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
@@ -76,12 +82,6 @@ class workspace extends Model
         }
         if (null !== $this->template) {
             $res['template'] = $this->template;
-        }
-        if (null !== $this->creator) {
-            $res['creator'] = $this->creator;
-        }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
         }
 
         return $res;
@@ -95,6 +95,12 @@ class workspace extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
+        if (isset($map['creator'])) {
+            $model->creator = $map['creator'];
+        }
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
@@ -106,12 +112,6 @@ class workspace extends Model
         }
         if (isset($map['template'])) {
             $model->template = $map['template'];
-        }
-        if (isset($map['creator'])) {
-            $model->creator = $map['creator'];
-        }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
         }
 
         return $model;

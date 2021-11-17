@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetHostGroupResponseBody extends Model
 {
     /**
-     * @description 请求id，每次请求都是唯一值，便于后续排查问题
+     * @description 错误码
      *
      * @var string
      */
-    public $requestId;
+    public $errorCode;
 
     /**
      * @description 错误信息
@@ -24,11 +24,16 @@ class GetHostGroupResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description 错误码
+     * @var hostGroup
+     */
+    public $hostGroup;
+
+    /**
+     * @description 请求id，每次请求都是唯一值，便于后续排查问题
      *
      * @var string
      */
-    public $errorCode;
+    public $requestId;
 
     /**
      * @description true 接口调用成功，false 接口调用失败
@@ -36,17 +41,12 @@ class GetHostGroupResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var hostGroup
-     */
-    public $hostGroup;
     protected $_name = [
-        'requestId'    => 'requestId',
-        'errorMessage' => 'errorMessage',
         'errorCode'    => 'errorCode',
-        'success'      => 'success',
+        'errorMessage' => 'errorMessage',
         'hostGroup'    => 'hostGroup',
+        'requestId'    => 'requestId',
+        'success'      => 'success',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class GetHostGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+        if (null !== $this->errorCode) {
+            $res['errorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->errorCode) {
-            $res['errorCode'] = $this->errorCode;
+        if (null !== $this->hostGroup) {
+            $res['hostGroup'] = null !== $this->hostGroup ? $this->hostGroup->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
-        }
-        if (null !== $this->hostGroup) {
-            $res['hostGroup'] = null !== $this->hostGroup ? $this->hostGroup->toMap() : null;
         }
 
         return $res;
@@ -83,20 +83,20 @@ class GetHostGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['errorCode'])) {
+            $model->errorCode = $map['errorCode'];
         }
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
-        if (isset($map['errorCode'])) {
-            $model->errorCode = $map['errorCode'];
+        if (isset($map['hostGroup'])) {
+            $model->hostGroup = hostGroup::fromMap($map['hostGroup']);
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];
-        }
-        if (isset($map['hostGroup'])) {
-            $model->hostGroup = hostGroup::fromMap($map['hostGroup']);
         }
 
         return $model;
