@@ -119,6 +119,8 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDbRdsNameListRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDbRdsNameListResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDBRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDBResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDbSpecAndPriceRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDbSpecAndPriceResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDBsRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDBsResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDbTasksRequest;
@@ -1975,6 +1977,34 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDrdsDbRdsNameListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDrdsDbSpecAndPriceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDrdsDbSpecAndPriceResponse
+     */
+    public function describeDrdsDbSpecAndPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDrdsDbSpecAndPriceResponse::fromMap($this->doRPCRequest('DescribeDrdsDbSpecAndPrice', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDrdsDbSpecAndPriceRequest $request
+     *
+     * @return DescribeDrdsDbSpecAndPriceResponse
+     */
+    public function describeDrdsDbSpecAndPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDrdsDbSpecAndPriceWithOptions($request, $runtime);
     }
 
     /**

@@ -12,6 +12,16 @@ class DescribeDrdsShardingDbsResponseBody extends Model
     /**
      * @var string
      */
+    public $pageNumber;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -23,10 +33,18 @@ class DescribeDrdsShardingDbsResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $total;
     protected $_name = [
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
         'requestId'   => 'RequestId',
         'shardingDbs' => 'ShardingDbs',
         'success'     => 'Success',
+        'total'       => 'Total',
     ];
 
     public function validate()
@@ -36,6 +54,12 @@ class DescribeDrdsShardingDbsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,6 +68,9 @@ class DescribeDrdsShardingDbsResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -57,6 +84,12 @@ class DescribeDrdsShardingDbsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -65,6 +98,9 @@ class DescribeDrdsShardingDbsResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;
