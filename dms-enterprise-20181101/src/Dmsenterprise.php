@@ -159,6 +159,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDDLPublishRecordsRequest
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDDLPublishRecordsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstanceLoginAuditLogRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstanceLoginAuditLogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstanceUserPermissionsRequest;
@@ -173,6 +175,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxiesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxiesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxyAccessesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxyAccessesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxySQLExecAuditLogRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxySQLExecAuditLogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsRequest;
@@ -2301,6 +2305,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ListInstanceLoginAuditLogRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListInstanceLoginAuditLogResponse
+     */
+    public function listInstanceLoginAuditLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListInstanceLoginAuditLogResponse::fromMap($this->doRPCRequest('ListInstanceLoginAuditLog', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListInstanceLoginAuditLogRequest $request
+     *
+     * @return ListInstanceLoginAuditLogResponse
+     */
+    public function listInstanceLoginAuditLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceLoginAuditLogWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListInstanceUserPermissionsRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2494,6 +2526,34 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listProxyAccessesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProxySQLExecAuditLogRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListProxySQLExecAuditLogResponse
+     */
+    public function listProxySQLExecAuditLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListProxySQLExecAuditLogResponse::fromMap($this->doRPCRequest('ListProxySQLExecAuditLog', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListProxySQLExecAuditLogRequest $request
+     *
+     * @return ListProxySQLExecAuditLogResponse
+     */
+    public function listProxySQLExecAuditLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProxySQLExecAuditLogWithOptions($request, $runtime);
     }
 
     /**

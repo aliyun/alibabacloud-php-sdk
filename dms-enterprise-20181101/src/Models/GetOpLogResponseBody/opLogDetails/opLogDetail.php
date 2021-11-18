@@ -31,6 +31,11 @@ class opLogDetail extends Model
     /**
      * @var int
      */
+    public $opUserId;
+
+    /**
+     * @var int
+     */
     public $orderId;
 
     /**
@@ -47,6 +52,7 @@ class opLogDetail extends Model
         'module'    => 'Module',
         'opContent' => 'OpContent',
         'opTime'    => 'OpTime',
+        'opUserId'  => 'OpUserId',
         'orderId'   => 'OrderId',
         'userId'    => 'UserId',
         'userNick'  => 'UserNick',
@@ -70,6 +76,9 @@ class opLogDetail extends Model
         }
         if (null !== $this->opTime) {
             $res['OpTime'] = $this->opTime;
+        }
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
@@ -103,6 +112,9 @@ class opLogDetail extends Model
         }
         if (isset($map['OpTime'])) {
             $model->opTime = $map['OpTime'];
+        }
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
