@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ResetAccountPasswordResponse extends Model
+class CancelActiveOperationTasksResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ResetAccountPasswordResponse extends Model
     public $headers;
 
     /**
-     * @var ResetAccountPasswordResponseBody
+     * @var CancelActiveOperationTasksResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ResetAccountPasswordResponse extends Model
     /**
      * @param array $map
      *
-     * @return ResetAccountPasswordResponse
+     * @return CancelActiveOperationTasksResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ResetAccountPasswordResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ResetAccountPasswordResponseBody::fromMap($map['body']);
+            $model->body = CancelActiveOperationTasksResponseBody::fromMap($map['body']);
         }
 
         return $model;

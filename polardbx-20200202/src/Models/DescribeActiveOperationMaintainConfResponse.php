@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDBInstanceMaintainTimeResponse extends Model
+class DescribeActiveOperationMaintainConfResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ModifyDBInstanceMaintainTimeResponse extends Model
     public $headers;
 
     /**
-     * @var ModifyDBInstanceMaintainTimeResponseBody
+     * @var DescribeActiveOperationMaintainConfResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ModifyDBInstanceMaintainTimeResponse extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDBInstanceMaintainTimeResponse
+     * @return DescribeActiveOperationMaintainConfResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ModifyDBInstanceMaintainTimeResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ModifyDBInstanceMaintainTimeResponseBody::fromMap($map['body']);
+            $model->body = DescribeActiveOperationMaintainConfResponseBody::fromMap($map['body']);
         }
 
         return $model;

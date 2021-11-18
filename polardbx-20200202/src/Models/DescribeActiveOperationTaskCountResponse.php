@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DisableRightsSeparationResponse extends Model
+class DescribeActiveOperationTaskCountResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DisableRightsSeparationResponse extends Model
     public $headers;
 
     /**
-     * @var DisableRightsSeparationResponseBody
+     * @var DescribeActiveOperationTaskCountResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DisableRightsSeparationResponse extends Model
     /**
      * @param array $map
      *
-     * @return DisableRightsSeparationResponse
+     * @return DescribeActiveOperationTaskCountResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DisableRightsSeparationResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DisableRightsSeparationResponseBody::fromMap($map['body']);
+            $model->body = DescribeActiveOperationTaskCountResponseBody::fromMap($map['body']);
         }
 
         return $model;

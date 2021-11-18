@@ -6,26 +6,22 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyAccountPrivilegeResponseBody extends Model
+class ModifyActiveOperationTasksResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $message;
+    public $ids;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
-        'message'   => 'Message',
+        'ids'       => 'Ids',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
     ];
 
     public function validate()
@@ -35,14 +31,11 @@ class ModifyAccountPrivilegeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->ids) {
+            $res['Ids'] = $this->ids;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -51,19 +44,16 @@ class ModifyAccountPrivilegeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyAccountPrivilegeResponseBody
+     * @return ModifyActiveOperationTasksResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['Ids'])) {
+            $model->ids = $map['Ids'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

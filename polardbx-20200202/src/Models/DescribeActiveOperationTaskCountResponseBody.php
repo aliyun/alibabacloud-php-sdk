@@ -6,26 +6,28 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DisableRightsSeparationResponseBody extends Model
+class DescribeActiveOperationTaskCountResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $message;
+    public $needPop;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $success;
+    public $taskCount;
     protected $_name = [
-        'message'   => 'Message',
+        'needPop'   => 'NeedPop',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'taskCount' => 'TaskCount',
     ];
 
     public function validate()
@@ -35,14 +37,14 @@ class DisableRightsSeparationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->needPop) {
+            $res['NeedPop'] = $this->needPop;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->taskCount) {
+            $res['TaskCount'] = $this->taskCount;
         }
 
         return $res;
@@ -51,19 +53,19 @@ class DisableRightsSeparationResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DisableRightsSeparationResponseBody
+     * @return DescribeActiveOperationTaskCountResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['NeedPop'])) {
+            $model->needPop = $map['NeedPop'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['TaskCount'])) {
+            $model->taskCount = $map['TaskCount'];
         }
 
         return $model;

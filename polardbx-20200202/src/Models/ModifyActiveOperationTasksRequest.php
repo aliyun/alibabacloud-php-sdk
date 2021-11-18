@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeTableDetailRequest extends Model
+class ModifyActiveOperationTasksRequest extends Model
 {
     /**
      * @var string
      */
-    public $DBInstanceName;
+    public $ids;
 
     /**
-     * @var string
+     * @var int
      */
-    public $dbName;
+    public $immediateStart;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DescribeTableDetailRequest extends Model
     /**
      * @var string
      */
-    public $tableName;
+    public $switchTime;
     protected $_name = [
-        'DBInstanceName' => 'DBInstanceName',
-        'dbName'         => 'DbName',
+        'ids'            => 'Ids',
+        'immediateStart' => 'ImmediateStart',
         'regionId'       => 'RegionId',
-        'tableName'      => 'TableName',
+        'switchTime'     => 'SwitchTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeTableDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
+        if (null !== $this->ids) {
+            $res['Ids'] = $this->ids;
         }
-        if (null !== $this->dbName) {
-            $res['DbName'] = $this->dbName;
+        if (null !== $this->immediateStart) {
+            $res['ImmediateStart'] = $this->immediateStart;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
+        if (null !== $this->switchTime) {
+            $res['SwitchTime'] = $this->switchTime;
         }
 
         return $res;
@@ -60,22 +60,22 @@ class DescribeTableDetailRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeTableDetailRequest
+     * @return ModifyActiveOperationTasksRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
+        if (isset($map['Ids'])) {
+            $model->ids = $map['Ids'];
         }
-        if (isset($map['DbName'])) {
-            $model->dbName = $map['DbName'];
+        if (isset($map['ImmediateStart'])) {
+            $model->immediateStart = $map['ImmediateStart'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
+        if (isset($map['SwitchTime'])) {
+            $model->switchTime = $map['SwitchTime'];
         }
 
         return $model;

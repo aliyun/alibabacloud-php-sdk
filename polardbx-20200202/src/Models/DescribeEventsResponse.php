@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EnableRightsSeparationResponse extends Model
+class DescribeEventsResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class EnableRightsSeparationResponse extends Model
     public $headers;
 
     /**
-     * @var EnableRightsSeparationResponseBody
+     * @var DescribeEventsResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class EnableRightsSeparationResponse extends Model
     /**
      * @param array $map
      *
-     * @return EnableRightsSeparationResponse
+     * @return DescribeEventsResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class EnableRightsSeparationResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = EnableRightsSeparationResponseBody::fromMap($map['body']);
+            $model->body = DescribeEventsResponseBody::fromMap($map['body']);
         }
 
         return $model;

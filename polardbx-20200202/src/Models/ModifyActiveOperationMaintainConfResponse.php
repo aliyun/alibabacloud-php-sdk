@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyAccountPrivilegeResponse extends Model
+class ModifyActiveOperationMaintainConfResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ModifyAccountPrivilegeResponse extends Model
     public $headers;
 
     /**
-     * @var ModifyAccountPrivilegeResponseBody
+     * @var ModifyActiveOperationMaintainConfResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ModifyAccountPrivilegeResponse extends Model
     /**
      * @param array $map
      *
-     * @return ModifyAccountPrivilegeResponse
+     * @return ModifyActiveOperationMaintainConfResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ModifyAccountPrivilegeResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ModifyAccountPrivilegeResponseBody::fromMap($map['body']);
+            $model->body = ModifyActiveOperationMaintainConfResponseBody::fromMap($map['body']);
         }
 
         return $model;

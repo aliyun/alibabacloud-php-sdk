@@ -6,14 +6,16 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDBInstanceMaintainTimeResponseBody extends Model
+class DescribeActiveOperationMaintainConfRequest extends Model
 {
     /**
+     * @description 区域ID
+     *
      * @var string
      */
-    public $requestId;
+    public $regionId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class ModifyDBInstanceMaintainTimeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class ModifyDBInstanceMaintainTimeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDBInstanceMaintainTimeResponseBody
+     * @return DescribeActiveOperationMaintainConfRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

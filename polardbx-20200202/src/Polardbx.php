@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateInstancePublicConnectionResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelPolarxOrderRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelPolarxOrderResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckCloudResourceAuthorizedRequest;
@@ -32,6 +34,10 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteDBRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteDBResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAccountListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAccountListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationMaintainConfRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationMaintainConfResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationTaskCountRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationTaskCountResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetListRequest;
@@ -58,6 +64,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBNodePerformanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBNodePerformanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEventsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEventsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesRequest;
@@ -71,22 +79,18 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListRe
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTableDetailRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTableDetailResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTasksResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeUserEncryptionKeyListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeUserEncryptionKeyListResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableRightsSeparationRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableRightsSeparationResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableRightsSeparationRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableRightsSeparationResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\GetPolarxCommodityRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\GetPolarxCommodityResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyAccountDescriptionResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyAccountPrivilegeRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyAccountPrivilegeResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyActiveOperationMaintainConfRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyActiveOperationMaintainConfResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDatabaseDescriptionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDatabaseDescriptionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceClassRequest;
@@ -95,16 +99,12 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceConfigRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceConfigResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceDescriptionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceDescriptionResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceMaintainTimeRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceMaintainTimeResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySecurityIpsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateBackupPolicyRequest;
@@ -228,6 +228,35 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateInstancePublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return CancelActiveOperationTasksResponse::fromMap($this->doRPCRequest('CancelActiveOperationTasks', '2020-02-02', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelActiveOperationTasksRequest $request
+     *
+     * @return CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -564,6 +593,63 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAccountListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeActiveOperationMaintainConfRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeActiveOperationMaintainConfResponse
+     */
+    public function describeActiveOperationMaintainConfWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeActiveOperationMaintainConfResponse::fromMap($this->doRPCRequest('DescribeActiveOperationMaintainConf', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeActiveOperationMaintainConfRequest $request
+     *
+     * @return DescribeActiveOperationMaintainConfResponse
+     */
+    public function describeActiveOperationMaintainConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationMaintainConfWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeActiveOperationTaskCountRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeActiveOperationTaskCountResponse
+     */
+    public function describeActiveOperationTaskCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return DescribeActiveOperationTaskCountResponse::fromMap($this->doRPCRequest('DescribeActiveOperationTaskCount', '2020-02-02', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeActiveOperationTaskCountRequest $request
+     *
+     * @return DescribeActiveOperationTaskCountResponse
+     */
+    public function describeActiveOperationTaskCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationTaskCountWithOptions($request, $runtime);
     }
 
     /**
@@ -932,6 +1018,35 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param DescribeEventsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeEventsResponse
+     */
+    public function describeEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return DescribeEventsResponse::fromMap($this->doRPCRequest('DescribeEvents', '2020-02-02', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEventsRequest $request
+     *
+     * @return DescribeEventsResponse
+     */
+    public function describeEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEventsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeParameterTemplatesRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1122,34 +1237,6 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeTableDetailRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeTableDetailResponse
-     */
-    public function describeTableDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeTableDetailResponse::fromMap($this->doRPCRequest('DescribeTableDetail', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeTableDetailRequest $request
-     *
-     * @return DescribeTableDetailResponse
-     */
-    public function describeTableDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeTableDetailWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeTasksRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1203,62 +1290,6 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUserEncryptionKeyListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DisableRightsSeparationRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DisableRightsSeparationResponse
-     */
-    public function disableRightsSeparationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DisableRightsSeparationResponse::fromMap($this->doRPCRequest('DisableRightsSeparation', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DisableRightsSeparationRequest $request
-     *
-     * @return DisableRightsSeparationResponse
-     */
-    public function disableRightsSeparation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->disableRightsSeparationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EnableRightsSeparationRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return EnableRightsSeparationResponse
-     */
-    public function enableRightsSeparationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return EnableRightsSeparationResponse::fromMap($this->doRPCRequest('EnableRightsSeparation', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param EnableRightsSeparationRequest $request
-     *
-     * @return EnableRightsSeparationResponse
-     */
-    public function enableRightsSeparation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->enableRightsSeparationWithOptions($request, $runtime);
     }
 
     /**
@@ -1318,31 +1349,60 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountPrivilegeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ModifyActiveOperationMaintainConfRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return ModifyAccountPrivilegeResponse
+     * @return ModifyActiveOperationMaintainConfResponse
      */
-    public function modifyAccountPrivilegeWithOptions($request, $runtime)
+    public function modifyActiveOperationMaintainConfWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ModifyActiveOperationMaintainConfResponse::fromMap($this->doRPCRequest('ModifyActiveOperationMaintainConf', '2020-02-02', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyActiveOperationMaintainConfRequest $request
+     *
+     * @return ModifyActiveOperationMaintainConfResponse
+     */
+    public function modifyActiveOperationMaintainConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyActiveOperationMaintainConfWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyActiveOperationTasksResponse
+     */
+    public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ModifyAccountPrivilegeResponse::fromMap($this->doRPCRequest('ModifyAccountPrivilege', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyActiveOperationTasksResponse::fromMap($this->doRPCRequest('ModifyActiveOperationTasks', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyAccountPrivilegeRequest $request
+     * @param ModifyActiveOperationTasksRequest $request
      *
-     * @return ModifyAccountPrivilegeResponse
+     * @return ModifyActiveOperationTasksResponse
      */
-    public function modifyAccountPrivilege($request)
+    public function modifyActiveOperationTasks($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyAccountPrivilegeWithOptions($request, $runtime);
+        return $this->modifyActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -1427,34 +1487,6 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceDescriptionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyDBInstanceMaintainTimeRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ModifyDBInstanceMaintainTimeResponse
-     */
-    public function modifyDBInstanceMaintainTimeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyDBInstanceMaintainTimeResponse::fromMap($this->doRPCRequest('ModifyDBInstanceMaintainTime', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDBInstanceMaintainTimeRequest $request
-     *
-     * @return ModifyDBInstanceMaintainTimeResponse
-     */
-    public function modifyDBInstanceMaintainTime($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDBInstanceMaintainTimeWithOptions($request, $runtime);
     }
 
     /**
@@ -1567,34 +1599,6 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseInstancePublicConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ResetAccountPasswordRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ResetAccountPasswordResponse
-     */
-    public function resetAccountPasswordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ResetAccountPasswordResponse::fromMap($this->doRPCRequest('ResetAccountPassword', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ResetAccountPasswordRequest $request
-     *
-     * @return ResetAccountPasswordResponse
-     */
-    public function resetAccountPassword($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->resetAccountPasswordWithOptions($request, $runtime);
     }
 
     /**
