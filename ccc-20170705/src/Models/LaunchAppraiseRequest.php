@@ -11,15 +11,15 @@ class LaunchAppraiseRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $acid;
 
     /**
      * @var string
      */
-    public $acid;
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'acid'       => 'Acid',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class LaunchAppraiseRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->acid) {
             $res['Acid'] = $this->acid;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class LaunchAppraiseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Acid'])) {
             $model->acid = $map['Acid'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

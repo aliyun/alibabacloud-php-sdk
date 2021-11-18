@@ -12,12 +12,7 @@ class CommitContactFlowVersionModificationResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $code;
 
     /**
      * @var contactFlowVersion
@@ -32,18 +27,23 @@ class CommitContactFlowVersionModificationResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
+        'code'               => 'Code',
         'contactFlowVersion' => 'ContactFlowVersion',
         'httpStatusCode'     => 'HttpStatusCode',
-        'code'               => 'Code',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
         'success'            => 'Success',
     ];
 
@@ -54,11 +54,8 @@ class CommitContactFlowVersionModificationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->contactFlowVersion) {
             $res['ContactFlowVersion'] = null !== $this->contactFlowVersion ? $this->contactFlowVersion->toMap() : null;
@@ -66,8 +63,11 @@ class CommitContactFlowVersionModificationResponseBody extends Model
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -84,11 +84,8 @@ class CommitContactFlowVersionModificationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['ContactFlowVersion'])) {
             $model->contactFlowVersion = contactFlowVersion::fromMap($map['ContactFlowVersion']);
@@ -96,8 +93,11 @@ class CommitContactFlowVersionModificationResponseBody extends Model
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

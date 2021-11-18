@@ -18,24 +18,9 @@ class AddBulkPhoneNumbersResponseBody extends Model
     public $arrearagePhoneNumbers;
 
     /**
-     * @var phoneNumbers
-     */
-    public $phoneNumbers;
-
-    /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $httpStatusCode;
+    public $code;
 
     /**
      * @var failedPhoneNumbers
@@ -43,29 +28,44 @@ class AddBulkPhoneNumbersResponseBody extends Model
     public $failedPhoneNumbers;
 
     /**
-     * @var userdPhoneNumbers
+     * @var int
      */
-    public $userdPhoneNumbers;
+    public $httpStatusCode;
 
     /**
      * @var string
      */
-    public $code;
+    public $message;
+
+    /**
+     * @var phoneNumbers
+     */
+    public $phoneNumbers;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var userdPhoneNumbers
+     */
+    public $userdPhoneNumbers;
     protected $_name = [
         'arrearagePhoneNumbers' => 'ArrearagePhoneNumbers',
-        'phoneNumbers'          => 'PhoneNumbers',
-        'message'               => 'Message',
-        'requestId'             => 'RequestId',
-        'httpStatusCode'        => 'HttpStatusCode',
-        'failedPhoneNumbers'    => 'FailedPhoneNumbers',
-        'userdPhoneNumbers'     => 'UserdPhoneNumbers',
         'code'                  => 'Code',
+        'failedPhoneNumbers'    => 'FailedPhoneNumbers',
+        'httpStatusCode'        => 'HttpStatusCode',
+        'message'               => 'Message',
+        'phoneNumbers'          => 'PhoneNumbers',
+        'requestId'             => 'RequestId',
         'success'               => 'Success',
+        'userdPhoneNumbers'     => 'UserdPhoneNumbers',
     ];
 
     public function validate()
@@ -78,29 +78,29 @@ class AddBulkPhoneNumbersResponseBody extends Model
         if (null !== $this->arrearagePhoneNumbers) {
             $res['ArrearagePhoneNumbers'] = null !== $this->arrearagePhoneNumbers ? $this->arrearagePhoneNumbers->toMap() : null;
         }
-        if (null !== $this->phoneNumbers) {
-            $res['PhoneNumbers'] = null !== $this->phoneNumbers ? $this->phoneNumbers->toMap() : null;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->failedPhoneNumbers) {
             $res['FailedPhoneNumbers'] = null !== $this->failedPhoneNumbers ? $this->failedPhoneNumbers->toMap() : null;
         }
-        if (null !== $this->userdPhoneNumbers) {
-            $res['UserdPhoneNumbers'] = null !== $this->userdPhoneNumbers ? $this->userdPhoneNumbers->toMap() : null;
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->phoneNumbers) {
+            $res['PhoneNumbers'] = null !== $this->phoneNumbers ? $this->phoneNumbers->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->userdPhoneNumbers) {
+            $res['UserdPhoneNumbers'] = null !== $this->userdPhoneNumbers ? $this->userdPhoneNumbers->toMap() : null;
         }
 
         return $res;
@@ -117,29 +117,29 @@ class AddBulkPhoneNumbersResponseBody extends Model
         if (isset($map['ArrearagePhoneNumbers'])) {
             $model->arrearagePhoneNumbers = arrearagePhoneNumbers::fromMap($map['ArrearagePhoneNumbers']);
         }
-        if (isset($map['PhoneNumbers'])) {
-            $model->phoneNumbers = phoneNumbers::fromMap($map['PhoneNumbers']);
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['FailedPhoneNumbers'])) {
             $model->failedPhoneNumbers = failedPhoneNumbers::fromMap($map['FailedPhoneNumbers']);
         }
-        if (isset($map['UserdPhoneNumbers'])) {
-            $model->userdPhoneNumbers = userdPhoneNumbers::fromMap($map['UserdPhoneNumbers']);
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['PhoneNumbers'])) {
+            $model->phoneNumbers = phoneNumbers::fromMap($map['PhoneNumbers']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['UserdPhoneNumbers'])) {
+            $model->userdPhoneNumbers = userdPhoneNumbers::fromMap($map['UserdPhoneNumbers']);
         }
 
         return $model;

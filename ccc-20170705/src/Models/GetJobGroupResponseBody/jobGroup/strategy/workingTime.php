@@ -11,15 +11,15 @@ class workingTime extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $beginTime;
 
     /**
      * @var string
      */
-    public $beginTime;
+    public $endTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
         'beginTime' => 'BeginTime',
+        'endTime'   => 'EndTime',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class workingTime extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class workingTime extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
 
         return $model;

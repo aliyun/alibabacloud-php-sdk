@@ -11,17 +11,12 @@ class AddBulkPhoneNumbersRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $usage;
-
-    /**
-     * @var string
-     */
     public $contactFlowId;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string[]
@@ -32,12 +27,17 @@ class AddBulkPhoneNumbersRequest extends Model
      * @var string[]
      */
     public $skillGroupId;
+
+    /**
+     * @var string
+     */
+    public $usage;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'usage'         => 'Usage',
         'contactFlowId' => 'ContactFlowId',
+        'instanceId'    => 'InstanceId',
         'phoneNumber'   => 'PhoneNumber',
         'skillGroupId'  => 'SkillGroupId',
+        'usage'         => 'Usage',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class AddBulkPhoneNumbersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->usage) {
-            $res['Usage'] = $this->usage;
-        }
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
+        }
+        if (null !== $this->usage) {
+            $res['Usage'] = $this->usage;
         }
 
         return $res;
@@ -74,14 +74,11 @@ class AddBulkPhoneNumbersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Usage'])) {
-            $model->usage = $map['Usage'];
-        }
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PhoneNumber'])) {
             if (!empty($map['PhoneNumber'])) {
@@ -92,6 +89,9 @@ class AddBulkPhoneNumbersRequest extends Model
             if (!empty($map['SkillGroupId'])) {
                 $model->skillGroupId = $map['SkillGroupId'];
             }
+        }
+        if (isset($map['Usage'])) {
+            $model->usage = $map['Usage'];
         }
 
         return $model;

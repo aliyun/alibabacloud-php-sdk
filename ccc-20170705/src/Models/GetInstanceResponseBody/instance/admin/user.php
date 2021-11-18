@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
-     * @var string
+     * @var detail
      */
-    public $userId;
+    public $detail;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class user extends Model
     public $ramId;
 
     /**
-     * @var detail
+     * @var string
      */
-    public $detail;
+    public $userId;
     protected $_name = [
-        'userId'     => 'UserId',
+        'detail'     => 'Detail',
         'instanceId' => 'InstanceId',
         'ramId'      => 'RamId',
-        'detail'     => 'Detail',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class user extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->detail) {
+            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -51,8 +51,8 @@ class user extends Model
         if (null !== $this->ramId) {
             $res['RamId'] = $this->ramId;
         }
-        if (null !== $this->detail) {
-            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class user extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['Detail'])) {
+            $model->detail = detail::fromMap($map['Detail']);
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -75,8 +75,8 @@ class user extends Model
         if (isset($map['RamId'])) {
             $model->ramId = $map['RamId'];
         }
-        if (isset($map['Detail'])) {
-            $model->detail = detail::fromMap($map['Detail']);
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

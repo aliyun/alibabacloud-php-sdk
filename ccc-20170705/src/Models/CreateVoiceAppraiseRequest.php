@@ -11,11 +11,6 @@ class CreateVoiceAppraiseRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $contactFlowVersionId;
 
     /**
@@ -24,13 +19,18 @@ class CreateVoiceAppraiseRequest extends Model
     public $content;
 
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var bool
      */
     public $isAppraise;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
         'contactFlowVersionId' => 'ContactFlowVersionId',
         'content'              => 'Content',
+        'instanceId'           => 'InstanceId',
         'isAppraise'           => 'IsAppraise',
     ];
 
@@ -41,14 +41,14 @@ class CreateVoiceAppraiseRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->contactFlowVersionId) {
             $res['ContactFlowVersionId'] = $this->contactFlowVersionId;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->isAppraise) {
             $res['IsAppraise'] = $this->isAppraise;
@@ -65,14 +65,14 @@ class CreateVoiceAppraiseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ContactFlowVersionId'])) {
             $model->contactFlowVersionId = $map['ContactFlowVersionId'];
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['IsAppraise'])) {
             $model->isAppraise = $map['IsAppraise'];

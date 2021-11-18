@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class agentEvent extends Model
 {
     /**
+     * @var string
+     */
+    public $event;
+
+    /**
      * @var int
      */
     public $eventTime;
@@ -17,17 +22,12 @@ class agentEvent extends Model
     /**
      * @var string
      */
-    public $loginName;
-
-    /**
-     * @var string
-     */
-    public $event;
-
-    /**
-     * @var string
-     */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $loginName;
 
     /**
      * @var int
@@ -39,10 +39,10 @@ class agentEvent extends Model
      */
     public $skillGroupIds;
     protected $_name = [
-        'eventTime'     => 'EventTime',
-        'loginName'     => 'LoginName',
         'event'         => 'Event',
+        'eventTime'     => 'EventTime',
         'instanceId'    => 'InstanceId',
+        'loginName'     => 'LoginName',
         'ramId'         => 'RamId',
         'skillGroupIds' => 'SkillGroupIds',
     ];
@@ -54,17 +54,17 @@ class agentEvent extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventTime) {
-            $res['EventTime'] = $this->eventTime;
-        }
-        if (null !== $this->loginName) {
-            $res['LoginName'] = $this->loginName;
-        }
         if (null !== $this->event) {
             $res['Event'] = $this->event;
         }
+        if (null !== $this->eventTime) {
+            $res['EventTime'] = $this->eventTime;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->loginName) {
+            $res['LoginName'] = $this->loginName;
         }
         if (null !== $this->ramId) {
             $res['RamId'] = $this->ramId;
@@ -84,17 +84,17 @@ class agentEvent extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventTime'])) {
-            $model->eventTime = $map['EventTime'];
-        }
-        if (isset($map['LoginName'])) {
-            $model->loginName = $map['LoginName'];
-        }
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
         }
+        if (isset($map['EventTime'])) {
+            $model->eventTime = $map['EventTime'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['LoginName'])) {
+            $model->loginName = $map['LoginName'];
         }
         if (isset($map['RamId'])) {
             $model->ramId = $map['RamId'];

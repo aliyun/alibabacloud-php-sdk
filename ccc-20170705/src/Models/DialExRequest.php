@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DialExRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $caller;
+    public $answerMode;
 
     /**
      * @var string
@@ -26,24 +21,29 @@ class DialExRequest extends Model
     /**
      * @var string
      */
-    public $routPoint;
+    public $caller;
 
     /**
-     * @var int
+     * @var string
      */
-    public $answerMode;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $provider;
+
+    /**
+     * @var string
+     */
+    public $routPoint;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'caller'     => 'Caller',
-        'callee'     => 'Callee',
-        'routPoint'  => 'RoutPoint',
         'answerMode' => 'AnswerMode',
+        'callee'     => 'Callee',
+        'caller'     => 'Caller',
+        'instanceId' => 'InstanceId',
         'provider'   => 'Provider',
+        'routPoint'  => 'RoutPoint',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DialExRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->caller) {
-            $res['Caller'] = $this->caller;
+        if (null !== $this->answerMode) {
+            $res['AnswerMode'] = $this->answerMode;
         }
         if (null !== $this->callee) {
             $res['Callee'] = $this->callee;
         }
-        if (null !== $this->routPoint) {
-            $res['RoutPoint'] = $this->routPoint;
+        if (null !== $this->caller) {
+            $res['Caller'] = $this->caller;
         }
-        if (null !== $this->answerMode) {
-            $res['AnswerMode'] = $this->answerMode;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->provider) {
             $res['Provider'] = $this->provider;
+        }
+        if (null !== $this->routPoint) {
+            $res['RoutPoint'] = $this->routPoint;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DialExRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Caller'])) {
-            $model->caller = $map['Caller'];
+        if (isset($map['AnswerMode'])) {
+            $model->answerMode = $map['AnswerMode'];
         }
         if (isset($map['Callee'])) {
             $model->callee = $map['Callee'];
         }
-        if (isset($map['RoutPoint'])) {
-            $model->routPoint = $map['RoutPoint'];
+        if (isset($map['Caller'])) {
+            $model->caller = $map['Caller'];
         }
-        if (isset($map['AnswerMode'])) {
-            $model->answerMode = $map['AnswerMode'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Provider'])) {
             $model->provider = $map['Provider'];
+        }
+        if (isset($map['RoutPoint'])) {
+            $model->routPoint = $map['RoutPoint'];
         }
 
         return $model;

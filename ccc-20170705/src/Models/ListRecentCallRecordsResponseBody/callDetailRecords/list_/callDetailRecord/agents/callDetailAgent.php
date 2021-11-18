@@ -11,11 +11,6 @@ class callDetailAgent extends Model
     /**
      * @var string
      */
-    public $contactId;
-
-    /**
-     * @var string
-     */
     public $agentId;
 
     /**
@@ -26,7 +21,17 @@ class callDetailAgent extends Model
     /**
      * @var string
      */
-    public $skillGroupName;
+    public $contactId;
+
+    /**
+     * @var string
+     */
+    public $feedback;
+
+    /**
+     * @var int
+     */
+    public $holdTime;
 
     /**
      * @var int
@@ -37,6 +42,16 @@ class callDetailAgent extends Model
      * @var int
      */
     public $ringTime;
+
+    /**
+     * @var string
+     */
+    public $satisfaction;
+
+    /**
+     * @var string
+     */
+    public $skillGroupName;
 
     /**
      * @var int
@@ -51,35 +66,20 @@ class callDetailAgent extends Model
     /**
      * @var int
      */
-    public $holdTime;
-
-    /**
-     * @var int
-     */
     public $workTime;
-
-    /**
-     * @var string
-     */
-    public $satisfaction;
-
-    /**
-     * @var string
-     */
-    public $feedback;
     protected $_name = [
-        'contactId'      => 'ContactId',
         'agentId'        => 'AgentId',
         'agentName'      => 'AgentName',
-        'skillGroupName' => 'SkillGroupName',
+        'contactId'      => 'ContactId',
+        'feedback'       => 'Feedback',
+        'holdTime'       => 'HoldTime',
         'queueTime'      => 'QueueTime',
         'ringTime'       => 'RingTime',
+        'satisfaction'   => 'Satisfaction',
+        'skillGroupName' => 'SkillGroupName',
         'startTime'      => 'StartTime',
         'talkTime'       => 'TalkTime',
-        'holdTime'       => 'HoldTime',
         'workTime'       => 'WorkTime',
-        'satisfaction'   => 'Satisfaction',
-        'feedback'       => 'Feedback',
     ];
 
     public function validate()
@@ -89,17 +89,20 @@ class callDetailAgent extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->contactId) {
-            $res['ContactId'] = $this->contactId;
-        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
-        if (null !== $this->skillGroupName) {
-            $res['SkillGroupName'] = $this->skillGroupName;
+        if (null !== $this->contactId) {
+            $res['ContactId'] = $this->contactId;
+        }
+        if (null !== $this->feedback) {
+            $res['Feedback'] = $this->feedback;
+        }
+        if (null !== $this->holdTime) {
+            $res['HoldTime'] = $this->holdTime;
         }
         if (null !== $this->queueTime) {
             $res['QueueTime'] = $this->queueTime;
@@ -107,23 +110,20 @@ class callDetailAgent extends Model
         if (null !== $this->ringTime) {
             $res['RingTime'] = $this->ringTime;
         }
+        if (null !== $this->satisfaction) {
+            $res['Satisfaction'] = $this->satisfaction;
+        }
+        if (null !== $this->skillGroupName) {
+            $res['SkillGroupName'] = $this->skillGroupName;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->talkTime) {
             $res['TalkTime'] = $this->talkTime;
         }
-        if (null !== $this->holdTime) {
-            $res['HoldTime'] = $this->holdTime;
-        }
         if (null !== $this->workTime) {
             $res['WorkTime'] = $this->workTime;
-        }
-        if (null !== $this->satisfaction) {
-            $res['Satisfaction'] = $this->satisfaction;
-        }
-        if (null !== $this->feedback) {
-            $res['Feedback'] = $this->feedback;
         }
 
         return $res;
@@ -137,17 +137,20 @@ class callDetailAgent extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ContactId'])) {
-            $model->contactId = $map['ContactId'];
-        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
-        if (isset($map['SkillGroupName'])) {
-            $model->skillGroupName = $map['SkillGroupName'];
+        if (isset($map['ContactId'])) {
+            $model->contactId = $map['ContactId'];
+        }
+        if (isset($map['Feedback'])) {
+            $model->feedback = $map['Feedback'];
+        }
+        if (isset($map['HoldTime'])) {
+            $model->holdTime = $map['HoldTime'];
         }
         if (isset($map['QueueTime'])) {
             $model->queueTime = $map['QueueTime'];
@@ -155,23 +158,20 @@ class callDetailAgent extends Model
         if (isset($map['RingTime'])) {
             $model->ringTime = $map['RingTime'];
         }
+        if (isset($map['Satisfaction'])) {
+            $model->satisfaction = $map['Satisfaction'];
+        }
+        if (isset($map['SkillGroupName'])) {
+            $model->skillGroupName = $map['SkillGroupName'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
         if (isset($map['TalkTime'])) {
             $model->talkTime = $map['TalkTime'];
         }
-        if (isset($map['HoldTime'])) {
-            $model->holdTime = $map['HoldTime'];
-        }
         if (isset($map['WorkTime'])) {
             $model->workTime = $map['WorkTime'];
-        }
-        if (isset($map['Satisfaction'])) {
-            $model->satisfaction = $map['Satisfaction'];
-        }
-        if (isset($map['Feedback'])) {
-            $model->feedback = $map['Feedback'];
         }
 
         return $model;

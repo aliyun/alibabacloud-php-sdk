@@ -11,12 +11,12 @@ class ModifyScenarioRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $description;
 
     /**
      * @var string
      */
-    public $scenarioId;
+    public $instanceId;
 
     /**
      * @var string
@@ -26,17 +26,17 @@ class ModifyScenarioRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $scenarioId;
 
     /**
      * @var string
      */
     public $variables;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'scenarioId'  => 'ScenarioId',
-        'name'        => 'Name',
         'description' => 'Description',
+        'instanceId'  => 'InstanceId',
+        'name'        => 'Name',
+        'scenarioId'  => 'ScenarioId',
         'variables'   => 'Variables',
     ];
 
@@ -47,17 +47,17 @@ class ModifyScenarioRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->scenarioId) {
-            $res['ScenarioId'] = $this->scenarioId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->scenarioId) {
+            $res['ScenarioId'] = $this->scenarioId;
         }
         if (null !== $this->variables) {
             $res['Variables'] = $this->variables;
@@ -74,17 +74,17 @@ class ModifyScenarioRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ScenarioId'])) {
-            $model->scenarioId = $map['ScenarioId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ScenarioId'])) {
+            $model->scenarioId = $map['ScenarioId'];
         }
         if (isset($map['Variables'])) {
             $model->variables = $map['Variables'];

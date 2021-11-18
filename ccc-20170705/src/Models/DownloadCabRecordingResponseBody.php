@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DownloadCabRecordingResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
      * @var mediaDownloadParam
      */
     public $mediaDownloadParam;
@@ -25,25 +35,15 @@ class DownloadCabRecordingResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
+        'code'               => 'Code',
+        'httpStatusCode'     => 'HttpStatusCode',
         'mediaDownloadParam' => 'MediaDownloadParam',
         'message'            => 'Message',
         'requestId'          => 'RequestId',
-        'httpStatusCode'     => 'HttpStatusCode',
-        'code'               => 'Code',
         'success'            => 'Success',
     ];
 
@@ -54,6 +54,12 @@ class DownloadCabRecordingResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->mediaDownloadParam) {
             $res['MediaDownloadParam'] = null !== $this->mediaDownloadParam ? $this->mediaDownloadParam->toMap() : null;
         }
@@ -62,12 +68,6 @@ class DownloadCabRecordingResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -84,6 +84,12 @@ class DownloadCabRecordingResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['MediaDownloadParam'])) {
             $model->mediaDownloadParam = mediaDownloadParam::fromMap($map['MediaDownloadParam']);
         }
@@ -92,12 +98,6 @@ class DownloadCabRecordingResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

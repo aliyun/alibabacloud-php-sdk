@@ -14,11 +14,6 @@ class ListUsersOfSkillGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $skillGroupId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -27,11 +22,16 @@ class ListUsersOfSkillGroupRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $skillGroupId;
     protected $_name = [
         'instanceId'   => 'InstanceId',
-        'skillGroupId' => 'SkillGroupId',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
+        'skillGroupId' => 'SkillGroupId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ListUsersOfSkillGroupRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ListUsersOfSkillGroupRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
 
         return $model;

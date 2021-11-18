@@ -11,34 +11,14 @@ use AlibabaCloud\Tea\Model;
 class surveys extends Model
 {
     /**
-     * @var string
+     * @var asrCustomModel
      */
-    public $globalQuestions;
-
-    /**
-     * @var int
-     */
-    public $round;
-
-    /**
-     * @var string
-     */
-    public $speechOptimizationParam;
+    public $asrCustomModel;
 
     /**
      * @var string
      */
     public $description;
-
-    /**
-     * @var string
-     */
-    public $hotWords;
-
-    /**
-     * @var asrCustomModel
-     */
-    public $asrCustomModel;
 
     /**
      * @var flow
@@ -48,7 +28,17 @@ class surveys extends Model
     /**
      * @var string
      */
-    public $role;
+    public $globalQuestions;
+
+    /**
+     * @var string
+     */
+    public $hotWords;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -58,24 +48,34 @@ class surveys extends Model
     /**
      * @var string
      */
+    public $role;
+
+    /**
+     * @var int
+     */
+    public $round;
+
+    /**
+     * @var string
+     */
     public $scenarioUuid;
 
     /**
      * @var string
      */
-    public $id;
+    public $speechOptimizationParam;
     protected $_name = [
-        'globalQuestions'         => 'GlobalQuestions',
-        'round'                   => 'Round',
-        'speechOptimizationParam' => 'SpeechOptimizationParam',
-        'description'             => 'Description',
-        'hotWords'                => 'HotWords',
         'asrCustomModel'          => 'AsrCustomModel',
+        'description'             => 'Description',
         'flow'                    => 'Flow',
-        'role'                    => 'Role',
-        'name'                    => 'Name',
-        'scenarioUuid'            => 'ScenarioUuid',
+        'globalQuestions'         => 'GlobalQuestions',
+        'hotWords'                => 'HotWords',
         'id'                      => 'Id',
+        'name'                    => 'Name',
+        'role'                    => 'Role',
+        'round'                   => 'Round',
+        'scenarioUuid'            => 'ScenarioUuid',
+        'speechOptimizationParam' => 'SpeechOptimizationParam',
     ];
 
     public function validate()
@@ -85,38 +85,38 @@ class surveys extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->globalQuestions) {
-            $res['GlobalQuestions'] = $this->globalQuestions;
-        }
-        if (null !== $this->round) {
-            $res['Round'] = $this->round;
-        }
-        if (null !== $this->speechOptimizationParam) {
-            $res['SpeechOptimizationParam'] = $this->speechOptimizationParam;
+        if (null !== $this->asrCustomModel) {
+            $res['AsrCustomModel'] = null !== $this->asrCustomModel ? $this->asrCustomModel->toMap() : null;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->hotWords) {
-            $res['HotWords'] = $this->hotWords;
-        }
-        if (null !== $this->asrCustomModel) {
-            $res['AsrCustomModel'] = null !== $this->asrCustomModel ? $this->asrCustomModel->toMap() : null;
-        }
         if (null !== $this->flow) {
             $res['Flow'] = null !== $this->flow ? $this->flow->toMap() : null;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
+        if (null !== $this->globalQuestions) {
+            $res['GlobalQuestions'] = $this->globalQuestions;
+        }
+        if (null !== $this->hotWords) {
+            $res['HotWords'] = $this->hotWords;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
+        if (null !== $this->round) {
+            $res['Round'] = $this->round;
+        }
         if (null !== $this->scenarioUuid) {
             $res['ScenarioUuid'] = $this->scenarioUuid;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->speechOptimizationParam) {
+            $res['SpeechOptimizationParam'] = $this->speechOptimizationParam;
         }
 
         return $res;
@@ -130,38 +130,38 @@ class surveys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GlobalQuestions'])) {
-            $model->globalQuestions = $map['GlobalQuestions'];
-        }
-        if (isset($map['Round'])) {
-            $model->round = $map['Round'];
-        }
-        if (isset($map['SpeechOptimizationParam'])) {
-            $model->speechOptimizationParam = $map['SpeechOptimizationParam'];
+        if (isset($map['AsrCustomModel'])) {
+            $model->asrCustomModel = asrCustomModel::fromMap($map['AsrCustomModel']);
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['HotWords'])) {
-            $model->hotWords = $map['HotWords'];
-        }
-        if (isset($map['AsrCustomModel'])) {
-            $model->asrCustomModel = asrCustomModel::fromMap($map['AsrCustomModel']);
-        }
         if (isset($map['Flow'])) {
             $model->flow = flow::fromMap($map['Flow']);
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
+        if (isset($map['GlobalQuestions'])) {
+            $model->globalQuestions = $map['GlobalQuestions'];
+        }
+        if (isset($map['HotWords'])) {
+            $model->hotWords = $map['HotWords'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
+        if (isset($map['Round'])) {
+            $model->round = $map['Round'];
+        }
         if (isset($map['ScenarioUuid'])) {
             $model->scenarioUuid = $map['ScenarioUuid'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['SpeechOptimizationParam'])) {
+            $model->speechOptimizationParam = $map['SpeechOptimizationParam'];
         }
 
         return $model;

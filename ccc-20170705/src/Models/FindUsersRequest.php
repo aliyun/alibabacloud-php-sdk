@@ -11,12 +11,12 @@ class FindUsersRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $criteria;
 
     /**
      * @var string
      */
-    public $criteria;
+    public $instanceId;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class FindUsersRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'criteria'   => 'Criteria',
+        'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -41,11 +41,11 @@ class FindUsersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -65,11 +65,11 @@ class FindUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

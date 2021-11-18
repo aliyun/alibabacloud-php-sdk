@@ -11,15 +11,15 @@ class skillGroup extends Model
     /**
      * @var string
      */
-    public $skillGroupName;
+    public $skillGroupId;
 
     /**
      * @var string
      */
-    public $skillGroupId;
+    public $skillGroupName;
     protected $_name = [
-        'skillGroupName' => 'SkillGroupName',
         'skillGroupId'   => 'SkillGroupId',
+        'skillGroupName' => 'SkillGroupName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class skillGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skillGroupName) {
-            $res['SkillGroupName'] = $this->skillGroupName;
-        }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
+        }
+        if (null !== $this->skillGroupName) {
+            $res['SkillGroupName'] = $this->skillGroupName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class skillGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkillGroupName'])) {
-            $model->skillGroupName = $map['SkillGroupName'];
-        }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
+        }
+        if (isset($map['SkillGroupName'])) {
+            $model->skillGroupName = $map['SkillGroupName'];
         }
 
         return $model;

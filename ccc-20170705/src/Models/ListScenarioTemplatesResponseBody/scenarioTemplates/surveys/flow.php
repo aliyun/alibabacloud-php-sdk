@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class flow extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $isPublished;
+    public $flowId;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class flow extends Model
     public $flowJson;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $flowId;
+    public $isPublished;
     protected $_name = [
-        'isPublished' => 'IsPublished',
-        'flowJson'    => 'FlowJson',
         'flowId'      => 'FlowId',
+        'flowJson'    => 'FlowJson',
+        'isPublished' => 'IsPublished',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class flow extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isPublished) {
-            $res['IsPublished'] = $this->isPublished;
+        if (null !== $this->flowId) {
+            $res['FlowId'] = $this->flowId;
         }
         if (null !== $this->flowJson) {
             $res['FlowJson'] = $this->flowJson;
         }
-        if (null !== $this->flowId) {
-            $res['FlowId'] = $this->flowId;
+        if (null !== $this->isPublished) {
+            $res['IsPublished'] = $this->isPublished;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class flow extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsPublished'])) {
-            $model->isPublished = $map['IsPublished'];
+        if (isset($map['FlowId'])) {
+            $model->flowId = $map['FlowId'];
         }
         if (isset($map['FlowJson'])) {
             $model->flowJson = $map['FlowJson'];
         }
-        if (isset($map['FlowId'])) {
-            $model->flowId = $map['FlowId'];
+        if (isset($map['IsPublished'])) {
+            $model->isPublished = $map['IsPublished'];
         }
 
         return $model;

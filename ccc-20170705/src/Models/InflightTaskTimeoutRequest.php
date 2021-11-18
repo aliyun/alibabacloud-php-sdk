@@ -14,18 +14,18 @@ class InflightTaskTimeoutRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
      * @var int
      */
     public $instanceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'instanceId'      => 'InstanceId',
-        'taskId'          => 'TaskId',
         'instanceOwnerId' => 'InstanceOwnerId',
+        'taskId'          => 'TaskId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class InflightTaskTimeoutRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->instanceOwnerId) {
             $res['InstanceOwnerId'] = $this->instanceOwnerId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class InflightTaskTimeoutRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['InstanceOwnerId'])) {
             $model->instanceOwnerId = $map['InstanceOwnerId'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

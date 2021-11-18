@@ -11,15 +11,15 @@ class GetJobStatusByCallIdRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $callId;
 
     /**
      * @var string
      */
-    public $callId;
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'callId'     => 'CallId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetJobStatusByCallIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetJobStatusByCallIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

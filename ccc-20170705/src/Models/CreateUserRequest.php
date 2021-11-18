@@ -16,6 +16,11 @@ class CreateUserRequest extends Model
     /**
      * @var string
      */
+    public $email;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -27,11 +32,6 @@ class CreateUserRequest extends Model
      * @var string
      */
     public $phone;
-
-    /**
-     * @var string
-     */
-    public $email;
 
     /**
      * @var string
@@ -54,10 +54,10 @@ class CreateUserRequest extends Model
     public $skillLevel;
     protected $_name = [
         'displayName'             => 'DisplayName',
+        'email'                   => 'Email',
         'instanceId'              => 'InstanceId',
         'loginName'               => 'LoginName',
         'phone'                   => 'Phone',
-        'email'                   => 'Email',
         'privateOutboundNumberId' => 'PrivateOutboundNumberId',
         'roleId'                  => 'RoleId',
         'skillGroupId'            => 'SkillGroupId',
@@ -74,6 +74,9 @@ class CreateUserRequest extends Model
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -82,9 +85,6 @@ class CreateUserRequest extends Model
         }
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
-        }
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
         }
         if (null !== $this->privateOutboundNumberId) {
             $res['PrivateOutboundNumberId'] = $this->privateOutboundNumberId;
@@ -113,6 +113,9 @@ class CreateUserRequest extends Model
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -121,9 +124,6 @@ class CreateUserRequest extends Model
         }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
-        }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
         }
         if (isset($map['PrivateOutboundNumberId'])) {
             $model->privateOutboundNumberId = $map['PrivateOutboundNumberId'];

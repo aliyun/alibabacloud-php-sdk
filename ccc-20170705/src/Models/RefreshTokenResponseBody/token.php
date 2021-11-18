@@ -11,15 +11,15 @@ class token extends Model
     /**
      * @var string
      */
-    public $signature;
+    public $signData;
 
     /**
      * @var string
      */
-    public $signData;
+    public $signature;
     protected $_name = [
-        'signature' => 'Signature',
         'signData'  => 'SignData',
+        'signature' => 'Signature',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class token extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
-        }
         if (null !== $this->signData) {
             $res['SignData'] = $this->signData;
+        }
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class token extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
-        }
         if (isset($map['SignData'])) {
             $model->signData = $map['SignData'];
+        }
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
         }
 
         return $model;

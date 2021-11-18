@@ -13,11 +13,6 @@ use AlibabaCloud\Tea\Model;
 class job extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var string[]
      */
     public $callingNumbers;
@@ -28,14 +23,9 @@ class job extends Model
     public $contacts;
 
     /**
-     * @var summary[]
+     * @var extras[]
      */
-    public $summary;
-
-    /**
-     * @var int
-     */
-    public $priority;
+    public $extras;
 
     /**
      * @var string
@@ -43,14 +33,19 @@ class job extends Model
     public $failureReason;
 
     /**
-     * @var int
+     * @var string
      */
-    public $systemPriority;
+    public $groupId;
 
     /**
-     * @var extras[]
+     * @var string
      */
-    public $extras;
+    public $jobId;
+
+    /**
+     * @var int
+     */
+    public $priority;
 
     /**
      * @var string
@@ -63,9 +58,9 @@ class job extends Model
     public $scenarioId;
 
     /**
-     * @var tasks[]
+     * @var string
      */
-    public $tasks;
+    public $status;
 
     /**
      * @var string
@@ -73,29 +68,34 @@ class job extends Model
     public $strategyId;
 
     /**
-     * @var string
+     * @var summary[]
      */
-    public $groupId;
+    public $summary;
 
     /**
-     * @var string
+     * @var int
      */
-    public $jobId;
+    public $systemPriority;
+
+    /**
+     * @var tasks[]
+     */
+    public $tasks;
     protected $_name = [
-        'status'         => 'Status',
         'callingNumbers' => 'CallingNumbers',
         'contacts'       => 'Contacts',
-        'summary'        => 'Summary',
-        'priority'       => 'Priority',
-        'failureReason'  => 'FailureReason',
-        'systemPriority' => 'SystemPriority',
         'extras'         => 'Extras',
-        'referenceId'    => 'ReferenceId',
-        'scenarioId'     => 'ScenarioId',
-        'tasks'          => 'Tasks',
-        'strategyId'     => 'StrategyId',
+        'failureReason'  => 'FailureReason',
         'groupId'        => 'GroupId',
         'jobId'          => 'JobId',
+        'priority'       => 'Priority',
+        'referenceId'    => 'ReferenceId',
+        'scenarioId'     => 'ScenarioId',
+        'status'         => 'Status',
+        'strategyId'     => 'StrategyId',
+        'summary'        => 'Summary',
+        'systemPriority' => 'SystemPriority',
+        'tasks'          => 'Tasks',
     ];
 
     public function validate()
@@ -105,9 +105,6 @@ class job extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->callingNumbers) {
             $res['CallingNumbers'] = $this->callingNumbers;
         }
@@ -120,24 +117,6 @@ class job extends Model
                 }
             }
         }
-        if (null !== $this->summary) {
-            $res['Summary'] = [];
-            if (null !== $this->summary && \is_array($this->summary)) {
-                $n = 0;
-                foreach ($this->summary as $item) {
-                    $res['Summary'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
-        }
-        if (null !== $this->failureReason) {
-            $res['FailureReason'] = $this->failureReason;
-        }
-        if (null !== $this->systemPriority) {
-            $res['SystemPriority'] = $this->systemPriority;
-        }
         if (null !== $this->extras) {
             $res['Extras'] = [];
             if (null !== $this->extras && \is_array($this->extras)) {
@@ -147,11 +126,41 @@ class job extends Model
                 }
             }
         }
+        if (null !== $this->failureReason) {
+            $res['FailureReason'] = $this->failureReason;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
         if (null !== $this->referenceId) {
             $res['ReferenceId'] = $this->referenceId;
         }
         if (null !== $this->scenarioId) {
             $res['ScenarioId'] = $this->scenarioId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->strategyId) {
+            $res['StrategyId'] = $this->strategyId;
+        }
+        if (null !== $this->summary) {
+            $res['Summary'] = [];
+            if (null !== $this->summary && \is_array($this->summary)) {
+                $n = 0;
+                foreach ($this->summary as $item) {
+                    $res['Summary'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->systemPriority) {
+            $res['SystemPriority'] = $this->systemPriority;
         }
         if (null !== $this->tasks) {
             $res['Tasks'] = [];
@@ -161,15 +170,6 @@ class job extends Model
                     $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->strategyId) {
-            $res['StrategyId'] = $this->strategyId;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -183,9 +183,6 @@ class job extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CallingNumbers'])) {
             if (!empty($map['CallingNumbers'])) {
                 $model->callingNumbers = $map['CallingNumbers'];
@@ -200,24 +197,6 @@ class job extends Model
                 }
             }
         }
-        if (isset($map['Summary'])) {
-            if (!empty($map['Summary'])) {
-                $model->summary = [];
-                $n              = 0;
-                foreach ($map['Summary'] as $item) {
-                    $model->summary[$n++] = null !== $item ? summary::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
-        }
-        if (isset($map['FailureReason'])) {
-            $model->failureReason = $map['FailureReason'];
-        }
-        if (isset($map['SystemPriority'])) {
-            $model->systemPriority = $map['SystemPriority'];
-        }
         if (isset($map['Extras'])) {
             if (!empty($map['Extras'])) {
                 $model->extras = [];
@@ -227,11 +206,41 @@ class job extends Model
                 }
             }
         }
+        if (isset($map['FailureReason'])) {
+            $model->failureReason = $map['FailureReason'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
         if (isset($map['ReferenceId'])) {
             $model->referenceId = $map['ReferenceId'];
         }
         if (isset($map['ScenarioId'])) {
             $model->scenarioId = $map['ScenarioId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['StrategyId'])) {
+            $model->strategyId = $map['StrategyId'];
+        }
+        if (isset($map['Summary'])) {
+            if (!empty($map['Summary'])) {
+                $model->summary = [];
+                $n              = 0;
+                foreach ($map['Summary'] as $item) {
+                    $model->summary[$n++] = null !== $item ? summary::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['SystemPriority'])) {
+            $model->systemPriority = $map['SystemPriority'];
         }
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
@@ -241,15 +250,6 @@ class job extends Model
                     $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['StrategyId'])) {
-            $model->strategyId = $map['StrategyId'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateBatchJobsRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $callingNumber;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -16,12 +26,12 @@ class CreateBatchJobsRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $jobFilePath;
 
     /**
      * @var string
      */
-    public $description;
+    public $name;
 
     /**
      * @var string
@@ -34,28 +44,18 @@ class CreateBatchJobsRequest extends Model
     public $strategyJson;
 
     /**
-     * @var string
-     */
-    public $jobFilePath;
-
-    /**
      * @var bool
      */
     public $submitted;
-
-    /**
-     * @var string[]
-     */
-    public $callingNumber;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'name'          => 'Name',
+        'callingNumber' => 'CallingNumber',
         'description'   => 'Description',
+        'instanceId'    => 'InstanceId',
+        'jobFilePath'   => 'JobFilePath',
+        'name'          => 'Name',
         'scenarioId'    => 'ScenarioId',
         'strategyJson'  => 'StrategyJson',
-        'jobFilePath'   => 'JobFilePath',
         'submitted'     => 'Submitted',
-        'callingNumber' => 'CallingNumber',
     ];
 
     public function validate()
@@ -65,14 +65,20 @@ class CreateBatchJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->callingNumber) {
+            $res['CallingNumber'] = $this->callingNumber;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->jobFilePath) {
+            $res['JobFilePath'] = $this->jobFilePath;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->scenarioId) {
             $res['ScenarioId'] = $this->scenarioId;
@@ -80,14 +86,8 @@ class CreateBatchJobsRequest extends Model
         if (null !== $this->strategyJson) {
             $res['StrategyJson'] = $this->strategyJson;
         }
-        if (null !== $this->jobFilePath) {
-            $res['JobFilePath'] = $this->jobFilePath;
-        }
         if (null !== $this->submitted) {
             $res['Submitted'] = $this->submitted;
-        }
-        if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
         }
 
         return $res;
@@ -101,14 +101,22 @@ class CreateBatchJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['CallingNumber'])) {
+            if (!empty($map['CallingNumber'])) {
+                $model->callingNumber = $map['CallingNumber'];
+            }
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['JobFilePath'])) {
+            $model->jobFilePath = $map['JobFilePath'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['ScenarioId'])) {
             $model->scenarioId = $map['ScenarioId'];
@@ -116,16 +124,8 @@ class CreateBatchJobsRequest extends Model
         if (isset($map['StrategyJson'])) {
             $model->strategyJson = $map['StrategyJson'];
         }
-        if (isset($map['JobFilePath'])) {
-            $model->jobFilePath = $map['JobFilePath'];
-        }
         if (isset($map['Submitted'])) {
             $model->submitted = $map['Submitted'];
-        }
-        if (isset($map['CallingNumber'])) {
-            if (!empty($map['CallingNumber'])) {
-                $model->callingNumber = $map['CallingNumber'];
-            }
         }
 
         return $model;

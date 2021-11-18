@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class AssignJobsRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $instanceId;
+    public $callingNumber;
 
     /**
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string[]
+     */
+    public $jobsJson;
 
     /**
      * @var string
@@ -27,23 +37,13 @@ class AssignJobsRequest extends Model
      * @var string
      */
     public $strategyJson;
-
-    /**
-     * @var string[]
-     */
-    public $callingNumber;
-
-    /**
-     * @var string[]
-     */
-    public $jobsJson;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
+        'callingNumber' => 'CallingNumber',
         'groupId'       => 'GroupId',
+        'instanceId'    => 'InstanceId',
+        'jobsJson'      => 'JobsJson',
         'scenarioId'    => 'ScenarioId',
         'strategyJson'  => 'StrategyJson',
-        'callingNumber' => 'CallingNumber',
-        'jobsJson'      => 'JobsJson',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class AssignJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->callingNumber) {
+            $res['CallingNumber'] = $this->callingNumber;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->jobsJson) {
+            $res['JobsJson'] = $this->jobsJson;
         }
         if (null !== $this->scenarioId) {
             $res['ScenarioId'] = $this->scenarioId;
         }
         if (null !== $this->strategyJson) {
             $res['StrategyJson'] = $this->strategyJson;
-        }
-        if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
-        }
-        if (null !== $this->jobsJson) {
-            $res['JobsJson'] = $this->jobsJson;
         }
 
         return $res;
@@ -83,27 +83,27 @@ class AssignJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['CallingNumber'])) {
+            if (!empty($map['CallingNumber'])) {
+                $model->callingNumber = $map['CallingNumber'];
+            }
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['JobsJson'])) {
+            if (!empty($map['JobsJson'])) {
+                $model->jobsJson = $map['JobsJson'];
+            }
         }
         if (isset($map['ScenarioId'])) {
             $model->scenarioId = $map['ScenarioId'];
         }
         if (isset($map['StrategyJson'])) {
             $model->strategyJson = $map['StrategyJson'];
-        }
-        if (isset($map['CallingNumber'])) {
-            if (!empty($map['CallingNumber'])) {
-                $model->callingNumber = $map['CallingNumber'];
-            }
-        }
-        if (isset($map['JobsJson'])) {
-            if (!empty($map['JobsJson'])) {
-                $model->jobsJson = $map['JobsJson'];
-            }
         }
 
         return $model;

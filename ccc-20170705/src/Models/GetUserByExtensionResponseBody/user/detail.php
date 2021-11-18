@@ -11,7 +11,17 @@ class detail extends Model
     /**
      * @var string
      */
+    public $department;
+
+    /**
+     * @var string
+     */
     public $displayName;
+
+    /**
+     * @var string
+     */
+    public $email;
 
     /**
      * @var string
@@ -26,23 +36,13 @@ class detail extends Model
     /**
      * @var string
      */
-    public $email;
-
-    /**
-     * @var string
-     */
-    public $department;
-
-    /**
-     * @var string
-     */
     public $phone;
     protected $_name = [
+        'department'  => 'Department',
         'displayName' => 'DisplayName',
+        'email'       => 'Email',
         'extension'   => 'Extension',
         'loginName'   => 'LoginName',
-        'email'       => 'Email',
-        'department'  => 'Department',
         'phone'       => 'Phone',
     ];
 
@@ -53,20 +53,20 @@ class detail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->department) {
+            $res['Department'] = $this->department;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
         }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
         }
         if (null !== $this->loginName) {
             $res['LoginName'] = $this->loginName;
-        }
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
-        }
-        if (null !== $this->department) {
-            $res['Department'] = $this->department;
         }
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
@@ -83,20 +83,20 @@ class detail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Department'])) {
+            $model->department = $map['Department'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
         }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
         }
         if (isset($map['LoginName'])) {
             $model->loginName = $map['LoginName'];
-        }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
-        }
-        if (isset($map['Department'])) {
-            $model->department = $map['Department'];
         }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];

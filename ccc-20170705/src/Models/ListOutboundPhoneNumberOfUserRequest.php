@@ -14,11 +14,6 @@ class ListOutboundPhoneNumberOfUserRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -27,11 +22,16 @@ class ListOutboundPhoneNumberOfUserRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ListOutboundPhoneNumberOfUserRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ListOutboundPhoneNumberOfUserRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

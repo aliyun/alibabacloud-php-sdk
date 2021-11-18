@@ -12,19 +12,9 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
-     * @var skillLevels
+     * @var detail
      */
-    public $skillLevels;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var roles
-     */
-    public $roles;
+    public $detail;
 
     /**
      * @var string
@@ -37,16 +27,26 @@ class user extends Model
     public $ramId;
 
     /**
-     * @var detail
+     * @var roles
      */
-    public $detail;
+    public $roles;
+
+    /**
+     * @var skillLevels
+     */
+    public $skillLevels;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'skillLevels' => 'SkillLevels',
-        'userId'      => 'UserId',
-        'roles'       => 'Roles',
+        'detail'      => 'Detail',
         'instanceId'  => 'InstanceId',
         'ramId'       => 'RamId',
-        'detail'      => 'Detail',
+        'roles'       => 'Roles',
+        'skillLevels' => 'SkillLevels',
+        'userId'      => 'UserId',
     ];
 
     public function validate()
@@ -56,14 +56,8 @@ class user extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skillLevels) {
-            $res['SkillLevels'] = null !== $this->skillLevels ? $this->skillLevels->toMap() : null;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->roles) {
-            $res['Roles'] = null !== $this->roles ? $this->roles->toMap() : null;
+        if (null !== $this->detail) {
+            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -71,8 +65,14 @@ class user extends Model
         if (null !== $this->ramId) {
             $res['RamId'] = $this->ramId;
         }
-        if (null !== $this->detail) {
-            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
+        if (null !== $this->roles) {
+            $res['Roles'] = null !== $this->roles ? $this->roles->toMap() : null;
+        }
+        if (null !== $this->skillLevels) {
+            $res['SkillLevels'] = null !== $this->skillLevels ? $this->skillLevels->toMap() : null;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -86,14 +86,8 @@ class user extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkillLevels'])) {
-            $model->skillLevels = skillLevels::fromMap($map['SkillLevels']);
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['Roles'])) {
-            $model->roles = roles::fromMap($map['Roles']);
+        if (isset($map['Detail'])) {
+            $model->detail = detail::fromMap($map['Detail']);
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -101,8 +95,14 @@ class user extends Model
         if (isset($map['RamId'])) {
             $model->ramId = $map['RamId'];
         }
-        if (isset($map['Detail'])) {
-            $model->detail = detail::fromMap($map['Detail']);
+        if (isset($map['Roles'])) {
+            $model->roles = roles::fromMap($map['Roles']);
+        }
+        if (isset($map['SkillLevels'])) {
+            $model->skillLevels = skillLevels::fromMap($map['SkillLevels']);
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

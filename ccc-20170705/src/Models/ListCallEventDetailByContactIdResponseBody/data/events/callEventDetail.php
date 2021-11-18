@@ -12,7 +12,7 @@ class callEventDetail extends Model
     /**
      * @var string
      */
-    public $status;
+    public $agentName;
 
     /**
      * @var string
@@ -25,6 +25,11 @@ class callEventDetail extends Model
     public $detailData;
 
     /**
+     * @var int
+     */
+    public $duration;
+
+    /**
      * @var string
      */
     public $event;
@@ -32,25 +37,20 @@ class callEventDetail extends Model
     /**
      * @var string
      */
-    public $timeStamp;
+    public $status;
 
     /**
      * @var string
      */
-    public $agentName;
-
-    /**
-     * @var int
-     */
-    public $duration;
+    public $timeStamp;
     protected $_name = [
-        'status'     => 'Status',
+        'agentName'  => 'AgentName',
         'callMode'   => 'CallMode',
         'detailData' => 'DetailData',
-        'event'      => 'Event',
-        'timeStamp'  => 'TimeStamp',
-        'agentName'  => 'AgentName',
         'duration'   => 'Duration',
+        'event'      => 'Event',
+        'status'     => 'Status',
+        'timeStamp'  => 'TimeStamp',
     ];
 
     public function validate()
@@ -60,8 +60,8 @@ class callEventDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->agentName) {
+            $res['AgentName'] = $this->agentName;
         }
         if (null !== $this->callMode) {
             $res['CallMode'] = $this->callMode;
@@ -69,17 +69,17 @@ class callEventDetail extends Model
         if (null !== $this->detailData) {
             $res['DetailData'] = null !== $this->detailData ? $this->detailData->toMap() : null;
         }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
         if (null !== $this->event) {
             $res['Event'] = $this->event;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
-        }
-        if (null !== $this->agentName) {
-            $res['AgentName'] = $this->agentName;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
         }
 
         return $res;
@@ -93,8 +93,8 @@ class callEventDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AgentName'])) {
+            $model->agentName = $map['AgentName'];
         }
         if (isset($map['CallMode'])) {
             $model->callMode = $map['CallMode'];
@@ -102,17 +102,17 @@ class callEventDetail extends Model
         if (isset($map['DetailData'])) {
             $model->detailData = detailData::fromMap($map['DetailData']);
         }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
         }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
-        }
-        if (isset($map['AgentName'])) {
-            $model->agentName = $map['AgentName'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
         }
 
         return $model;

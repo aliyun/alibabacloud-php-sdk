@@ -11,7 +11,7 @@ class CommitContactFlowVersionModificationRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $canvas;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class CommitContactFlowVersionModificationRequest extends Model
     /**
      * @var string
      */
-    public $canvas;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $instanceId;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
-        'contactFlowVersionId' => 'ContactFlowVersionId',
         'canvas'               => 'Canvas',
+        'contactFlowVersionId' => 'ContactFlowVersionId',
         'content'              => 'Content',
+        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CommitContactFlowVersionModificationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->canvas) {
+            $res['Canvas'] = $this->canvas;
         }
         if (null !== $this->contactFlowVersionId) {
             $res['ContactFlowVersionId'] = $this->contactFlowVersionId;
         }
-        if (null !== $this->canvas) {
-            $res['Canvas'] = $this->canvas;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CommitContactFlowVersionModificationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Canvas'])) {
+            $model->canvas = $map['Canvas'];
         }
         if (isset($map['ContactFlowVersionId'])) {
             $model->contactFlowVersionId = $map['ContactFlowVersionId'];
         }
-        if (isset($map['Canvas'])) {
-            $model->canvas = $map['Canvas'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

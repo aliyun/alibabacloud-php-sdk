@@ -12,6 +12,21 @@ use AlibabaCloud\Tea\Model;
 class skillGroupSummaryReport extends Model
 {
     /**
+     * @var inbound
+     */
+    public $inbound;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var outbound
+     */
+    public $outbound;
+
+    /**
      * @var overall
      */
     public $overall;
@@ -25,28 +40,13 @@ class skillGroupSummaryReport extends Model
      * @var string
      */
     public $skillGroupName;
-
-    /**
-     * @var inbound
-     */
-    public $inbound;
-
-    /**
-     * @var outbound
-     */
-    public $outbound;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
     protected $_name = [
+        'inbound'        => 'Inbound',
+        'instanceId'     => 'InstanceId',
+        'outbound'       => 'Outbound',
         'overall'        => 'Overall',
         'skillGroupId'   => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
-        'inbound'        => 'Inbound',
-        'outbound'       => 'Outbound',
-        'instanceId'     => 'InstanceId',
     ];
 
     public function validate()
@@ -56,6 +56,15 @@ class skillGroupSummaryReport extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->inbound) {
+            $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->outbound) {
+            $res['Outbound'] = null !== $this->outbound ? $this->outbound->toMap() : null;
+        }
         if (null !== $this->overall) {
             $res['Overall'] = null !== $this->overall ? $this->overall->toMap() : null;
         }
@@ -64,15 +73,6 @@ class skillGroupSummaryReport extends Model
         }
         if (null !== $this->skillGroupName) {
             $res['SkillGroupName'] = $this->skillGroupName;
-        }
-        if (null !== $this->inbound) {
-            $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
-        }
-        if (null !== $this->outbound) {
-            $res['Outbound'] = null !== $this->outbound ? $this->outbound->toMap() : null;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -86,6 +86,15 @@ class skillGroupSummaryReport extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Inbound'])) {
+            $model->inbound = inbound::fromMap($map['Inbound']);
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Outbound'])) {
+            $model->outbound = outbound::fromMap($map['Outbound']);
+        }
         if (isset($map['Overall'])) {
             $model->overall = overall::fromMap($map['Overall']);
         }
@@ -94,15 +103,6 @@ class skillGroupSummaryReport extends Model
         }
         if (isset($map['SkillGroupName'])) {
             $model->skillGroupName = $map['SkillGroupName'];
-        }
-        if (isset($map['Inbound'])) {
-            $model->inbound = inbound::fromMap($map['Inbound']);
-        }
-        if (isset($map['Outbound'])) {
-            $model->outbound = outbound::fromMap($map['Outbound']);
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

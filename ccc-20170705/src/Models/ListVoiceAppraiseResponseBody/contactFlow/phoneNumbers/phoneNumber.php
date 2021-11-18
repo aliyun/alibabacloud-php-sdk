@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class phoneNumber extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $trunks;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $number;
-
-    /**
-     * @var int
-     */
-    public $remainingTime;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
 
     /**
      * @var string
@@ -37,13 +27,23 @@ class phoneNumber extends Model
      * @var string
      */
     public $phoneNumberId;
+
+    /**
+     * @var int
+     */
+    public $remainingTime;
+
+    /**
+     * @var int
+     */
+    public $trunks;
     protected $_name = [
-        'trunks'                 => 'Trunks',
-        'number'                 => 'Number',
-        'remainingTime'          => 'RemainingTime',
         'instanceId'             => 'InstanceId',
+        'number'                 => 'Number',
         'phoneNumberDescription' => 'PhoneNumberDescription',
         'phoneNumberId'          => 'PhoneNumberId',
+        'remainingTime'          => 'RemainingTime',
+        'trunks'                 => 'Trunks',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class phoneNumber extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->trunks) {
-            $res['Trunks'] = $this->trunks;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->number) {
             $res['Number'] = $this->number;
-        }
-        if (null !== $this->remainingTime) {
-            $res['RemainingTime'] = $this->remainingTime;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->phoneNumberDescription) {
             $res['PhoneNumberDescription'] = $this->phoneNumberDescription;
         }
         if (null !== $this->phoneNumberId) {
             $res['PhoneNumberId'] = $this->phoneNumberId;
+        }
+        if (null !== $this->remainingTime) {
+            $res['RemainingTime'] = $this->remainingTime;
+        }
+        if (null !== $this->trunks) {
+            $res['Trunks'] = $this->trunks;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class phoneNumber extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Trunks'])) {
-            $model->trunks = $map['Trunks'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
-        }
-        if (isset($map['RemainingTime'])) {
-            $model->remainingTime = $map['RemainingTime'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PhoneNumberDescription'])) {
             $model->phoneNumberDescription = $map['PhoneNumberDescription'];
         }
         if (isset($map['PhoneNumberId'])) {
             $model->phoneNumberId = $map['PhoneNumberId'];
+        }
+        if (isset($map['RemainingTime'])) {
+            $model->remainingTime = $map['RemainingTime'];
+        }
+        if (isset($map['Trunks'])) {
+            $model->trunks = $map['Trunks'];
         }
 
         return $model;

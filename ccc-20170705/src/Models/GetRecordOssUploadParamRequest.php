@@ -11,15 +11,15 @@ class GetRecordOssUploadParamRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $fileName;
 
     /**
      * @var string
      */
-    public $fileName;
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'fileName'   => 'FileName',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetRecordOssUploadParamRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetRecordOssUploadParamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

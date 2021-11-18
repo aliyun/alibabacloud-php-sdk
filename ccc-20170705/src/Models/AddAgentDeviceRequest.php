@@ -11,7 +11,7 @@ class AddAgentDeviceRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $browserVersion;
 
     /**
      * @var string
@@ -26,17 +26,17 @@ class AddAgentDeviceRequest extends Model
     /**
      * @var string
      */
-    public $browserVersion;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
+        'browserVersion' => 'BrowserVersion',
         'clientIp'       => 'ClientIp',
         'clientPort'     => 'ClientPort',
-        'browserVersion' => 'BrowserVersion',
+        'instanceId'     => 'InstanceId',
         'remark'         => 'Remark',
     ];
 
@@ -47,8 +47,8 @@ class AddAgentDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->browserVersion) {
+            $res['BrowserVersion'] = $this->browserVersion;
         }
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
@@ -56,8 +56,8 @@ class AddAgentDeviceRequest extends Model
         if (null !== $this->clientPort) {
             $res['ClientPort'] = $this->clientPort;
         }
-        if (null !== $this->browserVersion) {
-            $res['BrowserVersion'] = $this->browserVersion;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
@@ -74,8 +74,8 @@ class AddAgentDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['BrowserVersion'])) {
+            $model->browserVersion = $map['BrowserVersion'];
         }
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
@@ -83,8 +83,8 @@ class AddAgentDeviceRequest extends Model
         if (isset($map['ClientPort'])) {
             $model->clientPort = $map['ClientPort'];
         }
-        if (isset($map['BrowserVersion'])) {
-            $model->browserVersion = $map['BrowserVersion'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];

@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CreateBatchJobsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
      * @var jobGroup
      */
     public $jobGroup;
@@ -25,25 +35,15 @@ class CreateBatchJobsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
+        'code'           => 'Code',
+        'httpStatusCode' => 'HttpStatusCode',
         'jobGroup'       => 'JobGroup',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'httpStatusCode' => 'HttpStatusCode',
-        'code'           => 'Code',
         'success'        => 'Success',
     ];
 
@@ -54,6 +54,12 @@ class CreateBatchJobsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->jobGroup) {
             $res['JobGroup'] = null !== $this->jobGroup ? $this->jobGroup->toMap() : null;
         }
@@ -62,12 +68,6 @@ class CreateBatchJobsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -84,6 +84,12 @@ class CreateBatchJobsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['JobGroup'])) {
             $model->jobGroup = jobGroup::fromMap($map['JobGroup']);
         }
@@ -92,12 +98,6 @@ class CreateBatchJobsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

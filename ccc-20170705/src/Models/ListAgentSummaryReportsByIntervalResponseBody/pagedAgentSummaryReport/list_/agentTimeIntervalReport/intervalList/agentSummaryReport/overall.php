@@ -11,37 +11,7 @@ class overall extends Model
     /**
      * @var int
      */
-    public $totalLoggedInTime;
-
-    /**
-     * @var int
-     */
-    public $totalTalkTime;
-
-    /**
-     * @var float
-     */
-    public $occupancyRate;
-
-    /**
-     * @var string
-     */
-    public $lastLogOutTime;
-
-    /**
-     * @var int
-     */
-    public $totalWorkTime;
-
-    /**
-     * @var string
-     */
-    public $firstLogInTime;
-
-    /**
-     * @var int
-     */
-    public $maxWorkTime;
+    public $averageReadyTime;
 
     /**
      * @var int
@@ -52,6 +22,41 @@ class overall extends Model
      * @var int
      */
     public $averageWorkTime;
+
+    /**
+     * @var string
+     */
+    public $firstLogInTime;
+
+    /**
+     * @var string
+     */
+    public $lastLogOutTime;
+
+    /**
+     * @var int
+     */
+    public $maxReadyTime;
+
+    /**
+     * @var int
+     */
+    public $maxTalkTime;
+
+    /**
+     * @var int
+     */
+    public $maxWorkTime;
+
+    /**
+     * @var float
+     */
+    public $occupancyRate;
+
+    /**
+     * @var int
+     */
+    public $oneTransferCalls;
 
     /**
      * @var float
@@ -71,22 +76,17 @@ class overall extends Model
     /**
      * @var int
      */
-    public $averageReadyTime;
+    public $totalBreakTime;
 
     /**
      * @var int
      */
-    public $maxReadyTime;
+    public $totalCalls;
 
     /**
      * @var int
      */
-    public $oneTransferCalls;
-
-    /**
-     * @var int
-     */
-    public $maxTalkTime;
+    public $totalLoggedInTime;
 
     /**
      * @var int
@@ -96,32 +96,32 @@ class overall extends Model
     /**
      * @var int
      */
-    public $totalBreakTime;
+    public $totalTalkTime;
 
     /**
      * @var int
      */
-    public $totalCalls;
+    public $totalWorkTime;
     protected $_name = [
-        'totalLoggedInTime'            => 'TotalLoggedInTime',
-        'totalTalkTime'                => 'TotalTalkTime',
-        'occupancyRate'                => 'OccupancyRate',
-        'lastLogOutTime'               => 'LastLogOutTime',
-        'totalWorkTime'                => 'TotalWorkTime',
-        'firstLogInTime'               => 'FirstLogInTime',
-        'maxWorkTime'                  => 'MaxWorkTime',
+        'averageReadyTime'             => 'AverageReadyTime',
         'averageTalkTime'              => 'AverageTalkTime',
         'averageWorkTime'              => 'AverageWorkTime',
+        'firstLogInTime'               => 'FirstLogInTime',
+        'lastLogOutTime'               => 'LastLogOutTime',
+        'maxReadyTime'                 => 'MaxReadyTime',
+        'maxTalkTime'                  => 'MaxTalkTime',
+        'maxWorkTime'                  => 'MaxWorkTime',
+        'occupancyRate'                => 'OccupancyRate',
+        'oneTransferCalls'             => 'OneTransferCalls',
         'satisfactionIndex'            => 'SatisfactionIndex',
         'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
-        'averageReadyTime'             => 'AverageReadyTime',
-        'maxReadyTime'                 => 'MaxReadyTime',
-        'oneTransferCalls'             => 'OneTransferCalls',
-        'maxTalkTime'                  => 'MaxTalkTime',
-        'totalReadyTime'               => 'TotalReadyTime',
         'totalBreakTime'               => 'TotalBreakTime',
         'totalCalls'                   => 'TotalCalls',
+        'totalLoggedInTime'            => 'TotalLoggedInTime',
+        'totalReadyTime'               => 'TotalReadyTime',
+        'totalTalkTime'                => 'TotalTalkTime',
+        'totalWorkTime'                => 'TotalWorkTime',
     ];
 
     public function validate()
@@ -131,32 +131,35 @@ class overall extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalLoggedInTime) {
-            $res['TotalLoggedInTime'] = $this->totalLoggedInTime;
-        }
-        if (null !== $this->totalTalkTime) {
-            $res['TotalTalkTime'] = $this->totalTalkTime;
-        }
-        if (null !== $this->occupancyRate) {
-            $res['OccupancyRate'] = $this->occupancyRate;
-        }
-        if (null !== $this->lastLogOutTime) {
-            $res['LastLogOutTime'] = $this->lastLogOutTime;
-        }
-        if (null !== $this->totalWorkTime) {
-            $res['TotalWorkTime'] = $this->totalWorkTime;
-        }
-        if (null !== $this->firstLogInTime) {
-            $res['FirstLogInTime'] = $this->firstLogInTime;
-        }
-        if (null !== $this->maxWorkTime) {
-            $res['MaxWorkTime'] = $this->maxWorkTime;
+        if (null !== $this->averageReadyTime) {
+            $res['AverageReadyTime'] = $this->averageReadyTime;
         }
         if (null !== $this->averageTalkTime) {
             $res['AverageTalkTime'] = $this->averageTalkTime;
         }
         if (null !== $this->averageWorkTime) {
             $res['AverageWorkTime'] = $this->averageWorkTime;
+        }
+        if (null !== $this->firstLogInTime) {
+            $res['FirstLogInTime'] = $this->firstLogInTime;
+        }
+        if (null !== $this->lastLogOutTime) {
+            $res['LastLogOutTime'] = $this->lastLogOutTime;
+        }
+        if (null !== $this->maxReadyTime) {
+            $res['MaxReadyTime'] = $this->maxReadyTime;
+        }
+        if (null !== $this->maxTalkTime) {
+            $res['MaxTalkTime'] = $this->maxTalkTime;
+        }
+        if (null !== $this->maxWorkTime) {
+            $res['MaxWorkTime'] = $this->maxWorkTime;
+        }
+        if (null !== $this->occupancyRate) {
+            $res['OccupancyRate'] = $this->occupancyRate;
+        }
+        if (null !== $this->oneTransferCalls) {
+            $res['OneTransferCalls'] = $this->oneTransferCalls;
         }
         if (null !== $this->satisfactionIndex) {
             $res['SatisfactionIndex'] = $this->satisfactionIndex;
@@ -167,26 +170,23 @@ class overall extends Model
         if (null !== $this->satisfactionSurveysResponded) {
             $res['SatisfactionSurveysResponded'] = $this->satisfactionSurveysResponded;
         }
-        if (null !== $this->averageReadyTime) {
-            $res['AverageReadyTime'] = $this->averageReadyTime;
-        }
-        if (null !== $this->maxReadyTime) {
-            $res['MaxReadyTime'] = $this->maxReadyTime;
-        }
-        if (null !== $this->oneTransferCalls) {
-            $res['OneTransferCalls'] = $this->oneTransferCalls;
-        }
-        if (null !== $this->maxTalkTime) {
-            $res['MaxTalkTime'] = $this->maxTalkTime;
-        }
-        if (null !== $this->totalReadyTime) {
-            $res['TotalReadyTime'] = $this->totalReadyTime;
-        }
         if (null !== $this->totalBreakTime) {
             $res['TotalBreakTime'] = $this->totalBreakTime;
         }
         if (null !== $this->totalCalls) {
             $res['TotalCalls'] = $this->totalCalls;
+        }
+        if (null !== $this->totalLoggedInTime) {
+            $res['TotalLoggedInTime'] = $this->totalLoggedInTime;
+        }
+        if (null !== $this->totalReadyTime) {
+            $res['TotalReadyTime'] = $this->totalReadyTime;
+        }
+        if (null !== $this->totalTalkTime) {
+            $res['TotalTalkTime'] = $this->totalTalkTime;
+        }
+        if (null !== $this->totalWorkTime) {
+            $res['TotalWorkTime'] = $this->totalWorkTime;
         }
 
         return $res;
@@ -200,32 +200,35 @@ class overall extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalLoggedInTime'])) {
-            $model->totalLoggedInTime = $map['TotalLoggedInTime'];
-        }
-        if (isset($map['TotalTalkTime'])) {
-            $model->totalTalkTime = $map['TotalTalkTime'];
-        }
-        if (isset($map['OccupancyRate'])) {
-            $model->occupancyRate = $map['OccupancyRate'];
-        }
-        if (isset($map['LastLogOutTime'])) {
-            $model->lastLogOutTime = $map['LastLogOutTime'];
-        }
-        if (isset($map['TotalWorkTime'])) {
-            $model->totalWorkTime = $map['TotalWorkTime'];
-        }
-        if (isset($map['FirstLogInTime'])) {
-            $model->firstLogInTime = $map['FirstLogInTime'];
-        }
-        if (isset($map['MaxWorkTime'])) {
-            $model->maxWorkTime = $map['MaxWorkTime'];
+        if (isset($map['AverageReadyTime'])) {
+            $model->averageReadyTime = $map['AverageReadyTime'];
         }
         if (isset($map['AverageTalkTime'])) {
             $model->averageTalkTime = $map['AverageTalkTime'];
         }
         if (isset($map['AverageWorkTime'])) {
             $model->averageWorkTime = $map['AverageWorkTime'];
+        }
+        if (isset($map['FirstLogInTime'])) {
+            $model->firstLogInTime = $map['FirstLogInTime'];
+        }
+        if (isset($map['LastLogOutTime'])) {
+            $model->lastLogOutTime = $map['LastLogOutTime'];
+        }
+        if (isset($map['MaxReadyTime'])) {
+            $model->maxReadyTime = $map['MaxReadyTime'];
+        }
+        if (isset($map['MaxTalkTime'])) {
+            $model->maxTalkTime = $map['MaxTalkTime'];
+        }
+        if (isset($map['MaxWorkTime'])) {
+            $model->maxWorkTime = $map['MaxWorkTime'];
+        }
+        if (isset($map['OccupancyRate'])) {
+            $model->occupancyRate = $map['OccupancyRate'];
+        }
+        if (isset($map['OneTransferCalls'])) {
+            $model->oneTransferCalls = $map['OneTransferCalls'];
         }
         if (isset($map['SatisfactionIndex'])) {
             $model->satisfactionIndex = $map['SatisfactionIndex'];
@@ -236,26 +239,23 @@ class overall extends Model
         if (isset($map['SatisfactionSurveysResponded'])) {
             $model->satisfactionSurveysResponded = $map['SatisfactionSurveysResponded'];
         }
-        if (isset($map['AverageReadyTime'])) {
-            $model->averageReadyTime = $map['AverageReadyTime'];
-        }
-        if (isset($map['MaxReadyTime'])) {
-            $model->maxReadyTime = $map['MaxReadyTime'];
-        }
-        if (isset($map['OneTransferCalls'])) {
-            $model->oneTransferCalls = $map['OneTransferCalls'];
-        }
-        if (isset($map['MaxTalkTime'])) {
-            $model->maxTalkTime = $map['MaxTalkTime'];
-        }
-        if (isset($map['TotalReadyTime'])) {
-            $model->totalReadyTime = $map['TotalReadyTime'];
-        }
         if (isset($map['TotalBreakTime'])) {
             $model->totalBreakTime = $map['TotalBreakTime'];
         }
         if (isset($map['TotalCalls'])) {
             $model->totalCalls = $map['TotalCalls'];
+        }
+        if (isset($map['TotalLoggedInTime'])) {
+            $model->totalLoggedInTime = $map['TotalLoggedInTime'];
+        }
+        if (isset($map['TotalReadyTime'])) {
+            $model->totalReadyTime = $map['TotalReadyTime'];
+        }
+        if (isset($map['TotalTalkTime'])) {
+            $model->totalTalkTime = $map['TotalTalkTime'];
+        }
+        if (isset($map['TotalWorkTime'])) {
+            $model->totalWorkTime = $map['TotalWorkTime'];
         }
 
         return $model;

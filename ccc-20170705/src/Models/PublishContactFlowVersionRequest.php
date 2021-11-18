@@ -11,20 +11,20 @@ class PublishContactFlowVersionRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $contactFlowVersionId;
 
     /**
      * @var string
      */
-    public $contactFlowVersionId;
+    public $instanceId;
 
     /**
      * @var bool
      */
     public $useTianGong;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
         'contactFlowVersionId' => 'ContactFlowVersionId',
+        'instanceId'           => 'InstanceId',
         'useTianGong'          => 'UseTianGong',
     ];
 
@@ -35,11 +35,11 @@ class PublishContactFlowVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->contactFlowVersionId) {
             $res['ContactFlowVersionId'] = $this->contactFlowVersionId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->useTianGong) {
             $res['UseTianGong'] = $this->useTianGong;
@@ -56,11 +56,11 @@ class PublishContactFlowVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ContactFlowVersionId'])) {
             $model->contactFlowVersionId = $map['ContactFlowVersionId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['UseTianGong'])) {
             $model->useTianGong = $map['UseTianGong'];

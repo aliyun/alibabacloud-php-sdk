@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class skillGroup extends Model
 {
     /**
+     * @var string
+     */
+    public $accQueueName;
+
+    /**
+     * @var string
+     */
+    public $accSkillGroupName;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var outboundPhoneNumbers
      */
     public $outboundPhoneNumbers;
@@ -18,6 +33,11 @@ class skillGroup extends Model
      * @var string
      */
     public $routingStrategy;
+
+    /**
+     * @var string
+     */
+    public $skillGroupDescription;
 
     /**
      * @var string
@@ -33,36 +53,16 @@ class skillGroup extends Model
      * @var int
      */
     public $userCount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $accQueueName;
-
-    /**
-     * @var string
-     */
-    public $accSkillGroupName;
-
-    /**
-     * @var string
-     */
-    public $skillGroupDescription;
     protected $_name = [
+        'accQueueName'          => 'AccQueueName',
+        'accSkillGroupName'     => 'AccSkillGroupName',
+        'instanceId'            => 'InstanceId',
         'outboundPhoneNumbers'  => 'OutboundPhoneNumbers',
         'routingStrategy'       => 'RoutingStrategy',
+        'skillGroupDescription' => 'SkillGroupDescription',
         'skillGroupId'          => 'SkillGroupId',
         'skillGroupName'        => 'SkillGroupName',
         'userCount'             => 'UserCount',
-        'instanceId'            => 'InstanceId',
-        'accQueueName'          => 'AccQueueName',
-        'accSkillGroupName'     => 'AccSkillGroupName',
-        'skillGroupDescription' => 'SkillGroupDescription',
     ];
 
     public function validate()
@@ -72,11 +72,23 @@ class skillGroup extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accQueueName) {
+            $res['AccQueueName'] = $this->accQueueName;
+        }
+        if (null !== $this->accSkillGroupName) {
+            $res['AccSkillGroupName'] = $this->accSkillGroupName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->outboundPhoneNumbers) {
             $res['OutboundPhoneNumbers'] = null !== $this->outboundPhoneNumbers ? $this->outboundPhoneNumbers->toMap() : null;
         }
         if (null !== $this->routingStrategy) {
             $res['RoutingStrategy'] = $this->routingStrategy;
+        }
+        if (null !== $this->skillGroupDescription) {
+            $res['SkillGroupDescription'] = $this->skillGroupDescription;
         }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
@@ -86,18 +98,6 @@ class skillGroup extends Model
         }
         if (null !== $this->userCount) {
             $res['UserCount'] = $this->userCount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->accQueueName) {
-            $res['AccQueueName'] = $this->accQueueName;
-        }
-        if (null !== $this->accSkillGroupName) {
-            $res['AccSkillGroupName'] = $this->accSkillGroupName;
-        }
-        if (null !== $this->skillGroupDescription) {
-            $res['SkillGroupDescription'] = $this->skillGroupDescription;
         }
 
         return $res;
@@ -111,11 +111,23 @@ class skillGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccQueueName'])) {
+            $model->accQueueName = $map['AccQueueName'];
+        }
+        if (isset($map['AccSkillGroupName'])) {
+            $model->accSkillGroupName = $map['AccSkillGroupName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['OutboundPhoneNumbers'])) {
             $model->outboundPhoneNumbers = outboundPhoneNumbers::fromMap($map['OutboundPhoneNumbers']);
         }
         if (isset($map['RoutingStrategy'])) {
             $model->routingStrategy = $map['RoutingStrategy'];
+        }
+        if (isset($map['SkillGroupDescription'])) {
+            $model->skillGroupDescription = $map['SkillGroupDescription'];
         }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
@@ -125,18 +137,6 @@ class skillGroup extends Model
         }
         if (isset($map['UserCount'])) {
             $model->userCount = $map['UserCount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['AccQueueName'])) {
-            $model->accQueueName = $map['AccQueueName'];
-        }
-        if (isset($map['AccSkillGroupName'])) {
-            $model->accSkillGroupName = $map['AccSkillGroupName'];
-        }
-        if (isset($map['SkillGroupDescription'])) {
-            $model->skillGroupDescription = $map['SkillGroupDescription'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class mediaDownloadParam extends Model
     /**
      * @var string
      */
-    public $signatureUrl;
+    public $fileName;
 
     /**
      * @var string
      */
-    public $fileName;
+    public $signatureUrl;
     protected $_name = [
-        'signatureUrl' => 'SignatureUrl',
         'fileName'     => 'FileName',
+        'signatureUrl' => 'SignatureUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class mediaDownloadParam extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->signatureUrl) {
-            $res['SignatureUrl'] = $this->signatureUrl;
-        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->signatureUrl) {
+            $res['SignatureUrl'] = $this->signatureUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class mediaDownloadParam extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SignatureUrl'])) {
-            $model->signatureUrl = $map['SignatureUrl'];
-        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['SignatureUrl'])) {
+            $model->signatureUrl = $map['SignatureUrl'];
         }
 
         return $model;

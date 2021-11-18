@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class trunkConfigs extends Model
 {
     /**
-     * @var string
-     */
-    public $providerName;
-
-    /**
      * @var bool
      */
     public $primary;
+
+    /**
+     * @var string
+     */
+    public $providerName;
     protected $_name = [
-        'providerName' => 'ProviderName',
         'primary'      => 'Primary',
+        'providerName' => 'ProviderName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class trunkConfigs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->providerName) {
-            $res['ProviderName'] = $this->providerName;
-        }
         if (null !== $this->primary) {
             $res['Primary'] = $this->primary;
+        }
+        if (null !== $this->providerName) {
+            $res['ProviderName'] = $this->providerName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class trunkConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProviderName'])) {
-            $model->providerName = $map['ProviderName'];
-        }
         if (isset($map['Primary'])) {
             $model->primary = $map['Primary'];
+        }
+        if (isset($map['ProviderName'])) {
+            $model->providerName = $map['ProviderName'];
         }
 
         return $model;

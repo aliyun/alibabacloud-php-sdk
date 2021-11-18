@@ -11,17 +11,7 @@ class CreateSurveyRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $scenarioId;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $corpora;
 
     /**
      * @var string
@@ -36,17 +26,17 @@ class CreateSurveyRequest extends Model
     /**
      * @var string
      */
-    public $corpora;
-
-    /**
-     * @var string
-     */
-    public $speechOptimizationParam;
-
-    /**
-     * @var string
-     */
     public $globalQuestions;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
@@ -57,17 +47,27 @@ class CreateSurveyRequest extends Model
      * @var int
      */
     public $round;
+
+    /**
+     * @var string
+     */
+    public $scenarioId;
+
+    /**
+     * @var string
+     */
+    public $speechOptimizationParam;
     protected $_name = [
-        'instanceId'              => 'InstanceId',
-        'scenarioId'              => 'ScenarioId',
-        'name'                    => 'Name',
+        'corpora'                 => 'Corpora',
         'description'             => 'Description',
         'flowJson'                => 'FlowJson',
-        'corpora'                 => 'Corpora',
-        'speechOptimizationParam' => 'SpeechOptimizationParam',
         'globalQuestions'         => 'GlobalQuestions',
+        'instanceId'              => 'InstanceId',
+        'name'                    => 'Name',
         'role'                    => 'Role',
         'round'                   => 'Round',
+        'scenarioId'              => 'ScenarioId',
+        'speechOptimizationParam' => 'SpeechOptimizationParam',
     ];
 
     public function validate()
@@ -77,14 +77,8 @@ class CreateSurveyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->scenarioId) {
-            $res['ScenarioId'] = $this->scenarioId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->corpora) {
+            $res['Corpora'] = $this->corpora;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -92,20 +86,26 @@ class CreateSurveyRequest extends Model
         if (null !== $this->flowJson) {
             $res['FlowJson'] = $this->flowJson;
         }
-        if (null !== $this->corpora) {
-            $res['Corpora'] = $this->corpora;
-        }
-        if (null !== $this->speechOptimizationParam) {
-            $res['SpeechOptimizationParam'] = $this->speechOptimizationParam;
-        }
         if (null !== $this->globalQuestions) {
             $res['GlobalQuestions'] = $this->globalQuestions;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
         if (null !== $this->round) {
             $res['Round'] = $this->round;
+        }
+        if (null !== $this->scenarioId) {
+            $res['ScenarioId'] = $this->scenarioId;
+        }
+        if (null !== $this->speechOptimizationParam) {
+            $res['SpeechOptimizationParam'] = $this->speechOptimizationParam;
         }
 
         return $res;
@@ -119,14 +119,8 @@ class CreateSurveyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ScenarioId'])) {
-            $model->scenarioId = $map['ScenarioId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Corpora'])) {
+            $model->corpora = $map['Corpora'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -134,20 +128,26 @@ class CreateSurveyRequest extends Model
         if (isset($map['FlowJson'])) {
             $model->flowJson = $map['FlowJson'];
         }
-        if (isset($map['Corpora'])) {
-            $model->corpora = $map['Corpora'];
-        }
-        if (isset($map['SpeechOptimizationParam'])) {
-            $model->speechOptimizationParam = $map['SpeechOptimizationParam'];
-        }
         if (isset($map['GlobalQuestions'])) {
             $model->globalQuestions = $map['GlobalQuestions'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
         if (isset($map['Round'])) {
             $model->round = $map['Round'];
+        }
+        if (isset($map['ScenarioId'])) {
+            $model->scenarioId = $map['ScenarioId'];
+        }
+        if (isset($map['SpeechOptimizationParam'])) {
+            $model->speechOptimizationParam = $map['SpeechOptimizationParam'];
         }
 
         return $model;

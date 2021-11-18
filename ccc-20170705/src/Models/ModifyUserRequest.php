@@ -16,22 +16,17 @@ class ModifyUserRequest extends Model
     /**
      * @var string
      */
+    public $email;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
-    public $userId;
-
-    /**
-     * @var string
-     */
     public $phone;
-
-    /**
-     * @var string
-     */
-    public $email;
 
     /**
      * @var string
@@ -52,16 +47,21 @@ class ModifyUserRequest extends Model
      * @var int[]
      */
     public $skillLevel;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'displayName'             => 'DisplayName',
-        'instanceId'              => 'InstanceId',
-        'userId'                  => 'UserId',
-        'phone'                   => 'Phone',
         'email'                   => 'Email',
+        'instanceId'              => 'InstanceId',
+        'phone'                   => 'Phone',
         'privateOutboundNumberId' => 'PrivateOutboundNumberId',
         'roleId'                  => 'RoleId',
         'skillGroupId'            => 'SkillGroupId',
         'skillLevel'              => 'SkillLevel',
+        'userId'                  => 'UserId',
     ];
 
     public function validate()
@@ -74,17 +74,14 @@ class ModifyUserRequest extends Model
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
-        }
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
         }
         if (null !== $this->privateOutboundNumberId) {
             $res['PrivateOutboundNumberId'] = $this->privateOutboundNumberId;
@@ -97,6 +94,9 @@ class ModifyUserRequest extends Model
         }
         if (null !== $this->skillLevel) {
             $res['SkillLevel'] = $this->skillLevel;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -113,17 +113,14 @@ class ModifyUserRequest extends Model
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
-        }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
         }
         if (isset($map['PrivateOutboundNumberId'])) {
             $model->privateOutboundNumberId = $map['PrivateOutboundNumberId'];
@@ -142,6 +139,9 @@ class ModifyUserRequest extends Model
             if (!empty($map['SkillLevel'])) {
                 $model->skillLevel = $map['SkillLevel'];
             }
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

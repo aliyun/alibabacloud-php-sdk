@@ -11,12 +11,12 @@ class GetConversationDetailByContactIdRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $contactId;
 
     /**
      * @var string
      */
-    public $contactId;
+    public $instanceId;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class GetConversationDetailByContactIdRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'contactId'  => 'ContactId',
+        'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -41,11 +41,11 @@ class GetConversationDetailByContactIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -65,11 +65,11 @@ class GetConversationDetailByContactIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

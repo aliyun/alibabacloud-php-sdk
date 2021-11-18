@@ -14,11 +14,6 @@ class ModifySkillGroupOfUserRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @var string[]
      */
     public $roleId;
@@ -32,12 +27,17 @@ class ModifySkillGroupOfUserRequest extends Model
      * @var int[]
      */
     public $skillLevel;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'instanceId'   => 'InstanceId',
-        'userId'       => 'UserId',
         'roleId'       => 'RoleId',
         'skillGroupId' => 'SkillGroupId',
         'skillLevel'   => 'SkillLevel',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class ModifySkillGroupOfUserRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
@@ -61,6 +58,9 @@ class ModifySkillGroupOfUserRequest extends Model
         }
         if (null !== $this->skillLevel) {
             $res['SkillLevel'] = $this->skillLevel;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class ModifySkillGroupOfUserRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['RoleId'])) {
             if (!empty($map['RoleId'])) {
                 $model->roleId = $map['RoleId'];
@@ -94,6 +91,9 @@ class ModifySkillGroupOfUserRequest extends Model
             if (!empty($map['SkillLevel'])) {
                 $model->skillLevel = $map['SkillLevel'];
             }
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

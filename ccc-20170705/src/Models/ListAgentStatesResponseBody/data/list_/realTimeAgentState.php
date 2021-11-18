@@ -11,26 +11,6 @@ class realTimeAgentState extends Model
     /**
      * @var string
      */
-    public $loginName;
-
-    /**
-     * @var string
-     */
-    public $dn;
-
-    /**
-     * @var string
-     */
-    public $stateDuration;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
     public $agentId;
 
     /**
@@ -41,15 +21,35 @@ class realTimeAgentState extends Model
     /**
      * @var string
      */
+    public $dn;
+
+    /**
+     * @var string
+     */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $loginName;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var string
+     */
+    public $stateDuration;
     protected $_name = [
-        'loginName'     => 'LoginName',
-        'dn'            => 'Dn',
-        'stateDuration' => 'StateDuration',
-        'state'         => 'State',
         'agentId'       => 'AgentId',
         'agentName'     => 'AgentName',
+        'dn'            => 'Dn',
         'instanceId'    => 'InstanceId',
+        'loginName'     => 'LoginName',
+        'state'         => 'State',
+        'stateDuration' => 'StateDuration',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class realTimeAgentState extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->loginName) {
-            $res['LoginName'] = $this->loginName;
-        }
-        if (null !== $this->dn) {
-            $res['Dn'] = $this->dn;
-        }
-        if (null !== $this->stateDuration) {
-            $res['StateDuration'] = $this->stateDuration;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
+        if (null !== $this->dn) {
+            $res['Dn'] = $this->dn;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->loginName) {
+            $res['LoginName'] = $this->loginName;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+        if (null !== $this->stateDuration) {
+            $res['StateDuration'] = $this->stateDuration;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class realTimeAgentState extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LoginName'])) {
-            $model->loginName = $map['LoginName'];
-        }
-        if (isset($map['Dn'])) {
-            $model->dn = $map['Dn'];
-        }
-        if (isset($map['StateDuration'])) {
-            $model->stateDuration = $map['StateDuration'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
+        if (isset($map['Dn'])) {
+            $model->dn = $map['Dn'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['LoginName'])) {
+            $model->loginName = $map['LoginName'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+        if (isset($map['StateDuration'])) {
+            $model->stateDuration = $map['StateDuration'];
         }
 
         return $model;

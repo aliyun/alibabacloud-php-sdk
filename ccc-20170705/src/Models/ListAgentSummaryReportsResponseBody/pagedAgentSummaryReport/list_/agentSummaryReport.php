@@ -12,34 +12,19 @@ use AlibabaCloud\Tea\Model;
 class agentSummaryReport extends Model
 {
     /**
-     * @var overall
-     */
-    public $overall;
-
-    /**
-     * @var string
-     */
-    public $loginName;
-
-    /**
      * @var string
      */
     public $agentId;
 
     /**
-     * @var inbound
-     */
-    public $inbound;
-
-    /**
-     * @var outbound
-     */
-    public $outbound;
-
-    /**
      * @var string
      */
     public $agentName;
+
+    /**
+     * @var inbound
+     */
+    public $inbound;
 
     /**
      * @var string
@@ -49,22 +34,37 @@ class agentSummaryReport extends Model
     /**
      * @var string
      */
-    public $skillGroupNames;
+    public $loginName;
+
+    /**
+     * @var outbound
+     */
+    public $outbound;
+
+    /**
+     * @var overall
+     */
+    public $overall;
 
     /**
      * @var string
      */
     public $skillGroupIds;
+
+    /**
+     * @var string
+     */
+    public $skillGroupNames;
     protected $_name = [
-        'overall'         => 'Overall',
-        'loginName'       => 'LoginName',
         'agentId'         => 'AgentId',
-        'inbound'         => 'Inbound',
-        'outbound'        => 'Outbound',
         'agentName'       => 'AgentName',
+        'inbound'         => 'Inbound',
         'instanceId'      => 'InstanceId',
-        'skillGroupNames' => 'SkillGroupNames',
+        'loginName'       => 'LoginName',
+        'outbound'        => 'Outbound',
+        'overall'         => 'Overall',
         'skillGroupIds'   => 'SkillGroupIds',
+        'skillGroupNames' => 'SkillGroupNames',
     ];
 
     public function validate()
@@ -74,32 +74,32 @@ class agentSummaryReport extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->overall) {
-            $res['Overall'] = null !== $this->overall ? $this->overall->toMap() : null;
-        }
-        if (null !== $this->loginName) {
-            $res['LoginName'] = $this->loginName;
-        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
-        }
-        if (null !== $this->inbound) {
-            $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
-        }
-        if (null !== $this->outbound) {
-            $res['Outbound'] = null !== $this->outbound ? $this->outbound->toMap() : null;
         }
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
+        if (null !== $this->inbound) {
+            $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->skillGroupNames) {
-            $res['SkillGroupNames'] = $this->skillGroupNames;
+        if (null !== $this->loginName) {
+            $res['LoginName'] = $this->loginName;
+        }
+        if (null !== $this->outbound) {
+            $res['Outbound'] = null !== $this->outbound ? $this->outbound->toMap() : null;
+        }
+        if (null !== $this->overall) {
+            $res['Overall'] = null !== $this->overall ? $this->overall->toMap() : null;
         }
         if (null !== $this->skillGroupIds) {
             $res['SkillGroupIds'] = $this->skillGroupIds;
+        }
+        if (null !== $this->skillGroupNames) {
+            $res['SkillGroupNames'] = $this->skillGroupNames;
         }
 
         return $res;
@@ -113,32 +113,32 @@ class agentSummaryReport extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Overall'])) {
-            $model->overall = overall::fromMap($map['Overall']);
-        }
-        if (isset($map['LoginName'])) {
-            $model->loginName = $map['LoginName'];
-        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
-        }
-        if (isset($map['Inbound'])) {
-            $model->inbound = inbound::fromMap($map['Inbound']);
-        }
-        if (isset($map['Outbound'])) {
-            $model->outbound = outbound::fromMap($map['Outbound']);
         }
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
+        if (isset($map['Inbound'])) {
+            $model->inbound = inbound::fromMap($map['Inbound']);
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['SkillGroupNames'])) {
-            $model->skillGroupNames = $map['SkillGroupNames'];
+        if (isset($map['LoginName'])) {
+            $model->loginName = $map['LoginName'];
+        }
+        if (isset($map['Outbound'])) {
+            $model->outbound = outbound::fromMap($map['Outbound']);
+        }
+        if (isset($map['Overall'])) {
+            $model->overall = overall::fromMap($map['Overall']);
         }
         if (isset($map['SkillGroupIds'])) {
             $model->skillGroupIds = $map['SkillGroupIds'];
+        }
+        if (isset($map['SkillGroupNames'])) {
+            $model->skillGroupNames = $map['SkillGroupNames'];
         }
 
         return $model;

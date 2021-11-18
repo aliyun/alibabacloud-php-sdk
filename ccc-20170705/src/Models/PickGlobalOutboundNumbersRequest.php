@@ -11,17 +11,17 @@ class PickGlobalOutboundNumbersRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $calleeNumber;
 
     /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var bool
@@ -33,9 +33,9 @@ class PickGlobalOutboundNumbersRequest extends Model
      */
     public $skillGroupId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
         'calleeNumber' => 'CalleeNumber',
         'count'        => 'Count',
+        'instanceId'   => 'InstanceId',
         'isVirtual'    => 'IsVirtual',
         'skillGroupId' => 'SkillGroupId',
     ];
@@ -47,14 +47,14 @@ class PickGlobalOutboundNumbersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->calleeNumber) {
             $res['CalleeNumber'] = $this->calleeNumber;
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->isVirtual) {
             $res['IsVirtual'] = $this->isVirtual;
@@ -74,14 +74,14 @@ class PickGlobalOutboundNumbersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['CalleeNumber'])) {
             $model->calleeNumber = $map['CalleeNumber'];
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['IsVirtual'])) {
             $model->isVirtual = $map['IsVirtual'];

@@ -11,7 +11,17 @@ class summary extends Model
     /**
      * @var string
      */
-    public $summaryName;
+    public $category;
+
+    /**
+     * @var string
+     */
+    public $content;
+
+    /**
+     * @var string
+     */
+    public $conversationDetailId;
 
     /**
      * @var string
@@ -26,36 +36,26 @@ class summary extends Model
     /**
      * @var string
      */
-    public $category;
-
-    /**
-     * @var string
-     */
-    public $content;
-
-    /**
-     * @var string
-     */
     public $summaryId;
 
     /**
      * @var string
      */
-    public $taskId;
+    public $summaryName;
 
     /**
      * @var string
      */
-    public $conversationDetailId;
+    public $taskId;
     protected $_name = [
-        'summaryName'          => 'SummaryName',
-        'groupId'              => 'GroupId',
-        'jobId'                => 'JobId',
         'category'             => 'Category',
         'content'              => 'Content',
-        'summaryId'            => 'SummaryId',
-        'taskId'               => 'TaskId',
         'conversationDetailId' => 'ConversationDetailId',
+        'groupId'              => 'GroupId',
+        'jobId'                => 'JobId',
+        'summaryId'            => 'SummaryId',
+        'summaryName'          => 'SummaryName',
+        'taskId'               => 'TaskId',
     ];
 
     public function validate()
@@ -65,8 +65,14 @@ class summary extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->summaryName) {
-            $res['SummaryName'] = $this->summaryName;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
+        if (null !== $this->conversationDetailId) {
+            $res['ConversationDetailId'] = $this->conversationDetailId;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -74,20 +80,14 @@ class summary extends Model
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
         if (null !== $this->summaryId) {
             $res['SummaryId'] = $this->summaryId;
         }
+        if (null !== $this->summaryName) {
+            $res['SummaryName'] = $this->summaryName;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->conversationDetailId) {
-            $res['ConversationDetailId'] = $this->conversationDetailId;
         }
 
         return $res;
@@ -101,8 +101,14 @@ class summary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SummaryName'])) {
-            $model->summaryName = $map['SummaryName'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
+        if (isset($map['ConversationDetailId'])) {
+            $model->conversationDetailId = $map['ConversationDetailId'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -110,20 +116,14 @@ class summary extends Model
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
         if (isset($map['SummaryId'])) {
             $model->summaryId = $map['SummaryId'];
         }
+        if (isset($map['SummaryName'])) {
+            $model->summaryName = $map['SummaryName'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['ConversationDetailId'])) {
-            $model->conversationDetailId = $map['ConversationDetailId'];
         }
 
         return $model;

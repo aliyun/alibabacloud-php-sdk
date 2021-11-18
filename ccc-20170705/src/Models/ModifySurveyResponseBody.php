@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ModifySurveyResponseBody extends Model
 {
     /**
-     * @var survey
+     * @var string
      */
-    public $survey;
+    public $code;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
 
     /**
      * @var string
@@ -25,26 +30,21 @@ class ModifySurveyResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var survey
+     */
+    public $survey;
     protected $_name = [
-        'survey'         => 'Survey',
+        'code'           => 'Code',
+        'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'httpStatusCode' => 'HttpStatusCode',
-        'code'           => 'Code',
         'success'        => 'Success',
+        'survey'         => 'Survey',
     ];
 
     public function validate()
@@ -54,8 +54,11 @@ class ModifySurveyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->survey) {
-            $res['Survey'] = null !== $this->survey ? $this->survey->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -63,14 +66,11 @@ class ModifySurveyResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->survey) {
+            $res['Survey'] = null !== $this->survey ? $this->survey->toMap() : null;
         }
 
         return $res;
@@ -84,8 +84,11 @@ class ModifySurveyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Survey'])) {
-            $model->survey = survey::fromMap($map['Survey']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -93,14 +96,11 @@ class ModifySurveyResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Survey'])) {
+            $model->survey = survey::fromMap($map['Survey']);
         }
 
         return $model;

@@ -15,9 +15,9 @@ class list_ extends Model
     public $basicStatisticsReportSubItemName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $value;
+    public $count;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class list_ extends Model
     public $percentage;
 
     /**
-     * @var int
-     */
-    public $count;
-
-    /**
      * @var row[]
      */
     public $row;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
         'basicStatisticsReportSubItemName' => 'BasicStatisticsReportSubItemName',
-        'value'                            => 'Value',
-        'percentage'                       => 'Percentage',
         'count'                            => 'Count',
+        'percentage'                       => 'Percentage',
         'row'                              => 'Row',
+        'value'                            => 'Value',
     ];
 
     public function validate()
@@ -51,14 +51,11 @@ class list_ extends Model
         if (null !== $this->basicStatisticsReportSubItemName) {
             $res['BasicStatisticsReportSubItemName'] = $this->basicStatisticsReportSubItemName;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->percentage) {
             $res['Percentage'] = $this->percentage;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
         if (null !== $this->row) {
             $res['Row'] = [];
@@ -68,6 +65,9 @@ class list_ extends Model
                     $res['Row'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -84,14 +84,11 @@ class list_ extends Model
         if (isset($map['BasicStatisticsReportSubItemName'])) {
             $model->basicStatisticsReportSubItemName = $map['BasicStatisticsReportSubItemName'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['Percentage'])) {
             $model->percentage = $map['Percentage'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
         if (isset($map['Row'])) {
             if (!empty($map['Row'])) {
@@ -101,6 +98,9 @@ class list_ extends Model
                     $model->row[$n++] = null !== $item ? row::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

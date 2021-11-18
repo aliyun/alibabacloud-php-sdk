@@ -14,18 +14,18 @@ class TaskPreparingRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $jobId;
-
-    /**
      * @var int
      */
     public $instanceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $jobId;
     protected $_name = [
         'instanceId'      => 'InstanceId',
-        'jobId'           => 'JobId',
         'instanceOwnerId' => 'InstanceOwnerId',
+        'jobId'           => 'JobId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class TaskPreparingRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->instanceOwnerId) {
             $res['InstanceOwnerId'] = $this->instanceOwnerId;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class TaskPreparingRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['InstanceOwnerId'])) {
             $model->instanceOwnerId = $map['InstanceOwnerId'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         return $model;

@@ -11,22 +11,7 @@ class contact extends Model
     /**
      * @var string
      */
-    public $phoneNumber;
-
-    /**
-     * @var string
-     */
     public $contactId;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $honorific;
 
     /**
      * @var string
@@ -36,20 +21,35 @@ class contact extends Model
     /**
      * @var string
      */
-    public $role;
+    public $honorific;
+
+    /**
+     * @var string
+     */
+    public $phoneNumber;
 
     /**
      * @var string
      */
     public $referenceId;
+
+    /**
+     * @var string
+     */
+    public $role;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
-        'phoneNumber' => 'PhoneNumber',
         'contactId'   => 'ContactId',
-        'state'       => 'State',
-        'honorific'   => 'Honorific',
         'contactName' => 'ContactName',
-        'role'        => 'Role',
+        'honorific'   => 'Honorific',
+        'phoneNumber' => 'PhoneNumber',
         'referenceId' => 'ReferenceId',
+        'role'        => 'Role',
+        'state'       => 'State',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class contact extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
-        }
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->honorific) {
-            $res['Honorific'] = $this->honorific;
         }
         if (null !== $this->contactName) {
             $res['ContactName'] = $this->contactName;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
+        if (null !== $this->honorific) {
+            $res['Honorific'] = $this->honorific;
+        }
+        if (null !== $this->phoneNumber) {
+            $res['PhoneNumber'] = $this->phoneNumber;
         }
         if (null !== $this->referenceId) {
             $res['ReferenceId'] = $this->referenceId;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class contact extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PhoneNumber'])) {
-            $model->phoneNumber = $map['PhoneNumber'];
-        }
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['Honorific'])) {
-            $model->honorific = $map['Honorific'];
         }
         if (isset($map['ContactName'])) {
             $model->contactName = $map['ContactName'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
+        if (isset($map['Honorific'])) {
+            $model->honorific = $map['Honorific'];
+        }
+        if (isset($map['PhoneNumber'])) {
+            $model->phoneNumber = $map['PhoneNumber'];
         }
         if (isset($map['ReferenceId'])) {
             $model->referenceId = $map['ReferenceId'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

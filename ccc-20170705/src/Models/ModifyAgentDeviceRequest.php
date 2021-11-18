@@ -11,21 +11,21 @@ class ModifyAgentDeviceRequest extends Model
     /**
      * @var int
      */
-    public $isLogin;
-
-    /**
-     * @var int
-     */
     public $agentDeviceId;
 
     /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $isLogin;
     protected $_name = [
-        'isLogin'       => 'IsLogin',
         'agentDeviceId' => 'AgentDeviceId',
         'instanceId'    => 'InstanceId',
+        'isLogin'       => 'IsLogin',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ModifyAgentDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isLogin) {
-            $res['IsLogin'] = $this->isLogin;
-        }
         if (null !== $this->agentDeviceId) {
             $res['AgentDeviceId'] = $this->agentDeviceId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->isLogin) {
+            $res['IsLogin'] = $this->isLogin;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ModifyAgentDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsLogin'])) {
-            $model->isLogin = $map['IsLogin'];
-        }
         if (isset($map['AgentDeviceId'])) {
             $model->agentDeviceId = $map['AgentDeviceId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IsLogin'])) {
+            $model->isLogin = $map['IsLogin'];
         }
 
         return $model;

@@ -11,17 +11,7 @@ class GetTURNCredentialsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $username;
+    public $code;
 
     /**
      * @var int
@@ -31,7 +21,17 @@ class GetTURNCredentialsResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $password;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var bool
@@ -41,15 +41,15 @@ class GetTURNCredentialsResponseBody extends Model
     /**
      * @var string
      */
-    public $password;
+    public $username;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'message'        => 'Message',
-        'username'       => 'Username',
-        'httpStatusCode' => 'HttpStatusCode',
         'code'           => 'Code',
-        'success'        => 'Success',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message'        => 'Message',
         'password'       => 'Password',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
+        'username'       => 'Username',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class GetTURNCredentialsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->username) {
-            $res['Username'] = $this->username;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class GetTURNCredentialsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['Username'])) {
-            $model->username = $map['Username'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
         return $model;

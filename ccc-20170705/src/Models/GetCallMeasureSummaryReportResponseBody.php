@@ -11,24 +11,9 @@ use AlibabaCloud\Tea\Model;
 class GetCallMeasureSummaryReportResponseBody extends Model
 {
     /**
-     * @var numberReports
-     */
-    public $numberReports;
-
-    /**
-     * @var summaryReport
-     */
-    public $summaryReport;
-
-    /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $code;
 
     /**
      * @var int
@@ -38,20 +23,35 @@ class GetCallMeasureSummaryReportResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $message;
+
+    /**
+     * @var numberReports
+     */
+    public $numberReports;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var summaryReport
+     */
+    public $summaryReport;
     protected $_name = [
-        'numberReports'  => 'NumberReports',
-        'summaryReport'  => 'SummaryReport',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'httpStatusCode' => 'HttpStatusCode',
         'code'           => 'Code',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message'        => 'Message',
+        'numberReports'  => 'NumberReports',
+        'requestId'      => 'RequestId',
         'success'        => 'Success',
+        'summaryReport'  => 'SummaryReport',
     ];
 
     public function validate()
@@ -61,26 +61,26 @@ class GetCallMeasureSummaryReportResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->numberReports) {
-            $res['NumberReports'] = null !== $this->numberReports ? $this->numberReports->toMap() : null;
-        }
-        if (null !== $this->summaryReport) {
-            $res['SummaryReport'] = null !== $this->summaryReport ? $this->summaryReport->toMap() : null;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->numberReports) {
+            $res['NumberReports'] = null !== $this->numberReports ? $this->numberReports->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->summaryReport) {
+            $res['SummaryReport'] = null !== $this->summaryReport ? $this->summaryReport->toMap() : null;
         }
 
         return $res;
@@ -94,26 +94,26 @@ class GetCallMeasureSummaryReportResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NumberReports'])) {
-            $model->numberReports = numberReports::fromMap($map['NumberReports']);
-        }
-        if (isset($map['SummaryReport'])) {
-            $model->summaryReport = summaryReport::fromMap($map['SummaryReport']);
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['NumberReports'])) {
+            $model->numberReports = numberReports::fromMap($map['NumberReports']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['SummaryReport'])) {
+            $model->summaryReport = summaryReport::fromMap($map['SummaryReport']);
         }
 
         return $model;

@@ -16,17 +16,17 @@ class ListJobsByGroupRequest extends Model
     /**
      * @var string
      */
+    public $jobFailureReason;
+
+    /**
+     * @var string
+     */
     public $jobGroupId;
 
     /**
      * @var string
      */
     public $jobStatus;
-
-    /**
-     * @var string
-     */
-    public $jobFailureReason;
 
     /**
      * @var int
@@ -39,9 +39,9 @@ class ListJobsByGroupRequest extends Model
     public $pageSize;
     protected $_name = [
         'instanceId'       => 'InstanceId',
+        'jobFailureReason' => 'JobFailureReason',
         'jobGroupId'       => 'JobGroupId',
         'jobStatus'        => 'JobStatus',
-        'jobFailureReason' => 'JobFailureReason',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
     ];
@@ -56,14 +56,14 @@ class ListJobsByGroupRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->jobFailureReason) {
+            $res['JobFailureReason'] = $this->jobFailureReason;
+        }
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
         if (null !== $this->jobStatus) {
             $res['JobStatus'] = $this->jobStatus;
-        }
-        if (null !== $this->jobFailureReason) {
-            $res['JobFailureReason'] = $this->jobFailureReason;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -86,14 +86,14 @@ class ListJobsByGroupRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['JobFailureReason'])) {
+            $model->jobFailureReason = $map['JobFailureReason'];
+        }
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }
         if (isset($map['JobStatus'])) {
             $model->jobStatus = $map['JobStatus'];
-        }
-        if (isset($map['JobFailureReason'])) {
-            $model->jobFailureReason = $map['JobFailureReason'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

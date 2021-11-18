@@ -11,21 +11,21 @@ class callDetailAgent extends Model
     /**
      * @var string
      */
-    public $satisfaction;
-
-    /**
-     * @var string
-     */
     public $agentId;
 
     /**
      * @var string
      */
     public $feedback;
+
+    /**
+     * @var string
+     */
+    public $satisfaction;
     protected $_name = [
-        'satisfaction' => 'Satisfaction',
         'agentId'      => 'AgentId',
         'feedback'     => 'Feedback',
+        'satisfaction' => 'Satisfaction',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class callDetailAgent extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->satisfaction) {
-            $res['Satisfaction'] = $this->satisfaction;
-        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
         if (null !== $this->feedback) {
             $res['Feedback'] = $this->feedback;
+        }
+        if (null !== $this->satisfaction) {
+            $res['Satisfaction'] = $this->satisfaction;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class callDetailAgent extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Satisfaction'])) {
-            $model->satisfaction = $map['Satisfaction'];
-        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
         if (isset($map['Feedback'])) {
             $model->feedback = $map['Feedback'];
+        }
+        if (isset($map['Satisfaction'])) {
+            $model->satisfaction = $map['Satisfaction'];
         }
 
         return $model;

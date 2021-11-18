@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SubmitCabRecordingRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $instanceOwnerId;
+    public $earlyMediaRecording;
 
     /**
      * @var string
@@ -19,9 +19,14 @@ class SubmitCabRecordingRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $instanceOwnerId;
+
+    /**
      * @var string
      */
-    public $taskId;
+    public $mergedRecording;
 
     /**
      * @var string
@@ -31,13 +36,14 @@ class SubmitCabRecordingRequest extends Model
     /**
      * @var string
      */
-    public $mergedRecording;
+    public $taskId;
     protected $_name = [
-        'instanceOwnerId'   => 'InstanceOwnerId',
-        'instanceId'        => 'InstanceId',
-        'taskId'            => 'TaskId',
-        'resourceRecording' => 'ResourceRecording',
-        'mergedRecording'   => 'MergedRecording',
+        'earlyMediaRecording' => 'EarlyMediaRecording',
+        'instanceId'          => 'InstanceId',
+        'instanceOwnerId'     => 'InstanceOwnerId',
+        'mergedRecording'     => 'MergedRecording',
+        'resourceRecording'   => 'ResourceRecording',
+        'taskId'              => 'TaskId',
     ];
 
     public function validate()
@@ -47,20 +53,23 @@ class SubmitCabRecordingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceOwnerId) {
-            $res['InstanceOwnerId'] = $this->instanceOwnerId;
+        if (null !== $this->earlyMediaRecording) {
+            $res['EarlyMediaRecording'] = $this->earlyMediaRecording;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->instanceOwnerId) {
+            $res['InstanceOwnerId'] = $this->instanceOwnerId;
+        }
+        if (null !== $this->mergedRecording) {
+            $res['MergedRecording'] = $this->mergedRecording;
         }
         if (null !== $this->resourceRecording) {
             $res['ResourceRecording'] = $this->resourceRecording;
         }
-        if (null !== $this->mergedRecording) {
-            $res['MergedRecording'] = $this->mergedRecording;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -74,20 +83,23 @@ class SubmitCabRecordingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceOwnerId'])) {
-            $model->instanceOwnerId = $map['InstanceOwnerId'];
+        if (isset($map['EarlyMediaRecording'])) {
+            $model->earlyMediaRecording = $map['EarlyMediaRecording'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['InstanceOwnerId'])) {
+            $model->instanceOwnerId = $map['InstanceOwnerId'];
+        }
+        if (isset($map['MergedRecording'])) {
+            $model->mergedRecording = $map['MergedRecording'];
         }
         if (isset($map['ResourceRecording'])) {
             $model->resourceRecording = $map['ResourceRecording'];
         }
-        if (isset($map['MergedRecording'])) {
-            $model->mergedRecording = $map['MergedRecording'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

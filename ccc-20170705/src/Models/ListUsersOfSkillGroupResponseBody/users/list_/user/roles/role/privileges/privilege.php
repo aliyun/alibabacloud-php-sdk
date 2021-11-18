@@ -11,7 +11,7 @@ class privilege extends Model
     /**
      * @var string
      */
-    public $privilegeName;
+    public $privilegeDescription;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class privilege extends Model
     /**
      * @var string
      */
-    public $privilegeDescription;
+    public $privilegeName;
     protected $_name = [
-        'privilegeName'        => 'PrivilegeName',
-        'privilegeId'          => 'PrivilegeId',
         'privilegeDescription' => 'PrivilegeDescription',
+        'privilegeId'          => 'PrivilegeId',
+        'privilegeName'        => 'PrivilegeName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class privilege extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->privilegeName) {
-            $res['PrivilegeName'] = $this->privilegeName;
+        if (null !== $this->privilegeDescription) {
+            $res['PrivilegeDescription'] = $this->privilegeDescription;
         }
         if (null !== $this->privilegeId) {
             $res['PrivilegeId'] = $this->privilegeId;
         }
-        if (null !== $this->privilegeDescription) {
-            $res['PrivilegeDescription'] = $this->privilegeDescription;
+        if (null !== $this->privilegeName) {
+            $res['PrivilegeName'] = $this->privilegeName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class privilege extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrivilegeName'])) {
-            $model->privilegeName = $map['PrivilegeName'];
+        if (isset($map['PrivilegeDescription'])) {
+            $model->privilegeDescription = $map['PrivilegeDescription'];
         }
         if (isset($map['PrivilegeId'])) {
             $model->privilegeId = $map['PrivilegeId'];
         }
-        if (isset($map['PrivilegeDescription'])) {
-            $model->privilegeDescription = $map['PrivilegeDescription'];
+        if (isset($map['PrivilegeName'])) {
+            $model->privilegeName = $map['PrivilegeName'];
         }
 
         return $model;

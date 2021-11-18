@@ -19,11 +19,6 @@ class ListBasicStatisticsReportSubItemsRequest extends Model
     public $jobGroupId;
 
     /**
-     * @var string
-     */
-    public $title;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -32,12 +27,17 @@ class ListBasicStatisticsReportSubItemsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'jobGroupId' => 'JobGroupId',
-        'title'      => 'Title',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'title'      => 'Title',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class ListBasicStatisticsReportSubItemsRequest extends Model
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class ListBasicStatisticsReportSubItemsRequest extends Model
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

@@ -12,12 +12,7 @@ class GetJobStatusByCallIdResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $code;
 
     /**
      * @var int
@@ -32,18 +27,23 @@ class GetJobStatusByCallIdResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
+        'code'           => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
         'job'            => 'Job',
-        'code'           => 'Code',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
         'success'        => 'Success',
     ];
 
@@ -54,11 +54,8 @@ class GetJobStatusByCallIdResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -66,8 +63,11 @@ class GetJobStatusByCallIdResponseBody extends Model
         if (null !== $this->job) {
             $res['Job'] = null !== $this->job ? $this->job->toMap() : null;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -84,11 +84,8 @@ class GetJobStatusByCallIdResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
@@ -96,8 +93,11 @@ class GetJobStatusByCallIdResponseBody extends Model
         if (isset($map['Job'])) {
             $model->job = job::fromMap($map['Job']);
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

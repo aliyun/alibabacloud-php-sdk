@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListAgentDevicesResponseBody extends Model
 {
     /**
+     * @var agentDeviceList
+     */
+    public $agentDeviceList;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
      * @var string
      */
     public $message;
@@ -20,31 +35,16 @@ class ListAgentDevicesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var agentDeviceList
-     */
-    public $agentDeviceList;
     protected $_name = [
+        'agentDeviceList' => 'AgentDeviceList',
+        'code'            => 'Code',
+        'httpStatusCode'  => 'HttpStatusCode',
         'message'         => 'Message',
         'requestId'       => 'RequestId',
-        'httpStatusCode'  => 'HttpStatusCode',
-        'code'            => 'Code',
         'success'         => 'Success',
-        'agentDeviceList' => 'AgentDeviceList',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class ListAgentDevicesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentDeviceList) {
+            $res['AgentDeviceList'] = null !== $this->agentDeviceList ? $this->agentDeviceList->toMap() : null;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->agentDeviceList) {
-            $res['AgentDeviceList'] = null !== $this->agentDeviceList ? $this->agentDeviceList->toMap() : null;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class ListAgentDevicesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentDeviceList'])) {
+            $model->agentDeviceList = agentDeviceList::fromMap($map['AgentDeviceList']);
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['AgentDeviceList'])) {
-            $model->agentDeviceList = agentDeviceList::fromMap($map['AgentDeviceList']);
         }
 
         return $model;

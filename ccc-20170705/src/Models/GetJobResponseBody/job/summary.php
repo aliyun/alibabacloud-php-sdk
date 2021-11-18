@@ -11,21 +11,21 @@ class summary extends Model
     /**
      * @var string
      */
-    public $summaryName;
-
-    /**
-     * @var string
-     */
     public $category;
 
     /**
      * @var string
      */
     public $content;
+
+    /**
+     * @var string
+     */
+    public $summaryName;
     protected $_name = [
-        'summaryName' => 'SummaryName',
         'category'    => 'Category',
         'content'     => 'Content',
+        'summaryName' => 'SummaryName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class summary extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->summaryName) {
-            $res['SummaryName'] = $this->summaryName;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->summaryName) {
+            $res['SummaryName'] = $this->summaryName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class summary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SummaryName'])) {
-            $model->summaryName = $map['SummaryName'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['SummaryName'])) {
+            $model->summaryName = $map['SummaryName'];
         }
 
         return $model;

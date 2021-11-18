@@ -14,18 +14,18 @@ class ModifyPrimaryTrunksOfSkillGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $skillGroupId;
-
-    /**
      * @var string[]
      */
     public $primaryProviderName;
+
+    /**
+     * @var string
+     */
+    public $skillGroupId;
     protected $_name = [
         'instanceId'          => 'InstanceId',
-        'skillGroupId'        => 'SkillGroupId',
         'primaryProviderName' => 'PrimaryProviderName',
+        'skillGroupId'        => 'SkillGroupId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ModifyPrimaryTrunksOfSkillGroupRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
-        }
         if (null !== $this->primaryProviderName) {
             $res['PrimaryProviderName'] = $this->primaryProviderName;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
 
         return $res;
@@ -59,13 +59,13 @@ class ModifyPrimaryTrunksOfSkillGroupRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
-        }
         if (isset($map['PrimaryProviderName'])) {
             if (!empty($map['PrimaryProviderName'])) {
                 $model->primaryProviderName = $map['PrimaryProviderName'];
             }
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
 
         return $model;

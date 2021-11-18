@@ -11,6 +11,16 @@ class ModifyCabInstanceRequest extends Model
     /**
      * @var string
      */
+    public $callCenterInstanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceDescription;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -19,25 +29,15 @@ class ModifyCabInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @var string
-     */
-    public $instanceDescription;
-
-    /**
      * @var int
      */
     public $maxConcurrentConversation;
-
-    /**
-     * @var string
-     */
-    public $callCenterInstanceId;
     protected $_name = [
+        'callCenterInstanceId'      => 'CallCenterInstanceId',
+        'instanceDescription'       => 'InstanceDescription',
         'instanceId'                => 'InstanceId',
         'instanceName'              => 'InstanceName',
-        'instanceDescription'       => 'InstanceDescription',
         'maxConcurrentConversation' => 'MaxConcurrentConversation',
-        'callCenterInstanceId'      => 'CallCenterInstanceId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ModifyCabInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callCenterInstanceId) {
+            $res['CallCenterInstanceId'] = $this->callCenterInstanceId;
+        }
+        if (null !== $this->instanceDescription) {
+            $res['InstanceDescription'] = $this->instanceDescription;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->instanceDescription) {
-            $res['InstanceDescription'] = $this->instanceDescription;
-        }
         if (null !== $this->maxConcurrentConversation) {
             $res['MaxConcurrentConversation'] = $this->maxConcurrentConversation;
-        }
-        if (null !== $this->callCenterInstanceId) {
-            $res['CallCenterInstanceId'] = $this->callCenterInstanceId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ModifyCabInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallCenterInstanceId'])) {
+            $model->callCenterInstanceId = $map['CallCenterInstanceId'];
+        }
+        if (isset($map['InstanceDescription'])) {
+            $model->instanceDescription = $map['InstanceDescription'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['InstanceDescription'])) {
-            $model->instanceDescription = $map['InstanceDescription'];
-        }
         if (isset($map['MaxConcurrentConversation'])) {
             $model->maxConcurrentConversation = $map['MaxConcurrentConversation'];
-        }
-        if (isset($map['CallCenterInstanceId'])) {
-            $model->callCenterInstanceId = $map['CallCenterInstanceId'];
         }
 
         return $model;

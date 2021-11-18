@@ -11,12 +11,12 @@ class detailData extends Model
     /**
      * @var string
      */
-    public $hangUper;
+    public $eventType;
 
     /**
      * @var string
      */
-    public $eventType;
+    public $hangUper;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class detailData extends Model
     /**
      * @var string
      */
-    public $skillGroup;
+    public $satisfactionalResearch;
 
     /**
      * @var string
      */
-    public $satisfactionalResearch;
+    public $skillGroup;
     protected $_name = [
-        'hangUper'               => 'HangUper',
         'eventType'              => 'EventType',
+        'hangUper'               => 'HangUper',
         'helper'                 => 'Helper',
-        'skillGroup'             => 'SkillGroup',
         'satisfactionalResearch' => 'SatisfactionalResearch',
+        'skillGroup'             => 'SkillGroup',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class detailData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hangUper) {
-            $res['HangUper'] = $this->hangUper;
-        }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
+        }
+        if (null !== $this->hangUper) {
+            $res['HangUper'] = $this->hangUper;
         }
         if (null !== $this->helper) {
             $res['Helper'] = $this->helper;
         }
-        if (null !== $this->skillGroup) {
-            $res['SkillGroup'] = $this->skillGroup;
-        }
         if (null !== $this->satisfactionalResearch) {
             $res['SatisfactionalResearch'] = $this->satisfactionalResearch;
+        }
+        if (null !== $this->skillGroup) {
+            $res['SkillGroup'] = $this->skillGroup;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class detailData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HangUper'])) {
-            $model->hangUper = $map['HangUper'];
-        }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
+        }
+        if (isset($map['HangUper'])) {
+            $model->hangUper = $map['HangUper'];
         }
         if (isset($map['Helper'])) {
             $model->helper = $map['Helper'];
         }
-        if (isset($map['SkillGroup'])) {
-            $model->skillGroup = $map['SkillGroup'];
-        }
         if (isset($map['SatisfactionalResearch'])) {
             $model->satisfactionalResearch = $map['SatisfactionalResearch'];
+        }
+        if (isset($map['SkillGroup'])) {
+            $model->skillGroup = $map['SkillGroup'];
         }
 
         return $model;

@@ -12,17 +12,17 @@ class ListRecordingsByContactIdResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $code;
 
     /**
      * @var int
      */
     public $httpStatusCode;
+
+    /**
+     * @var string
+     */
+    public $message;
 
     /**
      * @var recordings
@@ -32,18 +32,18 @@ class ListRecordingsByContactIdResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'httpStatusCode' => 'HttpStatusCode',
-        'recordings'     => 'Recordings',
         'code'           => 'Code',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message'        => 'Message',
+        'recordings'     => 'Recordings',
+        'requestId'      => 'RequestId',
         'success'        => 'Success',
     ];
 
@@ -54,20 +54,20 @@ class ListRecordingsByContactIdResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->recordings) {
             $res['Recordings'] = null !== $this->recordings ? $this->recordings->toMap() : null;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -84,20 +84,20 @@ class ListRecordingsByContactIdResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['Recordings'])) {
             $model->recordings = recordings::fromMap($map['Recordings']);
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

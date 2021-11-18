@@ -16,12 +16,17 @@ class summaryReport extends Model
     /**
      * @var int
      */
-    public $year;
+    public $inboundCount;
 
     /**
      * @var int
      */
     public $inboundDurationByMinute;
+
+    /**
+     * @var int
+     */
+    public $month;
 
     /**
      * @var int
@@ -36,20 +41,15 @@ class summaryReport extends Model
     /**
      * @var int
      */
-    public $inboundCount;
-
-    /**
-     * @var int
-     */
-    public $month;
+    public $year;
     protected $_name = [
         'day'                      => 'Day',
-        'year'                     => 'Year',
+        'inboundCount'             => 'InboundCount',
         'inboundDurationByMinute'  => 'InboundDurationByMinute',
+        'month'                    => 'Month',
         'outboundCount'            => 'OutboundCount',
         'outboundDurationByMinute' => 'OutboundDurationByMinute',
-        'inboundCount'             => 'InboundCount',
-        'month'                    => 'Month',
+        'year'                     => 'Year',
     ];
 
     public function validate()
@@ -62,11 +62,14 @@ class summaryReport extends Model
         if (null !== $this->day) {
             $res['Day'] = $this->day;
         }
-        if (null !== $this->year) {
-            $res['Year'] = $this->year;
+        if (null !== $this->inboundCount) {
+            $res['InboundCount'] = $this->inboundCount;
         }
         if (null !== $this->inboundDurationByMinute) {
             $res['InboundDurationByMinute'] = $this->inboundDurationByMinute;
+        }
+        if (null !== $this->month) {
+            $res['Month'] = $this->month;
         }
         if (null !== $this->outboundCount) {
             $res['OutboundCount'] = $this->outboundCount;
@@ -74,11 +77,8 @@ class summaryReport extends Model
         if (null !== $this->outboundDurationByMinute) {
             $res['OutboundDurationByMinute'] = $this->outboundDurationByMinute;
         }
-        if (null !== $this->inboundCount) {
-            $res['InboundCount'] = $this->inboundCount;
-        }
-        if (null !== $this->month) {
-            $res['Month'] = $this->month;
+        if (null !== $this->year) {
+            $res['Year'] = $this->year;
         }
 
         return $res;
@@ -95,11 +95,14 @@ class summaryReport extends Model
         if (isset($map['Day'])) {
             $model->day = $map['Day'];
         }
-        if (isset($map['Year'])) {
-            $model->year = $map['Year'];
+        if (isset($map['InboundCount'])) {
+            $model->inboundCount = $map['InboundCount'];
         }
         if (isset($map['InboundDurationByMinute'])) {
             $model->inboundDurationByMinute = $map['InboundDurationByMinute'];
+        }
+        if (isset($map['Month'])) {
+            $model->month = $map['Month'];
         }
         if (isset($map['OutboundCount'])) {
             $model->outboundCount = $map['OutboundCount'];
@@ -107,11 +110,8 @@ class summaryReport extends Model
         if (isset($map['OutboundDurationByMinute'])) {
             $model->outboundDurationByMinute = $map['OutboundDurationByMinute'];
         }
-        if (isset($map['InboundCount'])) {
-            $model->inboundCount = $map['InboundCount'];
-        }
-        if (isset($map['Month'])) {
-            $model->month = $map['Month'];
+        if (isset($map['Year'])) {
+            $model->year = $map['Year'];
         }
 
         return $model;

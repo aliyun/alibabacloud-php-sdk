@@ -11,22 +11,17 @@ class GenerateAgentStatisticReportRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $agentId;
 
     /**
      * @var string
      */
-    public $startDate;
+    public $endDate;
 
     /**
      * @var string
      */
-    public $endDate;
+    public $instanceId;
 
     /**
      * @var int
@@ -37,13 +32,18 @@ class GenerateAgentStatisticReportRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $startDate;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'agentId'    => 'AgentId',
-        'startDate'  => 'StartDate',
         'endDate'    => 'EndDate',
+        'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'startDate'  => 'StartDate',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class GenerateAgentStatisticReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class GenerateAgentStatisticReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
 
         return $model;

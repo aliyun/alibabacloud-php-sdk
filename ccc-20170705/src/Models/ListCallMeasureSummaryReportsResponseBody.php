@@ -17,12 +17,7 @@ class ListCallMeasureSummaryReportsResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $code;
 
     /**
      * @var int
@@ -32,7 +27,12 @@ class ListCallMeasureSummaryReportsResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var bool
@@ -40,10 +40,10 @@ class ListCallMeasureSummaryReportsResponseBody extends Model
     public $success;
     protected $_name = [
         'callMeasureSummaryReportList' => 'CallMeasureSummaryReportList',
+        'code'                         => 'Code',
+        'httpStatusCode'               => 'HttpStatusCode',
         'message'                      => 'Message',
         'requestId'                    => 'RequestId',
-        'httpStatusCode'               => 'HttpStatusCode',
-        'code'                         => 'Code',
         'success'                      => 'Success',
     ];
 
@@ -57,17 +57,17 @@ class ListCallMeasureSummaryReportsResponseBody extends Model
         if (null !== $this->callMeasureSummaryReportList) {
             $res['CallMeasureSummaryReportList'] = null !== $this->callMeasureSummaryReportList ? $this->callMeasureSummaryReportList->toMap() : null;
         }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -87,17 +87,17 @@ class ListCallMeasureSummaryReportsResponseBody extends Model
         if (isset($map['CallMeasureSummaryReportList'])) {
             $model->callMeasureSummaryReportList = callMeasureSummaryReportList::fromMap($map['CallMeasureSummaryReportList']);
         }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

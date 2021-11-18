@@ -13,12 +13,7 @@ class surveys extends Model
     /**
      * @var string
      */
-    public $globalQuestions;
-
-    /**
-     * @var int
-     */
-    public $round;
+    public $beebotId;
 
     /**
      * @var string
@@ -26,14 +21,19 @@ class surveys extends Model
     public $description;
 
     /**
-     * @var string
-     */
-    public $beebotId;
-
-    /**
      * @var flow
      */
     public $flow;
+
+    /**
+     * @var string
+     */
+    public $globalQuestions;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var intents[]
@@ -51,19 +51,19 @@ class surveys extends Model
     public $role;
 
     /**
-     * @var string
+     * @var int
      */
-    public $id;
+    public $round;
     protected $_name = [
-        'globalQuestions' => 'GlobalQuestions',
-        'round'           => 'Round',
-        'description'     => 'Description',
         'beebotId'        => 'BeebotId',
+        'description'     => 'Description',
         'flow'            => 'Flow',
+        'globalQuestions' => 'GlobalQuestions',
+        'id'              => 'Id',
         'intents'         => 'Intents',
         'name'            => 'Name',
         'role'            => 'Role',
-        'id'              => 'Id',
+        'round'           => 'Round',
     ];
 
     public function validate()
@@ -73,20 +73,20 @@ class surveys extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->globalQuestions) {
-            $res['GlobalQuestions'] = $this->globalQuestions;
-        }
-        if (null !== $this->round) {
-            $res['Round'] = $this->round;
+        if (null !== $this->beebotId) {
+            $res['BeebotId'] = $this->beebotId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->beebotId) {
-            $res['BeebotId'] = $this->beebotId;
-        }
         if (null !== $this->flow) {
             $res['Flow'] = null !== $this->flow ? $this->flow->toMap() : null;
+        }
+        if (null !== $this->globalQuestions) {
+            $res['GlobalQuestions'] = $this->globalQuestions;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->intents) {
             $res['Intents'] = [];
@@ -103,8 +103,8 @@ class surveys extends Model
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->round) {
+            $res['Round'] = $this->round;
         }
 
         return $res;
@@ -118,20 +118,20 @@ class surveys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GlobalQuestions'])) {
-            $model->globalQuestions = $map['GlobalQuestions'];
-        }
-        if (isset($map['Round'])) {
-            $model->round = $map['Round'];
+        if (isset($map['BeebotId'])) {
+            $model->beebotId = $map['BeebotId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['BeebotId'])) {
-            $model->beebotId = $map['BeebotId'];
-        }
         if (isset($map['Flow'])) {
             $model->flow = flow::fromMap($map['Flow']);
+        }
+        if (isset($map['GlobalQuestions'])) {
+            $model->globalQuestions = $map['GlobalQuestions'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Intents'])) {
             if (!empty($map['Intents'])) {
@@ -148,8 +148,8 @@ class surveys extends Model
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Round'])) {
+            $model->round = $map['Round'];
         }
 
         return $model;

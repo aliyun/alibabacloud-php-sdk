@@ -11,7 +11,7 @@ class DownloadRecordingRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $channel;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DownloadRecordingRequest extends Model
     /**
      * @var string
      */
-    public $channel;
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'fileName'   => 'FileName',
         'channel'    => 'Channel',
+        'fileName'   => 'FileName',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DownloadRecordingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-        if (null !== $this->channel) {
-            $res['Channel'] = $this->channel;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DownloadRecordingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
-        if (isset($map['Channel'])) {
-            $model->channel = $map['Channel'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

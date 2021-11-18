@@ -11,20 +11,20 @@ class caller extends Model
     /**
      * @var string
      */
-    public $number;
+    public $city;
 
     /**
      * @var string
      */
-    public $city;
+    public $number;
 
     /**
      * @var string
      */
     public $province;
     protected $_name = [
-        'number'   => 'Number',
         'city'     => 'City',
+        'number'   => 'Number',
         'province' => 'Province',
     ];
 
@@ -35,11 +35,11 @@ class caller extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->number) {
-            $res['Number'] = $this->number;
-        }
         if (null !== $this->city) {
             $res['City'] = $this->city;
+        }
+        if (null !== $this->number) {
+            $res['Number'] = $this->number;
         }
         if (null !== $this->province) {
             $res['Province'] = $this->province;
@@ -56,11 +56,11 @@ class caller extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Number'])) {
-            $model->number = $map['Number'];
-        }
         if (isset($map['City'])) {
             $model->city = $map['City'];
+        }
+        if (isset($map['Number'])) {
+            $model->number = $map['Number'];
         }
         if (isset($map['Province'])) {
             $model->province = $map['Province'];

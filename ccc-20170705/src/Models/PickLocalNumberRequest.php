@@ -11,21 +11,21 @@ class PickLocalNumberRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $calleeNumber;
 
     /**
      * @var string[]
      */
     public $candidateNumber;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
         'calleeNumber'    => 'CalleeNumber',
         'candidateNumber' => 'CandidateNumber',
+        'instanceId'      => 'InstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class PickLocalNumberRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->calleeNumber) {
             $res['CalleeNumber'] = $this->calleeNumber;
         }
         if (null !== $this->candidateNumber) {
             $res['CandidateNumber'] = $this->candidateNumber;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -56,9 +56,6 @@ class PickLocalNumberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['CalleeNumber'])) {
             $model->calleeNumber = $map['CalleeNumber'];
         }
@@ -66,6 +63,9 @@ class PickLocalNumberRequest extends Model
             if (!empty($map['CandidateNumber'])) {
                 $model->candidateNumber = $map['CandidateNumber'];
             }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

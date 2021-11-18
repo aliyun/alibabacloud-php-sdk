@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StartJobRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $instanceId;
+    public $callingNumber;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class StartJobRequest extends Model
     /**
      * @var string
      */
-    public $scenarioId;
+    public $instanceId;
 
     /**
      * @var string
@@ -29,21 +29,21 @@ class StartJobRequest extends Model
     public $jobJson;
 
     /**
+     * @var string
+     */
+    public $scenarioId;
+
+    /**
      * @var bool
      */
     public $selfHostedCallCenter;
-
-    /**
-     * @var string[]
-     */
-    public $callingNumber;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
-        'groupId'              => 'GroupId',
-        'scenarioId'           => 'ScenarioId',
-        'jobJson'              => 'JobJson',
-        'selfHostedCallCenter' => 'SelfHostedCallCenter',
         'callingNumber'        => 'CallingNumber',
+        'groupId'              => 'GroupId',
+        'instanceId'           => 'InstanceId',
+        'jobJson'              => 'JobJson',
+        'scenarioId'           => 'ScenarioId',
+        'selfHostedCallCenter' => 'SelfHostedCallCenter',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class StartJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->callingNumber) {
+            $res['CallingNumber'] = $this->callingNumber;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->scenarioId) {
-            $res['ScenarioId'] = $this->scenarioId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->jobJson) {
             $res['JobJson'] = $this->jobJson;
         }
+        if (null !== $this->scenarioId) {
+            $res['ScenarioId'] = $this->scenarioId;
+        }
         if (null !== $this->selfHostedCallCenter) {
             $res['SelfHostedCallCenter'] = $this->selfHostedCallCenter;
-        }
-        if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
         }
 
         return $res;
@@ -83,25 +83,25 @@ class StartJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['ScenarioId'])) {
-            $model->scenarioId = $map['ScenarioId'];
-        }
-        if (isset($map['JobJson'])) {
-            $model->jobJson = $map['JobJson'];
-        }
-        if (isset($map['SelfHostedCallCenter'])) {
-            $model->selfHostedCallCenter = $map['SelfHostedCallCenter'];
-        }
         if (isset($map['CallingNumber'])) {
             if (!empty($map['CallingNumber'])) {
                 $model->callingNumber = $map['CallingNumber'];
             }
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['JobJson'])) {
+            $model->jobJson = $map['JobJson'];
+        }
+        if (isset($map['ScenarioId'])) {
+            $model->scenarioId = $map['ScenarioId'];
+        }
+        if (isset($map['SelfHostedCallCenter'])) {
+            $model->selfHostedCallCenter = $map['SelfHostedCallCenter'];
         }
 
         return $model;

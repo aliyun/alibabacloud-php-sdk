@@ -11,15 +11,15 @@ class trunkProviders extends Model
     /**
      * @var string
      */
-    public $status;
+    public $providerName;
 
     /**
      * @var string
      */
-    public $providerName;
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
         'providerName' => 'ProviderName',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class trunkProviders extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->providerName) {
             $res['ProviderName'] = $this->providerName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class trunkProviders extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['ProviderName'])) {
             $model->providerName = $map['ProviderName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class CreateMediaRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $content;
 
     /**
      * @var string
@@ -31,12 +26,12 @@ class CreateMediaRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $content;
+    public $name;
 
     /**
      * @var string
@@ -51,16 +46,21 @@ class CreateMediaRequest extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $uploadResult;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'name'         => 'Name',
+        'content'      => 'Content',
         'description'  => 'Description',
         'fileName'     => 'FileName',
-        'type'         => 'Type',
-        'content'      => 'Content',
+        'instanceId'   => 'InstanceId',
+        'name'         => 'Name',
         'ossFileName'  => 'OssFileName',
         'ossFilePath'  => 'OssFilePath',
+        'type'         => 'Type',
         'uploadResult' => 'UploadResult',
     ];
 
@@ -71,11 +71,8 @@ class CreateMediaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -83,17 +80,20 @@ class CreateMediaRequest extends Model
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->ossFileName) {
             $res['OssFileName'] = $this->ossFileName;
         }
         if (null !== $this->ossFilePath) {
             $res['OssFilePath'] = $this->ossFilePath;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->uploadResult) {
             $res['UploadResult'] = $this->uploadResult;
@@ -110,11 +110,8 @@ class CreateMediaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -122,17 +119,20 @@ class CreateMediaRequest extends Model
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['OssFileName'])) {
             $model->ossFileName = $map['OssFileName'];
         }
         if (isset($map['OssFilePath'])) {
             $model->ossFilePath = $map['OssFilePath'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['UploadResult'])) {
             $model->uploadResult = $map['UploadResult'];

@@ -11,6 +11,11 @@ class detail extends Model
     /**
      * @var string
      */
+    public $department;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -26,17 +31,12 @@ class detail extends Model
     /**
      * @var string
      */
-    public $department;
-
-    /**
-     * @var string
-     */
     public $phone;
     protected $_name = [
+        'department'  => 'Department',
         'displayName' => 'DisplayName',
         'email'       => 'Email',
         'loginName'   => 'LoginName',
-        'department'  => 'Department',
         'phone'       => 'Phone',
     ];
 
@@ -47,6 +47,9 @@ class detail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->department) {
+            $res['Department'] = $this->department;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -55,9 +58,6 @@ class detail extends Model
         }
         if (null !== $this->loginName) {
             $res['LoginName'] = $this->loginName;
-        }
-        if (null !== $this->department) {
-            $res['Department'] = $this->department;
         }
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
@@ -74,6 +74,9 @@ class detail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Department'])) {
+            $model->department = $map['Department'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
@@ -82,9 +85,6 @@ class detail extends Model
         }
         if (isset($map['LoginName'])) {
             $model->loginName = $map['LoginName'];
-        }
-        if (isset($map['Department'])) {
-            $model->department = $map['Department'];
         }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];

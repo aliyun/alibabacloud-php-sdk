@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class SuspendPredictiveJobsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $skillGroupId;
-
-    /**
      * @var bool
      */
     public $all;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -32,12 +27,17 @@ class SuspendPredictiveJobsRequest extends Model
      * @var string[]
      */
     public $jobId;
+
+    /**
+     * @var string
+     */
+    public $skillGroupId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'skillGroupId' => 'SkillGroupId',
         'all'          => 'All',
+        'instanceId'   => 'InstanceId',
         'jobGroupId'   => 'JobGroupId',
         'jobId'        => 'JobId',
+        'skillGroupId' => 'SkillGroupId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class SuspendPredictiveJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
-        }
         if (null !== $this->all) {
             $res['All'] = $this->all;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
 
         return $res;
@@ -74,14 +74,11 @@ class SuspendPredictiveJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
-        }
         if (isset($map['All'])) {
             $model->all = $map['All'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
@@ -90,6 +87,9 @@ class SuspendPredictiveJobsRequest extends Model
             if (!empty($map['JobId'])) {
                 $model->jobId = $map['JobId'];
             }
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
 
         return $model;

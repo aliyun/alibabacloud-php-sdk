@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @var string
+     */
+    public $callCenterInstanceId;
+
+    /**
      * @var int
      */
     public $creationTime;
@@ -16,12 +21,12 @@ class instance extends Model
     /**
      * @var string
      */
-    public $callCenterInstanceId;
+    public $instanceDescription;
 
     /**
      * @var string
      */
-    public $owner;
+    public $instanceId;
 
     /**
      * @var string
@@ -36,20 +41,15 @@ class instance extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceDescription;
+    public $owner;
     protected $_name = [
-        'creationTime'              => 'CreationTime',
         'callCenterInstanceId'      => 'CallCenterInstanceId',
-        'owner'                     => 'Owner',
+        'creationTime'              => 'CreationTime',
+        'instanceDescription'       => 'InstanceDescription',
+        'instanceId'                => 'InstanceId',
         'instanceName'              => 'InstanceName',
         'maxConcurrentConversation' => 'MaxConcurrentConversation',
-        'instanceId'                => 'InstanceId',
-        'instanceDescription'       => 'InstanceDescription',
+        'owner'                     => 'Owner',
     ];
 
     public function validate()
@@ -59,14 +59,17 @@ class instance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
         if (null !== $this->callCenterInstanceId) {
             $res['CallCenterInstanceId'] = $this->callCenterInstanceId;
         }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->instanceDescription) {
+            $res['InstanceDescription'] = $this->instanceDescription;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -74,11 +77,8 @@ class instance extends Model
         if (null !== $this->maxConcurrentConversation) {
             $res['MaxConcurrentConversation'] = $this->maxConcurrentConversation;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceDescription) {
-            $res['InstanceDescription'] = $this->instanceDescription;
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         return $res;
@@ -92,14 +92,17 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
         if (isset($map['CallCenterInstanceId'])) {
             $model->callCenterInstanceId = $map['CallCenterInstanceId'];
         }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['InstanceDescription'])) {
+            $model->instanceDescription = $map['InstanceDescription'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
@@ -107,11 +110,8 @@ class instance extends Model
         if (isset($map['MaxConcurrentConversation'])) {
             $model->maxConcurrentConversation = $map['MaxConcurrentConversation'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceDescription'])) {
-            $model->instanceDescription = $map['InstanceDescription'];
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         return $model;

@@ -11,7 +11,12 @@ class DialogueRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $actionKey;
+
+    /**
+     * @var string
+     */
+    public $actionParams;
 
     /**
      * @var string
@@ -22,6 +27,21 @@ class DialogueRequest extends Model
      * @var string
      */
     public $callType;
+
+    /**
+     * @var string
+     */
+    public $calledNumber;
+
+    /**
+     * @var string
+     */
+    public $callingNumber;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -37,43 +57,17 @@ class DialogueRequest extends Model
      * @var string
      */
     public $utterance;
-
-    /**
-     * @var string
-     */
-    public $actionKey;
-
-    /**
-     * @var string
-     */
-    public $actionParams;
-
-    /**
-     * @var string
-     */
-    public $callingNumber;
-
-    /**
-     * @var string
-     */
-    public $calledNumber;
-
-    /**
-     * @var int
-     */
-    public $instanceOwnerId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'callId'          => 'CallId',
-        'callType'        => 'CallType',
-        'scenarioId'      => 'ScenarioId',
-        'taskId'          => 'TaskId',
-        'utterance'       => 'Utterance',
-        'actionKey'       => 'ActionKey',
-        'actionParams'    => 'ActionParams',
-        'callingNumber'   => 'CallingNumber',
-        'calledNumber'    => 'CalledNumber',
-        'instanceOwnerId' => 'InstanceOwnerId',
+        'actionKey'     => 'ActionKey',
+        'actionParams'  => 'ActionParams',
+        'callId'        => 'CallId',
+        'callType'      => 'CallType',
+        'calledNumber'  => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
+        'instanceId'    => 'InstanceId',
+        'scenarioId'    => 'ScenarioId',
+        'taskId'        => 'TaskId',
+        'utterance'     => 'Utterance',
     ];
 
     public function validate()
@@ -83,14 +77,26 @@ class DialogueRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->actionKey) {
+            $res['ActionKey'] = $this->actionKey;
+        }
+        if (null !== $this->actionParams) {
+            $res['ActionParams'] = $this->actionParams;
         }
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
         }
         if (null !== $this->callType) {
             $res['CallType'] = $this->callType;
+        }
+        if (null !== $this->calledNumber) {
+            $res['CalledNumber'] = $this->calledNumber;
+        }
+        if (null !== $this->callingNumber) {
+            $res['CallingNumber'] = $this->callingNumber;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->scenarioId) {
             $res['ScenarioId'] = $this->scenarioId;
@@ -100,21 +106,6 @@ class DialogueRequest extends Model
         }
         if (null !== $this->utterance) {
             $res['Utterance'] = $this->utterance;
-        }
-        if (null !== $this->actionKey) {
-            $res['ActionKey'] = $this->actionKey;
-        }
-        if (null !== $this->actionParams) {
-            $res['ActionParams'] = $this->actionParams;
-        }
-        if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
-        }
-        if (null !== $this->calledNumber) {
-            $res['CalledNumber'] = $this->calledNumber;
-        }
-        if (null !== $this->instanceOwnerId) {
-            $res['InstanceOwnerId'] = $this->instanceOwnerId;
         }
 
         return $res;
@@ -128,14 +119,26 @@ class DialogueRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['ActionKey'])) {
+            $model->actionKey = $map['ActionKey'];
+        }
+        if (isset($map['ActionParams'])) {
+            $model->actionParams = $map['ActionParams'];
         }
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
         }
         if (isset($map['CallType'])) {
             $model->callType = $map['CallType'];
+        }
+        if (isset($map['CalledNumber'])) {
+            $model->calledNumber = $map['CalledNumber'];
+        }
+        if (isset($map['CallingNumber'])) {
+            $model->callingNumber = $map['CallingNumber'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ScenarioId'])) {
             $model->scenarioId = $map['ScenarioId'];
@@ -145,21 +148,6 @@ class DialogueRequest extends Model
         }
         if (isset($map['Utterance'])) {
             $model->utterance = $map['Utterance'];
-        }
-        if (isset($map['ActionKey'])) {
-            $model->actionKey = $map['ActionKey'];
-        }
-        if (isset($map['ActionParams'])) {
-            $model->actionParams = $map['ActionParams'];
-        }
-        if (isset($map['CallingNumber'])) {
-            $model->callingNumber = $map['CallingNumber'];
-        }
-        if (isset($map['CalledNumber'])) {
-            $model->calledNumber = $map['CalledNumber'];
-        }
-        if (isset($map['InstanceOwnerId'])) {
-            $model->instanceOwnerId = $map['InstanceOwnerId'];
         }
 
         return $model;

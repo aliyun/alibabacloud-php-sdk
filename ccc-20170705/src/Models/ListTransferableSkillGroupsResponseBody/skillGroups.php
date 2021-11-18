@@ -9,34 +9,19 @@ use AlibabaCloud\Tea\Model;
 class skillGroups extends Model
 {
     /**
-     * @var bool
-     */
-    public $allowPrivateOutboundNumber;
-
-    /**
-     * @var string
-     */
-    public $routingStrategy;
-
-    /**
-     * @var string
-     */
-    public $skillGroupName;
-
-    /**
-     * @var string
-     */
-    public $skillGroupId;
-
-    /**
-     * @var int
-     */
-    public $userCount;
-
-    /**
      * @var string
      */
     public $accQueueName;
+
+    /**
+     * @var string
+     */
+    public $accSkillGroupName;
+
+    /**
+     * @var bool
+     */
+    public $allowPrivateOutboundNumber;
 
     /**
      * @var string
@@ -46,22 +31,37 @@ class skillGroups extends Model
     /**
      * @var string
      */
+    public $routingStrategy;
+
+    /**
+     * @var string
+     */
     public $skillGroupDescription;
 
     /**
      * @var string
      */
-    public $accSkillGroupName;
+    public $skillGroupId;
+
+    /**
+     * @var string
+     */
+    public $skillGroupName;
+
+    /**
+     * @var int
+     */
+    public $userCount;
     protected $_name = [
-        'allowPrivateOutboundNumber' => 'AllowPrivateOutboundNumber',
-        'routingStrategy'            => 'RoutingStrategy',
-        'skillGroupName'             => 'SkillGroupName',
-        'skillGroupId'               => 'SkillGroupId',
-        'userCount'                  => 'UserCount',
         'accQueueName'               => 'AccQueueName',
-        'instanceId'                 => 'InstanceId',
-        'skillGroupDescription'      => 'SkillGroupDescription',
         'accSkillGroupName'          => 'AccSkillGroupName',
+        'allowPrivateOutboundNumber' => 'AllowPrivateOutboundNumber',
+        'instanceId'                 => 'InstanceId',
+        'routingStrategy'            => 'RoutingStrategy',
+        'skillGroupDescription'      => 'SkillGroupDescription',
+        'skillGroupId'               => 'SkillGroupId',
+        'skillGroupName'             => 'SkillGroupName',
+        'userCount'                  => 'UserCount',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class skillGroups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->allowPrivateOutboundNumber) {
-            $res['AllowPrivateOutboundNumber'] = $this->allowPrivateOutboundNumber;
-        }
-        if (null !== $this->routingStrategy) {
-            $res['RoutingStrategy'] = $this->routingStrategy;
-        }
-        if (null !== $this->skillGroupName) {
-            $res['SkillGroupName'] = $this->skillGroupName;
-        }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
-        }
-        if (null !== $this->userCount) {
-            $res['UserCount'] = $this->userCount;
-        }
         if (null !== $this->accQueueName) {
             $res['AccQueueName'] = $this->accQueueName;
+        }
+        if (null !== $this->accSkillGroupName) {
+            $res['AccSkillGroupName'] = $this->accSkillGroupName;
+        }
+        if (null !== $this->allowPrivateOutboundNumber) {
+            $res['AllowPrivateOutboundNumber'] = $this->allowPrivateOutboundNumber;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->routingStrategy) {
+            $res['RoutingStrategy'] = $this->routingStrategy;
+        }
         if (null !== $this->skillGroupDescription) {
             $res['SkillGroupDescription'] = $this->skillGroupDescription;
         }
-        if (null !== $this->accSkillGroupName) {
-            $res['AccSkillGroupName'] = $this->accSkillGroupName;
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
+        }
+        if (null !== $this->skillGroupName) {
+            $res['SkillGroupName'] = $this->skillGroupName;
+        }
+        if (null !== $this->userCount) {
+            $res['UserCount'] = $this->userCount;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class skillGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AllowPrivateOutboundNumber'])) {
-            $model->allowPrivateOutboundNumber = $map['AllowPrivateOutboundNumber'];
-        }
-        if (isset($map['RoutingStrategy'])) {
-            $model->routingStrategy = $map['RoutingStrategy'];
-        }
-        if (isset($map['SkillGroupName'])) {
-            $model->skillGroupName = $map['SkillGroupName'];
-        }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
-        }
-        if (isset($map['UserCount'])) {
-            $model->userCount = $map['UserCount'];
-        }
         if (isset($map['AccQueueName'])) {
             $model->accQueueName = $map['AccQueueName'];
+        }
+        if (isset($map['AccSkillGroupName'])) {
+            $model->accSkillGroupName = $map['AccSkillGroupName'];
+        }
+        if (isset($map['AllowPrivateOutboundNumber'])) {
+            $model->allowPrivateOutboundNumber = $map['AllowPrivateOutboundNumber'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['RoutingStrategy'])) {
+            $model->routingStrategy = $map['RoutingStrategy'];
+        }
         if (isset($map['SkillGroupDescription'])) {
             $model->skillGroupDescription = $map['SkillGroupDescription'];
         }
-        if (isset($map['AccSkillGroupName'])) {
-            $model->accSkillGroupName = $map['AccSkillGroupName'];
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
+        }
+        if (isset($map['SkillGroupName'])) {
+            $model->skillGroupName = $map['SkillGroupName'];
+        }
+        if (isset($map['UserCount'])) {
+            $model->userCount = $map['UserCount'];
         }
 
         return $model;

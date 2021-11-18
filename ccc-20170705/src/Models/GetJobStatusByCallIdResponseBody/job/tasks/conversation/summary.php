@@ -11,11 +11,6 @@ class summary extends Model
     /**
      * @var string
      */
-    public $summaryName;
-
-    /**
-     * @var string
-     */
     public $category;
 
     /**
@@ -27,11 +22,16 @@ class summary extends Model
      * @var string
      */
     public $summaryId;
+
+    /**
+     * @var string
+     */
+    public $summaryName;
     protected $_name = [
-        'summaryName' => 'SummaryName',
         'category'    => 'Category',
         'content'     => 'Content',
         'summaryId'   => 'SummaryId',
+        'summaryName' => 'SummaryName',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class summary extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->summaryName) {
-            $res['SummaryName'] = $this->summaryName;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -52,6 +49,9 @@ class summary extends Model
         }
         if (null !== $this->summaryId) {
             $res['SummaryId'] = $this->summaryId;
+        }
+        if (null !== $this->summaryName) {
+            $res['SummaryName'] = $this->summaryName;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class summary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SummaryName'])) {
-            $model->summaryName = $map['SummaryName'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -76,6 +73,9 @@ class summary extends Model
         }
         if (isset($map['SummaryId'])) {
             $model->summaryId = $map['SummaryId'];
+        }
+        if (isset($map['SummaryName'])) {
+            $model->summaryName = $map['SummaryName'];
         }
 
         return $model;

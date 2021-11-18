@@ -11,11 +11,6 @@ class recording extends Model
     /**
      * @var string
      */
-    public $contactType;
-
-    /**
-     * @var string
-     */
     public $agentId;
 
     /**
@@ -26,32 +21,17 @@ class recording extends Model
     /**
      * @var string
      */
-    public $fileName;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $calledNumber;
 
     /**
      * @var string
      */
-    public $qualityCheckTid;
+    public $callingNumber;
 
     /**
      * @var string
      */
-    public $filePath;
-
-    /**
-     * @var int
-     */
-    public $startTime;
+    public $channel;
 
     /**
      * @var string
@@ -61,12 +41,7 @@ class recording extends Model
     /**
      * @var string
      */
-    public $qualityCheckTaskId;
-
-    /**
-     * @var string
-     */
-    public $callingNumber;
+    public $contactType;
 
     /**
      * @var int
@@ -81,23 +56,48 @@ class recording extends Model
     /**
      * @var string
      */
-    public $channel;
+    public $fileName;
+
+    /**
+     * @var string
+     */
+    public $filePath;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $qualityCheckTaskId;
+
+    /**
+     * @var string
+     */
+    public $qualityCheckTid;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'contactType'        => 'ContactType',
         'agentId'            => 'AgentId',
         'agentName'          => 'AgentName',
-        'fileName'           => 'FileName',
-        'instanceId'         => 'InstanceId',
         'calledNumber'       => 'CalledNumber',
-        'qualityCheckTid'    => 'QualityCheckTid',
-        'filePath'           => 'FilePath',
-        'startTime'          => 'StartTime',
-        'contactId'          => 'ContactId',
-        'qualityCheckTaskId' => 'QualityCheckTaskId',
         'callingNumber'      => 'CallingNumber',
+        'channel'            => 'Channel',
+        'contactId'          => 'ContactId',
+        'contactType'        => 'ContactType',
         'duration'           => 'Duration',
         'fileDescription'    => 'FileDescription',
-        'channel'            => 'Channel',
+        'fileName'           => 'FileName',
+        'filePath'           => 'FilePath',
+        'instanceId'         => 'InstanceId',
+        'qualityCheckTaskId' => 'QualityCheckTaskId',
+        'qualityCheckTid'    => 'QualityCheckTid',
+        'startTime'          => 'StartTime',
     ];
 
     public function validate()
@@ -107,41 +107,26 @@ class recording extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->contactType) {
-            $res['ContactType'] = $this->contactType;
-        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
-        if (null !== $this->fileName) {
-            $res['FileName'] = $this->fileName;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->calledNumber) {
             $res['CalledNumber'] = $this->calledNumber;
         }
-        if (null !== $this->qualityCheckTid) {
-            $res['QualityCheckTid'] = $this->qualityCheckTid;
+        if (null !== $this->callingNumber) {
+            $res['CallingNumber'] = $this->callingNumber;
         }
-        if (null !== $this->filePath) {
-            $res['FilePath'] = $this->filePath;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
         }
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
-        if (null !== $this->qualityCheckTaskId) {
-            $res['QualityCheckTaskId'] = $this->qualityCheckTaskId;
-        }
-        if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
+        if (null !== $this->contactType) {
+            $res['ContactType'] = $this->contactType;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -149,8 +134,23 @@ class recording extends Model
         if (null !== $this->fileDescription) {
             $res['FileDescription'] = $this->fileDescription;
         }
-        if (null !== $this->channel) {
-            $res['Channel'] = $this->channel;
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->filePath) {
+            $res['FilePath'] = $this->filePath;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->qualityCheckTaskId) {
+            $res['QualityCheckTaskId'] = $this->qualityCheckTaskId;
+        }
+        if (null !== $this->qualityCheckTid) {
+            $res['QualityCheckTid'] = $this->qualityCheckTid;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -164,41 +164,26 @@ class recording extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ContactType'])) {
-            $model->contactType = $map['ContactType'];
-        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
-        if (isset($map['FileName'])) {
-            $model->fileName = $map['FileName'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['CalledNumber'])) {
             $model->calledNumber = $map['CalledNumber'];
         }
-        if (isset($map['QualityCheckTid'])) {
-            $model->qualityCheckTid = $map['QualityCheckTid'];
+        if (isset($map['CallingNumber'])) {
+            $model->callingNumber = $map['CallingNumber'];
         }
-        if (isset($map['FilePath'])) {
-            $model->filePath = $map['FilePath'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
         }
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
-        if (isset($map['QualityCheckTaskId'])) {
-            $model->qualityCheckTaskId = $map['QualityCheckTaskId'];
-        }
-        if (isset($map['CallingNumber'])) {
-            $model->callingNumber = $map['CallingNumber'];
+        if (isset($map['ContactType'])) {
+            $model->contactType = $map['ContactType'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
@@ -206,8 +191,23 @@ class recording extends Model
         if (isset($map['FileDescription'])) {
             $model->fileDescription = $map['FileDescription'];
         }
-        if (isset($map['Channel'])) {
-            $model->channel = $map['Channel'];
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
+        }
+        if (isset($map['FilePath'])) {
+            $model->filePath = $map['FilePath'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['QualityCheckTaskId'])) {
+            $model->qualityCheckTaskId = $map['QualityCheckTaskId'];
+        }
+        if (isset($map['QualityCheckTid'])) {
+            $model->qualityCheckTid = $map['QualityCheckTid'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

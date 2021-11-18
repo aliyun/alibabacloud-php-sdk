@@ -11,12 +11,12 @@ class contactFlow extends Model
     /**
      * @var string
      */
-    public $type;
+    public $contactFlowDescription;
 
     /**
      * @var string
      */
-    public $contactFlowDescription;
+    public $contactFlowId;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class contactFlow extends Model
     /**
      * @var string
      */
-    public $contactFlowId;
+    public $type;
     protected $_name = [
-        'type'                   => 'Type',
         'contactFlowDescription' => 'ContactFlowDescription',
+        'contactFlowId'          => 'ContactFlowId',
         'contactFlowName'        => 'ContactFlowName',
         'instanceId'             => 'InstanceId',
-        'contactFlowId'          => 'ContactFlowId',
+        'type'                   => 'Type',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class contactFlow extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->contactFlowDescription) {
             $res['ContactFlowDescription'] = $this->contactFlowDescription;
+        }
+        if (null !== $this->contactFlowId) {
+            $res['ContactFlowId'] = $this->contactFlowId;
         }
         if (null !== $this->contactFlowName) {
             $res['ContactFlowName'] = $this->contactFlowName;
@@ -59,8 +59,8 @@ class contactFlow extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->contactFlowId) {
-            $res['ContactFlowId'] = $this->contactFlowId;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class contactFlow extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['ContactFlowDescription'])) {
             $model->contactFlowDescription = $map['ContactFlowDescription'];
+        }
+        if (isset($map['ContactFlowId'])) {
+            $model->contactFlowId = $map['ContactFlowId'];
         }
         if (isset($map['ContactFlowName'])) {
             $model->contactFlowName = $map['ContactFlowName'];
@@ -86,8 +86,8 @@ class contactFlow extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ContactFlowId'])) {
-            $model->contactFlowId = $map['ContactFlowId'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -14,11 +14,6 @@ class ModifySkillGroupOutboundNumbersRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $skillGroupId;
-
-    /**
      * @var int
      */
     public $operationType;
@@ -27,11 +22,16 @@ class ModifySkillGroupOutboundNumbersRequest extends Model
      * @var string[]
      */
     public $outboundPhoneNumberId;
+
+    /**
+     * @var string
+     */
+    public $skillGroupId;
     protected $_name = [
         'instanceId'            => 'InstanceId',
-        'skillGroupId'          => 'SkillGroupId',
         'operationType'         => 'OperationType',
         'outboundPhoneNumberId' => 'OutboundPhoneNumberId',
+        'skillGroupId'          => 'SkillGroupId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ModifySkillGroupOutboundNumbersRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
-        }
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
         }
         if (null !== $this->outboundPhoneNumberId) {
             $res['OutboundPhoneNumberId'] = $this->outboundPhoneNumberId;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
 
         return $res;
@@ -68,9 +68,6 @@ class ModifySkillGroupOutboundNumbersRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
-        }
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
         }
@@ -78,6 +75,9 @@ class ModifySkillGroupOutboundNumbersRequest extends Model
             if (!empty($map['OutboundPhoneNumberId'])) {
                 $model->outboundPhoneNumberId = $map['OutboundPhoneNumberId'];
             }
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
 
         return $model;

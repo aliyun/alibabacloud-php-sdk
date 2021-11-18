@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class jobGroup extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $scenarioId;
+    public $callingNumbers;
 
     /**
      * @var int
@@ -21,24 +21,14 @@ class jobGroup extends Model
     public $creationTime;
 
     /**
-     * @var strategy
+     * @var string
      */
-    public $strategy;
-
-    /**
-     * @var string[]
-     */
-    public $callingNumbers;
-
-    /**
-     * @var progress
-     */
-    public $progress;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $id;
 
     /**
      * @var string
@@ -51,19 +41,29 @@ class jobGroup extends Model
     public $name;
 
     /**
+     * @var progress
+     */
+    public $progress;
+
+    /**
      * @var string
      */
-    public $id;
+    public $scenarioId;
+
+    /**
+     * @var strategy
+     */
+    public $strategy;
     protected $_name = [
-        'scenarioId'     => 'ScenarioId',
-        'creationTime'   => 'CreationTime',
-        'strategy'       => 'Strategy',
         'callingNumbers' => 'CallingNumbers',
-        'progress'       => 'Progress',
+        'creationTime'   => 'CreationTime',
         'description'    => 'Description',
+        'id'             => 'Id',
         'jobFilePath'    => 'JobFilePath',
         'name'           => 'Name',
-        'id'             => 'Id',
+        'progress'       => 'Progress',
+        'scenarioId'     => 'ScenarioId',
+        'strategy'       => 'Strategy',
     ];
 
     public function validate()
@@ -73,23 +73,17 @@ class jobGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scenarioId) {
-            $res['ScenarioId'] = $this->scenarioId;
+        if (null !== $this->callingNumbers) {
+            $res['CallingNumbers'] = $this->callingNumbers;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->strategy) {
-            $res['Strategy'] = null !== $this->strategy ? $this->strategy->toMap() : null;
-        }
-        if (null !== $this->callingNumbers) {
-            $res['CallingNumbers'] = $this->callingNumbers;
-        }
-        if (null !== $this->progress) {
-            $res['Progress'] = null !== $this->progress ? $this->progress->toMap() : null;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->jobFilePath) {
             $res['JobFilePath'] = $this->jobFilePath;
@@ -97,8 +91,14 @@ class jobGroup extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->progress) {
+            $res['Progress'] = null !== $this->progress ? $this->progress->toMap() : null;
+        }
+        if (null !== $this->scenarioId) {
+            $res['ScenarioId'] = $this->scenarioId;
+        }
+        if (null !== $this->strategy) {
+            $res['Strategy'] = null !== $this->strategy ? $this->strategy->toMap() : null;
         }
 
         return $res;
@@ -112,25 +112,19 @@ class jobGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScenarioId'])) {
-            $model->scenarioId = $map['ScenarioId'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Strategy'])) {
-            $model->strategy = strategy::fromMap($map['Strategy']);
-        }
         if (isset($map['CallingNumbers'])) {
             if (!empty($map['CallingNumbers'])) {
                 $model->callingNumbers = $map['CallingNumbers'];
             }
         }
-        if (isset($map['Progress'])) {
-            $model->progress = progress::fromMap($map['Progress']);
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['JobFilePath'])) {
             $model->jobFilePath = $map['JobFilePath'];
@@ -138,8 +132,14 @@ class jobGroup extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Progress'])) {
+            $model->progress = progress::fromMap($map['Progress']);
+        }
+        if (isset($map['ScenarioId'])) {
+            $model->scenarioId = $map['ScenarioId'];
+        }
+        if (isset($map['Strategy'])) {
+            $model->strategy = strategy::fromMap($map['Strategy']);
         }
 
         return $model;

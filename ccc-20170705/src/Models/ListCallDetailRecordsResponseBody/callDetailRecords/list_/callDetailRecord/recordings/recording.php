@@ -9,34 +9,9 @@ use AlibabaCloud\Tea\Model;
 class recording extends Model
 {
     /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $contactId;
-
-    /**
-     * @var string
-     */
-    public $qualityCheckTaskId;
-
-    /**
      * @var string
      */
     public $agentId;
-
-    /**
-     * @var string
-     */
-    public $fileDescription;
-
-    /**
-     * @var int
-     */
-    public $duration;
 
     /**
      * @var string
@@ -46,22 +21,47 @@ class recording extends Model
     /**
      * @var string
      */
+    public $contactId;
+
+    /**
+     * @var int
+     */
+    public $duration;
+
+    /**
+     * @var string
+     */
+    public $fileDescription;
+
+    /**
+     * @var string
+     */
     public $fileName;
 
     /**
      * @var string
      */
+    public $qualityCheckTaskId;
+
+    /**
+     * @var string
+     */
     public $qualityCheckTid;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'startTime'          => 'StartTime',
-        'contactId'          => 'ContactId',
-        'qualityCheckTaskId' => 'QualityCheckTaskId',
         'agentId'            => 'AgentId',
-        'fileDescription'    => 'FileDescription',
-        'duration'           => 'Duration',
         'agentName'          => 'AgentName',
+        'contactId'          => 'ContactId',
+        'duration'           => 'Duration',
+        'fileDescription'    => 'FileDescription',
         'fileName'           => 'FileName',
+        'qualityCheckTaskId' => 'QualityCheckTaskId',
         'qualityCheckTid'    => 'QualityCheckTid',
+        'startTime'          => 'StartTime',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class recording extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->contactId) {
-            $res['ContactId'] = $this->contactId;
-        }
-        if (null !== $this->qualityCheckTaskId) {
-            $res['QualityCheckTaskId'] = $this->qualityCheckTaskId;
-        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
-        }
-        if (null !== $this->fileDescription) {
-            $res['FileDescription'] = $this->fileDescription;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
         }
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
+        if (null !== $this->contactId) {
+            $res['ContactId'] = $this->contactId;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->fileDescription) {
+            $res['FileDescription'] = $this->fileDescription;
+        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+        if (null !== $this->qualityCheckTaskId) {
+            $res['QualityCheckTaskId'] = $this->qualityCheckTaskId;
+        }
         if (null !== $this->qualityCheckTid) {
             $res['QualityCheckTid'] = $this->qualityCheckTid;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class recording extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['ContactId'])) {
-            $model->contactId = $map['ContactId'];
-        }
-        if (isset($map['QualityCheckTaskId'])) {
-            $model->qualityCheckTaskId = $map['QualityCheckTaskId'];
-        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
-        }
-        if (isset($map['FileDescription'])) {
-            $model->fileDescription = $map['FileDescription'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
         }
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
+        if (isset($map['ContactId'])) {
+            $model->contactId = $map['ContactId'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['FileDescription'])) {
+            $model->fileDescription = $map['FileDescription'];
+        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+        if (isset($map['QualityCheckTaskId'])) {
+            $model->qualityCheckTaskId = $map['QualityCheckTaskId'];
+        }
         if (isset($map['QualityCheckTid'])) {
             $model->qualityCheckTid = $map['QualityCheckTid'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

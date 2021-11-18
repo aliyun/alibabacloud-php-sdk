@@ -21,7 +21,12 @@ class GetJobListRequest extends Model
     /**
      * @var int
      */
-    public $status;
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var bool
@@ -31,19 +36,14 @@ class GetJobListRequest extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $status;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'jobGroupId' => 'JobGroupId',
-        'status'     => 'Status',
-        'queryAll'   => 'QueryAll',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'queryAll'   => 'QueryAll',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -59,17 +59,17 @@ class GetJobListRequest extends Model
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->queryAll) {
-            $res['QueryAll'] = $this->queryAll;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->queryAll) {
+            $res['QueryAll'] = $this->queryAll;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -89,17 +89,17 @@ class GetJobListRequest extends Model
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['QueryAll'])) {
-            $model->queryAll = $map['QueryAll'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['QueryAll'])) {
+            $model->queryAll = $map['QueryAll'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

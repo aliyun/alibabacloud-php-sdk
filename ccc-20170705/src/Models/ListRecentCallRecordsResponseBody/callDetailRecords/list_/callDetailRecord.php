@@ -13,37 +13,12 @@ class callDetailRecord extends Model
     /**
      * @var string
      */
-    public $contactId;
+    public $agentNames;
 
     /**
-     * @var int
+     * @var agents
      */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $duration;
-
-    /**
-     * @var int
-     */
-    public $satisfaction;
-
-    /**
-     * @var string
-     */
-    public $contactType;
-
-    /**
-     * @var string
-     */
-    public $contactDisposition;
-
-    /**
-     * @var string
-     */
-    public $callingNumber;
+    public $agents;
 
     /**
      * @var string
@@ -53,17 +28,27 @@ class callDetailRecord extends Model
     /**
      * @var string
      */
-    public $agentNames;
+    public $callingNumber;
 
     /**
      * @var string
      */
-    public $skillGroupNames;
+    public $contactDisposition;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $contactId;
+
+    /**
+     * @var string
+     */
+    public $contactType;
+
+    /**
+     * @var int
+     */
+    public $duration;
 
     /**
      * @var string
@@ -73,39 +58,54 @@ class callDetailRecord extends Model
     /**
      * @var string
      */
-    public $satisfactionDesc;
+    public $feedback;
 
     /**
      * @var string
      */
-    public $feedback;
-
-    /**
-     * @var agents
-     */
-    public $agents;
+    public $instanceId;
 
     /**
      * @var recordings
      */
     public $recordings;
+
+    /**
+     * @var int
+     */
+    public $satisfaction;
+
+    /**
+     * @var string
+     */
+    public $satisfactionDesc;
+
+    /**
+     * @var string
+     */
+    public $skillGroupNames;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'contactId'          => 'ContactId',
-        'startTime'          => 'StartTime',
-        'duration'           => 'Duration',
-        'satisfaction'       => 'Satisfaction',
-        'contactType'        => 'ContactType',
-        'contactDisposition' => 'ContactDisposition',
-        'callingNumber'      => 'CallingNumber',
-        'calledNumber'       => 'CalledNumber',
         'agentNames'         => 'AgentNames',
-        'skillGroupNames'    => 'SkillGroupNames',
-        'instanceId'         => 'InstanceId',
-        'extraAttr'          => 'ExtraAttr',
-        'satisfactionDesc'   => 'SatisfactionDesc',
-        'feedback'           => 'Feedback',
         'agents'             => 'Agents',
+        'calledNumber'       => 'CalledNumber',
+        'callingNumber'      => 'CallingNumber',
+        'contactDisposition' => 'ContactDisposition',
+        'contactId'          => 'ContactId',
+        'contactType'        => 'ContactType',
+        'duration'           => 'Duration',
+        'extraAttr'          => 'ExtraAttr',
+        'feedback'           => 'Feedback',
+        'instanceId'         => 'InstanceId',
         'recordings'         => 'Recordings',
+        'satisfaction'       => 'Satisfaction',
+        'satisfactionDesc'   => 'SatisfactionDesc',
+        'skillGroupNames'    => 'SkillGroupNames',
+        'startTime'          => 'StartTime',
     ];
 
     public function validate()
@@ -115,53 +115,53 @@ class callDetailRecord extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->contactId) {
-            $res['ContactId'] = $this->contactId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->satisfaction) {
-            $res['Satisfaction'] = $this->satisfaction;
-        }
-        if (null !== $this->contactType) {
-            $res['ContactType'] = $this->contactType;
-        }
-        if (null !== $this->contactDisposition) {
-            $res['ContactDisposition'] = $this->contactDisposition;
-        }
-        if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
-        }
-        if (null !== $this->calledNumber) {
-            $res['CalledNumber'] = $this->calledNumber;
-        }
         if (null !== $this->agentNames) {
             $res['AgentNames'] = $this->agentNames;
-        }
-        if (null !== $this->skillGroupNames) {
-            $res['SkillGroupNames'] = $this->skillGroupNames;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->extraAttr) {
-            $res['ExtraAttr'] = $this->extraAttr;
-        }
-        if (null !== $this->satisfactionDesc) {
-            $res['SatisfactionDesc'] = $this->satisfactionDesc;
-        }
-        if (null !== $this->feedback) {
-            $res['Feedback'] = $this->feedback;
         }
         if (null !== $this->agents) {
             $res['Agents'] = null !== $this->agents ? $this->agents->toMap() : null;
         }
+        if (null !== $this->calledNumber) {
+            $res['CalledNumber'] = $this->calledNumber;
+        }
+        if (null !== $this->callingNumber) {
+            $res['CallingNumber'] = $this->callingNumber;
+        }
+        if (null !== $this->contactDisposition) {
+            $res['ContactDisposition'] = $this->contactDisposition;
+        }
+        if (null !== $this->contactId) {
+            $res['ContactId'] = $this->contactId;
+        }
+        if (null !== $this->contactType) {
+            $res['ContactType'] = $this->contactType;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->extraAttr) {
+            $res['ExtraAttr'] = $this->extraAttr;
+        }
+        if (null !== $this->feedback) {
+            $res['Feedback'] = $this->feedback;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->recordings) {
             $res['Recordings'] = null !== $this->recordings ? $this->recordings->toMap() : null;
+        }
+        if (null !== $this->satisfaction) {
+            $res['Satisfaction'] = $this->satisfaction;
+        }
+        if (null !== $this->satisfactionDesc) {
+            $res['SatisfactionDesc'] = $this->satisfactionDesc;
+        }
+        if (null !== $this->skillGroupNames) {
+            $res['SkillGroupNames'] = $this->skillGroupNames;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -175,53 +175,53 @@ class callDetailRecord extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ContactId'])) {
-            $model->contactId = $map['ContactId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
-        if (isset($map['Satisfaction'])) {
-            $model->satisfaction = $map['Satisfaction'];
-        }
-        if (isset($map['ContactType'])) {
-            $model->contactType = $map['ContactType'];
-        }
-        if (isset($map['ContactDisposition'])) {
-            $model->contactDisposition = $map['ContactDisposition'];
-        }
-        if (isset($map['CallingNumber'])) {
-            $model->callingNumber = $map['CallingNumber'];
-        }
-        if (isset($map['CalledNumber'])) {
-            $model->calledNumber = $map['CalledNumber'];
-        }
         if (isset($map['AgentNames'])) {
             $model->agentNames = $map['AgentNames'];
-        }
-        if (isset($map['SkillGroupNames'])) {
-            $model->skillGroupNames = $map['SkillGroupNames'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ExtraAttr'])) {
-            $model->extraAttr = $map['ExtraAttr'];
-        }
-        if (isset($map['SatisfactionDesc'])) {
-            $model->satisfactionDesc = $map['SatisfactionDesc'];
-        }
-        if (isset($map['Feedback'])) {
-            $model->feedback = $map['Feedback'];
         }
         if (isset($map['Agents'])) {
             $model->agents = agents::fromMap($map['Agents']);
         }
+        if (isset($map['CalledNumber'])) {
+            $model->calledNumber = $map['CalledNumber'];
+        }
+        if (isset($map['CallingNumber'])) {
+            $model->callingNumber = $map['CallingNumber'];
+        }
+        if (isset($map['ContactDisposition'])) {
+            $model->contactDisposition = $map['ContactDisposition'];
+        }
+        if (isset($map['ContactId'])) {
+            $model->contactId = $map['ContactId'];
+        }
+        if (isset($map['ContactType'])) {
+            $model->contactType = $map['ContactType'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['ExtraAttr'])) {
+            $model->extraAttr = $map['ExtraAttr'];
+        }
+        if (isset($map['Feedback'])) {
+            $model->feedback = $map['Feedback'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['Recordings'])) {
             $model->recordings = recordings::fromMap($map['Recordings']);
+        }
+        if (isset($map['Satisfaction'])) {
+            $model->satisfaction = $map['Satisfaction'];
+        }
+        if (isset($map['SatisfactionDesc'])) {
+            $model->satisfactionDesc = $map['SatisfactionDesc'];
+        }
+        if (isset($map['SkillGroupNames'])) {
+            $model->skillGroupNames = $map['SkillGroupNames'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

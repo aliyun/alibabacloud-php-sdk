@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetCallMeasureSummaryReportRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $day;
+
+    /**
      * @var string
      */
     public $intervalType;
@@ -16,17 +21,7 @@ class GetCallMeasureSummaryReportRequest extends Model
     /**
      * @var int
      */
-    public $year;
-
-    /**
-     * @var int
-     */
     public $month;
-
-    /**
-     * @var int
-     */
-    public $day;
 
     /**
      * @var int
@@ -37,13 +32,18 @@ class GetCallMeasureSummaryReportRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $year;
     protected $_name = [
-        'intervalType' => 'IntervalType',
-        'year'         => 'Year',
-        'month'        => 'Month',
         'day'          => 'Day',
+        'intervalType' => 'IntervalType',
+        'month'        => 'Month',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
+        'year'         => 'Year',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class GetCallMeasureSummaryReportRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->day) {
+            $res['Day'] = $this->day;
+        }
         if (null !== $this->intervalType) {
             $res['IntervalType'] = $this->intervalType;
         }
-        if (null !== $this->year) {
-            $res['Year'] = $this->year;
-        }
         if (null !== $this->month) {
             $res['Month'] = $this->month;
-        }
-        if (null !== $this->day) {
-            $res['Day'] = $this->day;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->year) {
+            $res['Year'] = $this->year;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class GetCallMeasureSummaryReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Day'])) {
+            $model->day = $map['Day'];
+        }
         if (isset($map['IntervalType'])) {
             $model->intervalType = $map['IntervalType'];
         }
-        if (isset($map['Year'])) {
-            $model->year = $map['Year'];
-        }
         if (isset($map['Month'])) {
             $model->month = $map['Month'];
-        }
-        if (isset($map['Day'])) {
-            $model->day = $map['Day'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Year'])) {
+            $model->year = $map['Year'];
         }
 
         return $model;

@@ -11,17 +11,12 @@ class StartBack2BackCallRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $workflowId;
-
-    /**
-     * @var string
-     */
     public $callCenterNumber;
+
+    /**
+     * @var string
+     */
+    public $callee;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class StartBack2BackCallRequest extends Model
     /**
      * @var string
      */
-    public $callee;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $workflowId;
     protected $_name = [
+        'callCenterNumber' => 'CallCenterNumber',
+        'callee'           => 'Callee',
+        'caller'           => 'Caller',
         'instanceId'       => 'InstanceId',
         'workflowId'       => 'WorkflowId',
-        'callCenterNumber' => 'CallCenterNumber',
-        'caller'           => 'Caller',
-        'callee'           => 'Callee',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class StartBack2BackCallRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callCenterNumber) {
+            $res['CallCenterNumber'] = $this->callCenterNumber;
+        }
+        if (null !== $this->callee) {
+            $res['Callee'] = $this->callee;
+        }
+        if (null !== $this->caller) {
+            $res['Caller'] = $this->caller;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->workflowId) {
             $res['WorkflowId'] = $this->workflowId;
-        }
-        if (null !== $this->callCenterNumber) {
-            $res['CallCenterNumber'] = $this->callCenterNumber;
-        }
-        if (null !== $this->caller) {
-            $res['Caller'] = $this->caller;
-        }
-        if (null !== $this->callee) {
-            $res['Callee'] = $this->callee;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class StartBack2BackCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallCenterNumber'])) {
+            $model->callCenterNumber = $map['CallCenterNumber'];
+        }
+        if (isset($map['Callee'])) {
+            $model->callee = $map['Callee'];
+        }
+        if (isset($map['Caller'])) {
+            $model->caller = $map['Caller'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['WorkflowId'])) {
             $model->workflowId = $map['WorkflowId'];
-        }
-        if (isset($map['CallCenterNumber'])) {
-            $model->callCenterNumber = $map['CallCenterNumber'];
-        }
-        if (isset($map['Caller'])) {
-            $model->caller = $map['Caller'];
-        }
-        if (isset($map['Callee'])) {
-            $model->callee = $map['Callee'];
         }
 
         return $model;

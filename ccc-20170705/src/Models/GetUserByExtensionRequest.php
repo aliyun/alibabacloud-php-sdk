@@ -11,15 +11,15 @@ class GetUserByExtensionRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $extension;
 
     /**
      * @var string
      */
-    public $extension;
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'extension'  => 'Extension',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetUserByExtensionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetUserByExtensionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

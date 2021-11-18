@@ -14,11 +14,6 @@ class feedback extends Model
     public $action;
 
     /**
-     * @var bool
-     */
-    public $interruptible;
-
-    /**
      * @var string
      */
     public $actionParams;
@@ -27,11 +22,16 @@ class feedback extends Model
      * @var string
      */
     public $content;
+
+    /**
+     * @var bool
+     */
+    public $interruptible;
     protected $_name = [
         'action'        => 'Action',
-        'interruptible' => 'Interruptible',
         'actionParams'  => 'ActionParams',
         'content'       => 'Content',
+        'interruptible' => 'Interruptible',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class feedback extends Model
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
-        if (null !== $this->interruptible) {
-            $res['Interruptible'] = $this->interruptible;
-        }
         if (null !== $this->actionParams) {
             $res['ActionParams'] = $this->actionParams;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->interruptible) {
+            $res['Interruptible'] = $this->interruptible;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class feedback extends Model
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
-        if (isset($map['Interruptible'])) {
-            $model->interruptible = $map['Interruptible'];
-        }
         if (isset($map['ActionParams'])) {
             $model->actionParams = $map['ActionParams'];
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['Interruptible'])) {
+            $model->interruptible = $map['Interruptible'];
         }
 
         return $model;

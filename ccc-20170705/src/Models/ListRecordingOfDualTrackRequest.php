@@ -11,27 +11,7 @@ class ListRecordingOfDualTrackRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $connectId;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $stopTime;
-
-    /**
-     * @var string
-     */
-    public $callingNumber;
+    public $agentId;
 
     /**
      * @var string
@@ -41,7 +21,17 @@ class ListRecordingOfDualTrackRequest extends Model
     /**
      * @var string
      */
-    public $agentId;
+    public $callingNumber;
+
+    /**
+     * @var string
+     */
+    public $connectId;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var int
@@ -52,16 +42,26 @@ class ListRecordingOfDualTrackRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @var int
+     */
+    public $stopTime;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'connectId'     => 'ConnectId',
-        'startTime'     => 'StartTime',
-        'stopTime'      => 'StopTime',
-        'callingNumber' => 'CallingNumber',
-        'calledNumber'  => 'CalledNumber',
         'agentId'       => 'AgentId',
+        'calledNumber'  => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
+        'connectId'     => 'ConnectId',
+        'instanceId'    => 'InstanceId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'startTime'     => 'StartTime',
+        'stopTime'      => 'StopTime',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class ListRecordingOfDualTrackRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->connectId) {
-            $res['ConnectId'] = $this->connectId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->stopTime) {
-            $res['StopTime'] = $this->stopTime;
-        }
-        if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
+        if (null !== $this->agentId) {
+            $res['AgentId'] = $this->agentId;
         }
         if (null !== $this->calledNumber) {
             $res['CalledNumber'] = $this->calledNumber;
         }
-        if (null !== $this->agentId) {
-            $res['AgentId'] = $this->agentId;
+        if (null !== $this->callingNumber) {
+            $res['CallingNumber'] = $this->callingNumber;
+        }
+        if (null !== $this->connectId) {
+            $res['ConnectId'] = $this->connectId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->stopTime) {
+            $res['StopTime'] = $this->stopTime;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class ListRecordingOfDualTrackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ConnectId'])) {
-            $model->connectId = $map['ConnectId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['StopTime'])) {
-            $model->stopTime = $map['StopTime'];
-        }
-        if (isset($map['CallingNumber'])) {
-            $model->callingNumber = $map['CallingNumber'];
+        if (isset($map['AgentId'])) {
+            $model->agentId = $map['AgentId'];
         }
         if (isset($map['CalledNumber'])) {
             $model->calledNumber = $map['CalledNumber'];
         }
-        if (isset($map['AgentId'])) {
-            $model->agentId = $map['AgentId'];
+        if (isset($map['CallingNumber'])) {
+            $model->callingNumber = $map['CallingNumber'];
+        }
+        if (isset($map['ConnectId'])) {
+            $model->connectId = $map['ConnectId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['StopTime'])) {
+            $model->stopTime = $map['StopTime'];
         }
 
         return $model;

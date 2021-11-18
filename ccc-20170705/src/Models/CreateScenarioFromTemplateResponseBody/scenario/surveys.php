@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class surveys extends Model
 {
     /**
-     * @var int
-     */
-    public $round;
-
-    /**
-     * @var string
-     */
-    public $surveyDescription;
-
-    /**
      * @var string
      */
     public $beebotId;
@@ -32,25 +22,35 @@ class surveys extends Model
     /**
      * @var string
      */
-    public $surveyName;
+    public $role;
+
+    /**
+     * @var int
+     */
+    public $round;
 
     /**
      * @var string
      */
-    public $role;
+    public $surveyDescription;
 
     /**
      * @var string
      */
     public $surveyId;
+
+    /**
+     * @var string
+     */
+    public $surveyName;
     protected $_name = [
-        'round'             => 'Round',
-        'surveyDescription' => 'SurveyDescription',
         'beebotId'          => 'BeebotId',
         'intents'           => 'Intents',
-        'surveyName'        => 'SurveyName',
         'role'              => 'Role',
+        'round'             => 'Round',
+        'surveyDescription' => 'SurveyDescription',
         'surveyId'          => 'SurveyId',
+        'surveyName'        => 'SurveyName',
     ];
 
     public function validate()
@@ -60,12 +60,6 @@ class surveys extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->round) {
-            $res['Round'] = $this->round;
-        }
-        if (null !== $this->surveyDescription) {
-            $res['SurveyDescription'] = $this->surveyDescription;
-        }
         if (null !== $this->beebotId) {
             $res['BeebotId'] = $this->beebotId;
         }
@@ -78,14 +72,20 @@ class surveys extends Model
                 }
             }
         }
-        if (null !== $this->surveyName) {
-            $res['SurveyName'] = $this->surveyName;
-        }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+        if (null !== $this->round) {
+            $res['Round'] = $this->round;
+        }
+        if (null !== $this->surveyDescription) {
+            $res['SurveyDescription'] = $this->surveyDescription;
+        }
         if (null !== $this->surveyId) {
             $res['SurveyId'] = $this->surveyId;
+        }
+        if (null !== $this->surveyName) {
+            $res['SurveyName'] = $this->surveyName;
         }
 
         return $res;
@@ -99,12 +99,6 @@ class surveys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Round'])) {
-            $model->round = $map['Round'];
-        }
-        if (isset($map['SurveyDescription'])) {
-            $model->surveyDescription = $map['SurveyDescription'];
-        }
         if (isset($map['BeebotId'])) {
             $model->beebotId = $map['BeebotId'];
         }
@@ -117,14 +111,20 @@ class surveys extends Model
                 }
             }
         }
-        if (isset($map['SurveyName'])) {
-            $model->surveyName = $map['SurveyName'];
-        }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+        if (isset($map['Round'])) {
+            $model->round = $map['Round'];
+        }
+        if (isset($map['SurveyDescription'])) {
+            $model->surveyDescription = $map['SurveyDescription'];
+        }
         if (isset($map['SurveyId'])) {
             $model->surveyId = $map['SurveyId'];
+        }
+        if (isset($map['SurveyName'])) {
+            $model->surveyName = $map['SurveyName'];
         }
 
         return $model;

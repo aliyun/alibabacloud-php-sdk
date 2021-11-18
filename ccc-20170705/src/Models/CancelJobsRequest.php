@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CancelJobsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var bool
      */
     public $all;
@@ -21,12 +16,12 @@ class CancelJobsRequest extends Model
     /**
      * @var string
      */
-    public $scenarioId;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $instanceId;
 
     /**
      * @var string[]
@@ -37,13 +32,18 @@ class CancelJobsRequest extends Model
      * @var string[]
      */
     public $jobReferenceId;
+
+    /**
+     * @var string
+     */
+    public $scenarioId;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
         'all'            => 'All',
-        'scenarioId'     => 'ScenarioId',
         'groupId'        => 'GroupId',
+        'instanceId'     => 'InstanceId',
         'jobId'          => 'JobId',
         'jobReferenceId' => 'JobReferenceId',
+        'scenarioId'     => 'ScenarioId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CancelJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
-        if (null !== $this->scenarioId) {
-            $res['ScenarioId'] = $this->scenarioId;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
         if (null !== $this->jobReferenceId) {
             $res['JobReferenceId'] = $this->jobReferenceId;
+        }
+        if (null !== $this->scenarioId) {
+            $res['ScenarioId'] = $this->scenarioId;
         }
 
         return $res;
@@ -83,17 +83,14 @@ class CancelJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
-        if (isset($map['ScenarioId'])) {
-            $model->scenarioId = $map['ScenarioId'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['JobId'])) {
             if (!empty($map['JobId'])) {
@@ -104,6 +101,9 @@ class CancelJobsRequest extends Model
             if (!empty($map['JobReferenceId'])) {
                 $model->jobReferenceId = $map['JobReferenceId'];
             }
+        }
+        if (isset($map['ScenarioId'])) {
+            $model->scenarioId = $map['ScenarioId'];
         }
 
         return $model;

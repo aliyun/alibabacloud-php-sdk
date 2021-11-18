@@ -11,22 +11,7 @@ class mediaUploadParam extends Model
     /**
      * @var string
      */
-    public $instance;
-
-    /**
-     * @var string
-     */
-    public $ossFilePath;
-
-    /**
-     * @var string
-     */
     public $fileName;
-
-    /**
-     * @var string
-     */
-    public $name;
 
     /**
      * @var string
@@ -36,14 +21,29 @@ class mediaUploadParam extends Model
     /**
      * @var string
      */
+    public $instance;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $ossFileName;
+
+    /**
+     * @var string
+     */
+    public $ossFilePath;
     protected $_name = [
-        'instance'    => 'Instance',
-        'ossFilePath' => 'OssFilePath',
         'fileName'    => 'FileName',
-        'name'        => 'Name',
         'id'          => 'Id',
+        'instance'    => 'Instance',
+        'name'        => 'Name',
         'ossFileName' => 'OssFileName',
+        'ossFilePath' => 'OssFilePath',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class mediaUploadParam extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instance) {
-            $res['Instance'] = $this->instance;
-        }
-        if (null !== $this->ossFilePath) {
-            $res['OssFilePath'] = $this->ossFilePath;
-        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->instance) {
+            $res['Instance'] = $this->instance;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->ossFileName) {
             $res['OssFileName'] = $this->ossFileName;
+        }
+        if (null !== $this->ossFilePath) {
+            $res['OssFilePath'] = $this->ossFilePath;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class mediaUploadParam extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Instance'])) {
-            $model->instance = $map['Instance'];
-        }
-        if (isset($map['OssFilePath'])) {
-            $model->ossFilePath = $map['OssFilePath'];
-        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['Instance'])) {
+            $model->instance = $map['Instance'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['OssFileName'])) {
             $model->ossFileName = $map['OssFileName'];
+        }
+        if (isset($map['OssFilePath'])) {
+            $model->ossFilePath = $map['OssFilePath'];
         }
 
         return $model;

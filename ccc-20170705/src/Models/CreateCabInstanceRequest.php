@@ -11,7 +11,7 @@ class CreateCabInstanceRequest extends Model
     /**
      * @var string
      */
-    public $instanceName;
+    public $callCenterInstanceId;
 
     /**
      * @var string
@@ -19,19 +19,19 @@ class CreateCabInstanceRequest extends Model
     public $instanceDescription;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @var int
      */
     public $maxConcurrentConversation;
-
-    /**
-     * @var string
-     */
-    public $callCenterInstanceId;
     protected $_name = [
-        'instanceName'              => 'InstanceName',
-        'instanceDescription'       => 'InstanceDescription',
-        'maxConcurrentConversation' => 'MaxConcurrentConversation',
         'callCenterInstanceId'      => 'CallCenterInstanceId',
+        'instanceDescription'       => 'InstanceDescription',
+        'instanceName'              => 'InstanceName',
+        'maxConcurrentConversation' => 'MaxConcurrentConversation',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateCabInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->callCenterInstanceId) {
+            $res['CallCenterInstanceId'] = $this->callCenterInstanceId;
         }
         if (null !== $this->instanceDescription) {
             $res['InstanceDescription'] = $this->instanceDescription;
         }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
         if (null !== $this->maxConcurrentConversation) {
             $res['MaxConcurrentConversation'] = $this->maxConcurrentConversation;
-        }
-        if (null !== $this->callCenterInstanceId) {
-            $res['CallCenterInstanceId'] = $this->callCenterInstanceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateCabInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['CallCenterInstanceId'])) {
+            $model->callCenterInstanceId = $map['CallCenterInstanceId'];
         }
         if (isset($map['InstanceDescription'])) {
             $model->instanceDescription = $map['InstanceDescription'];
         }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
         if (isset($map['MaxConcurrentConversation'])) {
             $model->maxConcurrentConversation = $map['MaxConcurrentConversation'];
-        }
-        if (isset($map['CallCenterInstanceId'])) {
-            $model->callCenterInstanceId = $map['CallCenterInstanceId'];
         }
 
         return $model;

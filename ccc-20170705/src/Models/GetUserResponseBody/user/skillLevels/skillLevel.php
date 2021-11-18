@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class skillLevel extends Model
 {
     /**
+     * @var int
+     */
+    public $level;
+
+    /**
      * @var skill
      */
     public $skill;
@@ -18,15 +23,10 @@ class skillLevel extends Model
      * @var string
      */
     public $skillLevelId;
-
-    /**
-     * @var int
-     */
-    public $level;
     protected $_name = [
+        'level'        => 'Level',
         'skill'        => 'Skill',
         'skillLevelId' => 'SkillLevelId',
-        'level'        => 'Level',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class skillLevel extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
+        }
         if (null !== $this->skill) {
             $res['Skill'] = null !== $this->skill ? $this->skill->toMap() : null;
         }
         if (null !== $this->skillLevelId) {
             $res['SkillLevelId'] = $this->skillLevelId;
-        }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class skillLevel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
+        }
         if (isset($map['Skill'])) {
             $model->skill = skill::fromMap($map['Skill']);
         }
         if (isset($map['SkillLevelId'])) {
             $model->skillLevelId = $map['SkillLevelId'];
-        }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
         }
 
         return $model;

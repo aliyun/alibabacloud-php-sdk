@@ -11,17 +11,17 @@ class CreateScenarioFromTemplateRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
     public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
 
     /**
      * @var string
@@ -33,9 +33,9 @@ class CreateScenarioFromTemplateRequest extends Model
      */
     public $variables;
     protected $_name = [
+        'description' => 'Description',
         'instanceId'  => 'InstanceId',
         'name'        => 'Name',
-        'description' => 'Description',
         'templateId'  => 'TemplateId',
         'variables'   => 'Variables',
     ];
@@ -47,14 +47,14 @@ class CreateScenarioFromTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -74,14 +74,14 @@ class CreateScenarioFromTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

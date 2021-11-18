@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
-     * @var int
+     * @var list_
      */
-    public $totalCount;
+    public $list;
 
     /**
      * @var int
@@ -25,14 +25,14 @@ class dataList extends Model
     public $pageSize;
 
     /**
-     * @var list_
+     * @var int
      */
-    public $list;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
+        'list'       => 'List',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'list'       => 'List',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class dataList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->list) {
+            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -51,8 +51,8 @@ class dataList extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class dataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['List'])) {
+            $model->list = list_::fromMap($map['List']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -75,8 +75,8 @@ class dataList extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['List'])) {
-            $model->list = list_::fromMap($map['List']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

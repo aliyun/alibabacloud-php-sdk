@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListSkillGroupsOfUserResponseBody extends Model
 {
     /**
-     * @var skillLevels
+     * @var string
      */
-    public $skillLevels;
+    public $code;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
 
     /**
      * @var string
@@ -25,25 +30,20 @@ class ListSkillGroupsOfUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var skillLevels
      */
-    public $httpStatusCode;
-
-    /**
-     * @var string
-     */
-    public $code;
+    public $skillLevels;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'skillLevels'    => 'SkillLevels',
+        'code'           => 'Code',
+        'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'httpStatusCode' => 'HttpStatusCode',
-        'code'           => 'Code',
+        'skillLevels'    => 'SkillLevels',
         'success'        => 'Success',
     ];
 
@@ -54,8 +54,11 @@ class ListSkillGroupsOfUserResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skillLevels) {
-            $res['SkillLevels'] = null !== $this->skillLevels ? $this->skillLevels->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -63,11 +66,8 @@ class ListSkillGroupsOfUserResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->skillLevels) {
+            $res['SkillLevels'] = null !== $this->skillLevels ? $this->skillLevels->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -84,8 +84,11 @@ class ListSkillGroupsOfUserResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkillLevels'])) {
-            $model->skillLevels = skillLevels::fromMap($map['SkillLevels']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -93,11 +96,8 @@ class ListSkillGroupsOfUserResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['SkillLevels'])) {
+            $model->skillLevels = skillLevels::fromMap($map['SkillLevels']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

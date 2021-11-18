@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class asrCustomModel extends Model
 {
     /**
-     * @var int
-     */
-    public $customModelStatus;
-
-    /**
      * @var string
      */
     public $corpora;
+
+    /**
+     * @var int
+     */
+    public $customModelStatus;
     protected $_name = [
-        'customModelStatus' => 'CustomModelStatus',
         'corpora'           => 'Corpora',
+        'customModelStatus' => 'CustomModelStatus',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class asrCustomModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->customModelStatus) {
-            $res['CustomModelStatus'] = $this->customModelStatus;
-        }
         if (null !== $this->corpora) {
             $res['Corpora'] = $this->corpora;
+        }
+        if (null !== $this->customModelStatus) {
+            $res['CustomModelStatus'] = $this->customModelStatus;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class asrCustomModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustomModelStatus'])) {
-            $model->customModelStatus = $map['CustomModelStatus'];
-        }
         if (isset($map['Corpora'])) {
             $model->corpora = $map['Corpora'];
+        }
+        if (isset($map['CustomModelStatus'])) {
+            $model->customModelStatus = $map['CustomModelStatus'];
         }
 
         return $model;

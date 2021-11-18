@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class conversations extends Model
 {
     /**
-     * @var summary[]
+     * @var string
      */
-    public $summary;
+    public $script;
 
     /**
      * @var string
@@ -20,19 +20,19 @@ class conversations extends Model
     public $speaker;
 
     /**
+     * @var summary[]
+     */
+    public $summary;
+
+    /**
      * @var int
      */
     public $timestamp;
-
-    /**
-     * @var string
-     */
-    public $script;
     protected $_name = [
-        'summary'   => 'Summary',
-        'speaker'   => 'Speaker',
-        'timestamp' => 'Timestamp',
         'script'    => 'Script',
+        'speaker'   => 'Speaker',
+        'summary'   => 'Summary',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
@@ -42,6 +42,12 @@ class conversations extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->script) {
+            $res['Script'] = $this->script;
+        }
+        if (null !== $this->speaker) {
+            $res['Speaker'] = $this->speaker;
+        }
         if (null !== $this->summary) {
             $res['Summary'] = [];
             if (null !== $this->summary && \is_array($this->summary)) {
@@ -51,14 +57,8 @@ class conversations extends Model
                 }
             }
         }
-        if (null !== $this->speaker) {
-            $res['Speaker'] = $this->speaker;
-        }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
-        }
-        if (null !== $this->script) {
-            $res['Script'] = $this->script;
         }
 
         return $res;
@@ -72,6 +72,12 @@ class conversations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Script'])) {
+            $model->script = $map['Script'];
+        }
+        if (isset($map['Speaker'])) {
+            $model->speaker = $map['Speaker'];
+        }
         if (isset($map['Summary'])) {
             if (!empty($map['Summary'])) {
                 $model->summary = [];
@@ -81,14 +87,8 @@ class conversations extends Model
                 }
             }
         }
-        if (isset($map['Speaker'])) {
-            $model->speaker = $map['Speaker'];
-        }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
-        }
-        if (isset($map['Script'])) {
-            $model->script = $map['Script'];
         }
 
         return $model;

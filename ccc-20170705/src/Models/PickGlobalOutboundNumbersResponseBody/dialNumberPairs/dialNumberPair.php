@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class dialNumberPair extends Model
 {
     /**
-     * @var caller
-     */
-    public $caller;
-
-    /**
      * @var callee
      */
     public $callee;
+
+    /**
+     * @var caller
+     */
+    public $caller;
     protected $_name = [
-        'caller' => 'Caller',
         'callee' => 'Callee',
+        'caller' => 'Caller',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class dialNumberPair extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->caller) {
-            $res['Caller'] = null !== $this->caller ? $this->caller->toMap() : null;
-        }
         if (null !== $this->callee) {
             $res['Callee'] = null !== $this->callee ? $this->callee->toMap() : null;
+        }
+        if (null !== $this->caller) {
+            $res['Caller'] = null !== $this->caller ? $this->caller->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class dialNumberPair extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Caller'])) {
-            $model->caller = caller::fromMap($map['Caller']);
-        }
         if (isset($map['Callee'])) {
             $model->callee = callee::fromMap($map['Callee']);
+        }
+        if (isset($map['Caller'])) {
+            $model->caller = caller::fromMap($map['Caller']);
         }
 
         return $model;

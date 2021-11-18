@@ -10,21 +10,6 @@ use AlibabaCloud\Tea\Model;
 class progress extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $totalNotAnswered;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
      * @var categories[]
      */
     public $categories;
@@ -32,7 +17,17 @@ class progress extends Model
     /**
      * @var int
      */
-    public $totalJobs;
+    public $duration;
+
+    /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var int
@@ -42,15 +37,20 @@ class progress extends Model
     /**
      * @var int
      */
-    public $duration;
+    public $totalJobs;
+
+    /**
+     * @var int
+     */
+    public $totalNotAnswered;
     protected $_name = [
-        'status'           => 'Status',
-        'totalNotAnswered' => 'TotalNotAnswered',
-        'startTime'        => 'StartTime',
         'categories'       => 'Categories',
-        'totalJobs'        => 'TotalJobs',
-        'totalCompleted'   => 'TotalCompleted',
         'duration'         => 'Duration',
+        'startTime'        => 'StartTime',
+        'status'           => 'Status',
+        'totalCompleted'   => 'TotalCompleted',
+        'totalJobs'        => 'TotalJobs',
+        'totalNotAnswered' => 'TotalNotAnswered',
     ];
 
     public function validate()
@@ -60,15 +60,6 @@ class progress extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->totalNotAnswered) {
-            $res['TotalNotAnswered'] = $this->totalNotAnswered;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->categories) {
             $res['Categories'] = [];
             if (null !== $this->categories && \is_array($this->categories)) {
@@ -78,14 +69,23 @@ class progress extends Model
                 }
             }
         }
-        if (null !== $this->totalJobs) {
-            $res['TotalJobs'] = $this->totalJobs;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->totalCompleted) {
             $res['TotalCompleted'] = $this->totalCompleted;
         }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->totalJobs) {
+            $res['TotalJobs'] = $this->totalJobs;
+        }
+        if (null !== $this->totalNotAnswered) {
+            $res['TotalNotAnswered'] = $this->totalNotAnswered;
         }
 
         return $res;
@@ -99,15 +99,6 @@ class progress extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['TotalNotAnswered'])) {
-            $model->totalNotAnswered = $map['TotalNotAnswered'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
                 $model->categories = [];
@@ -117,14 +108,23 @@ class progress extends Model
                 }
             }
         }
-        if (isset($map['TotalJobs'])) {
-            $model->totalJobs = $map['TotalJobs'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TotalCompleted'])) {
             $model->totalCompleted = $map['TotalCompleted'];
         }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['TotalJobs'])) {
+            $model->totalJobs = $map['TotalJobs'];
+        }
+        if (isset($map['TotalNotAnswered'])) {
+            $model->totalNotAnswered = $map['TotalNotAnswered'];
         }
 
         return $model;

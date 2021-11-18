@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class skillGroupTimeIntervalReport extends Model
 {
     /**
-     * @var string
-     */
-    public $skillGroupId;
-
-    /**
      * @var intervalList
      */
     public $intervalList;
+
+    /**
+     * @var string
+     */
+    public $skillGroupId;
     protected $_name = [
-        'skillGroupId' => 'SkillGroupId',
         'intervalList' => 'IntervalList',
+        'skillGroupId' => 'SkillGroupId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class skillGroupTimeIntervalReport extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
-        }
         if (null !== $this->intervalList) {
             $res['IntervalList'] = null !== $this->intervalList ? $this->intervalList->toMap() : null;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class skillGroupTimeIntervalReport extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
-        }
         if (isset($map['IntervalList'])) {
             $model->intervalList = intervalList::fromMap($map['IntervalList']);
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
 
         return $model;

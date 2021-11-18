@@ -11,27 +11,27 @@ class role extends Model
     /**
      * @var string
      */
-    public $roleDescription;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
      * @var string
      */
-    public $roleName;
+    public $roleDescription;
 
     /**
      * @var string
      */
     public $roleId;
+
+    /**
+     * @var string
+     */
+    public $roleName;
     protected $_name = [
-        'roleDescription' => 'RoleDescription',
         'instanceId'      => 'InstanceId',
-        'roleName'        => 'RoleName',
+        'roleDescription' => 'RoleDescription',
         'roleId'          => 'RoleId',
+        'roleName'        => 'RoleName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class role extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->roleDescription) {
-            $res['RoleDescription'] = $this->roleDescription;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
+        if (null !== $this->roleDescription) {
+            $res['RoleDescription'] = $this->roleDescription;
         }
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
+        }
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class role extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RoleDescription'])) {
-            $model->roleDescription = $map['RoleDescription'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
+        if (isset($map['RoleDescription'])) {
+            $model->roleDescription = $map['RoleDescription'];
         }
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
+        }
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
         }
 
         return $model;

@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class agentDevice extends Model
 {
     /**
-     * @var int
-     */
-    public $loginTime;
-
-    /**
-     * @var string
-     */
-    public $clientPort;
-
-    /**
-     * @var string
-     */
-    public $remark;
-
-    /**
      * @var string
      */
     public $browserVersion;
@@ -32,6 +17,11 @@ class agentDevice extends Model
      * @var string
      */
     public $clientIp;
+
+    /**
+     * @var string
+     */
+    public $clientPort;
 
     /**
      * @var string
@@ -46,16 +36,26 @@ class agentDevice extends Model
     /**
      * @var int
      */
+    public $loginTime;
+
+    /**
+     * @var int
+     */
     public $ramId;
+
+    /**
+     * @var string
+     */
+    public $remark;
     protected $_name = [
-        'loginTime'      => 'LoginTime',
-        'clientPort'     => 'ClientPort',
-        'remark'         => 'Remark',
         'browserVersion' => 'BrowserVersion',
         'clientIp'       => 'ClientIp',
+        'clientPort'     => 'ClientPort',
         'instanceId'     => 'InstanceId',
         'isLogin'        => 'IsLogin',
+        'loginTime'      => 'LoginTime',
         'ramId'          => 'RamId',
+        'remark'         => 'Remark',
     ];
 
     public function validate()
@@ -65,20 +65,14 @@ class agentDevice extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->loginTime) {
-            $res['LoginTime'] = $this->loginTime;
-        }
-        if (null !== $this->clientPort) {
-            $res['ClientPort'] = $this->clientPort;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
         if (null !== $this->browserVersion) {
             $res['BrowserVersion'] = $this->browserVersion;
         }
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
+        }
+        if (null !== $this->clientPort) {
+            $res['ClientPort'] = $this->clientPort;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -86,8 +80,14 @@ class agentDevice extends Model
         if (null !== $this->isLogin) {
             $res['IsLogin'] = $this->isLogin;
         }
+        if (null !== $this->loginTime) {
+            $res['LoginTime'] = $this->loginTime;
+        }
         if (null !== $this->ramId) {
             $res['RamId'] = $this->ramId;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         return $res;
@@ -101,20 +101,14 @@ class agentDevice extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LoginTime'])) {
-            $model->loginTime = $map['LoginTime'];
-        }
-        if (isset($map['ClientPort'])) {
-            $model->clientPort = $map['ClientPort'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
         if (isset($map['BrowserVersion'])) {
             $model->browserVersion = $map['BrowserVersion'];
         }
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
+        }
+        if (isset($map['ClientPort'])) {
+            $model->clientPort = $map['ClientPort'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -122,8 +116,14 @@ class agentDevice extends Model
         if (isset($map['IsLogin'])) {
             $model->isLogin = $map['IsLogin'];
         }
+        if (isset($map['LoginTime'])) {
+            $model->loginTime = $map['LoginTime'];
+        }
         if (isset($map['RamId'])) {
             $model->ramId = $map['RamId'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         return $model;

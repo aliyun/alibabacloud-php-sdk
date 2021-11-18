@@ -12,6 +12,21 @@ class GetConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var configItem
+     */
+    public $configItem;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -20,30 +35,15 @@ class GetConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
-     * @var configItem
-     */
-    public $configItem;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
+        'code'           => 'Code',
+        'configItem'     => 'ConfigItem',
+        'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'httpStatusCode' => 'HttpStatusCode',
-        'configItem'     => 'ConfigItem',
-        'code'           => 'Code',
         'success'        => 'Success',
     ];
 
@@ -54,20 +54,20 @@ class GetConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->configItem) {
+            $res['ConfigItem'] = null !== $this->configItem ? $this->configItem->toMap() : null;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->configItem) {
-            $res['ConfigItem'] = null !== $this->configItem ? $this->configItem->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -84,20 +84,20 @@ class GetConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['ConfigItem'])) {
+            $model->configItem = configItem::fromMap($map['ConfigItem']);
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['ConfigItem'])) {
-            $model->configItem = configItem::fromMap($map['ConfigItem']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

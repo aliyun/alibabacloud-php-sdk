@@ -11,15 +11,15 @@ class intents extends Model
     /**
      * @var string
      */
-    public $nodeId;
+    public $intentId;
 
     /**
      * @var string
      */
-    public $intentId;
+    public $nodeId;
     protected $_name = [
-        'nodeId'   => 'NodeId',
         'intentId' => 'IntentId',
+        'nodeId'   => 'NodeId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class intents extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
-        }
         if (null !== $this->intentId) {
             $res['IntentId'] = $this->intentId;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class intents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
-        }
         if (isset($map['IntentId'])) {
             $model->intentId = $map['IntentId'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
 
         return $model;

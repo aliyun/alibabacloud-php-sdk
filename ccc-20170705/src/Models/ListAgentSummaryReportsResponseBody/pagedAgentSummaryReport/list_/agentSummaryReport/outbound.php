@@ -9,44 +9,19 @@ use AlibabaCloud\Tea\Model;
 class outbound extends Model
 {
     /**
-     * @var int
-     */
-    public $totalTalkTime;
-
-    /**
-     * @var int
-     */
-    public $maxDialingTime;
-
-    /**
-     * @var int
-     */
-    public $callsDialed;
-
-    /**
-     * @var int
-     */
-    public $callsAnswered;
-
-    /**
-     * @var int
-     */
-    public $totalWorkTime;
-
-    /**
      * @var float
      */
     public $answerRate;
 
     /**
-     * @var string
+     * @var int
      */
-    public $maxWorkTime;
+    public $averageDialingTime;
 
     /**
      * @var int
      */
-    public $totalDialingTime;
+    public $averageTalkTime;
 
     /**
      * @var int
@@ -56,7 +31,27 @@ class outbound extends Model
     /**
      * @var int
      */
-    public $averageTalkTime;
+    public $callsAnswered;
+
+    /**
+     * @var int
+     */
+    public $callsDialed;
+
+    /**
+     * @var int
+     */
+    public $maxDialingTime;
+
+    /**
+     * @var int
+     */
+    public $maxTalkTime;
+
+    /**
+     * @var string
+     */
+    public $maxWorkTime;
 
     /**
      * @var float
@@ -76,28 +71,33 @@ class outbound extends Model
     /**
      * @var int
      */
-    public $maxTalkTime;
+    public $totalDialingTime;
 
     /**
      * @var int
      */
-    public $averageDialingTime;
+    public $totalTalkTime;
+
+    /**
+     * @var int
+     */
+    public $totalWorkTime;
     protected $_name = [
-        'totalTalkTime'                => 'TotalTalkTime',
-        'maxDialingTime'               => 'MaxDialingTime',
-        'callsDialed'                  => 'CallsDialed',
-        'callsAnswered'                => 'CallsAnswered',
-        'totalWorkTime'                => 'TotalWorkTime',
         'answerRate'                   => 'AnswerRate',
-        'maxWorkTime'                  => 'MaxWorkTime',
-        'totalDialingTime'             => 'TotalDialingTime',
-        'averageWorkTime'              => 'AverageWorkTime',
+        'averageDialingTime'           => 'AverageDialingTime',
         'averageTalkTime'              => 'AverageTalkTime',
+        'averageWorkTime'              => 'AverageWorkTime',
+        'callsAnswered'                => 'CallsAnswered',
+        'callsDialed'                  => 'CallsDialed',
+        'maxDialingTime'               => 'MaxDialingTime',
+        'maxTalkTime'                  => 'MaxTalkTime',
+        'maxWorkTime'                  => 'MaxWorkTime',
         'satisfactionIndex'            => 'SatisfactionIndex',
         'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
-        'maxTalkTime'                  => 'MaxTalkTime',
-        'averageDialingTime'           => 'AverageDialingTime',
+        'totalDialingTime'             => 'TotalDialingTime',
+        'totalTalkTime'                => 'TotalTalkTime',
+        'totalWorkTime'                => 'TotalWorkTime',
     ];
 
     public function validate()
@@ -107,35 +107,32 @@ class outbound extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalTalkTime) {
-            $res['TotalTalkTime'] = $this->totalTalkTime;
-        }
-        if (null !== $this->maxDialingTime) {
-            $res['MaxDialingTime'] = $this->maxDialingTime;
-        }
-        if (null !== $this->callsDialed) {
-            $res['CallsDialed'] = $this->callsDialed;
-        }
-        if (null !== $this->callsAnswered) {
-            $res['CallsAnswered'] = $this->callsAnswered;
-        }
-        if (null !== $this->totalWorkTime) {
-            $res['TotalWorkTime'] = $this->totalWorkTime;
-        }
         if (null !== $this->answerRate) {
             $res['AnswerRate'] = $this->answerRate;
         }
-        if (null !== $this->maxWorkTime) {
-            $res['MaxWorkTime'] = $this->maxWorkTime;
+        if (null !== $this->averageDialingTime) {
+            $res['AverageDialingTime'] = $this->averageDialingTime;
         }
-        if (null !== $this->totalDialingTime) {
-            $res['TotalDialingTime'] = $this->totalDialingTime;
+        if (null !== $this->averageTalkTime) {
+            $res['AverageTalkTime'] = $this->averageTalkTime;
         }
         if (null !== $this->averageWorkTime) {
             $res['AverageWorkTime'] = $this->averageWorkTime;
         }
-        if (null !== $this->averageTalkTime) {
-            $res['AverageTalkTime'] = $this->averageTalkTime;
+        if (null !== $this->callsAnswered) {
+            $res['CallsAnswered'] = $this->callsAnswered;
+        }
+        if (null !== $this->callsDialed) {
+            $res['CallsDialed'] = $this->callsDialed;
+        }
+        if (null !== $this->maxDialingTime) {
+            $res['MaxDialingTime'] = $this->maxDialingTime;
+        }
+        if (null !== $this->maxTalkTime) {
+            $res['MaxTalkTime'] = $this->maxTalkTime;
+        }
+        if (null !== $this->maxWorkTime) {
+            $res['MaxWorkTime'] = $this->maxWorkTime;
         }
         if (null !== $this->satisfactionIndex) {
             $res['SatisfactionIndex'] = $this->satisfactionIndex;
@@ -146,11 +143,14 @@ class outbound extends Model
         if (null !== $this->satisfactionSurveysResponded) {
             $res['SatisfactionSurveysResponded'] = $this->satisfactionSurveysResponded;
         }
-        if (null !== $this->maxTalkTime) {
-            $res['MaxTalkTime'] = $this->maxTalkTime;
+        if (null !== $this->totalDialingTime) {
+            $res['TotalDialingTime'] = $this->totalDialingTime;
         }
-        if (null !== $this->averageDialingTime) {
-            $res['AverageDialingTime'] = $this->averageDialingTime;
+        if (null !== $this->totalTalkTime) {
+            $res['TotalTalkTime'] = $this->totalTalkTime;
+        }
+        if (null !== $this->totalWorkTime) {
+            $res['TotalWorkTime'] = $this->totalWorkTime;
         }
 
         return $res;
@@ -164,35 +164,32 @@ class outbound extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalTalkTime'])) {
-            $model->totalTalkTime = $map['TotalTalkTime'];
-        }
-        if (isset($map['MaxDialingTime'])) {
-            $model->maxDialingTime = $map['MaxDialingTime'];
-        }
-        if (isset($map['CallsDialed'])) {
-            $model->callsDialed = $map['CallsDialed'];
-        }
-        if (isset($map['CallsAnswered'])) {
-            $model->callsAnswered = $map['CallsAnswered'];
-        }
-        if (isset($map['TotalWorkTime'])) {
-            $model->totalWorkTime = $map['TotalWorkTime'];
-        }
         if (isset($map['AnswerRate'])) {
             $model->answerRate = $map['AnswerRate'];
         }
-        if (isset($map['MaxWorkTime'])) {
-            $model->maxWorkTime = $map['MaxWorkTime'];
+        if (isset($map['AverageDialingTime'])) {
+            $model->averageDialingTime = $map['AverageDialingTime'];
         }
-        if (isset($map['TotalDialingTime'])) {
-            $model->totalDialingTime = $map['TotalDialingTime'];
+        if (isset($map['AverageTalkTime'])) {
+            $model->averageTalkTime = $map['AverageTalkTime'];
         }
         if (isset($map['AverageWorkTime'])) {
             $model->averageWorkTime = $map['AverageWorkTime'];
         }
-        if (isset($map['AverageTalkTime'])) {
-            $model->averageTalkTime = $map['AverageTalkTime'];
+        if (isset($map['CallsAnswered'])) {
+            $model->callsAnswered = $map['CallsAnswered'];
+        }
+        if (isset($map['CallsDialed'])) {
+            $model->callsDialed = $map['CallsDialed'];
+        }
+        if (isset($map['MaxDialingTime'])) {
+            $model->maxDialingTime = $map['MaxDialingTime'];
+        }
+        if (isset($map['MaxTalkTime'])) {
+            $model->maxTalkTime = $map['MaxTalkTime'];
+        }
+        if (isset($map['MaxWorkTime'])) {
+            $model->maxWorkTime = $map['MaxWorkTime'];
         }
         if (isset($map['SatisfactionIndex'])) {
             $model->satisfactionIndex = $map['SatisfactionIndex'];
@@ -203,11 +200,14 @@ class outbound extends Model
         if (isset($map['SatisfactionSurveysResponded'])) {
             $model->satisfactionSurveysResponded = $map['SatisfactionSurveysResponded'];
         }
-        if (isset($map['MaxTalkTime'])) {
-            $model->maxTalkTime = $map['MaxTalkTime'];
+        if (isset($map['TotalDialingTime'])) {
+            $model->totalDialingTime = $map['TotalDialingTime'];
         }
-        if (isset($map['AverageDialingTime'])) {
-            $model->averageDialingTime = $map['AverageDialingTime'];
+        if (isset($map['TotalTalkTime'])) {
+            $model->totalTalkTime = $map['TotalTalkTime'];
+        }
+        if (isset($map['TotalWorkTime'])) {
+            $model->totalWorkTime = $map['TotalWorkTime'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class ModifyPhoneNumberRequest extends Model
     /**
      * @var string
      */
+    public $contactFlowId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -19,25 +24,20 @@ class ModifyPhoneNumberRequest extends Model
     public $phoneNumberId;
 
     /**
-     * @var string
-     */
-    public $usage;
-
-    /**
-     * @var string
-     */
-    public $contactFlowId;
-
-    /**
      * @var string[]
      */
     public $skillGroupId;
+
+    /**
+     * @var string
+     */
+    public $usage;
     protected $_name = [
+        'contactFlowId' => 'ContactFlowId',
         'instanceId'    => 'InstanceId',
         'phoneNumberId' => 'PhoneNumberId',
-        'usage'         => 'Usage',
-        'contactFlowId' => 'ContactFlowId',
         'skillGroupId'  => 'SkillGroupId',
+        'usage'         => 'Usage',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ModifyPhoneNumberRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contactFlowId) {
+            $res['ContactFlowId'] = $this->contactFlowId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->phoneNumberId) {
             $res['PhoneNumberId'] = $this->phoneNumberId;
         }
-        if (null !== $this->usage) {
-            $res['Usage'] = $this->usage;
-        }
-        if (null !== $this->contactFlowId) {
-            $res['ContactFlowId'] = $this->contactFlowId;
-        }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
+        }
+        if (null !== $this->usage) {
+            $res['Usage'] = $this->usage;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class ModifyPhoneNumberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContactFlowId'])) {
+            $model->contactFlowId = $map['ContactFlowId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PhoneNumberId'])) {
             $model->phoneNumberId = $map['PhoneNumberId'];
         }
-        if (isset($map['Usage'])) {
-            $model->usage = $map['Usage'];
-        }
-        if (isset($map['ContactFlowId'])) {
-            $model->contactFlowId = $map['ContactFlowId'];
-        }
         if (isset($map['SkillGroupId'])) {
             if (!empty($map['SkillGroupId'])) {
                 $model->skillGroupId = $map['SkillGroupId'];
             }
+        }
+        if (isset($map['Usage'])) {
+            $model->usage = $map['Usage'];
         }
 
         return $model;

@@ -12,32 +12,17 @@ class data extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $releaseReason;
-
-    /**
-     * @var string
-     */
     public $callType;
 
     /**
      * @var string
      */
-    public $releaseAgent;
+    public $callee;
 
     /**
      * @var string
      */
     public $caller;
-
-    /**
-     * @var string
-     */
-    public $callee;
 
     /**
      * @var events
@@ -48,15 +33,30 @@ class data extends Model
      * @var string
      */
     public $privacyNumber;
+
+    /**
+     * @var string
+     */
+    public $releaseAgent;
+
+    /**
+     * @var string
+     */
+    public $releaseReason;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'startTime'     => 'StartTime',
-        'releaseReason' => 'ReleaseReason',
         'callType'      => 'CallType',
-        'releaseAgent'  => 'ReleaseAgent',
-        'caller'        => 'Caller',
         'callee'        => 'Callee',
+        'caller'        => 'Caller',
         'events'        => 'Events',
         'privacyNumber' => 'PrivacyNumber',
+        'releaseAgent'  => 'ReleaseAgent',
+        'releaseReason' => 'ReleaseReason',
+        'startTime'     => 'StartTime',
     ];
 
     public function validate()
@@ -66,29 +66,29 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->releaseReason) {
-            $res['ReleaseReason'] = $this->releaseReason;
-        }
         if (null !== $this->callType) {
             $res['CallType'] = $this->callType;
         }
-        if (null !== $this->releaseAgent) {
-            $res['ReleaseAgent'] = $this->releaseAgent;
+        if (null !== $this->callee) {
+            $res['Callee'] = $this->callee;
         }
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
-        }
-        if (null !== $this->callee) {
-            $res['Callee'] = $this->callee;
         }
         if (null !== $this->events) {
             $res['Events'] = null !== $this->events ? $this->events->toMap() : null;
         }
         if (null !== $this->privacyNumber) {
             $res['PrivacyNumber'] = $this->privacyNumber;
+        }
+        if (null !== $this->releaseAgent) {
+            $res['ReleaseAgent'] = $this->releaseAgent;
+        }
+        if (null !== $this->releaseReason) {
+            $res['ReleaseReason'] = $this->releaseReason;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -102,29 +102,29 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['ReleaseReason'])) {
-            $model->releaseReason = $map['ReleaseReason'];
-        }
         if (isset($map['CallType'])) {
             $model->callType = $map['CallType'];
         }
-        if (isset($map['ReleaseAgent'])) {
-            $model->releaseAgent = $map['ReleaseAgent'];
+        if (isset($map['Callee'])) {
+            $model->callee = $map['Callee'];
         }
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
-        }
-        if (isset($map['Callee'])) {
-            $model->callee = $map['Callee'];
         }
         if (isset($map['Events'])) {
             $model->events = events::fromMap($map['Events']);
         }
         if (isset($map['PrivacyNumber'])) {
             $model->privacyNumber = $map['PrivacyNumber'];
+        }
+        if (isset($map['ReleaseAgent'])) {
+            $model->releaseAgent = $map['ReleaseAgent'];
+        }
+        if (isset($map['ReleaseReason'])) {
+            $model->releaseReason = $map['ReleaseReason'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;
