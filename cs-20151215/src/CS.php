@@ -548,6 +548,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->kubernetesVersion)) {
             @$body['kubernetes_version'] = $request->kubernetesVersion;
         }
+        if (!Utils::isUnset($request->loadBalancerSpec)) {
+            @$body['load_balancer_spec'] = $request->loadBalancerSpec;
+        }
         if (!Utils::isUnset($request->loggingType)) {
             @$body['logging_type'] = $request->loggingType;
         }
@@ -757,11 +760,20 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->count)) {
             @$body['count'] = $request->count;
         }
+        if (!Utils::isUnset($request->interconnectConfig)) {
+            @$body['interconnect_config'] = $request->interconnectConfig;
+        }
+        if (!Utils::isUnset($request->interconnectMode)) {
+            @$body['interconnect_mode'] = $request->interconnectMode;
+        }
         if (!Utils::isUnset($request->kubernetesConfig)) {
             @$body['kubernetes_config'] = $request->kubernetesConfig;
         }
         if (!Utils::isUnset($request->management)) {
             @$body['management'] = $request->management;
+        }
+        if (!Utils::isUnset($request->maxNodes)) {
+            @$body['max_nodes'] = $request->maxNodes;
         }
         if (!Utils::isUnset($request->nodepoolInfo)) {
             @$body['nodepool_info'] = $request->nodepoolInfo;

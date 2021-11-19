@@ -21,9 +21,17 @@ class nodepoolInfo extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @description 节点池类型，对于边缘节点池来说，类型为"edge"
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'name'            => 'name',
         'resourceGroupId' => 'resource_group_id',
+        'type'            => 'type',
     ];
 
     public function validate()
@@ -38,6 +46,9 @@ class nodepoolInfo extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['resource_group_id'] = $this->resourceGroupId;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -56,6 +67,9 @@ class nodepoolInfo extends Model
         }
         if (isset($map['resource_group_id'])) {
             $model->resourceGroupId = $map['resource_group_id'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

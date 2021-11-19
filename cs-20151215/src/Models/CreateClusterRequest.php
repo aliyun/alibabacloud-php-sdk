@@ -185,6 +185,13 @@ class CreateClusterRequest extends Model
     public $kubernetesVersion;
 
     /**
+     * @description 负载均衡规格
+     *
+     * @var string
+     */
+    public $loadBalancerSpec;
+
+    /**
      * @description ASK 集群开启日志服务
      *
      * @var string
@@ -599,6 +606,7 @@ class CreateClusterRequest extends Model
         'keepInstanceName'                 => 'keep_instance_name',
         'keyPair'                          => 'key_pair',
         'kubernetesVersion'                => 'kubernetes_version',
+        'loadBalancerSpec'                 => 'load_balancer_spec',
         'loggingType'                      => 'logging_type',
         'loginPassword'                    => 'login_password',
         'masterAutoRenew'                  => 'master_auto_renew',
@@ -744,6 +752,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->kubernetesVersion) {
             $res['kubernetes_version'] = $this->kubernetesVersion;
+        }
+        if (null !== $this->loadBalancerSpec) {
+            $res['load_balancer_spec'] = $this->loadBalancerSpec;
         }
         if (null !== $this->loggingType) {
             $res['logging_type'] = $this->loggingType;
@@ -1027,6 +1038,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['kubernetes_version'])) {
             $model->kubernetesVersion = $map['kubernetes_version'];
+        }
+        if (isset($map['load_balancer_spec'])) {
+            $model->loadBalancerSpec = $map['load_balancer_spec'];
         }
         if (isset($map['logging_type'])) {
             $model->loggingType = $map['logging_type'];
